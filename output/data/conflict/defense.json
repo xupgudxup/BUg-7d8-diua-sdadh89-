@@ -1,5 +1,53 @@
 [
   {
+    "slug": "deno-26-and-socket-supply-chain-defense-in-your-cli",
+    "title": "Deno 2.6 and Socket: Supply Chain Defense in Your CLI",
+    "description": "Deno 2.6 introduces deno audit with a new --socket flag that plugs directly into Socket to bring supply chain security checks into the Deno CLI.",
+    "fullText": "Deno 2.6 was released this week with new security improvements that make it easier to catch threats before they hit production. The release introduces a new deno audit command that scans your dependencies against GitHub's CVE database, along with granular controls for lifecycle scripts and minimum dependency age requirements.\n\nDeno 2.6 also includes experimental Socket integration through deno audit --socket, which queries Socket's Firewall API to fetch malicious package detections and supply chain risk indicators in real time. While CVE databases catalog vulnerabilities after they've been discovered and reported, Socket's Firewall analyzes package behavior to catch threats as they emerge, things like typosquatting, malicious install scripts, and obfuscated code that slip past traditional scanners.\n\nSocket's supply chain security risk detection is available through two authentication modes:\n\nUnauthenticated mode provides instant security scanning for any Deno project:\n\nAuthenticated mode applies your organization's security policies when SOCKET_API_KEY is set as an environment variable. Teams can enforce company-wide rules and access detailed threat analysis across their entire dependency graph.\n\nTraditional vulnerability scanning relies on CVE databases, which only catch known exploits after they've been reported and cataloged. Socket's approach analyzes package behavior to detect supply chain attacks before they have a chance to hit your codebase.\n\nWith the Socket integration, Deno users get access to our threat detection for free, with continuous tracking of every package and version on npm (and other popular open source registries). Socket has identified and flagged thousands of malicious packages that will never receive CVEs, including attacks like Shai-Hulud, cryptomining campaigns, and the frequent typosquatting attempts targeting popular packages.\n\nDeno 2.6 integrates tsgo for faster typechecking. The team has observed a 2x speed improvement on type checking times for internal projects. The release also includes several security and dependency management features that complement Socket integration:\n\nGranular script control with deno approve-scripts replaces the previous --allow-scripts flag. When installing packages with lifecycle scripts, Deno prompts you to review and approve each package individually. Your choices persist in deno.json, creating an audit trail of which packages can execute code during installation.\n\nDependency age requirements let you specify minimum package ages in deno.json. Setting \"minimumDependencyAge\": \"7 days\" ensures your project only uses dependencies that have been publicly available long enough for the community to identify potential issues.\n\nThe dx command provides an npx-equivalent for running package binaries. While it defaults to full permissions like npx, it prompts before downloading packages and running lifecycle scripts, giving you visibility into what code executes during installation.\n\nCheck out the Deno 2.6 announcement post",
+    "readingTime": 3,
+    "keywords": [
+      "cve databases",
+      "socket integration",
+      "age requirements",
+      "deno audit",
+      "catch threats",
+      "supply chain",
+      "lifecycle scripts",
+      "dependency age",
+      "analyzes package",
+      "package behavior"
+    ],
+    "qualityScore": 1,
+    "link": "https://socket.dev/blog/deno-2-6-socket-supply-chain-defense-in-your-cli",
+    "thumbnail_url": "https://cdn.sanity.io/images/cgdhsj6q/production/e5a6bb237f3adf0dcf91f04079d566f800cab478-1024x1024.png?w=1000&q=95&fit=max&auto=format",
+    "created_at": "2025-12-13T03:40:58.538Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "danish-intelligence-report-warns-of-us-military-threat-under-trump",
+    "title": "Danish intelligence report warns of US military threat under Trump",
+    "description": "The United States is using its economic power to “assert its will\" and threaten military force against friend and foe alike, a Danish intelligence agency said in a new report.  The Danish Defense Intelligence Service, in its latest annual assessment, said Washington's greater assertiveness under the Trump administration also comes as China and Russia seek to diminish Western, especially American, influence.  Perhaps most sensitive to Denmark — a NATO and European Union member country, and a U.S. ally — is growing competition between those great powers in the Arctic.",
+    "fullText": "COPENHAGEN, Denmark (AP) — The United States is using its economic power to “assert its will\" and threaten military force against friend and foe alike, a Danish intelligence agency said in a new report.\n\nThe Danish Defense Intelligence Service, in its latest annual assessment, said Washington's greater assertiveness under the Trump administration also comes as China and Russia seek to diminish Western, especially American, influence.\n\nPerhaps most sensitive to Denmark — a NATO and European Union member country, and a U.S. ally — is growing competition between those great powers in the Arctic. U.S. President Donald Trump has expressed a desire to see Greenland, a semiautonomous and mineral-rich territory of Denmark, become part of the United States, a move opposed by Russia and much of Europe.\n\n“The strategic importance of the Arctic is rising as the conflict between Russia and the West intensifies, and the growing security and strategic focus on the Arctic by the United States will further accelerate these developments,” said the report, published Wednesday.\n\nThe assessment also follows the release last week of a new Trump administration national security strategy that depicts European allies as weak and aims to reassert America’s dominance in the Western Hemisphere.\n\nRussian President Vladimir Putin has said Russia is worried about NATO’s activities in the Arctic and will respond by strengthening its military capability in the polar region.\n\nThe findings and analyses in the report echo a string of recent concerns, notably in Western Europe, about an increasingly go-it-alone approach by the United States, which under Trump's second term has favored bilateral deals and partnerships at the expense of multilateral alliances like NATO.\n\n“For many countries outside the West, it has become a viable option to forge strategic agreements with China rather than the United States,” read the report, which was written in Danish. “China and Russia, together with other like-minded states, are seeking to reduce Western – and particularly US – global influence.”\n\n“At the same time, uncertainty has grown over how the United States will prioritize its resources in the future,” it added. “This gives regional powers greater room for maneuver, enabling them to choose between the United States and China or to strike a balance between the two.”\n\nThe Trump administration has raised concerns about respect for international law with its series of deadly strikes on alleged drug-smuggling boats in the Caribbean Sea and eastern Pacific Ocean — part of a stepped-up pressure campaign against President Nicolás Maduro of Venezuela.\n\nTrump has also refused to rule out military force in Greenland, where the United States already has a military base.\n\n“The United States is leveraging economic power, including threats of high tariffs, to assert its will, and the possibility of employing military force – even against allies – is no longer ruled out,” the report said.",
+    "readingTime": 3,
+    "keywords": [
+      "trump administration",
+      "united states",
+      "military",
+      "arctic",
+      "denmark",
+      "president",
+      "strategic",
+      "economic",
+      "assert",
+      "intelligence"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.yahoo.com/news/articles/danish-intelligence-report-warns-us-132951743.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/yYhLstgmaMdOBEiu3FQ8dg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ap.org/e1f7bb0f315a185a12d2abb9e22601c4",
+    "created_at": "2025-12-13T03:40:57.005Z",
+    "topic": "news"
+  },
+  {
     "slug": "south-korea-may-step-up-currency-defense-near-1500-level-analysts-say",
     "title": "South Korea May Step Up Currency Defense Near 1,500 Level, Analysts Say",
     "description": "South Korea may step up its defense of the won should the currency weaken toward the psychologically important 1,500‑per‑dollar level, a threshold unseen since 2009, according to analysts.",
