@@ -1,5 +1,29 @@
 [
   {
+    "slug": "writing-a-typesafe-linux-perf-interface-in-zig",
+    "title": "Writing a Type-Safe Linux Perf Interface in Zig",
+    "description": "I'm building a benchmarking tool for Zig and needed CPU counters. This is how I wrapped Linux's `perf_event_open` to be type-safe with comptime.",
+    "fullText": "I am currently building a hobby project:\npyk/bench, a microbenchmarking library for Zig.\nMy goal is to make it fast and accurate. To measure performance properly,\nlooking at wall clock time is not enough. I need to know what the CPU is\nactually doing.\n\nI want to measure CPU cycles, instruction counts and cache misses. On Linux the\nkernel provides a system call for this named\nperf_event_open.\nIt is very powerful but the API is raw and not easy to use safely.\n\nThe perf_event_open system call creates a file descriptor that allows\nmeasuring performance information. You fill out a perf_event_attr struct with\nthe config you want, such as PERF_COUNT_HW_CPU_CYCLES or\nPERF_COUNT_HW_INSTRUCTIONS, and the kernel gives you back a file descriptor.\n\nYou can read from this file descriptor to get the counts. The format of the data\nyou read depends on how you opened it.\n\nYou can also group events. This is important because it lets you measure\nmultiple things at once with a single read call. One event acts as the “group\nleader” and others are “siblings”. When you read from the leader, you get a\nbinary layout containing values for all events in the group.\n\nThe layout looks roughly like this in C:\n\nThis is dynamic. The size of the struct changes based on how many events you\nhave. In Zig I want something static and type-safe.\n\nMy first attempt was brittle. I hardcoded a struct with the fields I thought I\nwould need.\n\nThis works but it is dangerous. The Measurements struct is hardcoded.\n\nIf I change the initialization logic to add “branch misses”, I have to remember\nto update Measurements, update the ids array size and update the read\nfunction manually. The compiler cannot help me here.\n\nIf I access ids[2] but only initialized 2 events, I crash or get garbage data.\n\nZig allows running code at compile time to generate types. I can use this to\ngenerate a struct that exactly matches the events I request.\n\nI defined an Event enum for the things I want to measure.\n\nThen I wrote a function that takes a slice of these events and returns a new\ntype.\n\nThis function creates a struct with fields named after the enum tags. If I pass\n&.{ .cpu_cycles, .instructions }, it generates:\n\nNow I can create a generic Group type that uses this.\n\nThe usage is cleaner and safer.\n\nIf I try to access a field I did not request, the compiler stops me.\n\nHere is how the full version looks like:\n\nTo implement this I needed to get the ID of the event from the file descriptor.\nThe kernel documentation says to use ioctl with PERF_EVENT_IOC_ID.\n\nI checked std.os.linux in the Zig standard library and it was missing.\n\nSo I opened a pull request to add it. It is just a one line change.\n\nYou can see the PR here:\nhttps://codeberg.org/ziglang/zig/pulls/30162.\nI am not sure if it will be accepted but it felt good to fix a missing piece in\nthe tool I use.",
+    "readingTime": 3,
+    "keywords": [
+      "file descriptor",
+      "struct",
+      "events",
+      "kernel",
+      "event",
+      "function",
+      "request",
+      "library",
+      "performance",
+      "counts"
+    ],
+    "qualityScore": 1,
+    "link": "https://pyk.sh/blog/2025-12-11-type-safe-linux-perf-event-open-in-zig",
+    "thumbnail_url": "https://pyk.sh/opengraphs/blog.png",
+    "created_at": "2025-12-13T06:54:07.096Z",
+    "topic": "tech"
+  },
+  {
     "slug": "before-megalodon-researchers-say-a-monstrous-shark-ruled-ancient-australian-seas",
     "title": "Before megalodon, researchers say a monstrous shark ruled ancient Australian seas",
     "description": "In the age of dinosaurs — before whales, great whites or the bus-sized megalodon — a monstrous shark prowled the waters off what's now northern Australia, among the sea monsters of the Cretaceous period.  Researchers studying huge vertebrae discovered on a beach near the city of Darwin say the creature is now the earliest known mega-predator of the modern shark lineage, living 15 million years earlier than enormous sharks found before.  The ancestor of today’s 6-meter (20-foot) great white shark was thought to be about 8 meters (26 feet) long, the authors of a paper published in the journal Communications Biology said.",
