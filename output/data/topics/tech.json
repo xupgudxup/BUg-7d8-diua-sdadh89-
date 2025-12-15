@@ -1,5 +1,70 @@
 [
   {
+    "slug": "us-stocks-fall-extending-tech-selloff-ahead-of-economic-data",
+    "title": "US Stocks Fall Extending Tech Selloff Ahead of Economic Data",
+    "description": "US stocks fell on Monday as a selloff in technology stocks continued and traders readied themselves for a swath of economic data.",
+    "fullText": "MarketsBy Joel LeonSaveUS stocks fell on Monday as a selloff in technology stocks continued and traders readied themselves for a swath of economic data.The S&P 500 Index dropped 0.1% at 12:40 p.m. in New York, erasing an earlier gain and extending a selloff last week. The tech-heavy Nasdaq 100 Index fell 0.2%.",
+    "readingTime": 1,
+    "keywords": [
+      "stocks",
+      "selloff",
+      "index"
+    ],
+    "qualityScore": 0.1,
+    "link": "https://www.bloomberg.com/news/articles/2025-12-15/us-stocks-rally-as-tech-stocks-rebound-traders-await-key-data",
+    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i3fdllx6cso8/v1/1200x800.jpg",
+    "created_at": "2025-12-15T18:58:03.301Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "white-house-launches-2year-tech-force-hiring-for-roughly-1000-jobs-that-will-pay-130000-to-195000",
+    "title": "White House launches 2-year 'Tech Force' hiring for roughly 1,000 jobs that will pay $130,000 to $195,000",
+    "description": "US Tech Force employees will have recruitment opportunities with a host of private companies ranging from Meta and Google to Apple and Nvidia.",
+    "fullText": "Young tech talent hoping to land a job in the private sector has a new way in: the public sector.\n\nPresident Donald Trump's administration announced the launch of the United States Tech Force on Monday, a two-year program that offers participants federal government jobs and eventual recruitment opportunities for private sector roles.\n\nThe government is partnering with at least 28 tech companies on the program, including Apple, Amazon Web Services, Anduril, Dell, Box, Meta, Microsoft, Nvidia, OpenAI, Palantir, Oracle, Uber, and xAI, among others.\n\nThe Office of Personnel Management is spearheading the early-career program in partnership with other agencies. Participants will be placed at agencies across the government to work on modernization projects and, in part, implement AI, according to the Tech Force website.\n\nTech Force plans to hire around 1,000 applicants to start, according to the site, and is looking for people \"highly skilled in the areas of software engineering, artificial intelligence, cybersecurity, data analytics, or technical project management.\"\n\nApplicants will submit an application, complete a technical assessment, have interviews with agency leaders, and undergo a background test. OPM will do the initial resume review and technical assessment before passing the hiring decisions off to individual agencies, OPM Director Scott Kupor said during a call before the announcement.\n\nPrivate sector partners can provide training resources and mentorship opportunities, and have committed to considering Tech Force participants for employment after the two years, according to the site. Kupor said on Monday's call that there will also be a speaker series featuring company CEOs. The program, he added, will end with public- and private-sector job fairs.\n\nCompanies haven't made any firm hiring commitments, Kupor said on the call.\n\n\"It wouldn't be appropriate for us to ask companies to hire people without knowing who those people are,\" Kupor said. He added that he'll \"be certainly disappointed\" if the program doesn't lead to hiring by the private-sector partners.\n\nSalaries will likely range from around $130,000 to $195,000, Kupor said. There are no specific degree or experience requirements for the positions, which will be posted on USA Jobs. Those interested are encouraged \"to apply as soon as possible\" on the site. Kupor said he hopes to get everybody hired by the end of March.\n\nThe roles are largely based in Washington, DC, and remote work options will depend on the agency and role, according to the site. They're non-partisan positions and are entirely distinct from the US DOGE Service.\n\nThough the Tech Force is primarily an early-career program, the government is also seeking \"experienced engineering managers from private sector partners,\" the site says. Companies can nominate employees, who will generally be expected to take unpaid leave or otherwise separate from their role to take the two-year position, per the site.\n\n\"They will become full-time employees of the government for the time they're here, and therefore be subject to all the various ethics rules,\" Kupor said. He added that each company will have its own policy, but expects that it will be \"easy\" for participants to return to their private-sector positions.\n\nKupor said on the call that the government plans to run the program on an annual basis and that he hopes to expand it in the years to come.\n\nAre you interested in applying to the Tech Force program? Contact this reporter via email at atecotzky@insider.com or Signal at alicetecotzky.05. Use a personal email address and a nonwork device; here's our guide to sharing information securely.",
+    "readingTime": 3,
+    "keywords": [
+      "technical assessment",
+      "site kupor",
+      "sector partners",
+      "early-career program",
+      "tech force",
+      "participants",
+      "agencies",
+      "hiring",
+      "private-sector",
+      "positions"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/us-tech-force-jobs-salary-info-meta-nvidia-google-openai-2025-12",
+    "thumbnail_url": "https://i.insider.com/694031d3832e0ef1ead63869?width=1200&format=jpeg",
+    "created_at": "2025-12-15T18:57:49.620Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "attackers-are-spreading-malware-through-chatgpt",
+    "title": "Attackers Are Spreading Malware Through ChatGPT",
+    "description": "Be careful with ChatGPT or Grok's tech advice.",
+    "fullText": "You (hopefully) know by now that you can't take everything AI tells you at face value. Large language models (LLMs) sometimes provide incorrect information, and threat actors are now using paid search ads on Google to spread conversations with ChatGPT and Grok that appear to provide tech support instructions but actually direct macOS users to install an infostealing malware on their devices.\n\nThe campaign is a variation on the ClickFix attack, which often uses CAPTCHA prompts or fake error messages to trick targets into executing malicious commands. But in this case, the instructions are disguised as helpful troubleshooting guides on legitimate AI platforms.\n\nKaspersky details a campaign specific to installing Atlas for macOS. If a user searches \"chatgpt atlas\" to find a guide, the first sponsored result is a link to chatgpt.com with the page title \"ChatGPT™ Atlas for macOS – Download ChatGPT Atlas for Mac.\" If you click through, you'll land on the official ChatGPT site and find a series of instructions for (supposedly) installing Atlas.\n\nHowever, the page is a copy of a conversation between an anonymous user and the AI—which can be shared publicly—that is actually a malware installation guide. The chat directs you to copy, paste, and execute a command in your Mac's Terminal and grant all permissions, which hands over access to the AMOS (Atomic macOS Stealer) infostealer.\n\nA further investigation from Huntress showed similarly poisoned results via both ChatGPT and Grok using more general troubleshooting queries like \"how to delete system data on Mac\" and \"clear disk space on macOS.\"\n\nAMOS targets macOS, gaining root-level privileges and allowing attackers to execute commands, log keystrokes, and deliver additional payloads. BleepingComputer notes that the infostealer also targets cryptocurrency wallets, browser data (including cookies, saved passwords, and autofill data), macOS Keychain data, and files on the filesystem.\n\nIf you're troubleshooting a tech issue, carefully vet any instructions you find online. Threat actors often use sponsored search results as well as social media platforms to spread instructions that are actually ClickFix attacks. Never follow any guidance that you don't understand, and know that if it asks you to execute commands on your device using PowerShell or Terminal to \"fix\" a problem, there's a high likelihood that it's malicious—even if it comes from a search engine or LLM you've used and trusted in the past.\n\nOf course, you can potentially turn the attack around by asking ChatGPT (in a new conversation) if the instructions are safe to follow. According to Kaspersky, the AI will tell you that they aren't.",
+    "readingTime": 3,
+    "keywords": [
+      "installing atlas",
+      "threat actors",
+      "execute commands",
+      "chatgpt and grok",
+      "macos",
+      "instructions",
+      "search",
+      "targets",
+      "troubleshooting",
+      "spread"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://lifehacker.com/tech/chatgpt-grok-tech-advice-malware?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KCFHKGX7QDA7SPFPM73VFFVJ/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2025-12-15T18:57:47.692Z",
+    "topic": "tech"
+  },
+  {
     "slug": "stocks-rise-at-start-of-data-rate-decision-week-sydney-mass-shooting-bloomberg-brief-12152025",
     "title": "Stocks Rise at Start of Data, Rate Decision Week; Sydney Mass Shooting | Bloomberg Brief 12/15/2025",
     "description": "US equity futures climb after a tech selloff as markets gear up for a week of delayed jobs data and rate decisions from the European Central Bank, the Bank of England and the Bank of Japan. Australia eyes tougher gun laws after two gunmen opened fire and killed at least 15 people at Bondi Beach in Sydney in the nation's deadliest terrorist attack. Ukraine and US are set to continue talks into a second day in Berlin to end the war with Russia. Jane Foley of Rabobank shares her outlook for the dollar. European Trade Commissioner Maros Sefcovic discusses the ongoing negotiations between the EU and the US.",
