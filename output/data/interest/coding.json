@@ -1,5 +1,61 @@
 [
   {
+    "slug": "scrappy-free-ai-code-assistant",
+    "title": "Scrappy Free AI Code Assistant",
+    "description": "A powerful, context-aware coding assistant for everyone. Students, learners, anyone who doesn't want to pay for subscriptions. - HakAl/scrappy",
+    "fullText": "HakAl\n\n /\n\n scrappy\n\n Public\n\n A powerful, context-aware coding assistant for everyone. Students, learners, anyone who doesn't want to pay for subscriptions.\n\n pypi.org/project/scrappy-ai/\n\n License\n\n MIT license\n\n 6\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n HakAl/scrappy",
+    "readingTime": 1,
+    "keywords": [
+      "license"
+    ],
+    "qualityScore": 0.4,
+    "link": "https://github.com/HakAl/scrappy",
+    "thumbnail_url": "https://opengraph.githubassets.com/f4b80c7981acbe65eb74d5f829f65f4c5ad79abda560cef1db5838b375628d52/HakAl/scrappy",
+    "created_at": "2025-12-17T03:45:04.030Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "adventures-in-the-land-of-language-servers",
+    "title": "Adventures in the Land of Language Servers",
+    "description": "Have you ever wondered how your editors and IDEs are able to support so many programming languages? Perhaps you've been thinking about designing your ow…",
+    "fullText": "Have you ever wondered how your editors and IDEs are able to support so many programming languages? Perhaps you've been thinking about designing your own language and wanted to know how you can give it editor support?\n\nThis talk is for you - I've spent over a year building a small language and integrating it with code editors, and I'd like to share some of the challenges I've faced, as well as lessons I've learned in that time.\n\nI'll also show how easy it is to build a new Language Server project in Scala 3 thanks to the Langoustine library.",
+    "readingTime": 1,
+    "keywords": [
+      "i've",
+      "editors",
+      "language"
+    ],
+    "qualityScore": 0.45,
+    "link": "https://speakerdeck.com/kubukoz/adventures-in-the-land-of-language-servers",
+    "thumbnail_url": "https://files.speakerdeck.com/presentations/548a94549c554eaf8a5d70effbc439b1/slide_0.jpg?25884509",
+    "created_at": "2025-12-17T03:45:03.996Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "optimizing-claude-code",
+    "title": "Optimizing Claude Code",
+    "description": "Customize Claude Code with skills, plugins, commands, and configuration files that transform a capable coding assistant into one that matches your exact workflow.",
+    "fullText": "I’ve been using Claude Code for months now, and for most of that time, I was doing it wrong. Not wrong in the sense of getting bad results—the defaults are remarkably capable. Wrong in the sense that I was treating a customizable system like a fixed tool. I was adjusting my workflow to fit the AI instead of adjusting the AI to fit my workflow.\n\nThe difference between default Claude Code and a properly configured instance is the difference between hiring a talented generalist and hiring someone who’s worked at your company for years. Both can write code. Only one knows that your team prefers for…of over .forEach(), that you never use the I prefix on interfaces, and that when you say “analyze this bug,” you mean a specific six-step process that includes hypothesis testing.\n\nHere’s how I built that second version.\n\nClaude Code’s customization system has multiple layers, each serving a different purpose:\n\nWhat’s less widely appreciated is how these layers interact. When Claude Code starts a session, it reads your settings, loads relevant skills based on context, and injects CLAUDE.md into its system prompt. When you invoke a command, it triggers a predefined workflow. When you mention a topic covered by a skill, Claude applies that expertise automatically.\n\nMy ~/.claude/settings.json is minimal but deliberate:\n\nalwaysThinkingEnabled: true — This enables extended thinking on every response. The tradeoff is latency for quality. For complex refactoring or architectural decisions, I want Claude to think deeply. For quick questions, it’s overkill. I keep it on because my typical use case is substantial engineering work.\n\nToken limits — Increasing CLAUDE_CODE_MAX_OUTPUT_TOKENS to 64000 prevents truncation on large refactors. The MAX_THINKING_TOKENS setting controls how much “thinking” space Claude has before responding.\n\nincludeCoAuthoredBy: false — I don’t need AI authorship attribution in every commit message. Personal preference.\n\nThe full settings file is available in my dotfiles repo.\n\nEvery project gets a CLAUDE.md at the root. This is where you encode project-specific knowledge: commands to build and test, directory structure, coding principles, workflow patterns.\n\nThe key insight: CLAUDE.md is a system prompt you control. Every instruction you put here shapes every response you get. You can define escalation patterns that tell Claude to stop thrashing and switch to a structured process after failed attempts—for example, my Bug Fix workflow triggers a 6-step root cause analysis after two failed fixes.\n\nFull template: CLAUDE.md in dotfiles\n\nSkills are markdown files that encode specialized knowledge. When Claude detects that a skill is relevant to your task, it applies that expertise automatically.\n\nThis skill encodes my team’s TypeScript conventions—things that aren’t in style guides but matter for consistency:\n\nThe full skill covers interfaces vs types, enum conventions, null handling, type assertions, and module imports. It’s 700+ lines because TypeScript has a lot of conventions worth encoding.\n\nFor Lambda, DynamoDB, and SQS patterns:\n\nThis skill catches AI-generated code patterns that don’t match human-written code:\n\nThis is something I’ve noticed consistently: AI models add defensive code and comments that human developers wouldn’t. Having a skill that explicitly tells Claude to avoid these patterns makes the output feel more natural.\n\nSkills directory: skills in dotfiles\n\nSkills teach Claude how to code. Hooks enforce that it does. The difference matters.\n\nA skill might say “prefer for…of over .forEach()“—but Claude can still forget. A hook catches it in real-time, warning or blocking before the code is written. It’s the difference between training and guardrails.\n\nI use the hookify plugin to create enforcement rules from simple markdown files. Here are my active hooks:\n\nHooks are markdown files with YAML frontmatter. Here’s an example that blocks as any casts:\n\nThe action field determines severity:\n\nThis is where customization compounds. My TypeScript patterns skill teaches Claude the conventions. My hooks enforce them. If Claude violates a convention—say, using as Type instead of <Type>—the hook catches it before the code is written.\n\nThe feedback loop is immediate: Claude sees the warning, adjusts its output, and continues. Since Claude Code is stateless between sessions, the hooks provide consistent enforcement every time. Skills inform, hooks enforce.\n\nHooks directory: hooks in dotfiles\n\nCommands are like shell aliases for Claude workflows. Instead of typing a detailed prompt, you invoke /analyze-bug or /simplify and get a consistent, structured response.\n\nCommands directory: commands in dotfiles\n\nAgent docs are markdown files in .claude/agent_docs/ that Claude reads when relevant. Unlike skills (which encode how to do things), agent docs provide reference material (what things are).\n\nCLAUDE.md tells Claude when to read each doc. More efficient than stuffing everything into context—Claude loads docs on demand.\n\nAgent docs: agent_docs in dotfiles\n\nPlugins add new tools and workflows to Claude’s toolkit. I use several, organized by purpose:\n\nast-grep — Structural code search using AST patterns. Better than regex for finding code patterns that span multiple lines or have variable formatting. When I need to find all functions that return a Promise but don’t handle errors, ast-grep finds them regardless of formatting. Requires the CLI tool installed separately:\n\ndev-browser — Browser automation for testing web applications. When I say “go to localhost:3000 and click the login button,” Claude can actually do that.\n\nfrontend-design — UI/UX design assistance for frontend work. Part of the official Claude Code plugins.\n\nhookify — Creates enforcement rules from markdown files (covered in the Hooks section above). The key plugin for active convention enforcement.\n\ncommit-commands — Three git workflow commands:\n\nfeature-dev — A 7-phase structured workflow for complex features:\n\nFor complex features that touch multiple files, /feature-dev ensures nothing is missed.\n\npr-review-toolkit — Six specialized review agents that run in parallel:\n\nWhen I say “review my PR,” these agents analyze different dimensions simultaneously and return prioritized findings.\n\nPlugins are installed via the Claude Code plugin system. Official plugins require adding the Anthropic marketplace first:\n\nThe configuration in settings.json enables them:\n\nRun this to install my skills, commands, and hooks:\n\nThe script sets up ~/.claude/ and prints the plugin commands to run inside Claude Code.\n\nIf you prefer to set things up yourself:\n\nCreate ~/.claude/skills/typescript-patterns/SKILL.md with your TypeScript conventions. The filename must be SKILL.md and include frontmatter with name and description.\n\nCreate ~/.claude/commands/analyze-bug.md with your debugging workflow. Commands are invoked with /analyze-bug (the filename becomes the command name).\n\nAfter installing hookify, create enforcement rules:\n\nHooks take effect immediately—no restart required.\n\nCreate CLAUDE.md at the root of each project with project-specific instructions.\n\nMy complete configuration: github.com/stevenmays/dotfiles/tree/master/ai/claude\n\nHere’s what I didn’t expect: these customizations compound.\n\nA skill that teaches TypeScript conventions means Claude knows my preferences. A hook that enforces those conventions means Claude can’t forget them. A command that structures bug investigation means debugging follows a consistent process. A plugin that runs six review agents in parallel means PR reviews are thorough without being tedious.\n\nEach layer reinforces the others:\n\nThe time investment—maybe a few hours total—pays dividends on every subsequent session. I’m not constantly re-explaining preferences or correcting patterns. Claude already knows. And when it forgets, the hooks catch it.\n\nIt’s not that X is bad and Y is good, exactly; it’s more that default Claude Code is a capable generalist, while optimized Claude Code is a specialist who happens to share your opinions about code style, your workflow preferences, and your debugging methodology.\n\nThe choice is simple: accept defaults, work around quirks, and occasionally complain about AI-generated code that doesn’t match your style—or spend a few hours getting dialed in.",
+    "readingTime": 7,
+    "keywords": [
+      "agent docs",
+      "create enforcement",
+      "typescript conventions",
+      "expertise automatically",
+      "claude code",
+      "ai-generated code",
+      "complex features",
+      "hook catches",
+      "review agents",
+      "default claude"
+    ],
+    "qualityScore": 1,
+    "link": "https://mays.co/optimizing-claude-code",
+    "thumbnail_url": "https://mays.co/_astro/optimizing-claude-code.DOeMUOQN_Z2lns9R.jpg",
+    "created_at": "2025-12-17T03:45:03.284Z",
+    "topic": "tech"
+  },
+  {
     "slug": "nvidia-unveils-new-opensource-ai-models-amid-boom-in-chinese-offerings",
     "title": "Nvidia unveils new open-source AI models amid boom in Chinese offerings",
     "description": "Nvidia on Monday unveiled a new family of open-source artificial intelligence models that it says will be faster, cheaper and ​smarter than its previous offerings, as open-source offerings from Chinese AI labs proliferate.  Nvidia ‌is primarily known for providing chips that firms such as OpenAI use to train their closed-source models and ‌charge money for them.  Nvidia ⁠on Monday revealed the third ‌generation of its \"Nemotron\" large-language models aimed at writing, coding and other tasks.",
