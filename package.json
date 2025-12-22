@@ -9,7 +9,7 @@
         "start": "node dist/job.js",
         "test": "node dist/job.js --test",
         "merge": "node dist/merge-outputs.js",
-        "index": "ts-node src/index-pages.ts"
+        "index": "node dist/index-pages.js"
     },
     "dependencies": {
         "google-auth-library": "^10.5.0",
