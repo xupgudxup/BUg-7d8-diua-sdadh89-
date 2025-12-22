@@ -1,5 +1,129 @@
 [
   {
+    "slug": "ai-is-rewriting-how-power-flows-through-the-datacenter",
+    "title": "AI is rewriting how power flows through the datacenter",
+    "description": ": Rising rack densities are driving changes from grid connection to chip-level delivery",
+    "fullText": "Power semiconductors are soon set to become as vital as GPUs and CPUs in datacenters, handling the rapidly increasing loads forecast for AI infrastructure.\n\nThe AI craze has seen datacenter operators stuffing servers with as many accelerators (typically GPUs) as will fit inside, then filling the racks in their data halls with these high-performance boxes.\n\nWith some GPUs now using 700 W of energy each, the power required by an entire rack or datacenter of kit is growing rapidly, putting a strain on electrical distribution infrastructure.\n\nLast year, Nvidia introduced an integrated rack-scale system for AI processing, the DGX GB200 NVL72, which needs 120 kW per unit, while cloud giant Google disclosed this year that it is planning for datacenter racks supporting 1 MW of IT hardware loads.\n\nTo cap it all, some of the key infrastructure components such as transformers are reported to be holding things up through long lead times of 28 weeks or more.\n\nThis is where power semiconductors come into the picture. They enable solid-state transformers (SSTs), which are much smaller and more efficient than their conventional counterparts – perhaps just 500 kg as opposed to multiple tons.\n\n\"What's now being introduced is a solid-state transformer that has a couple of advantages on the supply chain side, but also on this performance side, and that is a pretty new application,\" said Dr Peter Wawer, division president for Green Industrial Power at chipmaker Infineon.\n\nSSTs are a great deal lighter and smaller, Wawer told us, because they operate at very high frequency, a couple of orders of magnitude higher than the AC power supply frequency fed into them. Because the solid-state transformer switches at such high frequency, it requires silicon carbide components.\n\n\"Silicon carbide is the only material that has the capability to switch at high frequency and has high blocking voltages. And for blocking voltage, we mean up to two or three kilovolts (kV), which this semiconductor device will need to block,\" Wawer said. \"But then, of course, you have input voltages of more than 30 kV, and therefore you have to stack more than 10 of the devices in a kind of cascaded structure.\"\n\nInfineon is a prominent supplier of power semiconductors, and so has an interest in pushing the development of solid-state components that are set to be in demand as the datacenter build boom continues.\n\nThe firm expects that SSTs will replace a portion of the datacenter transformer market and could be worth up to $1 billion by 2030, for example.\n\nCircuit breakers are nother application where power semiconductors may replace legacy kit. These electromechanical devices open up in a few milliseconds in the event of a short circuit, but a silicon carbide solid-state version can open much faster, in microseconds – handy if you are dealing with high voltages being supplied to racks full of very expensive GPUs.\n\nPower semiconductors, based on silicon carbide or gallium nitride, are also set to play a part in the power distribution around the datacenter itself.\n\nNvidia has signposted that it sees 800 VDC power supplies as the way forward, as the power demands of AI infrastructure get ever higher, saying this move will be required to support 1 MW IT racks and beyond. It claims this reduces the number of voltage conversions needed, which can introduce inefficiencies and increase the complexity of the electrical system, among other things.\n\nIt is also a way of minimizing losses, according to Infineon, because the power loss is proportional to the square of the current. The trick therefore, when you want to go to a higher power and keep losses under control, is to increase the voltage to a level that means you keep the current constant.\n\n\"Today, you have a combined rack that has the IT payload as well as the power delivery and the backup power. Now, as the GPUs, TPUs, and ASICs increase in power, that means that you need to bring in more power into the racks themselves,\" said Adam White, division president for Power & Sensor Systems at Infineon.\n\n\"So we now move to this potential 800 volt DC supply, but you've also got the plus-minus 400-volt topologies that some vendors [such as Google] may end up using. We call this then the hybrid microgrid.\"\n\n\"Why 800 volts DC? Effectively, you can bring that directly into the motherboards or into the compute trays, using fewer conversion steps,\" he added.\n\nHowever, Infineon believes that before we can get to that step, there will have to be an intermediate stage, where a \"power sidecar\" – effectively a second rack full of power delivery and backup circuitry – will sit alongside the rack of IT kit it serves. Whether this serves just one rack or several will depend on the IT load.\n\nThis arrangement is expected to see racks hitting 600 kW of power, up from the maximum of about 125 kW today, to support configurations using Nvidia's Rubin Ultra, expected to arrive in late 2027.\n\nGoogle also mentions a \"sidecar\" in its plans for 1 MW kit, as a dedicated AC-to-DC power rack that feeds power to the other racks.\n\nAs power demand rises, the power supply unit (PSU) within the rack will need to handle more power, with 8 kW units available now. There will also be a transition to a three-phase design to move from a 12 kW unit to 16 kW or above, which is expected to happen next year. This transition will see greater use of components made with silicon carbide and gallium nitride (GaN), according to Infineon.\n\nFinally, the increasing density of the AI accelerators themselves and the amount of power all those transistors guzzle is starting to have an impact at the chip level.\n\nThe voltage regulator modules (VRMs) are currently discrete packages that sit alongside the accelerator chip package (GPU, ASIC or TPU) on the system board, but as the current to the chip rises, parasitic losses also increase, wasting energy.\n\n\"Some of the industry has already recognized that and started to move to what we call BVM, or back-side vertical power module,\" White said. This moves the VRMs to the other side of the system board, below the accelerator chip package, and simplifies the board layout as well as reducing overall power delivery network losses.\n\nUltimately, the industry would like to get to the point where the VRM moves inside the chip package and is embedded in the substrate directly beneath the chip, but this is a development set for beyond 2027, according to Infineon. ®",
+    "readingTime": 6,
+    "keywords": [
+      "division president",
+      "gallium nitride",
+      "silicon carbide",
+      "accelerator chip",
+      "chip package",
+      "system board",
+      "solid-state transformer",
+      "racks",
+      "rack",
+      "datacenter"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/2025/12/22/ai_power_datacenter/",
+    "thumbnail_url": "https://regmedia.co.uk/2022/04/07/datacenter.jpg",
+    "created_at": "2025-12-22T12:23:45.622Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "chinese-opensource-ais-are-winning-over-a-growing-number-of-companies-in-the-us",
+    "title": "Chinese open-source AIs are winning over a growing number of companies in the US",
+    "description": "Even as the United States is embarked on a bitter rivalry with China over the deployment of artificial intelligence, Chinese technology is quietly making inroads into the US market.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.france24.com/en/live-news/20251222-as-us-battles-china-on-ai-some-companies-choose-chinese",
+    "thumbnail_url": "https://s.france24.com/media/display/0fd4b52e-ded5-11f0-bf3c-005056bfb2b6/w:1280/p:16x9/e94181f0275e2b42bce324f7897542aaa56e2e4a.jpg",
+    "created_at": "2025-12-22T12:23:44.086Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "healthcare-vcs-predict-more-ai-transparency-investment-private-equity-ma-and-a-quiet-year-for-ipos-in-2026",
+    "title": "Healthcare VCs predict more AI transparency investment, private equity M&A, and a quiet year for IPOs in 2026",
+    "description": "It's been a hot year for healthcare venture investment. Backers said they expect investments in AI cost savings in 2026, plus more M&A — but not IPOs.",
+    "fullText": "It's been a hot year for healthcare deals — but some investors are predicting a shift in which startups will capture VC attention next year.\n\n2025 saw a welcome surge in healthcare venture funding as investors rushed to back top AI startups. Last December, VCs predicted huge funding rounds for AI scribe startups like Abridge and Ambience Healthcare; indeed, both Abridge and Ambience landed hundreds of millions of dollars in venture funding this year.\n\nInvestors also said in December 2024 that they anticipated a race for those startups to expand beyond AI health scribing into other product lines, like medical coding and billing. That pressure intensified in August, when medical records giant Epic announced it was releasing its own AI tools, including for clinical documentation, in competition with its closest startup partner Abridge.\n\nWith Epic in the mix and tech giants like OpenAI working on their own healthcare AI plays, VCs told Business Insider that they're expecting different profiles of healthcare startups to grab funding next year as companies focus on cost savings, securing patient and provider trust, and ensuring high-quality data.\n\n\"AI has diffused nicely for passive listening in clinical settings, and administrative simplification,\" said Dan Mendelson, the CEO of Morgan Health, JPMorgan's healthcare investing arm. \"AI now needs to show savings to payers by helping consumers make good choices and reducing the burden on clinicians.\"\n\nInvestors are also watching for more healthcare exits in 2026. Two venture-backed digital health companies went public this year: Hinge Health in May, and Omada Health in June. VCs weren't optimistic that 2026 would bring a deluge of new public healthcare companies, but they're looking forward to what many said should be an active year for healthcare M&A.\n\nThis year, investment surged for AI startups tackling administrative burdens for large health systems. AI scribe startups Abridge and Ambience Healthcare notched $5.3 billion and $1.25 billion valuations, respectively, while AI-powered medical knowledge platform OpenEvidence hit a $6 billion valuation with its own raise.\n\nMany such startups have expanded into coding and billing to help hospitals capture more revenue from health insurers. But in 2026, insurers could use AI to fight back, said Todd Cozzens, cofounder and managing partner of Transformation Capital.\n\nCozzens said that many insurers have already partnered with large organizations such as Palantir and Anthropic on custom AI solutions. Next year, he expects those payers to contract with more specialized AI platforms trained on complex clinical data, like providers are already doing.\n\n\"It's a zero-sum game in the end, but like with the nuclear weapons arms race, a lot of money is going to be spent here, and doing nothing is no longer an option for either side of the battle,\" he said.\n\nSeveral VCs suggested that the next wave of healthcare investment will go toward business models that prioritize higher-quality AI behind the scenes.\n\nSapphire Ventures partner Cathy Gao predicted a conscious shift away from \"black box\" AI models in high-stakes industries like healthcare, calling them \"uninvestable.\"\n\n\"The next healthcare unicorns will be 'glass box' platforms where the core product is the digital paper trail,\" she said. \"Any engineering team can build an AI that fills out a medical form. The real opportunity is building the governance layer that proves why the AI made that decision.\"\n\nLiam Donohue, cofounder and managing partner at .406 Ventures, said his firm has also been investing in companies focused on AI decision transparency and data quality.\n\n\"One of the obstacles that needs to be hurdled for AI to be more widely used in enterprise settings is absolutely the ability to go back to the source of why some process happened or why a decision was made. And there's a lot of infrastructure being built to do that,\" he said.\n\nAs insurers cut reimbursement rates for key services, investors are also expecting a surge in business models that prioritize lower-cost care settings and eschew point solutions, paired with AI to reduce administrative spend.\n\nNorwest partner Irem Rami said she expects a boost for in-home care models that incorporate AI agents. Mercedes Bent, cofounder and partner at Premise VC, is watching healthcare startups that aim to support patients across a chosen specialty, like women's health tech that assists patients from fertility tracking through conception.\n\nTech startups that actually provide healthcare have somewhat fallen out of favor with VCs in recent years. The costs of employing providers or running brick-and-mortar clinics can make it tough for those businesses to deliver venture-style returns.\n\nBut in 2026, according to 7wireVentures partner Alyssa Jaffee, \"tech-enabled services is coming back, baby.\"\n\nAfter 2021's venture boom and the subsequent funding drought, some tech-enabled services companies struggled to maintain their growth or hit their next milestone on slim margins, especially at earlier stages, Jaffee said.\n\nBut many startups that have made it to the other side have stronger businesses as a result, including durable relationships with key customers like health plans, she said.\n\nShe also pointed to Hinge Health and Omada Health's successful IPOs; both companies are tech-enabled service providers that sell to employers and health plans.\n\n\"We have a number of those companies in our portfolio that have really hit their stride. It's just a meatier business, and I think we're going to get a lot of interest from later-stage investors coming in to support those kinds of companies,\" Jaffee said.\n\nNorthzone partner Wendy Xiao said that she's now seeing some employers try out a few different tech-enabled services solutions in a given category, such as GLP-1 management, and test them against one another.\n\nContracting with multiple companies could be a tough sell for employers who are already seeing their healthcare costs skyrocket. But Xiao said many of these startups are paid a portion of the money they save employers — a model that dramatically lowers employers' financial exposure.\n\nThere are a few healthcare companies that could be eyeing the exits next year. Virta Health has publicly said it expects to be IPO-ready in 2026. And Business Insider previously reported that two private-equity-backed healthtech companies, Zelis Healthcare and Ensemble Health, have been in talks with bankers about potential IPOs.\n\nStill, no reports have emerged of venture-backed healthcare startups filing their S-1s. By this time last year, Hinge Health and Omada Health were already deep into their IPO preparations.\n\nWhile Xiao thinks a handful of healthtech startups are waiting for their debuts, she's not confident they'll take the plunge before the second half of 2026.\n\n\"I think they'll probably go out in a similar timeframe of, if not late next year, then the year after. There seems to be a lot of momentum pent up around IPO readiness at the organizational level over the past few years. I think a lot of these companies are in pretty good shape in terms of that, and they're just waiting for one of the larger ones to go out,\" Xiao said.\n\nMichael Greeley, the cofounder and general partner at Flare Capital Partners, agreed that the new year is unlikely to bring a steady stream of new healthcare IPOs. But he's anticipating more M&A activity as interest rates come down and private equity buyers look for healthcare AI acquisitions in the VC world.\n\n\"A lot of us are still sitting on a lot of unrealized gains, and the obsession is going to be heightened around liquidity,\" Greeley said. \"We're seeing a lot more interest from the big buyout funds in our sector, who are going down market to buy AI assets to wrap around their legacy platform companies.\"\n\n2025 saw a few such deals. New Mountain Capital, in particular, made several AI acquisitions this year as the PE firm rolled startups onto its existing healthcare bets. Greeley also pointed to firms such as Bain Capital, TPG, Silver Lake, and KKR as potential buyers in 2026.\n\nDonohue is similarly optimistic that 2026 will bring a flurry of exit activity as more companies mull going public, selling, or merging with a competitor. In particular, he expects strategic buyers, such as health plans, to become more active in the second half of 2026.\n\n\"I actually think it'll be a good exit year. I'm seeing lots of signs of life, both within our portfolio and more broadly. There's a lot of activity percolating that you just haven't seen for the last several years,\" he said.",
+    "readingTime": 7,
+    "keywords": [
+      "second half",
+      "omada health",
+      "ambience healthcare",
+      "tech-enabled services",
+      "venture funding",
+      "managing partner",
+      "there's lot",
+      "business models",
+      "scribe startups",
+      "health plans"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/healthcare-vc-predictions-2026-more-ai-acquisitions-few-ipos-2025-12",
+    "thumbnail_url": "https://i.insider.com/693c482804eda4732f2d7186?width=1200&format=jpeg",
+    "created_at": "2025-12-22T12:23:31.028Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "im-18-and-cofounded-an-ai-startup-with-teens-around-the-world-who-ive-never-met-inperson-i-had-no-network-so-i-built",
+    "title": "I'm 18 and cofounded an AI startup with teens around the world who I've never met in-person. I had no network, so I built one online — here's how.",
+    "description": "Alex Yang details founding an AI startup with other high schoolers worldwide to improve Alzheimer's diagnostics.",
+    "fullText": "My typical morning starts around 3 a.m. I'm instantly met with Messenger notifications from web developers in California, GitHub pings from Florida, and a running document of research papers to read sent from Michigan. By 7:50 a.m. I'm off to class to live my life as an 18-year-old high school senior in Seoul.\n\nThis solitary ritual has become my strange normal after I founded an AI research and development startup with people all around the world, whom I've never met in person. My ambition was to improve Alzheimer's diagnostics, but I had no network, so I built one online.\n\nGrowing up, I heard stories about various family members battling Alzheimer's. I viewed the disease as something truly terrifying, which leaves behind only the shell of who someone once was.\n\nI'd grown up knowing that someday, someone I love might disappear while still standing in front of me. In high school, this fear crystallized into something beyond passive acceptance.\n\nI came across this competition, looking to fund ideas that can make health more accessible, and decided to apply.\n\nI knew I couldn't do the work alone. I had to find people beyond my network with diverse perspectives and skills capable of building something real together.\n\nI started searching for partners by spending my time on internet forums and pitching my vision. I posted detailed research proposals on Discord servers and created GitHub repositories with preliminary code.\n\nAfter a month of \"nos,\" I got one \"yes\" from California. Then Florida. Then Michigan. Until there were six of us. We named ourselves Reteena (pronounced like \"retina\"), a deliberate wordplay symbolizing our mission to bring new vision to Alzheimer's diagnostics.\n\nWe became something none of us expected: a team of high schoolers from around the world who genuinely believed we could fix Alzheimer's.\n\nI didn't set out to target only high schoolers, but I was on servers mainly for students, and those were the people who responded.\n\nWe've been self-funded and started by conducting research on enhancing the image resolution of low-field MRI, which is a portable and more economically accessible MRI machine. We applied machine learning and deep learning techniques to enhance the quality of low-field MRI scans.\n\nOur goal was radical — to make Alzheimer's diagnostics accessible and affordable for underserved communities by making low-field MRI more reliable. Conducting research together, I realized that my abstract dream had become reality, but reality proved far more demanding than any dream.\n\nI staggered under the crushing weight of the time and dedication that my team was giving. The time zone difference was not an excuse for me to make them wait for responses. Lying awake at night, my stomach knotted with anxiety about \"what should I do next,\" I recognized that my wrong decision could waste months of work from people who believed in me.\n\nDuring those suffocating moments, when doubt was a physical pain in my chest, I'd question everything: my abilities, our direction, and whether I was worthy of the faith my team placed in me.\n\nGradually, my leadership improved, and doubts faded when I stopped seeing our differences as obstacles and started viewing them as strengths. I created a \"follow-the-sun\" workflow where I completed tasks before people in the states woke up, with detailed handoff documents in shared Notion workspaces. We were asynchronous, yet somehow more connected.\n\nWhen our first piece of research was published in the IEEE BigData 2024 Conference, a prestigious annual conference for artificial intelligence research, I felt exhilarated. It was proof that we were onto something and justification for every late night. Yet it was only the beginning.\n\nWe expanded from a six-person group chat into an unconventional startup with 12 members. Over the next nine months, we conducted additional Alzheimer's research and presented our findings on how changes in speech patterns and genetic markers could aid in detecting the disease earlier than traditional methods.\n\nAs people who met on the internet, we've also made our growth transparent on the internet, sharing our journey on LinkedIn. By posting our product-building journey and sharing the authentic rationale behind our research and products, we connected with mentors who believed in what we were doing — Y Combinator founders, Pear VC partners, and researchers who took us seriously despite our age.\n\nWe even started receiving messages from students across different countries asking for advice on starting their own health tech projects.\n\nMost recently, we launched our first consumer product, Remembrance, an AI therapeutic service to try to help Alzheimer's patients reconnect with their past. It works by asking gentle questions designed to trigger old memories through reminiscence therapy.\n\nEach recalled memory is automatically organized in knowledge graph databases, making it easy to revisit and build a personal memory repository. Over time, it can suggest related memories on demand, building a personalized memory archive.\n\nThe healthcare market is impenetrable in many ways. When we attempted to approach a local hospital to test our product using actual patient data, we were immediately halted by compliance requirements and institutional review boards.\n\nWe've spent two years discovering that building something in healthcare is harder than we thought. But I wouldn't change it because we learned that at 17 and 18, not at 25 when the stakes feel higher and the fear feels heavier.\n\nReteena might not end up as we imagined, but that's OK. The point was never the destination; it was about learning how to build, understanding that authentic problems matter more than viral success, and realizing you can inspire people by simply trying.\n\nThat's the real experiment. And it's worth every sleepless night.",
+    "readingTime": 5,
+    "keywords": [
+      "a.m i'm",
+      "low-field mri",
+      "alzheimer's diagnostics",
+      "conducting research",
+      "accessible",
+      "internet",
+      "team",
+      "we've",
+      "learning",
+      "night"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/how-high-schooler-launched-startup-with-people-he-met-online-2025-12",
+    "thumbnail_url": "https://i.insider.com/694186af832e0ef1ead64bed?width=1118&format=jpeg",
+    "created_at": "2025-12-22T12:23:30.925Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "clearnotelab-turn-meeting-notes-into-clientready-pdfs-in-30-seconds",
+    "title": "ClearNoteLab – Turn meeting notes into client-ready PDFs in 30 seconds",
+    "description": "Stop wasting hours formatting. Let AI turn your raw notes into polished docs instantly. Free plan available.",
+    "fullText": "Initial consultation and project scoping\n\nMVP development including landing page, signup flow, and dashboard\n\n6 weeks (tight deadline - requires validation)\n\nTimeline is aggressive, idea validation required before full commitment\n\n• Send proposal by Friday\n• Schedule design review session",
+    "readingTime": 1,
+    "keywords": [
+      "validation"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://clearnotelab.com",
+    "thumbnail_url": "https://bolt.new/static/og_default.png",
+    "created_at": "2025-12-22T12:23:28.102Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "breaking-out-the-selective-scalpel-wall-street-sees-ai-stock-trade-as-intact",
+    "title": "Breaking out the 'selective scalpel': Wall Street sees AI stock trade as intact",
+    "description": "The AI trade isn't over. Investors have just become choosier about which players might emerge as winners.",
+    "fullText": "The AI tech trade isn't over. Investors have just become choosier about which players might emerge as winners heading into 2026.\n\nTech (XLK) stocks have been on a rollercoaster recently as concerns over funding for Oracle (ORCL) data centers and construction delays from CoreWeave (CRWV) rattled AI plays.\n\n\"I do believe these are all hyper-valid concerns for the theme, and with the market now breaking out the 'scrutiny scalpel' we are finally seeing appropriate 'winners and losers' dispersion, and that's a good thing,\" Nomura Securities equity derivatives analyst Charlie McElligott wrote in a note on Thursday.\n\nHowever, Micron Technology's (MU) blockbuster results sparked a rebound in AI trades. The memory chipmaker beat Wall Street estimates on Q1 revenue and EPS, helped by AI-fueled demand.\n\nMcElligott compared Micron's earnings' \"upside shock\" to Nvidia's (NVDA) results in May 2023, which acted as a catalyst for the broader AI boom.\n\n\"Point-being, there is still blood left in this AI stone,\" McElligott wrote.\n\nInvestors have been watching for potential funding risks within the AI trade after Oracle stock fell following a Financial Times report that Blue Owl Capital would not support Oracle's $10 billion data center project.\n\nThe concerns are particularly notable given the market concentration among the largest tech companies in the S&P 500 (^GSPC).\n\nGoldman Sachs analysts forecast S&P 500 earnings growth of over 12% in 2026, largely driven by the top seven stocks in the index. Those include Nvidia (NVDA), Apple (AAPL), Microsoft (MSFT), Alphabet (GOOGL, GOOG), Amazon (AMZN), Broadcom (AVGO), and Meta (META). Together, they account for roughly a quarter of the index's earnings.\n\nMeanwhile, the \"Magnificent 7\" tech players are up an average of 21% this year, compared with a 16% gain for the S&P 500, according to Yahoo Finance data.\n\nSevens Report Research founder Tom Essaye told Yahoo Finance he expects to see winners and losers within the group heading into next year.\n\n\"I think we're going to see some pretty massive bifurcation,\" Essaye said.\" The next evolution of this trade, where there are going to be winners and losers within the Mag 7.\"\n\nHe said that his favorite stock is Alphabet because of the growth prospects for Google's Gemini artificial intelligence product.\n\n\"I think companies like Oracle that are not overextended financially, but are sort of raising eyebrows with a lot of the spending that AI, I think that companies like that could struggle,\" he added.",
+    "readingTime": 2,
+    "keywords": [
+      "losers within",
+      "yahoo finance",
+      "winners",
+      "trade",
+      "concerns",
+      "earnings",
+      "investors",
+      "players",
+      "heading",
+      "stocks"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://finance.yahoo.com/news/breaking-out-the-selective-scalpel-wall-street-sees-ai-stock-trade-as-intact-160048510.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/LhCNVSLFiXLWjTxWC3.UIA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2025-10/545f1f70-9fc1-11f0-aed7-439f790388bf",
+    "created_at": "2025-12-22T12:23:26.377Z",
+    "topic": "finance"
+  },
+  {
     "slug": "yann-lecuns-advice-for-young-students-wanting-to-go-into-ai",
     "title": "Yann LeCun's advice for young students wanting to go into AI",
     "description": "Former Meta chief AI scientist Yann LeCun said current and prospective CS students need to focus on skills \"with a long shelf life.\"",
@@ -1936,114 +2060,6 @@
     "link": "https://www.bloomberg.com/news/videos/2025-12-17/see-massive-adoption-of-ai-in-2026-jackson-video",
     "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iJGq5XXRhwJg/v3/-1x-1.jpg",
     "created_at": "2025-12-17T18:18:54.741Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "seema-shah-sees-constructive-macro-backdrop-for-markets-in-2026",
-    "title": "Seema Shah Sees 'Constructive Macro Backdrop' for Markets in 2026",
-    "description": "Seema Shah, Principal Asset Management chief global strategist, discusses how she sees the macroeconomic landscape for markets in 2026 and the outlook for AI stocks on \"Bloomberg Open Interest.\"",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.bloomberg.com/news/videos/2025-12-17/seema-shah-sees-constructive-macro-backdrop-in-2026-video",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ics3sZmsuPCg/v3/-1x-1.jpg",
-    "created_at": "2025-12-17T18:18:51.767Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "oracleblue-owl-split-over-data-center-rattles-markets-banking-on-ai-boom",
-    "title": "Oracle-Blue Owl Split Over Data Center Rattles Markets Banking on AI Boom",
-    "description": "It’s becoming clear that even the slightest hint of trouble around data centers is enough to spook investors who are banking on the artificial-intelligence boom to power equity markets and provide a wave of debt deals in 2026.",
-    "fullText": "TechnologyAIBy Paula Seligson and Preeti SinghSaveIt’s becoming clear that even the slightest hint of trouble around data centers is enough to spook investors who are banking on the artificial-intelligence boom to power equity markets and provide a wave of debt deals in 2026.The latest hiccup centers around Oracle Corp.’s financing for a data center in Michigan. While it’s largely moving along as expected, there’s a key difference: Blue Owl Capital, a longtime partner in its rapid AI infrastructure build-out, opted not to contribute equity.",
-    "readingTime": 1,
-    "keywords": [
-      "centers",
-      "equity"
-    ],
-    "qualityScore": 0.35,
-    "link": "https://www.bloomberg.com/news/articles/2025-12-17/oracle-blue-owl-decoupling-rattles-markets-ahead-of-debt-deluge",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iTmnzNcoOyR8/v1/1200x800.jpg",
-    "created_at": "2025-12-17T18:18:51.356Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "wall-street-hit-by-tech-rout-as-ai-winners-tumble-markets-wrap",
-    "title": "Wall Street Hit by Tech Rout as AI Winners Tumble: Markets Wrap",
-    "description": "Volatility lashed Wall Street, pushing high-valuation tech stocks and crypto lower while bonds pared losses after a senior Federal Reserve official signaled room for rate cuts.",
-    "fullText": "MarketsBy Rita NazarethSaveVolatility lashed Wall Street, pushing high-valuation tech stocks and crypto lower while bonds pared losses after a senior Federal Reserve official signaled room for rate cuts.A tech rout hit stocks amid skepticism about the artificial-intelligence trade. Nvidia Corp. led megacaps lower. Losses accelerated as the S&P 500 broke below a key technical level — even though most of its shares rose. The Nasdaq 100 lost over 1%. Micron Technology Inc. will report earnings after the close.",
-    "readingTime": 1,
-    "keywords": [
-      "stocks",
-      "lower",
-      "losses",
-      "tech"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.bloomberg.com/news/articles/2025-12-16/stock-market-today-dow-s-p-live-updates",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ifFzM2GfM2NA/v0/1200x675.png",
-    "created_at": "2025-12-17T18:18:48.287Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-last-of-us-codirector-i-dont-like-ai",
-    "title": "The Last Of Us Co-Director: \"I Don't Like AI\"",
-    "description": "The Last of Us co-director Bruce Straley has shared his thoughts on using generative AI to aid in game development, saying the technology cannot \"grow and think for itself.\"\nThe technology \"just consumes, and tries to mimic what it's consumed,\" he told Polygon. \"That's the best it can do right now.\" He also described generative AI as \"a snake eating its own tail.\"\nOne of the reasons why AI has been such a contentious issue in gaming is that not everyone defines it the same way.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.gamespot.com/articles/the-last-of-us-co-director-i-dont-like-ai/1100-6537043/?ftag=CAD-01-10abi2f",
-    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1179/11799911/4624665-screenshot2025-12-17at9.40.58%E2%80%AFam.png",
-    "created_at": "2025-12-17T18:18:47.533Z",
-    "topic": "gaming"
-  },
-  {
-    "slug": "why-outcomebilling-makes-sense-for-ai-agents",
-    "title": "Why outcome-billing makes sense for AI Agents",
-    "description": "'Digital worker' is, in fact, a fitting neologism for the AI agent...",
-    "fullText": "Hey AI Agent Developer - yes, you. What is the value you create? Let's find out.\n\nThe Skeptic's Take: Useful vs. Intelligent\n\nOn the spectrum of \"Is AI intelligent and able to reason?\", I fall on the skeptical side. But is it useful? Absolutely. We have built a few AI workflows, and they have unlocked superior automation. Evidently, the world is currently witnessing the transformative potential of AI agents in customer support and coding, to some degree.\n\nTake customer support, for instance. If AI agents help each support employee handle 30% more tickets, that's like adding 30 new hires to a 100-person team, without the cost. For a $100M company, this efficiency gain could translate to $20-30M in additional enterprise value (EV), under sweeping assumptions. The difference in EV between pre- and post-AI agents is the Value you create. Alternatively, one could also use operating income for a flow perspective.\n\n'Digital worker' is, in fact, a fitting neologism for the AI agent. I take the view here that human workers, together with digital workers, can do more, creating abundance. As AI agent developers, we should be asking:\n\nOutcomes Matter. Internals Don't.\n\nThere are two parts to our first question: First, what an AI agent or a workflow does internally, for instance, the number of reasoning steps involved, is irrelevant. However, measuring outcomes such as the number of support tickets resolved or the number of successful hires is directly proportional to the value we want to measure. Second, what share do we take? Simply going by the 10x rule of SaaS pricing guidelines, we can claim one-tenth of what we measured. Thus, measuring outcomes becomes imperative. We have built Valmi to ingest outcomes as the first step. The added complexity that Valmi addresses is where legacy billing systems sputter.\n\nWhy Legacy Billing Systems Don't Cut It\n\nLet's start with the cost argument. Building AI systems is expensive. There are ineffective paths in workflows and autonomous agents that simply fail. LLM costs hit COGS linearly, whereas the marginal cost in traditional SaaS systems is negligible. SaaS generates ~70% gross margins. While cost is an important element in the case of AI agents, legacy systems, such as Stripe and Zuora, are inadequate to capture it.\n\nSecondly, the pricing model. The seat-based model works against selling AI agents, since the seat-based model is under attack from two forces. One is the decrease in the number of human workers required. By pricing against seats, you are setting your AI agents up for decline, not for growth. The other is worse: It does not capture the human-equivalent value, as discussed above. Even the usage-based models that legacy systems support do not distinguish between activity and outcomes.\n\nTo effectively price AI agents, we need to measure outcomes, and observe and allocate costs. To evaluate margin contraction, we also need to understand where outcomes and costs diverge, including in aggregate, for which agents and for which customer instances. Therefore, the top AI agent developers who use outcome-billing, such as Harvey, Sierra and Usepropane, put together two sources: one to track cost information and the other to measure value. And they unified these two sources of information in a single system. Valmi helps you do that very easily. You can bring up the whole billing infrastructure on your premises. We have made it available under a permissive license. No need to do it yourself.\n\nThe Unreliability Problem (And How to Sell Despite It)\n\nOutcome measurement serves a greater purpose. AI is unreliable and not deterministic. We simply do not understand when it succeeds and when it fails. Consequently, it is incumbent upon the buyer of your AI agents to demand proof of value. It is simply easier for you to convince and onboard buyers if you switch to outcome-billing. Why? You assume the risk of failure of your AI agents. But, the buyer simply pays for agent's performance and pays nothing for its failure. To prove the value and help you convince your buyers, Valmi supports customer dashboards that show outcomes such as ticket resolution percentage. Your buyers can view and embed these dashboards in their workflows.\n\nTo sum it up, we have built Valmi, and made available open-source SDKs and free to deploy packages, to address the imperative for your AI agents. It solves outcome-billing that provides proof of value and cost tracking that exposes margin contraction. It lets you simulate and set prices for your AI agents and quickly onboard your customers. We understand hybrid models, combining seat-based, activity and outcomes, will be required in the transitory phase of billing models. Valmi supports all of these as well. Try it out for free or deploy it within your premises.",
-    "readingTime": 4,
-    "keywords": [
-      "valmi supports",
-      "margin contraction",
-      "human workers",
-      "seat-based model",
-      "agent developers",
-      "legacy billing",
-      "measuring outcomes",
-      "billing systems",
-      "agents",
-      "simply"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.valmi.io/blog/an-imperative-for-ai-agents-outcome-billing-with-valmi/",
-    "thumbnail_url": "https://www.valmi.io/blog/content/images/2025/12/Group-1-2.png",
-    "created_at": "2025-12-17T18:18:40.222Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "bernie-sanders-wants-to-temporarily-halt-ai-data-center-construction-nationwide",
-    "title": "Bernie Sanders wants to temporarily halt AI data center construction nationwide",
-    "description": "\"This moratorium will give democracy a chance to catch up with the transformative changes that we are witnessing,\" Sanders said.",
-    "fullText": "Sen. Bernie Sanders wants to put a halt to the multi-trillion-dollar AI infrastructure buildout — at least for now.\n\nIn a video posted to social media on Tuesday, the Vermont senator and two-time presidential candidate said he would begin pushing for a national moratorium on the construction of AI data centers.\n\nHe argued that AI, which he called one of the most \"transformative technologies in the history of humanity,\" is moving too rapidly for lawmakers and citizens to keep up.\n\n\"This moratorium will give democracy a chance to catch up with the transformative changes that we are witnessing and make sure that the benefits of these technologies work for all of us, not just the wealthiest people on Earth,\" Sanders said.\n\nWhile Sanders is not the only AI critic on Capitol Hill, his planned proposal would go further than most. He is likely the first national politician to call for a moratorium on the construction of data centers, which are the primary infrastructure needed to support the expansion of AI.\n\nMajor tech firms like Amazon, Meta, Microsoft, Google, and Apple have collectively spent hundreds of billions of dollars in 2025 on capital expenditures — much of it going toward the chips, servers, and data centers that form the backbone of the AI boom. And they've told investors that they expect to spend even more AI spending in 2026.\n\n\"This process is moving very, very quickly, and we need to slow it down,\" Sanders said. \"We need all of our people, all of our people involved in determining the future of AI, and not just a handful of multi-billionaires.\"\n\nI will be pushing for a moratorium on the construction of data centers that are powering the unregulated sprint to develop & deploy AI.\n\nThe moratorium will give democracy a chance to catch up, and ensure that the benefits of technology work for all of us, not just the 1%. pic.twitter.com/PoV5ziA4oQ\n\nThe Democratic socialist senator listed three major reasons for slowing down the advancement of AI: the fact that it's being promoted by wealthy tech titans, the potential for AI-driven job losses, and the technology's impact on human interaction.\n\n\"Think for a moment about a future when human beings are not interacting with each other and are spending virtually all of their time with devices instead of people,\" Sanders said. \"Is that the kind of future you want? Well, not me.\"\n\nAt this point, it's unlikely that Sanders's vision comes to fruition.\n\nPresident Donald Trump's administration has taken the opposite path, encouraging the rapid construction of data centers in a bid to win the AI race with China.\n\nBut skepticism of AI is continuing to grow on Capitol Hill, with some lawmakers warning about a potential AI bubble and others aiming to limit minors' use of AI chatbots.",
-    "readingTime": 3,
-    "keywords": [
-      "democracy chance",
-      "capitol hill",
-      "moratorium",
-      "centers",
-      "construction",
-      "infrastructure",
-      "senator",
-      "pushing",
-      "transformative",
-      "technologies"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/bernie-sanders-ai-data-center-construction-moratorium-pause-2025-12",
-    "thumbnail_url": "https://i.insider.com/6942c69964858d02d216f331?width=1200&format=jpeg",
-    "created_at": "2025-12-17T18:18:39.641Z",
     "topic": "finance"
   }
 ]
