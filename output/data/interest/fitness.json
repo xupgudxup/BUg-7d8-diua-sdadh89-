@@ -1,5 +1,29 @@
 [
   {
+    "slug": "fixing-hn-comments-with-breadthfirst-navigation",
+    "title": "Fixing HN comments with breadth-first navigation",
+    "description": "I write about the future of work (that is, how to rescue the next Da Vinci from the middle management track), self-empowered tool-building, unconventional takes on fitness & mobility, and imbuing one's lived experience with agency and effortless flow",
+    "fullText": "I made a tool to fix Hacker News comments.\n\nIt’s available at hn-comments.netlify.app.\n\nThe tool solves my biggest frustration, which is best shown with an example.\n\nHere's a submission from a few days ago:\n\nNotice how quickly the conversation topic derails across so many topics before the user has even scrolled down.\n\nThis type of reading experience happens consistently on HN because the vertical layout indiscriminately shows all replies to comments (and also ALL replies to that reply), instead of harmoniously sharing the space with other sibling comments. Sibling comments get starved for attention, while replies always steal the spotlight, dominating the discourse.\n\nThis makes the reading experience feel meandering, scatterbrained, and unfocused. Conversations often feel like they drift into squabbling and pedantry, because that's what the platform design prioritizes and presents.\n\nAs the reader scans top-down, they are effectively led through a “depth-first” traversal into all subdiscussions. Comment replies (no matter their quality or relevance) are always given precedence to sidetrack and derail the reading experience.\n\nThe issue magnifies for larger threads, where most readers never scroll down far enough to get past the first reply, or even the first reply to the first reply. Commenters also pile on to the first comment’s replies, knowing that that is prime real estate, and thus artificially inflating the discourse there.\n\nHere's the same reply thread as above, shown a different way.\n\nThe default HN reading experience is still available, you can read down the leftmost vertical edge and recreate the depth-first comment traversal.\n\nHowever, as you’ll notice, for each level you can now easily see the sibling comments as well and jump to them.\n\nPower-user keyboard shortcuts make all this effortless:\n\nThat’s really it. The magic is in hitting Left / Right which quickly allows you to “opt out” of going down any reply thread rabbit-hole. This is my favorite feature and I call it: “thank u, next”.\n\nLeft / Right gets you breadth-first traversal, instead of depth-first traversal, as a first-class operation. You are in control.\n\nThe tool is available at hn-comments.netlify.app.\n\nOr for your convenience, modify the URL for any comment thread to load it in the tool:\n\nhttps://news.ycombinator.com/item?id=46352930\n\nhttps://hn-comments.netlify.app/item?id=46352930",
+    "readingTime": 2,
+    "keywords": [
+      "reading experience",
+      "sibling comments",
+      "depth-first traversal",
+      "reply thread",
+      "left right",
+      "replies",
+      "tool",
+      "hn-comments.netlify.app",
+      "here's",
+      "notice"
+    ],
+    "qualityScore": 1,
+    "link": "https://pratik.is/writing/essays/hn-comments",
+    "thumbnail_url": "https://pratik.is/og/hn-comments.png",
+    "created_at": "2025-12-24T18:17:33.231Z",
+    "topic": "tech"
+  },
+  {
     "slug": "what-is-vo2max",
     "title": "What Is VO2max?",
     "description": "It measures your cardio fitness, but it's not as important as tech companies want you to think.",
