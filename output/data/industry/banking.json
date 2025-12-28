@@ -1,5 +1,53 @@
 [
   {
+    "slug": "why-reliability-demands-functional-programming",
+    "title": "Why Reliability Demands Functional Programming",
+    "description": "> In banking, telecom, and payments, reliability is not a nice to have. It is table stakes. The most reliable systems I have worked on reduce entire classes of bugs before the code even runs. Functional programming and Algebraic Data Types (ADTs) let you push correctness into the type system, so illegal states cannot be constructed in the first place. **What you will learn** - How invalid states show up in real systems and why they cause costly incidents - How ADTs encode business rules so the compiler enfo...",
+    "fullText": "In banking, telecom, and payments, reliability is not a nice to have. It is table stakes. The most reliable systems I have worked on reduce entire classes of bugs before the code even runs. Functional programming and Algebraic Data Types (ADTs) let you push correctness into the type system, so illegal states cannot be constructed in the first place.\n\nMost production incidents are not due to complex algorithms. They are due to the code entering a state that should never have been possible. If you have been on call, you have seen variants of these:\n\nFunctional programming helps by modeling the domain with types that make invalid states unrepresentable. Pure functions and immutability keep behavior predictable and testable.\n\nProduct types combine fields, think \"and\". Sum types choose one of several cases, think \"or\". Together they model your domain rules.\n\nWith this shape, \"paypal\" cannot exist as a Payment. The compiler refuses the value.\n\nWhen you pattern match on a sum type, the compiler can force you to handle every variant. If you later add a new case, every non exhaustive match becomes a compilation error or warning. This is how refactors become safe by default.\n\nAdd a new Crypto method and both code bases will point out every place you must update.\n\nIncident story\n\nA payout worker retries on network timeouts and calls settle() twice. The table allows pending = false and settled = true twice with the same ledger id. Reconciliation finds duplicates and accounting needs a manual fix.\n\nWhy it happened\n\nState is spread across booleans and strings. The database does not express the lifecycle. The application code does, but only by convention and tests.\n\nTransitions become total functions. You can return a Result when a transition is not allowed.\n\nNow the illegal transitions are blocked by construction. Test coverage still matters, but the shape of the model prevents a class of bugs.\n\nRefactor safety\n\nWhen product adds Chargeback, the compiler highlights every match that ignores it. You cannot ship with a half handled lifecycle.\n\nEvery switch on TxnState now requires a chargeback branch. This is free guidance from the compiler.\n\nIncident story\n\nThe call detail record pipeline generates billing events whenever it sees a Connected event. Under jitter and retries, some sessions never receive Completed. The billing system charges based on the wrong boundary and customers complain.\n\nWhy it happened\n\nThe call lifecycle is implicit across many services. A connected session with no end was still billable because there was no type that separated non billable states from billable ones.\n\nNow a connected but never completed call cannot produce a billable duration. The shape forbids the bug.\n\nIncident story\n\nA cache TTL is stored in an environment variable. Someone sets CACHE_TTL_SECS=30s. In JavaScript, Number(\"30s\") yields NaN and your code treats it as zero, disabling caching in production.\n\nThe ambiguity disappears. The code must handle absence and parse errors explicitly.\n\nDo not use null to mean \"maybe\". Do not throw exceptions for expected errors.\n\nThese types make the happy path and the error path equally explicit.\n\nMutable shared state is a common source of heisenbugs under concurrency. Prefer immutable data and pure functions. When you need to update, create a new value.\n\nYour tests become simple. Given the same inputs, the function returns the same output.\n\nNumbers are not self describing. Create types that carry meaning.\n\nYou stop mixing milliseconds with seconds or dollars with cents by accident.\n\nKeep the domain logic pure and push IO to the edges. This makes unit tests cheap and fast.\n\nStart small and make continuous progress. Here is a practical order for a team new to these ideas.\n\nReplace pairs of booleans with a sum type\n\nReplace string enums with discriminated unions\n\nReplace nullable fields with Option\n\nReplace thrown control flow with Result\n\nIntroduce newtypes or branded types for units and ids\n\nPattern matching compiles to simple branches. Discriminated unions in TypeScript are just plain objects. The main cost you will feel is validation at the boundaries in smart constructors. This is a trade worth making. The compiler then protects the interior of the system.\n\nReliability is designed. With Algebraic Data Types, pattern matching, Option and Result, immutability, and smart constructors, you encode domain rules directly in your types. Illegal states cannot compile. This is why industries that cannot afford failure, such as banking and telecom, gravitate to functional ideas.\n\nIf you work on code that touches money, minutes, or public availability, adopt these patterns now.\n\nYour on call shifts will be quieter, and your users will notice the difference.",
+    "readingTime": 4,
+    "keywords": [
+      "functional programming",
+      "discriminated unions",
+      "smart constructors",
+      "pattern matching",
+      "domain rules",
+      "pure functions",
+      "code",
+      "cannot",
+      "compiler",
+      "billable"
+    ],
+    "qualityScore": 1,
+    "link": "https://blog.rastrian.dev/post/why-reliability-demands-functional-programming-adts-safety-and-critical-infrastructure",
+    "thumbnail_url": "https://rastrian.dev/assets/img/profile.png",
+    "created_at": "2025-12-28T01:03:21.884Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ripple-leverages-japanese-banking-giants-to-drive-xrp-ledger-activity",
+    "title": "Ripple Leverages Japanese Banking Giants to Drive XRP Ledger Activity",
+    "description": "Ripple is expanding its presence in Japan through a startup program backed by major financial institutions to drive adoption of XRPL.",
+    "fullText": "Ripple Labs is doubling down on its presence in Japan, drawing on longstanding relationships with the country’s traditional financial institutions. The strategy is aimed at increasing adoption and interest in the XRP Ledger (XRPL).\n\nThis week, Asia Web3 Alliance Japan and Web3 Salon launched the Japan Financial Infrastructure Innovation Program. The initiative is designed to support Japanese startups developing next-generation, compliant digital financial solutions on the XRP Ledger.\n\nThe program opened applications on December 19 and is offering a $10,000 grant per startup. It is narrowly focused on three high-value verticals, including stablecoins, real-world asset tokenization, and credit infrastructure.\n\n\"Japan offers an overwhelming opportunity for blockchain innovation, supported by a forward-thinking regulatory framework and deep talent pool. This program represents Ripple's commitment to fostering a vibrant ecosystem where startups can leverage the speed, low cost, and reliability of the XRP Ledger to create real-world benefits and transform financial infrastructure,\" Christina Chan, Senior Director of Developer Growth at RippleX, said.\n\nAnalysts view it as a low-cost funnel for identifying candidates for Ripple’s significantly larger capital pool, including the 1 billion XRP fund dedicated to developers in Japan and Korea.\n\nThe program has secured backing from a formidable roster of establishment players, including Mizuho Bank, SMBC Nikko Securities, and Securitize Japan.\n\nDespite the initiative's high-profile corporate backing, it comes at a precarious moment for the network. While Ripple touts institutional adoption, the underlying usage of the XRPL tells a conflicting story of contraction.",
+    "readingTime": 2,
+    "keywords": [
+      "financial infrastructure",
+      "program",
+      "adoption",
+      "innovation",
+      "startups",
+      "real-world",
+      "pool",
+      "backing",
+      "japan",
+      "ledger"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://finance.yahoo.com/news/ripple-leverages-japanese-banking-giants-115544886.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/MuNhNQFxlIg7agE8w762gw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/beincrypto_us_662/3acadf198140009b282ba88e6c540624",
+    "created_at": "2025-12-28T01:03:14.958Z",
+    "topic": "finance"
+  },
+  {
     "slug": "bloomberg-surveillance-12262025",
     "title": "Bloomberg Surveillance 12/26/2025",
     "description": "Jonathan Ferro, Lisa Abramowicz and Annmarie Hordern speak daily with leaders and decision makers from Wall Street to Washington and beyond. No other program better positions investors and executives for the trading day.",

@@ -1,5 +1,53 @@
 [
   {
+    "slug": "why-reliability-demands-functional-programming",
+    "title": "Why Reliability Demands Functional Programming",
+    "description": "> In banking, telecom, and payments, reliability is not a nice to have. It is table stakes. The most reliable systems I have worked on reduce entire classes of bugs before the code even runs. Functional programming and Algebraic Data Types (ADTs) let you push correctness into the type system, so illegal states cannot be constructed in the first place. **What you will learn** - How invalid states show up in real systems and why they cause costly incidents - How ADTs encode business rules so the compiler enfo...",
+    "fullText": "In banking, telecom, and payments, reliability is not a nice to have. It is table stakes. The most reliable systems I have worked on reduce entire classes of bugs before the code even runs. Functional programming and Algebraic Data Types (ADTs) let you push correctness into the type system, so illegal states cannot be constructed in the first place.\n\nMost production incidents are not due to complex algorithms. They are due to the code entering a state that should never have been possible. If you have been on call, you have seen variants of these:\n\nFunctional programming helps by modeling the domain with types that make invalid states unrepresentable. Pure functions and immutability keep behavior predictable and testable.\n\nProduct types combine fields, think \"and\". Sum types choose one of several cases, think \"or\". Together they model your domain rules.\n\nWith this shape, \"paypal\" cannot exist as a Payment. The compiler refuses the value.\n\nWhen you pattern match on a sum type, the compiler can force you to handle every variant. If you later add a new case, every non exhaustive match becomes a compilation error or warning. This is how refactors become safe by default.\n\nAdd a new Crypto method and both code bases will point out every place you must update.\n\nIncident story\n\nA payout worker retries on network timeouts and calls settle() twice. The table allows pending = false and settled = true twice with the same ledger id. Reconciliation finds duplicates and accounting needs a manual fix.\n\nWhy it happened\n\nState is spread across booleans and strings. The database does not express the lifecycle. The application code does, but only by convention and tests.\n\nTransitions become total functions. You can return a Result when a transition is not allowed.\n\nNow the illegal transitions are blocked by construction. Test coverage still matters, but the shape of the model prevents a class of bugs.\n\nRefactor safety\n\nWhen product adds Chargeback, the compiler highlights every match that ignores it. You cannot ship with a half handled lifecycle.\n\nEvery switch on TxnState now requires a chargeback branch. This is free guidance from the compiler.\n\nIncident story\n\nThe call detail record pipeline generates billing events whenever it sees a Connected event. Under jitter and retries, some sessions never receive Completed. The billing system charges based on the wrong boundary and customers complain.\n\nWhy it happened\n\nThe call lifecycle is implicit across many services. A connected session with no end was still billable because there was no type that separated non billable states from billable ones.\n\nNow a connected but never completed call cannot produce a billable duration. The shape forbids the bug.\n\nIncident story\n\nA cache TTL is stored in an environment variable. Someone sets CACHE_TTL_SECS=30s. In JavaScript, Number(\"30s\") yields NaN and your code treats it as zero, disabling caching in production.\n\nThe ambiguity disappears. The code must handle absence and parse errors explicitly.\n\nDo not use null to mean \"maybe\". Do not throw exceptions for expected errors.\n\nThese types make the happy path and the error path equally explicit.\n\nMutable shared state is a common source of heisenbugs under concurrency. Prefer immutable data and pure functions. When you need to update, create a new value.\n\nYour tests become simple. Given the same inputs, the function returns the same output.\n\nNumbers are not self describing. Create types that carry meaning.\n\nYou stop mixing milliseconds with seconds or dollars with cents by accident.\n\nKeep the domain logic pure and push IO to the edges. This makes unit tests cheap and fast.\n\nStart small and make continuous progress. Here is a practical order for a team new to these ideas.\n\nReplace pairs of booleans with a sum type\n\nReplace string enums with discriminated unions\n\nReplace nullable fields with Option\n\nReplace thrown control flow with Result\n\nIntroduce newtypes or branded types for units and ids\n\nPattern matching compiles to simple branches. Discriminated unions in TypeScript are just plain objects. The main cost you will feel is validation at the boundaries in smart constructors. This is a trade worth making. The compiler then protects the interior of the system.\n\nReliability is designed. With Algebraic Data Types, pattern matching, Option and Result, immutability, and smart constructors, you encode domain rules directly in your types. Illegal states cannot compile. This is why industries that cannot afford failure, such as banking and telecom, gravitate to functional ideas.\n\nIf you work on code that touches money, minutes, or public availability, adopt these patterns now.\n\nYour on call shifts will be quieter, and your users will notice the difference.",
+    "readingTime": 4,
+    "keywords": [
+      "functional programming",
+      "discriminated unions",
+      "smart constructors",
+      "pattern matching",
+      "domain rules",
+      "pure functions",
+      "code",
+      "cannot",
+      "compiler",
+      "billable"
+    ],
+    "qualityScore": 1,
+    "link": "https://blog.rastrian.dev/post/why-reliability-demands-functional-programming-adts-safety-and-critical-infrastructure",
+    "thumbnail_url": "https://rastrian.dev/assets/img/profile.png",
+    "created_at": "2025-12-28T01:03:21.884Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "jeffrey-r-holland-next-in-line-to-lead-church-of-jesus-christ-of-latterday-saints-dies-at-85",
+    "title": "Jeffrey R. Holland, next in line to lead Church of Jesus Christ of Latter-day Saints, dies at 85",
+    "description": "Jeffrey R. Holland, a high-ranking official in the Church of Jesus Christ of Latter-day Saints who was next in line to become the faith's president, has died.  Holland died early Saturday morning from complications associated with kidney disease, the church announced on its website.  Holland, who died in Salt Lake City, led a governing body called the Quorum of the Twelve Apostles, which helps set church policy while overseeing the many business interests of what is known widely as the Mormon church.",
+    "fullText": "SALT LAKE CITY (AP) — Jeffrey R. Holland, a high-ranking official in the Church of Jesus Christ of Latter-day Saints who was next in line to become the faith's president, has died. He was 85.\n\nHolland died early Saturday morning from complications associated with kidney disease, the church announced on its website.\n\nHolland, who died in Salt Lake City, led a governing body called the Quorum of the Twelve Apostles, which helps set church policy while overseeing the many business interests of what is known widely as the Mormon church.\n\nHe was the longest-tenured member of the Quorum of the Twelve after President Dallin H. Oaks, making him next in line to lead the church under a long-established succession plan. Oaks, 93, became president of the church and its more than 17 million-strong global membership in October.\n\nHenry B. Eyring, who is 92 and one of Oaks' two top counselors, is now next in line for the presidency.\n\nHolland had been hospitalized during the Christmas holiday for ongoing health complications, the church said. Experts on the faith pointed to his declining health in October when Oaks did not select Holland as a counselor.\n\nHis death leaves a vacancy in the Quorum of the Twelve that Oaks will fill in coming months, likely by calling a new apostle from a lower-tier leadership council. Apostles are all men in accordance with the church’s all-male priesthood.\n\nHolland grew up in St. George, Utah, and worked for many years in education administration before his call to join the ranks of church leadership. He served as the ninth president of Brigham Young University, the Utah-based faith's flagship school, from 1980 to 1989 and was a commissioner of the church’s global education system.\n\nUnder his leadership, the Provo university worked to improve interfaith relations and established a satellite campus in Jerusalem. The Anti-Defamation League later honored Holland with its “Torch of Liberty” award for helping foster greater understanding between Christian and Jewish communities.\n\nOaks, also a former BYU president, reflected Saturday on his more than 50 years of friendship and service with Holland, calling their relationship “long and loving.”\n\n“Over the last three decades as a member of the Quorum of the Twelve Apostles, he lifted the weary, encouraged the faithful and bore a powerful witness of the Savior — even through seasons of significant personal trials,” Oaks said.\n\nHolland was known as a dynamic orator whose sermons combined scholarship with tenderness. In 2013 he spoke to church members about supporting loved ones with depression and other mental illnesses, sharing openly about times when he felt “like a broken vessel.”\n\nHolland is widely remembered for a 2021 speech in which he called on church members to take up metaphorical muskets in defense of the faith's teachings against same-sex marriage. The talk, known colloquially as “the musket fire speech,” became required reading for BYU freshmen in 2024, raising concern among LGBTQ+ students and advocates.\n\nUtah Gov. Spencer Cox, a Latter-day Saint, said no church leader has had a more profound impact on his faith than Holland.\n\n“His words had a way of penetrating my soul like no other,” Cox said. “In times of trial or darkness, I would return to them over and over again and feel the light and peace I needed.”\n\nHolland was preceded in death by his wife, Patricia Terry Holland. He is survived by their three children, 13 grandchildren and several great-grandchildren.\n\nThis story has been corrected to show that Holland was preceded in death by his wife.",
+    "readingTime": 3,
+    "keywords": [
+      "salt lake",
+      "lake city",
+      "twelve apostles",
+      "church",
+      "holland",
+      "quorum",
+      "faith's",
+      "died",
+      "death",
+      "leadership"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.yahoo.com/news/articles/jeffrey-r-holland-next-line-150102114.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/Sz87KAlnU5Ke24_m5ELhzw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MjQ7Y2Y9d2VicA--/https://media.zenfs.com/en/ap.org/039477bfdada04014ec08aa136615bbf",
+    "created_at": "2025-12-28T01:03:15.799Z",
+    "topic": "news"
+  },
+  {
     "slug": "another-furniture-chain-closes-all-its-stores-with-no-notice",
     "title": "Another furniture chain closes all its stores with no notice",
     "description": "There's no good time for a business to close and lay off all its employees, but an unexpected shutdown just before Christmas hits workers extra hard. \"United States-based employers announced 71,321 layoffs in November,\" according to an analysis from outplacement firm Challenger, Gray & ...",
@@ -2090,34 +2138,6 @@
     "link": "https://www.businessinsider.com/support-small-businesses-during-holiday-season-gift-giving-ideas-2025-12",
     "thumbnail_url": "https://i.insider.com/6940777404eda4732f2d8ec9?width=1200&format=jpeg",
     "created_at": "2025-12-16T03:49:40.324Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "oracle-a-show-me-story-on-big-ai-debt-bet-jpmorgan-says",
-    "title": "Oracle a ‘Show Me Story’ on Big AI Debt Bet, JPMorgan Says",
-    "description": "Oracle Corp.’s aggressive artificial intelligence spending plan has put the cloud computing giant’s corporate bonds under a harsh spotlight as Wall Street searches for cracks in the AI boom.",
-    "fullText": "MarketsBy Caleb MutuaSaveOracle Corp.’s aggressive artificial intelligence spending plan has put the cloud computing giant’s corporate bonds under a harsh spotlight as Wall Street searches for cracks in the AI boom.JPMorgan Chase & Co. credit analyst Erica Spear expects pressures on the company’s bonds will persist in the new year.",
-    "readingTime": 1,
-    "keywords": [
-      "bonds"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.bloomberg.com/news/articles/2025-12-15/oracle-a-show-me-story-after-big-ai-debt-bet-jpmorgan-says",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ib7h_uanyDV0/v1/1200x800.jpg",
-    "created_at": "2025-12-15T18:58:03.458Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "openai-hires-veteran-google-executive-as-corporate-development-vp",
-    "title": "OpenAI hires veteran Google executive as corporate development VP",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/openai-hires-veteran-google-executive-as-corporate-development-vp-4408927",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPELBE156_L.jpg",
-    "created_at": "2025-12-15T18:57:50.734Z",
     "topic": "finance"
   }
 ]
