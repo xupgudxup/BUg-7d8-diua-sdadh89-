@@ -1,5 +1,29 @@
 [
   {
+    "slug": "the-story-of-realpomo",
+    "title": "The Story of Realpomo",
+    "description": "I designed, built, and shipped this small Pomodoro timer called realpomo — with the help of AI. This is the story of how it came together.",
+    "fullText": "It started with something ordinary: watching my toddler use a physical timer to set boundaries around playtime and transitions. Twist the dial. Hear the click. Time feels real. I wondered whether a digital Pomodoro timer could feel that grounded — and whether I could actually ship one, not just design it.\n\nI'm a product designer by training. This was my first time owning every step of a desktop app end‑to‑end. What surprised me wasn't how fast I could build — it was how much there was to learn to actually ship.\n\nEvery interaction started as an experiment. I began in VS Code with GitHub Copilot, feeding it pictures of the physical timer I have and iterating directly in code. The UI took shape through behavior and feel — guided by a mental model, the object on my desk, and a lot of prompting and iteration.\n\nThen I tried Figma Make - because why not. With the same images and a simple prompt, it one‑shotted a clock UI that looked and behaved remarkably right — UI, interactions, look-and-feel. I was quite blown away, actually.\n\nThat was the pivot. I stopped looking for one perfect tool and started matching tools to phases. Figma Make helped me find the shape. VS Code and Cursor helped me turn it into a real system.\n\nThis felt like a meaningful shift in how design can happen: less about drawing artifacts up front, more about imagining clearly, expressing intent, and shaping the thing directly where it lives.\n\nDesigning the dial felt familiar. Implementing it didn't.\n\n\"Snap to minutes\" sounded simple until it wasn't. Dragging the hand couldn't constantly update state. Snapping at the minute marker had to happen on release. Overshoot needed to be allowed. Settling had to feel intentional.\n\nThe physical dial was the anchor, but this was still a digital product. Presets and readouts needed to be fast and precise, without losing the calm, tactile quality of the interaction.\n\nNothing was broken — it just didn't feel right yet.\n\nAI made that fine‑tuning approachable. I'd observe behavior, ask why something felt off, make a small change, test it, and repeat — until the interaction matched the taste I had in mind.\n\nSound was meant to be subtle. It ended up teaching me a lot.\n\nI explored free sound libraries, trimmed tiny fragments, and tuned them until they paired naturally with the dial — quiet, mechanical, easy to live with (thanks to ChatGPT)\n\nThen the surprise: the ticking sound worked locally but vanished in the packaged macOS app. The completion chime survived. The tick didn't.\n\nOne sound was synthesized. The other relied on bundled assets, paths, and runtime assumptions.\n\nIt wasn't a sound problem. It was a shipping problem.\n\nThe app worked locally long before it was usable by anyone else.\n\nMacOS security warnings sent me into code signing rabbit hole. CI builds succeeded but produced unusable artifacts. Secrets existed but were empty - result of not reviewing generated code. The website needed logic, not just copy. Even the app icon only became real once publishing forced the question.\n\nNone of this felt like failure. It felt like discovering a layer I hadn't been thinking about. Shipping turned out to be its own craft. Pipelines are systems. And there's a whole lot of effort in taking something that works locally to one that's shippable.\n\nAs a product designer working on Visual Studio and GitHub Copilot, I also experienced this project through another lens: thinking about what it means to build next‑generation IDEs for professional developers while using AI as a first‑class collaborator.\n\nI noticed how much context mattered, how progress indicators changed perceived speed, and how well today's tools understand entire repositories. Most real evaluation didn't happen in code — it happened by running the app and seeing how it behaved.\n\nThere's a lot here that carries back into my day job: designing AI interactions, surfacing progress clearly, managing context well, enabling powerful reviewing process, helping builders stay oriented while real work happens.\n\nrealpomo isn't a big app. That's the point.\n\nAI let me experience the full end‑to‑end arc of building software myself, over a weekend. That built real empathy for the many disciplines that come together to ship a product — and gave me a Pomodoro timer I could genuinely use.\n\nI set out to design a timer app for personal productivity. I ended up learning how real software gets made. That shift has been the most valuable part of this project.",
+    "readingTime": 4,
+    "keywords": [
+      "pomodoro timer",
+      "product designer",
+      "physical timer",
+      "figma make",
+      "sound",
+      "dial",
+      "didn't",
+      "ship",
+      "wasn't",
+      "interaction"
+    ],
+    "qualityScore": 1,
+    "link": "https://romalpani.github.io/realpomo/story.html",
+    "thumbnail_url": "https://romalpani.github.io/realpomo/app-1.png",
+    "created_at": "2026-01-03T06:18:31.815Z",
+    "topic": "tech"
+  },
+  {
     "slug": "spotify-wrapped-season-dont-outsource-your-love-of-music-to-ai",
     "title": "Spotify Wrapped season, don't outsource your love of music to AI",
     "description": "The streamer’s annual charts are just another version of the tech that’s alienating us from our inner lives. Hold on to your musical memories and reclaim ownership of your taste",
@@ -2085,29 +2109,5 @@
     "thumbnail_url": "/resources/images/article_assets/2025/12/Dec25_19_HBRStaff.gif",
     "created_at": "2025-12-29T18:18:04.121Z",
     "topic": "business"
-  },
-  {
-    "slug": "softbank-to-acquire-digitalbridge-for-4bn-in-move-to-deepen-ties-to-ai",
-    "title": "SoftBank to acquire DigitalBridge for $4bn in move to deepen ties to AI",
-    "description": "Acquisition would further expand SoftBank’s investments in artificial intelligence as it tries to center itself in the boom\nSoftBank Group will acquire digital infrastructure investor DigitalBridge Group in a deal valued at $4bn, the companies said on Monday, as the Japanese investment firm looks to deepen its AI-related portfolio.\nThe acquisition would expand SoftBank’s exposure to digital infrastructure as the Japanese conglomerate is positioning its portfolio to focus on artificial intelligence.",
-    "fullText": "Acquisition would further expand SoftBank’s investments in artificial intelligence as it tries to center itself in the boom\n\nSoftBank Group will acquire digital infrastructure investor DigitalBridge Group in a deal valued at $4bn, the companies said on Monday, as the Japanese investment firm looks to deepen its AI-related portfolio.\n\nThe acquisition would expand SoftBank’s exposure to digital infrastructure as the Japanese conglomerate is positioning its portfolio to focus on artificial intelligence.\n\n SoftBank’s billionaire founder Masayoshi Son is seeking to capitalize on surging demand for the computing capacity that underpins artificial intelligence applications.\n\nDigitalBridge invests in digital infrastructure sectors such as datacenters, cell towers, fiber networks, small-cell systems and edge infrastructure, with a portfolio including companies such as Vantage Data Centers, Zayo, Switch and AtlasEdge.\n\nFounded in 1991 as real estate-focused Colony Capital, the firm pivoted under CEO Marc Ganzi into digital infrastructure and rebranded as DigitalBridge in 2021 after shedding most of its legacy property assets.\n\nGanzi will continue leading DigitalBridge as a separately managed platform, the companies said.\n\nAs of 30 September, DigitalBridge managed around $108bn in assets, making it one of the largest dedicated investors in the digital ecosystem.\n\nSoftBank has ramped up investment in AI as it seeks to position itself at the center of what Son has called a once-in-a-generation technological shift.\n\nThe company, along with OpenAI, Oracle and Abu Dhabi-based tech investor MGX, is investing billions of dollars in the Stargate project, a large-scale computing and infrastructure initiative aimed at supporting advanced AI development.\n\nOpenAI, Oracle and SoftBank said in September they plan to build five new computing sites across Texas, New Mexico and Ohio, which are expected to have a combined power capacity of about 7GW when in operation.",
-    "readingTime": 2,
-    "keywords": [
-      "openai oracle",
-      "expand softbank’s",
-      "artificial intelligence",
-      "digital infrastructure",
-      "portfolio",
-      "computing",
-      "acquisition",
-      "center",
-      "investor",
-      "japanese"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.theguardian.com/technology/2025/dec/29/softbank-digitalbridge-deal-artificial-intelligence",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/8ecf41b945b21222316c10c86684d2d4dd3e86fd/830_427_2876_2303/master/2876.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5092cba3ac287ac1d9915ff3e4193c0f",
-    "created_at": "2025-12-29T18:18:02.347Z",
-    "topic": "tech"
   }
 ]
