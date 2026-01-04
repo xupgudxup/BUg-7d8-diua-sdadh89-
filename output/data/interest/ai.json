@@ -1,5 +1,90 @@
 [
   {
+    "slug": "semantic-redaction-why-context-matters-for-privacy-in-ai",
+    "title": "Semantic Redaction: Why Context Matters for Privacy in AI",
+    "description": "Discover why Regex destroys LLM performance and how Semantic Redaction protects PII while preserving the context and grammar your AI needs to reason effectively.",
+    "fullText": "For the last twenty years, data security has largely been a game of \"Find and Destroy.\"\n\nIn the era of databases and emails, protecting Personally Identifiable Information (PII) was a binary problem. If a credit card number appeared in a log, you scrubbed it. If a social security number appeared in an email, you blocked it. The tool of choice was Regular Expressions (Regex). That's simple, rigid pattern matching.\n\nBut we aren't working with databases anymore. We are working with Large Language Models or LLMs (well, we still are working with databases of course, but you know what I mean).\n\nWhen you apply the blunt force of Regex to the delicate probability engines of GenAI, you might secure the data, but you often break the intelligence. To build AI that is both safe and smart, we need to move beyond pattern matching toward Semantic Redaction.\n\nHere is why context matters, and why your redaction strategy is likely killing your LLM’s performance.\n\nImagine you are handing a legal contract to a human lawyer, but before you do, you take a sharpie and blackout every name, date, and corporation. You then ask the lawyer: \"Who is liable in this agreement?\"\n\nThe lawyer can’t answer. Not because they don't know the law, but because you destroyed the relational context necessary to apply it.\n\nRegex-based redaction functions like that black sharpie. It looks for patterns (like [A-Z][a-z]+) and replaces them with a generic mask like [REDACTED] or ******.\n\nLLMs operate on probability. They predict the next token based on the sequence of tokens that came before. When you replace a specific entity with a generic mask, you flatten the probability distribution.\n\n\"John told Mary that he couldn't attend the meeting because Alice was sick.\"\n\nIf you use a simple Regex or keyword list to redact this, you might get:\n\n\"*** told *** that he couldn't attend the *** because *** was sick.\"\n\nTo an LLM (and a human for that matter), this sentence is now mathematically and semantically garbage. The model has lost the subject-object relationships (Attention is all you need, remember?). It doesn't know who told whom, or who (or what) was sick. If you ask the LLM \"Why did John miss the meeting?\", it will hallucinate or refuse to answer because the critical anchors of the narrative are gone.\n\nSemantic Redaction (often powered by Named Entity Recognition or NER or nowadays Small Language Models SLMs) takes a different approach. Instead of destroying the data, it transforms it while preserving the structure.\n\nIt doesn't just look for patterns; it looks for context. It understands that \"Apple\" in \"Apple pie\" is a food, but \"Apple\" in \"Apple Inc.\" is an organization.\n\nMore importantly, it replaces sensitive data with Typed Tokens that maintain referential integrity.\n\nLet’s look at that previous example through the lens of Semantic Redaction.\n\n\"John told Mary that he couldn't attend the meeting because Alice was sick.\"\n\n\"[PERSON_1] told [PERSON_2] that he couldn't attend the meeting because [PERSON_3] was sick.\"\n\nThis looks similar, but to an LLM, it is a world of difference.\n\nType Safety: The model knows [PERSON_1] is a human, not a location or a date. It retains the reasoning that humans have agency and can \"tell\" things.\n\nConsistency: If [PERSON_1] appears later in the document, the model understands it is the same person.\n\nGrammar: The sentence structure remains intact.\n\nNow, if you ask the LLM \"Why did [PERSON_1] miss the meeting?\", it can accurately reason: \"Because [PERSON_3] was sick.\"\n\nThe secret remains safe—the LLM never saw \"John\" or \"Alice\"—but the logic of the interaction was preserved.\n\nAdvanced infrastructure tools like Rehydra go a step beyond simple placeholders. They analyze and preserve non-identifiable attributes (such as grammatical gender) to maintain linguistic fluency.\n\nIn our example, \"John\" is associated with the pronoun \"he.\" If a redaction tool strips away all gender indicators, the LLM might get confused, producing robotic outputs like \"The entity couldn't attend\" or incorrectly guessing \"She couldn't attend.\"\n\nRehydra solves this by attaching metadata to the token. It detects that [PERSON_1] is male and [PERSON_2] is female without revealing who they are. This allows the LLM to use the correct pronouns (he/him or she/her) in its response, ensuring the generated text reads naturally while the actual identities remain completely opaque.\n\nThe ultimate goal of Semantic Redaction isn't just to hide data; it's to make the AI useful. This leads to the concept of Rehydration.\n\nBecause we used unique placeholders ([PERSON_1]), we can create a secure lookup table locally. When the LLM sends back its answer \"The agreement states that [PERSON_3] is liable\" the local system can instantly swap the token back to the real name.\n\nThe user sees the real data. The AI sees the safe tokens. The compliance team sees a clean audit log.\n\nAs we move from simple chatbots to complex autonomous agents, the quality of our inputs matters more than ever. We cannot afford to treat AI prompts like dirty database logs that need to be scrubbed into oblivion.\n\nSecurity doesn't have to mean stupidity. By moving from Regex to Semantic Redaction, we allow our LLMs to reason about our data without ever actually seeing it. We keep the context, and we keep the secrets.\n\nRehydra (Github) provides the infrastructure for semantic anonymization and real-time rehydration. Stop fighting with Regex and start building safe, intelligent AI.",
+    "readingTime": 5,
+    "keywords": [
+      "language models",
+      "pattern matching",
+      "generic mask",
+      "couldn't attend",
+      "semantic redaction",
+      "llm why",
+      "sick",
+      "simple",
+      "context",
+      "security"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.rehydra.ai/blog/semantic-redaction-vs-regex-why-context-matters-for-pii",
+    "thumbnail_url": "https://framerusercontent.com/images/VBLRcIARtNgBPr6uHhKKr9idL8.png?width=2400&height=1451",
+    "created_at": "2026-01-04T12:21:16.627Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "when-ai-health-advice-fails-the-failure-is-not-accuracy-it-is-evidence",
+    "title": "When AI Health Advice Fails, the Failure Is Not Accuracy. It Is Evidence",
+    "description": "AI health advice failures are governance failures. Without contemporaneous evidence, AI outputs cannot be reconstructed, audited, or defended under regulatory scrutiny.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.aivojournal.org/when-ai-health-advice-fails-the-failure-is-not-accuracy-it-is-evidence/",
+    "thumbnail_url": "https://www.aivojournal.org/content/images/size/w1200/2026/01/ChatGPT-Image-Jan-4--2026-at-10_05_13-AM.png",
+    "created_at": "2026-01-04T12:21:15.759Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-visual-prompt-engine-that-turns-one-word-into-a-full-ai-art-brief",
+    "title": "A visual \"prompt engine\" that turns one word into a full AI art brief",
+    "description": "Unlock infinite creativity with Z-Image Creative Engine. Visually expand ideas, combine concepts, and generate unique AI art prompts instantly.",
+    "fullText": "Transform a single idea into infinite creative possibilities. Visualize, expand, and combine concepts to craft the perfect prompt.\n\nThis tool requires a larger screen for the best experience.\n\nPlease visit this page on a desktop or laptop computer.\n\nSee how Creative Engine transforms a simple keyword like 'Cyberpunk' into a richly detailed, visually stunning futuristic cityscape through structured expansion.\n\nCreative Engine is an advanced visual brainstorming tool that uses AI to expand your initial concept into a network of related subjects, atmospheres, and styles. By exploring this semantic web, you can discover unexpected combinations and generate unique, high-quality prompts for AI image generation.\n\nBreak through creative blocks with structured AI inspiration.\n\nNavigate a dynamic mind map of concepts instead of staring at a blank text box.\n\nOne keyword triggers hundreds of related ideas, ensuring you never run out of inspiration.\n\nIntelligently combines disparate elements into coherent, professionally formatted prompts.\n\nIn AI art creation, the biggest challenge is often not technology, but a lack of imagination. Facing a blank input box, we often fall into mental ruts. Creative Engine was born to solve this pain point.\n\nIt is not just a prompt generator, but a visual thinking tool. Based on graph theory and semantic association algorithms, it transforms abstract concepts into visual node networks. When you enter a core keyword, the AI instantly associates dozens of related styles, artists, lighting effects, and compositions.\n\nThrough simple clicking and exploration, you can design complex scenes in minutes that used to take hours of conception. This structured creative process not only improves efficiency but more importantly, guides you out of your comfort zone to explore artistic combinations you never imagined.\n\nStart with a simple core concept or keyword to ignite the engine.\n\nNavigate the semantic network. Click nodes to select the ingredients for your prompt.\n\nLet the engine synthesize your selections into multiple polished, ready-to-use prompts.\n\nExplore our most popular creative tools\n\nUpload image, transform with one sentence\n\nUpload image, retrieve prompt instantly.\n\nDiscover thousands of high-quality AI prompts.\n\nExplore curated artistic styles for your creations.\n\nTurn your text into stunning images instantly.",
+    "readingTime": 2,
+    "keywords": [
+      "prompts explore",
+      "creative engine",
+      "keyword",
+      "concepts",
+      "tool",
+      "simple",
+      "structured",
+      "visual",
+      "related",
+      "styles"
+    ],
+    "qualityScore": 1,
+    "link": "https://z-image.me/en/prompt-engineer",
+    "thumbnail_url": "https://z-image.me/og/prompt-engineer.png",
+    "created_at": "2026-01-04T12:21:15.594Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "tech-work-markets-style-charged-up-at-business-insider",
+    "title": "Tech, Work, Markets, Style — Charged Up at Business Insider",
+    "description": "From AI to workplace changes to side hustles, Business Insider is diving in on the topics you care about.",
+    "fullText": "It's a new year! And at Business Insider, we're already diving in.\n\nWe've always been the place for innovators, and AI's arrival is creating a renaissance for entrepreneurs of all stripes. It's led to whole new industries — from legal AI to chatbot training to vibe coding to the data center boom. Everyone is learning as they go, and we are here to help you generate ideas, trade notes, and get smarter. We'll chronicle highs and lows — there will for sure be both.\n\nAt larger firms, leaders will be sizing up which AI experiments are working, at what costs, and with what benefits. How fast AI helps companies' bottom lines will determine whether we're in bubble times in the markets. We're all over that in our new First Trade newsletter.\n\nAI is a big story line on Wall Street, but it's not the only one. This past year showed dents in basic assumptions about capitalism in the US — principles that have underscored the \"stocks for the long run\" thinking that has proven sound for investors. International markets are getting more of a look, especially with rearmament in Europe and AI as a global tailwind.\n\nBetween Washington's investments in business, Zohran Mamdani's rise in the nation's financial capital, and surveys showing eroding confidence in capitalism, that mindset is no longer the given it once was. We are launching a series this week, \"The Future of Capitalism,\" and what it means for your work and wealth. Take our survey, and watch Monday for our first piece!\n\nMeanwhile, in workplaces, capitalism is alive and well. The \"anti-woke workplace\" is increasingly in fashion, and we will help you navigate an era in which many managers, in a sharp shift, are more focused on employee performance than employee policies.\n\nOur obsession with side hustles is still a full-time job for us, whether your thing is real estate, brand influencing, Uber driving, or renting your clothing. And as our reporting showed this past year, a strong side hustle can not only be fun, but also crucial if white-collar layoffs snag you.\n\nSpeaking about clothing, you've made clear you care about how to show up to succeed at work. We're exploring the cost of that, and whether that cost is sometimes too high — for your wallet or your heart. We've also got you covered on style and status, from show-off golf shirts and luxury handbags to viral hoodies, coveted watches, and Wall Street's favorite $1,100 shoes.\n\nAll of which is to say, we're pumped to cover all that's ahead — in words, video, audio, newsletters, online and IRL events, and every way that works for you! As always, please stay in touch! Email me at eic@businessinsider.com.\n\nThe BI Today team: Jamie Heller, editor in chief, in New York. Dan DeFrancesco, deputy editor and anchor, in New York. Akin Oyedele, deputy editor, in New York. Grace Lett, editor, in New York. Amanda Yen, associate editor, in New York.",
+    "readingTime": 3,
+    "keywords": [
+      "we're",
+      "it's",
+      "we've",
+      "markets",
+      "employee",
+      "clothing",
+      "deputy",
+      "york",
+      "capitalism",
+      "business"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/bi-today-sunday-ai-markets-workplace-style-2026-1",
+    "thumbnail_url": "https://i.insider.com/69582d0064858d02d217aefd?width=1200&format=jpeg",
+    "created_at": "2026-01-04T12:21:11.407Z",
+    "topic": "finance"
+  },
+  {
     "slug": "the-ultimate-abstraction-this-ship-is-sinking-how-49-people-can-save-ai",
     "title": "The Ultimate Abstraction: This Ship Is Sinking & How +49 People Can Save AI",
     "description": "It is the third day of 2026, and world war two part three deserves coverage by people who know better than me. It is hard to keep a good mood these unhappy days when we realize that, even with the change of year, the clock hasn't been fixed. Let me",
@@ -2027,87 +2112,6 @@
     "link": "https://www.bloomberg.com/news/articles/2025-12-30/ai-drug-firm-insilico-debuts-in-hong-kong-after-293-million-ipo",
     "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i7sps3H777UA/v0/1200x800.jpg",
     "created_at": "2025-12-30T00:56:46.855Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ai-power-platform-kraken-valued-at-87-billion-origin-says",
-    "title": "AI Power Platform Kraken Valued at $8.7 Billion, Origin Says",
-    "description": "Origin Energy Ltd. said Kraken Technologies Ltd., which helps utilities manage the transition to cleaner energy, has been valued at $8.65 billion after the software platform’s first share sale.",
-    "fullText": "MarketsBy Keira WrightSaveOrigin Energy Ltd. said Kraken Technologies Ltd., which helps utilities manage the transition to cleaner energy, has been valued at $8.65 billion after the software platform’s first share sale. Kraken is owned by Octopus Energy Group Ltd., in which Origin is a major investor. The artificial intelligence software has been key to Octopus’s rapid growth into the UK’s largest electricity supplier, leapfrogging industry incumbents to serve more than 7 million customers in the country.",
-    "readingTime": 1,
-    "keywords": [
-      "software",
-      "energy",
-      "kraken"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.bloomberg.com/news/articles/2025-12-29/origin-says-kraken-valued-at-8-65-billion-after-equity-raise",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iSiFlph2U068/v1/1200x800.jpg",
-    "created_at": "2025-12-30T00:56:45.124Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "giselle-opensource-visual-editor-for-building-ai-workflows",
-    "title": "Giselle – open-source visual editor for building AI workflows",
-    "description": "Giselle: AI App Builder. Open Source. Contribute to giselles-ai/giselle development by creating an account on GitHub.",
-    "fullText": "giselles-ai\n\n /\n\n giselle\n\n Public\n\n Giselle: AI App Builder. Open Source.\n\n giselles.ai\n\n License\n\n Apache-2.0 license\n\n 317\n stars\n\n 67\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n giselles-ai/giselle",
-    "readingTime": 1,
-    "keywords": [
-      "giselle",
-      "license"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://github.com/giselles-ai/giselle",
-    "thumbnail_url": "https://opengraph.githubassets.com/e2841dc552dc9d2c253bfe55f1a98ee7e123db26a0ff9f97a8aac477f11c8711/giselles-ai/giselle",
-    "created_at": "2025-12-30T00:56:42.474Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "china-wants-to-ban-making-yourself-into-an-ai-to-keep-aged-relatives-company",
-    "title": "China wants to ban making yourself into an AI to keep aged relatives company",
-    "description": "Asia In Brief: PLUS: Australia buys air-gapped Google Cloud; Huawei triples use of home-built components; JAXA blames low pressure for rocket crash; And more",
-    "fullText": "Asia In Brief China’s Cyberspace Administration on Saturday posted draft rules governing the behaviour of AI companions that prohibit using them to serve as friends for the elderly.\n\nThe draft “Interim Measures for the Administration of Humanized Interactive Services Based on Artificial Intelligence” opens with a suggestion that China needs regulations to ensure the healthy development of AIs that “engage in emotional interaction with humans.”\n\nAs is always the case with China’s tech regulations, the draft calls for providers of companion AIs to ensure they are secure, don’t expose users to fraud, encrypt data, and reflect core socialist values. It also includes a requirement for parental controls, and for protection of data that describes minors.\n\nOne Article in the draft addresses how AI companions interact with the elderly:\n\nProviders shall guide elderly people to set up emergency contact persons for their services. If any elderly person is found to be in danger of losing their life, health or property during the use of the service, the provider shall promptly notify the emergency contact person and provide social and psychological assistance or emergency relief channels.\n\nProviders are prohibited from providing services that simulate the relatives or specific relationships of elderly users.\n\nThe draft also calls for AI companions to remind users they are not interacting with a human every two hours, and for providers of such systems to provide advance notice of outages.\n\nAlso among the draft requirements are calls for “mental health protection, emotional boundary guidance, and dependency risk warning, and should not use replacing social interaction, controlling users' psychology, or inducing addiction as design goals.”\n\nThe draft also prohibits using data gathered during interaction with AI companies to train models.\n\nThe Cyberspace Administration wants feedback on the draft by January 25th.\n\nAustralia’s Department of Defence has tapped Google for an “enhanced, secure and air-gapped hyperscale cloud capability.”\n\n“Defence will have access to advanced global cloud solutions to deliver key sovereign capabilities,” states the department’s announcement of the deal. “The technology will support faster rollout of critical systems, ongoing upgrades and improved cooperation with international partners, while ensuring Australia retains control of critical Defence assets.”\n\nAustralia’s government already has a deal with AWS to operate three datacenters dedicated to government workloads, including information rated as the nation’s “most classified data.”\n\nThe Department said the sensitivities of the Google deal mean it will “refrain from providing further commentary … with all specific details remaining strictly confidential.”\n\nJapan’s Aerospace Exploration Agency (JAXA) has published its initial analysis of the failed launch of its H3 rocket last week.\n\nThe agency found that when the rocket’s fairing separated, pressure in a fuel tank fell. When the engine that used the fuel tank ignited, it produced around 80 percent of expected pressure.\n\nThe rocket’s second stage and payload therefore could not reach the intended orbit. The report suggests both fell into Earth’s atmosphere and burned up safely.\n\n57 percent of components present in Huawei smartphones are now made in China, according to a product teardown reported by Japanese outlet Nikkei.\n\nWorking with Japanese teardown service Fomalhaut Techno Solutions, Nikkei analyzed the content of 2024’s Mate 70 Pro and this year’s Pura 80 Pro, and found 57 percent of components in both were made in China, and that those parts accounted for 60 percent of the phone’s value.\n\nNikkei reports that just 19 percent of components in Huawei’s 2020 models came from China, rising to 32 percent in 2023.\n\nPapua New Guinea’s (PNG’s) National Information & Communications Technology Authority has warned signatories to a petition calling for Starlink to be licensed for operations in the country that they risk prosecution.\n\nPNG is a rugged country with poor telecommunications infrastructure – a fine fit for Starlink’s satellite broadband service. Local netizens have campaigned for PNG to license Starlink, suggesting they email NICTA to express support for Starlink.\n\nOn December 16th NICTA demanded Starlink suspend services to the country.\n\nOn Christmas Eve, NICTA published a list of petitioners and warned “Individuals who have signed or participated in the petition may be regarded as potential offenders, and NICTA will not hesitate to pursue appropriate regulatory and legal action where non-compliance is established.”\n\nStarlink has since ended service in PNG.",
-    "readingTime": 4,
-    "keywords": [
-      "cyberspace administration",
-      "fuel tank",
-      "emergency contact",
-      "draft",
-      "elderly",
-      "services",
-      "china",
-      "providers",
-      "users",
-      "service"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theregister.com/2025/12/29/asia_tech_news_roundup/",
-    "thumbnail_url": "https://regmedia.co.uk/2025/12/29/shutterstock_aged_care_and_robotics.jpg",
-    "created_at": "2025-12-29T18:18:10.916Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ai-wont-hollow-out-whitecollar-jobs-it-will-fuel-growth-says-box-ceo-aaron-levie",
-    "title": "AI won't hollow out white-collar jobs, it will fuel growth — says Box CEO Aaron Levie",
-    "description": "Box CEO Aaron Levie says AI lowers costs for knowledge tasks, allowing companies to expand work and drive white-collar job growth.",
-    "fullText": "Some tech leaders and AI researchers have predicted that AI will hollow out white-collar jobs.\n\nBut Aaron Levie, the cofounder and CEO of cloud-storage giant Box, believes it will push companies to do far more work.\n\nIn a LinkedIn post on Sunday, Levie said AI will sharply reduce the cost of knowledge tasks such as writing code and reviewing contracts.\n\nAs those tasks get cheaper, he said, companies will take on more projects that were previously too expensive or complex to justify, and, ultimately, create jobs rather than eliminate them.\n\nTo explain why, Levie pointed to economist William Stanley Jevons.\n\nIn 1865, Jevons observed that more efficient steam engines didn't curb coal use in England but drove it higher, as cheaper energy fueled new industries — a dynamic now known as the Jevons paradox.\n\nLevie said the same pattern has repeated itself in computing, with each major wave of cheaper technology — from mainframes to minicomputers to PCs — dramatically expanding adoption.\n\nCloud computing followed a similar path, erasing many of the advantages large companies once had in procurement, infrastructure, and maintenance, and putting tools like accounting software, CRM systems, and marketing platforms within reach of nearly any business, he said.\n\nThose efficiency gains automated deterministic work, Levie said — tasks with clear rules and predictable outcomes, such as accounting, record-keeping, scheduling, and data processing, where the same inputs reliably produce the same result.\n\nLevie's broader argument stands in contrast to warnings from other AI leaders and economists.\n\nAnthropic CEO Dario Amodei and Ford CEO Jim Farley have warned that the technology could wipe out large numbers of white-collar roles, while figures such as OpenAI CEO Sam Altman, JPMorgan CEO Jamie Dimon, and Elon Musk have predicted outcomes ranging from major disruption to longer-term economic gains.\n\nOthers, including Nvidia CEO Jensen Huang and Meta's outgoing chief AI scientist Yann LeCun, have predicted AI will reshape how work is done rather than eliminate it outright.\n\nWhile major tech companies such as HP, IBM, Salesforce, and Amazon have cut thousands of jobs amid AI-driven efficiency pushes, KPMG's chief economist Diane Swonk has warned the US could face a \"jobless boom\" in 2026 as firms do more with fewer workers.\n\nLevie said AI changes the equation by targeting non-deterministic work, which involves judgment, creativity, and ambiguity.\n\nTasks, such as reviewing contracts, writing software, designing marketing campaigns, or conducting research, don't follow fixed rules and have historically required expensive human expertise, making them difficult to automate and costly to scale.\n\n\"Now, every business in the world has access to the talent and resources of a Fortune 500 company 10 years ago,\" he wrote.\n\nAs non-deterministic tasks get cheaper, Levie said, companies take on far more work, driving demand for white-collar jobs.\n\nNot everyone agrees that AI is already reshaping the job market at that level.\n\nSome economists, including Gbenga Ajilore, chief economist at the Center on Budget and Policy Priorities, say the current white-collar downturn has more to do with high interest rates, weak hiring, and a slowing economy than AI itself.\n\nStill, Levie said fears of widespread replacement miss a key constraint.\n\n\"The reality is that despite all the tasks that AI lets us automate,\" he wrote, \"it still requires people to pull together the full workflow to produce real value.\"",
-    "readingTime": 3,
-    "keywords": [
-      "reviewing contracts",
-      "chief economist",
-      "white-collar jobs",
-      "tasks",
-      "cheaper",
-      "predicted",
-      "jevons",
-      "levie",
-      "tech",
-      "leaders"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/box-ceo-ai-will-expand-white-collar-jobs-fuel-growth-2025-12",
-    "thumbnail_url": "https://i.insider.com/69525a16832e0ef1ead6df2a?width=1200&format=jpeg",
-    "created_at": "2025-12-29T18:18:05.918Z",
     "topic": "finance"
   }
 ]
