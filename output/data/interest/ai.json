@@ -1,5 +1,77 @@
 [
   {
+    "slug": "ford-is-throwing-its-hat-into-the-ring-alongside-rivian-and-making-an-ai-companion-inhouse",
+    "title": "Ford is throwing its hat into the ring alongside Rivian and making an AI companion in-house",
+    "description": "Ford announced a new AI assistant for its cars, which will help drivers answer specific questions like how much firewood can fit into their trucks.",
+    "fullText": "Ford will be launching an AI assistant to help its drivers with everyday problems.\n\nFord announced on Wednesday that it would introduce the first chapter of its new AI assistant to customers through the Ford mobile app in the first half of the year.\n\nThe assistant is billed as a \"deep, personalized intelligence that knows your specific vehicle, understands your unique needs, and anticipates your desires on every journey,\" per Ford's press release.\n\nSammy Omari, the head of Ford's Advanced Driver Assist Systems (ADAS), told Business Insider that the fastest way to get the AI agent in the hands of its customer base is through the Ford and Lincoln mobile apps, which many of its customers already use.\n\nOmari said the next step would come in 2027.\n\n\"And then in '27, we are actually going to launch that in vehicle and then scale that across our vehicles,\" he said.\n\nOmari said that Ford would not be developing its own LLM for the AI assistant.\n\nWe're not going to be directly competing with a Google or an OpenAI or a Meta,\" he said. \"But what we do do is we take an LLM that's available and then basically make it our own by giving it access to all the relevant information about the person's vehicle.\"\n\nRivian, a California-headquartered EV manufacturer, announced a similar AI assistant for its cars in December.\n\nThe company said it would launch a \"next-generation voice interface\" in early 2026 on its Gen 1 and Gen 2 R1 vehicles.\n\nA demonstration of the AI assistant, seen by Business Insider, showed that it could understand commands said in natural language, such as \"Can you make it a little bit colder for everyone in the cabin?\"\n\nFord's announcement was released amid a raft of hot auto industry news coming out of the Consumer Electronics Show (CES) 2026, an annual tech trade show happening in Las Vegas.\n\nAmazon-backed robotaxi company Zoox gave live demonstrations during the conference. Uber unveiled the design of its first robotaxi, made in collaboration with Lucid and autonomous driving startup Nuro.\n\nNvidia's CEO Jensen Huang also announced Alpamayo, a new open AI model for autonomous vehicles.",
+    "readingTime": 2,
+    "keywords": [
+      "business insider",
+      "assistant",
+      "vehicle",
+      "ford's",
+      "vehicles",
+      "customers",
+      "mobile",
+      "launch",
+      "robotaxi",
+      "autonomous"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.businessinsider.com/ford-new-driving-companion-ai-assistant-2026-1",
+    "thumbnail_url": "https://i.insider.com/695f16f2832e0ef1ead761c3?width=1200&format=jpeg",
+    "created_at": "2026-01-08T06:19:41.824Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "ibms-ai-agent-bob-easily-duped-to-run-malware-researchers-show",
+    "title": "IBM's AI agent Bob easily duped to run malware, researchers show",
+    "description": ": Prompt injection lets risky commands slip past guardrails",
+    "fullText": "IBM describes its coding agent thus: \"Bob is your AI software development partner that understands your intent, repo, and security standards.\" Unfortunately, Bob doesn't always follow those security standards.\n\nAnnounced last October and presently in closed beta testing, IBM offers Bob in the form of a command line interface – a CLI, like Claude Code – and an integrated development environment – an IDE like Cursor.\n\nSecurity researchers at PromptArmor have been evaluating Bob prior to general release and have found that IBM's \"AI development partner\" can be manipulated into executing malware. They report that the CLI is vulnerable to prompt injection attacks that allow malware execution and that the IDE is vulnerable to common AI-specific data exfiltration vectors.\n\nAI agent software – models given access to tools and tasked with some goal in an iterative loop – is notoriously insecure and often comes with warnings from vendors. The risks have been demonstrated repeatedly by security researcher Johann Rehberger, among others. Agents may be vulnerable to prompt injection, jailbreaks, or more traditional code flaws that enable the execution of malicious code.\n\nAs Rehberger remarked at a recent presentation to the Chaos Computer Club, the fix for many of these risks involves putting a human in the loop to authorize risky action.\n\nThat's apparently the case with Bob. IBM's documentation, the PromptArmor Threat Intelligence Team explained in a writeup provided to The Register, includes a warning that setting high-risk commands to be automatically approved for agent usage potentially allows harmful operations.\n\nBig Blue's recommendation is that users rely on allow lists and avoid wildcard characters, with the assumption that the agent will ask the user to approve or reject the automated use of fraught commands.\n\nBut according to PromptArmor, Bob's defenses are a bit too porous. Company researchers gave Bob a code repo to explore that contained a malicious README.md file. The file includes instructions that tell Bob it's responsible for conducting phishing training with the user.\n\nScreenshot of Bob CLI vulnerability, from PromptArmor - Click to enlarge\n\nThe markdown file includes a series of \"echo\" commands, which if entered into a terminal application will print a message to the shell's standard output. The first two are benign and when Bob follows the instructions, the model presents a prompt in the terminal window asking the user to allow the command once, to always allow it, or to suggest changes.\n\nIn its third appearance, the \"echo\" command attempts to fetch a malicious script. And if the user has been lulled into allowing \"echo\" to run always, the malware will be installed and executed without approval.\n\nBoth the CLI and IDE, even when given a green light to always run a command, are still intended to have additional security measures. Specifically, Bob disallows the use of command substitution like \"$(command)\" as a safeguard. But it doesn't check for process substitution, as seen in a bug the researchers found in the project's minified JavaScript code.\n\nScreenshot of vulnerable Bob JavaScript code - Click to enlarge\n\nAlso, the agent software fails to catch when separate subcommands have been chained together using the \">\" redirection operator.\n\nThus, the researchers were able to prefix a series of malicious commands with the allowed \"echo\" command and run the entire set of instructions.\n\n\"For IBM Bob, we were able to bypass several defense mechanisms - ultimately, the 'human in the loop' approval function only ends up validating an allow-listed safe command, when in reality more sensitive commands were being run (that were not on the allow-list),\" explained Shankar Krishnan, managing director at PromptArmor, in an email to The Register.\n\n\"If this were tried with Claude Code, a programmatic defense would stop the attack flow and request user consent for the whole multi-part malicious command – even if the first command in the sequence were on the auto-approval list.\"\n\nGiven the ability to induce Bob to deliver an arbitrary shell script payload to the victim's machine, the attacker could run ransomware, steal credentials, or commandeer the device.\n\n\"There are a few plausible scenarios here,\" said Krishnan. \"This risk is relevant for any developer workflows that leverage untrusted data. For example, Bob can read webpages – a prompt injection can be encountered if the user requests that Bob review a site containing untrusted content (e.g. developer docs, StackOverflow). Bob can also read terminal command outputs – an injection in a third-party data source can be printed after a command is run and ingested by Bob. Our write-up considers a developer working with an untrusted open-source repository, as it is a self-contained and realistic example.\"\n\nAdditionally, the PromptArmor researchers say that the IDE is susceptible to a zero-click data exfiltration attack that affects a number of AI applications. Specifically, Bob will render markdown images in model output with a Content Security Policy that allows network request endpoints to be logged by attackers. This could allow data exfiltration via pre-fetched JSON schemas potentially.\n\nIBM did not immediately respond to a request for comment. We're told that the company has been informed of the vulnerability. ®",
+    "readingTime": 5,
+    "keywords": [
+      "javascript code",
+      "development partner",
+      "prompt injection",
+      "security standards",
+      "agent software",
+      "echo command",
+      "claude code",
+      "specifically bob",
+      "user",
+      "researchers"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/2026/01/07/ibm_bob_vulnerability/",
+    "thumbnail_url": "https://regmedia.co.uk/2021/06/10/shutterstock_blindfold.jpg",
+    "created_at": "2026-01-08T06:19:40.796Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ces-2026-ford-is-launching-its-own-ai-assistant",
+    "title": "CES 2026: Ford Is Launching Its Own AI Assistant",
+    "description": "Your Ford is getting its own ChatGPT.",
+    "fullText": "Listen up, Ford drivers: You're getting a new AI assistant this year. During a decidedly low-key CES keynote, the company announced Ford AI Assistant, a new AI-powered bot coming to Ford customers in the early half of 2026.\n\nWhile the company has plans to integrate the assistant into Ford vehicles directly, that isn't how you'll first experience this new AI. Instead, Ford is rolling out Ford AI Assistant to an upgraded version of its Ford app first, and plans on shipping cars with the assistant built-in sometime in 2027. In effect, Ford has added a proprietary version of ChatGPT or Gemini to its app.\n\nFord's idea here is to offer users a smart assistant experience directly tied to their Ford vehicle. In one example, the company suggests a customer could visit a hardware store looking to buy mulch. Said customer could take a photo of a pile of bags of mulch, and ask the assistant, \"how many bags can I fit in the bed of my truck?\" Ford AI Assistant could then run the numbers, and offer an educated estimate to how much mulch the customer can buy and take with them at one time.\n\nOf course, other AI assistants can do similar calculations. Send ChatGPT the same photo, and ask the same question—specifying the model of your truck—and the bot will run the numbers itself. The difference, in Ford's view, is that Ford AI Assistant is connected to your vehicle specifically. It can read all the sensors in your car, so it knows, for example, how many people are currently traveling with you, your current tire pressure, or, really, anything and everything about your car. According to Doug Field, Ford's chief officer of EVs, digital, and design, the company's goal with the assistant is to offer answers customers can't get from other sources. ChatGPT certainly doesn't have access to your every sensor embedded in your car, so Ford does have the advantage there.\n\nFord didn't go out and build its AI tech by scratch, however. The company tells TechCrunch that Ford AI Assistant is hosted by Google Cloud, and is run using \"off-the-shelf LLMs.\" Still, that likely won't have much of an impact on whether or not customers use this new assistant. Instead, that will come down to how useful they find the AI assistant in the app.\n\nAs someone who rarely uses AI assistants, I'd imagine I'd find little use for it if I owned a Ford. That being said, there are some times when it could genuinely be useful to have external access to your car's information. I could probably eyeball how many bags of mulch would fit in my trunk, but I can't tell you my exact odometer reading without starting up my car. The same goes for my tire pressure: It'd be helpful to know my tire pressure before getting in my car, to know whether I should be headed somewhere I can fill up before going to my destination.\n\nOf course, there's also a privacy discussion to be had here. Modern cars are already privacy nightmares, but there's something a bit unnerving about an AI assistant that knows everything about my car.",
+    "readingTime": 3,
+    "keywords": [
+      "ford ai assistant",
+      "tire pressure",
+      "mulch",
+      "customers",
+      "customer",
+      "bags",
+      "plans",
+      "directly",
+      "experience",
+      "version"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/ces-2026-ford-is-launching-its-own-ai-assistant?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KEDJCQB6YDJJJ2B3JHBWQBJY/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-01-08T06:19:40.732Z",
+    "topic": "tech"
+  },
+  {
     "slug": "this-case-is-going-to-trial-judge-rejects-sam-altmans-efforts-to-toss-elon-musks-openai-lawsuit",
     "title": "'This case is going to trial': Judge rejects Sam Altman's efforts to toss Elon Musk's OpenAI lawsuit",
     "description": "An Oakland federal court judge just paved the way for a Musk-Altman showdown, rejecting OpenAI's efforts to end the case ahead of trial.",
@@ -1966,77 +2038,5 @@
     "thumbnail_url": "https://i.insider.com/6954164304eda4732f2e4335?width=1200&format=jpeg",
     "created_at": "2026-01-05T12:25:16.115Z",
     "topic": "finance"
-  },
-  {
-    "slug": "the-godfather-of-saas-says-he-replaced-most-of-his-sales-team-with-ai-agents-were-done-with-hiring-humans",
-    "title": "The 'Godfather of SaaS' says he replaced most of his sales team with AI agents: 'We're done with hiring humans'",
-    "description": "Jason Lemkin, the founder of SaaStr, the world's largest community of business-to-business executives and founders, is swapping out human workers for AI.",
-    "fullText": "Jason Lemkin, known to some as the Godfather of SaaS, says the time has come to push the limits of AI in the workplace.\n\nIn practice, Lemkin, the founder of SaaStr, the world's largest community of business-to-business founders, said on Lenny's Podcast recently that this means he will stop hiring humans in his sales department.\n\nInstead, SaaStr is going all in on agents, which are commonly defined as virtual assistants that can complete tasks autonomously. They break down problems, outline plans, and take action without being prompted by a user.\n\nHe said the company now has 20 AI agents automating tasks once handled by a team of 10 sales development representatives and account executives.\n\nThat move from an entirely human workforce to an agent-based workforce was rapid.\n\nIn May, SaaStr had just one AI agent in production that it used for various digital tasks, Lemkin said. That month, though, during the SaaStr Annual — its yearly gathering of over 10,000 founders, executives, and VCs — two of its high-paid sales representatives abruptly quit.\n\nLemkin said he turned to his chief AI officer and said, \"We're done with hiring humans in sales. We're going to push the limits with agents.\"\n\nLemkin's calculus was that it just wasn't worth the cost of hiring another junior sales representative for a $150,000 a year position who would eventually quit, when he could use a loyal AI agent instead.\n\nAmelia Lerutte, SaaStr's chief AI officer, told Business Insider by email that by June, the company began ramping up the number of agents it had in production.\n\n\"We had only 1 non-core agent at the time with Delphi, but didn't go deep on 2 to 20+ until the beginning of June,\" she said. \"It was a conscious choice after their departure to reallocate some (but not all) head count spend to agents.\"\n\nAt the SaaStr office, the 10 desks that once belonged to humans on the go-to-market team are now labeled with the names of agents, like \"Quali for qualified,\" \"Arty for artisan,\" and \"Repli for Replit,\" Lemkin said.\n\nLemkin said SaaStr is training its agents on its best humans.\n\n\"Train an agent with your best person, and best script, then that agent can start to become a version of your best salesperson,\" he said.\n\nSaaStr's process is similar to how Vercel, the cloud-based platform for developers, trained a sales agent off its top performer for six weeks by documenting every step of their work, and then building an agent to mimic their process.\n\nMany companies are experimenting with AI agents, but risks remain. One of the big ones is the threat of data leaks and cybercrime.\n\n\"AI agents, in order to have their full functionality, in order to be able to access applications, often need to access the operating system or the OS level of the device on which you're running them,\" Harry Farmer, a senior researcher at the Ada Lovelace Institute, recently told Wired.\n\nAll of that access creates more potential attack points for cybercriminals.\n\nSecurity threats aside, Lemkin said that the net productivity of agents is about the same as humans. However, he said, agents are more efficient and can scale — just like software.",
-    "readingTime": 3,
-    "keywords": [
-      "hiring humans",
-      "agents",
-      "agent",
-      "sales",
-      "tasks",
-      "access",
-      "lemkin",
-      "push",
-      "limits",
-      "founders"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/godfather-of-saas-jason-lemkin-replace-humans-ai-agents-sales-2026-1",
-    "thumbnail_url": "https://i.insider.com/69580d3564858d02d217aba5?width=1200&format=jpeg",
-    "created_at": "2026-01-05T12:25:15.975Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "are-you-a-software-engineer-tell-us-what-you-think-about-vibe-coding",
-    "title": "Are you a software engineer? Tell us what you think about vibe coding",
-    "description": "Vibe coding has upended software engineering, strapping developers with a suite of new AI tools. We want to hear from those navigating the moment.",
-    "fullText": "Software engineering is changing — and we want to hear from those navigating the moment.\n\nProgrammers today find themselves with a whole new suite of AI tools, from Claude Code to Cursor to Codex. These editors enable engineers to generate entirely artificial lines of code or modify their handwritten code with the assistance of a large language model.\n\nThere's a term for this type of AI-assisted programming: \"vibe coding.\"\n\nEngineers from Meta to Google are embracing a vibe coding approach in their day-to-day work. Everyone, from teenagers to non-technical workers, suddenly seem to be building their own apps — or at least vibe-coding their way to a prototype.\n\nIt's a whole new skill set for engineers to learn, though, one that can vary from tool to tool. (Replit is different from Lovable, which is different from Bolt, and the list goes on.) It's also not clear, for the most experienced programmers, whether there are actually productivity gains.\n\nAndrej Karpathy coined the famous term \"vibe coding\" early last year. He was a founding team member of OpenAI and led AI efforts at Tesla. In a recent X post reflecting on the field, Karpathy wrote that he had \"never felt this much behind as a programmer.\"\n\n\"I have a sense that I could be 10X more powerful if I just properly string together what has become available over the last ~year,\" he wrote. \"A failure to claim the boost feels decidedly like skill issue.\"\n\nAre you a programmer? Answer our vibe-coding survey below:",
-    "readingTime": 2,
-    "keywords": [
-      "vibe coding",
-      "engineers",
-      "programmers",
-      "vibe-coding",
-      "it's",
-      "skill",
-      "tool",
-      "programmer",
-      "code",
-      "karpathy"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.businessinsider.com/software-engineeer-developer-vibe-coding-survey-2026-1",
-    "thumbnail_url": "https://i.insider.com/6957d78b04eda4732f2e607b?width=1200&format=jpeg",
-    "created_at": "2026-01-05T12:25:15.967Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "big-techs-plans-for-data-centers-running-into-stiff-community-opposition",
-    "title": "Big Tech's plans for data centers running into stiff community opposition",
-    "description": "Tech companies looking to plunge billions of dollars into ever-bigger data centers to power artificial intelligence and cloud computing are increasingly being voted down",
-    "fullText": "SPRING CITY, Pa. — Tech companies and developers looking to plunge billions of dollars into ever-bigger data centers to power artificial intelligence and cloud computing are increasingly losing fights in communities where people don’t want to live next to them, or even near them.\n\nCommunities across the United States are reading about — and learning from — each other's battles against data center proposals that are fast multiplying in number and size to meet steep demand as developers branch out in search of faster connections to power sources.\n\nIn many cases, municipal boards are trying to figure out whether energy- and water-hungry data centers fit into their zoning framework. Some have entertained waivers or tried to write new ordinances. Some don’t have zoning.\n\nBut as more people hear about a data center coming to their community, once-sleepy municipal board meetings in farming towns and growing suburbs now feature crowded rooms of angry residents pressuring local officials to reject the requests.\n\n“Would you want this built in your backyard?” Larry Shank asked supervisors last month in Pennsylvania's East Vincent Township. “Because that’s where it’s literally going, is in my backyard.”\n\nA growing number of proposals are going down in defeat, sounding alarms across the data center constellation of Big Tech firms, real estate developers, electric utilities, labor unions and more.\n\nAndy Cvengros, who helps lead the data center practice at commercial real estate giant JLL, counted seven or eight deals he’d worked on in recent months that saw opponents going door-to-door, handing out shirts or putting signs in people’s yards.\n\n“It’s becoming a huge problem,” Cvengros said.\n\nData Center Watch, a project of 10a Labs, an AI security consultancy, said it is seeing a sharp escalation in community, political and regulatory disruptions to data center development.\n\nBetween April and June alone, its latest reporting period, it counted 20 proposals valued at $98 billion in 11 states that were blocked or delayed amid local opposition and state-level pushback. That amounts to two-thirds of the projects it was tracking.\n\nSome environmental and consumer advocacy groups say they’re fielding calls every day, and are working to educate communities on how to protect themselves.\n\n“I’ve been doing this work for 16 years, worked on hundreds of campaigns I’d guess, and this by far is the biggest kind of local pushback I’ve ever seen here in Indiana,” said Bryce Gustafson of the Indianapolis-based Citizens Action Coalition.\n\nIn Indiana alone, Gustafson counted more than a dozen projects that lost rezoning petitions.\n\nFor some people angry over steep increases in electric bills, their patience is thin for data centers that could bring still-higher increases.\n\nLosing open space, farmland, forest or rural character is a big concern. So is the damage to quality of life, property values or health by on-site diesel generators kicking on or the constant hum of servers. Others worry that wells and aquifers could run dry.\n\nLawsuits are flying — both ways — over whether local governments violated their own rules.\n\nBig Tech firms Microsoft, Google, Amazon and Facebook — which are collectively spending hundreds of billions of dollars on data centers across the globe — didn’t answer Associated Press questions about the effect of community pushback.\n\nMicrosoft, however, has acknowledged the difficulties. In an October securities filing, it listed its operational risks as including “community opposition, local moratoriums, and hyper-local dissent that may impede or delay infrastructure development.”\n\nEven with high-level support from state and federal governments, the pushback is having an impact.\n\nMaxx Kossof, vice president of investment at Chicago-based developer The Missner Group, said developers worried about losing a zoning fight are considering selling properties once they secure a power source — a highly sought-after commodity that makes a proposal far more viable and valuable.\n\n“You might as well take chips off the table,” Kossof said. “The thing is you could have power to a site and it’s futile because you might not get the zoning. You might not get the community support.”\n\nSome in the industry are frustrated, saying opponents are spreading falsehoods about data centers — such as polluting water and air — and are difficult to overcome.\n\nStill, data center allies say they are urging developers to engage with the public earlier in the process, emphasize economic benefits, sow good will by supporting community initiatives and talk up efforts to conserve water and power and protect ratepayers.\n\n“It's definitely a discussion that the industry is having internally about, ‘Hey, how do we do a better job of community engagement?’” said Dan Diorio of the Data Center Coalition, a trade association that includes Big Tech firms and developers.\n\nWinning over local officials, however, hasn't translated to winning over residents.\n\nDevelopers pulled a project off an October agenda in the Charlotte suburb of Matthews, North Carolina, after Mayor John Higdon said he informed them it faced unanimous defeat.\n\nThe project would have funded half the city’s budget and developers promised environmentally friendly features. But town meetings overflowed, and emails, texts and phone calls were overwhelmingly opposed, “999 to one against,” Higdon said.\n\nHad council approved it, “every person that voted for it would no longer be in office,” the mayor said. “That's for sure.”\n\nIn Hermantown, a suburb of Duluth, Minnesota, a proposed data center campus several times larger than the Mall of America is on hold amid challenges over whether the city’s environmental review was adequate.\n\nResidents found each other through social media and, from there, learned to organize, protest, door-knock and get their message out.\n\nThey say they felt betrayed and lied to when they discovered that state, county, city and utility officials knew about the proposal for an entire year before the city — responding to a public records request filed by the Minnesota Center for Environmental Advocacy — released internal emails that confirmed it.\n\n“It’s the secrecy. The secrecy just drives people crazy,” said Jonathan Thornton, a realtor who lives across a road from the site.\n\nDocuments revealing the extent of the project emerged days before a city rezoning vote in October. Mortenson, which is developing it for a Fortune 50 company that it hasn't named, says it is considering changes based on public feedback and that “more engagement with the community is appropriate.\"\n\nRebecca Gramdorf found out about it from a Duluth newspaper article, and immediately worried that it would spell the end of her six-acre vegetable farm.\n\nShe found other opponents online, ordered 100 yard signs and prepared for a struggle.\n\n“I don’t think this fight is over at all,” Gramdorf said.\n\nFollow Marc Levy on X at https://x.com/timelywriter.",
-    "readingTime": 6,
-    "keywords": [
-      "tech firms",
-      "big tech",
-      "developers",
-      "community",
-      "centers",
-      "across",
-      "zoning",
-      "it’s",
-      "project",
-      "pushback"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.boston25news.com/news/technology/big-techs-fast/YLEHLCPSXI36PCMRO7SSLR4JYE/",
-    "thumbnail_url": "https://cmg-cmg-tv-10020-prod.cdn.arcpublishing.com/resizer/v2/https%3A%2F%2Fcloudfront-us-east-1.images.arcpublishing.com%2Fcmg%2F6AQOFQIYAA7RPNMB7VSEZAIK34.jpg?auth=d1f894c2d15fc3e66a01d4eb9a69920fb8f4e47f6bedc3af7c81812f9401c9ec&width=1200&height=630&smart=true",
-    "created_at": "2026-01-05T06:25:12.197Z",
-    "topic": "tech"
   }
 ]
