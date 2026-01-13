@@ -1,5 +1,29 @@
 [
   {
+    "slug": "can-you-ace-this-high-school-quiz-on-capitalism",
+    "title": "Can you ace this high school quiz on capitalism?",
+    "description": "Are you smarter than a high schooler? Take this 12th-grade economics quiz on capitalism, socialism, and market systems.",
+    "fullText": "How well do you remember your high school econ class?\n\nIt's an important topic for high school students across the country who are learning about the economy in which they will work, invest, and start businesses.\n\nAdditionally, since 2022, 12 states have implemented requirements for high schools to teach financial literacy, with some also incorporating the fundamentals of free-market capitalism.\n\nNearly a dozen high school teachers told Business Insider that they've noticed their students are increasingly engaged in lessons on capitalism — and are skeptical toward the model. That's largely because they're more aware of economic conditions, such as the persistent wealth gap. In recent years, Americans of all ages' positive views about capitalism have declined, according to a range of surveys. The shift is particularly pronounced among younger generations and Democrats.\n\nRegardless of their views on it, said David Ring, a 12th-grade economics teacher in Texas, capitalism is the dominant economic system in the US, and to teach it effectively, it's helpful to start with the basics.\n\n\"There's no purely free-market driven large-scale economy out there, just as there's no purely communist driven large-scale economy out there,\" Ring said.\n\nHere's a lightly edited version of a quiz Ring gives his students on capitalism. Can you ace it?",
+    "readingTime": 2,
+    "keywords": [
+      "driven large-scale",
+      "large-scale economy",
+      "capitalism",
+      "school",
+      "students",
+      "it's",
+      "free-market",
+      "economic",
+      "views",
+      "there's"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://www.businessinsider.com/high-school-capitalism-quiz-test-your-knowledge-2026-1",
+    "thumbnail_url": "https://i.insider.com/69600b6a04eda4732f2ebbd1?width=1200&format=jpeg",
+    "created_at": "2026-01-13T12:25:30.144Z",
+    "topic": "finance"
+  },
+  {
     "slug": "dr-oz-says-if-the-average-american-delayed-their-retirement-and-worked-one-year-longer-it-would-increase-the-gdp-by",
     "title": "Dr. Oz Says If The Average American Delayed Their Retirement And Worked One Year Longer, It Would Increase The GDP By Trillions Of Dollars",
     "description": "Dr. Mehmet Oz made the case that improving Americans’ health through better diets could transform both the nation's economy and healthcare spending. One More Year On The Job, Trillions For The Economy Oz, the administrator of the Centers for Medicare & Medicaid Services, connected the dots between improved public health and workforce participation during a White House press conference this week. If Americans could stay healthy enough to work just one additional year beyond the current average re",
@@ -1912,29 +1936,5 @@
     "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2025/12/julian.png?resize=1200,600",
     "created_at": "2025-12-13T18:47:58.824Z",
     "topic": "business"
-  },
-  {
-    "slug": "we-built-another-object-storage-and-why-its-different",
-    "title": "We Built Another Object Storage (and Why It's Different)",
-    "description": "High-performance object storage exists, but the economics make it unusable at scale. FractalBits breaks out of the high-performance trap.",
-    "fullText": "Object storage is the backbone of modern data infrastructure. AWS S3, Google Cloud Storage, MinIO, Ceph, newer players like Tigris Data—the market is saturated. So why build another one?\n\nBecause the fundamental assumptions behind these systems are shifting. High performance is no longer optional—but having high performance available isn’t the same as being able to afford using it.\n\nTraditional object storage had a clear priority order: cost first, performance later. This worked fine for archiving backups and storing large, rarely accessed files.\n\nBut today, object storage is increasingly the primary data layer for AI, analytics, and cloud-native applications. Latency directly translates to compute costs—stalled GPUs waiting on I/O are expensive GPUs doing nothing.\n\nHigh-performance object storage exists now. S3 Express One Zone, for example, delivers single-digit millisecond latency. But there’s a catch: the per-request pricing makes it prohibitively expensive to actually use at high IOPS. As one analysis put it, it’s “the right technology, at the right time with the wrong price” [1]. You have the performance on paper, but you can’t afford to run your workload at full speed. That’s the high-performance trap.\n\nModern workloads, especially in AI, impose demands that strain traditional designs:\n\nSmall Objects at Scale: AI training datasets often consist of millions of small files (images, text snippets, feature vectors). A study of typical AI training workloads found over 60% of objects are 512KB or smaller [2]. This shifts the bottleneck from bandwidth to metadata performance.\n\nLatency Sensitivity: Training loops and inference pipelines are bottlenecked by I/O. When fetching thousands of small objects per batch, per-object latency compounds quickly, stalling expensive GPUs.\n\nThe Need for Directories: S3’s flat namespace is a mismatch for many workflows. Data scientists expect atomic renames and efficient directory listings—operations that are either slow or missing in classic object stores.\n\nA reasonable question: if you want directories and atomic rename, why not just use a filesystem like AWS EFS? Object stores and filesystems are different concepts—why blur the line?\n\nThe answer is that the line is already blurring, driven by real workload demands. AWS themselves recognized this when they introduced S3 Express One Zone with explicit “directory bucket” semantics and atomic rename support (currently single-object) [3]. Google Cloud has made similar moves toward hierarchical namespace support [4]. The industry is converging on this because the clean separation between “object storage for scale” and “filesystem for semantics” doesn’t match how modern applications actually work.\n\nWe’re not trying to build a POSIX filesystem. But the subset of filesystem semantics that matter for data workflows—efficient directory listings, atomic rename for safe data handoffs—these belong in object storage. The alternative is forcing every application to build fragile workarounds on top of a flat namespace.\n\nExisting systems struggle with these patterns in predictable ways:\n\nThe High-Performance Trap: High-performance tiers like S3 Express One Zone solve the latency problem, but the per-request cost means you can’t actually use that performance at scale. At 10K PUT/s, you’re looking at ~$29K/month in request fees alone. The performance is there; the economics aren’t.\n\nThe Small Object Tax: With cloud object storage, you pay per request. Storing billions of 4KB objects means your API request costs can exceed your storage costs. The more objects you have, the worse it gets.\n\nMissing Directory Semantics: The lack of atomic rename forces complex workarounds in applications, limiting what you can build directly on object storage. Most systems with rename support rely on inode-like structures that struggle with scalability and performance—adding to the per-IOPS cost burden.\n\nWe built FractalBits to break out of the high-performance trap: delivering performance you can actually afford to use at scale. In our benchmarks, we achieved nearly 1M GET/s on 4KB objects with a cluster totaling 64 cores across all data and metadata nodes.\n\nHere’s what the gap looks like for a small-object intensive workload (4KB objects, 10K IOPS):\n\nS3 costs based on public pricing ($0.00113/1K PUTs, $0.00003/1K GETs, $0.11/GB/Month). FractalBits estimated using 1-year reserved instance pricing for required compute (e.g., i8g.2xlarge for data, m7g.4xlarge for metadata). Your savings will vary based on workload, but the magnitude is indicative.\n\nAt our core is a metadata engine built on an on-disk radix tree, optimized for path-like keys.\n\nMost object stores use LSM-trees (good for writes, variable read latency) or B+ trees (predictable reads, write amplification). We chose a radix tree because it naturally mirrors a filesystem hierarchy:\n\nPrefix Sharing: Common path segments (e.g., /datasets/cifar10/) are stored once, saving memory and speeding up traversal.\n\nEfficient Directory Operations: Listing a directory becomes a subtree scan. Atomic rename is essentially updating a pointer at the branch point, not copying data.\n\nCrash Consistency: We use physiological logging to ensure metadata integrity and fast recovery.\n\nUnlike most systems that use inode-based (or inode-like) structures to support directory features, we use a full-path approach for better scalability and performance.\n\nWhy Zig?\n\nOur S3-compatible API server, built in Rust, manages the data path:\n\nSafety & Concurrency: Rust’s ownership model gives us thread safety without a garbage collector—important for high-concurrency request handling.\n\nAsync I/O: Built on Tokio for handling thousands of concurrent connections.\n\nProduction-Ready Frameworks: We support both axum and actix-web, defaulting to actix-web. Its thread-per-core architecture aligns with our design for maximum performance.\n\nFractalBits deploys as a managed software layer within your own cloud account (currently AWS only).\n\nFor us: We leverage the cloud’s proven infrastructure instead of building it from scratch, letting us focus on the storage engine itself.\n\nThe object storage market has high-performance options, but the economics often make that performance unusable at scale. And systems that do offer directory semantics often struggle with performance or scalability. Getting both at a reasonable cost is still rare. We think there’s room for a different approach.\n\nFractalBits is our answer. We’re early in this journey and learning from users who are pushing these limits.\n\nHitting the performance or cost wall with your current object storage? We’d be interested to hear about your use case.\n\n[1]. S3 Express One Zone, Not Quite What I Hoped For, https://jack-vanlightly.com/blog/2023/11/29/s3-express-one-zone-not-quite-what-i-hoped-for\n\n[2]. Mantle: Efficient Hierarchical Metadata Management for Cloud Object Storage Services. SOSP 2025.\n\n[3]. Amazon S3 Express One Zone now supports renaming objects within a directory bucket, https://aws.amazon.com/about-aws/whats-new/2025/06/amazon-s3-express-one-zone-renaming-objects-directory-bucket/\n\n[4]. Google Cloud Storage hierarchical namespace, https://cloud.google.com/blog/products/storage-data-transfer/new-gcs-hierarchical-namespace-for-ai-and-data-lake-workloads",
-    "readingTime": 6,
-    "keywords": [
-      "expensive gpus",
-      "efficient directory",
-      "inode-like structures",
-      "radix tree",
-      "flat namespace",
-      "high-performance trap",
-      "hierarchical namespace",
-      "atomic rename",
-      "directory bucket",
-      "cloud storage"
-    ],
-    "qualityScore": 1,
-    "link": "https://fractalbits.com/blog/why-we-built-another-object-storage/",
-    "thumbnail_url": "https://www.fractalbits.com/logo.png",
-    "created_at": "2025-12-13T13:18:37.208Z",
-    "topic": "tech"
   }
 ]
