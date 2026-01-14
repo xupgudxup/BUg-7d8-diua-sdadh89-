@@ -1,5 +1,53 @@
 [
   {
+    "slug": "open-source-amd-linux-driver-to-achieve-parity-with-windows-in-raytracing",
+    "title": "Open source AMD Linux driver to achieve parity with Windows in ray-tracing?",
+    "description": "A new merge request opened today for Mesa's Radeon Vulkan driver 'RADV' by Valve contractor Natalie Vock provides another significant boost for the Vulkan ray-tracing performance in multiple titles.",
+    "fullText": "New RADV Code Can Deliver 10x Faster Ray-Tracing Pipeline Compilation For Some Games\n\nA new merge request opened today for Mesa's Radeon Vulkan driver \"RADV\" by Valve contractor Natalie Vock provides another significant boost for the Vulkan ray-tracing performance in multiple titles.\r\nOver the past year RADV ray-tracing performance improved a lot as one of the lingering areas where RADV remained behind the now defunct AMDVLK driver and where NVIDIA has long had a performance advantage with ray-traced games. Already this year there have been some nice performance improvements while another exciting merge request is pending for bringing more gains.\r\nThe key takeaway for AMD Radeon Linux gamers with today's pull request:\r\n\"Compiling RT pipelines in UE4 games with raytracing (e.g. Ghostwire Tokyo, The Callisto Protocol) becomes 10 times faster. Yes, an order of magnitude! In one Ghostwire Tokyo Fossilize capture I gathered, time to replay went from 4 minutes and 20 seconds to just 20 seconds. These UE games also tended to have quite terrible stuttering whenever a new RT pipeline was compiled. That stuttering is gone completely.\"\r\nThe merge request now uses function calls to separate out any-hit/intersection shader compilation. Function calls for ray-tracing are now used for \"really cool stuff\" in building off this now-merged code that hit Mesa Git earlier today.\r\nNatalie Vock added in today's new merge request:\r\n\"On top of that, runtime performance improves by a lot [in affected applications] as well. Who knew that inlining hundreds of shaders into an incredibly hot loop might be bad for performance?! From quick napkin math, I think the pure RT performance in Ghostwire Tokyo improves by over 2x. In any case, FPS goes from ~30 to ~40 on my 7900XTX.\r\nIt seems like with the MR, we roughly match Windows performance in the Ghostwire Tokyo scene I tested, as well. Performance improvements on different apps/non-UE4 titles may vary, but I'm pretty sure quite a few apps should benefit. (Cyberpunk 2077 doesn't, though. It only really uses 1 any-hit shader at the maximum and is therefore unaffected by this MR.)\"\r\nIt seems RADV is off to a really great 2026.\r\nThe code is now under review. With Mesa 26.0 code branching / feature freeze imminent, it might not be merged in time for this quarter's Mesa 26.0 release in which case it may not be found in a stable release until Mesa 26.1 in Q2.\n\n 1 Comment",
+    "readingTime": 2,
+    "keywords": [
+      "merge request",
+      "performance improvements",
+      "ray-tracing performance",
+      "natalie vock",
+      "ghostwire tokyo",
+      "radv",
+      "code",
+      "games",
+      "faster",
+      "pipeline"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.phoronix.com/news/RADV-10x-Fast-RT-Pipeline-Comp",
+    "thumbnail_url": "https://www.phoronix.net/image.php?id=2026&image=radv_rt_10x",
+    "created_at": "2026-01-14T18:20:14.697Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "this-app-brings-some-of-my-favorite-windows-features-to-mac",
+    "title": "This App Brings Some of My Favorite Windows Features to Mac",
+    "description": "Time to supercharge your Mac.",
+    "fullText": "As someone who regularly switches between the Mac and PC, I really can't live without the PowerToys app on Windows. It adds little missing features that I really like on the Mac, like a Spotlight Search alternative, auto dark mode, screen awake, on-screen OCR (which lets you pull text from images), and more.\n\nBut the reverse is also true. When I'm on MacOS, I start to miss the little features and commands that I've been used to Windows having for decades now (I started using Windows in school, but was only exposed to macOS when I was in college).\n\nIt's the little things, like not being able to cut and paste files in Finder. And why must I accidentally open the Music app every time I press the play button? This is just the beginning.\n\nEnter Supercharge, a utility from prolific indie developer Sindre Sorhus. Think of it not as a single app, but as a Swiss army knife for your menu bar—a collection of micro-utilities designed to patch the specific usability holes that Apple has left open, many of which Microsoft has already plugged. The app offers an unlimited free trial (with a prompt to upgrade every 12 hours), or you can buy it outright for $18. It's also available as part of a Setapp subscription.\n\nThe Supercharge app works in two ways. The first is by giving you a set-and-forget settings menu. Secondly, it adds a menu bar app where you can quickly access small features on the fly.\n\nThe tweaks part, to me, is a lot more interesting. Once the app is installed, open the menu bar app and go to Settings. Go to the Tweaks tab and take some time to customize your Mac's behavior.\n\nThe Finder is where Supercharge shines, fixing legacy behaviors that have frustrated Windows switchers for years. The first thing I enabled was the \"Cut and Paste\" functionality. Finally, you can use Cmd+X to cut a file and Cmd+V to move it, eliminating the awkward Cmd+C followed by Cmd+Option+V dance required by default.\n\nBeyond moving files, the app allows you to enable the Option+N shortcut to instantly create a new text file in your current folder—another Windows muscle memory I've had for decades. Additional tweaks include toggling the Enter key to open a file instead of renaming it, and an option to show hidden files by default.\n\nApple's Mission Control provides a bird's-eye view of all your windows, but it's hardly interactive. Supercharge changes that by adding window management buttons directly to the overlay. You can now add dedicated Close, Minimize, and Quit buttons for every window inside Mission Control, helping you clear cluttered app windows in seconds, and in a fairly visual way.\n\nSupercharge also brings much-needed flexibility to the Dock, making it more like the taskbar on Windows or Linux. Enable the Click-to-Hide feature, and you can minimize or hide an app simply by clicking on the app icon. My favorite, though, is the option to open folders directly in the Finder from the Dock. You can also set Supercharge to add spacers to the Dock, and quit apps using the middle-click mouse button.\n\nPerhaps the most useful fix in the entire suite is the ability to stop Apple Music from launching automatically. This feature stops the app from popping up when you press Play on your keyboard or Bluetooth headphones. If you are a dedicated Spotify user or simply dislike it when your headphones accidentally wake up Apple Music, this feature alone makes a Supercharge installation worth it.\n\nThe Supercharge app includes several other quality-of-life improvements. The Notification Nuke feature allows you to set a global hotkey to instantly clear all notifications from Notification Center, acting as a panic button for focus. To prevent accidents, you can also enable Accidental Quit Prevention, which requires a double-press or a Shift + Cmd + Q combo to actually quit an application.\n\nThe second part of the equation here is the menu bar app. Here, you can add small missing features that usually require downloading separate apps. There are more than two dozen options. Go to Settings > General > Show Menu Items to see the whole list.\n\nHere, you can add options to quickly capture and copy any text from an image (or translate it). There are one-click options for hiding all windows, showing the desktop, quitting all apps except the current one, clearing all notifications, and more. There's also a simple Keep Awake feature that will keep your Mac active even when the screen is off.\n\nAnd there's also a simple default browser switcher built-in, though I prefer using Sindre's dedicated Default Browser app.",
+    "readingTime": 4,
+    "keywords": [
+      "missing features",
+      "menu bar",
+      "bar app",
+      "supercharge app",
+      "the supercharge",
+      "apple music",
+      "text",
+      "it's",
+      "files",
+      "button"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/this-app-brings-some-of-my-favorite-windows-features-to-mac?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KEXSRGN5TZ31YRPCRT6TZGJD/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-01-14T18:20:06.580Z",
+    "topic": "tech"
+  },
+  {
     "slug": "this-is-why-youre-having-trouble-resizing-windows-in-macos-tahoe",
     "title": "This Is Why You're Having Trouble Resizing Windows in macOS Tahoe",
     "description": "macOS 26 comes with an interesting (and frustrating) quirk.",
