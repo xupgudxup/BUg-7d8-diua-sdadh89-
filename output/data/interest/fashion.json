@@ -1,5 +1,29 @@
 [
   {
+    "slug": "new-safari-developer-tools-provide-insight-into-css-grid-lanes",
+    "title": "New Safari developer tools provide insight into CSS Grid Lanes",
+    "description": "You might have heard recently that Safari Technology Preview 234 landed the final plan for supporting masonry-style layouts in CSS.",
+    "fullText": "You might have heard recently that Safari Technology Preview 234 landed the final plan for supporting masonry-style layouts in CSS. It’s called Grid Lanes.\n\nCSS Grid Lanes adds a whole new capability to CSS Grid. It lets you line up content in either columns or rows — and not both.\n\nThis layout pattern allows content of various aspect ratios to pack together. No longer do you need to truncate content artificially to make it fit. Plus, the content that’s earlier in the HTML gets grouped together towards the start of the container. If new items get lazy loaded, they appear at the end without reshuffling what’s already on screen.\n\nIt can be tricky to understand the content flow pattern as you are learning Grid Lanes. The content is not flowing down the first column to the very bottom of the container, and then back up to the top of the second column. (If you want that pattern, use CSS Multicolumn or Flexbox.)\n\nWith Grid Lanes, the content flows perpendicular to the layout shape you created. When you define columns, the content flows back and forth across those columns, just like to how it would if rows existed. If you define rows, the content will flow up and down through the rows — in the column direction, as if columns were there.\n\nHaving a way to see the order of items can make it easier to understand this content flow. Introducing the CSS Grid Lanes Inspector in Safari. It’s just the regular Grid Inspector, now with more features.\n\nSafari’s Grid Inspector already reveals the grid lines for Grid Lanes, and labels track sizes, line numbers, line names, and area names. Now it has a new feature — “Order Numbers”.\n\nYou might be tempted to believe the content order doesn’t matter. With pages like this photo gallery — most users will have no idea how the photos are ordered in the HTML. But for many users, the content order has a big impact on their experience. You should always consider what it’s like to tab through content — watching one item after another sequentially come into focus. Consider what it’s like to listen to the site through a screenreader while navigating by touch or keyboard. With Grid Lanes, you can adjust flow-tolerance to reduce the jumping around and put items where people expect.\n\nTo know which value for flow tolerance to choose, it really helps to quickly see the order of items. That makes it immediately clear how your CSS impacts the result.\n\nOrder Numbers in the Grid Inspector is an extension of a feature Safari’s Flexbox Inspector has had since Safari 16.0 — marking the order of Flex items. Seeing content order is also helpful when using the order property in Flexbox.\n\nOrder Numbers in Safari’s Grid Inspector works for CSS Grid and Subgrid, as well as Grid Lanes.\n\nThe Grid and Flexbox layout inspectors might seem similar across browsers, but the team behind Safari’s Web Inspector has taken the time to finely polish the details. In both the Grid and Flexbox Inspectors, you can simultaneously activate as many overlays as you want. No limits. And no janky scrolling due to performance struggles.\n\nSafari’s Flexbox Inspector visually distinguishes between excess free space and Flex gaps, since knowing which is which can solve confusion. It shows the boundaries of items, revealing how they are distributed both on the main axis and the cross axis of Flexbox containers. And it lists all the Flexbox containers, making it easier to understand what’s happening overall.\n\nOur Grid Inspector has a simple and clear interface, making it easy to understand the options. It also lists all Grid containers. And of course, you can change the default colors of the overlays, to best contrast with your site content.\n\nAnd Safari’s Grid and Flexbox Inspectors are the only browser devtools that label content order. We hope seeing the order of content in Grid Lanes helps you understand it more thoroughly and enjoy using this powerful new layout mechanism.\n\nOrder Numbers in Safari’s Grid Inspector shipped today in Safari Technology Preview 235. Let us know what you think. There’s still time to polish the details to make the most helpful tool possible. You can ping Jen Simmons on Bluesky or Mastodon with links, comments and ideas.",
+    "readingTime": 4,
+    "keywords": [
+      "technology preview",
+      "safari technology",
+      "flexbox inspectors",
+      "flexbox containers",
+      "safari’s flexbox",
+      "css grid",
+      "safari’s grid inspector",
+      "content flows",
+      "content flow",
+      "grid lanes"
+    ],
+    "qualityScore": 1,
+    "link": "https://webkit.org/blog/17746/new-safari-developer-tools-provide-insight-into-css-grid-lanes/",
+    "thumbnail_url": "https://webkit.org/wp-content/uploads/grid-lanes-photos-light-scaled.webp",
+    "created_at": "2026-01-15T00:56:31.505Z",
+    "topic": "tech"
+  },
+  {
     "slug": "elena-dementieva-believes-aryna-sabalenka-is-ready-to-conquer-melbourne",
     "title": "Elena Dementieva believes Aryna Sabalenka is ready to conquer Melbourne",
     "description": "Aryna Sabalenka has made a strong start to her 2026 tennis campaign, picking up her first title of the year before January is even over. Aryna Sabalenka has opened the 2026 season in commanding fashion, capturing the Brisbane International title on Sunday with a straight-sets victory over Marta Kostyuk, 6-4, 6-3.",
@@ -2097,22 +2121,5 @@
     "thumbnail_url": "https://i.insider.com/693af43364858d02d216a34f?width=1200&format=jpeg",
     "created_at": "2025-12-12T18:55:53.543Z",
     "topic": "finance"
-  },
-  {
-    "slug": "call-for-australiastyle-teen-social-media-ban",
-    "title": "Call for Australia-style teen social media ban",
-    "description": "A smartphone-free campaign group says the island is in a good position to mirror Australia.",
-    "fullText": "A group campaigning for smartphone-free schools has said it hopes Guernsey follows Australia's social media ban for children aged under 16.\n\nAustralia's new laws mean social media firms including Meta, TikTok and YouTube must take \"reasonable steps\" to ensure under-16s do not hold accounts on their platforms.\n\nEmma Lawlor, from Smartphone Free Childhood Guernsey, said the bailiwick was in a good position to mirror the country.\n\nThe States of Guernsey said it was \"closely monitoring developments\" in other jurisdictions, including Denmark and Norway, which were \"considering similar measures\".",
-    "readingTime": 1,
-    "keywords": [
-      "social media",
-      "australia's",
-      "guernsey"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.bbc.com/news/articles/ce8nzmrnpn1o",
-    "thumbnail_url": "https://ichef.bbci.co.uk/news/1024/branded_news/3519/live/b4154aa0-d5b0-11f0-a80f-4194a66f2469.png",
-    "created_at": "2025-12-12T06:59:04.119Z",
-    "topic": "tech"
   }
 ]
