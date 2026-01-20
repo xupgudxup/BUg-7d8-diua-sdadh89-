@@ -1,5 +1,44 @@
 [
   {
+    "slug": "ygrep-fast-local-indexed-code-search-tool-optimized-for-ai-coding-assistants",
+    "title": "Ygrep: Fast, local, indexed code search tool optimized for AI coding assistants",
+    "description": "A fast, local, indexed code search tool optimized for AI coding assistants. Written in Rust using Tantivy for full-text indexing. - yetidevworks/ygrep",
+    "fullText": "yetidevworks\n\n /\n\n ygrep\n\n Public\n\n A fast, local, indexed code search tool optimized for AI coding assistants. Written in Rust using Tantivy for full-text indexing.\n\n License\n\n MIT license\n\n 14\n stars\n\n 2\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n yetidevworks/ygrep",
+    "readingTime": 1,
+    "keywords": [
+      "license"
+    ],
+    "qualityScore": 0.4,
+    "link": "https://github.com/yetidevworks/ygrep",
+    "thumbnail_url": "https://opengraph.githubassets.com/eda1bb1f12626e76b9793d44f791d0ed3332b6c28dc7896d1831d00d7c49258d/yetidevworks/ygrep",
+    "created_at": "2026-01-20T00:57:31.412Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "scaling-longrunning-autonomous-coding",
+    "title": "Scaling long-running autonomous coding",
+    "description": "Wilson Lin at Cursor has been doing some experiments to see how far you can push a large fleet of \"autonomous\" coding agents: This post describes what we've learned from …",
+    "fullText": "Scaling long-running autonomous coding. Wilson Lin at Cursor has been doing some experiments to see how far you can push a large fleet of \"autonomous\" coding agents:\n\nThis post describes what we've learned from running hundreds of concurrent agents on a single project, coordinating their work, and watching them write over a million lines of code and trillions of tokens.\n\nThey ended up running planners and sub-planners to create tasks, then having workers execute on those tasks - similar to how Claude Code uses sub-agents. Each cycle ended with a judge agent deciding if the project was completed or not.\n\nIn my predictions for 2026 the other day I said that by 2029:\n\nI think somebody will have built a full web browser mostly using AI assistance, and it won’t even be surprising. Rolling a new web browser is one of the most complicated software projects I can imagine[...] the cheat code is the conformance suites. If there are existing tests that it’ll get so much easier.\n\nI may have been off by three years, because Cursor chose \"building a web browser from scratch\" as their test case for their agent swarm approach:\n\nTo test this system, we pointed it at an ambitious goal: building a web browser from scratch. The agents ran for close to a week, writing over 1 million lines of code across 1,000 files. You can explore the source code on GitHub.\n\nBut how well did they do? Their initial announcement a couple of days ago was met with unsurprising skepticism, especially when it became apparent that their GitHub Actions CI was failing and there were no build instructions in the repo.\n\nIt looks like they addressed that within the past 24 hours. The latest README includes build instructions which I followed on macOS like this:\n\nThis got me a working browser window! Here are screenshots I took of google.com and my own website:\n\nHonestly those are very impressive! You can tell they're not just wrapping an existing rendering engine because of those very obvious rendering glitches, but the pages are legible and look mostly correct.\n\nThe FastRender repo even uses Git submodules to include various WhatWG and CSS-WG specifications in the repo, which is a smart way to make sure the agents have access to the reference materials that they might need.\n\nThis is the second attempt I've seen at building a full web browser using AI-assisted coding in the past two weeks - the first was HiWave browser, a new browser engine in Rust first announced in this Reddit thread.\n\nWhen I made my 2029 prediction this is more-or-less the quality of result I had in mind. I don't think we'll see projects of this nature compete with Chrome or Firefox or WebKit any time soon but I have to admit I'm very surprised to see something this capable emerge so quickly.",
+    "readingTime": 3,
+    "keywords": [
+      "autonomous coding",
+      "web browser",
+      "agents",
+      "repo",
+      "cursor",
+      "project",
+      "ended",
+      "tasks",
+      "agent",
+      "mostly"
+    ],
+    "qualityScore": 1,
+    "link": "https://simonwillison.net/2026/Jan/19/scaling-long-running-autonomous-coding/",
+    "thumbnail_url": "https://static.simonwillison.net/static/2026/cursor-social-card.jpg",
+    "created_at": "2026-01-20T00:57:30.632Z",
+    "topic": "tech"
+  },
+  {
     "slug": "valve-updates-ai-disclosure-guidelines-to-allow-for-aipowered-tools",
     "title": "Valve Updates AI Disclosure Guidelines To Allow For AI-Powered Tools",
     "description": "Valve has made changes to its AI-disclosure guidelines, removing the need for studios to disclose whether or not games have been developed with AI-powered tools and putting more emphasis on AI-generated assets.\nThe change, which was pointed out by Simon Carless on LinkedIn, suggests that Valve is no longer concerned by the use of AI tools that assist development, stating, \"Efficiency gains through the use of [AI-powered dev tools] is not the focus of this section.\" These tools could included a variety of things, such as AI-generated transcripts of meetings to code helpers that have become prevalent in most programming environments.\nValve states the the aim of its disclosure policy is to inform players when AI is used to generate content, from marketing and conceptual assets to in-game ones that players will interact with. Developers are able to specify what assets have been generated and indicate, via a single checkbox, whether or not players will interact with AI-generated content during gameplay, be it images, audio, or other content.",
