@@ -1,5 +1,101 @@
 [
   {
+    "slug": "openai-gpt52codex-high-vs-claude-opus-45-vs-gemini-3-pro-in-production",
+    "title": "OpenAI GPT-5.2-Codex (High) vs. Claude Opus 4.5 vs. Gemini 3 Pro (In Production)",
+    "description": "A real-world comparison of GPT-5.2-Codex (high), Claude Opus 4.5, and Gemini 3 Pro on two coding tasks, focusing on quality, speed, and cost.",
+    "fullText": "If you want a quick take: Claude Opus 4.5 was the most consistent, GPT-5.2-codex (high) delivered strong code with slower turnaround, and Gemini 3 Pro was the most efficient but less polished.\n\nIf you want a quick take, here’s how the three models performed in our tests:\n\n💡 If you want the safest pick for real “ship a feature in a big repo” work, Opus 4.5 felt the most reliable in my runs. If you care about speed and cost and you’re okay polishing UI yourself, Gemini 3 Pro is a solid bet.\n\nOkay, so right now the WebDev leaderboard on LMArena is basically owned by the big three: Claude Opus 4.5 from Anthropic, GPT-5.2-codex (high) from OpenAI, and finally everybody's favorite, Gemini 3 Pro from Google.\n\nSo, I grabbed these three and put them into the same existing project (over 8K stars and 50K+ LOC) and asked them to build a couple of real features like a normal dev would.\n\nSame repo. Same prompts. Same constraints.\n\nFor each task, I took the best result out of three runs per model to keep things fair.\n\nThen I compared what they actually did: code quality, how much hand-holding they needed, and whether the feature even worked in the end.\n\n⚠️ NOTE: Don't take the result of this test as a hard rule. This is just a small set of real-world coding tasks that shows how each model did for me in that exact setup and gives you an overview of the difference in the top 3 models' performance in the same tasks.\n\nFor the test, we will use the following CLI coding agents:\n\nHere’s the repo used for the entire test: iib0011/omni-tools\n\nWe will check the models on two different tasks:\n\nEach model is asked to create a global action menu that opens with a keyboard shortcut. This feature expands on the current search by adding actions, global state, and keyboard navigation. This task checks how well the model understands current UX patterns and avoids repetition without breaking what's already in place.\n\nEach model had to add real usage tracking across the app, persist it locally, and then build an analytics dashboard that shows things like the most used tools, recent activity, and basic filters.\n\nWe’ll compare code quality, token usage, cost, and time to complete the build.\n\n💡 NOTE: I will share the source code changes for each task by each model in a .patch file. This way, you can easily view them on your local system by cloning the repository and applying the patch file using git apply <path_file_name>. This method makes sharing changes easier.\n\nThe task is simple: all models start from the same base commit and then follow the same prompt to build what is asked in the prompt.\n\nAnd obviously, as mentioned, I will evaluate the response from the model from the \"Best of 3.\"\n\nLet's start off the test with something interesting:\n\nGPT-5.2 handled this surprisingly well. The implementation was solid end to end, and it basically one-shotted the entire feature set, including i18n support, without needing multiple correction passes.\n\nThat said, it did take a bit longer than some other models (~20 minutes), which is expected since reasoning was explicitly set to high. The model spends more time thinking through architecture, naming, and edge cases rather than rushing to output code. The trade-off felt worth it here.\n\nThe token usage was noticeably higher due to the reasoning set to high, but the output code reflected that.\n\nYou can find the code it generated here: GPT-5.2 High Code\n\n💡 NOTE: I ran the exact same prompt with the same model using the default (medium) reasoning level. The difference was honestly massive. With reasoning set to high, the quality of the code, structure, and pretty much everything jumps by miles. It’s not even a fair comparison.\n\nClaude went all in and prepared a ton of different strategies. At the start, it did run into build issues, but it kept running the build until it was able to fix all the build and lint issues.\n\nThe entire run took me about 7 minutes 50 seconds, which is the fastest among the models for this test. The features all worked as asked, and obviously, the UI looked super nice and exactly how I expected.\n\nYou can find the code it generated here: Claude Opus 4.5 Code\n\nTo be honest, this exceeded my expectations; even the i18n texts are added and displayed in the UI just as expected. Absolute cinema!\n\nGemini 3 got it working, but it's clearly not on the same level as GPT-5.2 High or Claude Opus 4.5. The UI it built is fine and totally usable, but it feels a bit barebones, and you don't get many choices in the palette compared to the other two.\n\nOne clear miss is that language switching does not show up inside the action palette at all, which makes the i18n support feel incomplete even though translations technically exist.\n\nYou can find the code it generated here: Gemini 3 Pro Code\n\nOverall, Gemini 3 lands in a very clear third place here. It works, the UI looks fine, and nothing is completely broken, but compared to the depth, completeness, and polish of GPT-5.2 High and Claude Opus 4.5, it feels behind.\n\nThis test is a step up from the action palette.\n\nYou can find the prompt I've used here: Prompt\n\nGPT-5.2 absolutely nailed this one.\n\nThe final result turned out amazing. Tool usage tracking works exactly as expected, data persists correctly, and the dashboard feels like a real product feature. Most used tools, recent usage, filters, everything just works.\n\nOne really nice touch is that it also wired analytics-related actions into the Action Palette from Test 1.\n\nIt did take a bit longer than the first test, around 26 minutes, but again, that’s the trade-off with high reasoning. You can tell the model spent time thinking through data modeling, reuse, and avoiding duplicated logic. Totally worth it here.\n\nYou can find the code it generated here: GPT-5.2 High Code\n\nGPT-5.2 High continues to be slow but extremely powerful, and for a task like this, that’s a very good trade.\n\nClaude Opus 4.5 did great here as well.\n\nThe final implementation works end to end, and honestly, from a pure UI and feature standpoint, it’s hard to tell the difference between this and GPT-5.2 High. The dashboard looks clean, the data makes sense, and the filters work as expected.\n\nYou can find the code it generated here: Claude Opus 4.5 Code\n\nGemini 3 Pro gets the job done, but it clearly takes a more minimal approach compared to GPT-5.2 High and Claude Opus 4.5.\n\nThat said, the overall experience feels very bare minimum. The UI is functional but plain, and the dashboard lacks the polish and depth you get from the other two models.\n\nAlso, it didn't quite add the button to view the analytics right in the action palette, similar to the other two models.\n\nYou can find the code it generated here: Gemini 3 Pro Code\n\nOverall, Gemini 3 Pro remains efficient and reliable, but in a comparison like this, efficiency alone is not enough. 🤷‍♂️\n\nAt least from this test, I can conclude that the models are now pretty much able to one-shot a decent complex work, at least from what I tested.\n\nStill, there have been times when the models mess up so badly that if I were to go ahead and fix the problems one by one, it would take me nearly the same time as building it from scratch.\n\nIf I compare the results across models, Opus 4.5 definitely takes the crown. But I still don’t think we’re anywhere close to relying on it for real, big production projects. The recent improvements are honestly insane, but the results still don’t fully back them up. 🥴\n\nFor now, I think these models are great for refactoring, planning, and helping you move faster. But if you solely rely on their generated code, the codebase just won’t hold up long term.\n\nI don't see any of these recent models as “use it and ship it” for \"production,\" in a project with millions of lines of code, at least not in the way people hype it up.\n\nLet me know your thoughts in the comments.\n\nSoftware and DevOps engineer with 4+ years of experience building for the web and cloud, mainly with TypeScript, Python, Go, Docker, and Kubernetes. I share agentic system builds and write out of passion about AI models, workflows, and the tooling behind them.",
+    "readingTime": 8,
+    "keywords": [
+      "overall gemini",
+      "patch file",
+      "bit longer",
+      "code overall",
+      "usage tracking",
+      "token usage",
+      "pro code",
+      "output code",
+      "opus code",
+      "code quality"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.tensorlake.ai/blog/gpt5.2-codex-high-vs-opus-4.5-vs-gemini-3-pro",
+    "thumbnail_url": "https://tensorlake.ai/assets/blog/gpt5.2-codex-high-vs-opus-4.5-vs-gemini-3-pro/blog-header.png",
+    "created_at": "2026-01-20T06:21:45.608Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "vinod-khosla-is-looking-at-this-metric-to-gauge-if-were-in-an-ai-bubble",
+    "title": "Vinod Khosla is looking at this metric to gauge if we're in an AI bubble",
+    "description": "\"What Wall Street tends to do with it, I don't really care,\" Khosla said.",
+    "fullText": "Vinod Khosla has his eye on one AI metric, and it's not stock prices.\n\nOn an episode of OpenAI's podcast released on Monday, the famed venture capitalist shared how he's gauging whether we're in an AI bubble — or not.\n\n\"People equate bubble to stock prices, which has nothing to do with anything other than fear and greed among investors,\" he said. \"So I always look at, bubbles should be measured by the number of API calls.\"\n\nAPI, or Application Programming Interface calls, refer to the process in which one software application sends a message to another application to request data or to trigger an action. They are a common indicator of digital tools' use, especially with the rise of AI agents. High API calls can also be a mark of a poor or inefficient product.\n\nKhosla said the bubble shouldn't be called \"by what happened to stock prices because somebody got overexcited or underexcited and in one day they can go from loving Nvidia to hating Nvidia because it's overvalued.\"\n\nThe 70-year-old VC, whose notable investments include OpenAI, DoorDash, and Block, compared the AI bubble to the dot-com bubble. He said he looked out for internet traffic as a metric during the 1990s, and with AI bubble concerns, that benchmark is now API calls.\n\n\"If that's your fundamental metric of what's the real use of your AI, usefulness of AI, demand for AI, you're not going to see a bubble in API calls,\" he said. \"What Wall Street tends to do with it, I don't really care. I think it's mostly irrelevant.\"\n\nConcerns that the AI industry is overvalued because of massive investments became one of the buzziest themes in the second half of 2025. The phrase \"AI bubble\" appeared in 42 earnings calls and investor conference transcripts between October and December — a 740% increase from the previous quarter, according to an AlphaSense analysis.\n\nTop business leaders remain split about whether the bubble is about to burst.\n\nMicrosoft cofounder Bill Gates said AI has extremely high value, but it's still in a bubble.\n\n\"But you have a frenzy,\" Gates told CNBC in late October. \"And some of these companies will be glad they spent all this money. Some of them, you know, they'll commit to data centers whose electricity is too expensive.\"\n\nEarlier this month, \"Big Short\" investor Michael Burry raised the alarm on an AI bubble in a Substack exchange.\n\nBurry wrote that companies, including Microsoft and Alphabet, are wasting trillions on microchips and data centers that will quickly become obsolete. He added that their spending has \"no clear path to utilization by the real economy.\"\n\nNvidia CEO Jensen Huang has dismissed concerns of a bubble. His company became the world's first $5 trillion market cap company in October on the back of the AI boom.\n\nIn an October Bloomberg TV appearance, Huang said that instead of overspeculation, AI is part of a transition from an old way of computing.\n\n\"We also know that AI has become good enough because of reasoning capability, and research capability, its ability to think — it's now generating tokens and intelligence that is worth paying for,\" Huang said.",
+    "readingTime": 3,
+    "keywords": [
+      "bubble",
+      "it's",
+      "metric",
+      "stock",
+      "concerns",
+      "overvalued",
+      "investments",
+      "investor",
+      "centers",
+      "capability"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/vinod-khosla-looks-at-this-metric-to-gauge-ai-bubble-2026-1",
+    "thumbnail_url": "https://i.insider.com/696eef8ce1ba468a96aa5078?width=1200&format=jpeg",
+    "created_at": "2026-01-20T06:21:43.656Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "openais-finance-chief-just-dropped-some-hints-about-how-the-company-plans-to-make-more-money",
+    "title": "OpenAI's finance chief just dropped some hints about how the company plans to make more money",
+    "description": "OpenAI's chief financial officer floated \"licensing models\" as a revenue idea as the company faces massive compute costs.",
+    "fullText": "OpenAI's chief financial officer is musing about new ways the company could make money beyond ChatGPT subscriptions.\n\nIn an episode of \"The OpenAI Podcast\" published Monday, Sarah Friar floated the idea of \"licensing models,\" in which the company could take a share of downstream sales if a customer's product takes off.\n\n\"Let's say in drug discovery, if we licensed our technology, you have a breakthrough. The drug takes off, and we get a licensed portion of all its sales,\" Friar said.\n\n\"It's great alignment for us with our customer,\" she added.\n\nFriar's comments offer a glimpse of how OpenAI is thinking about funding its compute-hungry ambitions as it broadens its business model.\n\nFriar said OpenAI began with a single subscription after launching ChatGPT, but has since expanded to multiple price points, SaaS-style enterprise pricing, and credit-based pricing for customers who \"want to pay more to get more.\"\n\nAs OpenAI looks at commerce and ads, Friar said the model should always give the best answer, not a sponsored one, and maintain an ad-free tier.\n\nLast week, OpenAI announced it is preparing to test ads in ChatGPT, as the company seeks to boost revenue while facing spending commitments of about $1.4 trillion over the coming years.\n\nThe move marks a shift from the company's earlier stance. Less than two years ago, OpenAI CEO Sam Altman described advertising as a \"last resort.\"\n\n\"Ads plus AI is sort of uniquely unsettling to me,\" Altman said during an event at Harvard University in May 2024. \"I kind of think of ads as a last resort for us for a business model.\"\n\nSince then, Altman's tone has evolved alongside OpenAI's expansion and ballooning compute costs. In June, he said on OpenAI's podcast that he wasn't \"totally against\" advertising, but emphasized that it would need to be handled carefully.\n\nOpenAI also completed its restructuring in October, shifting the company toward a more traditional for-profit structure — a change Altman said would make it easier to raise capital going forward.",
+    "readingTime": 2,
+    "keywords": [
+      "business model",
+      "openai's",
+      "chatgpt",
+      "openai",
+      "sales",
+      "drug",
+      "licensed",
+      "pricing",
+      "advertising",
+      "resort"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.businessinsider.com/openai-chief-financial-officer-sarah-friar-licensing-models-revenue-2026-1",
+    "thumbnail_url": "https://i.insider.com/696ef256c58df2ecd5ccc57f?width=1200&format=jpeg",
+    "created_at": "2026-01-20T06:21:43.654Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "elon-musk-drops-a-surprise-curveball-on-nvidia",
+    "title": "Elon Musk drops a surprise curveball on Nvidia",
+    "description": "Tesla (TSLA) just delivered a rare double whammy to Nvidia (NVDA) over the past weekend. CEO Elon Musk revealed that Tesla’s much-talked-about AI5 self-driving chips are nearly complete, and that the next one, A16, is already underway. With the AI inference part covered, Musk said Sunday on X ...",
+    "fullText": "Tesla (TSLA) just delivered a rare double whammy to Nvidia (NVDA) over the past weekend.\n\nCEO Elon Musk revealed that Tesla’s much-talked-about AI5 self-driving chips are nearly complete, and that the next one, A16, is already underway.\n\nWith the AI inference part covered, Musk said Sunday on X that Dojo 3 is being restarted, pushing Tesla back into large-scale AI training after previously pulling back.\n\nNvidia threw the first punch, though, when it rolled out “Alpamayo” at CES 2026 (an open-source autonomous vehicle AI toolkit), aiming to become the default autonomy platform powering a ton of brands.\n\nMusk responded swiftly, downplaying the risk.\n\nClearly, this is a mighty interesting time for the AV industry, with the tug-of-war between two giants in Nvidia and Tesla.\n\nFor Tesla, it’s all about building a closed loop that covers the entire AV stack.\n\nTesla-designed in-car compute (this includes AI5, which is “nearly done,” and the AI6, which is already underway)\n\nTesla’s camera-first software stack\n\nTesla’s data flywheel is powered by its own fleet\n\nSo for Tesla, it’s all about keeping the autonomy part within its potent ecosystem, as Nvidia looks to power everyone else.\n\nFor investors, these promises aren’t new, which makes the follow-through all the more critical.\n\nTesla is looking to tighten its grip on the hardware behind self-driving.\n\nMorgan Stanley sets jaw-dropping Micron price target after event\n\nForget Blackwell, Nvidia future is Vera Rubin, agentic software\n\nQuantum Computing makes $110 million move nobody saw coming\n\nMorgan Stanley drops eye-popping Broadcom price target\n\nApple analyst sets bold stock target for 2026\n\nMusk announced on Saturday in an X post that the EV giant is nearing completion of its AI5 self-driving computer chip, and that the AI6 is already in development.\n\nAccording to Musk, the AI5 chips, which are manufactured by Taiwan Semiconductor Manufacturing Company, will enter high-volume production in 2027, replacing the AI4 hardware. Also, Tesla has lined up Samsung Electronics for U.S.-based chip manufacturing.\n\nIt’s pretty easy to get lost in the AI jargon, so it’s important to be clear about things at each step about what’s happening.\n\nThe A15 and A16 move is essentially about “inference at the edge”. That’s basically running Tesla’s Full Self-Driving neural nets inside the car, instead of relying on a third-party compute stack.",
+    "readingTime": 2,
+    "keywords": [
+      "tesla it’s",
+      "morgan stanley",
+      "stack",
+      "target",
+      "chips",
+      "nearly",
+      "underway",
+      "inference",
+      "back",
+      "autonomy"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://finance.yahoo.com/news/elon-musk-drops-surprise-curveball-190300808.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/thestreet_881/dd84ae97738233f3f8b955ba0292a512",
+    "created_at": "2026-01-20T06:21:41.682Z",
+    "topic": "finance"
+  },
+  {
     "slug": "ygrep-fast-local-indexed-code-search-tool-optimized-for-ai-coding-assistants",
     "title": "Ygrep: Fast, local, indexed code search tool optimized for AI coding assistants",
     "description": "A fast, local, indexed code search tool optimized for AI coding assistants. Written in Rust using Tantivy for full-text indexing. - yetidevworks/ygrep",
@@ -1970,92 +2066,5 @@
     "thumbnail_url": "https://i.insider.com/696816ea764ca5f34d2a7999?width=1200&format=jpeg",
     "created_at": "2026-01-15T18:24:03.087Z",
     "topic": "finance"
-  },
-  {
-    "slug": "want-a-promotion-it-might-pay-to-use-ai",
-    "title": "Want a promotion? It might pay to use AI",
-    "description": "Cisco employees who used AI tools were promoted faster and showed higher engagement and retention rates, an analysis found.",
-    "fullText": "AI use could make the difference between being up for promotion — or getting passed over.\n\nCisco released a report on Thursday that found that active AI users at the tech company were more likely to be promoted faster. Employees recommended for promotion used AI 50% more often than those who were not recommended, the report said.\n\nIt also said that active AI users, which it describes as those who consistently use the technology, are 40% more likely to be distinguished as \"critical to retain.\"\n\n\"These patterns suggest that Cisco is becoming a place where AI skills are not only developed but rewarded,\" the report said.\n\nThe findings, conducted by Cisco's People Intelligence team over the past year, are based on data from a comprehensive analysis focused on AI tool adoption, usage, experience, and impact within the company.\n\n\"When they're using AI, they're more excited about our mission. They're more confident in where the company is headed, they feel more challenged and empowered to do their roles,\" Cisco's chief people officer, Kelly Jones, told Business Insider.\n\nWhile Cisco is observing a link between those who use AI and are recommended for promotions, other companies have explicitly said that AI usage will play a role in determining who gets promoted.\n\nBusiness Insider previously reported that Jamie Siminoff, Amazon's VP of product who runs the company's home security division, had announced that all applications for promotions in his division would require employees to describe how they were utilizing AI. The VP said promotions were \"the only real incentive\" for teams to use the technology.\n\nSimilarly, this year, Meta is poised to start tying employees' performance to their \"AI-driven impact,\" according to an internal memo sent to employees by the company's head of people in November and seen by Business Insider. The tech giant will assess employees on how they use AI to deliver results and build tools that have a major impact on productivity.",
-    "readingTime": 2,
-    "keywords": [
-      "employees",
-      "recommended",
-      "impact",
-      "they're",
-      "promotions",
-      "promotion",
-      "active",
-      "users",
-      "tech",
-      "promoted"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.businessinsider.com/cisco-study-using-ai-improved-chances-of-promotion-2026-1",
-    "thumbnail_url": "https://i.insider.com/6967c2b404eda4732f2f0dd6?width=1200&format=jpeg",
-    "created_at": "2026-01-15T18:24:03.012Z",
-    "topic": "science"
-  },
-  {
-    "slug": "tsmcs-record-quarterly-profit-is-giving-a-fresh-boost-to-the-whole-chip-sector",
-    "title": "TSMC's record quarterly profit is giving a fresh boost to the whole chip sector",
-    "description": "Taiwan Semiconductor Manufacturing Company's record Q4 results are boosting chip stocks as investors cheer new signs of AI strength.",
-    "fullText": "Taiwan Semiconductor Manufacturing Company just gave the AI trade a fresh boost.\n\nThe chipmaker reported fourth-quarter earnings on Wednesday, blowing past analyst estimates on multiple metrics. It also reported a record 35% quarterly profit, sending TSMC stock soaring as investors cheered the latest indicator that AI demand is still running hot.\n\nThe end of 2025 saw rising doubts about the sustainability of the market's top trade, and investor fatigue over relentless AI infrastructure spending. But TSMC's earnings smash and record profit looks to have revived the AI trade as investors get ready for Big Tech earnings in the coming weeks.\n\nTSMC reported that revenue increased 20% on a year-over-year basis in the quarter, while both net income and diluted earnings-per-share surged more than 35%.\n\n\"Our business in the fourth quarter was supported by strong demand for our leading-edge process technologies,\" said TSMC CFO and senior VP Wendell Huang. \"Moving into first quarter 2026, we expect our business to be supported by continued strong demand for our leading-edge process technologies.\"\n\nThe company also revealed that its capital spending could rise by as much as 37% to $56 billion this year, and it is expected to rise even more over the coming two years. Analysts had only expected $46 billion for this year.\n\nThis news quickly sent AI chip stocks soaring in anticipation of for higher demand. The sector's top premarket moves are as follows:\n\nThe news proved particularly bullish for ASML stock, which saw its market cap surge past $500 billion on Thursday after TSMC posted its big spending forecast.\n\nThe high spending forecast makes it clear that TSMC, considered the market's leader in the AI chip production space, expects demand to remain high not just in 2026 but over the upcoming three year period. As the company is seen as a bellwether for its industry, Wall Street will likely take it as an indicator that the AI trade is as strong as ever.",
-    "readingTime": 2,
-    "keywords": [
-      "leading-edge process",
-      "process technologies",
-      "demand",
-      "trade",
-      "earnings",
-      "quarter",
-      "record",
-      "profit",
-      "stock",
-      "soaring"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.businessinsider.com/tsmc-earnings-profit-record-chip-stocks-ai-trade-avgo-nvda-2026-1",
-    "thumbnail_url": "https://i.insider.com/6968fcf864858d02d218669f?width=1200&format=jpeg",
-    "created_at": "2026-01-15T18:24:02.665Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "5-psychologybacked-principles-for-more-effective-personalization",
-    "title": "5 Psychology-Backed Principles for More Effective Personalization",
-    "description": "As personalization becomes table stakes, a new class of products is emerging that depends not just on data inferred from patterns and history but on deeply personal information that customers are willing to reveal about themselves in the moment. This is “confessional commerce,” a model in which value is created through candid, contextual disclosure and sustained by how products respond to it. Drawing on research from clinical psychology and real-world product building, well-designed interactions can reduce shame, invite deeper honesty, and build trust over time. By applying five principles that psychologists use to elicit meaningful disclosure, teams can pair AI’s predictive power with psychological attunement, creating feedback loops in which better responses lead to greater openness and, ultimately, more effective personalization.",
-    "fullText": "5 Psychology-Backed Principles for More Effective Personalization by Michelle TaiteJanuary 15, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintPersonalization has become a baseline expectation across industries. Deloitte has found that nearly three quarters of consumers are more likely to buy from brands that personalize, and McKinsey has shown that companies that excel at personalization generate up to 40% more revenue than their peers. The economic upside is clear, and AI is quickly scaling these capabilities.",
-    "readingTime": 1,
-    "keywords": [
-      "personalization"
-    ],
-    "qualityScore": 0.35,
-    "link": "https://hbr.org/2026/01/5-psychology-backed-principles-for-more-effective-personalization",
-    "thumbnail_url": "/resources/images/article_assets/2026/01/Jan26_16_608719105.jpg",
-    "created_at": "2026-01-15T18:24:01.734Z",
-    "topic": "business"
-  },
-  {
-    "slug": "ai-as-life-coach-experts-say-what-works-what-doesnt-and-what-to-look-out-for",
-    "title": "AI as life coach: experts say what works, what doesn't and what to look out for",
-    "description": "It’s becoming more common for people to use AI chatbots for personal guidance – but this doesn’t come without risks",
-    "fullText": "It’s becoming more common for people to use AI chatbots for personal guidance – but this doesn’t come without risks\n\nIf you’re like a lot of people, you’ve probably ditched your new year resolutions by now. Setting goals is hard; keeping them is harder – and failure can bring about icky feelings about yourself.\n\nThis year, in an effort to game the system and tilt the scales toward success, some people used AI for their 2026 resolutions. It’s the latest step in an ongoing trend: in September 2025, OpenAI, the company behind ChatGPT, released findings showing that using the AI chatbot for personal guidance is very common.\n\nThe company’s interpretation of this was that “people value ChatGPT most as an adviser rather than only for task completion.”\n\nBut just because you can ask AI for life advice, should you? And is there an art to it? Here’s what experts say are the dos and don’ts.\n\nAI-driven goal-setting isn’t inherently good or bad, explains Zainab Iftikhar, a Brown University PhD candidate, whose research examines artificial intelligence and users’ wellbeing. Artificial intelligence can lower the barrier to self-reflection and be genuinely empowering for some, she explains. For people who feel stuck, overwhelmed, or unsure of where to begin, prompts “can act as a scaffold” for expressing and understanding your ideas, says Iftikhar.\n\nIf the AI has access to information you’ve either shared or asked it to generate, it’s also an efficient tool at synthesizing that information, explains Ziang Xiao, an assistant professor of computer science at Johns Hopkins University. The compilation and interpretation of your previous data could help you efficiently organize the thoughts that initiate your goals.\n\nBut there are also drawbacks to using AI for goal-setting, says Iftikhar. Navigating the potential harms can come down to how well you know yourself – and how well you can navigate bad AI advice.\n\nBecause large language models (LLMs), the type of AI that drives these systems, are trained on large-scale human-generated data, they can reproduce assumptions about success, self-improvement and relationships, Iftikhar explains. LLMs are also predominantly trained on English text and tend to exhibit a bias toward western values.\n\nAI-suggested goals risk being over-generic, reinforcing “dominant cultural narratives, rather than what is meaningful for a specific individual”, says Iftikhar.\n\nIt can be very difficult to detect this bias. AI chatbots can be persuasive in a way that individuals may have difficulty detecting if they are being nudged toward mismatched goals, says Xiao. These tools may “inappropriately affirm goals that may not actually be a great fit for you”, he says.\n\nEven if you use a chatbot frequently and request that it specifically base its responses on previous conversations, there’s still a chance that the chatbot’s replies will incorporate insights that have nothing to do with the information you’ve already shared, he explains.\n\nDuring her research, Iftikhar noticed that the people who are routinely correcting or ignoring bad AI responses are at an advantage in using AI itself. Those who are not, for a variety of reasons, including technical expertise, are “more likely to suffer from incorrect or harmful responses”, she explains.\n\nAI can also reflect the bias of the user asking it for guidance. In a 2024 study, Xiao and colleagues observed that LLM users were more likely to become trapped in an echo chamber, compared with those who use traditional web searches.\n\nAI chatbots are designed to make us happy, explains Xiao. In a 2025 paper published in the journal npj Digital Medicine, researchers show LLMs often prioritize agreement over accuracy. These tools are typically optimized with human feedback that rewards agreeableness and flattery.\n\nIn turn, chatbots engage in sycophancy, or excessive agreement, with users. (In May 2025, OpenAI announced it was rolling back an update that made ChatGPT too sycophantic.)\n\nIftikhar says it’s worth being wary of tools that skip self-reflection or emotional processing in favor of tidy action plans.\n\nThat said, AI can help brainstorm the actionable goals we want to set for ourselves, says Emily Balcetis, an associate professor of psychology at New York University. She recommends prompting AI to consider what obstacles you might face as you attempt to accomplish these goals, as well as back-up plans you might need.\n\n“Have it be a collaborator in how you’ll track your progress and monitor performance along the way,” says Balcetis.\n\nXiao recommends critically analyzing the chatbot’s responses – and then giving it feedback. Does this plan actually fit with your life? Is it aligned with your priorities and hopes?\n\n“Try to give informative, quality feedback to the AI just as you would give feedback to another person,” says Xiao. “This process will help AI generate a more personable, realistic goal and help you consider the things that you really want.”\n\nGood goal-setting also includes a review of why you haven’t pursued these goals already, explains EJ Masicampo, an associate professor of psychology at Wake Forest University.\n\n“When it feels like we’re failing at a goal, it’s often that we’ve just prioritized the other things we’re trying to do,” says Masicampo. Multiple goals are difficult to juggle, he explains. It can be more productive to examine one ambition and what’s obstructing your motivation to achieve it.\n\nUltimately, chatbots may work best as reflective partners, albeit partners that don’t actually care about your success.\n\n“These tools sound very human-like, but by design, they can’t take responsibility for your actions,” says Xiao.\n\nFor better or for worse, that is up to you.",
-    "readingTime": 5,
-    "keywords": [
-      "artificial intelligence",
-      "personal guidance",
-      "associate professor",
-      "goals",
-      "explains",
-      "it’s",
-      "chatbots",
-      "tools",
-      "responses",
-      "feedback"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/wellness/2026/jan/15/ai-life-coach",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/a78a0587320514bd41ee10e0e2dfd0a55697fb97/0_0_3000_2400/master/3000.png?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=33e02fd0d56e028429a6f784d806bed3",
-    "created_at": "2026-01-15T18:24:00.521Z",
-    "topic": "health"
   }
 ]
