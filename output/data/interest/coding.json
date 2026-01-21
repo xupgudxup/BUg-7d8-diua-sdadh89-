@@ -1,5 +1,45 @@
 [
   {
+    "slug": "vibebin-incuslxcbased-platform-for-selfhosting-persistent-sandboxes",
+    "title": "Vibebin: Incus/LXC-based platform for self-hosting persistent sandboxes",
+    "description": "vibebin is an Incus/LXC-based platform for self-hosting persistent AI coding agent sandboxes with Caddy reverse proxy and direct SSH routing to containers (suitable for VS Code remote ssh).  Create...",
+    "fullText": "jgbrwn\n\n /\n\n vibebin\n\n Public\n\n vibebin is an Incus/LXC-based platform for self-hosting persistent AI coding agent sandboxes with Caddy reverse proxy and direct SSH routing to containers (suitable for VS Code remote ssh). Create and host your vibe-coded apps on a single VPS/server.\n\n License\n\n View license\n\n 9\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n jgbrwn/vibebin",
+    "readingTime": 1,
+    "keywords": [
+      "vibebin",
+      "license"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://github.com/jgbrwn/vibebin",
+    "thumbnail_url": "https://opengraph.githubassets.com/b08d7ce148c865871d7a69b11f4c233a6cd39949454bb9455bb3bdcf87a6a575/jgbrwn/vibebin",
+    "created_at": "2026-01-21T12:26:57.995Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "pragmatic-notes-on-running-dangerous-ai-coding-agents-in-cloud-vms",
+    "title": "Pragmatic Notes on Running Dangerous AI Coding Agents in Cloud VMs",
+    "description": "A practical approach to safely running AI coding agents with strong isolation using cloud VMs, Tailscale, and simple notification patterns.",
+    "fullText": "Running coding agents with free reign is very powerful for a certain class of tasks, especially ones that require little human supervision, or where you want to close (or disconnect) your laptop, walk away, and come back to results.\n\nRecently there have been several HN discussions about safely running Claude Code or Copilot CLI agents, such as Yolobox – Run AI coding agents with full sudo without nuking home dir and Running Claude Code dangerously. These post detail the potential dangers and show how to run these agents more safely, and while reasonable, I find they lack in a few respects.\n\nIn particular, I want strong isolation, long running agent tasks, minimal cognitive overhead and I really value being able to close my laptop, walk away, and get notified on my phone when things are done. I do not mind paying for a cloud VM.\n\nThere are many valid ways to solve this problem. This post describes mine. It covers running multiple coding agents concurrently in a cloud VM, how I handle access and repos, and how I keep notifications simple.\n\nI generated some Terraform to spin up an Azure VM with a cloud-init.yml for setting up common tools/environments I use. Claude can generate a decent starting point for this quite easily, given your particular environment.\n\nFor secure access, I use Tailscale. Note: I'm not paid by them, but it is easily my favorite piece of infrastructure software!\n\nA cloud-init script installs Tailscale on first boot and automatically joins the VM to my tailnet. SSH access is enabled using Tailscale SSH. Once the VM is up, it appears on my private network with a stable hostname via Magic DNS. No SSH key management, no exposed ports.\n\nor connect using VS Code Remote SSH:\n\nhttps://code.visualstudio.com/docs/remote/ssh\n\nMost of the time I prefer tight, step by step control over code generation, working locally in VS Code with Copilot. For longer running or experimental tasks, I instead let an agent work remotely on a branch inside the VM, and pull the results once I am satisfied.\n\nWhile this is arguably git basics, it works well for me and I found that it is useful sharing how to set up a VM as a remote:\n\nOn the local machine, from the repo directory:\n\nThen you can pull clone and check out the branch, do the work, commit, and push to bare repo:\n\nFinally, locally, you can get the changes:\n\nI use tmux to manage long running sessions. This lets agents keep running after I disconnect, and makes it easy to juggle multiple concurrent sessions. If you are not familiar with tmux, it is worth learning!\n\nFor notifications, I use https://ntfy.sh.\n\nIt is free, extremely simple, and works over plain HTTP POST. I have the iOS app installed, so I can walk away from my laptop and still get notified when work completes. I explicitly instruct my agents to make a POST request once their work is done in the agent instructions.\n\nThat is it. No SDKs, no auth setup required for basic usage. The notification shows up immediately on my phone/browser.\n\nIf there is interest, I can publish a repo with the Terraform, cloud-init scripts, makefile, etc, and the old .devcontainer setup.",
+    "readingTime": 3,
+    "keywords": [
+      "coding agents",
+      "tasks",
+      "laptop",
+      "away",
+      "access",
+      "repo",
+      "free",
+      "close",
+      "disconnect",
+      "safely"
+    ],
+    "qualityScore": 1,
+    "link": "https://jakobs.dev/pragmatic-notes-running-dangerous-ai-agents-cloud-vms/",
+    "thumbnail_url": "/media/agents-vm.jpg",
+    "created_at": "2026-01-21T12:26:57.044Z",
+    "topic": "tech"
+  },
+  {
     "slug": "vibe-coding-is-over-now-just-coding",
     "title": "Vibe Coding Is Over, Now Just \"Coding\"",
     "description": "Regular thoughts on modernity, classicism, & technology.",
