@@ -1,5 +1,75 @@
 [
   {
+    "slug": "record-holder-stockley-targets-hyrox-world-champs",
+    "title": "Record holder Stockley targets Hyrox World Champs",
+    "description": "Welsh PE teacher Lauren Stockley is targeting a sport at the 2026 Hyrox World Championships",
+    "fullText": "\"I just love a challenge really, that's my problem.\"\n\nWelsh PE teacher Lauren Stockley draws a smile as she plots out another busy year.\n\nNot content with just heading to the Ironman 70.3 World Championships in Nice in September, she has her sights set on more Hyrox glory.\n\nFor those unfamiliar, Hyrox is a global fitness racing competition designed to test an athlete's endurance and strength.\n\nIt has become hugely popular and last year thousands descended on Cardiff for a three-day event at the Principality Stadium.\n\nStockley, 26, has proved a natural talent. A little over a year after completing her first Hyrox, she was part of a quartet who set a women's world record in London in December 2025.\n\nHow Hyrox became the latest sporting craze\n\nHyrox: The new fitness trend sweeping the capital\n\nHyrox comprises of 8km of running with eight exercise stations in between.\n\nCompetitors endure 1km on a standing ski machine, 50m sled push, 50m sled pull, 80m burpee jumps, 1km indoor rowing, 200m kettlebell carry, 100m sandbag lunges, and to finish, 100 throws and catches of a medicine ball.\n\n\"I've always been involved in sport in my whole life really,\" Stockley said.\n\n\"I was a competitive swimmer and runner from a young age.\n\n\"When I went to university I enjoyed a lot of hockey but after that I got into a bit of CrossFit, so I've sort of done everything.\n\n\"With CrossFit I enjoyed the Olympic lifting but it compromised my running quite a bit and that's when I saw Hyrox as this big fitness event and thought I'd like to give that a go.\"\n\nStockley's Hyrox debut came at an open event in Birmingham with her performance earning her qualification for the World Championships in Chicago.\n\n\"I was like 'right I actually need to do a bit of training for this,'\" she said.\n\n\"I did first pro in Glasgow, the weights increased and I won that in my age group.\n\n\"I was fifth in my age group at World Champs in 2025 and it's been going in a nice trajectory ever since.\"\n\nIn her first year of professional Hyrox races, Stockley could have been forgiven for easing herself into the sport, but by the year's end she had set a world record alongside Alexandra Hill, Saskia Geddes and Allana Falconer.\n\n\"I'd met them before but we'd never actually raced together so we were sort of put together in this team,\" Stockley recalled.\n\n\"It was never an aim for us [to set a world record]. We were always going to give it a good go, it was the last race of London Hyrox, so it was like, 'right let's do this.'\n\n\"We looked up at the board and said 'oh my gosh I think this is a world record', it was a surprise but we went as hard as we could.\n\n\"Once we'd finished I think the realisation set in and the announcer realised 'oh my God this is a world record'\".\n\nStockley is now preparing for the Elite 15 competition in Phoenix, Arizona which serves as one of four Hyrox majors.\n\nThe State Farm Stadium, home to NFL's Arizona Cardinals, will serve as host for the event, with Stockley competing in the singles on 29 January before returning two days later for the age group doubles.\n\nThe top three finishers at each earn automatic qualification to June's World Championships in Sweden.\n\nStockley says competition will be fierce.\n\n\"To be with those top girls, they're running under that hour mark so that's definitely a goal,\" she said.",
+    "readingTime": 3,
+    "keywords": [
+      "record",
+      "event",
+      "hyrox",
+      "that's",
+      "fitness",
+      "competition",
+      "stockley",
+      "nice",
+      "sled",
+      "i've"
+    ],
+    "qualityScore": 1,
+    "link": "https://sports.yahoo.com/articles/record-holder-stockley-targets-hyrox-055714332.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/bbc_us_articles_995/e4123073452170a78328f054d8021935",
+    "created_at": "2026-01-26T06:24:33.043Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "whats-new-in-pandas-3",
+    "title": "What's New in Pandas 3",
+    "description": "pandas 3.0 has just been released. This article uses a real‑world example to explain the most important differences between pandas 2 and...",
+    "fullText": "You can connect with me on \n LinkedIn\n to discuss collaborations and work opportunities.\n\nYou can also follow me on\n Twitter,\n Bluesky and\n Mastodon.\n\npandas 3.0 has just been released. This article uses a real‑world example to\nexplain the most important differences between pandas 2 and the new pandas 3\nrelease, focusing on performance, syntax, and user experience.\n\nBefore diving into the technical details of pandas 3, it is worth providing\nsome context on how pandas is developed and what to expect from its release cycle.\n\nMany software projects develop new features in parallel between major releases.\nIf pandas followed this model, development might look like this:\n\nThis is often what users expect. In reality, pandas development follows a\ndifferent approach:\n\npandas does not develop features in parallel across major versions. Instead,\nnew features land continuously on the main development line and are included\nin the next release once they are ready (for example 2.1). As a result,\npandas 3.0 does not include everything developed since pandas 2.0 (released\nalmost three years ago), but primarily what has been added since pandas 2.3,\nwhich was released roughly six months ago.\n\nMost importantly, the pandas developers consistently prioritize backward\ncompatibility. Instead of continuously breaking APIs to improve everything\nthat can be improved, we aim to fix what can reasonably be fixed without\nforcing users to rewrite their codebases. Users maintaining large pandas\nprojects, or those who simply do not want to relearn pandas syntax every\nyear, will likely appreciate this philosophy.\n\nThe downside of this conservative approach is that pandas cannot always offer\nstate‑of‑the‑art performance or a clean and consistent API, and instead will suffer\nfrom some design decisions that made sense a couple of decades ago, but that we would\nimplement differently if we started pandas today. For users starting fresh with\ndataframe‑based projects, it is worth considering Polars,\nwhich could learn from pandas experience to deliver a dataframe library with\nimpressive performance, full Arrow support, and a cleaner and more consistent API.\n\nThat said, pandas 3 still introduces several significant changes that improve\nperformance, syntax, and the overall user experience. Let’s take a closer look.\n\nThe examples in this article use a dataset containing 2,231,577 hotel room records,\nwith the following structure:\n\nWe will start with pandas 2. Our first operation is to add the maximum number of children\na room can accommodate to the maximum number of people (adults), but only for U.S. hotels.\n\nThis produces the infamous warning:\n\nIf you have used pandas for any length of time, you have almost certainly\nseen this before. What is happening can be summarized as follows:\n\nIn practice, most users do not fully understand the underlying issue and handle\nthe warning in one of two ways (often based on advice from StackOverflow or a chatbot):\n\nThe standard solution to this class of problems is copy‑on‑write:\n\nAfter countless hours of work that began well before pandas 3, copy‑on‑write is\nnow fully implemented. The warning is gone, and all the .copy() calls in pandas\ncode can be safely avoided after moving to pandas 3.\n\nLet's revisit the same example, this time focusing on syntax rather than memory behavior.\nFor users who write pandas pipelines rather than interactively exploring data in a notebook,\nthe previous example can be rewritten using method chaining:\n\nThis style avoids repeated assignments and makes the sequence of operations explicit.\nHowever, while method chaining itself makes the code more readable, many users will find\nthis version harder to read, largely because of the required use of lambda,\nwhich is a non‑trivial pandas concept.\n\nIn pandas, column access typically uses either df.column or df[\"column\"].\nWith method chaining, however, the intermediate DataFrame object does not exist as a\nnamed variable at each step. Even if we create df, the df in the assign operation\nis not the DataFrame object at the time of assigning (with only U.S. hotel data), but\nthe original DataFrame with all rows:\n\nThe use of lambda delays evaluation so that column expressions are resolved\nagainst the correct intermediate DataFrame. While effective, this approach using\nlambda makes reading pandas code significantly harder. Other libraries such as\nPolars and PySpark address this more cleanly using a col() expression API.\n\npandas 3 introduces the same mechanism:\n\nThis is a significant step forward, making pandas code much more readable, in particular\nwhen using method chaining. But there is still room for improvement. For comparison,\nthe equivalent filter in Polars looks like this:\n\nUsing an explicit .filter() method makes the operation being performed clearer.\nExperienced Python developers will be familiar with Tim Peter's brilliant\nZen of Python which states that\n\"explicit is better than implicit\". Using df[...] for both filtering and selection is\nsurely convenient, \n\nMore importantly, pandas still relies on the bitwise & operator for combining conditions.\nIdeally, users would write condition1 and condition2, but Python reserves and for\nboolean evaluation and does not allow libraries to override it.\n\nUsing & leads to this surprising behavior:\n\nThe expression is evaluated as 1 == (1 & 2) == 2, not (1 == 1) and (2 == 2).\nThe same happens when each side of the & is a pandas expression. This is why in the previous\nexample [(pandas.col(\"property_type\") == \"hotel\") & (pandas.col(\"country\") == \"us\")] \nconditions must be carefully parenthesized.\n\nSince overriding and, or, and not is not possible in Python, and not likely to be allowed\nanytime soon, the Polars approach is probably the best it can be done. Implementing .filter() and\nallowing passing multiple conditions as different arguments is something that could be\nimplemented in pandas, and will hopefully be available to users in a future version.\n\nAnother important improvement in pandas 3 is better support for user‑defined functions (UDFs).\nIn pandas, UDFs are regular Python functions passed to methods such as .apply() or .map().\n\nIf you have used pandas for a while, you have probably heard that .apply() is considered bad practice:\n\nThis reputation is often deserved. For example, adding max_people and max_children row‑by‑row:\n\nproduces the same result as the vectorized version, but increases execution time from roughly 3 ms\nto 11 seconds (around 4,000x slower).\n\nHowever, not all problems vectorize cleanly. Consider transforming a room name such as\n\"Superior Double Room with Patio View\" into a structured string like:\n\nA fully vectorized solution quickly becomes complex and hard to maintain.\nThis implementation takes around 14 seconds with the example dataset:\n\nThe equivalent UDF is (at least in my opinion) far clearer:\n\nThis version runs in about 22 seconds, roughly 70% slower than the\nvectorized approach, but is far easier to read and maintain.\n\npandas 3 introduces a new execution interface that allows third‑party\nengines to accelerate UDFs. One example is bodo.ai,\nwhich can JIT‑compile both pure Python and pandas code:\n\nWith bodo.ai, the same code runs in around 9 seconds, less than half of\nthe time needed with the standard UDF version, and also 35% faster than\nthe vectorized version. And this speed-up is gained while retaining the\nclarity of the UDF implementation.\n\nAlthough a 35% speed‑up may not sound dramatic, JIT compilation has a\nfixed startup cost, the time to compile the code, which does not depend\non the amount of data processed later. As datasets grow larger, the\nrelative gains increase substantially. For very large datasets,\nthe difference can be dramatic. So, in this example, if we had 100\nmillion rows instead of 2, using bodo.ai would improve performance massively.\n\nCrucially, execution now happens outside pandas itself. This opens the door\nto an ecosystem of specialized execution engines. For example,\nBlosc can accelerate NumPy‑style\nworkloads using compressed memory execution, and works with pandas 3 as\nsimply as bodo, just by using engine=blosc2.jit(). Enabling this ecosystem\nadds endless possibilities. For example, bodo.ai also supports distributed\nexecution on HPC clusters, and other engines may emerge for different use-cases\nand different strategies.\n\nIf you read my earlier article pandas 2.0 and the Arrow revolution,\nyou may be wondering what became of that effort.\n\nAt the time pandas 2 was being released, the core team was committed to\nimplement a more aggressive transition to Apache Arrow. Primarily, to make\nsure users could always benefit from the performance and compatibility enhancements\nArrow provides. This would be particularly relevant for strings, where the legacy\nimplementation is really suboptimal compared to the Arrow one. Ultimately,\nthis plan was scaled back. This is in short what happened:\n\nWith an example, the new strings look like this:\n\nIn the example, the data type is the new str type, and the missing value is\nrepresented by NaN, and when comparing NaN == \"a\" the return is False.\nYou can't know whether the code above uses NumPy's objects internally, or\nArrow strings, since that depends on the environment and not the code itself.\n\nMissing values are not the float NaN anymore but pandas <NA> which is not\nexactly a value itself, but a reference to whether the value is missing or not.\nIn Arrow, a separate array is used to establish which values are missing.\nThe main difference in the example is that <NA> == \"a\" in this case returns\n<NA> and not False as the default pandas 3 implementation.\n\nI'm not personally aware of any current plan or effort to change the pandas 3\nstatus quo significantly. While the new approach is a good trade-off between\nbackward compatibility and allowing users to benefit from Arrow by default, it\ncomes with its drawbacks. Now there are 3 different ways to represent strings,\nsince the PyArrow example above is still valid in pandas 3, as it would be\nsetting dtype=\"object\" and using the original implementation. It may also not\nbe ideal for some users to have the same code running with different implementation\ndepending on whether PyArrow is installed or not. This can be tricky for example\nfor developers of other libraries, who can't make assumptions on what a pandas\nstring is internally.\n\nClearly, the users that will benefit more from the new pandas 3 strings are users\nwith existing codebases concerned about backward compatibility. While the new\nchanges are not fully backward compatible, migrating to pandas 3 should be really\nstraightforward.\n\nUsers who need a simpler and modern dataframe experience based on Arrow, and are\nless concerned about pandas legacy, Polars is a great alternative.\n\nYou can connect with me on \n LinkedIn\n to discuss collaborations and work opportunities.\n\nYou can also follow me on\n Twitter,\n Bluesky and\n Mastodon.",
+    "readingTime": 9,
+    "keywords": [
+      "twitter bluesky",
+      "consistent api",
+      "intermediate dataframe",
+      "dataframe object",
+      "discuss collaborations",
+      "user experience",
+      "method chaining",
+      "backward compatibility",
+      "improve performance",
+      "performance syntax"
+    ],
+    "qualityScore": 1,
+    "link": "https://datapythonista.me/blog/whats-new-in-pandas-3",
+    "thumbnail_url": "/blog/../static/img/bg.jpg",
+    "created_at": "2026-01-26T06:23:55.504Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "how-family-grief-made-hamerwebb-pick-wales",
+    "title": "How family grief made Hamer-Webb pick Wales",
+    "description": "Uncapped Gabriel Hamer-Webb reveals how his Cardiff-born mother urged him to pick Wales over England for his international future.",
+    "fullText": "Gabriel Hamer-Webb has revealed how family grief led to him picking Wales over England for his international future.\n\nThe Bath-born wing has already represented England at Under-20s level in the Six Nations.\n\nBut he was convinced to switch allegiance by his Cardiff-born mother following the tragic loss of both his father and brother.\n\n\"That loss definitely taught me a lot. I've only tried to see silver linings and even though it's tragic and sudden, you can't control or change it,\" said Hamer-Webb.\n\n\"The losses meant that I'm a sole male figure in my instant family. That weight brings pressure but I would do anything for my sisters and my mum anyway.\n\n\"So I asked my mum a while back, 'What would be better for you?' She said, 'Wales of course, that's where we're from, where your family is from'.\n\n\"That was big for me. If that's the thing that makes my mother the proudest, then wow, that could be something.\"",
+    "readingTime": 1,
+    "keywords": [
+      "family",
+      "wales",
+      "england",
+      "mother",
+      "tragic",
+      "loss",
+      "that's",
+      "hamer-webb"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://www.bbc.com/sport/rugby-union/articles/cwyrrpr7l2ro?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/cee8/live/a8a38a80-fa16-11f0-ab09-652d18c20c36.jpg",
+    "created_at": "2026-01-26T06:23:51.076Z",
+    "topic": "sports"
+  },
+  {
     "slug": "braves-predicted-to-sign-200m-world-series-champion-2x-allstar-to-form-unfair-chris-sale-duo",
     "title": "Braves predicted to sign $200M World Series champion, 2X All-Star to form 'unfair' Chris Sale duo",
     "description": "The Braves might not be done just yet after all.",
@@ -2046,60 +2116,6 @@
     "link": "https://www.bloomberg.com/news/articles/2026-01-23/pop-mart-short-bets-keep-rising-in-defiance-of-buyback-rally",
     "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iIauZ6KNW9no/v0/1200x800.jpg",
     "created_at": "2026-01-23T06:20:36.453Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "hurdler-sprint-star-sydney-mclaughlinlevrone-announces-shes-pregnant",
-    "title": "Hurdler, sprint star Sydney McLaughlin-Levrone announces she's pregnant",
-    "description": "Olympic champion hurdler Sydney McLaughlin-Levrone announced Thursday she is pregnant.  In an Instagram post, she said “made a human with my favorite human,” next to a picture of husband Andre Levrone Jr.  McLaughlin-Levrone won the last two Olympic titles in the 400-meter hurdles, setting world records both times.",
-    "fullText": "Olympic champion hurdler Sydney McLaughlin-Levrone announced Thursday she is pregnant.\n\nIn an Instagram post, she said “made a human with my favorite human,” next to a picture of husband Andre Levrone Jr.\n\nMcLaughlin-Levrone won the last two Olympic titles in the 400-meter hurdles, setting world records both times. It currently stands at 50.37 seconds. Last year, she moved to the 400 flat and won world championships in 47.78 seconds, becoming the first woman to crack 48 in the full-lap race since 1985.\n\nThe even-numbered year between Summer Olympics is usually considered a light year in track and field. If McLaughlin-Levrone sits out 2026, she would miss the debut of the World Athletics Ultimate Championships, which will feature the sport's top athletes and offer $150,000 first prizes.\n\nAP sports: https://apnews.com/sports",
-    "readingTime": 1,
-    "keywords": [
-      "human",
-      "seconds",
-      "mclaughlin-levrone",
-      "olympic",
-      "championships"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://sports.yahoo.com/articles/hurdler-sprint-star-sydney-mclaughlin-233521827.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/U0S0mR7GDBdk8uJLw9LR3A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ap.org/6d1dcd3d5cbe085c56323f555a6fb48f",
-    "created_at": "2026-01-23T01:00:17.364Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "scheffler-one-off-lead-on-return-at-american-express",
-    "title": "Scheffler one off lead on return at American Express",
-    "description": "World number one Scottie Scheffler shoots a nine-under 63 in the first round of the American Express in California on his first PGA Tour appearance of the season.",
-    "fullText": "The American Express, round one leaderboard\n\n-10 M Lee (Aus), P Coody (US); -9 V Whaley (US), S Scheffler (US), S Kim (Kor), R MacIntyre (Sco), J Day (Aus); -8 A Novak (US), S Stevens (US), B Horschel (US)\n\nSelected others: -7 H English (US), A Scott (Aus); -6 M Wallace (Eng), W Clark (US); -5 S Power (Irl), J Parry (Eng)\n\nWorld number one Scottie Scheffler shot a nine-under 63 in the first round of the American Express in California on his first PGA Tour appearance of the season.\n\nThe 29-year-old has not played this year and is yet to win the American Express tournament, which boasts a prize of £1,236,000 ($1.656m) for the winner.\n\nScheffler sits one off the lead in La Quinta held jointly by Min Woo Lee of Australia and the United States' Pierceson Coody.\n\nHe is joined on nine under by a host of players including Scotland's Robert MacIntyre and former US PGA champion Jason Day.\n\nUnusually, the field play across three different courses before the cut on Saturday.\n\nScheffler birdied five of his first six holes while Coody hit successive birdies on his way to shooting 29 on the back nine.",
-    "readingTime": 1,
-    "keywords": [
-      "american express",
-      "coody",
-      "round",
-      "scheffler",
-      "macintyre"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://sports.yahoo.com/articles/scheffler-one-off-lead-return-235234980.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/bbc_us_articles_995/520ed06097ea4dfb3f6751440fcab443",
-    "created_at": "2026-01-23T01:00:10.627Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "copper-output-disrupted-at-strikehit-capstone-chile-mine",
-    "title": "Copper Output Disrupted at Strike-Hit Capstone Chile Mine",
-    "description": "Production at a Capstone Copper Corp. mine in northern Chile has halted amid a nearly three-week labor strike, further tightening the global market. The company’s shares fell.",
-    "fullText": "MarketsBy James AttwoodSaveProduction at a Capstone Copper Corp. mine in northern Chile has halted amid a nearly three-week labor strike, further tightening the global market. The company’s shares fell.The company said in a Thursday statement that individuals entered desalination plant facilities 40 kilometers (25 miles) from its Mantoverde mine on Jan. 18 and interference with its electrical system interrupted the water supply to the open-pit copper and gold operation.",
-    "readingTime": 1,
-    "keywords": [
-      "mine",
-      "copper"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.bloomberg.com/news/articles/2026-01-22/copper-production-halted-at-strike-hit-capstone-mine-in-chile-mkpof3j8",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ip8q5HU_HehE/v1/1200x800.jpg",
-    "created_at": "2026-01-23T00:59:23.547Z",
     "topic": "finance"
   }
 ]
