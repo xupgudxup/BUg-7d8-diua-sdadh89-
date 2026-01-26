@@ -1,5 +1,29 @@
 [
   {
+    "slug": "microsoft-shifting-to-cloud-management-software-brings-possibility-of-it-peeking",
+    "title": "Microsoft shifting to cloud management software brings possibility of it peeking",
+    "description": ": Deprecation of popular management tool requires a new look at Azure-based system",
+    "fullText": "Microsoft recently announced it will deprecate System Center Operations Manager (SCOM) Management Packs (MPs) for SQL Server Reporting Services, Power BI Report Server,and SQL Server Analysis Services.\n\nWhile this affects a relatively small subset of SQL Server users, the move could force some organizations into monitoring solutions that expose their server deployments to Microsoft's licensing auditors, one analyst pointed out.\n\nThe affected SCOM management packs will remain available until January 2027, after which they'll no longer be supported. \"No new updates will be released, including no support for SQL Server 2025 or SCOM 2025,\" the notice said.\n\nMicrosoft said the products would no longer have official SCOM MPs for these products.\n\nSCOM is a popular management tool for Microsoft on-premises server product, supporting not just SQL Server, but also Exchange, Windows and SharePoint to manage updates, security changes, and patches.\n\nMicrosoft said the deprecation means existing management packs would continue to function in SCOM 2019 and SCOM 2022, but no new features, fixes, or security updates would be provided. And compatibility with later versions can not be guaranteed.\n\nThe software giant recommended affected users plan their migration to Azure-based monitoring solutions using Azure Monitor, Azure Arc and Log Analytics. This creates \"a unified alternative that offers centralized telemetry ingestion, alerting, performance monitoring, and dashboarding for hybrid and on‑premises environments,\" the vendor claimed.\n\nAndrew Snodgrass, analyst with Directions on Microsoft, said the Windows giant had ignored SCOM for a while, and he was advising clients to move away from it.\n\n\"Find a third party if you want to stay on-prem, but Microsoft's gonna start slowly killing this thing off the way they do,\" he told The Reg. With the alternative, customers can no longer download updates directly; they can only do it through Azure Arc, and in the process, they have to register their on-prem servers in Azure.\n\nSnodgrass said the Azure monitoring platform offered some \"really cool stuff\" for managing a SQL Server estate, especially hybrid users.\n\n\"What it requires is that – quite reasonably – you install an agent on your physical server or on your virtual server, whether that's in AWS, Azure or on-prem. This is the Azure Arc monitoring agent that is going to run locally, and it's going to connect up to Azure,\" he said.\n\nFrom a management point of view it works well, added Snodgrass, because admins can use a single Azure SQL management system and see all the servers and databases, regardless of their environment.\n\n\"But those who don't want to use Azure, or want to remain on-prem, will need to find an alternative local third-party management tool. SQL Server has been out for decades, so there's some really lovely management tools. There are also a few that will also manage your Windows Server and your Exchange servers as well.\"\n\nAlthough Microsoft has given no indication that the data could be used for anything other than software management, users should be aware that there is the potential for implications when it comes to license management.\n\n\"If you use the Azure SQL to manage all of these deployments, wherever they are, whether they're on prem or in AWS or Azure, then you're registering every one of your SQL Servers with Azure. That list is going to be out. Doesn't mean that Microsoft necessarily would, but if an audit comes along, they certainly could go out there and say, 'You know what, you've got this whole list here, and we look at the license count that you bought from us, and you don't have enough licenses to cover all these servers you've deployed',\" he said.\n\nOrganizations deliberately using unlicensed software do not have much of a defense, but there are grey areas, such as downloading SQL Server for software development using a Visual Studio license.\n\n\"If I were monitoring and managing all this stuff through the Azure tools, it can't delineate between production and development, and it would assume that all for those are production machines, and therefore I should buy licenses for them.\"\n\nSnodgrass advises clients to get a clear picture of the number of SQL Servers in production and those used for development before negotiating with Microsoft over licenses.\n\nThe Register has asked Microsoft to comment. ®",
+    "readingTime": 4,
+    "keywords": [
+      "sql server",
+      "monitoring solutions",
+      "scom management",
+      "management packs",
+      "management tool",
+      "azure arc",
+      "sql servers",
+      "users",
+      "updates",
+      "software"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/2026/01/23/microsoft_shifting_to_cloud_management/",
+    "thumbnail_url": "https://regmedia.co.uk/2015/05/20/raf_chinook.jpg",
+    "created_at": "2026-01-26T01:03:08.723Z",
+    "topic": "tech"
+  },
+  {
     "slug": "malicious-ai-extensions-on-vs-code-marketplace-steal-developer-data",
     "title": "Malicious AI extensions on VS Code Marketplace steal developer data",
     "description": "Two malicious extensions in Microsoft's Visual Studio Code (VSCode) Marketplace that were collectively installed 1.5 million times, exfiltrate developer data to China-based servers.",
