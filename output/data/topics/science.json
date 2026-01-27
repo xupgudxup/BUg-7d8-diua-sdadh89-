@@ -1,5 +1,49 @@
 [
   {
+    "slug": "deepseek-ocr-2-visual-causal-flow",
+    "title": "DeepSeek OCR 2: Visual Causal Flow",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+    "fullText": "🌟 Github |\n 📥 Model Download |\n 📄 Paper Link |\n 📄 Arxiv Paper Link |\n\nDeepSeek-OCR 2: Visual Causal Flow\n\nExplore more human-like visual encoding.\n\nInference using Huggingface transformers on NVIDIA GPUs. Requirements tested on python 3.12.9 + CUDA11.8：\n\nRefer to 🌟GitHub for guidance on model inference acceleration and PDF processing, etc.\n\nWe would like to thank DeepSeek-OCR, Vary, GOT-OCR2.0, MinerU, PaddleOCR for their valuable models and ideas.\n\nWe also appreciate the benchmark OmniDocBench.",
+    "readingTime": 1,
+    "keywords": [
+      "paper link",
+      "github",
+      "model",
+      "deepseek-ocr",
+      "visual",
+      "inference"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://huggingface.co/deepseek-ai/DeepSeek-OCR-2",
+    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/deepseek-ai/DeepSeek-OCR-2.png",
+    "created_at": "2026-01-27T06:21:30.259Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "kimi-k25",
+    "title": "Kimi K2.5",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+    "fullText": "Kimi K2.5 is an open-source, native multimodal agentic model built through continual pretraining on approximately 15 trillion mixed visual and text tokens atop Kimi-K2-Base. It seamlessly integrates vision and language understanding with advanced agentic capabilities, instant and thinking modes, as well as conversational and agentic paradigms.\n\nKimi-K2.5 adopts the same native int4 quantization method as Kimi-K2-Thinking.\n\nYou can access Kimi-K2.5's API on https://platform.moonshot.ai , we provide OpenAI/Anthropic-compatible API for you. To verify the deployment is correct, we also provide the Kimi Vendor Verifier.\nCurrently, Kimi-K2.5 is recommended to run on the following inference engines:\n\nDeployment examples can be found in the Model Deployment Guide.\n\nThe usage demos below demonstrate how to call our official API.\n\nFor third-party API deployed with vLLM or SGLang, please note that :\n\nChat with video content is an experimental feature and is only supported in our official API for now\n\nThe recommended temperature will be 1.0 for Thinking mode and 0.6 for Instant mode.\n\nTo use instant mode, you need to pass {'chat_template_kwargs': {\"thinking\": False}} in extra_body.\n\nThis is a simple chat completion script which shows how to call K2.5 API in Thinking and Instant modes.\n\nK2.5 supports Image and Video input.\n\nThe following example demonstrates how to call K2.5 API with image input:\n\nThe following example demonstrates how to call K2.5 API with video input:\n\nK2.5 shares the same design of Interleaved Thinking and Multi-Step Tool Call as K2 Thinking. For usage example, please refer to the K2 Thinking documentation.\n\nKimi K2.5 works best with Kimi Code CLI as its agent framework — give it a try at https://www.kimi.com/code.\n\nBoth the code repository and the model weights are released under the Modified MIT License.\n\nIf you have any questions, please reach out at support@moonshot.cn.",
+    "readingTime": 2,
+    "keywords": [
+      "instant mode",
+      "agentic",
+      "following",
+      "please",
+      "input",
+      "native",
+      "modes",
+      "recommended",
+      "usage",
+      "chat"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://huggingface.co/moonshotai/Kimi-K2.5",
+    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/moonshotai/Kimi-K2.5.png",
+    "created_at": "2026-01-27T06:21:28.144Z",
+    "topic": "tech"
+  },
+  {
     "slug": "jscipy-the-trending-java-signal-processing-library-in-2026",
     "title": "JSciPy – The trending Java signal processing library in 2026",
     "description": "Java Scientific Computing Library - Signal Processing, FFT, Filters, PSD, DCT, SciPy-like APIs for JVM & Android used in Machine Learning and Data Science. - hissain/jscipy",
