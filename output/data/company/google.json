@@ -1,5 +1,53 @@
 [
   {
+    "slug": "google-axion-cpu-performance-with-the-new-google-cloud-n4a-instances-review",
+    "title": "Google Axion CPU Performance with the New Google Cloud N4A Instances Review",
+    "description": "Back in 2024 Google rolled out their Axion in-house ARM processors with the Google Cloud C4A instance type.",
+    "fullText": "Back in 2024 Google rolled out their Axion in-house ARM processors with the Google Cloud C4A instance type. Today they are expanding their Axion offerings in Google Cloud with the N4A instances now out of preview. The Google Cloud N4A instances are designed for scale-out web servers and microservices, containerized applications, back-end application services, databases, data analytics, and cost-effective development/staging/testing environments.\n\nGoogle Cloud N4A instances have been in preview since the end of 2025 while today reached GA state. Compared to the C4A instances that allow up to 72 vCPUs and 576GB of RAM and 100 Gbps networking, the more cost-effective N4A instances are available up to 64 vCPUs, 512GB of RAM, and 50 Gbps networking. Like C4A, the N4A instances do have high memory (1:8 vCPU to memory) and high CPU (1:2 vCPU to memory) options to complement the standard 1:4 ratio for vCPU to memory size.\n\nThe Google Axion CPUs powering the N4A VMs remain on Arm Neoverse N3 cores and paired with Google's Titanium IPU. N4A VMs operate within a single node for uniform memory access.\n\nFor getting an idea for the Google Axion performance with the new N4A instances, Google kindly provided some free access in advance of today's GA date for some preview testing. To see the performance of Google N4A, using the 16 vCPU standard size I ran dozens of benchmarks comparing it to the prior-generation Tau T2A that is considered their prior-generation VM to the N4A series. Google Cloud T2A is powered by Ampere Altra processors based on Neoverse-N1 cores, now with N4A jumping ahead to Neoverse-N3.\n\nUbuntu 25.10 AArch64 was run on both the N4A and T2A 16 vCPU standard instances for looking at how the N4A performance is and how the ARM performance in Google Cloud has advanced since the T2A introduction back in 2022.\n\nPricing as of writing for the N4A-standard-16 size with 400GB of storage was $0.71 hourly or about $517.68 per month. The T2A-standard-16 with 400GB of storage was $0.64 hourly or $465.68 per month.",
+    "readingTime": 2,
+    "keywords": [
+      "gbps networking",
+      "n4a instances",
+      "vcpu standard",
+      "cloud n4a",
+      "google cloud",
+      "memory",
+      "performance",
+      "preview",
+      "size",
+      "back"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.phoronix.com/review/google-cloud-n4a-axion",
+    "thumbnail_url": "https://www.phoronix.net/image.php?id=google-cloud-n4a-axion&image=google_n4a_1",
+    "created_at": "2026-01-27T18:24:28.835Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "google-is-blurring-the-line-between-search-and-chatbot",
+    "title": "Google is blurring the line between search and chatbot",
+    "description": "Google is bringing the conversation right into Search, letting users ask follow-up questions to AI Overviews on mobile.",
+    "fullText": "Google Search's AI makeover continues.\n\nThe company said that, starting today, mobile users will be able to ask follow-up questions to AI Overviews, Google's AI-generated search summaries. Doing so will launch users into a back-and-forth with AI Mode, its more conversational take on search that already lives in a separate tab on the search page.\n\nAfter Google's AI Overviews awkwardly stumbled out the gate in 2024 (pizza glue, anyone?) they've gradually become a staple of the Search experience.\n\nHowever, until now, users have only been able to back-and-forth with Google's AI models by going directly to AI Mode or using Google's Gemini chatbot. Now, on mobile, users will be able to tap an \"Ask anything\" text box that will let them ask further questions.\n\n\"In our testing, we've found that people prefer an experience that flows naturally into a conversation — and that asking follow-up questions while keeping the context from AI Overviews makes Search more helpful,\" said Robby Stein, the VP of product for Google Search.\n\nGoogle began testing the new feature on mobile late last year. Some publishers took umbrage with it at the time, voicing concerns that it would further reduce clicks to websites.\n\nEd Newton-Rex, the CEO of the nonprofit Fairly Trained AI, took a jab at an X post by Stein announcing the test in December, writing: \"…and you shouldn't have to visit any of the websites Google has scraped the information from.\"\n\nGoogle's AI search transformation has left some publishers frustrated and confused by changes that give users answers directly, often negating the need to click through to a website.\n\nGoogle has argued that it's seeing more queries than ever before, and that it's sending \"higher quality clicks\" as a result of the AI-related changes it's making to Search.\n\nThe difference between those two things is important. Higher-quality clicks mean a user is more likely to have landed where they want to be and less likely to immediately leave, Google's head of Search, Elizabeth Reid, has previously said. She has also said that the changes have affected user journeys, leading to some sites seeing decreased traffic.\n\nGoogle's latest update won't allay those fears, but it does suggest Google is moving to a world where the differences between AI Mode, AI Overviews, and its Gemini chatbot are less obvious.\n\nBenjamin Kaufman, product manager for AI Mode at Google, hinted at such last year, responding to a comment on X that criticized Google's many different search modes.\n\n\"Yeah hopefully soon those distinctions start to feel like they fade away and you just ask Google anything and get what you need!\" he wrote.\n\nThe update could get more people engaging with AI Mode, which Google has been nudging users toward. The company also said Tuesday it's making Gemini 3, its latest AI model, the default model for AI Overviews globally.\n\nGoogle has a significant distribution advantage over its competitors, with billions of queries sent to Google Search every day. That, along with the success of its latest Gemini 3 model, has helped the company pull off an impressive turnaround over the last year, and saw Google crack a $4 trillion market cap earlier this month.\n\nHave something to share? Contact this reporter via email at hlangley@businessinsider.com or Signal at hughlangley.01. Use a personal email address and a non-work device; here's our guide to sharing information securely.",
+    "readingTime": 3,
+    "keywords": [
+      "gemini chatbot",
+      "ai mode",
+      "mobile users",
+      "google's ai",
+      "ai overviews",
+      "it's",
+      "google",
+      "search",
+      "clicks",
+      "latest"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/google-ai-overviews-mobile-search-mode-blurring-line-chatbot-2026-1",
+    "thumbnail_url": "https://i.insider.com/6949aaa2832e0ef1ead6b0e8?width=1200&format=jpeg",
+    "created_at": "2026-01-27T18:24:22.507Z",
+    "topic": "finance"
+  },
+  {
     "slug": "i-quit-meta-to-build-an-ai-startup-giving-up-a-big-tech-salary-was-tough-heres-how-i-prepared-financially",
     "title": "I quit Meta to build an AI startup. Giving up a Big Tech salary was tough — here's how I prepared financially.",
     "description": "A former Google and Meta employee shares why he left Big Tech and how he got comfortable making the leap to entrepreneurship.",
@@ -2170,54 +2218,6 @@
     "link": "https://www.businessinsider.com/google-green-card-process-perm-2026-2025-12",
     "thumbnail_url": "https://i.insider.com/6949aaa2832e0ef1ead6b0e8?width=1200&format=jpeg",
     "created_at": "2025-12-23T00:56:11.342Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "huaweis-harmonyos-crosses-survival-line-as-user-base-hits-27-million",
-    "title": "Huawei's HarmonyOS crosses 'survival line' as user base hits 27 million",
-    "description": "HarmonyOS, Huawei Technologies' self-developed operating system, has crossed the threshold of 27 million users, a sign that the company's efforts to take on Apple's iOS and Google's Android are paying off. In announcing the user numbers for its latest iterations - HarmonyOS 5 and HarmonyOS 6 - the Shenzhen-based tech giant referred to the milestone as a \"survival line\" for the company. The platform also boasted an ecosystem of over 10 million developers. User engagement crossed milestones, too,",
-    "fullText": "HarmonyOS, Huawei Technologies' self-developed operating system, has crossed the threshold of 27 million users, a sign that the company's efforts to take on Apple's iOS and Google's Android are paying off.\n\nIn announcing the user numbers for its latest iterations - HarmonyOS 5 and HarmonyOS 6 - the Shenzhen-based tech giant referred to the milestone as a \"survival line\" for the company.\n\nThe platform also boasted an ecosystem of over 10 million developers. User engagement crossed milestones, too, with more than 100,000 new devices activated on a daily basis, as well as over 88 million daily downloads and updates recorded for applications, according to the company.\n\nDo you have questions about the biggest topics and trends from around the world? Get the answers with SCMP Knowledge, our new platform of curated content with explainers, FAQs, analyses and infographics brought to you by our award-winning team.\n\nThe latest figures, which come six years after the company first launched the operating system to counter Washington's sanctions on its access to Android, reflected how Huawei's efforts to develop an alternative for the world's largest smartphone manufacturers were paying off.\n\nHuawei has been transitioning its own devices to the operating system since 2021, ramping up efforts after the US placed the company on its Entity List in 2019 over national security concerns. The privately held firm has since expanded HarmonyOS beyond smartphones and tablets.\n\nHuawei Pura 80 smartphones are displayed at the company's flagship store in Beijing, June 11, 2025. Photo: Reuters alt=Huawei Pura 80 smartphones are displayed at the company's flagship store in Beijing, June 11, 2025. Photo: Reuters>\n\nHarmonyOS 6, the latest iteration, was initially made available to developers in June and released to Chinese consumers in October. That came roughly a year after it launched HarmonyOS 5 in late 2024.\n\nNotably, the latest version features a new function similar to Apple's AirDrop, which enables direct file transfers between Huawei and Apple devices for the first time.\n\nHarmonyOS accounted for 17 per cent of China's smartphone operating systems in the second quarter of the year, ahead of iOS's 16 per cent, maintaining its lead over Apple for the sixth consecutive quarter, according to data released by Counterpoint Research in September.\n\nHarmonyOS was China's second-largest mobile operating system behind Android, which had a dominant 66 per cent share in the quarter, according to Counterpoint.\n\nThe increasing adoption of HarmonyOS was largely attributed to Huawei's rebound in the domestic smartphone market.\n\nAccording to the latest data from research firm BCI, Huawei reclaimed its spot as China's top smartphone vendor in the last week of November and first week of December, overtaking Apple, following the launch of its flagship Mate 80 series.\n\nThe Mate 80 series, including the basic Mate 80, Mate 80 Pro, Mate 80 Pro Max and Mate 80 RS models, as well as the foldable Mate X7, was released in late November.\n\nThis article originally appeared in the South China Morning Post (SCMP), the most authoritative voice reporting on China and Asia for more than a century. For more SCMP stories, please explore the SCMP app or visit the SCMP's Facebook and Twitter pages. Copyright © 2025 South China Morning Post Publishers Ltd. All rights reserved.",
-    "readingTime": 3,
-    "keywords": [
-      "pura smartphones",
-      "beijing june",
-      "south china",
-      "china morning",
-      "mate series",
-      "mate pro",
-      "flagship store",
-      "per cent",
-      "company's flagship",
-      "operating system"
-    ],
-    "qualityScore": 1,
-    "link": "https://tech.yahoo.com/computing/articles/huaweis-harmonyos-crosses-survival-line-093000209.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/XF83Po9HoKDa8qLP9Bih7Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/south_china_morning_post_us_228/e7d5a7ac57d34ab8dd0cf2bb4ef5a8a1",
-    "created_at": "2025-12-23T00:56:10.171Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "read-the-memos-google-apple-microsoft-and-servicenow-sent-visa-workers-warning-them-not-to-travel",
-    "title": "Read the memos Google, Apple, Microsoft, and ServiceNow sent visa workers warning them not to travel",
-    "description": "The US is now reviewing the social media of some visa applicants. Several major tech companies are warning visa holders not to leave the country.",
-    "fullText": "The world's largest technology companies are scrambling to manage a growing crisis affecting thousands of their employees on work visas, as new social media screening requirements trigger delays at US embassies and consulates worldwide.\n\nGoogle, Apple, Microsoft, and ServiceNow have all sent advisories to visa-holding employees in recent days, warning them against international travel and describing appointment delays stretching up to a year.\n\nThe memos, sent by immigration law firms representing these companies or by their internal legal teams, paint a picture of mounting uncertainty for foreign workers who form a critical part of the tech industry's workforce.\n\nThe warnings come as American embassies have postponed routine visa stamping appointments, leaving some employees already abroad unable to return to work in the US for extended periods.\n\nFor H-1B holders, the primary work visa used by tech companies, the situation creates a particularly difficult bind. If their visa stamp expires and they travel abroad, they must obtain a new stamp at a consulate before re-entering the US. With appointments now being rescheduled months into the future, what would typically be a routine trip home has become a potential career disruption lasting up to a year.\n\nOn Friday, a spokesperson for the Department of State told Business Insider it was now conducting \"online presence reviews for applicants.\" The department said it may move appointments as resources change, with applicants able to request expedited slots on a case-by-case basis.\n\n\"While in the past the emphasis may have been on processing cases quickly and reducing wait times, our embassies and consulates around the world, including in India, are now prioritizing thoroughly vetting each visa case above all else,\" the State Department spokesperson said. Appointments in Ireland and Vietnam have also been postponed, according to immigration firm Reddy Neumann Brown PC.\n\nBelow are the full texts of the internal memos sent to employees at these companies, obtained by Business Insider, which reveal how corporate America is responding to the visa processing slowdown.\n\nGoogle and Microsoft declined to comment, while Apple and ServiceNow did not respond to requests for comment from Business Insider.\n\nBelow is the text of a memo sent by Jack Chen, Microsoft's associate general counsel for immigration.\n\nBelow is the text of an email sent by Berry Appleman & Leiden LLP (BAL), the immigration firm that represents Google.\n\nBelow is the text of an email sent by Apple's immigration team.\n\nBelow is the text of an email sent by ServiceNow's Global Mobility Team.\n\nHave a tip? Contact Pranav Dixit via email at pranavdixit@protonmail.com or Signal at 1-408-905-9124. Use a personal email address, a nonwork WiFi network, and a nonwork device; here's our guide to sharing information securely.",
-    "readingTime": 3,
-    "keywords": [
-      "immigration firm",
-      "business insider",
-      "visa",
-      "email",
-      "employees",
-      "appointments",
-      "text",
-      "embassies",
-      "delays",
-      "consulates"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/google-microsoft-apple-h1b-visa-delay-warnings-memos-2025-12",
-    "thumbnail_url": "https://i.insider.com/69488f5c04eda4732f2df13e?width=1200&format=jpeg",
-    "created_at": "2025-12-22T06:20:26.757Z",
     "topic": "finance"
   }
 ]
