@@ -1,5 +1,29 @@
 [
   {
+    "slug": "cooperbench-benchmarking-ai-agents-cooperation",
+    "title": "CooperBench: Benchmarking AI Agents' Cooperation",
+    "description": "CooperBench is a benchmark of over 600 collaborative coding tasks. We find that agents achieve 30% lower success rates when working together compared to performing both tasks individually.",
+    "fullText": "Stanford University & SAP Labs US\n\nCan AI agents work together as teammates? We find\n that\n coordinating agents perform much worse than a\n single agent\n given the same total workload. This coordination\n deficit presents a fundamental barrier to deploying\n AI systems that can work alongside humans or other\n agents.\n\nSuccess rate on CooperBench across 652 tasks · Error bars show 95% confidence intervals\n\nGPT-5 and Claude Sonnet 4.5 achieve only 25%\n success with two-agent cooperation, roughly 50%\n lower than when a single agent handles both\n tasks. This gap persists across all models and\n task difficulties.\n\nAgents spend up to 20% of their budget on\n communication. This reduces merge conflicts but\n does not improve overall success. The channel is\n jammed with repetition, unresponsiveness, and\n hallucination.\n\nEven when agents communicate well, coordination\n breaks down due to:\n\nAmong successful runs, we observe coordination patterns\n largely absent from failures. These patterns are not\n prompted or scaffolded.\n\nRole Division\n — Agents agree on who handles which part of the\n task. One agent delegates: \"I'll add header +\n octal_str; you add binary_str between them.\"\n\nCooperBench is the first benchmark designed to\n measure how well AI agents can cooperate when\n handling individual tasks with potential conflicts.\n We constructed 652 tasks from 12 popular open-source\n libraries across Python, TypeScript, Go, and Rust.\n\nEach task assigns two agents different features that\n can be implemented independently but may conflict\n without proper coordination. Eight co-authors with\n real-world software engineering backgrounds created\n new features, unit tests, and ground-truth code.\n\nStanford University & SAP Labs · *Equal contribution\n (Stanford) · †Equal contribution (SAP Labs)",
+    "readingTime": 2,
+    "keywords": [
+      "equal contribution",
+      "stanford university",
+      "university sap",
+      "coordination",
+      "tasks",
+      "success",
+      "across",
+      "task",
+      "agents",
+      "cooperbench"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://cooperbench.com/",
+    "thumbnail_url": "https://cooperbench.com/static/images/cooperbench_social.png",
+    "created_at": "2026-01-30T18:28:27.534Z",
+    "topic": "tech"
+  },
+  {
     "slug": "daedalus",
     "title": "Daedalus",
     "description": "AI planning CLI and autonomous agent orchestration for beans-based coding workflows - internet-development/daedalus",
@@ -2028,19 +2052,6 @@
     "link": "https://thenewstack.io/ibm-hashicorp-sunsets-terraforms-external-language-support/",
     "thumbnail_url": "https://cdn.thenewstack.io/media/2025/12/65e7b1bd-ritu-dahiya-w2mlnx4yso-unsplash.jpg",
     "created_at": "2025-12-14T18:50:16.550Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "component-party-compare-javascript-frameworks",
-    "title": "Component Party – Compare JavaScript Frameworks",
-    "description": "Compare JavaScript frameworks side-by-side: React, Vue, Angular, Svelte, Solid.js, and more. See syntax differences, features, and code examples for web development frameworks.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://component-party.dev/?f=react-svelte5",
-    "thumbnail_url": "https://component-party.dev/banner2.png",
-    "created_at": "2025-12-14T03:53:12.102Z",
     "topic": "tech"
   }
 ]
