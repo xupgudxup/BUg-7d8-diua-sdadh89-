@@ -1,5 +1,20 @@
 [
   {
+    "slug": "cwt-sandbox-ai-coding-agents-using-git-worktrees",
+    "title": "Cwt – Sandbox AI coding agents using Git Worktrees",
+    "description": "Contribute to benngarcia/claude-worktree development by creating an account on GitHub.",
+    "fullText": "benngarcia\n\n /\n\n claude-worktree\n\n Public\n\n License\n\n MIT license\n\n 0\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n benngarcia/claude-worktree",
+    "readingTime": 1,
+    "keywords": [
+      "license"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://github.com/benngarcia/claude-worktree",
+    "thumbnail_url": "https://opengraph.githubassets.com/73752eaadbf154afd745270d32c1743038163f0555993f4c462cecd915f63c02/benngarcia/claude-worktree",
+    "created_at": "2026-01-30T01:07:08.980Z",
+    "topic": "tech"
+  },
+  {
     "slug": "acp-agent-registry-in-jetbrains-ides",
     "title": "ACP Agent Registry in JetBrains IDEs",
     "description": "Together with Zed, we've launched the official ACP Registry: a directory of AI coding agents, integrated directly into JetBrains IDEs.",
@@ -2035,29 +2050,5 @@
     "thumbnail_url": "https://i.insider.com/693ae21d832e0ef1ead60bb6?width=1200&format=jpeg",
     "created_at": "2025-12-12T13:47:21.490Z",
     "topic": "finance"
-  },
-  {
-    "slug": "a-new-series-on-cracking-faanglevel-code-challenges",
-    "title": "A New Series on Cracking FAANG-Level Code Challenges",
-    "description": "One of the most fundamental algorithms that appears in interviews at big tech companies is Binary Search. Of course, nobody will ask you to implement binary search directly. However, as Jon Bentley cited in his famous book Programming Pearls, only a small percentage of people he asked—10% to be precise—were able to code this algorithm without any errors.\nHere, I will show you a correct implementation of binary search, its variants that appear in interviews, and LeetCode problems that you can solve using these techniques.",
-    "fullText": "One of the most fundamental algorithms that appears in interviews at big tech companies is Binary Search. Of course, nobody will ask you to implement binary search directly. However, as Jon Bentley cited in his famous book Programming Pearls, only a small percentage of people he asked—10% to be precise—were able to code this algorithm without any errors.\n\nHere, I will show you a correct implementation of binary search, its variants that appear in interviews, and LeetCode problems that you can solve using these techniques.\n\nGiven an array of items, we can find the position of a specific item linearly by iterating over the array, comparing each item with the desired item, and returning the position when the current item equals the desired item.\n\nWe must also consider the case where the desired item is not in the array; in this case, we can return any value. Since we are talking about positions in an array, we can return -1 if the item is not present. This is a very simple concept and implementation. However, if the array is sorted, we can do better.\n\nWe can find the position of an item in logarithmic time (O(log n)), where n is the number of items in the array, when the array is sorted.\n\nTo do this, we repeatedly compare the item we are looking for with the middle element of the array. If the middle element is the one we are looking for, we have our result. Otherwise, we need to update the range of the array we are considering accordingly.\n\nIf the element we are looking for is greater than the middle element, we need to search in the higher part of the array. Otherwise, we need to search in the lower part of the array.\n\nWhat we just described is the Binary Search algorithm. Below is the implementation of the binary search algorithm in C++:\n\nThis is less than 20 lines of code that you need to understand very well if you want to be successful in an interview. Note that I said “understand,” not “memorize.”\n\ncould be implemented in different ways, such as:\n\nCan you explain why the first implementation is better than the second?\n\nThe answer is integer overflow. When we add two integer numbers, we can exceed the maximum value allowed in the computer’s representation of an int. Knowing these details and how to answer such questions puts you in a much better position compared to other candidates.\n\nAs you can see, even a small detail can demonstrate your expertise and experience. All these small details together help you get the position you want.\n\nDespite these details, as I said, nobody will ask you to implement binary search directly. However, there are some important variants of the binary search algorithm that appear as part of problem-solving. I will describe four of them in the next sections.\n\nLet’s consider we have a sorted array with duplicate elements, such as [10, 20, 30, 30, 30, 40, 50]. Also, let’s assume we are searching for the element 30 and we need to find the smallest position of this element in case of duplication.\n\nWith the binary search algorithm implementation shown above, we cannot guarantee we will always return the smallest position of an element in case of duplication. However, we can modify the original algorithm to answer this question correctly.\n\nAnd here is a very important point: You can only make this modification if you know the binary search algorithm and its implementation well.\n\nThinking about the problem, instead of returning the position when we find the element in the array, we need to update our result and continue the search in the lower part of the array.\n\nUpdating the result instead of returning immediately is easy to see. You cannot return immediately because there may be duplicate elements in the array. Since we want the smallest position, we cannot just return.\n\nSo, why go to the lower part of the array instead of the higher part? The answer is because of the problem definition: we want the smallest index. So, if we find the element, in case of duplication, we are interested in the presence of this element before the current position.\n\nThe implementation in C++ could be:\n\nThis problem is similar to the one above, but now we are interested in the higher part of the array in case of duplication. This is because we want the largest index instead of the smallest one.\n\nIn this case, the implementation in C++ could be:\n\nThis is a little different, but only slightly. Now, we are not interested in finding an element, but the largest value less than the given element. So, every time we find an element that is smaller than our desired element, we need to update our result. We also need to update the considered range of the array.\n\nIn this case, we are interested in the higher part of the array, since we are trying to find the largest value less than our element.\n\nThe implementation in C++ could be:\n\nSimilar to the problem above, but now we are interested in finding the smallest value greater than the desired value. So, we need to update our result when we find a larger element instead of a smaller one.\n\nThe implementation in C++ could be:\n\nHere are some interesting problems to solve on LeetCode using the techniques explained in this post:",
-    "readingTime": 5,
-    "keywords": [
-      "directly however",
-      "duplicate elements",
-      "implement binary",
-      "search directly",
-      "desired item",
-      "middle element",
-      "search algorithm",
-      "smallest position",
-      "array",
-      "implementation"
-    ],
-    "qualityScore": 1,
-    "link": "https://johnjr.dev/posts/binary-search/",
-    "thumbnail_url": "https://johnjr.dev/jj1.jpg",
-    "created_at": "2025-12-11T18:58:27.000Z",
-    "topic": "tech"
   }
 ]
