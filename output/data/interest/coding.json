@@ -1,5 +1,20 @@
 [
   {
+    "slug": "top-engineers-at-anthropic-openai-say-ai-now-writes-100-of-their-code",
+    "title": "Top engineers at Anthropic, OpenAI say AI now writes 100% of their code",
+    "description": "AI coding tools are getting more sophisticated. But if coders stop coding, what happens to software development jobs?",
+    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
+    "readingTime": 1,
+    "keywords": [
+      "fortune"
+    ],
+    "qualityScore": 0.1,
+    "link": "https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/",
+    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/01/GettyImages-2216956965_40536e-e1769705381107.jpg?resize=1200,600",
+    "created_at": "2026-01-31T01:04:24.596Z",
+    "topic": "tech"
+  },
+  {
     "slug": "cooperbench-benchmarking-ai-agents-cooperation",
     "title": "CooperBench: Benchmarking AI Agents' Cooperation",
     "description": "CooperBench is a benchmark of over 600 collaborative coding tasks. We find that agents achieve 30% lower success rates when working together compared to performing both tasks individually.",
@@ -2028,30 +2043,6 @@
     "link": "https://www.omnesgroup.com/the-best-programming-languages-to-learn-first/",
     "thumbnail_url": "https://www.omnesgroup.com/wp-content/uploads/2018/08/download-69-1.png",
     "created_at": "2025-12-14T18:50:16.561Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "terraform-sunsets-cdktf",
-    "title": "Terraform Sunsets CDKTF",
-    "description": "This decision forces Terraform's users to migrate to HCL, drawing criticism from those who point to the CDK's popularity as proof Terraform still needs advanced programming capabilities.",
-    "fullText": "Going forward, when you run IBM‘s Terraform Infrastructure as Code (IaC) software, you will have one language to write your configurations: the HashiCorp Configuration Language (HCL).\n\nOn Monday, HashiCorp, an IBM company, announced that it will no longer support the Terraform Cloud Development Kit (CDK or CDKTF). Although the existing code will remain available in a GitHub archive, HashiCorp will no longer maintain or update the code, leaving it all but unusable for enterprises.\n\n“Unfortunately, Terraform CDK did not find product-market fit at scale. HashiCorp, an IBM Company, has chosen to focus its investments on Terraform core and its broader ecosystem,” a note on the site read.\n\nThe CDK itself is licensed under the Mozilla Public License (MPL), so users are free to fork the software itself, IBM suggested.\n\nThe company, however, is encouraging users to use HCL, which was developed by HashiCorp and licensed under the Mozilla Public License (MPL), originally designed for the software.\n\nOriginally released in 2014 by HashiCorp, Terraform is software that allows administrators to automate the deployment of IT infrastructure, either in the cloud or on premises, through the use of scripts and a set of Terraform commands such as terraform init, terraform plan and terraform apply. The output is rendered as JSON.\n\nOver time, Terraform has become the most popular software for automated IT deployment, especially in the cloud native community.\n\nIn 2023, HashiCorp switched the Terraform license from open source to a Business Source License, which spurred a user-based open source fork of the software, called OpenTofu, that was adopted by the Linux Foundation and, later, by the Cloud Native Computing Foundation (CNCF).\n\nIn 2024, IBM announced it was acquiring HashiCorp and finalized the purchase earlier this year.\n\nDespite a call to open source the CDK, IBM is encouraging current users to adopt the HCL if they are not already doing so.\n\n“If you are not using AWS CDK, we highly recommend migrating to standard Terraform and HCL for long-term support and ecosystem alignment,” the company asserted.\n\nTerraform users with .tf files created under the CDK can convert them to HCL with the following command:\n\nThose using CDTF on Amazon Web Services infrastructure can also use AWS’ own CDK.\n\nOverall, the Infrastructure as Code user base appears to be chafing from the limits of IaC.\n\nAs a result, many alternative approaches to Terraform have popped up in the last few years, including Adam Jacob’s System Initiative and Formae from Platform Engineering Labs.\n\nThey point to how HCL has its limits, especially for highly scalable environments. A declarative configuration language, HCL is limited in offering advanced programming constructs, and many resulting workarounds have resulted in obtuse code. Tooling is limited as well.\n\nThe advantage that the CDKTF brought to users was that it allowed them to detail deployment instructions through their own favorite programming language rather than HCL. CDKTF supported TypeScript, Python, C# and the Go programming language.\n\nThis is also the approach that Terraform competitor Pulumi has staked out, namely the ability to provision infrastructure in any one of a number of programming languages.\n\nYet, there has also been considerable debate around whether a general-purpose programming language is better than a domain-specific language. Terraform’s users are administrators, not programmers, as critics have pointed out.\n\nNonetheless, many of those in the IaC community took the news hard. Kubernetes expert David Flanagan noted that the development kit has gotten over 140,000 downloads per week for TypeScript alone, with similar numbers in other language communities.\n\nSo clearly, the CDKTF is still highly used by the community, he argued.\n\nFuck you, Hashicorp … an IBM Company. pic.twitter.com/h1EicnT3pL\n\n— David Flanagan (@rawkode), Dec. 11, 2025\n\n“You don’t kill a project with [an estimated] million users every single month because nobody likes it or it doesn’t have a ‘market fit.’ You kill it because it is not increasing your profit margin, it is not selling enterprise licenses,” Flanagan said in a short video.\n\nTo be fair, IBM has a long history of buying open source-based companies, and keeping the open source licensing intact, including the Linux-based Red Hat, the Cassandra-focused Datastax and, most recently, the Kafka-based Confluent. (There’s been no word, however, on whether IBM would revert the Terraform license back to open source.)\n\nFlanagan went on to note that people are probably using the CDKTF because they require the additional programming capabilities. “It’s called Infrastructure as Code, not Infrastructure as JSON,” he quipped.\n\nSite reliability engineer Liz Fong-Jones offered a more measured response.\n\n“To be more gentle about this, HashiCorp has decided to stop trying to compete with Pulumi with language-native APIs; they’re all in on HCL as the only way to work with Terraform,” Fong-Jones wrote on BlueSky.\n\nIn fact, others think this may not be a bad idea.\n\nPlatform Engineering Labs’ Co-Founder and CEO Pavlo Baron thought the IBM move made sense.\n\n“IBM is historically good at optimizing for the target buyer. This is rather a sign that nobody on the right side of the cycle wants to do full-blown programming. CDKs, and this includes the approach Pulumi takes, are exclusively for developers. Developers usually don’t operate infrastructure,” he wrote by email.\n\n“Serious operations happen on the right side of the cycle, though. Thus, the CDK is missing their target user and addresses the wrong one. So I understand and support the logic behind this move.”",
-    "readingTime": 5,
-    "keywords": [
-      "platform engineering",
-      "engineering labs",
-      "license mpl",
-      "development kit",
-      "cloud native",
-      "language hcl",
-      "configuration language",
-      "programming language",
-      "ibm company",
-      "terraform license"
-    ],
-    "qualityScore": 1,
-    "link": "https://thenewstack.io/ibm-hashicorp-sunsets-terraforms-external-language-support/",
-    "thumbnail_url": "https://cdn.thenewstack.io/media/2025/12/65e7b1bd-ritu-dahiya-w2mlnx4yso-unsplash.jpg",
-    "created_at": "2025-12-14T18:50:16.550Z",
     "topic": "tech"
   }
 ]
