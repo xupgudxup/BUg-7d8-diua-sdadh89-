@@ -1,5 +1,126 @@
 [
   {
+    "slug": "ai-fears-drag-asia-software-stocks-lower-after-us-tech-rout",
+    "title": "AI Fears Drag Asia Software Stocks Lower After US Tech Rout",
+    "description": "Asian software stocks slid, extending a global selloff as investors fret that rapid advances in artificial intelligence could upend traditional business models.",
+    "fullText": "MarketsBy Winnie Hsu, Carmeli Argana, and Ashutosh JoshiSaveAsian software stocks slid, extending a global selloff as investors fret that rapid advances in artificial intelligence could upend traditional business models.Shares of Indian information technology companies were the latest to buckle. Bellwether Tata Consultancy Services Ltd. sank as much as 6% at the open, while Infosys Ltd. dropped 6.2%, tracking a slump in its US-listed shares overnight.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.3,
+    "link": "https://www.bloomberg.com/news/articles/2026-02-04/ai-disruption-concerns-sink-software-makers-stocks-in-asia",
+    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iJdO.cS0Gspg/v0/1200x800.jpg",
+    "created_at": "2026-02-04T06:38:05.995Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "video2docs-turn-screen-recordings-into-stepbystep-instructions",
+    "title": "Video2docs – Turn Screen Recordings into Step-by-Step Instructions",
+    "description": "Transform app walkthrough videos into beautiful, structured documentation using AI. Works without audio narration.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://video2docs.com/",
+    "thumbnail_url": "https://video2docs.com/assets/og_image.png",
+    "created_at": "2026-02-04T06:38:01.672Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "we-added-toon-compression-to-our-llm-gateway-compress-prompts-saves-tokens",
+    "title": "We added TOON compression to our LLM gateway – compress prompts, saves tokens",
+    "description": "🎒 Token-Oriented Object Notation (TOON) – Compact, human-readable, schema-aware JSON for LLM prompts. Spec, benchmarks, TypeScript SDK. - toon-format/toon",
+    "fullText": "toon-format\n\n /\n\n toon\n\n Public\n\n 🎒 Token-Oriented Object Notation (TOON) – Compact, human-readable, schema-aware JSON for LLM prompts. Spec, benchmarks, TypeScript SDK.\n\n toonformat.dev\n\n License\n\n MIT license\n\n 22.4k\n stars\n\n 988\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n toon-format/toon",
+    "readingTime": 1,
+    "keywords": [
+      "toon",
+      "license"
+    ],
+    "qualityScore": 0.4,
+    "link": "https://github.com/toon-format/toon",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1081397957/a1727f6d-0f41-4022-aba0-225fbef55509",
+    "created_at": "2026-02-04T06:38:01.438Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "if-you-tell-ai-not-to-do-something-its-more-likely-to-do-it",
+    "title": "If you tell AI not to do something, it's more likely to do it",
+    "description": "Telling ChatGPT not to do something can make it actively suggest doing it, with some models even willing to endorse theft or deception when the prompt includes the forbidden act.   Like me, you may have come across a strange phenomenon with Large Language Models (LLMs) whereby they don't just ignore a specific instruction you...",
+    "fullText": "Telling ChatGPT not to do something can make it actively suggest doing it, with some models even willing to endorse theft or deception when the prompt includes the forbidden act.\n\nLike me, you may have come across a strange phenomenon with Large Language Models (LLMs) whereby they don’t just ignore a specific instruction you gave, which included a prohibition (i.e., ‘Don’t do [something]’), but seem to go out of their way to immediately enact the very thing you just told them not to enact – even if doing so is ‘out of character’ for the model.\n\nThis is a known feature even of older NLP models; and a growing strand of research regarding LLMs’ negation capabilities has emerged in recent years.\n\nThough it can be challenging for people to chase down the buried meaning in a complex double-negative*, LLMs have an added disadvantage, illustrated in the below example of ChatGPT’s monotonicity reasoning, from a 2023 paper:\n\nThough the internal workings of a closed model such as ChatGPT are opaque, the second answer appears to be repurposing the logic used to generate the first answer; however, that logic is not applicable in the second case, because the man may own an animal other than a dog†.\n\nHere, therefore, the outcome of the second inquiry appears to have been affected by the context of the solution obtained for the first.\n\nLikewise, by suggesting the existence of a prohibited act, that banned act can often be put into action by an LLM, which acknowledges and processes the act, but not the negation.\n\nThis is a severe restriction on the utility of LLMs, because in domains where language models may be used for critical applications, such as medicine, finance, or security, it is clearly important that they correctly interpret orders that contain prohibitions.\n\nThis problem is highlighted in a new paper from the US, which examines the extent to which commercial models (such as ChatGPT) and open-source models (such as LLaMA) are unable to follow negative instructions.\n\nThe researchers tested 16 models over 14 ethical scenarios, and concluded that open-source models endorse (i.e., encourage, enact, enable) specifically banned instructions 77% of the time under simple negation (‘Don’t do this), and 100% of the time under complex negation (‘Don’t do this if it leads to that’).\n\nWhile commercial models fared better, only Gemini-3-Flash achieved the top rating in a new Negation Sensitivity Index (NSI) scale proposed by the paper (though Grok 4.1 ran a close second).\n\nUnder the new benchmark, all the models tested would be banned from making decisions in the domains medical, financial, legal, military, business, education, and science – effectively rendering them unusable in such contexts. Though reasoning models generally performed better, even these slower approaches failed under queries with compound negation.\n\nGiven the longstanding association between computing and reliable Boolean operators such as OR and NOT, users who view binary consistency as a baseline expectation may be particularly exposed to failures of this kind.\n\nCommenting on the difficulty that open-source LLMs have in parsing negated queries, the authors state:\n\n‘Commercial models fare better but still show swings of 19-128%. Agreement between models drops from 74% on affirmative prompts to 62% on negated ones, and financial scenarios prove twice as fragile as medical ones […]\n\n‘The findings point to a gap between what current alignment techniques achieve and what safe deployment requires: models that cannot reliably distinguish “do X” from “do not X” should not be making autonomous decisions in high-stakes contexts.’\n\nThe paper notes that failures of this kind are more likely to impact vulnerable individuals across the studied domains:\n\n‘Domain adjustment is not merely technical calibration. Rather, it has equity implications.\n\n‘Financial fragility means that economically vulnerable populations, for example those seeking loans, benefits, or credit, face higher exposure to negation errors than those seeking medical information.’\n\nFurther, the authors emphasize that the problem cannot be resolved through traditional alignment-based approaches, since the issue involves a deep-rooted failure of intent parsing in LLMs, rather than a corporate requirement to restrict what they say, or how they interpret a prompt:\n\n‘A model can be “aligned” in the sense of refusing harmful keywords while failing to process the structure of requests. True alignment requires not just learning what to value but correctly parsing the linguistic expressions of those values.\n\n‘Until that capability is reliable, “do not” should mean “do not.”‘\n\nInterestingly, though Gemini Flash was the sole ‘winner’ in the authors’ own novel benchmark, the current crop of Chinese LLMs generally proved to be far less susceptible to the problem.\n\nThe new paper is titled When Prohibitions Become Permissions: Auditing Negation Sensitivity in Language Models, and comes from two researchers at Kenyon College in Ohio.\n\nThe 14 ethical scenarios developed by the researchers to test the LLMs were:\n\nContents in the ‘ACTION AT STAKE’ column above are not intended as ethically ‘correct answers’, but as the only available do / don’t do actions for each scenario; here the LLMs are not being challenged on their ethical standards, but rather on their ability to parse complex queries and prohibitions in critical situations.\n\nTherefore the severity of these scenarios is only illustrative, on the part of the authors; the LLMs could as effectively have been interrogated on much less severe topics.\n\nThe US commercial models tested for the work were GPT-5.1; GPT-5.2; GPT-5-mini; Claude-Haiku-4.5; Claude-Sonnet-4.5; Gemini-3-Flash; Grok-4.1-non-reasoning; and Grok-4.1-reasoning.\n\nThe Chinese commercial models tested were DeepSeek-V3; GLM-4; Kimi-K2; and Qwen3.\n\nThe open-source models used were LLaMA-3.2-1B; Gemma-3-4B; Granite-3.3-2B; and Phi-4-mini-3.8B.\n\nPrompts for each of the 14 scenarios were written in four versions: F0 stated that the action should be done; F1, that it should not; F2 supported pursuing a goal even if it required the (prohibited) action; and F3 rejected the goal if it required the (prohibited) action:\n\n‘Under F0, models are asked whether he “should rob the store.” Under F1, whether he “should not rob the store.” Under F2, whether he should “save his daughter even if it means he must rob the store.”\n\n‘Under F3, whether he should “not save his daughter if it means he must rob the store.” The admissible facts remain constant, and only polarity varies.’\n\nThe approach argues that if a model understands how negation works, its answers should ‘flip cleanly’ between positive and negative versions of the same prompt. Therefore, if 60% of responses agree that ‘they should do X’ (F0), then only 40% should agree that ‘they should not do X’ (F1) – since rejecting F1 also means supporting the action; and when the numbers don’t match up in this way, the model is misreading negation.\n\nThe authors used Cochran’s Q test and the Kruskal-Wallis H-test to measure how much framing (variation in prompt polarity while preserving meaning) affected model responses, both within and across categories. After adjusting for false positives, the authors found that in 61.9% of cases, the model’s answer changed significantly depending only on how the prompt was phrased – even when the core meaning stayed the same.\n\nThey also tested whether reducing randomness (‘temperature’) made models less fragile††:\n\nUnder simple affirmative prompts (F0), models from all three categories gave moderate support for the proposed actions, with endorsement rates between 24% and 37%. This was expected, given that the scenarios were designed as moral dilemmas without obvious right answers. However, the authors note that the balance broke down under negation:\n\n‘Open-source models jump from 24% endorsement under F0 to 77% under F1. When told “should not do X,” they endorse doing X more than three times out of four. Under compound negation (F3), they reach 100% endorsement, a ceiling effect indicating complete failure to process the negation operator.’\n\nOpen-source models showed the most extreme framing effects, with endorsement rates jumping 317% from F0 to F3 – a sign that their outputs are highly sensitive to how a question is phrased. US commercial models also showed large swings, with endorsement rates more than doubling when prompts were reworded from F0 to F3.\n\nChinese commercial models were more stable overall, with only a 19% increase from F0 to F3, compared to jumps of over 100% in other groups. More importantly, they were the only models to reduce their endorsement when a prompt was negated, suggesting they understood that saying ‘should not’ means the opposite of ‘should’:\n\nModels agreed with each other 74% of the time when prompts used affirmative wording, but only 62% when the same ideas were expressed with negation – a12-point drop suggesting that models are not trained to handle negation in a consistent way:\n\nTo measure how easily a model’s judgment can be flipped by rephrasing a prompt with negation, the authors developed the aforementioned Negation Sensitivity Index (NSI) – a metric designed to quantify whether a model gives opposite answers to questions that are logically equivalent, but framed using negation.\n\nA high NSI score indicates that a model frequently reverses its position when a prompt is negated, revealing a reliance on superficial wording rather than consistent reasoning.\n\nThe NSI benchmark was created by generating pairs of prompts (one original, one with a logical negation), and observing whether the model produced semantically opposite responses. By comparing answers across a large set of such pairs, the authors defined NSI as the proportion of valid negation pairs where the model flipped its output.\n\nThe NSI benchmark was used in tests to evaluate domain sensitivity in negation (i.e., whether the context category ‘financial’ or ‘military’, etc., affected the outcome), achieving some interesting contrasts. Here, some types of decisions proved much more sensitive to wording changes than others.\n\nFor instance, business and finance prompts triggered high fragility, with models flipping answers when a question was rephrased or negated, scoring around 0.64 to 0.65 on the NSI scale. Medical prompts were more stable, averaging just 0.34:\n\nNoting that the medical domain produced the fewest errors and financial the highest, the authors hypothesize:\n\n‘Why might this gap exist? It is possible that medical decisions may benefit from clearer training signal. Hippocratic principles, established protocols, and extensive professional literature may anchor model behavior even under framing variation.\n\n‘Financial decisions, on the other hand, involve murkier tradeoffs with less social consensus, leaving models more susceptible to surface cues.’\n\nThe problem was most severe in open-source models, which reached NSI scores above 0.89 in finance, business, and military prompts. Commercial systems were less fragile but still showed high sensitivity, scoring between 0.20 and 0.75 depending on the domain:\n\nAs mentioned earlier, the authors note that the heightened fragility of open-source models in this area may carry disproportionate risks for vulnerable or marginalized groups, who are more likely to be served by locally deployed systems chosen for budgetary reasons in municipal or governmental settings†††:\n\n‘If an institution deploys an open-source model for cost reasons, the burden falls disproportionately on populations already navigating precarious financial circumstances. Buolamwini and Gebru documented how accuracy disparities in facial recognition fell along demographic lines.\n\n‘Our findings suggest a parallel disparity along domain lines, with economically vulnerable populations bearing greater risk.’\n\nThough we do not have scope here to cover the entirety of the paper’s results, and its closing case studies, it is noteworthy that the case studies demonstrate a proclivity for negation-blind model responses to end up recommending extremely non-advisable courses of action, simply because they misinterpreted the negation construction:\n\n‘Under F0, open-source models endorse robbery 52% of the time, a defensible split given the scenario’s moral complexity. Under F1 (“should NOT rob”), they endorse it 100%. The negated prohibition produces unanimous endorsement of the prohibited action.\n\n‘Commercial models show a more mixed pattern, with aggregate endorsement rising from 33% to 70% under simple negation. Some commercial systems show near-inversion, while others show modest increases.\n\n‘Significantly, no category achieves the mirror-image reversal that correct negation processing would produce.’\n\nThis is one of the most interesting papers I have come across in a while, and I recommend the reader to investigate further, as there is not space here to cover all of the material presented by the authors\n\nPerhaps the most interesting thing about the study is how frequently a user of LLMs comes across this problem, and gradually learns not to ‘put unwanted thoughts’ in their LLMs’ cogitative processes, often attempting to exclude certain undesired results by alternative means than in-prompt negation – such as user-level system prompts, long-term memory storage, or repetitive in-prompt templates that retain the objective.\n\nIn practice, none of these methods is terribly effective, while the black-box nature of Gemini Flash – here the best-performing LLM – makes it hard to glean remedies from the obtained test results.\n\nPerhaps greater clues to the underlying architectural problem lies in studying why Chinese models, though none approach the heights of the leaderboard, generally perform so much better in this single, thorny aspect.\n\n* A form which is actually baked into several romance languages, including Italian.\n\n† Even ChatGPT-4o does not make this mistake any longer.\n\n†† The source paper contains a few misattributions of tables and figures. At one point the text indicates that table 1 (which is just a list of LLMs used in tests) contains the core results. In these cases I have had to guess what the correct figures or tables are, and I stand to be corrected by the authors.\n\n††† My substitution of hyperlinks for the authors’ inline citations.\n\nFirst published Tuesday, February 3, 2026\n\nWriter on machine learning, domain specialist in human image synthesis. Former head of research content at Metaphysic.ai.\n\nPersonal site: martinanderson.ai\n\nContact: [email protected]\n\nTwitter: @manders_ai",
+    "readingTime": 12,
+    "keywords": [
+      "sensitivity index",
+      "index nsi",
+      "nsi scale",
+      "nsi benchmark",
+      "chinese commercial",
+      "framing variation",
+      "economically vulnerable",
+      "negation sensitivity",
+      "vulnerable populations",
+      "less fragile"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.unite.ai/if-you-tell-ai-not-to-do-something-its-more-likely-to-do-it/",
+    "thumbnail_url": "https://www.unite.ai/wp-content/uploads/2026/02/robot-prohibition-MAIN.jpg",
+    "created_at": "2026-02-04T06:38:00.869Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "embedded-vector-and-graph-database-in-pure-go",
+    "title": "Embedded Vector and Graph Database in Pure Go",
+    "description": "SQLite for Vectors - Simple, fast, embeddable vector storage for Go LLM applications. - liliang-cn/sqvect",
+    "fullText": "liliang-cn\n\n /\n\n sqvect\n\n Public\n\n SQLite for Vectors - Simple, fast, embeddable vector storage for Go LLM applications.\n\n liliang-cn.github.io/sqvect/\n\n License\n\n MIT license\n\n 6\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n liliang-cn/sqvect",
+    "readingTime": 1,
+    "keywords": [
+      "license"
+    ],
+    "qualityScore": 0.4,
+    "link": "https://github.com/liliang-cn/sqvect",
+    "thumbnail_url": "https://opengraph.githubassets.com/04a662363da77549dca7df68595a9813a8943cc6dea68042bdc44327d8e4ab55/liliang-cn/sqvect",
+    "created_at": "2026-02-04T06:38:00.475Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "acer-chromebook-plus-515-review-powerful-but-limited-by-clunky-software",
+    "title": "Acer Chromebook Plus 515 review: Powerful but limited by clunky software",
+    "description": "The Chromebook Plus 515 is one of Google's first new AI-enhanced laptops. It performs great for its price, but ChromeOS still has key limitations.",
+    "fullText": "The Acer Chromebook Plus 515 is one of the first Chromebook Plus models. It features a powerful Intel processor, an HD webcam, and onboard AI tools.\n\n Check price at Best Buy",
+    "readingTime": 1,
+    "keywords": [
+      "chromebook",
+      "plus"
+    ],
+    "qualityScore": 0.3,
+    "link": "https://www.businessinsider.com/guides/tech/acer-chromebook-plus-515-review",
+    "thumbnail_url": "https://i.insider.com/657c8de87a3c8094d5dd92bc?width=1200&format=jpeg",
+    "created_at": "2026-02-04T06:37:54.803Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "openai-just-snagged-an-anthropic-safety-researcher-for-its-highprofile-head-of-preparedness-role",
+    "title": "OpenAI just snagged an Anthropic safety researcher for its high-profile head of preparedness role",
+    "description": "OpenAI hired an Anthropic safety researcher as its head of preparedness, which pays up to $555,000 plus equity.",
+    "fullText": "OpenAI has filled a key safety role by hiring from a rival lab.\n\nThe company has brought on Dylan Scand, a former AI safety researcher at Anthropic, as its new head of preparedness, a role that carries a salary of up to $555,000 plus equity. The role caught attention last month thanks to its eye-catching pay package amid OpenAI's rising AI safety concerns.\n\nSam Altman announced the move in a post on X on Wednesday, saying that he is \"extremely excited\" to welcome Scand to OpenAI.\n\n\"Things are about to move quite fast and we will be working with extremely powerful models soon,\" Altman wrote.\n\n\"Dylan will lead our efforts to prepare for and mitigate these severe risks. He is by far the best candidate I have met, anywhere, for this role,\" he added.\n\nScand said in a post on X on Wednesday about his move that he's \"deeply grateful for my time at Anthropic and the extraordinary people I worked alongside.\"\n\n\"AI is advancing rapidly. The potential benefits are great — and so are the risks of extreme and even irrecoverable harm,\" he added.\n\nLast month, Altman described the job as \"stressful.\"\n\n\"You'll jump into the deep end almost immediately,\" he wrote on X.\n\nIn the job posting, OpenAI said the role is best suited for someone who can lead technical teams, make high-stakes calls under uncertainty, and align competing stakeholders around safety decisions. The company also said candidates should have deep expertise in machine learning, AI safety, and related risk areas.\n\nTensions have arisen over OpenAI's approach to safety. Several early employees — including a former head of its safety team — have left the company in recent years.\n\nOpenAI has also faced lawsuits from users who allege its tools contributed to harmful behavior.\n\nIn October, the company said that some ChatGPT users had shown possible signs of mental health distress. An estimated 560,000 users a week show \"possible signs of mental health emergencies,\" it said.\n\nThe company also said it was consulting mental health specialists to refine how the chatbot responds when users show signs of psychological distress or unhealthy dependence.",
+    "readingTime": 2,
+    "keywords": [
+      "mental health",
+      "safety",
+      "role",
+      "users",
+      "signs",
+      "anthropic",
+      "openai's",
+      "extremely",
+      "lead",
+      "risks"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/openai-anthropic-safety-researcher-head-of-preparedness-dylan-scand-2026-2",
+    "thumbnail_url": "https://i.insider.com/6982bb18a645d1188188a382?width=1200&format=jpeg",
+    "created_at": "2026-02-04T06:37:54.722Z",
+    "topic": "science"
+  },
+  {
     "slug": "get-me-out-traders-dump-software-stocks-as-ai-fears-erupt",
     "title": "‘Get Me Out’: Traders Dump Software Stocks as AI Fears Erupt",
     "description": "Wall Street has been skeptical about software stocks for a while, but sentiment has gone from bearish to doomsday lately with traders dumping shares of companies across the industry as fears about the destruction to be wrought by artificial intelligence pile up.",
@@ -1879,153 +2000,5 @@
     "thumbnail_url": "https://opengraph.githubassets.com/5c1fd8d1d13ed27cdc6dfa74ff25e4d282e52c780f755d5687b196c01af8a659/AffanShaikhsurab/COON",
     "created_at": "2026-01-31T06:25:28.357Z",
     "topic": "tech"
-  },
-  {
-    "slug": "starlink-updates-privacy-policy-to-allow-consumer-data-to-train",
-    "title": "Starlink updates privacy policy to allow consumer data to train",
-    "description": "SpaceX revised its Starlink privacy policy to allow the use of customer data for AI training, a shift that ​could bolster Elon Musk's AI ambitions.  Ahead of a blockbuster IPO planned for later this year, ‌SpaceX is in talks to merge with Musk’s AI company, xAI, a deal first reported by Reuters on Thursday.  SpaceX, already the ‌world’s most valuable private company, could reach a value of more than $1 trillion after the IPO.",
-    "fullText": "NEW YORK, Jan 30 (Reuters) - SpaceX (SPAX.PVT) revised its Starlink privacy policy to allow the use of customer data for AI training, a shift that ​could bolster Elon Musk's AI ambitions.\n\nAhead of a blockbuster IPO planned for later this year, ‌SpaceX is in talks to merge with Musk’s AI company, xAI (XAAI.PVT), a deal first reported by Reuters on Thursday. SpaceX, already the ‌world’s most valuable private company, could reach a value of more than $1 trillion after the IPO.\n\nWhat are privacy experts' concerns about Starlink's policy changes?\n\nWhat changes did SpaceX make to Starlink's privacy policy?\n\nHow could the SpaceX-xAI merger impact AI development?\n\nWhat data does Starlink collect from its users?\n\nStarlink updated its Global Privacy Policy on January 15, according to the Starlink website. The policy includes new details stating that unless a user opts out, Starlink data may be used “to train our machine learning or artificial intelligence ⁠models” and could be shared with ‌the company’s service providers and “third-party collaborators,” without providing further details.\n\nA previous version of the privacy policy, an archived version from November and reviewed by Reuters, did not ‍contain language about AI training on Starlink data.\n\nSpaceX did not respond to a request for comment.\n\nStarlink collects vast amounts of user data, spanning location information, credit card information, contact information and user IP ​addresses. It also collects so-called communication data, which includes audio and visual information, data in shared ‌files, and “inferences we may make from other personal information we collect,” according to its global privacy policy.\n\nThe policy did not make clear exactly what data would be used to train AI. The move has raised concerns among privacy advocates and consumer rights groups, which argue that using personal data to train AI risks expanding surveillance and creates new avenues for misuse.\n\n“It certainly raises my eyebrow and would make ⁠me concerned if I was a Starlink user,” said Anupam ​Chander, a technology law professor at Georgetown University. “Often there's perfectly ​legitimate uses of your data, but it doesn’t have a clear limit to what kind of uses it will be put to.”\n\nMusk's xAI, most recently valued at $230 billion ‍after a recent funding round, ⁠is currently developing its Grok LLM chatbot and also owns X, the social media platform.\n\nThe potential merger with xAI would turbocharge the space company’s deployment of AI-powered services, while giving xAI ⁠vast new data sets to train its models on, including communication data. Starlink, a network of more than 9,000 satellites, ‌currently provides internet connection to more than 9 million users.",
-    "readingTime": 3,
-    "keywords": [
-      "privacy policy",
-      "starlink",
-      "user",
-      "train",
-      "reuters",
-      "training",
-      "concerns",
-      "starlink's",
-      "merger",
-      "collect"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/news/musks-starlink-updates-privacy-policy-230853500.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/reuters-finance.com/69577d104628b8855a1cc3eeb938f73b",
-    "created_at": "2026-01-31T06:25:27.841Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "nvidias-plan-to-invest-up-to-100-billion-in-openai-has-stalled-wsj-reports",
-    "title": "Nvidia's plan to invest up to $100 billion in OpenAI has stalled, WSJ reports",
-    "description": "Nvidia's plan to invest up to $100 billion in OpenAI to help it train and run its latest artificial-intelligence models has stalled ​after some inside the chip giant expressed doubts about the deal, the ‌Wall Street Journal reported on Friday.  The Journal, citing people familiar with the matter, said ⁠the companies are rethinking the ‌future of their partnership, and the latest discussions include an equity investment of tens of billions of dollars as part of ‍OpenAI's current funding round.  Nvidia CEO Jensen Huang has privately emphasized to industry associates in recent months that the original $100 billion agreement was non-binding and not finalized, the report said.",
-    "fullText": "Jan 30 (Reuters) - Nvidia's plan to invest up to $100 billion in OpenAI to help it train and run its latest artificial-intelligence models has stalled ​after some inside the chip giant expressed doubts about the deal, the ‌Wall Street Journal reported on Friday.\n\nThe chipmaker in September announced plans to invest up to $100 billion ‌in OpenAI in a deal that would have given the ChatGPT maker the cash and access it needs to buy advanced chips that are key to maintaining its dominance in an increasingly competitive landscape.\n\nThe Journal, citing people familiar with the matter, said ⁠the companies are rethinking the ‌future of their partnership, and the latest discussions include an equity investment of tens of billions of dollars as part of ‍OpenAI's current funding round.\n\nNvidia CEO Jensen Huang has privately emphasized to industry associates in recent months that the original $100 billion agreement was non-binding and not finalized, the report said.\n\nHuang has ​also privately criticized what he has described as a lack of discipline in ‌OpenAI's business approach and expressed concern about the competition it faces from the likes of Alphabet's Google and Anthropic, the WSJ added.\n\n\"We have been OpenAI's preferred partner for the last 10 years. We look forward to continuing to work together,\" an Nvidia spokesperson said in an emailed statement to Reuters.\n\nOpenAI did not immediately respond ⁠to Reuters' request for comment.\n\nBig Tech companies ​and investors such as SoftBank Group Corp are ​racing to forge partnerships with OpenAI - which is spending heavily on data centers - betting closer ties with the startup would give them a ‍competitive edge in ⁠the AI race.\n\nAmazon is in talks to invest dozens of billions in OpenAI and the figure could be as high as $50 billion, Reuters reported on ⁠Thursday.\n\nOpenAI is looking to raise up to $100 billion in funding, valuing it at about $830 billion, Reuters ‌has previously reported.",
-    "readingTime": 2,
-    "keywords": [
-      "invest",
-      "openai's",
-      "latest",
-      "expressed",
-      "deal",
-      "competitive",
-      "billions",
-      "funding",
-      "privately",
-      "openai"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://finance.yahoo.com/news/nvidias-plan-invest-100-billion-235951874.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/reuters-finance.com/0dbdd98aa450247fcaf01d86a9dbfdc4",
-    "created_at": "2026-01-31T06:25:19.549Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "microsoft-stock-takes-most-massive-singleday-loss-since-pandemic-as-its-ai-efforts-flail",
-    "title": "Microsoft Stock Takes Most Massive Single-Day Loss Since Pandemic as Its AI Efforts Flail",
-    "description": "A historic day at the stock market for all the wrong reasons.",
-    "fullText": "Microsoft is taking a pounding in the stock market.\n\nOn Thursday, the Redmont giant’s share price collapsed by nearly 12 percent after it released its latest quarterly results, making it not only its biggest single day slide since March 2020, according to Bloomberg, but also one of the worst drops in the company’s history.\n\nThe Wile E. Coyote-worthy cliff-plunge, which wiped out over $400 billion in valuation, was despite Microsoft actually exceeding some key expectations, including its net income, which rose by 23 percent from the same period the year before to nearly $31 billion. Revenue also increased by 17 percent to $81.3 billion, which is about a billion more than what analysts projected.\n\nBut Microsoft’s AI spending spree has investors second-guessing its direction, and it’s striking that the lack of faith was strong enough to precipitate a historic plunge even with respectable financial growth. Overall, its total capital expenditures grew by 66 percent to a record $37.5 billion in Q4, as the company continues to splurge on building AI data centers for its Azure cloud computing business.\n\nAzure reported a 38 percent bump in revenue, which is slightly slower than the year before, adding to investor uncertainty over whether the business will be able to reap back the tens of billions spent on its data centers. In December, The Information reported that Azure was struggling to sell the company’s autonomous “AI agents” to its business customers, with quotas being slashed by up to 50 percent.\n\nSome analysts had predicted the stock drop, citing the uncertainty over Microsoft’s AI spending.\n\n“Since it is becoming even more evident that Microsoft is not going to garner a strong ROI from their massive AI investment, their shares need to be revalued back down to a level that is more consistent with its historic fair value,” Matthew Maley, chief market strategist at Miller Tabak + Co, told Bloomberg before markets opened on Thursday.\n\nIn the latest earnings, Microsoft boasted it had more than $625 billion in contracts for its cloud business that it still needed to fulfill. Nearly half of that, though — a colossal $350 billion — is from OpenAI, raising concerns that it may be putting too many eggs in one basket. It also draws attention to how Microsoft has struggled to make an impact with its own AI products like its Copilot assistant, which was heavily based on OpenAI’s tech, and which many enthusiasts perceive as an inferior version of ChatGPT. Microsoft 365 Copilot, the business-focused version of its chatbot integrated into its apps like Word, had 15 million annual users, the company just revealed.\n\n“As an investor, when you think about our capex, don’t just think about Azure, think about Copilot,” CEO Satya Nadella said on a call with analysts, as quoted by the Financial Times. “We don’t want to maximize just one business of ours. We want to be able to allocate capacity, while we are supply constrained, that allows us to build the best portfolio.”\n\nMore on AI: Sam Altman Says Oops, They Accidentally Made the New Version of ChatGPT Worse Than the Previous One",
-    "readingTime": 3,
-    "keywords": [
-      "business",
-      "azure",
-      "nearly",
-      "analysts",
-      "version",
-      "stock",
-      "market",
-      "latest",
-      "bloomberg",
-      "company’s"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/news/microsoft-stock-takes-most-massive-140629271.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/CdxDEvPBxIG1_7MSfpWkzg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/futurism_981/f81da308b9b7329ef4eee24a80240fea",
-    "created_at": "2026-01-31T06:25:19.204Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "foundry-selfwriting-ai-agent-that-learns-and-upgrades-itself",
-    "title": "Foundry – Self-writing AI agent that learns and upgrades itself",
-    "description": "The forge that forges itself. Self-writing meta-extension for OpenClaw.ai - lekt9/openclaw-foundry",
-    "fullText": "lekt9\n\n /\n\n openclaw-foundry\n\n Public\n\n The forge that forges itself. Self-writing meta-extension for OpenClaw.ai\n\n claw.getfoundry.app\n\n 0\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n lekt9/openclaw-foundry",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.4,
-    "link": "https://github.com/lekt9/openclaw-foundry",
-    "thumbnail_url": "https://opengraph.githubassets.com/05dcc0d201911d296941ffc33d96a9121b2307111c97c35e6b1e6758a3cd96e9/lekt9/openclaw-foundry",
-    "created_at": "2026-01-31T01:04:25.549Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "top-engineers-at-anthropic-openai-say-ai-now-writes-100-of-their-code",
-    "title": "Top engineers at Anthropic, OpenAI say AI now writes 100% of their code",
-    "description": "AI coding tools are getting more sophisticated. But if coders stop coding, what happens to software development jobs?",
-    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
-    "readingTime": 1,
-    "keywords": [
-      "fortune"
-    ],
-    "qualityScore": 0.1,
-    "link": "https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/01/GettyImages-2216956965_40536e-e1769705381107.jpg?resize=1200,600",
-    "created_at": "2026-01-31T01:04:24.596Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "youtube-has-a-big-incentive-to-nuke-ai-spam-and-its-starting-to-take-action",
-    "title": "YouTube has a big incentive to nuke AI spam — and it's starting to take action",
-    "description": "YouTube pulled down over a dozen AI \"spam\" channels as it looks to protect platform quality and preserve its premium pitch to TV marketers.",
-    "fullText": "YouTube is telling advertisers it's the future of TV. AI spam could put that story in jeopardy.\n\nThe video platform recently shut down just over a dozen popular accounts that had been churning out AI content — featuring characters like cats and Jesus — according to an analysis from Kapwing, a video editing platform. Some of the channels were picking up millions of views before going dark.\n\nIn November, Kapwing published a report that estimated 21% YouTube's feed was AI-generated videos.\n\n\"YouTube doesn't allow spam, scams, or other deceptive practices that take advantage of the YouTube community,\" a YouTube spokesperson said when reached for comment on the removals.\n\nThis month, YouTube CEO Neal Mohan said cutting down on low-quality AI content was one of the platform's 2026 priorities.\n\n\"To reduce the spread of low-quality AI content, we're actively building on our established systems that have been very successful in combating spam and clickbait, and reducing the spread of low-quality, repetitive content,\" he said.\n\nIts parent company, Google, is one of the main innovators in AI with products like Veo 3 and Nano Banana. But YouTube needs to balance its embrace of AI with its case to brands to buy ads on its platform instead of linear TV. In recent years, the company has hosted NewFronts, content showcases, and other events to highlight its premium content slate to marketers. If repetitive AI spam gobbles up more watch time, that pitch could start to lose its luster.\n\n\"Advertisers want to advertise against quality content,\" said Shira Lazar, a content creator and founder of the media brand What's Trending. YouTube wouldn't be able to charge premium ad rates \"if the platform was just filled with AI slop,\" she said.\n\nOther social entertainment apps like TikTok and Instagram are facing a similar flood of AI videos.\n\nTikTok even added a special toggle that lets users decide how much generative AI they see in their feed. Neither company is making as direct an appeal for TV ad budgets, though, even if Instagram hopes it can capture television eyeballs.\n\nYouTube, meanwhile, is the top streaming platform among US TV viewers, beating out streamers like Netflix and Disney in measurement firm Nielsen's December analysis.",
-    "readingTime": 2,
-    "keywords": [
-      "content",
-      "platform",
-      "spam",
-      "low-quality",
-      "youtube",
-      "advertisers",
-      "analysis",
-      "feed",
-      "videos",
-      "spread"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.businessinsider.com/youtube-has-a-big-reason-to-nuke-ai-spam-2026-1",
-    "thumbnail_url": "https://i.insider.com/697cffbfe1ba468a96ab1132?width=1200&format=jpeg",
-    "created_at": "2026-01-31T01:04:19.519Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ceo-mark-zuckerberg-says-metas-ai-story-is-about-where-its-headed-not-just-one-model",
-    "title": "CEO Mark Zuckerberg says Meta's AI story is about where it's headed, not just one model",
-    "description": "Meta CEO Mark Zuckerberg discusses AI strategy, highlighting steady progress over breakthrough models, with Wall Street awaiting results.",
-    "fullText": "CEO Mark Zuckerberg didn't come to Meta's earnings call on Wednesday promising a breakthrough AI model that would silence the skeptics.\n\nInstead, he offered something more careful: a bet on momentum.\n\n\"I expect our first models will be good,\" Zuckerberg said in his opening remarks, \"but more importantly, we'll show the rapid trajectory that we're on, and then I expect us to steadily push the frontier over the course of the year as we continue to release new models.\"\n\nIn June, Meta launched a new AI initiative, Meta Superintelligence Labs (MSL), headed by former Scale AI CEO Alexandr Wang. When Wall Street sought signs that this big, costly AI reset is working, Zuckerberg had a different ask: patience and faith that a steady drumbeat of releases in 2026 will matter more than a single big reveal.\n\n\"The AI strategy articulated on the call may leave some wanting more,\" wrote Barclays analyst Ross Sandler in a note to clients, \"but there was an underlying confidence and clearly a lot of new things in the works.\"\n\nZuckerberg said he could not yet share details of the company's AI strategy on the call and that it would roll out its initial set of models and products over the coming months.\n\n\"I think my answers to a lot of your questions on this particular call may be somewhat unfulfilling because we're in this interesting period where we've been rebuilding our AI effort. And we're six months into that, and I'm happy with how it's going,\" he said.\n\nThat didn't stop some analysts from pressing the CEO. When JPMorgan analyst Doug Anmuth asked Zuckerberg \n\n\"The first set of things that we put out, I think, are going to be more about showing the trajectory that we're on rather than being a single moment in time,\" Zuckerberg said.\n\nBrian Mulberry, an analyst at Zacks Investment Management, told Business Insider that there was \"no real substance to any of Zuckerberg's comments that would move our analysis one way or the other.\"\n\n\"We want to see real bottom-line profits driven by AI, and it seems that Meta is still far from that reality,\" Mulberry said.\n\nRoger Beharry Lall, a research director at IDC, told Business Insider that Zuckerberg's remarks about the company's coming AI models and their \"trajectory\" show that the company is ambitious, though the lack of concrete information means its goals \"remain largely aspirational.\"\n\nMeta's financials show that its AI work is already improving its advertising business. The company said improvements to how it ranks and shows ads led to 3.5% more clicks on Facebook and over 1% gain in conversions on Instagram in the final quarter of 2025.\n\nMeta's revenue jumped 24% to $59.9 billion in the last three months of 2025, and the company generated $43.6 billion in free cash flow in 2025 even as it spent heavily on AI infrastructure. Ad impressions jumped 18% from this time last year, and what advertisers paid for each ad rose 6%.\n\nThat combination explains why Meta can afford to keep spending on AI even while Zuckerberg asks investors to wait for the bigger breakthroughs.\n\nMeta's patient approach carries some risk given the company's recent track record. In August, Business Insider reported that the company was pushing to release the next version of its Llama AI model by the end of the year, which didn't happen.\n\nLlama's previous release in April disappointed developers who said it lagged in coding and reasoning, precisely the capabilities that matter most in the AI race that Meta wants to catch up in.\n\nMeta's new model, called \"Mango\", will focus on images and videos, while another one called \"Avocado\" will be better at coding, The Wall Street Journal reported.\n\nSome analysts said that Zuckerberg's restraint may simply reflect Meta's early stage in its AI reset.\n\n\"Training the model with this new team is going to take a while,\" Mandeep Singh, Bloomberg Intelligence's global head of technology research, told Business Insider.\n\nTo make up ground, he expects Meta to sharpen its focus and specialize in certain areas, rather than \"trying to beat everyone everywhere all at once.\"\n\nSingh said that Meta's strong advertising business gave it a lot of runway.\n\n\"This kind of growth rate allows you a lot of cushion in terms of taking your time and getting AI,\" he said.\n\nHave a tip? Contact Pranav Dixit via email at pranavdixit@protonmail.com or Signal at 1-408-905-9124. Use a personal email address and a nonwork device; here's our guide to sharing information securely.",
-    "readingTime": 4,
-    "keywords": [
-      "wall street",
-      "advertising business",
-      "business insider",
-      "meta's",
-      "model",
-      "models",
-      "we're",
-      "didn't",
-      "trajectory",
-      "release"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/meta-q4-2025-earnings-mark-zuckerberg-ai-gradual-growth-2026-1",
-    "thumbnail_url": "https://i.insider.com/697d35b2e1ba468a96ab1b72?width=1200&format=jpeg",
-    "created_at": "2026-01-31T01:04:18.675Z",
-    "topic": "finance"
   }
 ]
