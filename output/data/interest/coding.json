@@ -1,5 +1,77 @@
 [
   {
+    "slug": "the-coding-agent-os",
+    "title": "The Coding Agent OS",
+    "description": "We believe that a great coding agent isn't a simple chatbot—it's an operating system for the model.",
+    "fullText": "Most coding agents are presented as a chat UI glued to an LLM and integrated into an IDE or\n CLI. This can work really well for developers who provide the development environment along\n with constant babysitting to build functional software.\n\nCharlie, however, is built around a different premise: We believe that a great coding agent\n isn't a simple chatbot—it's an operating system for the model.\n\nCharlie's \"OS layer\" gives a model the primitives required to complete end-to-end\n engineering work:\n\nWhen agents run in an operating system, they can diagnose → plan → implement → verify →\n publish reviewable artifacts all within the systems where your team already works.\n\nWe've got two hot takes on why the OS is essential for great agents:\n\nCLI expressiveness beats bespoke \"LLM tools.\" CLI tools are composable (|, &&, xargs), self-documenting (--help), and match\n how engineers actually work. One-off JSON tools tend to be isolated and require tool\n designers to predict every use case up front.\n\nOpen-loop orchestration beats rigid workflows. Real engineering has surprises:\n flaky tests, missing context, failing builds, CI-only failures, new constraints. The \"OS loop\"\n lets the agent decide the next step based on what it observes, instead of forcing every task into\n a fixed graph.\n\nIDE-native assistants like Claude Code are great for interactive, in-editor work: drafting,\n refactors, quick iteration. But they're not optimized to serve as a team-facing execution\n environment.\n\nOS-style agents are built for that missing layer: cross-tool orchestration + durable,\n reviewable artifacts.\n\nA mention, review request, regression, or scheduled trigger.\n\nCharlie normalizes + enriches the signal\n\nInto \"this is the work request, with relevant context.\"\n\nDecide whether to act, what thread it belongs to, and which capabilities are allowed.\n\nA durable Task is created (or appended-to)\n\nSingle-winner claiming, enters a durable, turn-based loop.\n\nAssemble context, decide + plan, call the LLM, dispatch tool calls, observe results +\n check mailbox/cancel + continue.\n\nBack to the source system (PRs, reviews, issue updates, summaries).\n\nRecord terminal status + telemetry\n\nDurable transcript/state remains; ephemeral compute is cleaned up.\n\nThe agentic operating system delivers better outcomes:",
+    "readingTime": 2,
+    "keywords": [
+      "reviewable artifacts",
+      "operating system",
+      "agents",
+      "durable",
+      "tools",
+      "context",
+      "coding",
+      "environment",
+      "agent",
+      "model"
+    ],
+    "qualityScore": 1,
+    "link": "https://charlielabs.ai/coding-agents-as-operating-systems/",
+    "thumbnail_url": "https://charlielabs.ai/_astro/caos-architecture.JbhqvI6s.png",
+    "created_at": "2026-02-05T12:36:57.286Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "agentic-engineering",
+    "title": "Agentic Engineering",
+    "description": "Agentic Engineering is a disciplined approach to AI-assisted software development that emphasizes human oversight and engineering rigor, distinguishing it fr...",
+    "fullText": "A year ago, Andrej Karpathy coined “vibe coding” to describe a gleefully reckless way of programming: you prompt, hand the keyboard to an AI, accept everything it spits out, don’t read the diffs, iterate by pasting error messages back in. It was a great label for a real thing - building quick prototypes or MVPs on pure AI autopilot.\n\nThe problem is that “vibe coding” has become a suitcase term. People now use it to describe everything from a weekend hack to a disciplined engineering workflow where AI agents handle implementation under human oversight. These are fundamentally different activities, and conflating them is causing real confusion - and real damage.\n\nVibe coding means going with the vibes and not reviewing the code. That’s the defining characteristic. You prompt, you accept, you run it, you see if it works. If it doesn’t, you paste the error back and try again. You keep prompting. The human is a prompt DJ, not an engineer.\n\nIf vibe coding gives millions of people the ability to create custom software who otherwise couldn’t, that’s a genuine win. The technique has a legitimate place in the toolbox.\n\nBut the failure modes are well-documented at this point. The pattern is always the same: it demos great, then reality arrives. You try to modify it, scale it, or secure it, and you discover nobody understands what the code is actually doing. As one engineer put it, “This isn’t engineering, it’s hoping.”\n\nHere’s the thing: a lot of experienced engineers are now getting massive productivity gains from AI - 2x, 5x, sometimes more - while maintaining code quality. But the way they work looks nothing like vibe coding. They’re writing specs before prompting. They’re reviewing every diff. They’re running test suites. They’re treating the AI like a fast but unreliable junior developer who needs constant oversight. I’ve personally liked “AI-assisted engineering” and have talked about how this describes that end of the spectrum where the human remains in the loop.\n\nSimon Willison (whose work I adore) proposed “vibe engineering” for this - it reclaims “vibe” while adding “engineering” to signal discipline. But after watching the community debate this for months, I think the the word “vibe” carries too much baggage. It signals casualness. When you tell a CTO you’re “vibe engineering” their payment system, you can see the concern on their face.\n\nAndrej Karpathy suggested “agentic engineering” this week and I think I like it.\n\nIt describes what’s actually happening. You’re orchestrating AI agents - coding assistants that can execute, test, and refine code - while you act as architect, reviewer, and decision-maker. You might write only a % of the code by hand. The rest comes from agents working under your direction. That’s agentic. And you’re applying engineering discipline throughout. That’s engineering.\n\nIt’s professionally legible. “Agentic engineering” sounds like what it is: a serious engineering discipline involving autonomous agents. You can say it to your VP of Engineering without embarrassment. You can put it in a job description. You can build a team practice around it.\n\nIt draws a clean line. Vibe coding = YOLO. Agentic engineering = AI does the implementation, human owns the architecture, quality, and correctness. The terminology itself enforces the distinction.\n\nThe workflow isn’t complicated, but it requires discipline that vibe coding explicitly abandons:\n\nYou start with a plan. Before prompting anything, you write a design doc or spec - sometimes with AI assistance. You break the work into well-defined tasks. You decide on the architecture. This is the part vibe coders skip, and it’s exactly where projects go off the rails.\n\nYou direct, then review. You give the AI agent a well-scoped task from your plan. It generates code. You review that code with the same rigor you’d apply to a human teammate’s PR. If you can’t explain what a module does, it doesn’t go in.\n\nYou test relentlessly. The single biggest differentiator between agentic engineering and vibe coding is testing. With a solid test suite, an AI agent can iterate in a loop until tests pass, giving you high confidence in the result. Without tests, it’ll cheerfully declare “done” on broken code. Tests are how you turn an unreliable agent into a reliable system.\n\nYou own the codebase. You maintain documentation. You use version control and CI. You monitor production. The AI accelerates the work, but you’re responsible for the system.\n\nTeams doing this well often report faster development - and those gains come from augmenting a solid process, not abandoning one. The AI handles boilerplate and grunt work. The human focuses on architecture, correctness, edge cases, and long-term maintainability.\n\nThe irony is that AI-assisted development actually rewards good engineering practices more than traditional coding does. The better your specs, the better the AI’s output. The more comprehensive your tests, the more confidently you can delegate. The cleaner your architecture, the less the AI hallucinates weird abstractions. As one analysis noted, “AI didn’t cause the problem; skipping the design thinking did.”\n\nHere’s an uncomfortable truth from the trenches: agentic engineering disproportionately benefits senior engineers. If you have deep fundamentals - you understand system design, security patterns, performance tradeoffs - you can leverage AI as a massive force multiplier. You know what good code looks like, so you can efficiently review and correct AI output.\n\nBut if you’re junior and you lean on AI before building those fundamentals, you risk a dangerous skill atrophy. You can produce code without understanding it. You can ship features without learning why certain patterns exist. Several engineering leaders have flagged this as an emerging crisis: a generation of developers who can prompt but can’t debug, who can generate but can’t reason about what they’ve generated.\n\nThis isn’t an argument against AI-assisted development. It’s an argument for being honest about what it demands. Agentic engineering isn’t easier than traditional engineering - it’s a different kind of hard. You’re trading typing time for review time, implementation effort for orchestration skill, writing code for reading and evaluating code. The fundamentals matter more, not less.\n\nThe trajectory is clear: AI agents are getting more capable, and the agentic engineering workflow is becoming default for a growing number of professional developers. This is going to accelerate.\n\nThe rise of AI coding doesn’t replace the craft of software engineering - it raises the bar for it. The developers who’ll thrive aren’t the ones who prompt the fastest. They’re the ones who think the clearest about what they’re building and why, then use every tool available - including AI agents - to build it well.\n\nVibe coding showed us what’s possible when you drop all conventions.\n\nNow it’s time to bring the engineering back. Let’s call that what it is.\n\nI’ve written a new book with O’Reilly, Beyond Vibe Coding, that goes deeper into practical frameworks for AI-Assisted (and agentic) engineering. If you’ve been figuring this out in your own workflow, I’d love to hear what’s working.",
+    "readingTime": 6,
+    "keywords": [
+      "ai-assisted development",
+      "vibe coding",
+      "agentic engineering",
+      "engineering workflow",
+      "engineering it’s",
+      "engineering discipline",
+      "andrej karpathy",
+      "the ai",
+      "code",
+      "agents"
+    ],
+    "qualityScore": 1,
+    "link": "https://addyosmani.com/blog/agentic-engineering/",
+    "thumbnail_url": "https://addyosmani.com/assets/images/agentic-engineering.jpg",
+    "created_at": "2026-02-05T12:36:55.943Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "mark-zuckerbergs-2004-coding-jams-were-loud-emo-and-very-on-brand",
+    "title": "Mark Zuckerberg's 2004 coding jams were loud, emo, and very on brand",
+    "description": "Mark Zuckerberg published a playlist of five songs he was pumping while building Facebook in 2004. It includes hard-rocking hits and some synth funk.",
+    "fullText": "Mark Zuckerberg is feeling nostalgic.\n\nOn the 22nd anniversary of Facebook's founding, Zuckerberg reposted a meme about the fresh-faced Harvard student \"getting ready to make history.\" Then he linked a playlist titled \"2004 Facebook coding jams.\"\n\nZuckerberg said he \"had these bangers on repeat\" while building Facebook. The playlist's cover features the young founder — long before his bulked-up rebrand — listening to music on headphones.\n\nThe playlist's five songs feature a fair share of emo wails, electric guitars, and even some funky synthesizers. Some of them have receded into the tides of music history; others remain classics for weddings and bar mitzvahs.\n\nThey're also evocative of a quieter, easier time in tech. There were no culture wars, cage matches, or capex worries. What would a 2004 Zuckerberg think of $10 billion data centers?\n\nMusic speaks to how we feel. Here's what these five songs might say about a 19-year-old Zuckerberg — and just how far he's come.\n\nZuckerberg liked hard rock, it seems.\n\n\"Headstrong\" is a loud, thrashing song that feels built to be played on \"Guitar Hero.\" There's even a good guttural scream in there before one chorus. The lyrics are equally attacking. \"Back off, I'll take you on,\" Chris Taylor Brown sings.\n\nThe opening of \"Headstrong\" sounds like UFC walkout music, hyping up a big fight. That's now a favorite sport of Zuckerberg's. Some things never change.\n\n\"Like a Stone\" is about death and religion — two subjects that Zuckerberg has long been interested in.\n\nFrontman Chris Cornell prays to God and angels on their deathbed that they will get into heaven. \"In dreams until my death / I will wander on,\" he sings.\n\nZuckerberg seems more interested in extending human life than forecasting its end. His philanthropic initiative invests heavily in drug and disease research. He also has an intense fitness routine, including jiu-jitsu and CrossFit routines.\n\nAs for faith, Zuckerberg said in 2020 that he had \"become more religious.\" He cited two sources: The issues his company has faced in the prior years and the birth of his daughters.\n\nMostly, though, \"Like A Stone\" is another huge rock hit. It seems like Zuckerberg enjoyed the sound of banging drums and wailing guitar.\n\nNow this one is a nostalgia trip.\n\nYou can't help but feel something when Douglas Robb croons out, \"I'm not a perfect person.\" Was Zuckerberg a perfect person? Most people who have watched \"The Social Network\" would say no.\n\nIt's a romantic song. After considering their flaws, Robb sings out that they've found a reason to change. \"The reason is you,\" he repeats, over and over.\n\nZuckerberg met his wife, Priscilla Chan, in 2003, one year before this playlist's date. Maybe he was thinking of her.\n\nHe'd be less happy to hear that the song reemerged on TikTok — a Meta competitor — in a 2021 trend.\n\nWe all knew that Zuckerberg liked rap. He recorded his own version of T-Pain's \"Get Low\" in tribute to his wife. He also started dressing like Eminem.\n\n\"In the End\" is peak 2010s emo rap-rock. One of its refrains is \"I tried so hard.\" Zuckerberg did try so hard — he often worked till late into the night.\n\nThe song is more pessimistic in its outlook: \"In the end, it doesn't even matter.\" Zuckerberg would likely disagree here. He tried so hard — and in the end, it did matter. Meta is now a trillion-dollar company.\n\nHard pivot! After four hard rock tunes, Zuckerberg's last song leans into synth-funk.\n\nThe lyrics here feel self-explanatory for Zuckerberg's workplace ethos: \"Work it harder, make it better / Do it faster, makes us stronger / More than ever, hour after hour / Work is never over.\"\n\nAfter Meta's year of intensity, I'm sure that some of Zuckerberg's employees can relate.\n\nAlso, the Daft Punk helmet doesn't look that different from a Meta Quest.",
+    "readingTime": 4,
+    "keywords": [
+      "zuckerberg liked",
+      "like stone",
+      "song",
+      "music",
+      "playlist's",
+      "rock",
+      "sings",
+      "history",
+      "songs",
+      "headstrong"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/mark-zuckerberg-2004-coding-jams-playlist-loud-emo-on-brand-2026-2",
+    "thumbnail_url": "https://i.insider.com/69838cc9d3c7faef0ecd9c7b?width=1200&format=jpeg",
+    "created_at": "2026-02-05T12:36:52.821Z",
+    "topic": "finance"
+  },
+  {
     "slug": "whats-behind-the-saaspocalypse-plunge-in-software-stocks",
     "title": "What’s Behind the ‘SaaSpocalypse’ Plunge in Software Stocks",
     "description": "Since ChatGPT arrived on the scene some three years ago, analysts have been warning that entire industries, including software programming, legal services and film production, are at risk of being disrupted by artificial intelligence.",
@@ -1960,49 +2032,5 @@
     "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2025/09/GettyImages-1540568935-e1758305593707.jpg?resize=1200,600",
     "created_at": "2025-12-19T12:22:22.800Z",
     "topic": "business"
-  },
-  {
-    "slug": "orbit-a-systems-level-programming-language-that-compiles-sh-to-llvm",
-    "title": "Orbit a systems level programming language that compiles .sh to LLVM",
-    "description": "A modern shell with functional programming synatx. - SIE-Libraries/orbit",
-    "fullText": "SIE-Libraries\n\n /\n\n orbit\n\n Public\n\n A modern shell with functional programming synatx.\n\n License\n\n View license\n\n 5\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n SIE-Libraries/orbit",
-    "readingTime": 1,
-    "keywords": [
-      "license"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://github.com/SIE-Libraries/orbit",
-    "thumbnail_url": "https://opengraph.githubassets.com/dcaf4ed1c20da5475350ce0f3bf442eb03297772f6ad4097b4b2009e9ba5d922/SIE-Libraries/orbit",
-    "created_at": "2025-12-19T09:39:44.047Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "codingforpreschoolers-firm-files-bankruptcy-after-covid-boom",
-    "title": "Coding-for-Preschoolers Firm Files Bankruptcy After Covid Boom",
-    "description": "An education company that helps children as young as three learn to code filed for bankruptcy, blaming an expansion strategy that outpaced its ability to turn a profit.",
-    "fullText": "WealthBy Steven ChurchSaveAn education company that helps children as young as three learn to code filed for bankruptcy, blaming an expansion strategy that outpaced its ability to turn a profit.Conscious Content Media Inc. would eliminate more than half of its $205.5 million in funded debt under a reorganization proposal backed by noteholders, according to court papers filed Wednesday in federal court in Wilmington, Delaware.",
-    "readingTime": 1,
-    "keywords": [
-      "filed",
-      "court"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.bloomberg.com/news/articles/2025-12-18/coding-for-preschoolers-firm-files-bankruptcy-after-covid-boom",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iCA4eahCxR3k/v1/1200x800.jpg",
-    "created_at": "2025-12-18T18:18:26.956Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "i-built-an-app-for-vibecoding-games",
-    "title": "I built an app for vibe-coding games",
-    "description": "Got a game idea? Just describe it and start playing in seconds.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://playmix.ai/",
-    "thumbnail_url": "https://playmix.ai/assets/og-image.png",
-    "created_at": "2025-12-18T12:23:04.291Z",
-    "topic": "tech"
   }
 ]
