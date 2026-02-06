@@ -1,5 +1,29 @@
 [
   {
+    "slug": "tech-stack-is-a-business-decision",
+    "title": "Tech stack is a business decision",
+    "description": "Why tech stack choices should be driven by business context and constraints—not framework preferences—and why this matters even more with agentic coding tools.",
+    "fullText": "Developers love to argue about tech stacks.\n\nFlutter vs React Native.\n\nNative vs cross-platform.\n\nJava vs Ruby vs C#.\n\nReact vs Angular.\n\nRiverpod vs Bloc.\n\nDrift vs Hive.\n\nThese debates can go arbitrarily deep, down to library-level choices that have little impact on whether a product succeeds or fails.\n\nEveryone has preferences, and that’s fine. Preferences come from experience. Someone who started with strongly typed languages will value compiler guarantees and explicitness. Someone who started with dynamic languages will value flexibility and speed. Both viewpoints are internally consistent.\n\nWhat they are not is universally correct.\n\nThere is no hard data that can rank one stack as objectively “better” across all contexts. Teams, constraints, markets, and goals differ too much. Most arguments rely on anecdotes, and anecdotes do not generalize.\n\nSo if preference is not a reliable guide, how should a tech stack be chosen?\n\nThis question is often interpreted at the feature or use-case level. That misses the point.\n\nIn almost all non-hobby software, the problem being solved is a business problem.\n\nIf there is no business, no users, no revenue, then the software is irrelevant. It may be elegant or technically impressive, but it has no economic value. Software only matters insofar as it supports a business outcome.\n\nThat framing matters because it establishes the correct hierarchy.\n\nTechnology is not the goal.\n\nTechnology is a tool.\n\nAnd tools are chosen based on the job they need to do.\n\nEarly on, nobody knows whether the business will work.\n\nYou don’t know if users care. You don’t know if they will pay. You don’t know if the problem is real or imagined.\n\nAt this stage, obsessing over the “right” stack is misplaced effort. The dominant constraint is uncertainty, not scalability or architectural purity.\n\n“The FIRST rule of enterprenuership is you use what you have” - Alex Hormozi\n\nThis is simple rule of entrepreneurship applies surprisingly well to engineering.\n\nFounders and early teams start with what they already know. Not because it is theoretically optimal, but because it minimizes friction. Familiar tools reduce cognitive overhead, increase speed, and allow faster learning.\n\nEarly success is rarely determined by technical elegance. It is determined by whether you can ship something people want before you run out of time or money.\n\nAs the business grows, the constraints change.\n\nRevenue appears.\n\nUsers depend on the system.\n\nThe team grows.\n\nThe cost of failure increases.\n\nNow the stack begins to matter more. Not because some technologies are inherently superior, but because the software must support new business realities. Hiring, onboarding, operational cost, maintainability, performance characteristics, and risk management all become relevant.\n\nThis is where teams often conclude that an early stack choice was “wrong.” In most cases, it wasn’t wrong. It was right for the phase the business was in. The mistake was assuming it would remain right indefinitely.\n\nTwitch is often mentioned as a scaling story, but the more interesting part is how long the architecture stayed simple.\n\nAt one point, Twitch was serving millions of users with a monolithic Ruby on Rails application and a single PostgreSQL database. That setup was not elegant or future proof, but it worked. It allowed the team to move quickly, ship features, and grow the business without adding unnecessary complexity.\n\nOver time, the constraints changed. Growth amplified failures. Database contention increased. Reliability, support load, and churn started to matter more than raw development speed. The cost of incidents became visible in a way it had not been before.\n\nThat was when the architecture began to evolve. The database was scaled and restructured, services were split out, and new infrastructure and languages were introduced. None of this happened because the original stack was flawed. It happened because the business had outgrown it.\n\nThe technology changed in response to the business, not the other way around.\n\nIf you want to read more about how Twitch migrated from a monolith to microservices, see Breaking the Monolith at Twitch and Breaking the Monolith at Twitch: Part Two.\n\nIf you want to know more about how Twitch scaled its database, see How Twitch Uses PostgreSQL.\n\nAgentic coding tools make this even more important.\n\nTools like Claude Code and Cursor reduce the advantage of deep, framework-specific familiarity. Generating boilerplate, navigating unfamiliar code, applying patterns across modules, and keeping implementation consistent are no longer manual, error-prone tasks.\n\nWhen an agent can help you stay productive across technologies, the cost of switching or extending a stack drops. What remains expensive is not syntax or APIs, but domain knowledge, product decisions, and the long-term behavior of the system.\n\nIn other words, the more the tooling levels the technical playing field, the more tech stack decisions become about business fit.\n\nInstead of asking whether one technology is better than another in the abstract, ask questions that reflect the reality of the business:\n\nWhat are we optimizing for right now? Speed, cost, reliability, hiring, or time-to-market?\n\nHow quickly do we need to validate this idea?\n\nHow expensive will change be later, and what changes are most likely?\n\nWhat kind of team will maintain this system?\n\nWhat risks could realistically kill the business, and does the stack reduce or increase them?\n\nOnce framed this way, stack decisions become clearer and less emotional. Sometimes multiple choices are equally valid. Sometimes the boring option is correct. Sometimes speed matters more than correctness. Sometimes correctness matters more than speed.\n\nThere is no universal answer. The answer depends on the context.\n\nMost tech stack arguments are debates about taste, not outcomes.\n\nOnce technology is treated as a business decision rather than a personal identity, those arguments lose their intensity. The question stops being “what do I prefer?” and becomes “what does the business need right now?”\n\nThe right stack is not the one that wins debates.\n\nIt is the one that helps the business survive and grow at its current stage.\n\nIf are starting a project and need help with tech stack decision, connect with me on LinkedIn and I’ll take it from there.\n\nSoftware Developer specializing in Flutter, Android, and mobile development.\n Writing about code, architecture, and developer productivity.",
+    "readingTime": 6,
+    "keywords": [
+      "tech stack",
+      "stack decisions",
+      "business",
+      "speed",
+      "technology",
+      "users",
+      "tools",
+      "database",
+      "debates",
+      "languages"
+    ],
+    "qualityScore": 1,
+    "link": "https://dinkomarinac.dev/blog/tech-stack-is-a-business-decision/",
+    "thumbnail_url": "https://dinkomarinac.dev/og/tech-stack-is-a-business-decision.png",
+    "created_at": "2026-02-06T12:35:39.062Z",
+    "topic": "tech"
+  },
+  {
     "slug": "how-exposed-are-software-stocks-to-ai-tools-we-put-vibecoding-to-the-test",
     "title": "How exposed are software stocks to AI tools? We put vibe-coding to the test",
     "description": "How real is the AI threat to software companies? CNBC put it to the test by vibe-coding a Monday.com replacement.",
@@ -2002,29 +2026,5 @@
     "thumbnail_url": "https://bookface-images.s3.amazonaws.com/logos/06e7837c1e5c8ce88da333ac2efcf401d8cbee53.png?1747973680",
     "created_at": "2025-12-25T00:56:12.872Z",
     "topic": "jobs"
-  },
-  {
-    "slug": "the-guy-who-coined-vibe-coding-predicts-it-will-terraform-software-and-alter-job-descriptions",
-    "title": "The guy who coined 'vibe coding' predicts it will 'terraform software and alter job descriptions'",
-    "description": "Andrej Karpathy led AI at Tesla and cofounded OpenAI. He wrote that vibe coding has produced a new type of code that is \"free\" and \"discardable.\"",
-    "fullText": "He coined \"vibe coding\" earlier this year. Now, he has something to say about it.\n\nAndrej Karpathy led AI at Tesla for five years, steering the company's Autopilot effort and briefly working on its humanoid robot Optimus. He sandwiched his Tesla job with two stints at OpenAI, making Karpathy a cofounder of the AI pioneer.\n\nAs 2025 comes to a close, Karpathy published his year-in-review for large language models on X. He reflected on the famous term he originated in February, a term that has since shaken up the software engineering industry.\n\n\"With vibe coding, programming is not strictly reserved for highly trained professionals,\" Karpathy wrote. He called it an example of how \"regular people benefit a lot more from LLMs compared to professionals, corporations and governments.\"\n\nVibe coding has likely benefited businesses, too. Tech companies have equipped their engineers with tools like Cursor, Claude Code, and OpenAI's Codex, aiming for productivity gains.\n\nKarpathy wrote that vibe coding \"empowers trained professionals to write a lot more (vibe coded) software that would otherwise never be written.\"\n\nIt may also change the makeup — or the use case — of the code itself. Karpathy threw out a slew of adjectives to describe this new body of code: It is \"free, ephemeral, malleable, discardable after single use.\"\n\n\"Vibe coding will terraform software and alter job descriptions,\" he wrote.\n\nHow does Karpathy feel about being the term's origin?\n\n\"Amusingly, I coined the term \"vibe coding\" in this shower of thoughts tweet totally oblivious to how far it would go,\" he wrote.\n\nThere's a new kind of coding I call \"vibe coding\", where you fully give in to the vibes, embrace exponentials, and forget that the code even exists. It's possible because the LLMs (e.g. Cursor Composer w Sonnet) are getting too good. Also I just talk to Composer with SuperWhisper…\n\nIt's not yet clear how efficient vibe coding is making engineers. In a METR study published in July, AI coding assistants were found to decrease the productivity of participating experienced software developers by 19%. The developers in that study were also overconfident in the tools, its authors said, expecting a 20% productivity boost even after using them.\n\nWhat is clear, though, is that the practice is unlocking a whole new form of tech products. Twitter founder Jack Dorsey vibe-coded a new messaging app this year. Non-technical workers are easily building, shipping, and, in some cases, even selling apps they build in hours, if not minutes.\n\nKarpathy gave some other reflections. He praised Google Gemini's Nano Banana image model, and wrote that Claude Code was the \"first convincing demonstration of what an LLM Agent looks like.\"\n\nOverall, Karpathy wrote that 2025 was an \"exciting and mildly surprising year of LLMs.\"",
-    "readingTime": 3,
-    "keywords": [
-      "trained professionals",
-      "vibe coding",
-      "software",
-      "llms",
-      "productivity",
-      "karpathy",
-      "coined",
-      "tesla",
-      "published",
-      "tech"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/andrej-karpathy-coined-vibecoding-ai-prediction-2025-12",
-    "thumbnail_url": "https://i.insider.com/68f53bf05dbc4fd10dab1f5f?width=1200&format=jpeg",
-    "created_at": "2025-12-23T18:17:54.745Z",
-    "topic": "finance"
   }
 ]
