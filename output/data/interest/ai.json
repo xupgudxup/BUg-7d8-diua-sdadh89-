@@ -1,5 +1,86 @@
 [
   {
+    "slug": "private-capital-titans-rush-to-defend-software-companies-as-ai-rout-deepens",
+    "title": "Private Capital Titans Rush to Defend Software Companies as AI Rout Deepens",
+    "description": "High finance’s new ultra-rich lined up one by one, in TV spots, earnings calls and LinkedIn posts, to make the same pitch: Don’t take out big AI fears on private credit funds.",
+    "fullText": "MarketsBy Olivia FishlowSaveHigh finance’s new ultra-rich lined up one by one, in TV spots, earnings calls and LinkedIn posts, to make the same pitch: Don’t take out big AI fears on private credit funds.Blue Owl Capital Inc. billionaire Marc Lipschultz insisted that there were no “red flags” — or even “yellow flags” — in the firm’s technology loans, speaking on an earnings call Thursday after an unprecedented losing streak for its shares. Scott Nuttall at KKR & Co. similarly told analysts that “our level of anxiety is pretty low.”",
+    "readingTime": 1,
+    "keywords": [
+      "earnings",
+      "flags"
+    ],
+    "qualityScore": 0.45,
+    "link": "https://www.bloomberg.com/news/articles/2026-02-05/private-capital-s-titans-rush-to-defend-software-as-rout-deepens",
+    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iFz5rxiAWNNg/v1/1200x785.jpg",
+    "created_at": "2026-02-06T01:07:06.180Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "blackstonebacked-liftoff-postpones-ipo-on-software-rout",
+    "title": "Blackstone-Backed Liftoff Postpones IPO on Software Rout",
+    "description": "Blackstone Inc.-backed Liftoff Mobile Inc. postponed its initial public offering, after tech stocks spiraled on concerns over the impact of artificial intelligence on operating companies.",
+    "fullText": "TechnologyMarketsBy Bailey Lipschultz and Ryan GouldSaveBlackstone Inc.-backed Liftoff Mobile Inc. postponed its initial public offering, after tech stocks spiraled on concerns over the impact of artificial intelligence on operating companies.Given current market conditions, the company is taking additional time before listing, according to an emailed statement from a company spokesperson Thursday confirming an earlier Bloomberg News report.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.bloomberg.com/news/articles/2026-02-05/blackstone-backed-liftoff-said-to-postpone-ipo-on-software-rout",
+    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ixcPwUw91D7I/v1/1200x800.jpg",
+    "created_at": "2026-02-06T01:07:01.278Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "we-reverseengineered-docker-sandboxs-undocumented-microvm-api",
+    "title": "We Reverse-Engineered Docker Sandbox's Undocumented MicroVM API",
+    "description": "Docker ships with an undocumented API for spawning isolated microVMs. Here's how to use it for more than just AI agents.",
+    "fullText": "Docker ships with an undocumented API for spawning microVMs. We reverse-engineered it and built the open-source Sandbox Agent SDK to allow orchestrating coding agents inside of them.\n\nDocker & containers are the standard for how we’ve been running backends. Recently, more workloads have been moving to sandboxes for untrusted code execution, which Docker is not suitable for.\n\nWith the launch of Docker Sandboxes, Docker quietly shipped an undocumented API for microVMs that can power sandboxes.\n\nThis looks promising to be a unified way of managing sandboxes on your own infrastructure using microVMs, just like Docker did for containers 10 years ago. (Today it only supports macOS/Windows. Requires nested virtualization.)\n\nDocker Sandboxes (launch post) are Docker’s solution for running AI coding agents safely. Claude Code, Codex, and Gemini need to run arbitrary code, install packages, and modify files. MicroVMs let them run --dangerously-skip-permissions without being dangerous.\n\nAt first glance, this looks like a glorified docker run command, but under the hood Docker is using a completely different technology: microVMs.\n\nContainers are what most developers know and love when they run docker run. They provide basic file system, network, and process isolation between the host machine.\n\nHowever, it’s a common misconception that containers are good enough for running untrusted code (AI agents, user-submitted scripts, multi-tenant plugins).\n\nIn order to achieve better security, products like AWS Lambda, Fly.io, and most sandbox providers use microVMs for lightweight virtual machines with separate kernels for better security. It’s lighter than a full virtual machine, but does not carry as much overhead. This is considered the gold standard of isolating user code. There are many other documents that better describe microVMs & Firecracker if you’d like to read more.\n\nThis is why Docker built Sandboxes on microVMs instead of containers while remaining compatible with Docker containers.\n\nThis opens up use cases that containers can’t safely handle:\n\ndocker sandbox run is strictly limited to Docker’s whitelisted agents: Claude, Codex, Gemini, Copilot, Kiro, and Cagent. It currently does not let you run your own Docker containers.\n\nSo naturally, I went down the rabbit hole to see if I could reverse engineer the underlying microVM API in order to run any code I’d like inside of sandboxes.\n\nDocker’s sandboxd daemon manages all of the virtual machines and listens on ~/.docker/sandboxes/sandboxd.sock.\n\nThe VM name follows the pattern {agent_name}-vm. socketPath is your per-VM Docker daemon, which we’ll use in the next step.\n\nNormally all containers share /var/run/docker.sock. Anyone with socket access can see and control every other container.\n\nSandboxes flip this. Each microVM gets its own Docker daemon at ~/.docker/sandboxes/vm/<name>/docker.sock for maximum isolation. Containers run like normal inside the microVM, but are completely isolated from the host and other VMs.\n\nTo target different daemons, we will need to override the Unix socket path using curl --unix-socket ... or docker --host unix://....\n\nNew VMs are completely isolated from the host, so we need to manually load images we’ve built into the VM.\n\nWe do this by building, archiving, and loading the image into the VM like this:\n\n$VM_SOCK is the socketPath from the earlier step.\n\nNow the fun part: we can finally run our image and work with it like any other Docker container.\n\nmicroVMs route outbound traffic through a filtering proxy at host.docker.internal:3128. Your container needs these env vars:\n\nThe proxy does man-in-the-middle on HTTPS (hence NODE_TLS_REJECT_UNAUTHORIZED=0) for network policy enforcement. For production use, install the CA certificate from ca_cert_path in the VM response instead of disabling TLS verification.\n\nWorkspace syncs at the same absolute path, so volume mounts just work:\n\nDocker Sandboxes require Docker Desktop 4.58+ on macOS or Windows. Linux is not supported since Docker Desktop uses platform-specific virtualization (Apple Virtualization.framework on macOS, Hyper-V on Windows).\n\nThe raw microVM API is powerful, but building a production agent orchestration system on top of it requires handling:\n\nWe built the Sandbox Agent SDK to handle all of this. It wraps the microVM API and provides a simple interface for spawning and interacting with AI coding agents:\n\nSee the full guide on deploying with Docker Sandboxes.\n\nDocker’s microVM API opens up secure isolation for any workload, not just the handful of agents Docker officially supports. Whether you’re building an AI coding assistant, running untrusted user code, or isolating multi-tenant plugins, the /vm API gives you the primitives to do it safely.\n\nThe API is undocumented and subject to change, but it works today on Docker Desktop 4.58+. If you’re building something with it, we’d love to hear about it.",
+    "readingTime": 4,
+    "keywords": [
+      "agent sdk",
+      "sandbox agent",
+      "undocumented api",
+      "microvm api",
+      "multi-tenant plugins",
+      "virtual machines",
+      "completely isolated",
+      "user code",
+      "docker daemon",
+      "coding agents"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.rivet.dev/blog/2026-02-04-we-reverse-engineered-docker-sandbox-undocumented-microvm-api/",
+    "thumbnail_url": "/_astro/image.DdB6C2th.png",
+    "created_at": "2026-02-06T01:06:54.713Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "wall-street-ends-sharply-down-as-ai-worries-weigh",
+    "title": "Wall Street ends sharply down as AI worries weigh",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/stock-market-news/sp-nasdaq-futures-subdued-as-markets-digest-alphabets-ai-spending-plans-4487019",
+    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM140NC_L.jpg",
+    "created_at": "2026-02-06T01:06:53.929Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "openais-new-model-leaps-ahead-in-coding-capabilitiesbut-raises-unprecedented-cybersecurity-risks",
+    "title": "OpenAI’s new model leaps ahead in coding capabilities—but raises unprecedented cybersecurity risks",
+    "description": "Why OpenAI’s latest coding breakthrough is forcing the company to rethink how—and how fast—it can deploy its most powerful models.",
+    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
+    "readingTime": 1,
+    "keywords": [
+      "fortune"
+    ],
+    "qualityScore": 0.1,
+    "link": "https://fortune.com/2026/02/05/openai-gpt-5-3-codex-warns-unprecedented-cybersecurity-risks/",
+    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2025/08/GettyImages-2214110034.jpg?resize=1200,600",
+    "created_at": "2026-02-06T01:06:50.989Z",
+    "topic": "business"
+  },
+  {
     "slug": "voxpaste-fast-voicetotext-cli-for-dictating-to-claudecursor",
     "title": "VoxPaste – Fast voice-to-text CLI for dictating to Claude/Cursor",
     "description": "Your voice is the fastest interface to AI. Contribute to felixbrock/voxpaste development by creating an account on GitHub.",
@@ -1947,92 +2028,5 @@
     "thumbnail_url": "https://i.guim.co.uk/img/media/41106b40e49f16a98e682ad0a5867b9180f16453/35_0_4269_3415/master/4269.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2bf08aba054bee326081df5302e337e8",
     "created_at": "2026-02-03T12:35:14.241Z",
     "topic": "business"
-  },
-  {
-    "slug": "i-massproduced-the-last-30-that-ai-cant-finish",
-    "title": "I mass-produced the \"last 30%\" that AI can't finish",
-    "description": "Collection of customizable and open source components made with Next.js, Tailwind, Typescript, and Framer Motion.",
-    "fullText": "Ruixen UI is a modern, fast, and customizable React component library built with Tailwind CSS, TypeScript, and accessibility in mind.\n\nRuixen UI is a production‑ready React component system designed for rapid app development. It pairs a modern design language with type‑safe APIs, keyboard‑first accessibility, and flexible theming. Whether you’re building dashboards, marketing sites, or SaaS admin tools, Ruixen UI helps teams ship consistent, high‑quality interfaces faster.\n\nCan’t find what you need? Reach out to our Ruixen UI support team for assistance.\n\nCan’t find what you need? Reach out to our Ruixen UI support team",
-    "readingTime": 1,
-    "keywords": [
-      "react component",
-      "ruixen ui",
-      "modern",
-      "accessibility",
-      "can’t",
-      "team"
-    ],
-    "qualityScore": 0.55,
-    "link": "https://www.ruixen.com/",
-    "thumbnail_url": "https://ruixen.com/website_preview.png",
-    "created_at": "2026-02-03T12:35:11.115Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "fastapiturnkey-batteriesincluded-starter",
-    "title": "FastAPI-Turnkey – batteries-included starter",
-    "description": "A high-converting landing page for FastAPI-Turnkey, a production-ready FastAPI starter kit for indie hackers and AI/SaaS builders",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://fastapi.manus.space/",
-    "thumbnail_url": "https://files.manuscdn.com/webdev_screenshots/2026/02/03/X4VuphVro5WXiMgDjudv4T.png?x-oss-process=image/resize,w_1200/crop,h_630,x_0,y_0",
-    "created_at": "2026-02-03T12:35:10.699Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "i-built-an-open-source-alternative-to-codex-app",
-    "title": "I built an open source alternative to Codex app",
-    "description": "Autonomous AI engineer for building production grade software - Chinenyay/BrilliantCode",
-    "fullText": "Chinenyay\n\n /\n\n BrilliantCode\n\n Public\n\n Autonomous AI engineer for building production grade software\n\n License\n\n MIT license\n\n 2\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n Chinenyay/BrilliantCode",
-    "readingTime": 1,
-    "keywords": [
-      "license"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://github.com/Chinenyay/BrilliantCode",
-    "thumbnail_url": "https://opengraph.githubassets.com/144939e4fef4046c7928685e4a0400e8a9b3e62df8abc9a4ca4a7ac154402327/Chinenyay/BrilliantCode",
-    "created_at": "2026-02-03T12:35:09.757Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-ai-amplification-paradox-and-how-not-to-become-a-shell",
-    "title": "The AI Amplification Paradox – and how not to become a shell",
-    "description": "A simple model (Shell Theory) explaining how AI can raise baseline output, disproportionately rewards high-agency users, while at the same time risking long-term skill erosion.",
-    "fullText": "My teammate and I keep having the same argument. One moment we're witness to the cascade. Watching us software engineers become empty shells, mere relays for whatever the AI produced. The next moment we're amazed how iterative collaboration with AI keeps pushing our boundaries beyond what we thought achievable.\n\nBoth observations feel true simultaneously.\n\nThree narratives keep surfacing in our discussions:\n\nThese statements seem logically incompatible. The amplification of skill argument is moot if everyone is an expert by default. Relying more on AI can't simultaneously amplify skill and erode critical thinking. And if AI gives us expert quality regardless, there's no reason to worry about reduction in critical thinking.\n\nI've been trying to reconcile this intuition into something concrete. What follows is a model. It's not scientifically validated, but useful for reasoning about what we're observing.\n\nLet's define output without AI as a function of agency (V) and experience level (E):\n\nAgency is the foundation. Experience multiplies your output. In this model a principal engineer with low agency still produces less than a senior with high agency.\n\nHere it gets interesting. AI introduces exponential amplification, but this amplification is masked by a floor until your yield exceeds it:\n\nResolving contradictions 1 and 2: The floor-ceiling mechanism.\n\n The model resolves the apparent conflict between \"AI gives everyone 80%\" and \"AI amplifies skill.\" They are actually mathematically distinct effects operating on different populations. When Y < F, you're being rescued to the flatline. You ship working code and feel productive, but your output is artificially lifted to a floor you cannot pass. When Y > F, AI triggers exponential amplification; your yield scales with both agency and experience. The max(F, Y) function ensures the floor, while the exponential in Y raises the ceiling.\n\nResolving contradiction 3: Agency matters.\n\n The concern that \"relying on AI erodes critical thinking\" isn't addressed by the model's equations. It's addressed by how agency is defined. The model treats V as a parameter, but the definition describes agency as responsive: growing through deliberate practice, atrophying through disuse.\n\nThis creates a feedback loop that the math alone doesn't show:\n\nThe model doesn't predict this erosion, but it explains why the erosion matters. Your position isn't determined by a one-time calculation; it's determined by what V becomes over time. Two engineers with identical starting positions can diverge: one practices deliberate engagement and grows V, eventually breaking into the amplification zone. The other accepts the rescue, lets V decay, and becomes permanently dependent on the flatline.\n\nThis is why contradiction 3 coexists with contradictions 1 and 2. AI can amplify skill (for those above the flatline). AI does provide a floor (for everyone). And AI may erode critical thinking (for those who let the floor replace engagement). The determining variable is whether you treat the flatline as a safety net or a hammock.\n\nFeel free to skip this section. What follows is an attempt to assert the model against real-world anchors. If you're not interested in the math, jump ahead to The Model in Practice. The calibration points that follow are illustrative. The model's value isn't in the exact numbers but in the structural insight: Floor and amplification are distinct mechanisms operating on different populations.\n\nReal expertise development has been hypothesized to follow different types of curves. Logarithmic (rapid early gains, diminishing returns), S-shaped (slow start, steep middle, plateau), or non-uniform (qualitative leaps between levels). There's no consensus in the literature on which pattern best describes software engineering capability growth. Linear is simple, and for a thought experiment, simple wins:\n\nNote that with this definition juniors get zero amplification by design. The ability to leverage AI beyond the flatline is in itself what distinguishes a higher experience level.\n\nTo determine F, we need a reference point. AGI provides that anchor. But what is AGI in measurable terms?\n\nThe SWE-bench verified benchmark offers a concrete proxy. This benchmark evaluates AI models on 500 real GitHub bug-fixing tasks where they must produce patches that pass actual test suites. Crucially, these tasks come with human time estimates: 91% take less than one hour for an \"experienced engineer\" who has \"a few hours to familiarize themselves with the codebase.\"\n\nThe phrase \"experienced engineer\" is key. SWE-bench was calibrated against senior-level performance on well-defined tasks. And it only measures a slice of engineering work: fixing bugs in existing codebases with clear acceptance criteria. It doesn't measure architectural decisions, system design, handling ambiguous requirements, or greenfield development.\n\nThis gives us our first anchor: AGI on SWE-bench = F = 100 correlates with the output of a moderate-agency senior on well-defined work.\n\nThe leading models today (Claude Opus 4.5 and Gemini 3 Pro) score around 74% on SWE-bench Verified. This gives us the current flatline: F = 74.\n\nIf a moderate senior (E=3) produces 100 on SWE-bench-type tasks without AI:\n\nThis gives us: V = 25 represents moderate agency.\n\nWith V = 25 as the anchor, we model agency as normally distributed across the engineering population. Assuming a variation of 20% with μ = 25 gives σ = 5:\n\nThe exact values are illustrative. What matters is the concept: Agency varies meaningfully across engineers, and this variance affects output before AI even enters the equation.\n\nIf you have lower agency, you can still reach the flatline. It just takes longer to get there.\n\nTo define the slope of the exponential curve, we need a calibration point. A known relationship between experience and amplification. Without empirical data stratified by experience level, we make an informed assumption: at principal level (E=4), AI amplifies output to 2× R_noAI.\n\nIt reflects a hypothesis that the most experienced engineers can roughly double their effective output through AI collaboration. Leveraging it for code generation, exploration, and iteration while applying judgement that compounds the result.\n\nUsing the standard technique for deriving an exponential rate constant (taking the natural logarithm of both sides) we get:\n\nThis anchors the exponential curve. AI is powerful enough to meaningfully amplify engineers, with the curve calibrated to reach 2× at principal level. If future evidence suggests principals achieve a different amplification ratio—say, 3×—then A would become ln(3)/1.5 ≈ 0.732.\n\nWith each parameter anchored to an assumption, here's how the model plays out:\n\nThe asymmetry is clear: below the flatline, the exponential yield exists but is masked—everyone sees 74. Above it, the exponential becomes visible and compounds experience, reaching 2× output at principal level.\n\nThe model assumes you're working within a single domain where your experience level applies uniformly. Reality is messier. A single task often demands multiple skill domains and your experience level differs across them.\n\nConsider a senior backend engineer who doesn't know frontend, building a full-stack feature. AI amplifies their backend work exponentially while rescuing their frontend work to the flatline. The final output can be equally impressive though.\n\nWhat differs is the force behind the output. A specialist operating entirely above the flatline earns their amplified output through skill. A generalist in the blend achieves high output through a combination: part genuine skill amplification (in their strong domains), part being rescued (in their weak domains).\n\nThis matters for growth. When output comes from skill, you're building compound advantage. When output comes from the flatline, you're borrowing capability you haven't earned yet. This is not bad, but let's remain honest about which parts of your work are truly yours. Most importantly, your compound depends on the agency you are showing and the time you have already spent building experience. AI can accelerate knowledge acquisition. But seniority is knowledge and experience. You still need to live through production incidents, watch systems evolve, and feel the consequences of decisions that seemed fine until they weren't.\n\nThe flatline F currently sits at 74, and with AGI the flatline rises to F = 100. Every developer gets lifted to senior-level execution as their new floor on scoped work.\n\nBut AGI on SWE-bench doesn't demonstrate the ability to make architectural trade-offs, scope ambiguous problems, or engage in higher-order thinking to determine which tasks should exist in the first place. And benchmarks that do test these capabilities (ARC-AGI-2 for compositional reasoning, RE-Bench for long-horizon R&D, SPIN-Bench for strategic planning under uncertainty) show significant gaps. The exponential amplification zone doesn't disappear, but shifts to a different domain.\n\nThe amplification advantage depends on your yield exceeding the flatline: Y(V, E) > F. As F rises, fewer engineers qualify. At some point, the flatline exceeds what any human can produce even with AI assistance, and the amplification zone disappears entirely.\n\nThe maximum AI-assisted output in our model is a high-agency principal: Y(35, 4) = 35 × 5 × 2 = 350. If AI capability reached F = 350, even the best engineers would fall below the flatline. At that point, everyone produces 350—the flatline value—regardless of agency or experience. No amplification, no differentiation. Just the floor. It's the penthouse floor though.\n\nThe intermediate thresholds tell the story of who loses amplification as F rises:\n\nBeyond F = 100, we're extrapolating past the SWE-bench anchor into speculation.\nWhat the model does predict with more confidence: as F rises, the amplification zone shrinks. The threshold for \"bringing enough to exceed the flatline\" keeps rising. Whether the threshold will rise enough to exceed human capability is an open question, but the direction of pressure is clear.\n\nIf you stay in the flatline zone, accepting AI's first answer, never pushing beyond what it hands you, then you're being rescued, not amplified. Your skills may atrophy. You become a shell.\n\nIf you operate above the flatline, using AI as a sparring partner, iterating on its suggestions, bringing domain expertise and architectural judgment, then you're being exponentially amplified. You become more capable than you could be alone.\n\nThe same tool, but with two completely different outcomes. The variable is you.",
-    "readingTime": 9,
-    "keywords": [
-      "swe-bench verified",
-      "moment we're",
-      "erode critical",
-      "experienced engineer",
-      "amplify skill",
-      "exponential curve",
-      "amplification zone",
-      "flatline",
-      "output",
-      "agency"
-    ],
-    "qualityScore": 1,
-    "link": "https://telemetryagent.dev/blog/shell-theory",
-    "thumbnail_url": "https://telemetryagent.dev/assets/shell-theory-conceptual.png",
-    "created_at": "2026-02-03T12:35:09.605Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "awel-opensource-cursorlovable-for-your-nextjs-app",
-    "title": "Awel – Open-Source Cursor/Lovable for Your Next.js App",
-    "description": "🌸 Local, Open Source AI agent/App Builder that lives inside your Next.js app - MarsWang42/Awel",
-    "fullText": "MarsWang42\n\n /\n\n Awel\n\n Public\n\n 🌸 Local, Open Source AI agent/App Builder that lives inside your Next.js app\n\n awel.sh/\n\n License\n\n Apache-2.0 license\n\n 21\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n\n MarsWang42/Awel",
-    "readingTime": 1,
-    "keywords": [
-      "license"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://github.com/MarsWang42/Awel",
-    "thumbnail_url": "https://opengraph.githubassets.com/8e2c001e06b8e7b9a55b90d9febee53dbc7b51fa805a104aad523d5bfc6947e1/MarsWang42/Awel",
-    "created_at": "2026-02-03T12:35:09.250Z",
-    "topic": "tech"
   }
 ]
