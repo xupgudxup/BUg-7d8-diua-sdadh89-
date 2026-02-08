@@ -1,5 +1,120 @@
 [
   {
+    "slug": "techs-ai-push-risks-a-bond-market-blowback-credit-weekly",
+    "title": "Tech’s AI Push Risks a Bond Market Blowback: Credit Weekly",
+    "description": "The biggest tech companies are gearing up to spend even more on artificial intelligence than investors had anticipated, and money managers increasingly fear that whatever happens, credit markets will get hit.",
+    "fullText": "TechnologyBy Emily Graffeo and Caleb MutuaSaveThe biggest tech companies are gearing up to spend even more on artificial intelligence than investors had anticipated, and money managers increasingly fear that whatever happens, credit markets will get hit.Microsoft Corp., Oracle Corp. and other “hyperscalers” are in an arms race to invest in AI and beat competitors in a technology that could change vast parts of the economy. Google parent Alphabet Inc. said it’s poised to spend as much as $185 billion on data centers this year, more than it has invested in the past three years combined. Amazon.com Inc. promised an even bigger outlay: $200 billion.",
+    "readingTime": 1,
+    "keywords": [
+      "corp"
+    ],
+    "qualityScore": 0.45,
+    "link": "https://www.bloomberg.com/news/articles/2026-02-07/tech-s-ai-push-risks-a-bond-blowback-amzn-googl-msft-orcl",
+    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i03TAHzDZLzg/v0/1200x800.jpg",
+    "created_at": "2026-02-08T01:29:11.424Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "aegismindai-system-with-12-brain-regions-modeled-on-human-neuroscience",
+    "title": "AegisMind–AI system with 12 brain regions modeled on human neuroscience",
+    "description": "Early-stage AGI (79% on AI→AGI spectrum) with self-teaching capabilities, meta-cognitive reasoning, and autonomous improvement. 45% of tasks solved with zero human help.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.aegismind.app",
+    "thumbnail_url": "https://www.aegismind.app/logo.png",
+    "created_at": "2026-02-08T01:29:06.433Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "seedance-20-ai-video-generator-for-creators-and-ecommerce",
+    "title": "Seedance 2.0 AI video generator for creators and ecommerce",
+    "description": "Generate stunning AI videos from text prompts instantly. AI video generator for creators and artists. Transform your ideas into art in seconds.",
+    "fullText": "Transform your ideas into professional visuals. Seedance 2.0 generates beautiful videos with perfect text rendering—no experience required. Experience the power of seedance ai.\n\nSee how Seedance AI helps sellers, creators, and makers bring their ideas to life with professional-quality visuals.\n\nCreate professional product showcases and promo videos without hiring a studio. Seedance 2.0 handles white backgrounds, lifestyle scenes, and seasonal campaigns using seedance 2.0. Describe what you need and get visuals that sell.\n\nKeep your feed fresh without creative burnout. Seedance AI helps you create eye-catching reels, story videos, and feed posts. Focus on your message while seedance 2 handles the visuals.\n\nDon't let video production slow down your launch. Seedance 2.0.0 handles app demos, OG videos, and landing page assets while you focus on building your product.\n\nSeedance AI combines intuitive text-to-video generation with professional-grade output. No design skills needed—just describe your vision and watch it come to life with seedance 2.0 technology.\n\n4K resolution with broadcast fidelity. What Seedance 2.0 generates is what you publish—professional quality straight to your audience.\n\nSimply describe what you want in plain language. Seedance 2.0 understands your vision and creates stunning visuals that match your imagination perfectly.\n\nNo tutorials needed, no complex settings to master. With Seedance AI, anyone can create professional videos. Design expertise not required.\n\nThree simple steps to create professional AI videos. No signup required to start.\n\nWrite what you need in plain English. Seedance 2.0 understands natural language prompts like 'product cooling shot' or 'cinematic drone view'.\n\nClick generate. Your professional video appears in seconds. Not satisfied? Generate alternatives until you find the perfect one with seedance 2.0.\n\nOne click to download. 4K resolution, ready for any platform—social media, broadcast, or web. No watermarks on paid plans.\n\nChoose the plan that works best for you\n\n🎉 Congrats! You've unlocked special pricing\n\nEssential features for personal use\n\nPremium features for power users\n\nMaximum power for studios and heavy users\n\nFor any inquiries or assistance, please contact us: support@seedance-2.net\n\nEverything you need to know about creating professional AI videos with Seedance 2.0.",
+    "readingTime": 2,
+    "keywords": [
+      "seedance generates",
+      "seedance handles",
+      "seedance understands",
+      "create professional",
+      "seedance ai",
+      "videos",
+      "visuals",
+      "product",
+      "ideas",
+      "perfect"
+    ],
+    "qualityScore": 1,
+    "link": "https://seedance-2.net",
+    "thumbnail_url": "https://seedance-2.net/og.png",
+    "created_at": "2026-02-08T01:29:06.109Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "private-inference",
+    "title": "Private Inference",
+    "description": "When you use an AI service, you’re handing over your thoughts in plaintext. The operator stores them, trains on them, and–inevitably–will monetize them. You get a response; they get everything.",
+    "fullText": "When you use an AI service, you’re handing over your thoughts in plaintext. The operator stores them, trains on them, and–inevitably–will monetize them. You get a response; they get everything.\n\nConfer works differently. In the previous post, we described how Confer encrypts your chat history with keys that never leave your devices. The remaining piece to consider is inference—the moment your prompt reaches an LLM and a response comes back.\n\nTraditionally, end-to-end encryption works when the endpoints are devices under the control of a conversation’s participants. However, AI inference requires a server with GPUs to be an endpoint in the conversation. Someone has to run that server, but we want to prevent the people who are running it (us) from seeing prompts or the responses.\n\nThis is the domain of confidential computing. Confidential computing uses hardware-enforced isolation to run code in a Trusted Execution Environment (TEE). The host machine provides CPU, memory, and power, but cannot access the TEE’s memory or execution state.\n\nLLMs are fundamentally stateless—input in, output out—which makes them ideal for this environment. For Confer, we run inference inside a confidential VM. Your prompts are encrypted from your device directly into the TEE using Noise Pipes, processed there, and responses are encrypted back. The host never sees plaintext.\n\nBut this raises an obvious concern: even if we have encrypted pipes in and out of an encrypted environment, it really matters what is running inside that environment. The client needs assurance that the code running is actually doing what it claims.\n\nConfidential computing solves this with remote attestation. When a confidential VM boots, the hardware generates a signed quote—a cryptographic statement containing hashes of the kernel, initrd, and command line. These hashes are called measurements, and they uniquely identify the code running inside the TEE.\n\nFor Confer, we extend the measurement to cover the entire root filesystem using dm-verity. This builds a merkle tree over every byte of the filesystem and embeds the merkle root hash in the kernel command line. Since the command line is measured, any change to any file changes the attestation. The measurement now covers everything.\n\nBut a measurement is just a hash. To verify it, someone needs to be able to reproduce it.\n\nThe Confer proxy and image are built with nix and mkosi to produce bit-for-bit reproducible outputs. Anyone can clone the repository, run the build, and get the exact same measurements.\n\nEach release is also signed and published to a transparency log that is easily searchable. The log is append-only and publicly auditable, which means we can’t quietly publish a different build for different users.\n\nNow we have an intuition for how these parts can come together.\n\nWhen you open Confer and start a conversation, your client initiates a Noise handshake with the inference endpoint. The TEE responds with its attestation quote embedded in the noise handshake.\n\nYour client verifies the quote’s signature, confirming it came from genuine TEE hardware. It checks that the public key in the quote matches the one used in the handshake–this binds the encrypted channel to the TEE, preventing interception or replay by anything outside it. It extracts the measurements and confirms they match a release in the transparency log.\n\nOnce verification succeeds, the handshake completes. Your client now has cryptographic assurance that it’s talking directly to verified code running in hardware-enforced isolation.\n\nAll traffic to the inference endpoint is then encrypted with ephemeral session keys that provide forward secrecy: even if a long-term key were later compromised, past conversations remain protected because the ephemeral keys no longer exist.\n\nConfer combines confidential computing with passkey-derived encryption to ensure your data remains private.\n\nThis is different from traditional AI services, where your prompts are transmitted in plaintext to an operator who stores them in plaintext (where they are vulnerable to hackers, employees, subpoenas), mines them for behavioral data, and trains on them.\n\nWe think Confer is how AI should work.\n\nDon't have Confer? Give it a try!",
+    "readingTime": 4,
+    "keywords": [
+      "noise handshake",
+      "hardware-enforced isolation",
+      "transparency log",
+      "confidential computing",
+      "inference endpoint",
+      "encrypted",
+      "plaintext",
+      "code",
+      "environment",
+      "client"
+    ],
+    "qualityScore": 1,
+    "link": "https://confer.to/blog/2026/01/private-inference/",
+    "thumbnail_url": "https://confer.to/blog/assets/images/og-image.png",
+    "created_at": "2026-02-08T01:29:04.827Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "localgpt-a-localfirst-ai-assistant-in-rust-with-persistent-memory",
+    "title": "LocalGPT – A local-first AI assistant in Rust with persistent memory",
+    "description": "Contribute to localgpt-app/localgpt development by creating an account on GitHub.",
+    "fullText": "localgpt-app\n\n /\n\n localgpt\n\n Public\n\n License\n\n Apache-2.0 license\n\n 2\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n localgpt-app/localgpt",
+    "readingTime": 1,
+    "keywords": [
+      "license"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://github.com/localgpt-app/localgpt",
+    "thumbnail_url": "https://opengraph.githubassets.com/f1af8d6331475c187b4be33cb6042ea4c56b0b31bed12098ea01f6efa36f073d/localgpt-app/localgpt",
+    "created_at": "2026-02-08T01:29:04.340Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ai-can-make-anyone-rich-mark-cuban-says-it-could-turn-just-one-dude-in-a-basement-into-a-trillionaire",
+    "title": "AI can make anyone rich: Mark Cuban says it could turn ‘just one dude in a basement’ into a trillionaire",
+    "description": "The billionaire former \"Shark Tank\" star and Dallas Mavericks owner is a dedicated AI user.",
+    "fullText": "Mark Cuban said artificial intelligence is only in its early stages and has the potential to create massive wealth—possibly even the world’s first trillionaire. He uses AI extensively in his personal life and sees it as a powerful tool for improving productivity and creativity. Still, he acknowledged the risks and limitations of AI.\n\nSome of the world’s largest and most successful tech companies were built at home: Steve Jobs founded Apple in the garage of his parents’ home, and Jeff Bezos also founded Amazon in his garage.\n\nAnd thanks to artificial intelligence, the trend of developing blockbuster companies at home is sure to continue. Mark Cuban, the billionaire former principal owner of the Dallas Mavericks and Shark Tank star, recently said AI could help make the world’s first trillionaire.\n\n“We haven’t seen the best or the craziest of what [AI is] going to be able to do,” Cuban told the High Performance podcast in an episode published last summer. “And not only do I think it’ll create a trillionaire, but it could be just one dude in the basement. That’s how crazy it could be.”\n\nTake OpenAI, for example, which was formed in cofounder and president Greg Brockman’s living room in 2015. OpenAI is reportedly vying for an $800 billion valuation as it pursues more funding. Sam Altman, the CEO of OpenAI, is worth about $2 billion.\n\nWhile that’s a far cry from AI creating the world’s first trillionaire, a September 2024 report by wealth-tracking service Informa Connect said Tesla CEO Elon Musk is on pace to become a trillionaire by 2027.\n\n“There’s always something bigger and better that’s created by an innovative entrepreneur,” Cuban said. “But AI just dwarfs all that.”\n\nCuban appears to firmly believe in the power of AI, and said we’re only in the “preseason” of what the technology can really do.\n\n“As it becomes more advanced—and I’m not saying we’re going to get the Terminator—I’m not saying all of a sudden there’s going to be robots that are smarter than people, like the movie,” he told High Performance. “But we’ll find ways to make our lives better, more interesting, to work better, more effectively.”\n\nCuban also said he uses AI for nearly everything. He gave an example of how he uses it to track health metrics since he suffers from atrial fibrillation (“A-fib”).\n\nHe had to track when he was taking medications and working out, and used ChatGPT to help him record it. He also asked ChatGPT to let him know if there’s something he writes down that doesn’t seem right or that he should be concerned about.",
+    "readingTime": 3,
+    "keywords": [
+      "artificial intelligence",
+      "mark cuban",
+      "trillionaire",
+      "world’s",
+      "that’s",
+      "there’s",
+      "create",
+      "founded",
+      "garage",
+      "we’re"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/news/ai-anyone-rich-mark-cuban-152003409.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/reexqp.VHplkomXvJABI0A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/fortune_175/900afec371329512c68e319fce301681",
+    "created_at": "2026-02-08T01:29:01.358Z",
+    "topic": "finance"
+  },
+  {
     "slug": "wild-week-of-trading-leaves-pockmarks-across-us-equity-landscape",
     "title": "Wild Week of Trading Leaves Pockmarks Across US Equity Landscape",
     "description": "Precious metals memed out, Bitcoin flamed out and the labor market looks like it’s petering out. None of it started in the equities market, but together it was enough — along with a reckoning for software firms — to shake the foundation of an AI-driven bull run.",
@@ -1977,125 +2092,6 @@
     "link": "https://www.investing.com/news/stock-market-news/us-software-stocks-stabilize-after-bruising-selloff-on-ai-disruption-fears-4487518",
     "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM140SA_L.jpg",
     "created_at": "2026-02-05T12:36:49.797Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "free-ai-video-transcription-online-tool",
-    "title": "Free AI video transcription online tool",
-    "description": "Video to text converter powered by AI. Transcribe any video to text in seconds with fast, accurate, and free online video transcription.",
-    "fullText": "Transform any video into accurate text in seconds. \n This video to text converter uses AI to convert video to text fast and precisely — free, online, and easy to use.\n\nTurn video content into clear, searchable text in just a few minutes. Our video to text converter makes video transcription simple and efficient.\n\nUpload your video file to start the process. This video to text converter supports MP4, MOV, AVI, MKV, and videos recorded from Zoom, Teams, or other platforms.\n\nOur AI-powered engine transcribes video to text automatically, capturing spoken words with high accuracy. It recognizes different speakers and accents without manual editing.\n\nReview the generated video transcription and export it in the format you need, including TXT, DOCX, PDF, SRT, or VTT, ready for editing, subtitles, or sharing.\n\nUnlock faster, accurate, and versatile video transcription. Convert video to text effortlessly and enhance productivity for any project.\n\nAutomatically transcribe video to text with clearly labeled speakers and frame-accurate timestamps. Easily locate key moments in interviews, meetings, and multi-speaker recordings.\n\nConvert video to text and turn recordings into searchable documents, subtitles, blog drafts, or scripts. One video becomes multiple content formats—no manual rewriting required.\n\nFor content creators, YouTubers, and marketing teams. Use our video to text converter to generate accurate subtitles, extract quotes, and convert video to text for blogs, captions, scripts, and short-form content. Turn long videos into multiple content assets, improve accessibility, and boost search visibility across platforms.\n\nFor students, teachers, and online course platforms. Transcribe video to text from lectures, lessons, and webinars to create searchable study materials. A video to text converter helps learners review complex topics, take notes faster, and access course content in text form anytime.\n\nFor remote teams, product managers, and researchers. Convert video meetings, interviews, and user research sessions into clear video transcription with speaker labels and timestamps. Keep accurate records, capture decisions, and make discussions easy to search and reference later.\n\nFor journalists, writers, and media professionals. Transcribe video interviews into clean, searchable text for analysis, quoting, and content production. Converting video to text speeds up workflows and ensures no important detail is missed.\n\nFor video podcasters and media teams. Convert video podcasts into transcripts for show notes, SEO, and content repurposing. A video to text converter makes it easy to extract highlights, quotes, and written summaries from every episode.\n\nQuickly convert video to text with AI. Get accurate transcripts and subtitles in minutes.\n\nConvert video to text in minutes, whether it’s a short clip or a long webinar. Save hours of manual transcription with fast, AI-powered processing.\n\nGet precise video transcription even with technical terms, multiple speakers, or challenging audio. Minimal corrections needed, ready to use immediately.\n\nTurn your video content into blog posts, subtitles, documentation, or searchable knowledge bases. Our video to text converter maximizes content value.\n\nEasily track who said what with speaker-labeled transcripts and frame-accurate timestamps—perfect for interviews, meetings, and panel discussions.\n\nTranscribe video to text in over 100 languages and accents. Ideal for global teams, online courses, and multilingual content creators.\n\nAll uploads are encrypted, and files are deleted automatically after processing. Export transcripts in TXT, DOCX, PDF, SRT, or VTT formats—fully compatible with your workflow.\n\nEverything you need to know about converting video to text with VideoCompress — fast, simple, and accurate.",
-    "readingTime": 3,
-    "keywords": [
-      "txt docx",
-      "docx pdf",
-      "pdf srt",
-      "interviews meetings",
-      "content creators",
-      "text converter",
-      "searchable text",
-      "accurate",
-      "transcription",
-      "subtitles"
-    ],
-    "qualityScore": 1,
-    "link": "https://videocompress.ai/video-to-text-converter",
-    "thumbnail_url": "/assets/logo.png",
-    "created_at": "2026-02-05T06:44:25.079Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "trilliondollar-tech-wipeout-ensnares-all-stocks-in-ais-path",
-    "title": "Trillion-Dollar Tech Wipeout Ensnares All Stocks in AI's Path",
-    "description": "There have been many AI-driven selloffs in the three years since ChatGPT burst into the mainstream. Nothing, though, quite rivals the rout rippling through stock and credit markets this week.",
-    "fullText": "TechnologyBy Brody Ford and Carmen ReinickeSaveThere have been many AI-driven selloffs in the three years since ChatGPT burst into the mainstream. Nothing, though, quite rivals the rout rippling through stock and credit markets this week.For one, there’s the sheer speed and breadth of it. In the span of two days, hundreds of billions of dollars were wiped off the value of stocks, bonds and loans of companies big and small across Silicon Valley. Software stocks were at the epicenter, plunging so much that the value of those tracked in an iShares ETF has now dropped almost $1 trillion over the past seven days.",
-    "readingTime": 1,
-    "keywords": [
-      "stocks"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.bloomberg.com/news/articles/2026-02-04/trillion-dollar-tech-wipeout-ensnares-all-stocks-in-ai-s-path",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ipukqYnmqwX0/v0/1200x800.jpg",
-    "created_at": "2026-02-05T06:44:24.491Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "chinas-tech-giants-are-opening-their-doors-to-openclaw-the-chinese-internet-is-lapping-it-up",
-    "title": "China's tech giants are opening their doors to OpenClaw. The Chinese internet is lapping it up.",
-    "description": "OpenClaw is gaining ground in China as major tech firms add support and users flock to the viral AI agent.",
-    "fullText": "The viral AI agent OpenClaw — formerly known as Clawdbot, then Moltbot — has found an audience in China.\n\nSince last week, Chinese tech companies including Tencent, Alibaba, and Volcano Engine, a cloud service platform under ByteDance, have begun integrating OpenClaw into their platforms, making it easier for Chinese users to run the agent. That includes connecting the agent to workplace tools such as Alibaba's collaboration platform, DingTalk, and Tencent Holdings' WeCom, the work version of China's super app, WeChat.\n\nOpenClaw began circulating widely in tech circles last month, attracting high-profile fans including Y Combinator CEO Garry Tan and multiple partners at Andreessen Horowitz.\n\nThe agent has also taken off among Chinese users, with demos, tutorials, and use cases spreading rapidly across local social platforms.\n\nOpenClaw is designed to run around the clock and plug into a wide range of consumer apps, allowing users to automate tasks such as managing schedules, overseeing vibe-coding sessions, or even building AI employees.\n\nIn a post on Tencent Cloud's developer platform, the company said last Thursday that its servers have rolled out a preconfigured OpenClaw application template, enabling users to deploy the AI assistant in the cloud with minimal setup.\n\nAlibaba Cloud has also rolled out support for OpenClaw on its platforms and said the agent can connect to a range of models from Alibaba's Qwen series.\n\nVolcano Engine, ByteDance's cloud services arm, outlined how developers can deploy Moltbot in its environment in an article published on Monday, while also flagging key safety considerations.\n\n\"Because the tool has extensive data, account, and network access permissions, please deploy it in a dedicated environment, avoid handling sensitive information, and be sure to review permissions regularly and set access restrictions for ECS and API keys,\" the article said, referring to cloud servers and access credentials.\n\nFor OpenClaw to run as a digital assistant across apps, it requires access to users' files, login details, browser activity, and other data.\n\nCybersecurity specialists told Business Insider in a report published on Wednesday that agents like OpenClaw can be vulnerable to \"prompt injections,\" a tactic that uses hidden instructions to trick AI into performing actions such as leaking data or publishing content on users' behalf.\n\nDespite mounting privacy and security concerns, enthusiasm for the agent among Chinese users shows little sign of slowing.\n\nPosts and demos featuring OpenClaw have surged on the Chinese social media platform RedNote.\n\nOne RedNote user who goes by \"Brother C\" posted a video tutorial last Tuesday, walking viewers through how to use OpenClaw. \"See how the 24/7 proactive AI assistant is revolutionizing workflows,\" he wrote. The post drew more than 4,000 likes and was saved over 6,000 times.\n\nAnother user posting under the nickname \"Teacher Du\" shared his own explainer on Monday, describing how OpenClaw could be deployed in everyday workflows. His post was saved more than 2,000 times and received over 1,000 likes.\n\n\"My experience was truly mind-blowing,\" he wrote, adding that the agent could handle \"all sorts of tasks\" and that the \"concept of a true AI employee is getting closer.\"\n\nLike their counterparts in the US, Chinese users are buying Mac Minis to run the agent. A RedNote user named Wu Bin said he had ordered a secondhand Mac Mini to serve as his \"super assistant.\"\n\n\"It's incredibly convenient, I can control it remotely to organize files and handle all sorts of tasks,\" he wrote.\n\nNot everyone is convinced. A user who goes by \"Programmer Yago\" warned in a RedNote post on Sunday that using the agent could leave users' data \"running naked all over the internet.\"\n\nOpenClaw did not respond to a request for comment from Business Insider.",
-    "readingTime": 4,
-    "keywords": [
-      "volcano engine",
-      "among chinese",
-      "rednote user",
-      "chinese users",
-      "business insider",
-      "agent",
-      "platform",
-      "assistant",
-      "access",
-      "openclaw"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/openclaw-moltbot-china-internet-alibaba-bytedance-tencent-rednote-ai-agent-2026-2",
-    "thumbnail_url": "https://i.insider.com/69842018d3c7faef0ecda886?width=1200&format=jpeg",
-    "created_at": "2026-02-05T06:44:21.629Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "googles-quarterly-results-paint-a-picture-of-an-internet-powerhouse-getting-stronger-in-ai-age",
-    "title": "Google's quarterly results paint a picture of an internet powerhouse getting stronger in AI age",
-    "description": "Google’s latest quarterly report provided further evidence that its internet empire is withstanding an artificial intelligence shakeup that’s turning into another potential boon for the company.  The numbers released Wednesday marked Google's third consecutive quarter of digital ad growth of more than 10% from the previous year, while also posting more than 30% sales growth in its division that powers data centers for AI services.  The collective momentum of Google’s main business in search and advertising and the still-nascent AI field indicates a company born during the late 1990s internet boom is becoming even stronger during another technology phenomenon nearly 30 years later.",
-    "fullText": "SAN FRANCISCO (AP) — Google’s latest quarterly report provided further evidence that its internet empire is withstanding an artificial intelligence shakeup that’s turning into another potential boon for the company.\n\nThe numbers released Wednesday marked Google's third consecutive quarter of digital ad growth of more than 10% from the previous year, while also posting more than 30% sales growth in its division that powers data centers for AI services.\n\nWhat drove Google's strong Q4 financial performance?\n\nWhat impact did the antitrust ruling have?\n\nHow is Google competing against AI startups?\n\nHow much is Alphabet investing in AI infrastructure?\n\nThose increases during the October-December period propelled Google’s corporate parent Alphabet Inc. well past the earnings forecasts of stock market analysts.\n\nAlphabet’s fourth-quarter profit rose 30% from the prior year to $34.5 billion, or $2.82 per share, while revenue climbed 18% to $113.8 billion.\n\nThe collective momentum of Google’s main business in search and advertising and the still-nascent AI field indicates a company born during the late 1990s internet boom is becoming even stronger during another technology phenomenon nearly 30 years later.\n\n“Search saw more usage than ever before, with AI continuing to drive an expansionary moment,\" Alphabet CEO Sundar Pichai said.\n\nGoogle’s successful evolution has helped drive up Alphabet’s stock price nearly 60% in the past five months, giving it a $4 trillion market value. Even so, some investors are still skeptical whether Google will be able to sustain enough growth to justify the more than $300 billion that Alphabet will have spent from 2024 through the end of this year on expanding the computing capacity needed for AI features. Those worries caused Alphabet's shares to see-saw between slight gains and declines during extended trading after Wednesday's report came out.\n\nApple, also currently worth $4 trillion, thinks so highly of Google’s AI that the iPhone maker recently struck a deal to use Google’s Gemini technology in a long-delayed upgrade to its virtual assistant, Siri.\n\nGoogle is also embedding more of its Gemini AI into its long-dominant search engine, Gmail and Chrome browser as it tries to avoid complacency and being outmaneuvered by up-and-coming companies such as OpenAI, Anthropic and Perplexity.\n\nTo meet the challenge, Alphabet has been on a spending spree to expand its AI capacity. After pouring $91 billion into capital expenditures devoted mostly to AI, the Mountain View, California, company disclosed Wednesday that it expects to double down by spending another $175 billion to $185 billion this year. Its capital expenditure budget has ballooned from about $30 billion annually since 2022 when OpenAI released its ChatGPT chatbot to much acclaim, prompting Google to pull out all the stops to catch up.",
-    "readingTime": 3,
-    "keywords": [
-      "another",
-      "growth",
-      "search",
-      "internet",
-      "released",
-      "google's",
-      "stock",
-      "market",
-      "alphabet’s",
-      "technology"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/news/googles-quarterly-results-paint-picture-214749098.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/rClbHDXrChKe7I9YPPPoSw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/ap.org/10172bf0bee8a7f7b0d3e6a19168e69c",
-    "created_at": "2026-02-05T06:44:21.499Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "whats-behind-the-saaspocalypse-plunge-in-software-stocks",
-    "title": "What’s Behind the ‘SaaSpocalypse’ Plunge in Software Stocks",
-    "description": "Since ChatGPT arrived on the scene some three years ago, analysts have been warning that entire industries, including software programming, legal services and film production, are at risk of being disrupted by artificial intelligence.",
-    "fullText": "MarketsExplainerBy Lynn Doan and Carmen ReinickeSaveSince ChatGPT arrived on the scene some three years ago, analysts have been warning that entire industries, including software programming, legal services and film production, are at risk of being disrupted by artificial intelligence.But it took a wave of disappointing earnings reports, some improvements in AI models, and the release of a seemingly innocuous add-on from AI startup Anthropic to suddenly wake up investors en masse to the threat. The result has been the biggest stock selloff driven by the fear of AI displacement that markets have seen. And no stocks are hurting more than those of software-as-a-service (SaaS) companies.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.35,
-    "link": "https://www.bloomberg.com/news/articles/2026-02-04/what-s-behind-the-saaspocalypse-plunge-in-software-stocks",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iDiaprGarUKI/v0/1200x800.jpg",
-    "created_at": "2026-02-05T01:08:08.737Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "bozoma-saint-john-on-branding-ais-impact-super-bowl",
-    "title": "Bozoma Saint John on Branding, AI's Impact, Super Bowl",
-    "description": "Bozoma Saint John, former Chief Marketing Offiver of Netflix and former chief brand officer of Uber, discusses the tech and media landscape and the Super Bowl with Romaine Bostick and Katie Greifeld on The Close. She says evolution is key to everything.",
-    "fullText": "Feb 4th, 2026Bozoma Saint John on Branding, AI's Impact, Super BowlBozoma Saint John, former Chief Marketing Offiver of Netflix and former chief brand officer of Uber, discusses the tech and media landscape and the Super Bowl with Romaine Bostick and Katie Greifeld on The Close. She says evolution is key to everything.Duration:1:15Software Stocks Slide for Second DayDuration:0:25Homeland Security Takes 700 Agents Out of MinneapolisBalance of PowerDuration:1:35Ambani, Fink on 'Era Of India'Duration:4:37Rep. Waters Clashes With Bessent Over Impact of TariffsDuration:2:42Things Have to Change at Qualcomm, Analyst Goldberg SaysDuration:1:27US Services Sector ExpandsDuration:1:00UK's Starmer Says Mandelson Vetting Material Mentioned EpsteinThe Opening TradeDuration:6:28Novo CEO Remains Confident After 20% PlungeAvailable on:Listen onApple TVListen onRokuListen onSamsung TVListen onFire TVListen onAndroid TVListen onRakuten TVListen onHaystack NewsWatch BTV in your area:Channel Finder",
-    "readingTime": 1,
-    "keywords": [
-      "saint john",
-      "tvlisten",
-      "impact",
-      "chief",
-      "super"
-    ],
-    "qualityScore": 0.15,
-    "link": "https://www.bloomberg.com/news/videos/2026-02-04/bozoma-saint-john-on-branding-ai-s-impact-super-bowl-video",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/inrM.7pbiidA/v3/-1x-1.webp",
-    "created_at": "2026-02-05T01:08:07.679Z",
     "topic": "finance"
   }
 ]
