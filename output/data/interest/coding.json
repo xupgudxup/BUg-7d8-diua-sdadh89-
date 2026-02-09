@@ -1,5 +1,28 @@
 [
   {
+    "slug": "the-guy-who-coined-vibecoding-says-the-next-big-thing-is-agentic-engineering",
+    "title": "The guy who coined 'vibe-coding' says the next big thing is 'agentic engineering'",
+    "description": "OpenAI cofounder Andrej Karpathy says 'agentic engineering is the next evolution in AI coding as vibe-coding marks its first anniversary.",
+    "fullText": "\"Vibe-coding\" just celebrated its first birthday. That's a lifetime in the AI boom.\n\nNow, the man who coined the term is celebrating the birth of a new one: \"agentic engineering.\"\n\nWhile vibe-coding is when humans prompt AI to write code, OpenAI cofounder Andrej Karpathy says agentic engineering is when AI agents write the code themselves.\n\n\"Many people have tried to come up with a better name for this to differentiate it from vibe coding, personally, my current favorite is 'agentic engineering,'\" he wrote in a recent X post.\n\nKarpathy said he calls it \"agentic engineering\" not just because agents are writing the code, but because \"there is an art & science and expertise to it.\"\n\nVibe-coding is one of the biggest innovations of the AI revolution. Prominent CEOs and startup founders alike are encouraging the use of vibe-coding across their teams. And billions are being poured into new vibe-coding companies.\n\nLovable, one of Europe's fastest-growing startups, announced that it had raised $330 million in Series B funding at a $6.6 billion valuation in December. Cursor, an AI-assisted code editor, announced a Series D funding round of $2.3 billion in November and said it had surpassed $1 billion in annualized revenue.\n\nThe approach is also threatening traditional engineering jobs. In a Business Insider survey of 167 software engineers, 75 engineers said that they were \"keeping up,\" while 30 said they felt ahead of the curve, and 27 felt behind.\n\n\"Vibe coding is now mentioned on my Wikipedia as a major memetic 'contribution,' and even its article is longer. lol,\" Karpathy wrote on X about its meteoric rise.\n\nKarpathy was a founding member of OpenAI in 2015, years before competitors like Anthropic and xAI emerged. He later moved into self-driving technology, leading Tesla's Autopilot program as head of AI. He's now building Eureka Labs, which describes itself on its website as building a \"new kind of school that is AI native.\"",
+    "readingTime": 2,
+    "keywords": [
+      "series funding",
+      "vibe coding",
+      "agentic engineering",
+      "vibe-coding",
+      "code",
+      "openai",
+      "agents",
+      "engineers",
+      "karpathy"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://www.businessinsider.com/agentic-engineering-andrej-karpathy-vibe-coding-2026-2",
+    "thumbnail_url": "https://i.insider.com/68f53bf05dbc4fd10dab1f5f?width=1200&format=jpeg",
+    "created_at": "2026-02-09T01:12:58.161Z",
+    "topic": "finance"
+  },
+  {
     "slug": "gitbutler",
     "title": "GitButler",
     "description": "GitButler software development platform",
@@ -1985,29 +2008,5 @@
     "thumbnail_url": "https://i.insider.com/6953e21004eda4732f2e3df7?width=1200&format=jpeg",
     "created_at": "2025-12-30T18:18:12.476Z",
     "topic": "finance"
-  },
-  {
-    "slug": "why-reliability-demands-functional-programming",
-    "title": "Why Reliability Demands Functional Programming",
-    "description": "> In banking, telecom, and payments, reliability is not a nice to have. It is table stakes. The most reliable systems I have worked on reduce entire classes of bugs before the code even runs. Functional programming and Algebraic Data Types (ADTs) let you push correctness into the type system, so illegal states cannot be constructed in the first place. **What you will learn** - How invalid states show up in real systems and why they cause costly incidents - How ADTs encode business rules so the compiler enfo...",
-    "fullText": "In banking, telecom, and payments, reliability is not a nice to have. It is table stakes. The most reliable systems I have worked on reduce entire classes of bugs before the code even runs. Functional programming and Algebraic Data Types (ADTs) let you push correctness into the type system, so illegal states cannot be constructed in the first place.\n\nMost production incidents are not due to complex algorithms. They are due to the code entering a state that should never have been possible. If you have been on call, you have seen variants of these:\n\nFunctional programming helps by modeling the domain with types that make invalid states unrepresentable. Pure functions and immutability keep behavior predictable and testable.\n\nProduct types combine fields, think \"and\". Sum types choose one of several cases, think \"or\". Together they model your domain rules.\n\nWith this shape, \"paypal\" cannot exist as a Payment. The compiler refuses the value.\n\nWhen you pattern match on a sum type, the compiler can force you to handle every variant. If you later add a new case, every non exhaustive match becomes a compilation error or warning. This is how refactors become safe by default.\n\nAdd a new Crypto method and both code bases will point out every place you must update.\n\nIncident story\n\nA payout worker retries on network timeouts and calls settle() twice. The table allows pending = false and settled = true twice with the same ledger id. Reconciliation finds duplicates and accounting needs a manual fix.\n\nWhy it happened\n\nState is spread across booleans and strings. The database does not express the lifecycle. The application code does, but only by convention and tests.\n\nTransitions become total functions. You can return a Result when a transition is not allowed.\n\nNow the illegal transitions are blocked by construction. Test coverage still matters, but the shape of the model prevents a class of bugs.\n\nRefactor safety\n\nWhen product adds Chargeback, the compiler highlights every match that ignores it. You cannot ship with a half handled lifecycle.\n\nEvery switch on TxnState now requires a chargeback branch. This is free guidance from the compiler.\n\nIncident story\n\nThe call detail record pipeline generates billing events whenever it sees a Connected event. Under jitter and retries, some sessions never receive Completed. The billing system charges based on the wrong boundary and customers complain.\n\nWhy it happened\n\nThe call lifecycle is implicit across many services. A connected session with no end was still billable because there was no type that separated non billable states from billable ones.\n\nNow a connected but never completed call cannot produce a billable duration. The shape forbids the bug.\n\nIncident story\n\nA cache TTL is stored in an environment variable. Someone sets CACHE_TTL_SECS=30s. In JavaScript, Number(\"30s\") yields NaN and your code treats it as zero, disabling caching in production.\n\nThe ambiguity disappears. The code must handle absence and parse errors explicitly.\n\nDo not use null to mean \"maybe\". Do not throw exceptions for expected errors.\n\nThese types make the happy path and the error path equally explicit.\n\nMutable shared state is a common source of heisenbugs under concurrency. Prefer immutable data and pure functions. When you need to update, create a new value.\n\nYour tests become simple. Given the same inputs, the function returns the same output.\n\nNumbers are not self describing. Create types that carry meaning.\n\nYou stop mixing milliseconds with seconds or dollars with cents by accident.\n\nKeep the domain logic pure and push IO to the edges. This makes unit tests cheap and fast.\n\nStart small and make continuous progress. Here is a practical order for a team new to these ideas.\n\nReplace pairs of booleans with a sum type\n\nReplace string enums with discriminated unions\n\nReplace nullable fields with Option\n\nReplace thrown control flow with Result\n\nIntroduce newtypes or branded types for units and ids\n\nPattern matching compiles to simple branches. Discriminated unions in TypeScript are just plain objects. The main cost you will feel is validation at the boundaries in smart constructors. This is a trade worth making. The compiler then protects the interior of the system.\n\nReliability is designed. With Algebraic Data Types, pattern matching, Option and Result, immutability, and smart constructors, you encode domain rules directly in your types. Illegal states cannot compile. This is why industries that cannot afford failure, such as banking and telecom, gravitate to functional ideas.\n\nIf you work on code that touches money, minutes, or public availability, adopt these patterns now.\n\nYour on call shifts will be quieter, and your users will notice the difference.",
-    "readingTime": 4,
-    "keywords": [
-      "functional programming",
-      "discriminated unions",
-      "smart constructors",
-      "pattern matching",
-      "domain rules",
-      "pure functions",
-      "code",
-      "cannot",
-      "compiler",
-      "billable"
-    ],
-    "qualityScore": 1,
-    "link": "https://blog.rastrian.dev/post/why-reliability-demands-functional-programming-adts-safety-and-critical-infrastructure",
-    "thumbnail_url": "https://rastrian.dev/assets/img/profile.png",
-    "created_at": "2025-12-28T01:03:21.884Z",
-    "topic": "tech"
   }
 ]
