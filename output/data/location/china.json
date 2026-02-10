@@ -1,5 +1,18 @@
 [
   {
+    "slug": "china-to-support-reunification-forces-in-taiwan-go-after-separatists",
+    "title": "China to support ’reunification forces’ in Taiwan, go after ’separatists’",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/economy-news/senior-chinese-official-calls-for-resolutely-cracking-down-on-taiwan-independence-separatists-4495493",
+    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM1907O_L.jpg",
+    "created_at": "2026-02-10T06:54:02.632Z",
+    "topic": "finance"
+  },
+  {
     "slug": "china-sentences-hong-kong-media-mogul-jimmy-lai-to-20-years-in-prison",
     "title": "China sentences Hong Kong media mogul Jimmy Lai to 20 years in prison",
     "description": "Family of Jimmy Lai, a Hong Kong media tycoon and vocal critic of China's Communist rule, calls his prison sentence cruel, and the \"end of justice.\"",
@@ -2018,30 +2031,6 @@
     "link": "https://www.bbc.com/news/articles/cj9r8ezym3ro",
     "thumbnail_url": "https://ichef.bbci.co.uk/news/1024/branded_news/ebca/live/3fb6e610-f8dc-11f0-8902-65b5cd997fa5.jpg",
     "created_at": "2026-01-24T06:18:15.142Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "malicious-ai-extensions-on-vs-code-marketplace-steal-developer-data",
-    "title": "Malicious AI extensions on VS Code Marketplace steal developer data",
-    "description": "Two malicious extensions in Microsoft's Visual Studio Code (VSCode) Marketplace that were collectively installed 1.5 million times, exfiltrate developer data to China-based servers.",
-    "fullText": "Two malicious extensions in Microsoft’s Visual Studio Code (VSCode) Marketplace that were collectively installed 1.5 million times exfiltrate developer data to China-based servers.\n\nBoth extensions are advertised as AI-based coding assistants that provide the promised functionality. However, they do not disclose the upload activity or ask users for consent to deliver data to a remote server.\n\nThe VS Code Marketplace is the official store for add-ons for Microsoft’s popular code editor. VS Code extensions are installable plugins from the marketplace that add features or integrate tools into the editor. One of the most popular add-on categories right now is AI-powered coding assistants.\n\nResearchers at endpoint and supply-chain security company Koi say that the two malicious extensions are part of a campaign they dubbed 'MaliciousCorgi' and share the same code for stealing developer data.\n\nAdditionally, both of them use the same spyware infrastructure and communicate with the same backend servers. At publishing time, both are present on the marketplace:\n\nThe extensions use three distinct data-collection mechanisms. The first involves real-time monitoring of files opened in the VS Code client. When a file is accessed, its entire contents are encoded in Base64 and transmitted to the attackers’ servers.\n\nAny changes to the opened file are also captured and exfiltrated.\n\n\"The moment you open any file – not interact with it, just open it – the extension reads its entire contents, encodes it as Base64, and sends it to a webview containing a hidden tracking iframe. Not 20 lines. The entire file,\"  Koi researchers say.\n\nThe second mechanism involves a server-controlled file-harvesting command that stealthily transmits up to 50 files from the victim’s workspace each time.\n\nThe third mechanism uses a zero-pixel iframe in the extension’s webview to load four commercial analytics SDKs: Zhuge.io, GrowingIO, TalkingData, and Baidu Analytics.\n\nThese SDKs are used to track user behavior, build identity profiles, fingerprint devices, and monitor activity inside the editor. So, while the first two collect developer work files, the third focuses on user profiling.\n\nKoi Security highlights the risks posed by undocumented functionality in these extensions, including the exposure of private source code, configuration files, cloud service credentials, and .env files containing API keys and credentials.\n\nBleepingComputer has contacted Microsoft about the presence of the two extensions on the VSCode market, but we are still waiting for a reply. We were unable to establish a communication channel with the publisher of the extensions.\n\nWhether you're cleaning up old keys or setting guardrails for AI-generated code, this guide helps your team build securely from the start.\n\nGet the cheat sheet and take the guesswork out of secrets management.",
-    "readingTime": 3,
-    "keywords": [
-      "coding assistants",
-      "malicious extensions",
-      "vs code",
-      "files",
-      "file",
-      "developer",
-      "servers",
-      "microsoft’s",
-      "vscode",
-      "functionality"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.bleepingcomputer.com/news/security/malicious-ai-extensions-on-vscode-marketplace-steal-developer-data/",
-    "thumbnail_url": "https://www.bleepstatic.com/content/hl-images/2023/01/06/vscode-malware-header.jpg",
-    "created_at": "2026-01-24T06:18:13.137Z",
     "topic": "tech"
   }
 ]

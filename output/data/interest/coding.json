@@ -1,5 +1,53 @@
 [
   {
+    "slug": "composer-15",
+    "title": "Composer 1.5",
+    "description": "Improved reasoning over challenging coding tasks by scaling RL over 20x.",
+    "fullText": "A few months ago, we released our first agentic coding model, Composer 1. Since then, we've made significant improvements to the model’s coding ability.\n\nOur new release, Composer 1.5, strikes a strong balance between speed and intelligence for daily use. Composer 1.5 was built by scaling reinforcement learning 20x further on the same pretrained model. The compute used in our post-training of Composer 1.5 even surpasses the amount used to pretrain the base model.\n\nWe see continued improvements on coding ability as we scale. Measured by our internal benchmark of real-world coding problems, we find that the model quickly surpasses Composer 1 and continues to climb in performance. The improvements are most significant on challenging tasks.\n\nComposer 1.5 is a thinking model. In the process of responding to queries, the model generates thinking tokens to reason about the user’s codebase and plan next steps. We find that these thinking stages are critical to the model’s intelligence. At the same time, we wanted to keep Composer 1.5 fast and interactive for day-to-day use. To achieve a balance, the model is trained to respond quickly on easy problems with minimal thinking, while on hard problems it will think until it has found a satisfying answer.\n\nTo handle longer running tasks, Composer 1.5 has the ability to self-summarize. This allows the model to continue exploring for a solution even when it runs out of available context. We train self-summarization into Composer 1.5 as part of RL by asking it to produce a useful summary when context runs out in training. This may trigger several times recursively on hard examples. We find that self-summarization allows the model to maintain its original accuracy as context length varies.\n\nComposer 1.5 is a significantly stronger model than Composer 1 and we recommend it for interactive use. Its training demonstrates that RL for coding can be continually scaled with predictable intelligence improvements.\n\nLearn more about Composer 1.5 pricing here.",
+    "readingTime": 2,
+    "keywords": [
+      "tasks composer",
+      "coding ability",
+      "model",
+      "improvements",
+      "intelligence",
+      "context",
+      "model’s",
+      "balance",
+      "surpasses",
+      "quickly"
+    ],
+    "qualityScore": 1,
+    "link": "https://cursor.com/blog/composer-1-5",
+    "thumbnail_url": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/blog/composer-1.5-og.png",
+    "created_at": "2026-02-10T06:54:10.475Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a16z-partner-says-that-the-theory-that-well-vibe-code-everything-is-flat-wrong",
+    "title": "A16z partner says that the theory that we'll vibe code everything is 'flat wrong'",
+    "description": "Vibe coding everything is just not worth it, says A16z partner Anish Acharya.",
+    "fullText": "Vibe coding everything is just not worth it, says an Andressen Horowitz partner.\n\nOn an episode of the \"20VC\" podcast released on Monday, A16z general partner Anish Acharya said that companies shouldn't use AI-assisted coding for every part of their business.\n\nHe said that software accounts for 8% to 12% of a company's expenses, so using vibe coding to build the company's resource planning or payroll tools would only save about 10%. Relying on AI to write code also carries risks, he said.\n\n\"You have this innovation bazooka with these models. Why would you point it at rebuilding payroll or ERP or CRM,\" Acharya said, referring to enterprise resource planning and customer relationship management software. Salesforce, Microsoft, Oracle, and SAP are among the top providers of such software.\n\nInstead, companies are better off using AI to develop their core businesses or optimize the remaining 90% of their costs, said the venture capitalist of six years.\n\n\"Of course, there will be secular losers. There are specific business models that are now going to be disadvantaged,\" he said. \"But the general story that we're going to vibe code everything is flat wrong, and the whole market is oversold software.\"\n\nAcharya's comments follow a brutal week for software stocks, which dragged down tech and broader markets. The sell-off started when already-wary investors panicked about Anthropic's new AI tool, which can perform a range of clerical tasks for people working in the legal industry.\n\nThe A16z partner joins famed investor Vinod Khosla in saying that stock prices should be ignored when evaluating the future of tech companies.\n\nOn a podcast last month, Khosla dismissed talks of an AI bubble and said investors should not be concerned as long as API call volume, a benchmark of AI usage, remains high.\n\n\"If that's your fundamental metric of what's the real use of your AI, usefulness of AI, demand for AI, you're not going to see a bubble in API calls,\" he said. \"What Wall Street tends to do with it, I don't really care. I think it's mostly irrelevant.\"",
+    "readingTime": 2,
+    "keywords": [
+      "resource planning",
+      "vibe coding",
+      "software",
+      "partner",
+      "everything",
+      "podcast",
+      "business",
+      "company's",
+      "payroll",
+      "code"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.businessinsider.com/a16z-partner-says-businesses-cannot-vibe-code-everything-tech-stocks-2026-2",
+    "thumbnail_url": "https://i.insider.com/698a9944a645d118818905c1?width=1200&format=jpeg",
+    "created_at": "2026-02-10T06:54:04.849Z",
+    "topic": "finance"
+  },
+  {
     "slug": "i-made-a-claude-code-guide-thats-a-win95-desktop-with-games",
     "title": "I made a Claude Code guide that's a Win95 desktop with games",
     "description": "A free interactive guide for PMs and CEOs leading dev teams through the AI coding transition. Score your codebase readiness, calculate ROI, and get a 90-day rollout plan.",
@@ -1940,50 +1988,5 @@
     "thumbnail_url": "https://i.insider.com/694c30a804eda4732f2e1a0f?width=1200&format=jpeg",
     "created_at": "2026-01-02T12:22:20.834Z",
     "topic": "finance"
-  },
-  {
-    "slug": "coding-dissent-art-technology-and-tactical-media-video",
-    "title": "Coding Dissent: Art, Technology, and Tactical Media [video]",
-    "description": "This presentation examines artistic practices that engage with sociotechnical systems through tactical interventions. The talk proposes a...",
-    "fullText": "This presentation examines artistic practices that engage with sociotechnical systems through tactical interventions. The talk proposes art as a form of infrastructural critique and counter-technology. It also introduces a forthcoming HackLab designed to foster collaborative development of open-source tools addressing digital authoritarianism, surveillance capitalism, propaganda infrastructures, and ideological warfare.\n\nIn this talk, media artist and curator Helena Nikonole presents her work at the intersection of art, activism, and tactical technology — including interventions into surveillance systems, wearable mesh networks for off-grid communication, and AI-generated propaganda sabotage.\n\nFeaturing projects like Antiwar AI, the 868labs initiative, and the curatorial project Digital Resistance, the talk explores how art can do more than just comment on sociotechnical systems — it can interfere, infiltrate, and subvert them.\n\nThis is about prototypes as politics, networked interventions as civil disobedience, and media hacks as tools of strategic refusal. The talk asks: what happens when art stops decorating crisis and starts debugging it?\n\nThe talk will also introduce an upcoming HackLab initiative — a collaboration-in-progress that brings together artists, hackers, and activists to develop open-source tools for disruption, resilience, and collective agency — and invites potential collaborators to get involved.\n\nLicensed to the public under http://creativecommons.org/licenses/by/4.0\n\nThis Talk was translated into multiple languages. The files available\nfor download contain all languages as separate audio-tracks. Most\ndesktop video players allow you to choose between them.\n\nPlease look for \"audio tracks\" in your desktop video player.",
-    "readingTime": 2,
-    "keywords": [
-      "sociotechnical systems",
-      "open-source tools",
-      "interventions",
-      "tactical",
-      "hacklab",
-      "surveillance",
-      "propaganda",
-      "media",
-      "initiative",
-      "languages"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://media.ccc.de/v/39c3-coding-dissent-art-technology-and-tactical-media",
-    "thumbnail_url": "https://static.media.ccc.de/media/congress/2025/2191-d743f89d-684b-5a29-a0e1-4b788caa4255_preview.jpg",
-    "created_at": "2026-01-01T12:23:06.289Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-best-way-to-use-mcps-with-coding-agents",
-    "title": "The Best Way to use MCPs with coding agents",
-    "description": "Description will go into a meta tag in",
-    "fullText": "Jilebi makes it really easy to add MCPs by converting them to plugins that can then be used by your AI tool or agent. You can add MCPs with a single command like this \njilebi plugins add context7\n\nJilebi uses deno_core with help from rustyscript to sandbox and run plugins without giving them any access to your network, envs or file system. Any permission to use these resources needs to be explicitly allowed by the user during installation of the plugin\n\nFocus on tools, resources and prompts. Leave the server abstraction to Jilebi. Jilebi currently supports stdio, and will add support for SSE, HTTP and OAuth soon. Since its easy to make plugins, anyone can contribute, even AI tools. Jilebi can keep up with the MCP spec while you focus on your plugin\n\nGet answers to common questions about Jilebi and how it works",
-    "readingTime": 1,
-    "keywords": [
-      "add mcps",
-      "plugins",
-      "jilebi",
-      "resources",
-      "plugin",
-      "focus",
-      "tools"
-    ],
-    "qualityScore": 0.55,
-    "link": "https://jilebi.ai",
-    "thumbnail_url": "https://your-docusaurus-site.example.com/img/docusaurus-social-card.jpg",
-    "created_at": "2026-01-01T06:19:51.284Z",
-    "topic": "tech"
   }
 ]
