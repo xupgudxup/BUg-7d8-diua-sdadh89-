@@ -1,5 +1,53 @@
 [
   {
+    "slug": "a-ralph-loop-for-reading-beating-gpt-52-with-a-4k-context-window-and-4-gpus",
+    "title": "A Ralph Loop for Reading: Beating GPT 5.2 with a 4k Context Window (and 4 GPUs)",
+    "description": "Tired of AI’s high costs and limits? Discover how a home server and graph theory outperformed GPT-5.2 for deep research, saving $550/month while owning your ...",
+    "fullText": "I recently had a problem that could be solved with money, which is the worst kind of problem.\n\nI am building a new venture called eh-trade.ca. To make it work, I needed deep financial research on 11,000 different stocks.\n\nThe \"Enterprise\" solution is to buy an API subscription. I looked into this. For my usage, the pricing is somewhere between \"$200/month\" and \"Contact Sales\". If you are a micro-preneur like me, \"Contact Sales\" means \"You cannot afford this.\"\n\nThe \"AI\" solution is to ask an LLM to research each stock, which works really well. But 11,000 requests at $0.05 per research session is still $550. Plus, I don't like renting intelligence. I prefer to own it.\n\nSo I decided to use the hardware I already had: a home server with four RTX 3090s. It’s a 96GB VRAM beast that heats my basement and scares my birds.\n\nThere was just one problem. The models I can run locally (like qwen3 or phi4) have small context windows. Yes, on the model card they theoretically support 40k+ of context, but they would run very slowly on my hardware, so really, it's 4K -- enough for a few screenfuls of text. Moreover, even if I enabled the long contexts, the models struggle to reason over them. If you try to feed them ten search results about a company's balance sheet, the 'needle in the haystack' effect kicks in. They'll get confused and start hallucinating dividends that don't exist.\n\nMost \"AI Agents\" are built on a simple loop, often called ReAct (Reason + Act). It looks like this:\n\nThe problem is the Context Window. By step 3, your prompt looks like a Walmart receipt. By step 5, you have exceeded 8,000 tokens, and the model forgets what it was doing and starts making stuff up.\n\nSure, it works fine if you are OpenAI and have infinite GPUs. It does not work if you are running on a consumer card in a closet.\n\nA few months ago, I read a paper called GraphReader. It proposed a different way to think about long contexts. Instead of dumping everything into a chat log, why not treat information as a graph?\n\nThe core insight is that you don't need to remember everything. You only need to remember the Atomic Facts.\n\nAn Atomic Fact is a single, indivisible truth.\n\nIf we extract these facts and throw away the rest, we can compress megabytes of web pages into a few kilobytes of JSON.\n\nI built a library called laconic to implement this. I wrote it in Go, because the rest of my projects are all in Go. Plus, my python environments always end up as a tangled mess of pip install errors.\n\nLaconic doesn't keep a chat history. It keeps a Notebook. The context window size is O(N), where N is the number of facts, not the number of words.\n\nLaconic uses a specific strategy called graph-reader.\n\nThe beautiful part? The LLM never sees the full history. It only sees the current Notebook and the current search result. This means I can run complex, multi-step research tasks on a model with a tiny 4k context window, and it never forgets a thing.\n\nHere is the code to run a research agent on my home server using Ollama:\n\nTo really test if this strategy works on constrained hardware, I ran a research question using qwen3:4b—a tiny 4-billion-parameter model.\n\nWithout the agentic loop, the model cannot answer this question. If you ask it directly, it responds that \"the 2024 Nobel Prize in Chemistry has not been announced.\"\n\nHowever, with the agent, it autonomously searches, extracts atomic facts, and synthesizes this:\n\nAnswer: The 2024 Nobel Prize in Chemistry was awarded to David Baker (University of Washington, Howard Hughes Medical Institute), Demis Hassabis, and John M. Jumper (Google DeepMind). David Baker was recognized for computational protein design. Demis Hassabis and John Jumper were awarded for protein structure prediction using AlphaFold2.\n\nThe agent found all three laureates, their exact affiliations, and their distinct contributions — information entirely outside the model's training data — by exploring multiple search queries and accumulating verified facts in a structured notebook.\n\nIf you hang out in the parts of the internet where people try to make AI write code without hallucinating, you might have heard of the Ralph Loop.\n\nPopularized by Geoffrey Huntley, the Ralph Loop (often named after Ralph Wiggum) is a brute-force solution to the context problem. You write a bash script that:\n\nThen it starts over. Fresh context. Zero memory leak. The \"memory\" is the file system.\n\nLaconic is essentially a Ralph Loop for reading.\n\nInstead of a bash script, it's a Go loop. Instead of git commit, we update a JSON Notebook. But the philosophy is identical: The Context Window is a liability.\n\nMost frameworks try to manage the context window like a precious resource. Ralph and Laconic treat it like a disposable napkin. Use it once, wipe the slate clean, and grab a fresh one.\n\nIt turns out that if you treat an LLM like a goldfish with a notepad, it becomes significantly smarter.\n\nI am currently running this loop on 11,000 tickers that I'm missing basic information on. It will take a week, and cost some power, but I would have left the machine on anyway because I am running a few other things on it.\n\nAnd if you want to find stocks that are going up, keep an eye on eh-trade.ca. My customers tell me I should brag more, so I'm up 280% in seven months following momentum strategies that it's showing on the main page.\n\nI'll have the data soon, assuming my basement doesn't catch fire.",
+    "readingTime": 5,
+    "keywords": [
+      "david baker",
+      "demis hassabis",
+      "john jumper",
+      "atomic facts",
+      "bash script",
+      "context window",
+      "research",
+      "model",
+      "solution",
+      "don't"
+    ],
+    "qualityScore": 1,
+    "link": "https://stevehanov.ca/blog/a-ralph-loop-for-reading-beating-gpt-52-with-a-4k-context-window-and-4-gpus",
+    "thumbnail_url": "https://stevehanov.ca/blog/images/3dc2de6fcca8955cef2716283bac11fac1f8d79f95905ef9778214cefc1d3dfa.png",
+    "created_at": "2026-02-10T12:47:38.474Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "these-4-stocks-are-set-to-get-a-boost-from-renewed-openai-hype-according-to-da-davidson",
+    "title": "These 4 stocks are set to get a boost from renewed OpenAI hype, according to DA Davidson",
+    "description": "DA Davidson analysts say a new wave of hype amid fresh funding for OpenAI could boost four stocks in the ChatGPT maker's orbit.",
+    "fullText": "OpenAI's next funding round could be good news for four Big Tech stocks with links to the ChatGPT creator, DA Davidson says.\n\nOpenAI isn't publicly traded — at least not yet — but DA Davidson says a fresh wave of hype is coming on the heels of its next fundraising round, and it could could boost four stocks in its orbit.\n\n\"We have been very critical on OpenAI overpromising, asking for government handouts and being spread too thin,\" DA Davidson analysts, led by Gil Luria, wrote about the AI company.\n\n\"We believe OpenAI's behavior led to the underperformance in shares of NVDA, MSFT, CRWV and especially ORCL over the last 5 months.\"\n\nOpenAI is reportedly closing in on another fundraising round, with recent reports suggesting a $50 billion investment from Middle Eastern sovereign wealth funds is in the works.\n\nFuturum CEO and analyst Daniel Newman told Business Insider that they expect the next funding round will bring OpenAI's valuation to $750 billion to $850 billion.\n\nThe analyst described the appetite for OpenAI in his conversations with investors to be \"pretty insatiable.\"\n\nDA Davidson analysts wrote that they expect that yet another multibillion-dollar OpenAI funding round will reignite enthusiasm for the company and lift some connected AI stocks.\n\n\"Since the market is currently assigning the OpenAI relationship a negative value, we believe the fundraise will serve as a catalyst for outperformance,\" they wrote of Oracle, CoreWeave, Nvidia, and Microsoft.\n\nOpenAI has come under fire for its reliance on debt and growing competition challenging its dominant position.\n\nThe company is partnered with Oracle to build $500 billion of data centers as part of its Stargate project. OpenAI has yet to turn a profit.\n\nAnother concern weighing on OpenAI is the notion that Alphabet's Google Gemini has caught up in the AI race.\n\n\"We believe that a revamped OpenAI will return to its position as Google's top challenger and with a fresh stack of capital be able to live up to its obligations this year, including to Oracle,\" they said.\n\nThe analysts upgraded Oracle to Buy from Neutral on their expectation that new funding for OpenAI will be a positive catalyst for the stock as well as general sentiment about OpenAI and the connected players.\n\n\"We expect that as investors go back to seeing OpenAI as a winner, the public companies in its orbit could re-rate significantly. Most importantly that should drive outperformance in NVDA and MSFT, but also in CRWV, and even ORCL, which we are upgrading today based on our updated view on OpenAI,\"\n\nTheir more bullish stance on OpenAI comes after the company corrected course.\n\n\"OpenAI has started focusing on its core frontier model and ChatGPT, while de-emphasizing some marginals initiatives. This includes going down the path of turning on ads, which will be critical for increased monetization and reduced cash burn.\"\n\nThey also noted a shift in the company's management that suggests they see a need to align with Nvidia, Microsoft, and Amazon, rather than compete.",
+    "readingTime": 3,
+    "keywords": [
+      "davidson analysts",
+      "fundraising round",
+      "funding round",
+      "da davidson",
+      "openai",
+      "oracle",
+      "openai's",
+      "stocks",
+      "another",
+      "chatgpt"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/ai-stock-picks-openai-nvidia-google-coreweave-microsoft-chatgpt-alphabet-2026-2",
+    "thumbnail_url": "https://i.insider.com/698a14d8d3c7faef0ecde75d?width=1200&format=jpeg",
+    "created_at": "2026-02-10T12:47:36.736Z",
+    "topic": "finance"
+  },
+  {
     "slug": "chatgpt-as-a-doctor-replacement-study-shows-sobering-results",
     "title": "ChatGPT as a doctor replacement? Study shows sobering results",
     "description": "AI language models excel in medical exams – but when real people ask them for advice, collaboration fails.",
@@ -2175,41 +2223,5 @@
     "thumbnail_url": "https://i.guim.co.uk/img/media/d99390e95d50b47f91bcc8a3130e524c618e635d/436_0_4324_3458/master/4324.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=67d482fa7d7bed846eb736aeb1dfde1c",
     "created_at": "2025-12-12T13:47:25.564Z",
     "topic": "tech"
-  },
-  {
-    "slug": "openai-launches-gpt52-ai-model-with-improved-capabilities",
-    "title": "OpenAI launches GPT-5.2 AI model with improved capabilities",
-    "description": "OpenAI on Thursday launched its GPT-5.2 artificial intelligence model, after CEO Sam Altman reportedly issued an internal \"code red\" in early December pausing non‑core projects and",
-    "fullText": "Dec 11 (Reuters) - OpenAI on Thursday launched its GPT-5.2 artificial intelligence model, after CEO Sam Altman ​reportedly issued an internal \"code red\" in early ‌December pausing non‑core projects and redirecting teams to accelerate development in ‌response to Google's Gemini 3.\n\nGPT-5.2 comes with improvements in general intelligence, coding and long-context understanding, the company said in a statement.\n\nThe new model is expected to bring even ⁠more economic value for ‌users, as it is better at creating spreadsheets, building presentations and handling complex multi-step ‍projects, OpenAI said.\n\nAlphabet's Google launched the latest version of its Gemini in November, highlighting Gemini 3's lead position on several ​popular industry leaderboards that measure AI model performance.\n\n\"Gemini ‌3 has had less of an impact on our metrics than we feared,\" Altman said in an interview with CNBC on Thursday, alongside Disney CEO Bob Iger.\n\nDisney said on Thursday it is investing $1 billion in ⁠OpenAI and will let the ​startup use characters from Star Wars, ​Pixar and Marvel franchises in its Sora AI video generator.\n\nMicrosoft-backed OpenAI said that it currently ‍has no ⁠plans to deprecate GPT‑5.1, GPT‑5, or GPT‑4.1 in the API.\n\nGPT-5.2 Instant, Thinking, and Pro will begin ⁠rolling out in ChatGPT on Thursday, beginning with paid plans.",
-    "readingTime": 2,
-    "keywords": [
-      "model",
-      "launched",
-      "intelligence",
-      "projects",
-      "disney",
-      "plans",
-      "openai",
-      "gemini",
-      "altman"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://tech.yahoo.com/ai/chatgpt/articles/openai-launches-gpt-5-2-185713739.html",
-    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/53E953B72061EAD331E14221749904B05C017BE83D84CD2331F3FA5A9D9F4632/subgraphmysterio/resizefit_w1200;quality_90;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Freuters.com%2Fdec31ed411aedabd7e3231dabf2dd50f",
-    "created_at": "2025-12-12T06:59:01.415Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "openai-aims-to-silence-concerns-it-is-falling-behind-in-the-ai-race-with-release-of-new-model-gpt52",
-    "title": "OpenAI aims to silence concerns it is falling behind in the AI race with release of new model GPT-5.2",
-    "description": "OpenAI said its new model outperforms those from rivals Google and Anthropic across a wide range of evaluations.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://fortune.com/2025/12/11/openai-gpt-5-2-launch-aims-to-silence-concerns-it-is-falling-behind-google-anthropic-code-red/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2025/12/GettyImages-2198334790-e1765478723707.jpg?resize=1200,600",
-    "created_at": "2025-12-12T03:50:28.964Z",
-    "topic": "business"
   }
 ]
