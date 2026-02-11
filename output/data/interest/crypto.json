@@ -1,5 +1,33 @@
 [
   {
+    "slug": "citadel-and-cathie-wood-back-zero-a-new-blockchain-designed-for-traditional-finance",
+    "title": "Citadel and Cathie Wood back Zero, a new blockchain designed for traditional finance",
+    "description": "LayerZero launches its layer-1 blockchain Zero with partners Intercontinental Exchange and the DTCC.",
+    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
+    "readingTime": 1,
+    "keywords": [
+      "fortune"
+    ],
+    "qualityScore": 0.1,
+    "link": "https://fortune.com/2026/02/10/layerzero-blockchain-ark-citadel-cathie-wood-nyse-dtcc-ice-tokenization-crypto/",
+    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/02/LayerZeroLabs-co-founders.webp?resize=1200,600",
+    "created_at": "2026-02-11T01:19:43.276Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "ice-launches-cryptocurrency-futures-contracts-based-on-coindesk-indices",
+    "title": "ICE launches cryptocurrency futures contracts based on CoinDesk indices",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/company-news/ice-launches-cryptocurrency-futures-contracts-based-on-coindesk-indices-93CH-4498561",
+    "thumbnail_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
+    "created_at": "2026-02-11T01:19:38.530Z",
+    "topic": "finance"
+  },
+  {
     "slug": "this-analyst-nailed-bitcoin-price-top-now-he-is-calling-the-bottom",
     "title": "This Analyst Nailed Bitcoin Price Top, Now He Is Calling The Bottom",
     "description": "Back in May 2025, a widely followed analyst named KillaXBT posted a roadmap on X (formerly Twitter) about Bitcoin price that many traders scrolled past. They are paying attention now. That specific BTC price prediction mapped out the cryptocurrency market structure almost perfectly, calling the top above $100,000 and the ...",
@@ -2030,43 +2058,6 @@
     "link": "https://www.bloomberg.com/news/articles/2025-12-30/david-beckham-backed-health-firm-ceases-bitcoin-treasury-plans",
     "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iGkx3qg5ttic/v1/1200x800.jpg",
     "created_at": "2025-12-30T18:18:24.678Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "an-ai-generated-wiki-for-exploring-github-projects",
-    "title": "An AI generated wiki for exploring GitHub projects",
-    "description": "Go-ethereum (geth) is the official Go language implementation of the Ethereum protocol's execution layer. It serves as a full node client capable of validating and executing transactions, maintaining",
-    "fullText": "Go-ethereum (geth) is the official Go language implementation of the Ethereum protocol's execution layer. It serves as a full node client capable of validating and executing transactions, maintaining blockchain state, participating in peer-to-peer networking, and exposing APIs for user interaction.\n\nThis page provides a high-level architectural overview of the go-ethereum codebase, covering the major subsystems and how they interact. For detailed information about specific components, refer to:\n\nGo-ethereum implements the execution layer of Ethereum's post-merge architecture. It works alongside a consensus layer client (beacon node) to validate and produce blocks. The execution layer is responsible for:\n\nCommunication between layers occurs through the Engine API (eth/catalyst).\n\nSources: README.md1-257 eth/backend.go17-594 eth/ethconfig/config.go17-213\n\nThe geth binary starts at cmd/geth/main.go287 which initializes a CLI application using the urfave/cli framework. The default action invokes geth() at cmd/geth/main.go328 which performs three main steps:\n\nConfiguration Loading: loadBaseConfig() at cmd/geth/config.go142 reads CLI flags and TOML configuration files, producing a gethConfig struct containing node.Config, ethconfig.Config, metrics, and ethstats settings.\n\nNode Creation: makeFullNode() at cmd/geth/config.go223 creates a node.Node instance and registers the Ethereum service via eth.New() at eth/backend.go131\n\nNode Startup: startNode() at cmd/geth/main.go344 calls lifecycle methods to start all registered services.\n\nSources: cmd/geth/main.go217-416 cmd/geth/config.go51-340 eth/backend.go91-594\n\nThe central coordination point is the Ethereum struct defined at eth/backend.go92 which aggregates all major subsystems:\n\nSources: eth/backend.go91-594 cmd/geth/config.go222-311\n\nGo-ethereum uses a hierarchical configuration system supporting multiple input sources:\n\nConfiguration precedence (highest to lowest):\n\nThe gethConfig struct at cmd/geth/config.go107-112 contains three main configuration sections:\n\nSources: cmd/geth/config.go107-180 cmd/utils/flags.go81-1027 eth/ethconfig/config.go40-213\n\nGo-ethereum includes built-in configurations for multiple networks:\n\nNetworks are selected via CLI flags (--mainnet, --sepolia, --holesky, --hoodi) which set the appropriate ChainConfig from params/config.go\n\nSources: params/config.go29-427 cmd/utils/flags.go144-163\n\nThis sequence demonstrates how a transaction moves from user submission to block inclusion in the post-merge architecture:\n\nSources: miner/worker.go1-1820 eth/catalyst/api.go1-868 core/blockchain.go1-2500\n\nEvery Ethereum network starts from a genesis block defined by the Genesis struct at core/genesis.go57-76:\n\nThe ChainConfig at params/config.go433-494 defines the fork activation schedule:\n\nGenesis initialization occurs in SetupGenesisBlock() at core/genesis.go298-398 which:\n\nSources: core/genesis.go45-799 params/config.go428-494\n\nGo-ethereum uses a multi-layered storage system optimized for different data types and access patterns:\n\nState Database (core/state/statedb.go70-177): Provides transactional state access with:\n\nTrie Database (triedb/database.go): Manages Merkle Patricia Trie nodes with two schemes:\n\nSnapshot (core/state/snapshot): Flat account/storage representation for O(1) lookups:\n\nAncient Store (core/rawdb/freezer.go): Append-only storage for immutable historical data (blocks, receipts)\n\nSources: core/state/statedb.go1-1700 triedb/database.go1-600 core/state/snapshot1-1000\n\nGo-ethereum implements peer-to-peer networking for blockchain data exchange:\n\nSnap Sync (default, --syncmode snap):\n\nThe Downloader at eth/downloader/downloader.go coordinates sync across multiple peers with:\n\nSources: eth/downloader/downloader.go1-2000 eth/handler.go1-700 p2p/server.go1-1000\n\nGo-ethereum exposes multiple API interfaces:\n\nThe JSON-RPC implementation is in internal/ethapi with the EthAPIBackend at eth/api_backend.go providing access to blockchain state.\n\nSources: internal/ethapi/api.go1-2400 eth/api_backend.go1-400 node/api.go1-500\n\nPost-merge, go-ethereum operates in tandem with a consensus layer client. The Engine API (eth/catalyst/api.go) implements the execution engine specification:\n\nAuthentication uses JWT tokens specified via --authrpc.jwtsecret. The API listens on port 8551 by default (configurable via --authrpc.port).\n\nFor development, the SimulatedBeacon at eth/catalyst/simulated_beacon.go provides a standalone mode (--dev) that automatically produces blocks without an external consensus client.\n\nSources: eth/catalyst/api.go1-868 eth/catalyst/simulated_beacon.go1-400\n\nThe build system at build/ci.go supports:\n\nThe codebase requires Go 1.23+ and a C compiler (for certain dependencies like KZG commitments).\n\nSources: build/ci.go1-1000 README.md16-31 Makefile1-100\n\nGo-ethereum is a complex, production-grade implementation of the Ethereum execution layer. Its architecture separates concerns into distinct subsystems (state, blockchain, networking, consensus integration) while maintaining clear interfaces between components. The configuration system provides flexibility for different network deployments, and the post-merge Engine API enables seamless integration with any compatible consensus client.\n\nFor deeper exploration of specific subsystems, refer to the subsequent pages in this wiki covering Node Lifecycle, Core Components, Networking, Storage, and APIs.",
-    "readingTime": 3,
-    "keywords": [
-      "cli flags",
-      "go-ethereum implements",
-      "peer-to-peer networking",
-      "gethconfig struct",
-      "post-merge architecture",
-      "execution layer",
-      "configuration system",
-      "consensus client",
-      "engine api",
-      "cmd/geth/config.go"
-    ],
-    "qualityScore": 1,
-    "link": "https://deepwiki.com/ethereum/go-ethereum",
-    "thumbnail_url": "https://deepwiki.com/ethereum/go-ethereum/og-image.png?page=1",
-    "created_at": "2025-12-30T18:18:17.670Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "form-13d-crypto-co-for-30-december",
-    "title": "Form 13D Crypto Co For: 30 December",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/filings/form-13d-crypto-co-for-30-december-93CH-4425703",
-    "thumbnail_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
-    "created_at": "2025-12-30T18:18:07.040Z",
     "topic": "finance"
   }
 ]
