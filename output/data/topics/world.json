@@ -1,5 +1,77 @@
 [
   {
+    "slug": "liverpool-are-waiting-for-worldclass-coach-to-replace-arne-slot",
+    "title": "Liverpool are waiting for world-class coach to replace Arne Slot",
+    "description": "We cannot fully know the answer. But there is an alternative scenario where Liverpool are merely publicly backing him but behind the scenes perhaps something else is going on.The club may already be p...",
+    "fullText": "We cannot fully know the answer. But there is an alternative scenario where Liverpool are merely publicly backing him but behind the scenes perhaps something else is going on.\n\nThe club may already be preparing for his successor.\n\nBut what if that successor is not available right now? What if that successor is only available in the summer so Liverpool have to wait?\n\nThis could be entirely possible. The most perfect candidate to replace Slot might be Julian Nagelsmann, who won't be leaving his role as manager of Germany until the World Cup concludes in North America.\n\nNagelsmann is the ideal fit because he has very similar principles to Jurgen Klopp, just with a more modern hint.\n\nHe is also a young and developing manager with world-class potential. In fact, given his achievements in the game at Bayern Munich, RB Leipzig, FC Hoffenheim and now the German national team, you'd probably already call him world-class.\n\nNagelsmann is only 38-years-old but he already has so much experience for someone of his age. His methods are extremely effective and despite Germany not having a great squad, they will be one of the favourites because of Nagelsmann at the World Cup.\n\nWhat makes the German such an ideal fit is that he comes from the pressing mindset. He was someone who admired Jurgen Klopp's style of play and who always implemented successful gegenpressing systems.\n\nRight now, Liverpool's lack of pressing is a massive issue. Slot just doesn't seem to be able to introduce a press that works effectively. It's all over the place.\n\nNagelsmann has a track-record of doing this at international and club level. He has worked at more teams than Slot and more importantly he has worked with several of the club's current stars, including Dominik Szoboszlai, Ibrahima Konate and Florian Wirtz.\n\nHe's the perfect candidate, and waiting for him might make sense.",
+    "readingTime": 2,
+    "keywords": [
+      "perfect candidate",
+      "ideal fit",
+      "successor",
+      "slot",
+      "liverpool",
+      "club",
+      "manager",
+      "germany",
+      "world-class",
+      "german"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://sports.yahoo.com/articles/liverpool-waiting-world-class-coach-061000459.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/DvOHNYgh7S1Y3YItHsyXWg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/anfield_watch_articles_625/c5dad9e59a0c0ef19f0094c9d319e1d4",
+    "created_at": "2026-02-11T06:51:34.645Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "agentscript",
+    "title": "AgentScript",
+    "description": "A few weeks ago, I was staring at a system prompt that was 127,000 tokens long. One hundred and twenty-seven thousand tokens - just the system prompt. Most of it was, you guessed it, tool schemas: JSON definitions for every possible thing the agent could do, most of which it would never touch in any given run. My solution? I propose AgentScript: a code-first execution language where the LLM can only interact with the outside world by writing programs.",
+    "fullText": "A few weeks ago, I was staring at a system prompt that was 127,000 tokens long. One hundred and twenty-seven thousand tokens - just the system prompt. Most of it was, you guessed it, tool schemas: JSON definitions for every possible thing the agent could do, most of which it would never touch in any given run.\n\nMy solution? I propose AgentScript: a code-first execution language where the LLM can only interact with the outside world by writing programs. No tool schemas, no function calling, no MCP, no multi-modal response gymnastics. The model writes code, a sandboxed runtime executes it, and the return value is the response. As simple as that.\n\nHere’s how tool calling works today: you define a bunch of tools as JSON schemas, stuff them into the system prompt, and hope the model picks the right one. Each tool needs a name, a description, parameter definitions, and examples. A single tool can easily consume hundreds of tokens. A production-grade system might have tens, sometimes hundrends, of tools.\n\nAnd the tools the model never uses still consume tokens - they’re sitting in the context window like furniture in a storage unit you’re paying rent on but never visiting (I would know something about that). As systems grow, you get this compounding problem: context inflation drives up latency and reduces alignment, both in turn drive up costs, and costs scale non-linearly because you’re paying for all those schema tokens on every single inference call.\n\nSince many agent tasks require iteration, filtering, branching, retries, and aggregation, when you encode these behaviors through repeated LLM calls or chained tool invocations, you’re effectively using natural language as a programming language. You’re asking the model to be both the thinker and the doer, when decades of CS have taught us that these should be separate concerns.\n\nIn the last few months, I’ve seen this become an exciting idea space: Program-of-thought prompting, code interpreter systems, Anthropic’s work on code execution with MCP - they all point to the same conclusion: models are better planners than executors, and deterministic computation belongs outside the model.\n\nAgentScript takes that insight to its logical conclusion.\n\nAgentScript enforces a code-only contract between a language model and its execution environment. In this world, the LLM is not an API client, not it is a conversational participant; it’s a program author that can only emit AgentScript code. So there is only one execution entry point, and all interaction with the world happens through code.\n\nThis collapses tool calling, function responses, and structured outputs into a single universal abstraction: program execution.\n\nThe execution model is deliberately boring:\n\nIntermediate data never enters the model’s context unless the program explicitly reads the persisted logs from the file system. This is my main insight: pull-based data access instead of push-based context stuffing.\n\nThe API surface can be intentionally tiny, for example:\n\nThe model already knows JavaScript. The API is small enough to learn once and never forget.\n\nAnd the safety model is simple: constraints are enforced by the runtime, not the model. The model can write whatever code it wants. The sandbox decides what actually executes, like only mounting the working directory, allowlisted commands, or network access.\n\nTo start with, a backwards-compatible model would be to force a tool call from LLM responses and only give it a single tool: execute_agentscript, and stop the loop based on the execution of the code.\n\nThere are also a few extensions I’m thinking about:\n\nWhen systems become too complex to reason about in prose, you re-found them on code. This has happened repeatedly in computing history, and it’s happening again now to agents.\n\nWritten on a flight from Amsterdam to New Delhi",
+    "readingTime": 4,
+    "keywords": [
+      "system prompt",
+      "tool schemas",
+      "model",
+      "code",
+      "execution",
+      "tokens",
+      "agentscript",
+      "language",
+      "context",
+      "you’re"
+    ],
+    "qualityScore": 1,
+    "link": "https://anandchowdhary.com/blog/2026/agentscript",
+    "thumbnail_url": "https://v1.screenshot.11ty.dev/https%3A%2F%2Fanandchowdhary.com%2Fblog%2F2026%2Fagentscript%3Fscreenshot%3Dtrue/opengraph/",
+    "created_at": "2026-02-11T06:51:16.629Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "this-man-says-hes-solved-the-bermuda-triangle-why-doesnt-the-world-believe-him",
+    "title": "This Man Says He’s Solved the Bermuda Triangle. Why Doesn’t the World Believe Him?",
+    "description": "An Australian scientist says he has figured out the leading cause of the Bermuda Triangle disappearances. Here's the answer.",
+    "fullText": "Here’s what you’ll learn when you read this story:\n\nAn Australian scientist says probabilities are the leading cause of the Bermuda Triangle disappearances.\n\nAdd in suspect weather, and iffy plane and boat piloting, and Karl Kruszelnicki believes there’s no reason to believe in the Bermuda Triangle phenomenon.\n\nWhile the conspiracy of the Bermuda Triangle has existed for decades, the National Oceanic and Atmospheric Association and Lloyd’s of London has long championed the same ideas.\n\nPick any one of the more than 50 ships or 20 planes that have disappeared in the Bermuda Triangle in the last century. Each one has a story without an ending, leading to a litany of conspiracy theories about the disappearances in the area, marked roughly by Florida, Bermuda, and the Greater Antilles.\n\nAustralian scientist Karl Kruszelnicki doesn’t Neither does the United States’ own National Oceanic and Atmospheric Association (NOAA). Both have been saying for years that there’s really no Bermuda Triangle mystery. In fact, the loss and disappearance of ships and planes is a mere fact of probabilities.\n\n“There is no evidence that mysterious disappearances occur with any greater frequency in the Bermuda Triangle than in any other large, well-traveled area of the ocean,” NOAA wrote in 2010.\n\nAnd since 2017, Kruszelnicki has been saying the same thing. He told The Independent that the transparent volume of traffic—in a tricky area to navigate, no less—shows “the number [of ships and planes] that go missing in the Bermuda Triangle is the same as anywhere in the world on a percentage basis.” He says that both Lloyd’s of London and the U.S. Coast Guard support that idea. In fact, as The Independent notes, Lloyd’s of London has had this same theory since the 1970s.\n\nNOAA says environmental considerations can explain away most of the Bermuda Triangle disappearances, highlighting the Gulf Stream’s tendency towards violent changes in weather, the number of islands in the Caribbean Sea offering a complicated navigation adventure, and evidence that suggests the Bermuda Triangle may cause a magnetic compass to point to true north instead of magnetic north, causing for confusion in wayfinding.\n\n“The U.S. Navy and U.S. Coast Guard contend that there are no supernatural explanations for disasters at sea,” NOAA says. “Their experience suggests that the combined forces of nature and human fallibility outdo even the most incredulous science fiction.”\n\nKruszelnicki has routinely garnered public attention for espousing these very thoughts on the Bermuda Triangle, first in 2017 and then again in 2022 before resurfacing once more in 2023. Throughout it all, he’s stuck to the same idea: the numbers don’t lie.\n\nEven with some high-profile disappearances—such as Flight 19, a group of five U.S. Navy TBM Avenger torpedo bombers lost in 1945—pushing the theory into popular culture, Kruszelnicki points out that every instance contains a degree of poor weather or likely human error (or both, as in the case of Flight 19) as the true culprit.\n\nBut culture clings to Bermuda Triangle conspiracy theories. The concepts of sea monsters, aliens, and even the entirety of Atlantis dropping to the ocean floor—those are fodder for books, television, and movies. It sure does sound more exciting than poor weather and mathematical probabilities, anyway, even if the “boring” story holds more water.\n\nThe Do’s and Don’ts of Using Painter’s Tape\n\nThe Best Portable BBQ Grills for Cooking Anywhere\n\nCan a Smart Watch Prolong Your Life?",
+    "readingTime": 3,
+    "keywords": [
+      "bermuda triangle",
+      "australian scientist",
+      "atmospheric association",
+      "coast guard",
+      "u.s coast",
+      "u.s navy",
+      "conspiracy theories",
+      "poor weather",
+      "triangle disappearances",
+      "lloyd’s of london"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.yahoo.com/news/articles/man-says-solved-bermuda-triangle-152900864.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/pL3sWX2XHE6ELKQ_QBGgqQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/popular_mechanics_642/fc2cfbb7a96702084fc38fa60039e0b7",
+    "created_at": "2026-02-11T06:51:05.134Z",
+    "topic": "news"
+  },
+  {
     "slug": "scientists-reimagine-a-forgotten-battery-design-from-thomas-edison",
     "title": "Scientists reimagine a forgotten battery design from Thomas Edison",
     "description": "International team creates quick-charging, long-lasting prototype with potential for renewable energy storage",
@@ -2104,77 +2176,5 @@
     "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iO7E9S3rgD6s/v3/-1x-1.webp",
     "created_at": "2026-02-06T18:34:58.980Z",
     "topic": "finance"
-  },
-  {
-    "slug": "the-ev-retreat-deepens-with-26-billion-writedown-from-jeepmaker-stellantis",
-    "title": "The EV retreat deepens with $26 billion write-down from Jeep-maker Stellantis",
-    "description": "Stellantis' eleven-figure write-down is the largest in a wave of EV charges on global automakers. For consumers, that means fewer vehicle options.",
-    "fullText": "Another Detroit automaker is paying a steep price as it pulls back from electric vehicles.\n\nStellantis — the global auto giant behind brands like Jeep, Dodge, Ram, and Chrysler — said Friday that it would take a €22 billion ($26 billion) charge tied to a sweeping reset of its electric-vehicle strategy.\n\nIt's the largest in a wave of recent EV-related write-downs by major global automakers, bringing the total in charges across the industry to $55 billion.\n\nIn September, Volkswagen recorded a $3.5 billion charge linked to its electric division. Ford followed that up in December with a $19.5 billion charge as it canceled plans to build large EVs. Last month, General Motors announced a $6 billion write-down tied to reduced EV production.\n\nThe moves underscore how aggressively some of the world's biggest automakers are cutting back on electric-vehicle bets.\n\n\"The reset we have announced today is part of the decisive process we started in 2025, to once again make our customers and their preferences our guiding star,\" Stellantis CEO Antonio Filosa said in a press release. \"The charges announced today largely reflect the cost of over-estimating the pace of the energy transition that distanced us from many car buyers' real-world needs, means, and desires.\"\n\nFilosa, who took over as CEO in May 2025, laid much of the blame on decisions made under the company's prior leadership, citing \"poor operational execution\" that left Stellantis with expensive EV investments that failed to sell.\n\nHis predecessor, Carlos Tavares, departed the company in December 2024.\n\nDuring Tavares' tenure, Stellantis spent billions positioning itself for what it believed would be a rapid shift in consumer demand toward electric vehicles. Formed in 2021 through the merger of Fiat Chrysler Automobiles and France's PSA Group, the company poured money into new factories, battery development partnerships with LG Energy Solution and Samsung SDI, and an ambitious slate of future EV models.\n\nThe demand never materialized at the pace executives anticipated. Stellantis' profit dropped 70% during Tavares' final year on the job.\n\nStellantis has been holding costly EV-related assets — factories, platforms, and technology — that are now being written down.\n\nFor consumers, that means fewer options. The automaker has canceled or delayed several high-profile electric vehicles, including the Chrysler Airflow, the all-electric Ram 1500, and a planned $25,000 electric Jeep Renegade.\n\nIn January, the company also discontinued its fleet of plug-in hybrid vehicles, ending production of the Jeep Wrangler 4xe, Jeep Grand Cherokee 4xe, Chrysler Pacifica Hybrid, and the Dodge Hornet Plug-In.\n\nLooking ahead to 2026, Stellantis' remaining electric launches include the $65,000 Jeep Recon and an extended-range Ram 1500 REV, which incorporates a gas generator paired with the battery motor.\n\nThe company is also reintroducing gas-fed powertrains to its lineup — including the V8 Hemi-powered Ram pickup series and a six-cylinder Dodge Charger.\n\nThe reset extends beyond Stellantis' vehicle lineup. Business Insider recently reported that the company is rolling out a five-day return-to-office order, effective March 30.\n\nStill, investors reacted swiftly to the eleven-figure EV write-down. Stellantis shares plunged 25.5% in early trading Friday, falling to about $7.10 a share roughly an hour after markets opened.",
-    "readingTime": 3,
-    "keywords": [
-      "electric vehicles",
-      "reset",
-      "stellantis",
-      "automaker",
-      "back",
-      "tied",
-      "electric-vehicle",
-      "ev-related",
-      "automakers",
-      "charges"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/stellantis-stock-jeep-ram-chrysler-ev-retreat-26-billion-charge-2026-2",
-    "thumbnail_url": "https://i.insider.com/6985f881d3c7faef0ecdc265?width=1200&format=jpeg",
-    "created_at": "2026-02-06T18:34:26.695Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "dubois-ramps-up-harper-rivalry-with-easy-night-jibe",
-    "title": "Dubois ramps up Harper rivalry with 'easy night' jibe",
-    "description": "Caroline Dubois expects \"an easy night\" against Terri Harper as the world champions ramped up their increasingly bitter rivalry.",
-    "fullText": "Caroline Dubois expects \"an easy night\" against Terri Harper as the world champions ramped up their increasingly bitter rivalry before their 5 April showdown.\n\nThe unified lightweight title fight will take place at London's Olympia, topping Most Valuable Promotions' first event in the United Kingdom.\n\n\"This is the start of my future, my legacy, my greatness. I believe I'm going all the way and it starts with Terri,\" said Dubois, 25.\n\nShe doubled down on calling Doncaster's three-weight world champion \"irrelevant\" and described her as a \"lottery\" ticket to bigger fights as the pair came together at a news conference in London.\n\nHarper, who holds a 16-2-2 record, has shared the ring with some of the sport's best boxers, including Sandy Ryan, Cecilia Braekhus, Natasha Jonas and Alycia Baumgardner.\n\nHaving also claimed world titles at featherweight and light-middleweight, Harper accused Dubois of overlooking her.\n\n\"For me this fight isn't about the belts. For me I just want to beat Caroline and this will be the sweetest win of my career,\" said the 29-year-old.\n\nAs expected, there was no handshake or warm embrace in the face-off as Dubois - keeping in theme with the news conference - did most of the talking.\n\nEdwards to fight Powar for British title on BBC\n\nShields calls out Price for blockbuster fight\n\n'Boxing can be messed up' - how to build a prospect\n\nAll the signs beforehand have pointed to a fiery encounter between two women who share genuine animosity.\n\nIn December, Dubois accused her fellow champion of having \"lost her pen\" during fraught negotiations, while earlier this week Harper walked out of Sky Sports' Gloves Are Off after a heated exchange during filming.\n\nAs Dubois smiled and took centre stage on Friday, a more reserved Harper looked slightly fed up.\n\nAsked when the rivalry first started, she said she felt disrespected by Dubois calling her out after the loss to Ryan in 2024.\n\n\"She's doing a great job of selling the fight. She's doing my job for me,\" added Harper.\n\nDubois is undefeated in 13 professional bouts - 12 wins and a draw - and made an impressive start to life under the MVP banner with a points win over Camilla Panatta in December.\n\nLong touted as the future of British boxing, she has grown in confidence and found her voice in recent years.\n\n\"This is going to be an easy night,\" said the Londoner, adding Harper's experience \"doesn't mean anything\".\n\nDubois was also involved in a tense war of words with Baumgardner at a news conference in Miami late last year.\n\nAnd she warned the 31-year-old American: \"I'm coming for her next.\"\n\nMVP - headed up by Nakisa Bidarian and Jake Paul - have invested heavily in female boxing and this bill showcased the depth of their British stable.\n\nIn the co-main event, super bantamweight Ellie Scotney will face Mexico's WBA champion Mayelli Flores Rosquero in an undisputed title fight.\n\nThey were due to fight in December before an injury to the Londoner.\n\n\"I've not got to pay for my mum to fly to America so my pocket is a little bit better there,\" joked Scotney.\n\nShe was in good spirits as she talked about her faith and the joy of fighting on Easter Sunday with her pastor attending the contest.\n\n\"We're bringing church to the Olympia on the night,\" said the 27-year-old.\n\nScotney could become Britain's fourth - and youngest - undisputed champion of the four-belt era with victory.\n\nNorthampton's Chantelle Cameron, 34, also features on the card with an opportunity to become a two-weight world champion when she faces the unbeaten Michaela Kotaskova for the WBO light-middleweight title.\n\nFormer undisputed light-welterweight champion Cameron's only defeat came against Ireland's Katie Taylor in 2023, while her 34-year-old Czech opponent has two losses and 11 wins in her 13 bouts.\n\nNorwich's Emma Dolan, 27, will challenge vastly experienced IBF super-flyweight champion Irma Garcia for her first world title. The 44-year-old Mexican has had 35 professional contests compared to Dolan's eight.\n\nBoxing schedule and results 2026\n\nWatch every Born to Brawl episode\n\nNotifications, social media and more with BBC Sport",
-    "readingTime": 4,
-    "keywords": [
-      "she's doing",
-      "title fight",
-      "champion",
-      "year-old",
-      "boxing",
-      "night",
-      "conference",
-      "british",
-      "undisputed",
-      "dubois"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.bbc.com/sport/boxing/articles/cp9j951nrl8o?at_medium=RSS&at_campaign=rss",
-    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/57ce/live/f0abf450-0364-11f1-a97d-e1cfcdc8e2f1.jpg",
-    "created_at": "2026-02-06T18:34:24.222Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "knee-injury-could-scupper-matetas-world-cup-dream",
-    "title": "Knee injury could scupper Mateta's World Cup 'dream'",
-    "description": "Crystal Palace manager Oliver Glasner indicates the injury that scuppered Jean-Philippe Mateta's move to AC Milan could also thwart the striker's \"dream\" of playing for France at the World Cup, if surgery is needed.",
-    "fullText": "Crystal Palace manager Oliver Glasner has indicated the knee injury that scuppered Jean-Philippe Mateta's planned move to AC Milan could also thwart the striker's \"dream\" of playing at the World Cup.\n\nMateta was on the verge of joining Milan for £30m on deadline day, but the deal was called off after knee issues emerged over the course of two medical examinations.\n\nThe 28-year-old has been dealing with the injury to his right knee during the first half of the season.\n\n\"We knew and he knew there was an issue. He was not really pleased,\" Glasner said.\n\n\"We took a higher risk, that's why he could play in most games, but we rested him for some games and some training sessions.\n\n\"To be honest it was not a big surprise to everyone that he could fail [the medical]. We knew that this can happen and he knew it.\"\n\nFrance international Mateta has yet to decide what his next steps should be, with this summer's World Cup on his mind.\n\n\"There are two ways we can do this: manage the knee like we have until after the World Cup, which is Mateta's dream to play in. The other one is he undergoes surgery,\" Glasner said.\n\n\"We don't know how long he would be out. There are a few predictions: it could be two months, three months, six to nine months. There are many opinions, but it is about doing the right thing and we will decide next week.\"\n\nMateta ruptured his meniscus in 2019 when playing for Mainz and spent about six months on the sidelines following surgery. A similar absence this time would end his World Cup hopes, with the tournament just four months away.\n\nMateta faces uncertain future for club and country\n\nPalace criticised over collapse of move for McNeil\n\nTwo club-record signings - but are Palace papering over the cracks?\n\nDespite retaining Mateta, who is Palace's top scorer with eight league goals this season, the Eagles paid a club record fee to sign striker Jorgen Strand Larsen from Wolves.\n\nPalace were also on the verge of bringing in Everton winger Dwight McNeil until the deal fell through late on deadline day.\n\nGlasner said he had \"learned to accept situations\" after Palace were also unsuccessful in finding a replacement for captain and centre-back Marc Guehi, who joined Manchester City earlier in the window.\n\n\"At the end of it, the club tried everything with huge offers and huge bids for a Marc Guehi replacement, but clubs said they don't sell on deadline day,\" Glasner said.\n\n\"Credit to the club that without getting any money for Mateta they still spent a big fee on Strand Larsen.\n\n\"On the other side, McNeil was the last one we thought we could finalise, but in the last minutes the terms of the deal changed again and the deal failed. I expected him and planned for him in the next day's training.\"\n\nMcNeil's partner, Megan Sharpley, criticised Crystal Palace on social media for the way they handled the situation.\n\nEverton boss David Moyes said the breakdown had \"nothing to do\" with his club and insists McNeil is \"fine\".\n\n\"He's in and he's training as well, so Dwight's OK,\" Moyes said.\n\n\"We understand exactly where it went wrong, how it broke down. He knows everything about it and there's no problems there.\n\n\"We had given permission for Dwight to go and have a medical and do all of the things required for it, so it was very hard to do much more than we have done.\"\n\nLatest Crystal Palace news, analysis and fan views\n\nAsk about Crystal Palace - what do you want to know?",
-    "readingTime": 4,
-    "keywords": [
-      "strand larsen",
-      "crystal palace",
-      "world cup",
-      "marc guehi",
-      "club",
-      "knee",
-      "deal",
-      "deadline",
-      "medical",
-      "training"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.bbc.com/sport/football/articles/c62v2e5ryr0o?at_medium=RSS&at_campaign=rss",
-    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/9ee5/live/cbe09e10-036d-11f1-b2b0-9334652d5b50.jpg",
-    "created_at": "2026-02-06T18:34:24.072Z",
-    "topic": "sports"
   }
 ]
