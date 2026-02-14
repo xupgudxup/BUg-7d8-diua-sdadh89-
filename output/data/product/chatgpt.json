@@ -1,5 +1,29 @@
 [
   {
+    "slug": "these-malicious-ai-assistants-in-chrome-are-stealing-user-credentials",
+    "title": "These Malicious AI Assistants in Chrome Are Stealing User Credentials",
+    "description": "Attackers are impersonating ChatGPT, Gemini, and Grok.",
+    "fullText": "AI-powered browser extensions continue to be a popular vector for threat actors looking to harvest user information. Researchers at security firm LayerX have analyzed multiple campaigns in recent months involving malicious browser extensions, including the widespread GhostPoster scheme targeting Chrome, Firefox, and Edge. In the latest one—dubbed AiFrame—threat actors have pushed approximately 30 Chrome add-ons that impersonate well-known AI assistants, including Claude, ChatGPT, Gemini, Grok, and \"AI Gmail.\" Collectively, these fakes have more than 300,000 installs.\n\nThe Chrome extensions identified as part of AiFrame look like legitimate AI tools commonly used for summarizing, chat, writing, and Gmail assistance. But once installed, they grant attackers wide-ranging remote access to the user's browser. Some of the capabilities observed include voice recognition, pixel tracking, and email content readability. Researchers note that extensions are broadly capable of harvesting data and monitoring user behavior.\n\nThough the extensions analyzed by LayerX used a variety of names and branding, all 30 were found to have the same internal structure, logic, permissions, and backend infrastructure. Instead of implementing functionality locally on the user's device, they render a full-screen iframe that loads remote content as the extension's interface. This allows attackers to push changes silently at any time without a requiring Chrome Web Store update.\n\nLayerX has a complete list of the names and extension IDs to refer to. Because threat actors use familiar and/or generic branding, such as \"Gemini AI Sidebar\" and \"ChatGPT Translate,\" you may not be able to identify fakes at first glance. If you have an AI assistant installed in Chrome, go to chrome://extensions, toggle on Developer mode in the top-right corner, and search for the ID below the extension name. Remove any malicious add-ons and reset passwords.\n\nAs BleepingComputer reports, some of the malicious extensions have already been removed from the Chrome Web Store, but others remain. Several have received the \"Featured\" badge, adding to their legitimacy. Threat actors have also been able to quickly republish add-ons under new names using the existing infrastructure, so this campaign and others like it may persist. Always vet extensions carefully—don't just rely on a familiar name like ChatGPT—and note that even AI-powered add-ons from trusted sources can be highly invasive.",
+    "readingTime": 2,
+    "keywords": [
+      "web store",
+      "chrome web",
+      "threat actors",
+      "browser extensions",
+      "add-ons",
+      "layerx",
+      "malicious",
+      "ai-powered",
+      "user",
+      "researchers"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://lifehacker.com/tech/malicious-ai-assistants-google-chrome?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KHC36S2FS26DJCSZWGYRZHGX/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-02-14T01:08:43.318Z",
+    "topic": "tech"
+  },
+  {
     "slug": "im-a-solo-founder-with-ai-agents-instead-of-employees-my-council-of-ai-agents-saves-me-20-hours-a-week",
     "title": "I'm a solo founder with AI agents instead of employees. My 'council' of AI agents saves me 20 hours a week.",
     "description": "A defense-tech founder built an AI \"council\" of 15 agents to help him run his company, using ChatGPT and Nvidia tools to replace traditional roles.",
@@ -2205,21 +2229,6 @@
     "link": "https://lifehacker.com/tech/chatgpt-grok-tech-advice-malware?utm_medium=RSS",
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KCFHKGX7QDA7SPFPM73VFFVJ/hero-image.fill.size_1200x675.jpg",
     "created_at": "2025-12-15T18:57:47.692Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "gpt-prompt-from-searchbar-chatgpt-directly-from-the-browser-omnibox",
-    "title": "GPT Prompt from Searchbar – ChatGPT directly from the browser omnibox",
-    "description": "A lightweight Chrome extension that allows you to search/prompt ChatGPT directly from your browser's address bar (Omnibox). - ParasKoundal/GPTSearch",
-    "fullText": "ParasKoundal\n\n /\n\n GPTSearch\n\n Public\n\n A lightweight Chrome extension that allows you to search/prompt ChatGPT directly from your browser's address bar (Omnibox).\n\n License\n\n MIT license\n\n 0\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n ParasKoundal/GPTSearch",
-    "readingTime": 1,
-    "keywords": [
-      "license"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://github.com/ParasKoundal/GPTSearch",
-    "thumbnail_url": "https://opengraph.githubassets.com/9674a6e7ffcf86168c17319b094a63d29ac3590c31040f4ff85049a30e2ca531/ParasKoundal/GPTSearch",
-    "created_at": "2025-12-15T03:59:06.427Z",
     "topic": "tech"
   }
 ]
