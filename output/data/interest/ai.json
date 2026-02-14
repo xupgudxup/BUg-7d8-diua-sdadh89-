@@ -1,5 +1,79 @@
 [
   {
+    "slug": "snowball-iterative-context-processing-when-it-wont-fit-in-the-llm-window",
+    "title": "SnowBall: Iterative Context Processing When It Won't Fit in the LLM Window",
+    "description": "Learn how Enji.ai's SnowBall algorithm processes massive LLM contexts iteratively, overcoming token limits and \"lost in the middle\" issues in analytical pipelines.",
+    "fullText": "Roman Panarin\n\n ML Engineer\n\nGet AI-powered insights from this Enji tech article:\n\nAt Enji.ai, we have an agent pipeline with 35 nodes: router_agent, planning_agent, language_detection_agent, agent_choice_agent, and 31 more. Each node pulls data through text2sql or RAG, collects results, and sends everything to the LLM as a single context. For small teams, this works fine, but when Global Access mode kicks in, with access to all company projects at once, the context balloons.\n\nSpecifically, on one of our client projects with a team of 46+ people, a single workweek accumulates so much data from trackers and Git that the context exceeds 1,500K tokens. Meanwhile, we're using qwen3-32b through Groq, where the ceiling is 131,072 tokens. The request simply fails with an error if you don't do something about it.\n\nBut even if the window were larger, there's a second problem. The \"Lost in the Middle\" study (Stanford, published in TACL 2024) showed that models have a characteristic U-shaped attention curve: they work well with information at the beginning and end of context but lose up to 30% accuracy on data from the middle. With our SQL results, where a key developer's worklogs might end up in the middle, this is a very real loss of response quality.\n\nThere's an approach called SnowBall, the \"snowball effect.\" Instead of trying to cram everything into one call, we slice the context into chunks and process them sequentially, each time enriching the intermediate result with a new portion of data.\n\nEssentially, this is the same pattern that LangChain calls Refine, iterative refinement. The difference is that for us it's not a separate call in a chain, but a transparent wrapper over ainvoke(). The developer calls the model as usual, and the system decides on its own whether to split the context.\n\nHere's what the entry point looks like in LLMGenerator:\n\nThe check works like this: we count tokens through get_num_tokens, compare with the model config limit (131,072 for qwen3-32b). If it fits, it's a regular call. If not, launch SnowBall.\n\nThe algorithm consists of two phases. First, we cut user_message into chunks, then run them sequentially, accumulating a summary:\n\nThe 20% reserve from the limit is a buffer for the system prompt, for the snowball_prompt itself, and for serialization overhead. With a 131K limit, you get a chunk of about 105K tokens. For slicing, we use CharacterTextSplitter.from_tiktoken_encoder from LangChain, which counts chunk size in tokens, not characters, which is crucial for accurate counting. Overlap between chunks is 20 tokens to avoid losing context at boundaries.\n\nIn practice, for a typical Global Access request over a week for our client, you get 2-3 chunks. That's 2-3 sequential LLM calls instead of one that failed.\n\nIn regular mode (system + user message), it's simple: we slice user_message into chunks by tokens. But when the LLM uses tools (SQL queries, RAG), the context is more complex: there's not just text, but a chain of SystemMessage, HumanMessage, AIMessage with tool_calls, and ToolMessage with results. You can't slice such a chain by tokens: you lose the connection between the tool call and its response.\n\nFor this, there's a separate class, BoundLLMGenerator. Its _build_message_batches method groups messages as a whole, trying not to break tool_call/tool_result pairs. Only if a single message itself exceeds the limit (happens when SQL returns a huge table) does it get sliced into chunks.\n\nSplitting into two classes allows us not to drag tool-batching logic into the base code and vice versa. LLMGenerator.bind_tools(tools) returns BoundLLMGenerator, so switching between modes happens automatically.\n\nLatency grows linearly with the number of chunks. A 200K token context means 5-6 sequential calls. For analytical queries from a manager, where the response is needed in seconds or minutes rather than milliseconds, this is acceptable. For real-time chat, not so much.\n\nThere's information loss between iterations. Each summarization step loses something, and on long chains (5+ chunks), this accumulates. We haven't yet encountered critical degradation on our data, but for tasks requiring precise numerical aggregation (hour totals, task counts), this is a potential problem. In such cases, hierarchical summarization works better, where aggregations are calculated at each level separately; this is well covered in the CoTHSSum study (Springer, 2025).\n\nAnother point is graceful degradation. If one chunk fails with an error (Groq timeout, invalid JSON in response), the loop continues with the previous summary. We lose information from that chunk, but we don't lose the entire response.\n\nWe considered alternatives. Microsoft's LLMLingua compresses prompts by removing non-essential tokens through a small compressor model (GPT2-small or LLaMA-7B). Works great on texts with \"fluff\"; up to 20x compression. But our data is SQL results: tables with fields like employee name, detail, and hours. There, every token carries a semantic load, and aggressive compression cuts out important information we're not willing to lose.\n\nMap-Reduce could help with parallelization. Process chunks simultaneously, then merge results. But our context doesn't break down into independent pieces. One developer's worklogs might be in the first chunk, and related tasks in the second. Map-Reduce would lose this connection, while Refine/SnowBall preserves it because the summary accumulates.\n\nGisting is a beautiful idea (26x compression, 40% FLOP savings), but requires fine-tuning the model on our data. For a startup that iterates on the product every week and changes prompts, this isn't an option yet. But we're generally thinking about our own Enji LLM model and might apply Gisting there.\n\nAll open-source models in the Enji pipeline run through Groq with qwen3-32b. Groq today is the only inference provider that supports the full 131K window for this model (the model itself natively works at 32K and extends to 131K through YaRN).\n\nMeanwhile, tokens_limit isn't just an API restriction but a threshold for enabling SnowBall. If you switch to a provider with a larger window, SnowBall will trigger less frequently or not at all. No code changes needed.\n\nSnowBall solves a specific problem: it lets you work with context that physically won't fit in the model window. It's not the most efficient compression method, nor the fastest, and information is lost on each iteration. But for our use case (analytical queries on large teams through an agent pipeline) it's a working solution that doesn't require additional infrastructure and doesn't change the interface for developers.\n\nMIT recently proposed Recursive Language Models, an approach where the model can recursively access the full uncompressed context instead of summarization. Benchmarks show 91% accuracy on 10M+ tokens. When this becomes available in production inference, SnowBall will likely become unnecessary. But as long as context windows are finite and data keeps growing, iterative processing works.\n\n[How to Switch From SOTA LLMs to Local OSS LLMs]\n\nBuild production AI systems with local open-source models. Complete guide to migrating from cloud APIs to a self-hosted Qwen3 deployment with node-based pipeline architecture.\n\n[How to Evolve Node Prompts on OSS Models Through GEPA]\n\nLearn how GEPA uses genetic optimization to refine prompts for OSS models, boosting accuracy and reducing costs across AI node pipelines.",
+    "readingTime": 6,
+    "keywords": [
+      "oss models",
+      "developer's worklogs",
+      "analytical queries",
+      "agent pipeline",
+      "open-source models",
+      "global access",
+      "context",
+      "tokens",
+      "chunks",
+      "there's"
+    ],
+    "qualityScore": 1,
+    "link": "https://enji.ai/tech-articles/snowball-iterative-context-processing/",
+    "thumbnail_url": "https://images.prismic.io/enji-landing/aYm40N0YXLCxVmx0_snowball-iterative-context-processing.png?auto=format,compress&rect=0,0,1200,630&w=2400&h=1260",
+    "created_at": "2026-02-14T06:32:40.937Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "jikipedia-a-new-aipowered-wiki-reporting-on-key-figures-in-the-epstein-scandal",
+    "title": "Jikipedia, a new AI-powered wiki reporting on key figures in the Epstein scandal",
+    "description": "We built Jikipedia, a new wiki that compiles Jmail data into exhaustive reports on key figures in the Epstein scandal.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://twitter.com/jmailarchive/status/2022482688691835121",
+    "thumbnail_url": "https://pbs.twimg.com/media/HBFNSYia0AAX0cY.jpg:large",
+    "created_at": "2026-02-14T06:32:40.227Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "cyber-model-arena",
+    "title": "Cyber Model Arena",
+    "description": "Evaluating AI agents across real-world security challenges",
+    "fullText": "Evaluating AI agents across real-world security challenges\n\nMulti-purpose coding agents evaluated on security tasks\n\nWe evaluated 25 agent-model combinations (4 agents × 8 models) across 257 offensive security challenges spanning five categories:\n\nAgents evaluated: Gemini CLI, Claude Code, OpenCode, Codex (GPT-only)\n\nModels evaluated: Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 4.5, Claude Haiku 4.5, Gemini 3 Pro, Gemini 3 Flash, GPT-5.2, Grok 4\n\nEach agent-model-challenge combination is run 3 times (pass@3 — best result across runs is taken per challenge)\n\nAgents run in isolated Docker containers with no internet access, no CVE databases, and no external resources — the agent cannot browse the web, install packages, or access any information beyond what is in the container\n\nAll scoring is deterministic (no LLM-as-judge): flags, endpoint matches, vulnerability locations, and call graphs are validated programmatically\n\nThe overall score is the macro-average across all five categories",
+    "readingTime": 1,
+    "keywords": [
+      "claude opus",
+      "security challenges",
+      "agents evaluated",
+      "across",
+      "gemini",
+      "models",
+      "categories",
+      "access"
+    ],
+    "qualityScore": 0.55,
+    "link": "https://www.wiz.io/cyber-model-arena",
+    "thumbnail_url": "/images/cyber-model-arena/og-image.webp",
+    "created_at": "2026-02-14T06:32:40.149Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "helloaria-ai-task-manager-where-you-talk-instead-of-type",
+    "title": "HelloAria – AI task manager where you talk instead of type",
+    "description": "Master productivity platform accessible from WhatsApp, Slack, web, and email. Mobile app coming soon. Unified dashboard with Google & Microsoft integrations, AI-powered workflow simplification.",
+    "fullText": "Use Hello Aria from WhatsApp, web, or email. Integrates with Google Calendar, Drive, Meet, Gmail and Microsoft OneDrive, Mail & Calendar.\n\nComing soon: Mobile app, Slack, Notion, and more access channels.\n\nAll your productivity data synchronized across every platform you use, viewable in a unified dashboard — work from anywhere, stay organized everywhere.",
+    "readingTime": 1,
+    "keywords": [
+      "calendar"
+    ],
+    "qualityScore": 0.3,
+    "link": "https://www.helloaria.io/",
+    "thumbnail_url": "https://helloaria.io/assets/og-image.jpg",
+    "created_at": "2026-02-14T06:32:29.400Z",
+    "topic": "tech"
+  },
+  {
     "slug": "an-ai-agent-published-a-hit-piece-on-me-more-things-have-happened",
     "title": "An AI Agent Published a Hit Piece on Me – More Things Have Happened",
     "description": "Context: An AI agent of unknown ownership autonomously wrote and published a personalized hit piece about me after I rejected its code, attempting to damage my reputation and shame me into acceptin…",
@@ -2059,96 +2133,5 @@
     "thumbnail_url": "https://opengraph.githubassets.com/4510a6805ab65a1abdb2ea16d155067a43bc07a3be784fa31e1daecdbfcd27d8/DaKheera47/job-ops",
     "created_at": "2026-02-11T12:42:58.688Z",
     "topic": "tech"
-  },
-  {
-    "slug": "the-skill-nobody-tests-for",
-    "title": "The Skill Nobody Tests For",
-    "description": "Drop candidates into a real coding environment with AI tools. See who actually ships.",
-    "fullText": "Drop candidates into a real coding environment with AI tools. See who actually ships.\n\nFree to start · Set up in 2 minutes\n\nChallenge: Build an RBAC permission system\n\nTools: Claude Code · VS Code · Terminal\n\nMeta, Shopify, Cisco — companies are dropping algorithm interviews. The question isn't whether this changes hiring. It's whether you move first.\n\nOver the last year, the best engineers have completely changed how they work. They don't write code by hand anymore, they talk to agents, interrogate them, make architectural decisions, scope projects, and verify output.\n\nA full VS Code workspace in the browser. Terminal, files, packages — everything your engineers use daily.\n\nClaude Code, Codex, Cursor, Copilot — the same tools your team uses. The challenge is using them well, not memorizing algorithms.\n\nAutomated tests validate the solution. You see what they built, how they got there, and whether it works.",
-    "readingTime": 1,
-    "keywords": [
-      "claude code",
-      "tools",
-      "terminal",
-      "engineers",
-      "challenge"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://vibearena.io/blog/the-skill-nobody-tests-for",
-    "thumbnail_url": "https://vibearena.io/og-image.png",
-    "created_at": "2026-02-11T12:42:57.921Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "this-stock-will-be-bigger-than-nvidia-by-the-end-of-2026",
-    "title": "This Stock Will Be Bigger Than Nvidia By the End of 2026",
-    "description": "As Nvidia's stock stagnates, betting markets and analysts increasingly favor GOOGL stock overtaking the AI chipmaker as the world's largest company by 2026's end.",
-    "fullText": "Nvidia (NVDA) is currently valued at over $4.5 trillion, having become the world's most valuable company on June 18, 2024, when its market capitalization exceeded $3.3 trillion. It later hit $4 trillion in 2025 and briefly reached $5 trillion last October. Yet the stock has largely traded sideways since last August around its current price of $189.\n\nReasons include investor concerns over rising competition in AI accelerators from players like Advanced Micro Devices (AMD), geopolitical constraints such as U.S. export restrictions to China, production delays on next-generation chips like Blackwell, slowing revenue growth momentum, and valuation fatigue after years of rapid gains.\n\nThe Shocking Reason This Analyst Says Michael Saylor and MicroStrategy Stock Will Take Bitcoin Prices to $0\n\nIs the Market Running on Borrowed Time? This 1 Statistic Is Flashing a Major Warning Sign.\n\n1 Stock to Buy to Win Big from Amazon’s AI Spending Spree\n\nStop Missing Market Moves: Get the FREE Barchart Brief – your midday dose of stock movers, trending sectors, and actionable trade ideas, delivered right to your inbox. \n\nTraders on the prediction market Polymarket think there's a good chance Nvidia will be deposed as the biggest company by the end of the year, and Alphabet (GOOG) (GOOGL) will likely be the new reigning king.\n\nGoogle parent Alphabet is headquartered in Mountain View, California, and operates a vast ecosystem including Google Search, YouTube, Android, Google Cloud, advertising networks, and hardware like Pixel devices. In recent years, Alphabet has made significant strides in AI, launching Gemini 3 in 2025 as its most advanced model yet, requiring less prompting and delivering smarter responses.\n\nOther advances include the Ironwood AI chip (its seventh-generation TPU) for scaling large models, Gemma 3 for efficient open-source AI, SIMA 2 for AI agents in 3D worlds, and integrations like AI Mode in Search and Gemini Robotics for physical interactions. These innovations bolster its cloud and ad businesses amid the AI boom.\n\nAlphabet's stock is up 1% year-to-date (YTD), just slightly underperforming the S&P 500's ($SPX) 1.89% YTD gain, but over the past year, GOOGL has surged 69%, far exceeding the index's 15% return. Valuation metrics show a trailing P/E of 30.65, a forward P/E of 29.64, and a price/sales of 9.93. Compared to its 10-year historical average P/E of 27.69, it currently trades 7% higher, suggesting a premium. Versus peers (average P/E 31.5x), it's attractive but expensive relative to the interactive media industry average of 12x.",
-    "readingTime": 3,
-    "keywords": [
-      "average p/e",
-      "stock",
-      "google",
-      "currently",
-      "valuation",
-      "cloud",
-      "market",
-      "alphabet",
-      "nvidia",
-      "advanced"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/news/stock-bigger-nvidia-end-2026-165919844.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/YPbWstwDn2m5nTeHZZ6nZg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02MjY-/https://media.zenfs.com/en/barchart_com_477/b755108c26b96e02f25cd85e604fb509",
-    "created_at": "2026-02-11T12:42:53.660Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "bank-employees-rejoice-60-of-finance-ceos-dont-see-head-count-shrinking-because-of-ai",
-    "title": "Bank employees, rejoice: 60% of finance CEOs don't see head count shrinking because of AI",
-    "description": "Of the 240 financial services CEO that EY surveyed, more than half said AI investments have shown results faster than expected.",
-    "fullText": "Banks' analyst classes probably won't swap fresh-faced college grads for bots — at least not this year.\n\nSome 60% of the 240 financial services CEOs that EY surveyed for its Quarterly CEO Outlook Survey said they think investing in AI will maintain or even increase their current head count in 2026. Only 28% of those surveyed predicted head count would drop this year.\n\nLeaders at some of the biggest banks, including JPMorgan and Goldman Sachs, have said that they're resisting hiring growth where it makes sense to prioritize efficiency. They, along with some other bulge-bracket leads, have predicted that AI could grow head count in the long run, though. Still, some roles are becoming obsolete: Citi CEO Jane Fraser said in a recent internal memo that some jobs \"will no longer be required\" as AI advances.\n\nFor their part, the financial services CEOs that EY surveyed are similarly bullish about AI's capacity to transform the workplace, and nearly half see AI and digital investment as the most important factor in their companies' ability to thrive and adapt this year.\n\nAround a quarter said their AI initiatives have significantly beaten expectations, and 57% said they've shown results faster than expected. Just more than half said they expect the biggest transformations to come from generative AI.\n\nWhen it comes to hiring for AI talent — itself a highly competitive market — 87% of CEOs in EY's survey are optimistic about their ability to attract and keep talent in 2026. The question of returns on the AI investment, for talent and in general, also seems top of mind for the financial services leaders. Seventy-six percent of boards in the survey said they'll review transformation ROI metrics as often as financial results.\n\nFirms of all sizes are being asked to justify their AI spends, as analysts and investors begin to wonder whether the sometimes billion-dollar bets will show up on balance sheets.",
-    "readingTime": 2,
-    "keywords": [
-      "services ceos",
-      "financial services",
-      "surveyed",
-      "count",
-      "talent",
-      "banks",
-      "predicted",
-      "leaders",
-      "biggest",
-      "hiring"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.businessinsider.com/finance-ceos-ai-headcount-ey-survey-2026-2",
-    "thumbnail_url": "https://i.insider.com/698bbcf0e1ba468a96abd0fd?width=1200&format=jpeg",
-    "created_at": "2026-02-11T12:42:51.780Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "amazon-limits-on-claude-code-frustrate-employees-including-some-who-have-to-sell-it-to-cloud-customers",
-    "title": "Amazon limits on Claude Code frustrate employees, including some who have to sell it to cloud customers",
-    "description": "The tech giant's internal policy promotes an in-house tool called Kiro over Anthropic's Claude Code. Some Amazon engineers are unhappy about this.",
-    "fullText": "Amazon is one of Anthropic's largest investors and a key partner in bringing the startup's AI models and products to customers.\n\nInside Amazon, however, employees aren't allowed to use Anthropic's Claude Code for production work or for live products without formal approval.\n\nThat disconnect became more visible late last year, when Amazon rolled out internal guidance steering teams toward Kiro, its in-house AI coding assistant, according to internal messages seen by Business Insider. The guidance encourages using Kiro over non-approved third-party tools, including Claude Code, for production code.\n\nThe policy prompted criticism across internal Amazon forums. In one discussion thread, roughly 1,500 Amazon employees endorsed the formal adoption of Claude Code, according to the messages.\n\nThe restrictions have been particularly awkward for engineers who help sell AWS Bedrock, Amazon's platform that offers customers access to third-party AI services, including Claude Code. Some questioned how they could credibly promote a product they are not permitted to use themselves in official work.\n\n\"Customers will ask why they should trust or use a tool that we did not approve for internal use,\" one employee wrote.\n\nThe episode highlights the complexity of Amazon's relationship with Anthropic. While Amazon is racing to build and promote its own AI tools, it is also marketing a partner's competing technology. Amazon is one of Anthropic's largest investors, with a stake valued at more than $60 billion. Anthropic, in turn, is a major AWS customer, committing to use Amazon's cloud services and at least one million of Amazon's Trainium chips.\n\n\"We are seeing incredible improvements in efficiency and delivery from Kiro, our customer growth is rapidly accelerating, and we want to make sure our internal employees all take advantage of this capability to deliver faster for our customers,\" an Amazon spokesperson said. \"While we continue to support existing tools in use today, we do not plan to support additional, third-party AI development tools.\"\n\nAmazon maintains \"a strong strategic partnership with Anthropic,\" and while there's no explicit ban on Claude Code, the company applies \"stricter requirements for the tools used to develop production code specifically,\" the spokesperson said, noting that Amazon provides a process for seeking exceptions.\n\nAn Anthropic spokesperson didn't respond to a request for comment.\n\nIn one of the internal forums, an Amazon sales engineer flagged the irony of being asked to sell Claude Code even though it isn't formally supported inside the company. The employee wrote that they need to be able to \"use, demo, and build\" with Claude Code to support Amazon's directive to get more customers to use it through AWS Bedrock.\n\nOther Amazon engineers also debated whether the emphasis on Kiro was hindering productivity. Some argued that Claude Code outperformed Amazon's in-house tool and warned that forcing adoption of a weaker product could slow development.\n\n\"A tool that can't keep pace with rivals offers no real innovation,\" one of the Amazon employees wrote. \"And without competitive strength, Kiro's only survival mechanism becomes forced adoption rather than genuine value.\"\n\nClaude Code has become one of the most widely used AI coding services, and it underpins many other similar offerings from other providers. An Amazon spokesperson said about 70% of the company's software engineers used Kiro at least once in January.\n\nIn one forum thread, a manager overseeing Amazon's internal developer tools said he understood the \"frustration\" and \"significant\" interest in Claude Code, citing about 1,500 internal endorsements calling for its formal adoption.\n\nSome employees said frustration deepened after Amazon had previously indicated that Claude Code had cleared security and legal review for production use, according to an internal guideline and messages reviewed by Business Insider. That language was later edited and removed, employees said.\n\nOthers criticized the lack of transparency around the decision not to formally adopt Claude Code, asking what data informed the decision.\n\n\"The trend is clear,\" one employee wrote internally. \"More and more people would like to start using Claude Code and be officially supported by Amazon.\"\n\nHave a tip? Contact this reporter via email at ekim@businessinsider.com or Signal, Telegram, or WhatsApp at 650-942-3061. Use a personal email address, a nonwork WiFi network, and a nonwork device; here's our guide to sharing information securely.",
-    "readingTime": 4,
-    "keywords": [
-      "claude code",
-      "business insider",
-      "anthropic's largest",
-      "aws bedrock",
-      "largest investors",
-      "formal adoption",
-      "production code",
-      "amazon employees",
-      "internal",
-      "tools"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/amazon-engineers-grate-against-internal-limits-claude-code-kiro-ai-2026-2",
-    "thumbnail_url": "https://i.insider.com/698a83dbd3c7faef0ecdf40f?width=1200&format=jpeg",
-    "created_at": "2026-02-11T12:42:51.712Z",
-    "topic": "finance"
   }
 ]
