@@ -1,5 +1,29 @@
 [
   {
+    "slug": "fake-job-recruiters-hide-malware-in-developer-coding-challenges",
+    "title": "Fake job recruiters hide malware in developer coding challenges",
+    "description": "A new variation of the fake recruiter campaign from North Korean threat actors is targeting JavaScript and Python developers with cryptocurrency-related tasks.",
+    "fullText": "A new variation of the fake recruiter campaign from North Korean threat actors is targeting JavaScript and Python developers with cryptocurrency-related tasks.\n\nThe activity has been ongoing since at least May 2025 and is characterized by modularity, which allows the threat actor to quickly resume it in case of partial compromise.\n\nThe bad actor relies on packages published on the npm and PyPi registries that act as downloaders for a remote access trojan (RAT). In total, researchers found 192 malicious packages related to this campaign, which they dubbed 'Graphalgo'.\n\nResearchers at software supply-chain security company ReversingLabs say that the threat actor creates fake companies in the blockchain and crypto-trading sectors and publishes job offerings on various platforms, like LinkedIn, Facebook, and Reddit.\n\nDevelopers applying for the job are required to show their skills by running, debugging, and improving a given project. However, the attacker's purpose is to make the applicant run the code.\n\nThis action would cause a malicious dependency from a legitimate repository to be installed and executed.\n\n\"It is easy to create such job task repositories. Threat actors simply need to take a legitimate bare-bone project and fix it up with a malicious dependency and it is ready to be served to targets,\" the researchers say.\n\nTo hide the malicious nature of the dependencies, the hackers host the dependencies on legitimate platforms, like npm and PyPi.\n\nIn one case highlighted in the ReversingLabs report, a package named ‘bigmathutils,’ with 10,000 downloads, was benign until it reached version 1.1.0, which introduced malicious payloads. Shortly after, the threat actor removed the package, marking it as deprecated, likely to conceal the activity.\n\nThe Graphalgo name of the campaign is derived from packages that have “graph” in their name. They typically impersonate legitimate, popular libraries like graphlib, the researchers say.\n\nHowever, from December 2025 onward, the North Korean actor shifted to packages with “big” in their name. However, ReversingLabs has not discovered the recruiting part, or the campaign frontend, related to them.\n\nAccording to the researchers, the actor uses Github Organizations, which are shared accounts for collaboration across multiple projects. They say that the GitHub repositories are clean, and malicious code is introduced indirectly via dependencies hosted on npm and PyPI, which are the Graphalgo packages.\n\nVictims running the project as instructed in the interview infect their systems with these packages, which install a RAT payload on their machines.\n\nIt is worth noting that ReversingLabs researchers identified several developers that fell for the trick and contacted them \n\nThe RAT can list the running processes on the host, execute arbitrary commands per instructions from the command-and-control (C2) server, and exfiltrate files or drop additional payloads.\n\nThe RAT checks whether the MetaMask cryptocurrency extension is installed on the victim’s browser, a clear indication of its money-stealing goals.\n\nIts C2 communication is token-protected to lock out unauthorized observers, a common tactic for North Korean hackers.\n\nReversingLabs has found multiple variants written in JavaScript, Python, and VBS, showing an intention to cover all possible targets.\n\nThe researchers’ attribute the Graphalgo fake recruiter campaign to the Lazarus group with medium-to-high confidence. The conclusion is based on the approach, the use of coding tests as an infection vector, and the cryptocurrency-focused targeting, all of which aligning with previous activity associated with the North Korean threat actor.\n\nAlso, the researchers note the delayed activation of malicious code in the packages, consistent with Lazarus' patience displayed in other attacks. Finally, the Git commits show the GMT +9 time zone, matching North Korea time.\n\nThe complete indicators of compromise (IoCs) are available in the original report. Developers who installed the malicious packages at any point should rotate all tokens and account passwords and reinstall their OS.\n\nModern IT infrastructure moves faster than manual workflows can handle.\n\nIn this new Tines guide, learn how your team can reduce hidden manual delays, improve reliability through automated response, and build and scale intelligent workflows on top of tools you already use.",
+    "readingTime": 4,
+    "keywords": [
+      "korean threat",
+      "fake recruiter",
+      "recruiter campaign",
+      "threat actors",
+      "malicious dependency",
+      "north korean",
+      "threat actor",
+      "malicious code",
+      "researchers say",
+      "malicious packages"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.bleepingcomputer.com/news/security/fake-job-recruiters-hide-malware-in-developer-coding-challenges/",
+    "thumbnail_url": "https://www.bleepstatic.com/content/hl-images/2024/08/12/north-korean-hackers.jpg",
+    "created_at": "2026-02-15T12:26:54.771Z",
+    "topic": "tech"
+  },
+  {
     "slug": "bulls-on-parade-crypto-winter-couldnt-kill-the-vibe-at-this-weeks-big-bitcoin-event-in-nyc",
     "title": "Bulls on parade: Crypto winter couldn't kill the vibe at this week's big bitcoin event in NYC",
     "description": "The big NYC bitcoin bonanza drew top commentators in the market, who told attendees they see bitcoin set for a rebound later this year.",
@@ -2034,30 +2058,6 @@
     "link": "https://finance.yahoo.com/news/vitalik-says-ethereum-just-solved-150745120.html",
     "thumbnail_url": "https://media.zenfs.com/en/cryptonews_us_711/07f7d730767c42c3b946b67b9829307d",
     "created_at": "2026-01-05T01:02:39.871Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "crypto-market-news-today-january-3-bitcoin-dominance-drops-under-60-as-whale-opened-big-ethereum-long-betting-on-price",
-    "title": "Crypto Market News Today, January 3: Bitcoin Dominance Drops Under 60% as Whale Opened Big Ethereum Long, Betting on Price Pump",
-    "description": "Just as we talked about why crypto could pump big this 2026 yesterday, Bitcoin price pushed up toward $90,000, while alts like Ethereum and XRP outperformed as BTC dominance slips under 60%. This somehow caught us off guard, especially after weeks of bearish sentiment heading into January. Refusing a breakdown, ...",
-    "fullText": "Just as we talked about why crypto could pump big this 2026 yesterday, Bitcoin price pushed up toward $90,000, while alts like Ethereum and XRP outperformed as BTC dominance slips under 60%. This somehow caught us off guard, especially after weeks of bearish sentiment heading into January.\n\nRefusing a breakdown, the market is running higher. Bitcoin jumped with 1% price gain, Ethereum with around 3%, and altcoins followed. XRP rallied close to 6%, easily beating major alts’ daily gains, and sentiment flipped a little after yesterday’s options expiry cleared the board.\n\nAt around 59%, Bitcoin dominance shows a start of a heavy rotation, just like popping popcorn. Capital is moving, Bitcoin price remains elevated, blasting $90,000, as we track a CME gap above the resistance level, which has a strong historical tendency to get filled.\n\n(source – BTC USD, CME gap, TradingView)\n\nDespite dominance slipping, Bitcoin stays resilient. On a weekly basis, it climbed by 2.5%, while the winner of last year, gold, slid more than 4% after peaking near $4,550. That divergence is the perfect example of rotation narrative as some capital is shifting from traditional hedges toward digital assets.\n\nLiquidity conditions also helped. The Federal Reserve injected nearly $19.5 billion through repo operations, one of the largest such moves since the Covid era. These injections might not grab headlines, but they support risk assets in the background, as can be seen in Bitcoin price action.\n\nDISCOVER: 10+ Next Crypto to 100X In\n\nA single whale (whom the community called an insider whale with a good hit rate) opened long positions worth more than $600 million in ETH, far outweighing exposure to Bitcoin price and Solana combined. The scale alone raised eyebrows, but the timing was perfect, as usual. With over 203,000 ETH in play, the bet implies expectations of further upside.\n\nThe Ethereum price held above $3,100, supported by good volume and volatility. ETH is leading this transition phase and benefited first from the market as Bitcoin dominance drifts lower. XRP followed with solid gains, and the altcoins’ market showed signs of life yet again.\n\nAway from the price action, what is happening in the macro structure is also worth watching. British stocks outperformed US markets since Donald Trump returned to office, challenging assumptions that American equities would immediately bump. UK indices have shown steadier strength, while US stocks have lagged despite policy optimism, as reported by BBC. Is Trump really the president we need in crypto?",
-    "readingTime": 3,
-    "keywords": [
-      "cme gap",
-      "bitcoin dominance",
-      "market",
-      "toward",
-      "alts",
-      "outperformed",
-      "sentiment",
-      "altcoins",
-      "followed",
-      "gains"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/news/crypto-market-news-today-january-092406700.html",
-    "thumbnail_url": "https://media.zenfs.com/en/99bitcoins_us_315/331fe944fd0f3fcb26b8e4c72ba91f87",
-    "created_at": "2026-01-04T18:16:31.279Z",
     "topic": "finance"
   }
 ]

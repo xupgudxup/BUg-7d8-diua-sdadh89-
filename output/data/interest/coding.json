@@ -1,5 +1,29 @@
 [
   {
+    "slug": "fake-job-recruiters-hide-malware-in-developer-coding-challenges",
+    "title": "Fake job recruiters hide malware in developer coding challenges",
+    "description": "A new variation of the fake recruiter campaign from North Korean threat actors is targeting JavaScript and Python developers with cryptocurrency-related tasks.",
+    "fullText": "A new variation of the fake recruiter campaign from North Korean threat actors is targeting JavaScript and Python developers with cryptocurrency-related tasks.\n\nThe activity has been ongoing since at least May 2025 and is characterized by modularity, which allows the threat actor to quickly resume it in case of partial compromise.\n\nThe bad actor relies on packages published on the npm and PyPi registries that act as downloaders for a remote access trojan (RAT). In total, researchers found 192 malicious packages related to this campaign, which they dubbed 'Graphalgo'.\n\nResearchers at software supply-chain security company ReversingLabs say that the threat actor creates fake companies in the blockchain and crypto-trading sectors and publishes job offerings on various platforms, like LinkedIn, Facebook, and Reddit.\n\nDevelopers applying for the job are required to show their skills by running, debugging, and improving a given project. However, the attacker's purpose is to make the applicant run the code.\n\nThis action would cause a malicious dependency from a legitimate repository to be installed and executed.\n\n\"It is easy to create such job task repositories. Threat actors simply need to take a legitimate bare-bone project and fix it up with a malicious dependency and it is ready to be served to targets,\" the researchers say.\n\nTo hide the malicious nature of the dependencies, the hackers host the dependencies on legitimate platforms, like npm and PyPi.\n\nIn one case highlighted in the ReversingLabs report, a package named ‘bigmathutils,’ with 10,000 downloads, was benign until it reached version 1.1.0, which introduced malicious payloads. Shortly after, the threat actor removed the package, marking it as deprecated, likely to conceal the activity.\n\nThe Graphalgo name of the campaign is derived from packages that have “graph” in their name. They typically impersonate legitimate, popular libraries like graphlib, the researchers say.\n\nHowever, from December 2025 onward, the North Korean actor shifted to packages with “big” in their name. However, ReversingLabs has not discovered the recruiting part, or the campaign frontend, related to them.\n\nAccording to the researchers, the actor uses Github Organizations, which are shared accounts for collaboration across multiple projects. They say that the GitHub repositories are clean, and malicious code is introduced indirectly via dependencies hosted on npm and PyPI, which are the Graphalgo packages.\n\nVictims running the project as instructed in the interview infect their systems with these packages, which install a RAT payload on their machines.\n\nIt is worth noting that ReversingLabs researchers identified several developers that fell for the trick and contacted them \n\nThe RAT can list the running processes on the host, execute arbitrary commands per instructions from the command-and-control (C2) server, and exfiltrate files or drop additional payloads.\n\nThe RAT checks whether the MetaMask cryptocurrency extension is installed on the victim’s browser, a clear indication of its money-stealing goals.\n\nIts C2 communication is token-protected to lock out unauthorized observers, a common tactic for North Korean hackers.\n\nReversingLabs has found multiple variants written in JavaScript, Python, and VBS, showing an intention to cover all possible targets.\n\nThe researchers’ attribute the Graphalgo fake recruiter campaign to the Lazarus group with medium-to-high confidence. The conclusion is based on the approach, the use of coding tests as an infection vector, and the cryptocurrency-focused targeting, all of which aligning with previous activity associated with the North Korean threat actor.\n\nAlso, the researchers note the delayed activation of malicious code in the packages, consistent with Lazarus' patience displayed in other attacks. Finally, the Git commits show the GMT +9 time zone, matching North Korea time.\n\nThe complete indicators of compromise (IoCs) are available in the original report. Developers who installed the malicious packages at any point should rotate all tokens and account passwords and reinstall their OS.\n\nModern IT infrastructure moves faster than manual workflows can handle.\n\nIn this new Tines guide, learn how your team can reduce hidden manual delays, improve reliability through automated response, and build and scale intelligent workflows on top of tools you already use.",
+    "readingTime": 4,
+    "keywords": [
+      "korean threat",
+      "fake recruiter",
+      "recruiter campaign",
+      "threat actors",
+      "malicious dependency",
+      "north korean",
+      "threat actor",
+      "malicious code",
+      "researchers say",
+      "malicious packages"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.bleepingcomputer.com/news/security/fake-job-recruiters-hide-malware-in-developer-coding-challenges/",
+    "thumbnail_url": "https://www.bleepstatic.com/content/hl-images/2024/08/12/north-korean-hackers.jpg",
+    "created_at": "2026-02-15T12:26:54.771Z",
+    "topic": "tech"
+  },
+  {
     "slug": "remoteopencode-run-your-ai-coding-agent-from-your-phone-via-discord",
     "title": "Remote-OpenCode – Run your AI coding agent from your phone via Discord",
     "description": "Discord bot for remote OpenCode CLI access. Contribute to RoundTable02/remote-opencode development by creating an account on GitHub.",
@@ -1975,22 +1999,6 @@
     "link": "https://signalsandthreads.com/future-of-programming/",
     "thumbnail_url": "https://signalsandthreads.com/static/images/twitter/future_of_programming.png",
     "created_at": "2026-01-09T00:58:47.386Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "catnip-run-claude-code-from-your-iphone-using-github-codespaces",
-    "title": "Catnip – Run Claude Code from Your iPhone Using GitHub Codespaces",
-    "description": "Like catnip, a highly addictive agentic coding tool - wandb/catnip",
-    "fullText": "wandb\n\n /\n\n catnip\n\n Public\n\n Like catnip, a highly addictive agentic coding tool\n\n catnip.run\n\n License\n\n Apache-2.0 license\n\n 402\n stars\n\n 32\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n wandb/catnip",
-    "readingTime": 1,
-    "keywords": [
-      "catnip",
-      "license"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://github.com/wandb/catnip",
-    "thumbnail_url": "https://opengraph.githubassets.com/d032d2bab84800534c687d9264960e30ed62e372d7f32babbf8b3506627fd360/wandb/catnip",
-    "created_at": "2026-01-08T18:16:54.144Z",
     "topic": "tech"
   }
 ]
