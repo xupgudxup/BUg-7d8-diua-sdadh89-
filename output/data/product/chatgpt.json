@@ -1,5 +1,18 @@
 [
   {
+    "slug": "switch-instantly-between-your-ego-across-chatgpt-claude-gemini-grok-and-local",
+    "title": "Switch instantly between your ego across ChatGPT, Claude, Gemini, Grok and local",
+    "description": "모든 맥락을 한 곳에서 관리하세요. 복잡한 프롬프트, 자주 쓰는 답변, 프로젝트 컨텍스트를 카드로 정리하고 어디서든 즉시 꺼내 사용하세요.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://context-wallet.com/",
+    "thumbnail_url": "/og-image.png",
+    "created_at": "2026-02-15T06:38:28.915Z",
+    "topic": "tech"
+  },
+  {
     "slug": "these-malicious-ai-assistants-in-chrome-are-stealing-user-credentials",
     "title": "These Malicious AI Assistants in Chrome Are Stealing User Credentials",
     "description": "Attackers are impersonating ChatGPT, Gemini, and Grok.",
@@ -2205,30 +2218,6 @@
     "link": "https://lifehacker.com/tech/ifixit-fixbot-assistant-repairs?utm_medium=RSS",
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KCH1RZ8RMAA4NM1GPZH9YTVJ/hero-image.fill.size_1200x675.jpg",
     "created_at": "2025-12-15T18:57:47.741Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "attackers-are-spreading-malware-through-chatgpt",
-    "title": "Attackers Are Spreading Malware Through ChatGPT",
-    "description": "Be careful with ChatGPT or Grok's tech advice.",
-    "fullText": "You (hopefully) know by now that you can't take everything AI tells you at face value. Large language models (LLMs) sometimes provide incorrect information, and threat actors are now using paid search ads on Google to spread conversations with ChatGPT and Grok that appear to provide tech support instructions but actually direct macOS users to install an infostealing malware on their devices.\n\nThe campaign is a variation on the ClickFix attack, which often uses CAPTCHA prompts or fake error messages to trick targets into executing malicious commands. But in this case, the instructions are disguised as helpful troubleshooting guides on legitimate AI platforms.\n\nKaspersky details a campaign specific to installing Atlas for macOS. If a user searches \"chatgpt atlas\" to find a guide, the first sponsored result is a link to chatgpt.com with the page title \"ChatGPT™ Atlas for macOS – Download ChatGPT Atlas for Mac.\" If you click through, you'll land on the official ChatGPT site and find a series of instructions for (supposedly) installing Atlas.\n\nHowever, the page is a copy of a conversation between an anonymous user and the AI—which can be shared publicly—that is actually a malware installation guide. The chat directs you to copy, paste, and execute a command in your Mac's Terminal and grant all permissions, which hands over access to the AMOS (Atomic macOS Stealer) infostealer.\n\nA further investigation from Huntress showed similarly poisoned results via both ChatGPT and Grok using more general troubleshooting queries like \"how to delete system data on Mac\" and \"clear disk space on macOS.\"\n\nAMOS targets macOS, gaining root-level privileges and allowing attackers to execute commands, log keystrokes, and deliver additional payloads. BleepingComputer notes that the infostealer also targets cryptocurrency wallets, browser data (including cookies, saved passwords, and autofill data), macOS Keychain data, and files on the filesystem.\n\nIf you're troubleshooting a tech issue, carefully vet any instructions you find online. Threat actors often use sponsored search results as well as social media platforms to spread instructions that are actually ClickFix attacks. Never follow any guidance that you don't understand, and know that if it asks you to execute commands on your device using PowerShell or Terminal to \"fix\" a problem, there's a high likelihood that it's malicious—even if it comes from a search engine or LLM you've used and trusted in the past.\n\nOf course, you can potentially turn the attack around by asking ChatGPT (in a new conversation) if the instructions are safe to follow. According to Kaspersky, the AI will tell you that they aren't.",
-    "readingTime": 3,
-    "keywords": [
-      "installing atlas",
-      "threat actors",
-      "execute commands",
-      "chatgpt and grok",
-      "macos",
-      "instructions",
-      "search",
-      "targets",
-      "troubleshooting",
-      "spread"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://lifehacker.com/tech/chatgpt-grok-tech-advice-malware?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KCFHKGX7QDA7SPFPM73VFFVJ/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2025-12-15T18:57:47.692Z",
     "topic": "tech"
   }
 ]
