@@ -1,5 +1,29 @@
 [
   {
+    "slug": "im-an-amazon-tech-lead-who-uses-ai-to-write-code-daily-theres-one-situation-i-hesitate-to-use-it-in",
+    "title": "I'm an Amazon tech lead who uses AI to write code daily. There's one situation I hesitate to use it in.",
+    "description": "Anni Chen says vibe coding is hard to resist. It speeds up her productivity, but she doesn't trust it blindly.",
+    "fullText": "This as-told-to essay is based on a conversation with Anni Chen, who has worked at Amazon for about three-and-a-half years. It has been edited for length and clarity. Business Insider has verified her employment history.\n\nI'm a tech lead at Amazon responsible for deploying large-scale generative AI and LLM-driven systems. I focus on what we call memory, which powers personalization in generative AI experiences across Amazon.\n\nI vibe code every day. It's definitely a productivity boost.\n\nFor debugging or small tasks, I sometimes treat it like a lottery. Maybe it will produce something amazing. Sometimes, it does.\n\nVibe coding helps me brainstorm what the solution could look like, even if I don't adopt the final solution it proposes. Vibe coding also speeds up the time spent rewriting code when you realize a requirement wasn't covered.\n\nWhen I vibe code, it's always iterative. I give it the basic information it needs, it produces a version, then I check it — similar to a code review with coworkers. I might say, \"You missed this part\" or \"You missed that part.\"\n\nThe AI sometimes fixes issues but introduces something new. You have to keep an eye on it.\n\nFor complex tasks, you need more double-checking. But even with the extra checking, it's still faster.\n\nI was working with a partner team and ran into complex locking issues. Without an LLM, I might have taken a day to research possible solutions, especially since it was relatively new to me.\n\nWithin 15 minutes, I brainstormed with the LLM about possible solutions. I pointed out weaknesses in its suggestions and asked it to improve them. In 15 minutes, I had a proposal to send to the team.\n\nTechnical knowledge helps — you know what's a good solution and what's not. You know what tastes good, but you don't know what dishes are available. The LLM brings up all the dishes, and you choose.\n\nStill, I'm hesitant to use vibe coding directly in production.\n\nLLMs are very good at solving problems, but sometimes they make implicit assumptions you don't realize they're making. If you don't tell it explicitly, for example, that something needs to work for multi-threading, it might just produce the minimum version that works, but when it's large-scale or productionized, it could crash.\n\nNon-technical builders could tell an LLM to build something that handles millions of users. But if you have zero technical knowledge, it's hard to anticipate constraints upfront. If you don't tell the model the implicit assumptions, it won't respect those constraints. Later, you'll run into problems.\n\nNon-technical people might use the LLM to fix issues reactively. But technical people can anticipate constraints proactively and prevent problems in the first place.\n\nTechnical people also understand vibe-coded content better, and they're in a better position to understand what LLMs are good at and not good at. For example, knowing how they're trained and why they're weaker at certain tasks like math. That understanding helps you master them as tools.\n\nWhen you scale to one million or 100 million customers, systems need to be coded differently to handle that scale.\n\nInitially, leadership pushed vibe coding. Our team is a GenAI team, so we were naturally more receptive. In non-GenAI teams, engineers initially reacted like, \"No, I won't let AI do my job. I don't trust AI-generated code.\"\n\nAfter people tried it, attitudes shifted. People realized it's pretty good sometimes. Now it's more widely adopted.\n\nIt's very hard to resist vibe coding nowadays. If you're an employee, leadership sees the productivity boost and will encourage you to use it.\n\nWhen your peers are using it and coding faster, it's hard to resist. If you can't keep up with the speed, it becomes difficult to collaborate.\n\nEven if you resist, you still consume AI passively. AI comments are embedded in code reviews. So even if you don't vibe code directly, you're still interacting with AI outputs.\n\nDo you have a story to share about vibe coding? Contact this reporter at cmlee@businessinsider.com.",
+    "readingTime": 4,
+    "keywords": [
+      "productivity boost",
+      "implicit assumptions",
+      "anticipate constraints",
+      "technical knowledge",
+      "vibe coding",
+      "vibe code",
+      "it's",
+      "don't",
+      "team",
+      "they're"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/amazon-tech-lead-vibe-coding-daily-resist-anni-chen-2026-2",
+    "thumbnail_url": "https://i.insider.com/698d593ce1ba468a96abe95e?width=1184&format=jpeg",
+    "created_at": "2026-02-18T06:49:48.035Z",
+    "topic": "finance"
+  },
+  {
     "slug": "i-wasnt-satisfied-with-existing-cloud-coding-agents-so-i-built-my-own",
     "title": "I wasn't satisfied with existing cloud coding agents, so I built my own",
     "description": "Self hosted cloud coding agent with k3s + kata containers + cloud hypervisor microVMs + tailscale + any harness + a nice iOS app - angristan/netclode",
@@ -1982,30 +2006,6 @@
     "link": "https://arxiv.org/abs/2601.02563",
     "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
     "created_at": "2026-01-12T12:26:18.532Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "we-asked-over-150-software-engineers-about-vibecoding-heres-what-they-said",
-    "title": "We asked over 150 software engineers about vibe-coding. Here's what they said.",
-    "description": "167 software engineers responded to Business Insider's vibe-coding survey. Over 45% reported \"keeping up\" with AI tools. Almost 17% feel behind.",
-    "fullText": "AI has radically changed what coding looks like. We asked software engineers how they felt about it.\n\nAndrej Karpathy coined the term \"vibe-coding,\" or the creation of code using AI. The term has since gained traction among developers worldwide and was named Collins Dictionary's Word of the Year for 2025.\n\nLess than a year after his post, Karpathy wrote that he had \"never felt this much behind as a programmer.\"\n\nWe asked developers: When it comes to vibe-coding, do you feel ahead, behind, or like you're keeping pace?\n\n167 software engineers responded to our survey. The biggest cohort — 75 engineers, or 46.9% — said that they were \"keeping up.\" 30 engineers said they felt ahead of the curve, while 27 felt behind.\n\n28 engineers (or 17.5% of respondents) said that they were opting out of using AI code editing tools entirely. These engineers wrote that the tools weren't advanced enough, or that they took too long to learn how to use. None of the 28 agreed to speak on the record after Business Insider reached out.\n\nWhile the survey isn't scientific, the results offer insight into how software engineers are feeling about their rapidly changing industry.\n\nIn follow-up conversations, eight engineers told Business Insider how they feel about AI code editors. All found them helpful in some form, though their usages ranged from one-off tools to lifesavers.\n\nRyan Shah sometimes wonders: \"Did I really need to learn how to write code?\"\n\nThe 23-year-old AI consultant from Atlanta recently graduated with a degree in computer information technology. Now he uses Cursor and Google's Antigravity, paired with Claude Opus 4.5, which he said was at \"midlevel engineer status.\"\n\nShah said he doesn't regret his software engineering courses, though. They taught him to \"read\" code, he said, a skill that, coupled with his vibe-coding proficiencies, keeps him from being \"the first one laid off.\"\n\nJavanie Campbell swung the other way: He warned that over-reliance on vibe-coding tools will put your career in danger.\n\n\"For people who turn to the LLM as the God or the expert, they will be replaced,\" said the 35-year-old CEO of DevDaysAtWork, who is based in Jamaica.\n\nAmong software engineers, there's a debate brewing: Just how bad will the effects of AI code editors be on jobs? Some say they will shrink the industry's workforce; others call them tools, not replacements for engineers.\n\nThe first time Ryan Clinton tried vibe-coding, he got scared for his job. He's not fearful anymore, he said.\n\nClinton's engineering level won't be affected, said the 46-year-old software developer from Nashville. More experienced engineers work on \"architecture and design,\" he said, while more junior staffers code. At this point of AI coding, human intervention is also still routinely necessary.\n\n\"You want to make sure it makes sense,\" he said. \"Only an idiot would randomly click 'yes' and commit it.\"\n\nBarry Fruitman is more worried — but not for himself. At 56, the Android developer from Toronto doesn't think the job market will feel the effect until five to 10 years out.\n\n\"Today, I think the threat is overstated, and hopefully it will stay that way until I retire,\" he said.\n\nEd Gaile said AI tools have doubled, if not tripled, his productivity.\n\nThe 55-year-old Appfire principal solutions architect from Atlanta was impressed by the decrease in context switching that vibe-coding tools brought.\n\n\"I wish I had this 15 years ago,\" he said.\n\nFor AI code editors, the word \"productivity\" still looms large. Many people feel that they're saving time by using these tools. Others cite the additional time spent reviewing and correcting lines of code.\n\nA July METR study added fuel to the fire.\n\nThe study asked experienced developers to complete a series of tasks. Study participants working without AI's help spent 10% more time coding — but those with AI assistance spent 20% more time reviewing AI outputs, prompting AI, waiting on AI, or being idle. Ultimately, the study found that the AI-assisted developers were less productive.\n\nShawn Gay, a 54-year-old R&D manager from El Paso, Texas, spends time keeping up with the industry's changes. He said he felt behind the curve.\n\n\"I have decades of experience, so I feel like it's a huge effort to try to change the way my brain thinks about software,\" Gay told Business Insider.\n\nGus De Souza said that he saved time on coding, but spent more time reviewing the AI-generated code. The real productivity gains were in troubleshooting, said the 48-year-old software architect from Kitchener, Ontario.\n\nWhat even is a vibe-coder? While the term has grown to encompass most forms of AI-assisted coding, Karpathy's X post first defined it as when developers \"fully give in to the vibes, embrace exponentials, and forget that the code even exists.\"\n\nLara Fraser, a data analyst and epidemiologist from Sarasota, Florida, doesn't consider herself a vibe-coder.\n\nFraser codes in R and uses tools like ChatGPT and Claude to assist. She's tried other tools, but found high rates of hallucination. The model generation also matters, Fraser said: GPT 5.1 was great, but 5.2 was a \"disaster.\"\n\nFor Fraser, vibe-coding depends on the programmer's skill. Anyone can create an app, but not everyone can maintain it.\n\n\"Inevitably, something's going to break,\" she said. \"Can you fix it? If you can't, you're a vibe-coder.\"",
-    "readingTime": 5,
-    "keywords": [
-      "code editors",
-      "software engineers",
-      "year-old software",
-      "vibe-coding tools",
-      "business insider",
-      "developers",
-      "behind",
-      "study",
-      "doesn't",
-      "productivity"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/software-engineers-on-vibe-coding-ai-tools-2026-1",
-    "thumbnail_url": "https://i.insider.com/69601f86832e0ef1ead7712a?width=1200&format=jpeg",
-    "created_at": "2026-01-12T12:26:15.498Z",
     "topic": "tech"
   }
 ]
