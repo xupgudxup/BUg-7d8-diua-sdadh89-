@@ -1,5 +1,29 @@
 [
   {
+    "slug": "microsoft-just-patched-a-major-security-vulnerability-for-this-popular-windows-app",
+    "title": "Microsoft Just Patched a Major Security Vulnerability for This Popular Windows App",
+    "description": "Users could be tricked into running arbitrary code, but the issue was patched last week.",
+    "fullText": "AI-related changes to Notepad—yes, that Notepad—allowed attackers to execute arbitrary code on your computer. The vulnerability was related to Markdown support, which was added last year. Markdown is a simple way to add formatting, including links, to plaintext documents—and links were the source of the vulnerability.\n\n\"An attacker could trick a user into clicking a malicious link inside a Markdown file opened in Notepad, causing the application to launch unverified protocols that load and execute remote files,\" according to the security response notice.\n\nMarkdown has long been popular in certain parts of the internet—anyone who occasionally comments on Reddit or chats using Discord is likely at least a little familiar with it. But the markup language has become even more important in the age of AI—most documents are converted to plain text Markdown files to train models.\n\nMarkdown support was added around the same time Copilot was integrated into Notepad, as part of a broader push to add AI to every corner of the operating system. And there's an argument to be made that all these AI additions are adding up to new vulnerabilities. Microsoft patched 1,129 bugs in 2025 according to Krebs on Security, a prominent cybersecurity blog. That's an 11.9% increase over the previous year, which was already unusually high. Microsoft itself admits that AI agents will open up new vulnerabilities, even as the company adds them to Windows.\n\nThis is all to say that installing security updates is likely more important now than ever. Sure, you could disable all AI features in Windows, but that's unlikely to protect you from all the new vulnerabilities—installing Linux might, though.\n\nLuckily for Windows users, this vulnerability was fixed in Microsoft's February 2026 security update. To find out if you've installed it, open the Settings app, head to \"Windows Update,\" then check if an update labeled \"2026-02 Security Update\" is waiting to be installed. If so, click the \"Restart Now\" button to install the update.",
+    "readingTime": 2,
+    "keywords": [
+      "markdown",
+      "vulnerability",
+      "execute",
+      "links",
+      "notepad",
+      "files",
+      "vulnerabilities",
+      "that's",
+      "installed",
+      "security"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://lifehacker.com/tech/microsoft-patched-major-security-vulnerability-in-notepad?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KHPEBJE21VX2948H0YEVM1QR/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-02-18T01:13:42.074Z",
+    "topic": "tech"
+  },
+  {
     "slug": "cachewarmer-a-way-to-preload-the-windows-file-system-cache",
     "title": "CacheWarmer; a Way to Preload the Windows File System Cache",
     "description": "CacheWarmer is an attempt to pre-fetch desired files into the Windows File System Cache. - unquietwiki/CacheWarmer",

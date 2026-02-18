@@ -1,5 +1,29 @@
 [
   {
+    "slug": "update-chrome-asap-to-patch-this-highseverity-security-flaw",
+    "title": "Update Chrome ASAP to Patch This High-Severity Security Flaw",
+    "description": "This is the first zero-day in Google Chrome this year.",
+    "fullText": "If you use Google Chrome, you should install the latest update ASAP. Google has issued a patch for a high-severity flaw that has been actively exploited in the wild—the first Chrome zero-day in 2026.\n\nThe latest flaw, catalogued as CVE-2026-2441, is a use-after-free vulnerability in CSSFontFeatureValuesMap, Chrome's CSS font feature implementation. A use-after-free vulnerability is a flaw in which an application attempts to use memory after it has been released back to the system. This type of bug allows attackers to execute code, escalate privileges, cause app or system crashes, and leak sensitive data.\n\nCVE-2026-2441 would allow \"a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page.\" Essentially, this means malicious HTML content could run code inside a Chrome tab, extension, or plugin. As Malwarebytes explains, this is dangerous because attackers can see or modify whatever the isolated browser tab (sandbox) can access, allowing actions like credential harvesting and traffic rerouting—even if it cannot escape to impact the whole operating system.\n\nGoogle said that this vulnerability has been exploited in the wild but hasn't provided any specific details as to how. The discovery has been attributed to Shaheen Fazim.\n\nGoogle released a Stable channel update on Feb. 13 with a patch for this flaw. The latest versions of Chrome are 145.0.7632.75/76 for Windows and macOS and 144.0.7559.75 for Linux, so you'll want to ensure you are up to date. Go to the Chrome menu and select About Google Chrome to check which version you're on.\n\nChrome updates automatically when you close and reopen the browser, but if you don't do that regularly, keep an eye out for pending updates in the top-right corner of your browser window. Apply these updates immediately by tapping the three dots and selecting the first menu item. Chrome will need to restart to complete the update.",
+    "readingTime": 2,
+    "keywords": [
+      "use-after-free vulnerability",
+      "code inside",
+      "flaw",
+      "latest",
+      "system",
+      "browser",
+      "updates",
+      "chrome",
+      "patch",
+      "exploited"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://lifehacker.com/tech/update-chrome-asap-to-patch-the-latest-zero-day?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KHPAYVF4J3DZ0GBWXFDNFH3N/hero-image.fill.size_1200x675.png",
+    "created_at": "2026-02-18T01:13:41.402Z",
+    "topic": "tech"
+  },
+  {
     "slug": "3-reasons-why-googles-gemini-could-be-the-big-bogeyman-of-the-ai-trade",
     "title": "3 reasons why Google's Gemini could be the big bogeyman of the AI trade",
     "description": "Anthropic's Claude AI has snatched headlines recently. But is there another model that is throwing a wrench in the AI trade?",
@@ -2152,30 +2176,6 @@
     "link": "https://9to5mac.com/2026/01/21/siri-chatbot-apple-google-servers/",
     "thumbnail_url": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2024/10/iphone-privacy-private-cloud-compute.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
     "created_at": "2026-01-22T06:20:37.984Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "google-just-promised-no-ads-in-gemini-for-now",
-    "title": "Google Just Promised No Ads in Gemini (for Now)",
-    "description": "The statement comes about a week after OpenAI announced ads are coming to ChatGPT.",
-    "fullText": "A week after OpenAI admitted it will soon start testing ads in ChatGPT, Google has promised that it's not planning to inject ads into Gemini anytime soon.\n\nThe statement was given to journalist Alex Heath during the World Economic Forum in Davos, Switzerland. Google DeepMind CEO Demis Hassabis said the company doesn't have \"any plans\" for ads in Gemini. While the statement was fairly brief, it also jibes with a similar quote Hassabis gave to Axios, where he said he was \"a little bit surprised\" that OpenAI was already introducing ads to ChatGPT.\n\nThat surprise is understandable, especially because OpenAI CEO Sam Altman said in 2024 that he considered ads a \"last resort for us as a business model.\" But looking at the numbers, it makes sense that ChatGPT is getting ads long before Gemini is even thinking of them.\n\nWhile Google makes most of its money through showing people ads, it's also able to rely on Search and YouTube to push ads to most of those eyeballs. Meanwhile, OpenAI is pretty much just ChatGPT. As the latter moves to a for-profit model, it now has to put moneymaking first, something it's had trouble doing without relying on traditional internet moneymakers like ads. Google, meanwhile, is already profitable elsewhere, and is able to take its time and use its sheer size to keep Gemini ad-free, at least while it continues to chase market share.\n\nDoes this mean Google's AI will never get ads? Well, never say never. But it does mean that they're probably not on the horizon—even if Google plans to more aggressively monetize Gemini over the long term, it isn't facing the same kind of time crunch as Altman's company.\n\nIt remains to be seen whether the presence of ads will push users away from ChatGPT, but the move comes in the wake of significant wins for Gemini and one major loss for ChatGPT. First, Google's Nano Banana image editing model went viral on social media, winning over the general public. Then, Google struck a deal with Apple to put its AI into the iPhone, and it looks like Gemini will be powering Siri for the foreseeable future.\n\nMeanwhile, ChatGPT reportedly saw a 6% dip in users early last month, following a model update from Gemini—and that was before the introdution of ads. While ChatGPT still seems to be in the lead on total user count, there's evidence that Google is catching up.\n\nThe divide in strategy seems clear: As OpenAI seeks ways to get more money out of its existing user base, Google can focus on growing its own with new integrations into the products we already use every day. I can't say what the limits of this growth are, but I can say that I rarely go out of my way use AI, yet I've still found myself accidentally relying on Google's AI overviews every now and then. If Google can get more people like me to casually integrate AI into our regular workflows, it's possible we could soon have a new AI leader on our hands.",
-    "readingTime": 3,
-    "keywords": [
-      "google's ai",
-      "it's",
-      "model",
-      "soon",
-      "google",
-      "chatgpt",
-      "gemini",
-      "statement",
-      "hassabis",
-      "plans"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/google-just-promised-no-ads-in-gemini-for-now?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KFGZ1E3E2BQZ7DBB464WC469/hero-image.fill.size_1200x675.png",
-    "created_at": "2026-01-22T00:59:09.618Z",
     "topic": "tech"
   }
 ]
