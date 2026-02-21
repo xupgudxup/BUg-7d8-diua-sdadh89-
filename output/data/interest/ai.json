@@ -1,5 +1,106 @@
 [
   {
+    "slug": "openai-just-hired-back-another-employee-from-mira-muratis-thinking-machines-lab",
+    "title": "OpenAI just hired back another employee from Mira Murati's Thinking Machines Lab",
+    "description": "Thinking Machines Lab faces departures as employees rejoin OpenAI amid poaching efforts by major tech firms.",
+    "fullText": "Another employee at Thinking Machines Lab is leaving to rejoin OpenAI.\n\nIt's the latest in a string of departures from the $12 billion AI startup, which is led by former OpenAI CTO Mira Murati and lately has been the subject of high-profile poaching campaigns from bigger tech companies.\n\nThe latest employee to go back to OpenAI is Jolene Parish, who joined Thinking Machines Lab in April last year, according to her LinkedIn profile. She had worked at OpenAI for three years prior. Before that, she worked for 10 years on security at Apple, her profile says.\n\nOther employees rejoined OpenAI last month. Two co-founders, former CTO Barret Zoph and Luke Metz, both left, along with researcher Sam Schoenholz.\n\nLia Guy, another researcher, also rejoined OpenAI, The Information reported. Another cofounder, Andrew Tulloch, left for Meta late last year, The Wall Street Journal reported.\n\nOpenAI and Thinking Machines Lab declined to comment.\n\nThinking Machines Lab raised a monster $2 billion funding round last year, valuing the company at $12 billion, spokespeople said at the time. The startup launched its first product, Tinker, last October.\n\nThe San Francisco-based company has become known for attracting star-studded talent. It quietly hired Neal Wu, a legendary coder who won three gold medals in an Olympiad for programming, and Soumith Chintala, the creator of the open-source AI project PyTorch at Meta, who is now Thinking Machines Lab's CTO, Business Insider previously reported.\n\nHave a tip? Contact this reporter via email at crollet@businessinsider.com or on Signal and WhatsApp at 628-282-2811. Use a personal email address, a nonwork WiFi network, and a nonwork device; here's our guide to sharing information securely.",
+    "readingTime": 2,
+    "keywords": [
+      "machines lab",
+      "rejoined openai",
+      "thinking machines lab",
+      "another",
+      "employee",
+      "latest",
+      "startup",
+      "profile",
+      "researcher",
+      "meta"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://www.businessinsider.com/thinking-machines-lab-employee-rejoins-openai-talent-exodus-2026-2",
+    "thumbnail_url": "https://i.insider.com/6998c52befb52c8bd0de973f?width=1200&format=jpeg",
+    "created_at": "2026-02-21T01:06:34.961Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "heres-why-you-should-never-use-ai-to-generate-your-passwords",
+    "title": "Here's Why You Should Never Use AI to Generate Your Passwords",
+    "description": "ChatGPT isn't good at generating secure passwords.",
+    "fullText": "I'm a bit of a broken record when it comes to personal security on the internet: Make strong passwords for each account; never reuse any passwords; and With these three steps combined, your general security is pretty much set. But how you make those passwords matters just as much as making each strong and unique. As such, please don't use an AI program to generate your passwords.\n\nIf you're a fan of chatbots like ChatGPT, Claude, or Gemini, it might seem like a no-brainer to ask the AI to generate passwords for you. You might like how they handle other tasks for you, so it might make sense that something seemingly so high-tech yet accessible could produce secure passwords for your accounts. But LLMs (large language models) are not necessarily good at everything, and creating good passwords just so happens to be among those faults.\n\nAs highlighted by Malwarebytes Labs, researchers recently investigated AI-generated passwords, and evaluated their security. In short? The findings aren't good. Researchers tested password generation across ChatGPT, Claude, and Gemini, and discovered that the passwords were \"highly predictable\" and \"not truly random.\" Claude, in particular, didn't fare well: Out of 50 prompts, the bot was only able to generate 23 unique passwords. Claude gave the same password as an answer 10 times. The Register reports that researchers found similar flaws with AI systems like GPT-5.2, Gemini 3 Flash, Gemini 3 Pro, and even Nano Banana Pro. (Gemini 3 Pro even warned the passwords shouldn't be used for \"sensitive accounts.\")\n\nThe thing is, these results seem good on the surface. They look uncrackable because they're a mix of numbers, letters, and special characters, and password strength identifiers might say they're secure. But these generations are inherently flawed, whether that's because they are repeated results, or come with a recognizable pattern. Researchers evaluated the \"entropy\" of these passwords, or the measure of unpredictability, with both \"character statistics\" and \"log probabilities.\" If that all sounds technical, the important thing to note is that the results showed entropies of 27 bits and 20 bits, respectively. Character statistics tests look for entropy of 98 bits, while log probabilities estimates look for 120 bits. You don't need to be an expert in password entropy to know that's a massive gap.\n\nHackers can use these limitations to their advantage. Bad actors can run the same prompts as researchers (or, presumably, end users) and collect the results into a bank of common passwords. If chatbots repeat passwords in their generations, it stands to reason that many people might be using the same passwords generated by those chatbots—or trying passwords that follow the same pattern. If so, hackers could simply try those passwords during break-in attempts, and if you used an LLM to generate your password, it might match. It's tough to say what that exact risk is, but to be truly secure, each of your passwords should be totally unique. Potentially using a password that hackers have in a word bank is an unnecessary risk.\n\nIt might seem surprising that a chatbot wouldn't be good at generating random passwords, but it makes sense based on how they work. LLMs are trained to predict the next token, or data point, that should appear in a sequence. In this case, the LLM is trying to choose the characters that make the most sense to appear next, which is the opposite of \"random.\" If the LLM has passwords in its training data, it may incorporate that into its answer. The password it generates makes sense in its \"mind,\" because that's what it's been trained on. It isn't programmed to be random.\n\nMeanwhile, traditional password managers are not LLMs. Instead, they are designed to produce a truly random sequence, by taking cryptographic bits and converting them into characters. These outputs are not based on existing training data and follow no patterns, so the chances that someone else out there has the same password as you (or that hackers have it stored in a word bank) is slim. There are plenty of options out there to use, and most password managers come with secure password generators.\n\nBut you don't even need one of these programs to make a secure password. Just pick two or three \"uncommon\" words, mix a few of the characters up, and presto: You have a random, unique, and secure password. For example, you could take the words \"shall,\" \"murk,\" and \"tumble,\" and combine them into \"sH@_llMurktUmbl_e.\" (Don't use that one, since it's no longer unique.)\n\nIf you're looking to boost your personally security even further, consider passkeys whenever possible. Passkeys combine the convenience of passwords with the security of 2FA: With passkeys, your device is your password. You use its built-in authentication to log in (face scan, fingerprint, or PIN), which means there's no password to actually create. Without the trusted device, hackers won't be able to break into your account.\n\nNot all accounts support passkeys, which means they aren't a universal solution right now. You'll likely need passwords for some of your accounts, which means abiding by proper security methods to keep things in order. But replacing some of your passwords with passkeys can be a step up in both security and convenience—and avoids the security pitfalls of asking ChatGPT to make your passwords for you.",
+    "readingTime": 5,
+    "keywords": [
+      "gemini pro",
+      "character statistics",
+      "log probabilities",
+      "truly random",
+      "password managers",
+      "secure password",
+      "passwords",
+      "security",
+      "unique",
+      "researchers"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/dont-use-ai-to-generate-your-passwords?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KHY5M8NYREZ63A0JXYRYBTT4/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-02-21T01:06:33.965Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "code-mode-give-agents-an-api-in-1k-tokens",
+    "title": "Code Mode: give agents an API in 1k tokens",
+    "description": "Cloudflare introduces Code Mode for Workers AI, a technical approach to fit entire API schemas into 1,000 tokens, enabling LLM agents to execute precise tool calls with minimal latency.",
+    "fullText": "Model Context Protocol (MCP) has become the standard way for AI agents to use external tools. But there is a tension at its core: agents need many tools to do useful work, yet every tool added fills the model's context window, leaving less room for the actual task.\n\nCode Mode is a technique we first introduced for reducing context window usage during agent tool use. Instead of describing every operation as a separate tool, let the model write code against a typed SDK and execute the code safely in a Dynamic Worker Loader. The code acts as a compact plan. The model can explore tool operations, compose multiple calls, and return just the data it needs. Anthropic independently explored the same pattern in their Code Execution with MCP post.\n\nToday we are introducing a new MCP server for the entire Cloudflare API — from DNS and Zero Trust to Workers and R2 — that uses Code Mode. With just two tools, search() and execute(), the server is able to provide access to the entire Cloudflare API over MCP, while consuming only around 1,000 tokens. The footprint stays fixed, no matter how many API endpoints exist.\n\nFor a large API like the Cloudflare API, Code Mode reduces the number of input tokens used by 99.9%. An equivalent MCP server without Code Mode would consume 1.17 million tokens — more than the entire context window of the most advanced foundation models.\n\nCode mode savings vs native MCP, measured with tiktoken\n\nYou can start using this new Cloudflare MCP server today. And we are also open-sourcing a new Code Mode SDK in the Cloudflare Agents SDK, so you can use the same approach in your own MCP servers and AI Agents.\n\nThis new MCP server applies Code Mode server-side. Instead of thousands of tools, the server exports just two: search() and execute(). Both are powered by Code Mode. Here is the full tool surface area that gets loaded into the model context:\n\nTo discover what it can do, the agent calls search(). It writes JavaScript against a typed representation of the OpenAPI spec. The agent can filter endpoints by product, path, tags, or any other metadata and narrow thousands of endpoints to the handful it needs. The full OpenAPI spec never enters the model context. The agent only interacts with it through code.\n\nWhen the agent is ready to act, it calls execute(). The agent writes code that can make Cloudflare API requests, handle pagination, check responses, and chain operations together in a single execution.\n\nBoth tools run the generated code inside a Dynamic Worker isolate — a lightweight V8 sandbox with no file system, no environment variables to leak through prompt injection and external fetches disabled by default. Outbound requests can be explicitly controlled with outbound fetch handlers when needed.\n\nSuppose a user tells their agent: \"protect my origin from DDoS attacks.\" The agent's first step is to consult documentation. It might call the Cloudflare Docs MCP Server, use a Cloudflare Skill, or search the web directly. From the docs it learns: put Cloudflare WAF and DDoS protection rules in front of the origin.\n\nStep 1: Search for the right endpoints\nThe search tool gives the model a spec object: the full Cloudflare OpenAPI spec with all $refs pre-resolved. The model writes JavaScript against it. Here the agent looks for WAF and ruleset endpoints on a zone:\n\nThe server runs this code in a Workers isolate and returns:\n\nThe full Cloudflare API spec has over 2,500 endpoints. The model narrowed that to the WAF and ruleset endpoints it needs, without any of the spec entering the context window.\n\nThe model can also drill into a specific endpoint's schema before calling it. Here it inspects what phases are available on zone rulesets:\n\nThe agent now knows the exact phases it needs: ddos_l7 for DDoS protection and http_request_firewall_managed for WAF.\n\nStep 2: Act on the API\nThe agent switches to using execute. The sandbox gets a cloudflare.request() client that can make authenticated calls to the Cloudflare API. First the agent checks what rulesets already exist on the zone:\n\nThe agent sees that managed DDoS and WAF rulesets already exist. It can now chain calls to inspect their rules and update sensitivity levels in a single execution:\n\nThis entire operation, from searching the spec and inspecting a schema to listing rulesets and fetching DDoS and WAF configurations, took four tool calls.\n\nWe started with MCP servers for individual products. Want an agent that manages DNS? Add the DNS MCP server. Want Workers logs? Add the Workers Observability MCP server. Each server exported a fixed set of tools that mapped to API operations. This worked when the tool set was small, but the Cloudflare API has over 2,500 endpoints. No collection of hand-maintained servers could keep up.\n\nThe Cloudflare MCP server simplifies this. Two tools, roughly 1,000 tokens, and coverage of every endpoint in the API. When we add new products, the same search() and execute() code paths discover and call them — no new tool definitions, no new MCP servers. It even has support for the GraphQL Analytics API.\n\nOur MCP server is built on the latest MCP specifications. It is OAuth 2.1 compliant, using Workers OAuth Provider to downscope the token to selected permissions approved by the user when connecting. The agent  only gets the capabilities the user explicitly granted.\n\nFor developers, this means you can use a simple agent loop and still give your agent access to the full Cloudflare API with built-in progressive capability discovery.\n\nSeveral approaches have emerged to reduce how many tokens MCP tools consume:\n\nClient-side Code Mode was our first experiment. The model writes TypeScript against typed SDKs and runs it in a Dynamic Worker Loader on the client. The tradeoff is that it requires the agent to ship with secure sandbox access. Code Mode is implemented in Goose and Anthropics Claude SDK as Programmatic Tool Calling.\n\nCommand-line interfaces are another path. CLIs are self-documenting and reveal capabilities as the agent explores. Tools like OpenClaw and Moltworker convert MCP servers into CLIs using MCPorter to give agents progressive disclosure. The limitation is obvious: the agent needs a shell, which not every environment provides and which introduces a much broader attack surface than a sandboxed isolate.\n\nDynamic tool search, as used by Anthropic in Claude Code, surfaces a smaller set of tools hopefully relevant to the current task. It shrinks context use but now requires a search function that must be maintained and evaluated, and each matched tool still uses tokens.\n\nEach approach solves a real problem. But for MCP servers specifically, server-side Code Mode combines their strengths: fixed token cost regardless of API size, no modifications needed on the agent side, progressive discovery built in, and safe execution inside a sandboxed isolate. The agent just calls two tools with code. Everything else happens on the server.\n\nThe Cloudflare MCP server is available now. Point your MCP client at the server URL and you'll be redirected to Cloudflare to authorize and select the permissions to grant to your agent. Add this config to your MCP client:\n\nFor CI/CD, automation, or if you prefer managing tokens yourself, create a Cloudflare API token with the permissions you need. Both user tokens and account tokens are supported and can be passed as bearer tokens in the Authorization header.\n\nMore information on different MCP setup configurations can be found at the Cloudflare MCP repository.\n\nCode Mode solves context costs for a single API. But agents rarely talk to one service. A developer's agent might need the Cloudflare API alongside GitHub, a database, and an internal docs server. Each additional MCP server brings the same context window pressure we started with.\n\nCloudflare MCP Server Portals let you compose multiple MCP servers behind a single gateway with unified auth and access control. We are building a first-class Code Mode integration for all your MCP servers, and exposing them to agents with built-in progressive discovery and the same fixed-token footprint, regardless of how many services sit behind the gateway.",
+    "readingTime": 7,
+    "keywords": [
+      "worker loader",
+      "ddos protection",
+      "code mode",
+      "cloudflare api",
+      "openapi spec",
+      "built-in progressive",
+      "sandboxed isolate",
+      "mcp servers",
+      "progressive discovery",
+      "ruleset endpoints"
+    ],
+    "qualityScore": 1,
+    "link": "https://blog.cloudflare.com/code-mode-mcp/",
+    "thumbnail_url": "https://cf-assets.www.cloudflare.com/zkvhlag99gkb/2080o6v9LBfIFbLUW8elRE/3cfaeb0dc0fa56bcbe4c332b1942a167/Code_Mode-_give_agents_an_entire_API_in_1_000_tokens-OG.png",
+    "created_at": "2026-02-21T01:06:31.696Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "universal-ros-bridge-for-ai-agents-control-robots-with-llms",
+    "title": "Universal ROS bridge for AI agents – control robots with LLMs",
+    "description": "Universal ROS1/ROS2 bridge for AI agents to control robots and embodied intelligence systems. - webthree549-bot/agent-ros-bridge",
+    "fullText": "webthree549-bot\n\n /\n\n agent-ros-bridge\n\n Public\n\n Universal ROS1/ROS2 bridge for AI agents to control robots and embodied intelligence systems.\n\n License\n\n MIT license\n\n 1\n star\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n webthree549-bot/agent-ros-bridge",
+    "readingTime": 1,
+    "keywords": [
+      "star",
+      "license"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://github.com/webthree549-bot/agent-ros-bridge",
+    "thumbnail_url": "https://opengraph.githubassets.com/67a6f21115579e2ab34f04b7361101f54acb4f5f76fa6d08612e6084d61113d9/webthree549-bot/agent-ros-bridge",
+    "created_at": "2026-02-21T01:06:30.507Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "claws-are-now-a-new-layer-on-top-of-llm-agents",
+    "title": "Claws are now a new layer on top of LLM agents",
+    "description": "Bought a new Mac mini to properly tinker with claws over the weekend. The apple store person told me they are selling like hotcakes and everyone is confused...",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://twitter.com/karpathy/status/2024987174077432126",
+    "thumbnail_url": "https://pbs.twimg.com/profile_images/1296667294148382721/9Pr6XrPB_200x200.jpg",
+    "created_at": "2026-02-21T01:06:30.124Z",
+    "topic": "tech"
+  },
+  {
     "slug": "2-littleknown-tech-founders-are-both-14-billion-richer-this-year-as-ai-demand-fuels-a-memory-supercycle",
     "title": "2 little-known tech founders are both $14 billion richer this year as AI demand fuels a memory supercycle",
     "description": "Kingston founders and memory magnates David Sun and John Tu are 44% richer this year as intense AI demand causes a supply crunch.",
@@ -2047,121 +2148,6 @@
     "link": "https://www.businessinsider.com/openai-meta-apple-wearables-phone-addiction-2026-2",
     "thumbnail_url": "https://i.insider.com/6994e2ade1ba468a96ac31ae?width=1200&format=jpeg",
     "created_at": "2026-02-18T12:37:13.292Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "anthropics-claude-code-creator-predicts-software-engineering-title-will-start-to-go-away-in-2026",
-    "title": "Anthropic's Claude Code creator predicts software engineering title will start to 'go away' in 2026",
-    "description": "Boris Cherny, the founder of Anthropic's Claude Code, said AI has largely solved coding, so software engineers will start to take on different tasks.",
-    "fullText": "The creator of a popular AI coding agent said software engineering as a job title will soon be a thing of the past as artificial intelligence automates writing code.\n\nBoris Cherny, who created Claude Code at Anthropic, said in an interview with Y Combinator's \"Lightcone\" podcast that 2026 will bring \"insane\" developments to AI. That includes a massive shift in the work software engineers do across industries.\n\n\"I think today coding is practically solved for me, and I think it'll be the case for everyone regardless of domain,\" Cherny said in the interview, published Tuesday. \"I think we're going to start to see the title 'software engineer' go away. And I think it's just going to be maybe builder, maybe product manager, maybe we'll keep the title as a vestigial thing.\"\n\nCherny added that software engineers will not only be coding but increasingly taking on other tasks like \"writing specs\" — a document that defines what and how something will be built — or talking to users.\n\n\"Like this thing that we're starting to see right now in our team, where engineers are very much generalists, and every single function on our team codes,\" he said — including product managers, designers, engineering manager, and finance people.\n\nTech executives and founders have said advancements in AI have rapidly changed the way their teams operate in the past few years\n\nJesal Gadhia, a startup founder, recently told Business Insider that all the code for his company were written by agents, which wouldn't have been possible in 2024.\n\nAgents like Claude have changed how software engineers work as they spend more time reviewing or debugging code rather than writing lines of it.\n\nSome in the industry have started to note the unintended consequences of relying on AI. A software engineer told Business Insider that AI has simultaneously made them productive and overworked, leading to \"AI fatigue.\"\n\nAndrej Karpathy, a founding member of OpenAI and Tesla's ex-head of AI, said in January that he has noticed his ability to manually code has started to \"atrophy.\"",
-    "readingTime": 2,
-    "keywords": [
-      "software engineer",
-      "software engineers",
-      "business insider",
-      "coding",
-      "title",
-      "engineering",
-      "interview",
-      "we're",
-      "product",
-      "manager"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.businessinsider.com/anthropic-claude-code-founder-ai-impacts-software-engineer-role-2026-2",
-    "thumbnail_url": "https://i.insider.com/69951a8aa645d11881897ccb?width=1200&format=jpeg",
-    "created_at": "2026-02-18T12:37:13.284Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-ai-software-freakout-is-a-massive-overreaction-heres-why",
-    "title": "The AI software freakout is a massive overreaction. Here's why.",
-    "description": "The SaaSpocalypse fears are overblown. AI's integration into enterprise software may boost, not harm, established SaaS companies.",
-    "fullText": "The recent AI-inspired software meltdown is an enormous overreaction. SaaS companies are going to do just fine. In fact, they might see their businesses boom as a result of AI.\n\nAfter working for decades in the IT and cloud sectors, I know what it takes to build, sell, and maintain complex enterprise software. And it's clear to me that AI is not the threat that many investors fear.\n\nLet's look at the three main concerns that the market is obsessing over. All of them have shortcomings that will keep established SaaS vendors doing well.\n\nSoftware development has been transformed by AI. It's a near-perfect use case for generative AI: applying established patterns to a well-bounded use case, resulting in incredible productivity improvements.\n\nThis coding revolution has led some commentators to predict that companies are going to write their own software, rather than buy it from SaaS vendors.\n\nThis makes me wonder if these commentators have ever actually spent any time working in enterprise IT. Even if one accepts that software creation is much easier now, bringing a full software product to market requires much more than code:\n\nGeoffrey Moore, a renowned management consultant and organizational theorist, wrote a book called \"Crossing the Chasm\" on what mainstream enterprises need to adopt new technology. He never mentioned the cost of writing software code as a gating factor.\n\nOver the course of my long career, I have witnessed countless DIY failures by enterprise IT organizations that fail to understand the difference between an internal software project and a real product. I can already see another wave of failures, fueled by misplaced AI coding enthusiasm.\n\nAI prognosticators see cheaper startups displacing large software incumbents. This overlooks the reality that established SaaS providers already have smaller, cheaper competitors yet somehow remain dominant. The challenges for new entrants to a software sector include:\n\nIt's incredibly difficult for a small startup to displace an incumbent vendor. As Clayton Christensen observed in \"The Innovators Dilemma,\" innovative startups usually begin by solving use cases incumbent vendors are unable or unwilling to serve.\n\nLeft unaddressed in this scenario is why incumbents wouldn't just use AI themselves to improve engineering efficiency to address any price pressure from smaller new rivals.\n\nThis is the idea that AI model companies will extend their nascent software products into vertical offerings, thereby killing off incumbent vendors.\n\nOpenAI made a big splash with a healthcare initiative, for example. Anthropic caused a bunch of software stocks to drop with its plugins.\n\nIt's understandable why these companies launched these initiatives. Many industry-specific software companies are highly profitable, so AI labs would love to get a piece of this business.\n\nPursuing this, while working on other initiatives, could spread AI labs too thin, though. Startups often fail due to a lack of focus, and this is especially apropos for AI model makers. They face enormous, unprecedented opportunity, and getting distracted by bright, shiny vertical SaaS offerings is a terrible idea.\n\nGoing back to the DIY section above, there's huge complexity and cost to shipping and maintaining real enterprise software. Now multiple this by all the various industry verticals that exist, such as healthcare, financial services, and manufacturing. Addressing the idiosyncratic requirements of each sector would require huge numbers of employees, along with management time and attention. The model makers are already growing at breakneck speed; trying to add enough people to become vertical software providers would be a Sisyphean task.\n\nIf I were advising these boards, I would argue for focus: win the horizontal AI model layer in what is likely to become a small oligopoly.\n\nAnd yes, expand AI coding capabilities that lower the cost of development and increase the global population of software creators. That dynamic could trigger Jevons Paradox — cheaper software leading to vastly more of it — enriching the model providers without forcing them into every software vertical.\n\nThe SaaSpocalypse will, in retrospect, come to be thought of like the Beanie Babies mania: a short-lived phenomena that now seems inexplicable to comprehend.\n\nBernard Golden is CEO of Navica, a Silicon Valley-based technology analysis, consulting, and investment firm.",
-    "readingTime": 4,
-    "keywords": [
-      "established saas",
-      "saas vendors",
-      "model makers",
-      "incumbent vendors",
-      "enterprise software",
-      "vertical",
-      "coding",
-      "cheaper",
-      "startups",
-      "providers"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/saaspocalypse-ai-software-overreaction-premature-obituary-openai-anthropic-2026-2",
-    "thumbnail_url": "https://i.insider.com/6994e810a645d11881897add?width=1166&format=jpeg",
-    "created_at": "2026-02-18T12:37:13.268Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "cios-are-telling-companies-that-ai-capex-spending-has-gone-too-far",
-    "title": "CIOs are telling companies that AI capex spending has gone too far",
-    "description": "The highest portion of fund managers on record think that companies are overspending on capex.",
-    "fullText": "Silicon Valley hyperscalers made it clear during the year's first earnings week they don't plan to dial back AI capex spending. Based on new survey results, Wall Street doesn't approve.\n\nBank of America surveyed 162 fund managers overseeing a combined $440 billion, and a record portion of them said they think companies are \"overinvesting\" in capex.\n\nOn top of that, more CIOs are leaning in favor of decreasing capex spending. Only 20% of survey respondents have advocated for increasing capex, down from 34%.\n\nThat may be because they see AI as an increasing risk to the market's strength in 2026. 25% of survey respondents reported that they see the AI bubble as the largest tail risk, more so than inflation, geopolitical conflict or a disorderly increase in bond yields.\n\nMeanwhile, a fair amount of investors made it clear that they believe AI hyperscaler capex poses another significant threat. 30% of survey respondents revealed that they see it as the most likely source of a systemic credit event.\n\nA year ago, it might have seemed absurd to suggest that tech companies should spend less money on building out AI models and infrastructure. But over the last few quarters, investors have raised the bar for what they expect from companies heavily investing in AI.",
-    "readingTime": 2,
-    "keywords": [
-      "survey respondents",
-      "capex",
-      "increasing",
-      "risk",
-      "investors"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.businessinsider.com/ai-capex-overspending-bofa-fund-manager-survey-hartnett-2026-2",
-    "thumbnail_url": "https://i.insider.com/6994b634e1ba468a96ac2cb9?width=1200&format=jpeg",
-    "created_at": "2026-02-18T12:37:13.267Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "jake-paul-says-sam-altman-taught-him-the-value-of-a-15minute-meeting",
-    "title": "Jake Paul says Sam Altman taught him the value of a 15-minute meeting",
-    "description": "Jake Paul said that OpenAI CEO Sam Altman, who he bonded with over \"fast cars,\" taught him to be \"hella productive\" with meetings.",
-    "fullText": "Jake Paul was a firebrand YouTuber. Then he was an NFT merchant, and a betting site operator. Now, Paul is a professional boxer — and venture capitalist. And he's learning from one of the biggest names in tech.\n\nOn \"Sourcery,\" Paul said that he met OpenAI CEO Sam Altman while sitting next to each other at President Donald Trump's inauguration.\n\n\"Sam likes fast cars, and so do I,\" Paul said. \"So, we just started talking about cars, and then we got along, and that was really it.\"\n\nPaul's Anti Fund — which is also led by his brother Logan and longtime founder Geoffrey Woo — invested in OpenAI in 2025. The biggest lesson he's learned from Altman is efficiency, Paul said.\n\nHe described the quick-and-tidy meetings that Altman runs. The OpenAI CEO \"walks into the room, sits down, let's get right into the conversation, boom boom boom,\" he said.\n\nIn 15 minutes alone, Altman was \"hella productive,\" Paul said. Then, Altman can go on to his next meeting and do it all over again.\n\n\"We'll do hourlong meetings or calls and just waste time,\" Paul said. \"I think that was inspiring because time is the most valuable thing, and it's the only reason you can't accomplish more.\"\n\nIndeed, Altman has long opted for the 15-minute meeting. In a 2018 blog post, he wrote that the ideal meeting time is either around 15 to 20 minutes or 2 hours, but \"the default of 1 hour is usually wrong.\"\n\nPaul has worked closely with OpenAI in the last year, beyond participating in fundraising.\n\nRemember all of those strange Paul memes running around the internet during the Sora 2 launch? They were by design. Paul said he helped consult on the project and was one of the first to sign over his name, image, and likeness.\n\nWoo also appeared on the podcast, and spelled out the thinking behind those far-out memes (such as an AI Paul declaring he was gay). \"It was not something that was like, 'Hey, Jake Paul is now gay.' Jake was thoughtful in terms of why we were part of that launch.\"\n\nWoo also said that he had formed a good friendship with Altman and Mark Chen, OpenAI's chief research officer.\n\nFor the Sora 2 launch, Paul said that he had \"regular calls\" with OpenAI and offered \"super detailed consulting.\"\n\n\"Me and my brother have however many years combined of social media experience since the beginning,\" Paul said. \"We were there when the term 'influencer' was even made up.\"\n\nThis background, Paul said, helped him give good advice on what OpenAI's social media-like interface should look like. He advised on both what creators and audiences wanted, he said.\n\nAnti Fund closed its $30 million fund in September. Other investments include defense tech startup Anduril and prediction market Polymarket.\n\nWoo said their ties to OpenAI remain strong. \"We were just at OpenAI for three hours looking for other ways to collaborate,\" he said. \"Things might be cooking.\"",
-    "readingTime": 3,
-    "keywords": [
-      "sora launch",
-      "openai ceo",
-      "boom boom",
-      "paul",
-      "altman",
-      "he's",
-      "biggest",
-      "tech",
-      "cars",
-      "brother"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/sam-altman-15-minute-meetings-efficient-jake-paul-2026-2",
-    "thumbnail_url": "https://i.insider.com/69948dcaa645d118818970ae?width=1200&format=jpeg",
-    "created_at": "2026-02-18T12:37:12.865Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "investor-dan-ives-says-the-tech-selloff-that-has-been-spooking-markets-is-actually-a-generational-opportunity-to-get-in",
-    "title": "Investor Dan Ives says the tech selloff that has been spooking markets is actually a ‘generational opportunity’ to get in on the action",
-    "description": "Investors are drawing their battle lines as AI sorts tech companies into winners and losers.",
-    "fullText": "The once relentless rally in AI-fueled stocks has lost momentum, as investors confront the unsettling idea that advances in artificial intelligence could erode the very value propositions that made tech giants dominant in the first place. Yet some executives and market veterans warn against short-term panic, calling the selloff a rare opportunity to buy into the next phase of the AI boom.\n\nThe AI growth story has been tempered by a widespread selloff in software stocks. Call it the software-mageddon or the SaaSpocalypse, but companies who specialize in designing, selling, and maintaining digital software products are getting battered. Earlier this month, JPMorgan analysts wrote that software companies had lost around $2 trillion in value over the past year, calling it “the largest non-recessionary 12-month drawdown in over 30 years.”\n\nThe culprit has been an increasingly widespread feeling among investors that AI is sorting tech players into winners and losers. Under this view, software companies could fall into the latter camp as the capabilities of newer AI models promise to replace expensive digital services, rendering the business models of companies like Salesforce and Atlassian obsolete.\n\nBut not all investors are convinced these companies are destined for irrelevance. Hidden within the chaos could lie an undervalued chance to buy these tech stocks at a discount, a relative rarity in an age of soaring valuations and speculative growth. It all depends on whether bullish buyers consider AI as complementary to existing software services, or capable enough to replace them entirely.\n\n“I think this software selloff will go down as a generational opportunity to own some of the stalwarts,” Dan Ives, a managing director and senior equity research analyst at Wedbush Securities, said in a Yahoo Finance interview Friday. “I feel more emboldened about the bull thesis on tech and AI this year, despite obviously this massive pullback.”\n\nIves named three industry leaders that he sees as being unfairly punished in today’s market, and that could be in for a powerful rebound:\n\nIves called the software stock correction a “structural selloff” that was the largest in scale he’d seen in 25 years. But instead of spelling doom for these companies, he framed the wipeout as a once-in-a-lifetime opportunity to invest in enterprise technology, arguing that software developers will remain a “core part of the use cases,” even in an AI-powered future.",
-    "readingTime": 2,
-    "keywords": [
-      "software",
-      "tech",
-      "selloff",
-      "stocks",
-      "investors",
-      "opportunity",
-      "market",
-      "growth",
-      "widespread",
-      "digital"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://finance.yahoo.com/news/investor-dan-ives-says-tech-171414614.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/lm.wqBfnfQfRbIxr0gVgeQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/fortune_175/dbe82f78842f4e2e71e45ec99f99249e",
-    "created_at": "2026-02-18T12:37:08.135Z",
     "topic": "finance"
   }
 ]
