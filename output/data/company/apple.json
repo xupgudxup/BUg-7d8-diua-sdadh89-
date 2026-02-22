@@ -1,5 +1,29 @@
 [
   {
+    "slug": "apple-researchers-develop-ondevice-ai-agent-that-interacts-with-apps-for-you",
+    "title": "Apple researchers develop on-device AI agent that interacts with apps for you",
+    "description": "Despite having just 3 billion parameters, Ferret-UI Lite matches or surpasses the benchmark performance of models up to 24 times larger.",
+    "fullText": "Despite having just 3 billion parameters, Ferret-UI Lite matches or surpasses the benchmark performance of models up to 24 times larger. Here are the details.\n\nIn December 2023, a team of 9 researchers published a study called “FERRET: Refer and Ground Anything Anywhere at Any Granularity”. In it, they presented a multimodal large language model (MLLM) that was capable of understanding natural language references to specific parts of an image:\n\nSince then, Apple has published a series of follow-up papers expanding the Ferret family of models, including Ferretv2, Ferret-UI, and Ferret-UI 2.\n\nSpecifically, Ferret-UI variants expanded on the original capabilities of FERRET, and were trained to overcome what the researchers defined as a shortcoming of general-domain MLLMs.\n\nFrom the original Ferret-UI paper:\n\nRecent advancements in multimodal large language models (MLLMs) have been noteworthy, yet, these general-domain MLLMs often fall short in their ability to comprehend and interact effectively with user interface (UI) screens. In this paper, we present Ferret-UI, a new MLLM tailored for enhanced understanding of mobile UI screens, equipped with referring, grounding, and reasoning capabilities. Given that UI screens typically exhibit a more elongated aspect ratio and contain smaller objects of interest (e.g., icons, texts) than natural images, we incorporate “any resolution” on top of Ferret to magnify details and leverage enhanced visual features.\n\nA few days ago, Apple expanded the Ferret-UI family of models even further, with a study called Ferret-UI Lite: Lessons from Building Small On-Device GUI Agents.\n\nFerret-UI was built on a 13B-parameter model, which focused primarily on mobile UI understanding and fixed-resolution screenshots. Meanwhile, Ferret-UI 2 expanded the system to support multiple platforms and higher-resolution perception.\n\nAccording to the researchers of the new paper, “the majority of existing methods of GUI agents […] focus on large foundation models.” That is because “the strong reasoning and planning capabilities of large server-side models allow these agentic systems to achieve impressive capabilities in diverse GUI navigation tasks.”\n\nThey note that while there has been a lot of progress on both multi-agent, and end-to-end GUI systems, that take different approaches to streamline the many tasks that involve agentic interaction with GUIs (“low-level GUI grounding, screen understanding, multi-step planning, and self-reflection”), they are basically too large and compute-hungry to run well on-device.\n\nSo, they set out to develop Ferret-UI Lite, a 3-billion parameter variant of Ferret-UI, which “is built with several key components, guided by insights on training small-scale” language models.\n\nThe result is a model that closely matches or even outperforms competing GUI agent models that are up to 24 times its parameter count.\n\nWhile the entire architecture (which is thoroughly detailed in the study) is interesting, the real-time cropping and zooming-in techniques are particularly noteworthy.\n\nThe model makes an initial prediction, crops around it, then re-predicts on that cropped region. This helps such a small model compensate for its limited capacity to process large numbers of image tokens.\n\nAnother notable contribution of the paper is how Ferret-UI Lite basically generates its own training data. The researchers built a multi-agent system that interacts directly with live GUI platforms to produce synthetic training examples at scale.\n\nThere is a curriculum task generator that proposes goals of increasing difficulty, a planning agent breaks them into steps, a grounding agent executes them on-screen, and a critic model evaluates the results.\n\nWith this pipeline, the training system captures the fuzziness of real-world interaction (such as errors, unexpected states, and recovery strategies), which is something that would be much more challenging to do while relying on clean, human-annotated data.\n\nInterestingly, while Ferret-UI and Ferret-UI 2 used iPhone screenshots and other Apple interfaces in their evaluations, Ferret-UI Lite was trained and evaluated on Android, web, and desktop GUI environments, using benchmarks like AndroidWorld and OSWorld.\n\nThe researchers don’t note explicitly why they chose this route for Ferret-UI Lite, but it likely reflects where reproducible, large-scale GUI-agent testbeds are available today.\n\nBe it as it may, the researchers found that while Ferret-UI Lite performed well on short-horizon, low-level tasks, it did not perform as strongly on more complicated, multi-step interactions, a trade-off that would be largely expected, given the constraints of a small, on-device model.\n\nOn the other hand, Ferret-UI Lite offers a local, and by extension, private (since no data needs to go to the cloud and be processed on remote servers) agent that autonomously interacts with app interfaces based on user requests, which, by all accounts, is pretty cool.\n\nTo learn more about the study, including benchmark breakdowns and results, follow this link.\n\nCheck out 9to5Mac on YouTube for more Apple news:",
+    "readingTime": 4,
+    "keywords": [
+      "general-domain mllms",
+      "ferret-ui lite",
+      "gui agents",
+      "language models",
+      "researchers",
+      "study",
+      "understanding",
+      "apple",
+      "capabilities",
+      "paper"
+    ],
+    "qualityScore": 1,
+    "link": "https://9to5mac.com/2026/02/20/apple-researchers-develop-on-device-ai-agent-that-interacts-with-apps-for-you/",
+    "thumbnail_url": "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2025/06/Reddit-is-being-spammed-by-AI-bots-and-its-all-Reddits-fault.jpg?resize=1200%2C628&quality=82&strip=all&ssl=1",
+    "created_at": "2026-02-22T01:11:30.949Z",
+    "topic": "science"
+  },
+  {
     "slug": "openclawfueled-ordering-frenzy-creates-apple-mac-shortage",
     "title": "OpenClaw-fueled ordering frenzy creates Apple Mac shortage",
     "description": "AI is coming for high-end Mac Studios and Mac minis, too.",
@@ -2124,24 +2148,6 @@
     "link": "https://mrmacintosh.com/macos-background-security-improvement-update-bsi-database/",
     "thumbnail_url": "https://mrmacintosh.com/storage/2026/01/macOS-Background-Security-Improvement-Updates-1024x576.png",
     "created_at": "2026-01-07T18:19:23.733Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "what-is-the-newest-ipad-heres-a-breakdown-of-the-latest-models-you-can-buy",
-    "title": "What is the newest iPad? Here's a breakdown of the latest models you can buy.",
-    "description": "Apple's newest iPads are the 2025 iPad Pro (M5), the 2025 standard iPad (A16), the 2025 iPad Air (M3), and the 2024 iPad Mini (A17 Pro).",
-    "fullText": "The new 2025 iPad Pro features Apple's latest-generation chip, the M5, which Apple says offers up to a 3.5x boost in AI performance compared to the last-generation iPad. It also offers a bump in graphical performance for 3D games and applications. \n\n Check price at Amazon\n\n Check price at Best Buy\n\n Check price at Apple",
-    "readingTime": 1,
-    "keywords": [
-      "ipad",
-      "apple",
-      "performance",
-      "check"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/guides/tech/what-is-the-newest-ipad",
-    "thumbnail_url": "https://i.insider.com/6813a4c5a466d2b74ab4bdb6?width=1200&format=jpeg",
-    "created_at": "2026-01-07T18:19:12.749Z",
     "topic": "tech"
   }
 ]
