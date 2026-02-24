@@ -1,5 +1,53 @@
 [
   {
+    "slug": "steerling8b-a-language-model-that-can-explain-any-token-it-generates",
+    "title": "Steerling-8B, a language model that can explain any token it generates",
+    "description": "We release Steerling-8B, an 8B-parameter causal diffusion language model that is interpretable by construction — its predictions are routed through concepts you can measure, audit, and control.",
+    "fullText": "We are releasing Steerling-8B, the first interpretable model that can trace any token it generates to its input context, concepts a human can understand, and its training data.\nTrained on 1.35 trillion tokens, the model achieves downstream performance within range of models trained on 2–7× more data.\nSteerling-8B unlocks several capabilities which include suppressing or amplifying specific concepts at inference time without retraining, training data provenance for any generated chunk, and inference-time alignment via concept control, replacing thousands of safety training examples with explicit concept-level steering.\n\nFor the first time, a language model, at the 8-billion-parameter scale, can explain every token it produces in three key ways.\nMore specifically, for any group of output tokens that Steerling generates, we can trace these tokens to:\n\nWe are releasing the weights of a base model trained on 1.35T tokens as well as companion code to interact and play with the model.\n\nBelow we show Steerling-8B generating text from a prompt across various categories. You can select an example, then click on any highlighted chunk of the output. The panel below will update to show:\n\nSteerling is built on a causal discrete diffusion model backbone, which lets us steer generation across multi-token tokens rather than only at the next-token.\nThe key design choice is decomposing the model’s embeddings into three explicit pathways: ~33K supervised “known” concepts, ~100K “discovered” concepts the model learns on its own, and a residual that captures whatever remains.\n\nWe then constrain the model with training loss functions that ensure the model routes signal through concepts without a fundamental tradeoff with performance.\nThe concepts feed into logits through a linear path, every prediction decomposes exactly into per-concept contributions, and we can edit those contributions at inference time without retraining.\nFor the full architecture, training objectives, and scaling analysis, see Scaling Interpretable Models to 8B.\n\nDespite being trained on significantly fewer compute than comparable models, Steerling-8B achieves competitive performance across standard benchmarks. The figure below shows average performance (across 7 benchmarks) versus approximate training FLOPs on a log scale, with vertical lines marking multiples of Steerling’s compute budget.\n\nIn the previous update, we shared several ways that assess how interpretable a model’s representations are.\nHere we provide another metric that gives insight into the model’s use of its concepts. On a held-out validation set, over 84% of token-level contribution comes from the concept module: the model is not just using the residual to make its predictions.\nThis matters for control: if the model’s predictions genuinely flow through concepts, then editing those concepts at inference time actually changes what the model does rather than nudging a side channel while the real work happens elsewhere.\n\nA useful check is what happens when we remove the residual pathway. On several LM Harness tasks, dropping the residual has only a small effect, which suggests the model’s predictive signal is largely routed through concepts rather than hidden “everything-else” channels.\n\nFinally, Steerling can detect known concepts in text with 96.2% AUC on a held-out validation dataset.\n\nIn the coming weeks, we’ll be releasing deep dives on each of these capabilities:\n\nWe’ll cover each of these in detail in upcoming posts, with quantitative evaluations and deployment-oriented case studies.",
+    "readingTime": 3,
+    "keywords": [
+      "held-out validation",
+      "without retraining",
+      "performance across",
+      "concepts",
+      "tokens",
+      "model’s",
+      "steerling-8b",
+      "trained",
+      "residual",
+      "model"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.guidelabs.ai/post/steerling-8b-base-model-release/",
+    "thumbnail_url": "https://www.guidelabs.ai/logo/guidelabs-social-media-thumbnail.png",
+    "created_at": "2026-02-24T01:09:43.548Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "fiscal-impact-statement-on-bears-stadium-bill-outlines-millions-in-tax-increases",
+    "title": "Fiscal impact statement on Bears stadium bill outlines millions in tax increases",
+    "description": "A fiscal note on the proposed Chicago Bears stadium construction package shows northwest Indiana residents could pay millions in new taxes, which could grow with use by visitors to the region. The sta...",
+    "fullText": "A fiscal note on the proposed Chicago Bears stadium construction package shows northwest Indiana residents could pay millions in new taxes, which could grow with use by visitors to the region.\n\nThe statement — prepared by the nonpartisan Legislative Services Agency — still includes many unknowns but does provide some baseline revenue estimates for hospitality-related taxes.\n\nUnder Senate Bill 27, a state-crafted authority would take out bonds to build the stadium. A bevy of taxes would provide revenue to make the annual bond payments.\n\nThe exact cost of the project is unknown at this time though the Chicago Bears have committed $2 billion and House Speaker Todd Huston said Thursday in unveiling the plan that as much as $1 billion in public funding could be involved.\n\nThe bill allows Lake and Porter counties to each adopt a 1% food-and-beverage tax by June 30, 2027. Revenue from these taxes would go to the Northwest Indiana Stadium Board.\n\nIf both counties impose the 1% food-and-beverage tax, they could collect an estimated total of at least $12 million to $18 million annually, according to the fiscal estimate datedFriday. The estimate is based on the existing food services industry in each county and revenue collected in counties that currently impose such taxes.\n\nChicago Bears call Indiana deal ‘step forward’ for building new stadium in Hammond\n\n“The actual amount of revenue in Lake and Porter counties would likely be greater to the extent the stadium project results in increased demand for food and beverages,” it said.\n\nThe bill allows Lake County to increase the local hotel tax rate from its current 5% to 10%. The county council is required to adopt an ordinance increasing the tax rate by June 30, 2027.\n\nRevenue received from the hotel tax increase could be at least $5.4 million annually. But the statement says “the actual innkeeper’s tax revenue distributed to the board would likely be greater once the stadium and other facilities have been built.”\n\nHammond could also establish a 12% admissions tax on tickets for events held in the stadium. The tax is imposed on tickets offered for sale to the public at a box office or authorized agent, and does not apply to season tickets or a personal seat license.\n\nAll revenue collected would go to the Northwest Indiana Stadium Board to pay debt owed by the board.\n\nThe fiscal estimates the tax would generate around $12 million annually once the facility begins holding events. However, the revenue could be greater depending on the events that are held at the stadium.\n\nThe 10% Marion County admissions tax, which applies to events held at Lucas Oil Stadium, Victory Field, Gainbridge Fieldhouse and the Indiana Convention Center, generated $31.3 million during fiscal year 2025.\n\nAnother provision in the bill would create the Northwest Indiana Professional Sports Development Area. It could include any facility or complex of facilities that is used to hold a professional sporting event, including a stadium, parking garages, training facilities, and other related areas as specified in the bill.\n\nIt provides for allocation of covered taxes, including taxes paid for wages earned by athletes playing home games in a sporting facility, to the tax area. It defines covered taxes as state sales and use tax; individual income tax; local income tax; food and beverage taxes. Those revenues can be used for costs related to financing, construction, operating, maintaining and administration of the facilities established as part of the area.\n\nThe fiscal analysis said the total capture for the new tax area is unknown, but it will be less than the Marion County Professional Sports Development Area. That area — containing three sports facilities, a convention center and training facility — brings in over $16 million a year.\n\nOne final section of the bill allows dollars captured through a renegotiation of the Indiana Toll Road lease in 2026 to be used by the Indiana Finance Authority to pay or reimburse any costs associated with transportation and infrastructure projects in the following counties associated with the stadium relocation: Elkhart, LaGrange, Lake, LaPorte, Porter, Steuben and St. Joseph.\n\nAn information request with the IFA is currently pending concerning how much in revenue could be received from a renegotiation of the lease of the Indiana Toll Road, the fiscal report said.\n\nSenate Bill 27 is set for a second reading in the Indiana House on Monday and will be finalized by Friday, when this year’s legislative session is set to conclude.\n\nSUBSCRIBE: GET THE MORNING HEADLINES DELIVERED TO YOUR INBOX",
+    "readingTime": 4,
+    "keywords": [
+      "toll road",
+      "sports development",
+      "professional sports",
+      "marion county",
+      "allows lake",
+      "porter counties",
+      "indiana toll",
+      "convention center",
+      "bill allows",
+      "revenue collected"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.yahoo.com/news/articles/fiscal-impact-statement-bears-stadium-113005686.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/indiana_capital_chronicle_articles_227/14d9550445a52a28ffe03efb90b925b1",
+    "created_at": "2026-02-24T01:09:39.710Z",
+    "topic": "news"
+  },
+  {
     "slug": "whats-being-built-at-this-busy-route-30-intersection-in-york-county",
     "title": "What's being built at this busy Route 30 intersection in York County?",
     "description": "Construction is underway on an Auto Spa Express car wash at a busy Route 30 intersection.",
