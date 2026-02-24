@@ -1,5 +1,29 @@
 [
   {
+    "slug": "anthropic-ai-helps-break-the-cost-barrier-to-cobol-modernization",
+    "title": "Anthropic: AI helps break the cost barrier to COBOL modernization",
+    "description": "The economics of COBOL modernization have shifted. AI makes the economics work by automating what used to require armies of consultants.",
+    "fullText": "Legacy code modernization stalled for years because understanding legacy code cost more than rewriting it. AI flips that equation.\n\nCOBOL is everywhere. It handles an estimated 95% of ATM transactions in the US. Hundreds of billions of lines of COBOL run in production every day, powering critical systems in finance, airlines, and government.\n\nDespite that, the number of people who understand it shrinks every year.\n\nThe developers who built these systems retired years ago, and the institutional knowledge they carried left with them. Production code has been modified repeatedly over decades, but the documentation hasn't kept up. Meanwhile, we aren't exactly minting replacements—COBOL is taught at only a handful of universities, and finding engineers who can read it gets harder every quarter.\n\nGiven these roadblocks, how can organizations modernize their systems without losing the reliability, availability, and data they’ve accumulated over decades? And without breaking anything?\n\nCOBOL modernization differs fundamentally from typical legacy code refactoring. You aren’t just updating familiar code to use better patterns, you’re reverse engineering business logic from systems built when Nixon was president. You’re untangling dependencies that evolved over decades, and translating institutional knowledge that now exists only in the code itself.\n\nModernizing a COBOL system once required armies of consultants spending years mapping workflows. This resulted in large timelines and high costs that few were willing to take on.\n\nTools like Claude Code can automate the exploration and analysis phases that consume most of the effort in COBOL modernization. These tools can:\n\nWith AI, teams can modernize their COBOL codebase in quarters instead of years.\n\nAI excels at streamlining the tasks that once made COBOL modernization cost-prohibitive. With it, your team can focus on strategy, risk assessment, and business logic while AI automates the code analysis and implementation.\n\nAI starts by reading your entire COBOL codebase and mapping the structure.\n\nIt identifies program entry points, traces execution paths through called subroutines, maps data flows between modules, and documents dependencies that span hundreds of files.\n\nThis kind of mapping goes beyond simple call graphs. Shared data structures, file operations that create coupling between modules, initialization sequences that affect runtime behavior—these implicit dependencies don't show up in static analysis because they involve data shared through files, databases, or global state. They're also exactly what makes COBOL modernization risky, which is why automated discovery matters: it finds these hidden relationships before they cause problems during migration.\n\nWorkflow documentation also emerges out of this analysis.\n\nWith the codebase mapped, AI can assess which components are safe to move and which need careful handling. Modules with high coupling can be more risky to modernize. Isolated components surface as candidates for early, independent modernization. Duplicated logic points to refactoring opportunities. Areas with accumulated technical debt get documented before they become migration surprises.\n\nThis is where human judgment becomes essential. Your COBOL engineers bring the understanding of regulatory requirements, business priorities, operational constraints, and risk tolerance that AI cannot.\n\nThe planning phase develops a detailed roadmap that sequences modernization work strategically:\n\nCode testing and validation are also defined before any code changes:\n\nExecution happens one component at a time, with validation at each step. AI translates COBOL logic into modern languages, creates API wrappers around legacy components that stay in place, and builds the scaffolding to run old and new code side by side during transition.\n\nEach step either succeeds and gets validated, or fails and gets corrected while the scope is small.\n\nYou never have massive changes in flight where failure means rolling back weeks of work. As your team sees modernized components passing tests, they gain confidence to tackle progressively more complex parts of the system.\n\nThe approach outlined above works for COBOL systems of any size.\n\nTools like Claude Code can automate much of the exploration and analysis work described, giving your team the comprehensive understanding they need to plan and execute migrations confidently.\n\nStart with a single component or workflow that has clear boundaries and moderate complexity. Use AI to analyze and document it thoroughly, plan the modernization with your engineers, implement incrementally with testing at each step, and validate carefully.  This will build organizational confidence and surface adjustments needed for your systems.\n\nThe economics of COBOL modernization have shifted. AI makes the economics work by automating what used to require armies of consultants, freeing your engineers to make the migration decisions that require their domain expertise.\n\nFor a step-by-step guide, see the Code Modernization Playbook.\n\nProduct updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.",
+    "readingTime": 4,
+    "keywords": [
+      "institutional knowledge",
+      "cobol codebase",
+      "cobol modernization",
+      "business logic",
+      "legacy code",
+      "claude code",
+      "systems",
+      "analysis",
+      "engineers",
+      "components"
+    ],
+    "qualityScore": 1,
+    "link": "https://claude.com/blog/how-ai-helps-break-cost-barrier-cobol-modernization",
+    "thumbnail_url": "https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699ca2651dced743de2c747f_og_how-ai-helps-break-cost-barrier-cobol-modernization.jpg",
+    "created_at": "2026-02-24T06:47:14.464Z",
+    "topic": "tech"
+  },
+  {
     "slug": "acting-ethically-in-an-imperfect-world",
     "title": "Acting Ethically in an Imperfect World",
     "description": "Life is complicated. Regardless of what your beliefs or politics or ethics are, the way that we set up our society and economy will often force you to act against them: You might not want to fly somewhere but your employer will not accept another mode of transportation, you want to eat vegan but are […]",
@@ -1969,29 +1993,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/9W5isNZxCCGBhlXTpkuvGw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04OTA7Y2Y9d2VicA--/https://media.zenfs.com/en/deadline.com/5b33693ad4d347c169a20248b03eba6d",
     "created_at": "2026-01-14T06:23:39.026Z",
     "topic": "news"
-  },
-  {
-    "slug": "fears-are-brewing-over-an-oilprice-shock-that-could-rattle-markets-and-the-economy",
-    "title": "Fears are brewing over an oil-price shock that could rattle markets and the economy",
-    "description": "An abrupt surge in oil prices could cause inflation to rise and spark volatility in markets. Brent on Tuesday jumped to the highest level since November.",
-    "fullText": "Soaring oil prices. Hot inflation. Turmoil in markets.\n\nThat was a dire combination the US economy saw in the 1970s, but analysts say that the risks of another oil price shock — a situation where oil prices abruptly surge and set off a domino effect of negative consequences in markets and the economy —are on the rise as geopolitical conflict escalates.\n\nOil prices spiked in recent weeks as the US conducted its raid on Venezuela and threatened to take military action in Iran — two of the world's largest crude producers.\n\nMarch contracts for Brent crude, the international benchmark, rose 10% in the last week, and jumped by as much as 3% to trade above $65 a barrel on Tuesday. It's the highest price for Brent since November.\n\nShould Brent oil hit $80 a barrel, that would probably constitute an oil price shock, according to José Torres, a senior economist at Interactive Brokers.\n\nIn that scenario, Torres said he believes bonds and stocks would sell off in tandem, as higher energy prices could stoke inflation, which could weigh on economic growth. Higher inflation could also mean the Fed has less room to cut interest rates down the line, a major catalyst that has pushed risk assets higher in the past year.\n\n\"Definitely there's risk for an oil price shock, especially with stocks coming up for three really robust years,\" Torres told Business Insider, referring to the back-to-back years of double-digit gains for the S&P 500.\n\nMatt Gertken, the chief geopolitical strategist at BCA Research, said that recent tensions in Iran have raised the odds of a \"massive global oil supply shock\" to around 40%. Should Iran's regime fall and conflict in the region increase, that could result in a \"significant loss\" in oil production around the region, he wrote in a note to clients this week.\n\n\"Global and US equities are exposed to a correction in the near term given overvalued and overbought conditions and escalating geopolitical risk at the moment,\" Gertken added.\n\nAnalysts at Deutsche Bank also flagged the risk of the market experiencing an oil shock this year.\n\n\"A positive supply shock to oil prices would materially impact inflation expectations and inflation risks,\" the bank wrote in a recent client note, calling the scenario a key risk to their economic outlook.\n\nJeff Currie, a longtime commodities strategist and the chief strategy officer of energy pathways at Carlyle, added that he believes there could be further upside risk to oil prices. He pointed to factors such as high demand for crude and \"quite high\" geopolitical risk, which could make oil more expensive.\n\n\"The situation in Venezuela, the impact on geopolitical risk is very large,\" Currie told CNBC last week. \"For oil importers, whether you're China, India, or Europe, the world got a lot more dangerous.\"",
-    "readingTime": 3,
-    "keywords": [
-      "supply shock",
-      "geopolitical risk",
-      "inflation",
-      "crude",
-      "higher",
-      "markets",
-      "economy",
-      "analysts",
-      "risks",
-      "situation"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/oil-prices-supply-shock-brent-crude-iran-venezuela-2026-1",
-    "thumbnail_url": "https://i.insider.com/6966773304eda4732f2efa12?width=1200&format=jpeg",
-    "created_at": "2026-01-14T01:00:08.515Z",
-    "topic": "finance"
   }
 ]
