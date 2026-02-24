@@ -1,5 +1,29 @@
 [
   {
+    "slug": "anthropic-pushes-claude-into-excel-and-powerpoint-escalating-ai-battle-with-microsoft-and-openai",
+    "title": "Anthropic pushes Claude into Excel and PowerPoint, escalating AI battle with Microsoft and OpenAI",
+    "description": "The startup is trying to transform its Claude AI model from a coding tool into a much broader workplace technology platform.",
+    "fullText": "Anthropic is pushing deeper into the enterprise, embedding its AI model Claude directly into the workplace software employees use every day.\n\nOn Tuesday, the AI startup unveiled \"Cowork & Plugins for the Enterprise,\" a package of AI tools that get Claude operating inside popular work applications, such as Microsoft Excel and PowerPoint. Instead of copying answers from a chatbot into spreadsheets or slide decks, users can now run Claude directly inside those applications, with the system carrying context between programs.\n\n\"Until now, enterprise AI has followed a persistent pattern: you go to the AI, get an answer, then go back to your actual tools to do the work,\" Anthropic wrote in its announcement on Tuesday. \"Now, Claude works inside the tools knowledge workers already use — Excel, PowerPoint, Slack — not as a separate window, but as part of how work actually gets done.\"\n\nThe launch signals Anthropic's clearest attempt yet to challenge Microsoft and OpenAI for control of the digital workplace in the era of AI.\n\nMicrosoft has embedded its own 365 Copilot tool across Word, Excel, PowerPoint, Outlook, and Teams, while also offering Copilot Studio for enterprises to build custom AI agents. OpenAI, meanwhile, launched Frontier earlier this month, a platform built on its ChatGPT enterprise offerings. Google has integrated its Gemini AI throughout Gmail and its Workplace applications. Amazon also offers a similar service called Quick Suite.\n\nAnthropic is hoping to position itself as the default operational layer across enterprise workflows.\n\nAt the center of the launch are customizable \"plugins,\" or specialized AI agents configured for roles including financial analysis, design, operations, and HR.\n\nAnthropic said the plugins are open-source and portable, allowing companies to modify and deploy them without being locked into a single ecosystem. Several were co-developed with partners, including FactSet, S&P, and Slack.\n\nThe AI startup is also rolling out a slate of new connectors to platforms such as Google Drive, Gmail, and DocuSign, enabling Claude to access live enterprise data with administrative controls. Enterprises can create private plugin marketplaces and manage access at scale.\n\nAnthropic said customers, including L'Oréal, Deloitte, and Thomson Reuters, have already built specialized AI agents using Claude to automate workflows and accelerate internal processes.\n\nWith this launch, Anthropic is making clear that it no longer wants to be known primarily as a tool for developers. It wants Claude embedded across the enterprise, supporting finance teams, HR departments, analysts, and executives alike.\n\n\"In 2025, Claude Code transformed how software gets built,\" Anthropic said in Tuesday's announcement. \"In 2026, we're bringing that transformation to all knowledge work.\"\n\nHave a tip? Contact this reporter via email at ekim@businessinsider.com or Signal, Telegram, or WhatsApp at 650-942-3061. Use a personal email address, a nonwork WiFi network, and a nonwork device; here's our guide to sharing information securely.",
+    "readingTime": 3,
+    "keywords": [
+      "excel powerpoint",
+      "claude directly",
+      "enterprise",
+      "workplace",
+      "tools",
+      "inside",
+      "applications",
+      "launch",
+      "across",
+      "agents"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/anthropic-ai-software-claude-microsoft-powerpoint-excel-slack-2026-2",
+    "thumbnail_url": "https://i.insider.com/699cefcbefb52c8bd0deb9e2?width=1200&format=jpeg",
+    "created_at": "2026-02-24T18:46:23.822Z",
+    "topic": "tech"
+  },
+  {
     "slug": "package-managers-la-carte-a-formal-model-of-dependency-resolution",
     "title": "Package Managers à la Carte: a formal model of dependency resolution",
     "description": "Package managers are legion. Every programming language and operating system has its own solution, each with subtly different semantics for dependency resolution. This fragmentation prevents multilingual projects from expressing precise dependencies across language ecosystems; it leaves external system and hardware dependencies implicit and unversioned; it obscures security vulnerabilities that lie in the full dependency graph. We present the \\textit{Package Calculus}, a formalism for dependency resolution that unifies the core semantics of diverse package managers. Through a series of formal reductions, we show how this core is expressive enough to model the diversity that real-world package managers employ in their dependency expression languages.",
@@ -1984,30 +2008,6 @@
     "link": "https://github.com/yetidevworks/ygrep",
     "thumbnail_url": "https://opengraph.githubassets.com/eda1bb1f12626e76b9793d44f791d0ed3332b6c28dc7896d1831d00d7c49258d/yetidevworks/ygrep",
     "created_at": "2026-01-20T00:57:31.412Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "scaling-longrunning-autonomous-coding",
-    "title": "Scaling long-running autonomous coding",
-    "description": "Wilson Lin at Cursor has been doing some experiments to see how far you can push a large fleet of \"autonomous\" coding agents: This post describes what we've learned from …",
-    "fullText": "Scaling long-running autonomous coding. Wilson Lin at Cursor has been doing some experiments to see how far you can push a large fleet of \"autonomous\" coding agents:\n\nThis post describes what we've learned from running hundreds of concurrent agents on a single project, coordinating their work, and watching them write over a million lines of code and trillions of tokens.\n\nThey ended up running planners and sub-planners to create tasks, then having workers execute on those tasks - similar to how Claude Code uses sub-agents. Each cycle ended with a judge agent deciding if the project was completed or not.\n\nIn my predictions for 2026 the other day I said that by 2029:\n\nI think somebody will have built a full web browser mostly using AI assistance, and it won’t even be surprising. Rolling a new web browser is one of the most complicated software projects I can imagine[...] the cheat code is the conformance suites. If there are existing tests that it’ll get so much easier.\n\nI may have been off by three years, because Cursor chose \"building a web browser from scratch\" as their test case for their agent swarm approach:\n\nTo test this system, we pointed it at an ambitious goal: building a web browser from scratch. The agents ran for close to a week, writing over 1 million lines of code across 1,000 files. You can explore the source code on GitHub.\n\nBut how well did they do? Their initial announcement a couple of days ago was met with unsurprising skepticism, especially when it became apparent that their GitHub Actions CI was failing and there were no build instructions in the repo.\n\nIt looks like they addressed that within the past 24 hours. The latest README includes build instructions which I followed on macOS like this:\n\nThis got me a working browser window! Here are screenshots I took of google.com and my own website:\n\nHonestly those are very impressive! You can tell they're not just wrapping an existing rendering engine because of those very obvious rendering glitches, but the pages are legible and look mostly correct.\n\nThe FastRender repo even uses Git submodules to include various WhatWG and CSS-WG specifications in the repo, which is a smart way to make sure the agents have access to the reference materials that they might need.\n\nThis is the second attempt I've seen at building a full web browser using AI-assisted coding in the past two weeks - the first was HiWave browser, a new browser engine in Rust first announced in this Reddit thread.\n\nWhen I made my 2029 prediction this is more-or-less the quality of result I had in mind. I don't think we'll see projects of this nature compete with Chrome or Firefox or WebKit any time soon but I have to admit I'm very surprised to see something this capable emerge so quickly.",
-    "readingTime": 3,
-    "keywords": [
-      "autonomous coding",
-      "web browser",
-      "agents",
-      "repo",
-      "cursor",
-      "project",
-      "ended",
-      "tasks",
-      "agent",
-      "mostly"
-    ],
-    "qualityScore": 1,
-    "link": "https://simonwillison.net/2026/Jan/19/scaling-long-running-autonomous-coding/",
-    "thumbnail_url": "https://static.simonwillison.net/static/2026/cursor-social-card.jpg",
-    "created_at": "2026-01-20T00:57:30.632Z",
     "topic": "tech"
   }
 ]
