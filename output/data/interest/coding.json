@@ -1,5 +1,42 @@
 [
   {
+    "slug": "typedb-studios-ai-agent-for-schema-exploration-and-query-generation",
+    "title": "TypeDB Studio's AI agent for schema exploration and query generation",
+    "description": "You’re probably familiar with vibe coding — the practice of describing what you want in plain English and letting an AI write the code. In this article we show ...",
+    "fullText": "You’re probably familiar with vibe coding — the practice of describing what you want in plain English and letting an AI write the code. In this article we show how the concept translates to databases using the Agent Mode feature of TypeDB Studio.\n\nVibe querying is exactly what it sounds like. Instead of writing this:\n\nGet all people with their names and emails.\n\nThe AI reads your database schema, understands the structure of your data, and generates TypeQL in the chat. You click Run, and the results appear inline in your chat window.\n\nWhy use Agent Mode in TypeDB Studio? Agent mode can be used for asking questions about your database, building your schema and querying your data – all the essential day-to-day DB operations. It’s particularly useful for:\n\nOverall it’s just a more hassle-free way to build with TypeDB.\n\nThe easiest way to try this is to boot up a free TypeDB Cloud cluster with the social-network sample dataset preloaded; alternatively you can also initialise it in TypeDB CE (Cloud page / CE setup guide)\n\nSuppose this is your first time browsing the social network dataset. You probably want to get the lay of the land. Ask the AI agent “what’s in my schema?” and it will come up with a detailed description you can read.\n\nBehind the scenes, TypeDB Studio has attached the schema as context to the LLM that powers agent mode, which has attempted to decipher the schema for the user (you).\n\nI am a visual learner – so had to give this one a try.\n\nNot exactly Picasso – but successful nonetheless; agent mode can indeed render your schema as ASCII art.\n\nBefore agent mode: poke around in schema, scratch head, read docs, do actual hard work.\n\nAfter agent mode: “Hey benevolent AI bot, could you just dream up some interesting queries for me?”\n\nNot bad – its top three suggestions are simple enough:\n\nLet’s go ahead and run the second of these queries – showing a ‘contact card’ per person:\n\nCool. We have our contact cards! That being said, there’s a lot of nulls. Is the query definitely correct?\n\nLet’s hop back to the log output view for now. Remember that magic wand icon in the top right? Click that, and you’ll automagically send a new message containing the full log. The agent attempts to interpret these results. In the case of a successful query, it’ll typically suggest follow-up queries you could run. In the case of an error, it’ll try to diagnose the error and come up with a fixed query.\n\nIn this case when we send back the query, it suggests several follow-up queries, one of which is indeed a sanity check on whether any phone numbers exist at all in our dataset. It turns out they do not, so the phone property is largely for illustrative purposes.\n\nLLMs are genuinely impressive these days – and TypeDB’s AI agent is backed by GPT-5.2, a very powerful model. It still gets things wrong sometimes, though. Consider the following generated query:\n\nAt first the AI agent generates a query based on the idea of using subqueries inside a fetch, but unfortunately this returns a syntax error. We click the “magic wand” icon in the top right of the log, and this happens …\n\nThe agent tries a different approach and writes a correct query.\n\nThe “Fix with AI” button isn’t limited to Agent Mode. If you’re using the Query page to write TypeQL yourself, and you get an error – or an unexpectedly empty result set – you can hit “Fix with AI” (the magic wand button) and it’ll send the query log to a new Agent Mode conversation and have the agent describe what it thinks might be wrong.\n\nLLMs are perfectly capable of generating database queries in SQL, Cypher, and so on.\n\nFrom our research so far we’ve found that TypeDB Studio is a trailblazer in its early release of a fully-integrated AI assistant. Unlike other data platforms, the Studio agent is always aware of your data context (your schema) – and it allows you to actually run queries without leaving the assistant chat – a streamlined and better user experience.\n\nAgents that deal with complexity fail in predictable ways when they lack semantic grounding. They create invalid states. They make assumptions about the definitions and structures of concepts when there isn’t a clear, semantically rich schema setting those things out.\n\nTypeDB exhibits the following properties that are all of great value to an AI agent:\n\nYou can learn more about the power of semantic richness in: Why agents need ontologies\n\nAgent mode provides a totally new way of interacting with TypeDB. Its self-healing capabilities allow it to easily fix mistakes providing for an overall smooth experience. You don’t need prior knowledge of TypeQL – just ask questions in natural language and get answers.\n\nHere are some quick links to get up and running with TypeDB Studio and with vibe querying and to learn more:",
+    "readingTime": 5,
+    "keywords": [
+      "magic wand",
+      "wand icon",
+      "vibe querying",
+      "follow-up queries",
+      "studio agent",
+      "agent mode",
+      "typedb studio",
+      "schema",
+      "error",
+      "database"
+    ],
+    "qualityScore": 1,
+    "link": "https://typedb.com/blog/vibe-querying-with-typedb-studio",
+    "thumbnail_url": "https://cdn.sanity.io/images/xndl14mc/production/b6e0269711f2ea882e3dffe2518be5824b45fe95-1920x1080.webp",
+    "created_at": "2026-02-25T18:52:28.827Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "github-copilot-cli-is-now-generally-available",
+    "title": "GitHub Copilot CLI is now generally available",
+    "description": "GitHub Copilot CLI—the terminal-native coding agent that brings the power of GitHub Copilot directly to your command line—is now generally available for all paid Copilot subscribers. Since launching in public…",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://github.blog/changelog/2026-02-25-github-copilot-cli-is-now-generally-available/",
+    "thumbnail_url": "https://github.blog/wp-content/uploads/2026/02/554416478-61e7b2e1-1372-4680-b467-073a0048caa3.png",
+    "created_at": "2026-02-25T18:52:25.832Z",
+    "topic": "tech"
+  },
+  {
     "slug": "openclaw-creator-says-vibe-coding-has-become-a-slur",
     "title": "OpenClaw creator says 'vibe coding' has become a slur",
     "description": "\"They don't understand that it's a skill,\" OpenClaw creator Peter Steinberger said, analogizing coding with AI to learning to play guitar.",
@@ -1974,48 +2011,6 @@
     "link": "https://www.metachris.dev/2025/11/sandbox-your-ai-dev-tools-a-practical-guide-for-vms-and-lima/",
     "thumbnail_url": "https://www.metachris.dev/images/posts/ai-sandbox/cover.jpg",
     "created_at": "2026-01-21T00:59:26.211Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "takatime-selfhosted-wakatime-alternative-go-and-mongodb",
-    "title": "TakaTime – Self-Hosted WakaTime Alternative (Go and MongoDB)",
-    "description": "TakaTime is a blazingly fast, privacy-focused coding time tracker for Neovim.  It works just like WakaTime, but with one major difference: You own your data. Instead of sending your coding activity...",
-    "fullText": "Rtarun3606k\n\n /\n\n TakaTime\n\n Public\n\n TakaTime is a blazingly fast, privacy-focused coding time tracker for Neovim. It works just like WakaTime, but with one major difference: You own your data. Instead of sending your coding activity to a third-party server, TakaTime stores everything in your own MongoDB database.\n\n License\n\n MIT license\n\n 10\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n Rtarun3606k/TakaTime",
-    "readingTime": 1,
-    "keywords": [
-      "coding",
-      "activity",
-      "takatime",
-      "license"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://github.com/Rtarun3606k/TakaTime",
-    "thumbnail_url": "https://opengraph.githubassets.com/4a0f7ea58066e011c6d164cc23d1af692c671a17cadd5889743e52a2451b2406/Rtarun3606k/TakaTime",
-    "created_at": "2026-01-20T12:27:00.258Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "metacompilation",
-    "title": "Metacompilation",
-    "description": "A post that is going to be part of my sequence on rethinking programming languages. …",
-    "fullText": "A post that is going to be part of my sequence on rethinking programming languages.\n\nA compiler is a piece of machine code , that takes as input a text string describing a program  and returns the compiled machine code\n\nLet  be a function that takes in a machine code program and returns another potentially faster or smaller program.\n\nA metacompliler has the formula\n\nTo understand how this works, first let's look at a less self referential case. Let  be a regular compiler.\n\nis just a string. Maybe it's \"print(1+2)\"\n\nis a machine code program. This program, if run, would first compile  into machine code, and then would run that machine code. Therefore it is a machine code program that does the same thing as . It has a fairly significant size for even a small program, as it contains a complete copy of the compiler.\n\nWhat does  do? It optimizes that machine code. The first thing it can do is cut out big chunks of the compiler. At least in simple cases. If the code is running arbitrary eval statements, all the compiler might be needed. In the case of this simple program, the parts of the compiler that handle floats, loops etc are just not used. If the optimizer is good, it could simplify the code all the way down to . Some programming languages (see zig) already run code at compile time. The difference between compile and run time is just in what variables you currently know the value of, and the relative cost of compute.\n\nFor code with a finite runtime that just runs by itself, not interacting with the outside world, it can all, in principle be simplified down to a single print statement. In practice computer programs interact with the \"outside world\" in all sorts of ways. In some contexts, writes to disk or sending data to a GPU might be considered interactions with an external world. But for simplicity, assume the only form of interaction is input() and print()\n\nSo that's what a metacompiler does. But does it actually do anything. The most naive metacompiler implimentation has  .  When we call  we get the program. And when we proceed to run that program, that program first calls  to generate the machine code  and then runs that machine code. This leads to an infinite regress. We haven't actually used  anywhere. What we essentially have is just.\n\nA program that is clearly an infinite loop, with no actual relation to pi.\n\nSo we need the optimization step of the metacompiler to be doing something non-trivial to make the code halt in a finite time at all.\n\nLets define a small toy programming language, so we can talk about how to compile it.\n\nWe will give our programming language one data type, arbitrary size integers.\n\nWe will allow definitions, inputs, calculations and loops.\n\nThis example program shows all the features of this programming language. It is rather minimal.\n\nThe only free parameter in the metacompiler (as above) is in the choice of\n\nFor clarity, machine code instructions will look the same as programming language instructions, except the machine code will be in BOLD\n\nThe program consists of a number of definitions,  (of the format [name]=[number], looking like  ) followed by the first non-definition statement. If the same name is used multiple times, only the last definition is needed. Ie the code  can be optimized to\n\nSuppose the optimizer takes in  code where the first non-definition in  happens to be a calculation. For example.  this can get optimized into\n\nNow suppose the first non-definition in  is an .  For example.  This can be converted into.\n\nThe way to think about this is that, if  were a normal compiler, the  function would convert a machine code program containing  into another machine code program that still contains  but that makes  do slightly less work.\n\nwhile the similar  can simplify down to\n\nThis gives a functioning toy example of a metacompiler. The above simplification rules are used in the definition of , which is in turn used in the definition of .\n\nThis produces code that, while excessively self referential, runs and produces output in a finite time, at least assuming the output of a regular compiler would run in finite time on the program.\n\nNote that  only does 1 simplification step, and is only run once at compile time.\n\nSuppose we insisted that, before  is allowed to simplify a piece of machine code, it must first prove that it's simplification won't change the result. This can be proved, by lob's theorem. However it isn't sufficient to make the metacompiler actually valid. Lob's theorem just says that ZFC approves of infinite buck passing. At some point we need to actually understand our programming language.\n\nIf however we make  prove that  is equivalent to  before  is allowed to output . Then that is sufficient. Your directly proving that your meta-compiler is doing the same thing as a regular compiler, which gives you a ground truth about the meaning of the programming language.\n\nWhile the example meta-compiler given above isn't particularly fast, the toy example shows that metacompilers can exist. And the space of meta-compilers seems like it should contain all sorts of interesting optimizations.\n\nFor example. I was doing some programming involving numerically integrating systems of Stochastic Differential Equations (SDE's). Basically, I choose various settings and then run a tight loop involving those settings. And ideally I would like the speed of special purpose compiled code within the tight loop, without having the overhead of a full compilation from source every time I change a setting.\n\nSo, what I would ideally want is a program that contains precompiled snippets of code. Once the particular values of the settings are known, a highly optimized machine code program could be put together by little more than pasting together the relevant blocks of machine code to make a complete machine code program.\n\nAnd I'm wanting a way to make the programming language do this, or other clever things like this, automagically.\n\nAnother clever thing. Suppose your program contains  of arbitrary user generated strings. But you know this is only a small fraction of runtime. And the user isn't allowed to use various language features. You might want to make a cut down minified version of the full language compiler, something with the unused features cut out, and some of the optimization tricks removed.\n\nThe hope is to totally blur the line between compile time and runtime, with code that can rewrite itself on the fly in all sorts of clever and highly performant ways.",
-    "readingTime": 6,
-    "keywords": [
-      "self referential",
-      "lob's theorem",
-      "tight loop",
-      "programming languages",
-      "regular compiler",
-      "programming language",
-      "machine code",
-      "code program",
-      "metacompiler",
-      "contains"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.lesswrong.com/posts/6BSZkkWNGMTdRi5Ly/metacompilation",
-    "thumbnail_url": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1654295382/new_mississippi_river_fjdmww.jpg",
-    "created_at": "2026-01-20T12:26:57.143Z",
     "topic": "tech"
   }
 ]
