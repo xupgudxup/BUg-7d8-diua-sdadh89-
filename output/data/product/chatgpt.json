@@ -1,5 +1,21 @@
 [
   {
+    "slug": "aiquotabar-macos-menu-bar-app-that-shows-claude-and-chatgpt-usage-limits",
+    "title": "AIQuotaBar – macOS menu bar app that shows Claude and ChatGPT usage limits",
+    "description": "See your Claude.ai usage limits live in your macOS menu bar - yagcioglutoprak/AIQuotaBar",
+    "fullText": "yagcioglutoprak\n\n /\n\n AIQuotaBar\n\n Public\n\n See your Claude.ai usage limits live in your macOS menu bar\n\n github.com/yagcioglutoprak/ClaudeUsageBar\n\n License\n\n MIT license\n\n 1\n star\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n yagcioglutoprak/AIQuotaBar",
+    "readingTime": 1,
+    "keywords": [
+      "star",
+      "license"
+    ],
+    "qualityScore": 0.4,
+    "link": "https://github.com/yagcioglutoprak/AIQuotaBar",
+    "thumbnail_url": "https://opengraph.githubassets.com/cb6433e43e137c9883e1039610a5b624b7c5140025aed240459a8473eff56dc0/yagcioglutoprak/AIQuotaBar",
+    "created_at": "2026-02-26T06:46:26.449Z",
+    "topic": "tech"
+  },
+  {
     "slug": "openai-shares-details-from-thwarted-romance-scams-fake-law-firms-and-an-effort-to-smear-japans-prime-minister",
     "title": "OpenAI shares details from thwarted romance scams, fake law firms, and an effort to smear Japan's prime minister",
     "description": "In one of the most brazen incidents, OpenAI said individual associated with Chinese law enforcement asked ChatGPT to help plan a smear campaign.",
@@ -2197,29 +2213,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/lJf_oWQ6zKW61pSF6KXjsQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/gobankingrates_644/462257bf337ed267db1d5a918b6d6cb6",
     "created_at": "2025-12-22T06:20:25.965Z",
     "topic": "finance"
-  },
-  {
-    "slug": "building-apps-for-chatgpt-with-apollo-mcp-server-and-apollo-client",
-    "title": "Building Apps for ChatGPT with Apollo MCP Server and Apollo Client",
-    "description": "This post will introduce a tutorial on how to build an app for ChatGPT using Apollo Client and Apollo MCP Server. You’ll have what you need to get started with our opinionated stack for building these apps.",
-    "fullText": "Building Apps for ChatGPT with Apollo MCP Server and Apollo Client\n\nIn early October, OpenAI introduced the ChatGPT Apps SDK with a handful of launch partners. These “apps” could be invoked by ChatGPT via Model Context Protocol (MCP) and would be embedded directly into the ChatGPT interface. In their intro video, they showed use cases like asking for flights, hotel locations, house listings, and more, including teasing the idea of asking follow up questions to ChatGPT.\n\nImagine your application being part of the conversation, allowing the user to ask follow up questions, and having your app be responsive to those questions. These are action-oriented conversational apps where the LLM can take action on behalf of a user with rich interactive UIs.\n\nThis idea quickly caught fire, and now the MCP apps spec is proposing a standardized approach to create these kinds of experiences, with other AI vendors sure to follow suit. We’re excited about the potential here, and are working on tools to abstract away all of the AI provider details from you with a great developer experience, allowing you to focus on building your app instead of worrying about vendor idiosyncrasies and evolving standards.\n\nWe want this to be a true “build once” solution where you can deploy your app anywhere that supports one of the protocols that we will support. This way, you don’t need to host a separate MCP Server, and build a separate app, for every provider and sub-protocol that emerges.\n\nYou can instead focus on your customers.\n\nThis post will introduce a tutorial on how to build an app for ChatGPT using Apollo Client and Apollo MCP Server. By the end of it, you’ll have what you need to get started with our opinionated stack for building these apps. If you prefer to dive into the template and follow along, you can find the repo here.\n\nBased on the OpenAI documentation and examples, to build one of these apps you would:\n\nWe don’t want you to have to do any of this. You shouldn’t have to focus on any of the inner workings of this sub-protocol, or even think about MCP. Your front-end engineers shouldn’t have a new dependency on your platform engineers. Instead, you should be able to focus on building exciting and compelling experiences for your customers.\n\nInstead of this feeling like learning 100% how to build apps from scratch, this should be 90% reusing what you already know about building apps, and 10% learning about the specifics of this new paradigm.\n\nWe wanted to make this as easy as possible and decided to reach for tools that are already familiar to many of our users: Apollo MCP Server and Apollo Client. If you want to follow along in this tutorial, you can find all the code in our OpenAI Apps SDK demo.\n\nTo build this app we have two components: a React app and Apollo MCP Server. This solution works without any additional MCP Server configuration. The client gets to focus on their application, not the MCP server configuration.\n\nStarting in our main.tsx file, we create an ApolloClient instance and ApolloProvider, very similar to how we would on a traditional React app, but we’re going to import them from @apollo/client-ai-apps instead of the normal location. This is an Apollo Client integration package, similar to @apollo/client-nextjs. This allows us to do a lot of setup and details behind the scenes of dealing with data being exchanged over MCP.\n\nNow we can use the normal useQuery and useMutation hooks as we normally would!\n\nFor example, I can write a component that gets my TOP_PRODUCTS:\n\nLooks pretty normal, but what is that @tool directive on the operation? That is allowing you to declare in your app a tool that will be exposed to the LLM, including a name and description. At the same time, we are registering the operation that will be executed when this tool is called (and therefore the data that should be delivered as part of this tool), and the graphql variables become the input schema for the tool!\n\nThis is really exciting because we’re able to declare so much with so little code. Also, these are on-the-fly tool declarations. I don’t need a platform team to create these tools for me on an MCP server!\n\nAnother important aspect of this solution is showing the right component based on what tool was called by the LLM. It turns out we’ve had this problem solved for years now with React Router!\n\nTo do this, we provide a useToolEffect hook, which works the same way as a useEffect, but allows you to run the effect based on which tool was executed.\n\nUsing this hook, and a very familiar navigate function from react-router, I can express that when the “Top Products” tool is called, I should navigate to the /home view.\n\nThe magic of this solution really comes from a custom Vite plugin called the ApplicationManifestPlugin which extracts all the operations, tools, and metadata from your React app and generates a .application-manifest.json file:\n\nThis plugin runs during dev and build time and generates a file that looks something like this:\n\nWhat you’ll see contained in this manifest is everything that the Apollo MCP Server needs to automatically generate the resource and tools for your app. There’s no need to create or configure any of this on the MCP Server. It will automatically pick it up based on your manifest file.\n\nAnd that’s it! You can build your React app and declare tools alongside the data declarations and the tooling will do the rest. At the time this post was written, you would then test your app in ChatGPT using developer mode. OpenAI outlines how to try the app in their documentation.\n\nWith the MCP apps spec hot off the press, and likely other providers working on an answer to ChatGPT’s AppsSDK, we have a very important goal: To abstract away all of the provider details from you with a great developer experience, allowing you to focus on building your app instead.\n\nWe want this to be a true “build once” solution where you can deploy your app anywhere that supports one of the protocols that we will support. This way, you don’t need to host a separate MCP Server, and build a separate app, for every provider and sub-protocol that emerges.\n\nYou can instead focus on your customers.\n\nThis solution is exciting for platform engineers because it doesn’t require them being in the loop and becoming a blocker for the frontend teams they are looking to empower. A single Apollo MCP Server powers apps across providers and accelerates platform engineering. For frontend engineers, this removes the burden of sub-protocol concerns and lets them focus on building high-quality user experiences.\n\nIt’s important to note that these apps are still very, very early.\n\nRemember many, many years ago when “apps” first appeared on the iPhone? Many people didn’t understand why they needed a mobile app when they already had a website. It’s kind of funny looking back now because we had no idea what we were even looking at or how much it would change and shape our future.\n\nThat’s about where we are now with these conversational chat apps. Customers and companies alike don’t yet “get” these apps. The app store just launched. But once these things fall into place, and we hit an industry mind share, we believe we’re going to see an explosion of conversational, chat-based applications.\n\nTry out building apps for ChatGPT today with Apollo Client and Apollo MCP Server by going to our Template Repo and following the README. We’d love to hear what you think.",
-    "readingTime": 7,
-    "keywords": [
-      "server configuration",
-      "apps sdk",
-      "abstract away",
-      "developer experience",
-      "react app",
-      "experience allowing",
-      "host separate",
-      "apollo mcp",
-      "follow along",
-      "provider details"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.apollographql.com/blog/building-apps-for-chatgpt-with-apollo-mcp-server-and-apollo-client",
-    "thumbnail_url": "https://wp.apollographql.com/wp-content/uploads/2025/12/image.jpeg",
-    "created_at": "2025-12-19T00:56:20.291Z",
-    "topic": "tech"
   }
 ]
