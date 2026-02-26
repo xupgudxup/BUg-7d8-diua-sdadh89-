@@ -1,5 +1,110 @@
 [
   {
+    "slug": "rag-on-a-budget-how-i-replaced-a-360month-opensearch-cluster-for-112month",
+    "title": "RAG on a Budget: How I Replaced a $360/Month OpenSearch Cluster for $1.12/Month",
+    "description": "A technical deep-dive into migrating from OpenAI + OpenSearch to a cost-optimized RAG pipeline on AWS. Covers Amazon Bedrock, S3-based vector storage, in-memory cosine similarity search, DynamoDB rate limiting, tiered model routing, and the real-world tradeoffs that shaped every decision.",
+    "fullText": "There's a version of this post where I start with the cost savings and you click away satisfied. But the more interesting story is the series of architectural decisions — some deliberate, some forced — that got me from \"let's build this properly\" to a production RAG system running for about $1 a month.\n\nIn January 2026 I did a full rebuild of my professional presence — new Next.js 16 + React 19 portfolio, redesigned from scratch, plus a separate site for my artwork (previously both lived in one codebase). Once those were live, the missing piece was obvious: the AI agent I'd shelved in March 2025 needed to come back, this time production-ready and cost-viable. The rebuilt sites gave it a home worth shipping into.\n\nWhen I decided to add an AI knowledge agent to my personal site, I didn't want a toy. I wanted to understand how production RAG systems actually work — the kind you'd build at a company with real scale requirements. That meant:\n\nA proper vector database (OpenSearch)\n\nExternal embedding and generation via OpenAI\n\nClean separation between ingestion, retrieval, and generation\n\nThe architecture was sound. The problem was the bill.\n\nOpenSearch's minimum viable cluster runs $360–720/month. For a personal project with a few hundred queries a day, that's unjustifiable. After less than a week of watching that cost accumulate, the question shifted from how do I build this to how do I keep this running without OpenSearch?\n\nBefore getting into the migration, here's what I built and why it's worth the effort.\n\nThe agent lives on my website and answers questions about my work, experience, and technical background — things a resume can't do. Instead of serving static pages, visitors can ask things like \"What's your experience with system design at scale?\" or \"Have you worked with event-driven architectures?\" and get grounded, specific answers drawn from my actual content.\n\nThe key word is grounded. This isn't a general LLM answering from training data. Every response is anchored to a curated knowledge base I built and maintain myself — covering 25+ years of engineering experience, employment history, certifications, FAQs, and consulting background.\n\nThe API response contract is intentionally simple and observable:\n\ninterface ChatResponse {\n success: boolean\n message: string\n error?: string\n rateLimited?: boolean\n tokensUsed?: number\n modelUsed?: string\n}\n\nmodelUsed is there for a reason — knowing which tier handled a query matters for debugging and understanding cost tradeoffs in production.\n\nThe core flow hasn't changed between architecture versions:\n\nUser query\n → Embed the query (vector representation)\n → Cosine similarity search against pre-computed knowledge embeddings\n → Inject top-k results as context\n → Generate response from LLM with that context\n → Return answer + source metadata\n\nWhat changed is every infrastructure component underneath it.\n\nThe first version was architecturally clean but expensive.\n\nEmbeddings: OpenAI text-embedding-ada-002\n Vector storage: AWS OpenSearch 2.17\n Generation: OpenAI GPT-4\n Auth: Secrets Manager for API keys\n Orchestration: AWS Lambda via AppSync\n\nFor embeddings I used OpenAI's text-embedding-ada-002 — the standard choice at the time, producing 1536-dimension vectors. It worked well. The issue wasn't quality; it was that every embedding generation call left AWS, added latency, and accumulated cost alongside the OpenSearch bill. When you're already paying $360/month for the vector database, adding per-token embedding costs and an external network dependency starts to feel like the wrong architecture for the wrong scale.\n\nI built the OpenSearch cluster lean and deliberately minimal — a single t3.small.search node, 1-AZ without standby, 10 GiB EBS gp2 storage, VPC-only access, fine-grained access control, node-to-node encryption, and hourly snapshots. No dedicated master nodes, no UltraWarm, no redundancy I didn't need. This was the smallest viable production configuration.\n\nIt still wasn't cheap enough. OpenSearch 2.17 on even a single t3.small.search runs around $360/month just to exist. The cluster was healthy — green status, no issues — but after less than a week of running it I shut it down. The architecture was right. The cost profile wasn't.\n\nThat was March 2025. The project sat on the back burner until January 2026, when I came back to it with a different question: what if I didn't need a vector database at all?\n\nThe migration had one hard constraint: I couldn't just swap the LLM provider. I had to eliminate the vector database entirely or find something that costs effectively nothing at my scale.\n\nThe insight was simple: I have fewer than 200 document chunks. That fits comfortably in Lambda's memory. If I precompute all the embeddings, serialize them to S3, and load them at Lambda startup — I don't need a vector database at all.\n\nEverything runs in us-east-1. That's a deliberate choice — the widest model selection and best Amazon Bedrock pricing are there, and keeping Lambda, S3, DynamoDB, and API Gateway in the same region avoids cross-region latency and data transfer costs.\n\nEvery document chunk gets embedded using Amazon Bedrock's Titan Text Embeddings V2. The results are serialized to a single JSON file and written to S3.\n\nThe actual bucket is stephanie-knowledgebase-embeddings, created February 1, 2026. It holds three objects: embeddings.json (2.3 MB, prod), embeddings-dev.json (2.3 MB, dev), and a lambda/ folder. Both embedding files were last regenerated February 19, 2026 after a knowledge base update. Total storage cost: ~$0.01/month.\n\nOn Lambda cold start, the handler fetches the embeddings file from S3 and loads it into memory. It also writes it to /tmp so subsequent warm invocations skip the S3 fetch entirely.\n\nEmbed the query text with Titan V2\n\nCompute cosine similarity against every stored embedding in memory\n\nReturn the top-k results as context\n\nThe implementation lives in embeddingStore.ts. For each stored document embedding b and query embedding a, it computes:\n\ndot product: Σ(a_i * b_i)\nmagnitude of each: sqrt(Σ(a_i²)), sqrt(Σ(b_i²))\ncosine similarity: dot / (|a| * |b|)\n\nsimilaritySearch() runs this against every document, sorts descending, and returns the top-k chunks — which become the context injected into the LLM prompt. Higher cosine score = more semantically similar chunk = more relevant RAG context.\n\nThere's no index. No vector database. Just a dot product loop over a few hundred float arrays. At this scale, it's faster than a network call to an external database would be.\n\nCold start: 3–5 seconds (S3 fetch + embedding load)\nWarm invocations: < 500ms total\n\nThis is the core architectural bet: the scale doesn't justify the infrastructure. At 200 chunks, in-memory search is not a compromise — it's the right tool.\n\nThe design called for three Amazon Bedrock models at three cost tiers:\n\nIn practice, Anthropic models on Amazon Bedrock have been consistently unreliable for me. AWS Marketplace agreements for Anthropic models keep expiring immediately after acceptance — I'd get the \"offer accepted\" email followed minutes later by \"agreement expired.\" I've filled out the required use-case forms, but something in the approval flow keeps breaking. I can call the Anthropic API directly with my own keys without any issues, but I specifically wanted to keep the model abstracted behind Amazon Bedrock so the provider wasn't baked into the application layer.\n\nThe result: in production, the system always routes to Llama 3.3 70B, which turns out to work just fine. The tiered routing logic is fully in place — ready to use Claude the moment Amazon Bedrock access resolves — but for now Llama handles all queries, and the quality is solid.\n\nThis is the part of production systems that doesn't show up in architecture diagrams: sometimes a dependency you designed around simply doesn't work, and you ship with what does.\n\nThe rate limiter tracks usage at three granularities:\n\n: 5 queries max (prevents abuse)\n\nThe bedrock-rate-limits table uses userId (String) as the partition key and timestamp (Number) as the sort key, on-demand capacity mode. As of today it holds 49 items at 6.1 KB total — real usage, not a test table. Records expire automatically with a 90-day TTL. Cost: $0 (DynamoDB free tier).\n\nTwo Lambda functions — KnowledgeableAgent (prod) and KnowledgeableAgentDev — both Node.js 20.x, deployed as Zip packages, triggered by their respective API Gateway REST APIs. The prod API was created February 2, 2026; dev came online February 20 after I formalized the environment separation. Both are regional, TLS 1.0, API key authenticated, and status Available.\n\nNext.js 16 frontend\n → POST /chat (API Gateway)\n → x-api-key header validation\n → Lambda handler (Node.js 20.x)\n → Rate limit check (DynamoDB bedrock-rate-limits)\n → Query embedding (Amazon Bedrock Titan V2)\n → Similarity search (in-memory, embeddings.json from S3)\n → Context injection\n → LLM generation (Llama 3.3 70B via Amazon Bedrock)\n → ChatResponse with answer + sources + modelUsed + tokensUsed\n\nA note on the API key auth: yes, an API key is a lightweight security mechanism — not OAuth, not JWT, not Cognito. That's a deliberate tradeoff, not an oversight. Two things make it appropriate here. First, ALLOWED_ORIGINS is configured to restrict requests to my own domains, so even if someone had the key, cross-origin calls from arbitrary clients get rejected. Second, the calls are made server-side from the Next.js backend — the key is never exposed to the browser. Combined with rate limiting already enforced at the DynamoDB layer, this is a reasonable security posture for a personal site. If this were handling sensitive user data or financial transactions, the answer would be different.\n\nThe starting point was everything I already had: website pages, blog posts, resume, Contra and Upwork profiles. The raw material existed — it just lived in too many places with too much overlap. The about page, homepage summary, and resume introduction all said essentially the same things in slightly different words. The case studies section of the site duplicated content that already lived in blog posts.\n\nAI-assisted summarization — I worked with various AI editors to distill each source into well-structured chunks. This got the content into roughly the right shape quickly.\n\nManual proofread for accuracy — Every chunk was read and verified against the source. AI summaries compress things; sometimes they compress the wrong things.\n\nDeduplication with Claude Code — Ran Claude Code across the knowledge base to identify redundancies. Overlapping content from the about page, homepage, and resume was consolidated into about-page.json as the single source of truth. The case studies section was excluded entirely — that content is already in the blog posts, and indexing it twice would pollute retrieval with duplicates.\n\nStructural decisions — Each JSON file maps to a domain: employment history, certifications, FAQs, consulting services, about. Each content_chunk has its own id, title, and chunk text, with an empty embedding array that gets populated at generation time.\n\nHere's what a real chunk from certifications.json looks like:\n\n{\n \"id\": \"cert-001\",\n \"title\": \"Education: UC Berkeley\",\n \"chunk\": \"Education: Bachelor of Science in Physics & Astronomy, UC Berkeley, December 1999.\",\n \"embedding\": []\n}\n\nAnd from techstyle.json — a chunk that captures a specific, measurable outcome:\n\n{\n \"id\": \"techstyle-001-2\",\n \"title\": \"Variant Price Testing Project\",\n \"chunk\": \"Designed and implemented an A/B testing strategy for dynamic price testing, leading to a $250,000 increase in revenue within the first three days. Architected and developed two high-performance TypeScript API microservices deployed in Mesosphere DC/OS.\",\n \"embedding\": []\n}\n\nThe chunk granularity matters. Too broad and cosine similarity can't differentiate relevance. Too narrow and you lose context. The employment history files use a challenge/solution/result pattern for each project — that structure makes retrieval more precise for questions about specific work.\n\nThe tradeoff is real: manual curation doesn't scale. When the Contentful ingestion pipeline is validated and the chunking strategy is proven, I'll switch to automated ingestion. Until then, I know exactly what the agent knows and how it says it.\n\nSeparate environments from day one.\n\nDEPLOY_ENV=dev ./deploy-lambda.sh\n\nDev uses embeddings-dev.json and a separate API key via KnowledgeableAgentAPIDev. I can push knowledge base changes, test retrieval quality in the actual chat UI, and validate rate-limit behavior without touching the production assistant. Only after validating in dev does anything get promoted to prod.\n\nFor a solo project, this discipline pays off quickly — a bad embeddings file or a broken prompt template is annoying in dev and embarrassing in prod.\n\nThe 99.7% reduction isn't primarily about being clever with LLM costs. It's about eliminating the always-on vector database that was charging rent regardless of traffic.\n\nDoesn't scale past ~10K chunks. In-memory cosine similarity works at this scale. Above 10K chunks, you need a proper index — Pinecone's free tier or OpenSearch Serverless are the right next step.\n\nCold starts are real. The first query after a period of inactivity takes 3–5 seconds while Lambda fetches embeddings from S3. Acceptable for a personal site; not acceptable for a latency-sensitive product.\n\nNo real-time knowledge updates. Adding content requires regenerating embeddings and redeploying. For a knowledge base that changes infrequently, this is fine.\n\nExternal provider dependencies bite. The Anthropic/Amazon Bedrock access issue is a live example. Even with fallback logic designed in, a dependency that's supposed to work might not.\n\nThe first real test was a Postman request — \"Tell me about your experience with team management\" — hammered repeatedly until the retrieval and response quality felt right. That particular query is a good stress test because team management context is distributed across multiple files: employment history chunks, the about page leadership section, FAQ entries. Getting a coherent, grounded answer required the similarity search to pull the right combination of chunks and the LLM to synthesize them cleanly. When it started coming back with specific, accurate answers instead of generic ones, that was the signal.\n\nMore interesting than the questions it answers well are the edges. I deliberately tested queries the agent shouldn't be able to answer — things outside the knowledge base entirely — and it correctly declined rather than hallucinating. But the most revealing test was asking \"Are you kind?\"\n\nThere's no chunk in the knowledge base that answers that directly. Instead, the agent pulled from the core values section of the about page and cross-referenced tone from blog writing to construct a thoughtful response. It wasn't a stored answer — it was synthesis. Seeing it work on a soft, subjective question was more convincing than any technical benchmark.\n\nThe immediate roadmap is intentionally minimal. The Contentful ingestion pipeline exists but isn't production-ready — it will get validated when there's enough new content to justify switching from manual curation. Resolving the Anthropic/Amazon Bedrock access issue remains open. And this blog post itself is the next piece of content going into the knowledge base once it's published — which feels like an appropriate closing of the loop.\n\nBeyond the cost numbers, this project is an exercise in matching infrastructure to actual scale requirements — a thing that's easy to get wrong when you're learning a new domain and want to do it \"properly.\"\n\nOpenSearch is the right tool for a team running millions of vector queries against a corpus of millions of documents. It's the wrong tool for a personal site with 200 chunks and a few dozen queries per day. Recognizing that distinction, and being willing to trade architectural prestige for operational reality, is its own kind of engineering judgment.\n\nThe tiered model routing, DynamoDB-based rate governance, API key authentication, dev/prod separation, and deliberate knowledge base curation aren't over-engineered additions — they're the parts that make this viable as a real, running system rather than a demo that works once and gets shut down.\n\nFrontend: Next.js 16 + React 19 + TypeScript\n\nAPI: AWS API Gateway (REST, regional, API Key auth, TLS 1.0)\n\nCompute: AWS Lambda (Node.js 20.x, Zip deployment)\n\nEmbeddings: Amazon Bedrock Titan Text Embeddings V2\n\nVector storage: S3 stephanie-knowledgebase-embeddings (2.3 MB JSON) + in-memory cosine similarity\n\nGeneration: Llama 3.3 70B via Amazon Bedrock (Claude 3.5 Sonnet/Haiku in routing logic, pending Amazon Bedrock access resolution)\n\nRate limiting: DynamoDB bedrock-rate-limits (on-demand, userId + timestamp keys, 90-day TTL)\n\nInfrastructure: IAM, CloudWatch, TypeScript build pipeline\n\nKnowledge base: Handcrafted JSON with AI-assisted summarization, manually proofread and deduplicated via Claude Code\n\nThe full migration guide and deployment scripts are in the repo if you want to adapt this for your own use case.",
+    "readingTime": 14,
+    "keywords": [
+      "certifications faqs",
+      "ai-assisted summarization",
+      "created february",
+      "gateway rest",
+      "contentful ingestion",
+      "anthropic models",
+      "claude code",
+      "dynamodb bedrock-rate-limits",
+      "titan text",
+      "json file"
+    ],
+    "qualityScore": 1,
+    "link": "https://stephaniespanjian.com/blog/rag-cost-reduction-replaced-opensearch-s3-in-memory-search",
+    "thumbnail_url": "https://images.ctfassets.net/j10146qwtjlr/qUY4hNVhocGHxYMMEmBwp/777c03121918f81a7ac96d9261e29d74/stephanie-spanjian-ai-knowledge-agent-rag-aws-bedrock.png",
+    "created_at": "2026-02-26T01:08:25.933Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "scotland-fans-secure-fifa-approval-to-wear-sporrans-at-world-cup",
+    "title": "Scotland fans secure Fifa approval to wear sporrans at World Cup",
+    "description": "Thousands of supporters are expected to travel to the US for Scotland's first appearance in the tournament since 1998.",
+    "fullText": "The Tartan Army have been given the green light to wear sporrans with their kilts at World Cup matches this summer, the Scottish Football Association has confirmed.\n\nThousands of supporters are expected to travel to the US to cheer on Steve Clarke's side after the men's national team qualified for the first time since 1998.\n\nThe World Cup stadium code of conduct states ticket holders are only permitted to bring certain types of bags into stadiums.\n\nSporrans initially failed to meet the strict security criteria but, following talks between world football's governing body Fifa and the SFA, it has now been agreed fans will be able to wear them.\n\nScotland are set to face Haiti and Morocco in Boston and Brazil in Miami after qualifying for the finals with a thrilling 4-2 Hampden victory over Denmark in November.\n\nThe 2026 edition will feature 48 teams and be played from 11 June to 19 July in 16 cities across the US, Canada and Mexico.\n\nUnder current rules at the stadiums in Boston and Miami, the only large bags allowed into the grounds must be made from clear plastic and not exceed 12in x 12in x 6in (30cm x 30cm x 15cm).\n\nAny small bags that are not see-through must measure no more than 4.5in x 6.5in (11cm x 16.5cm) – almost half the size of many sporrans.\n\nWithout the agreement Scotland fans would have had to leave their sporrans in lockers outside or discard them altogether.\n\n\"The Tartan Army are well-known and the sporran is part of our uniform,\" Tartan Army veteran Hamish Husband told BBC Radio Scotland's Lunchtime Live.\n\n\"Our sporrans will contain our match tickets and hope - that's all we want to smuggle into the stadiums.\n\n\"When we arrive anywhere in the world, the kilt and the sporran are a sign of friendship.\"\n\nHe said he never had any doubts that Scotland fans would be allowed to wear their sporrans in the stadiums for the matches.\n\nA SFA spokesperson said: \"FIFA have confirmed that sporrans will be permitted into the stadiums following the standard search and inspection procedures and will continue to work together with the Scottish FA to educate their matchday staff as they prepare to welcome fans to Boston and Miami.\n\n\"The ticketing and membership team at the Scottish FA are in continued dialogue with the tournament hosts to ensure that the Scotland fans will be welcomed to venues in the way they have been across the world.\"\n\nThe agreement comes after it was revealed that the Scotland squad will be kitted out in tailored suits for their World Cup return.\n\nIn 1998 the team, managed by the late Craig Brown, wore kilts ahead of the opening match of tournament against Brazil in Paris.\n\nBut last month the SFA confirmed a Glasgow-based tailor will make \"sharp, made-to-measure suits\" for the players and backroom staff.",
+    "readingTime": 3,
+    "keywords": [
+      "scotland fans",
+      "the tartan army",
+      "world cup",
+      "scottish fa",
+      "sporrans",
+      "stadiums",
+      "wear",
+      "team",
+      "bags",
+      "kilts"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.bbc.com/news/articles/cn0erx6x228o?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/news/1024/branded_news/9ed3/live/23c0c780-1256-11f1-989c-0ff32e28c94c.jpg",
+    "created_at": "2026-02-26T01:08:23.199Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "biggest-fight-in-the-world-for-me",
+    "title": "'Biggest fight in the world for me'",
+    "description": "Daniel Dubois says his fight against Fabio Wardley will be the biggest of his career so far. The world title fight between two of Britain's biggest punchers takes place at Manchester's Co-op Live Arena on 9 May.",
+    "fullText": "'Biggest fight in the world for me'53Daniel Dubois says his fight against Fabio Wardley will be the biggest of his career so far. The world title fight between two of Britain's biggest punchers takes place at Manchester's Co-op Live Arena on 9 May.Dubois refuses world champion Wardley's fist bumpSubsectionBoxingPublished4 hours agoShareclose panelCopy linkAbout sharingRead description",
+    "readingTime": 1,
+    "keywords": [
+      "biggest",
+      "fight"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.bbc.com/sport/boxing/videos/c4g2ke9jg7go?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/1efc/live/64581400-127a-11f1-9120-a910fc22c6ac.jpg",
+    "created_at": "2026-02-26T01:08:23.086Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "dubois-refuses-world-champion-wardleys-fist-bump",
+    "title": "Dubois refuses world champion Wardley's fist bump",
+    "description": "Daniel Dubois refuses a fist bump from world champion Fabio Wardley at a lively news conference in London to promote their world title fight in May.",
+    "fullText": "Daniel Dubois refused a fist bump from world champion Fabio Wardley as the pair came face-to-face at a lively news conference in London.\n\nThe world title fight between two of Britain's biggest punchers takes place at Manchester's Co-op Live Arena on 9 May.\n\nAfter some long-winded bickering between the two camps, the fighters - relatively restrained until that point - finally sparked into life.\n\nWardley said he would \"flatten\" the challenger. \"My power is proven. If there's time left on the clock, I'm taking you out of the fight,\" he added.\n\nThe 31-year-old - with 19 stoppages in 20 wins - will make the first defence of his WBO crown, having claimed the 'interim' title against Joseph Parker before being upgraded to full champion when Oleksandr Usyk vacated the belt.\n\nFormer IBF champion Dubois, 28, is coming off a devastating knockout loss to generational great Usyk last summer.\n\n\"If you look back, when it gets dicey, he's not up for it,\" Wardley said of Dubois, who has faced accusations of folding too easily in his three stoppage defeats.\n\nWednesday's news conference took place at Dutch Hall, a converted 16th-century church tucked away in the heart of the city.\n\nDubois - never one for lengthy monologues - kept his answers short and matter of fact.\n\nBut the Londoner was clear in his intention. \"Victory by knockout, by any means necessary,\" he said.\n\nWhen the fighters eventually stepped forward for the obligatory face-off, Dubois looked away first as Wardley smirked.\n\nMoments later Wardley extended his fist in a gesture of respect, but Dubois shook his head and refused to engage.\n\nBefore the face-off drama, a twitchy, stone-faced Dubois glanced around at the stained-glass windows as the managers went toe-to-toe backing their men.\n\nDubois' representative Sam Jones predicted his fighter would \"flatten\" Ipswich's Wardley in quick time.\n\nWardley's manager Michael Ofo responded in kind, saying Wardley would \"destroy Daniel Dubois early\".\n\nThe back-and-forth rumbled on, Wardley grinning as the volume increased.\n\nOfo referenced Dubois' team and the recent changes in his training set-up. After the loss to Usyk, Dubois - who has worked with five trainers in his pro career - briefly parted ways with coach Don Charles before swiftly reversing the decision.\n\n\"It's going to be hard for Daniel to overcome all the things going on in his camp,\" Ofo said.\n\n\"The only person over there should be Stan [Dubois' father] because we know he makes all the decisions.\"\n\nCharles responded that \"talk is cheap\" before launching into his own war of words.\n\nAfter all that verbal sparring, promoter Frank Warren restored a little order.\n\n\"The winner of this will be fighting in a big stadium fight,\" the Queensberry boss said.\n\n\"But to get there, they have to lace them up and we'll see who is the best on the night.\n\n\"Both camps are passionate about their fighters, so it has all the ingredients of an amazing event.\"\n\nYou are never going to get a stream of soundbites from Dubois, but he usually gives you one moment. Before facing Anthony Joshua in September 2024, he famously banged the table with his fist.\n\nThis time, he kept that same fist to himself - and that made just as many headlines.\n\nHe does not appear to relish the media spotlight and that was evident again. He looked reluctant during press duties before the news conference.\n\nWardley, meanwhile, is entirely at ease with the limelight and happy to trade lines.\n\nWhen the news conference started, there was more needle than many expected.\n\nBut strip all that away and this is a proper heavyweight fight. Credit to Wardley for selecting a high-risk opponent for his first defence. Credit to Dubois for swerving the easy payday after such a destructive loss to Usyk.\n\nIn just over 10 weeks, it will not be the managers talking but two heavyweight punchers in the ring, each boasting knockout ratios of 95%.\n\nBoxing schedule and results 2026\n\nWatch every Born to Brawl episode\n\nNotifications, social media and more with BBC Sport",
+    "readingTime": 4,
+    "keywords": [
+      "daniel dubois",
+      "fist",
+      "conference",
+      "fight",
+      "champion",
+      "wardley",
+      "fighters",
+      "knockout",
+      "loss",
+      "away"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.bbc.com/sport/boxing/articles/cge82gvnpepo?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/3dc0/live/d3cd8f50-126f-11f1-bdac-03d06e968f36.jpg",
+    "created_at": "2026-02-26T01:08:22.826Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "transocean-ceo-keelan-adamson-on-rigs-risk-the-future-of-energy",
+    "title": "Transocean CEO Keelan Adamson on Rigs, Risk & the Future of Energy",
+    "description": "Transocean is marking its 100th year as a leader in deepwater offshore drilling. CEO Keelan Adamson goes Inside the ICE House to discuss the company’s evolution from shallow-water roots to operating one of the highest-spec fleets in the world. He explains how safety, discipline, and first-hand rig experience shape Transocean’s culture and performance. Adamson also highlights how data, automation, and AI are enhancing reliability and decision-making across the fleet.",
+    "fullText": "Transocean CEO Keelan Adamson on Rigs, Risk & the Future of Energy NYSEMST RIG Transocean is marking its 100th year as a leader in deepwater offshore drilling. CEO Keelan Adamson goes Inside the ICE House to discuss the company’s evolution from shallow-water roots to operating one of the highest-spec fleets in the world. He explains how safety, discipline, and first-hand rig experience shape Transocean’s culture and performance. Adamson also highlights how data, automation, and AI are enhancing reliability and decision-making across the fleet.",
+    "readingTime": 1,
+    "keywords": [
+      "ceo keelan",
+      "keelan adamson",
+      "transocean"
+    ],
+    "qualityScore": 0.35,
+    "link": "https://finance.yahoo.com/video/transocean-ceo-keelan-adamson-rigs-134845484.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/nyse_video_805/f2f9049c00def1808d7a83ecb7d57798",
+    "created_at": "2026-02-26T01:08:21.909Z",
+    "topic": "finance"
+  },
+  {
     "slug": "dubois-refuses-world-champion-wardleys-fist-bump",
     "title": "Dubois refuses world champion Wardley's fist bump",
     "description": "Daniel Dubois refuses a fist bump from world champion Fabio Wardley at a lively news conference in London to promote their world title fight in May.",
@@ -2064,112 +2169,6 @@
     "link": "https://sports.yahoo.com/articles/bridgeman-powers-six-shot-lead-004557724.html",
     "thumbnail_url": "https://s.yimg.com/os/en/afp.com/c7d374e24ef0f947ff450181f8b8df78",
     "created_at": "2026-02-22T01:12:01.969Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "allbirds-review-12-years-later-the-worlds-most-comfortable-shoes-are-still-worth-it",
-    "title": "Allbirds review: 12 years later, 'the world's most comfortable shoes' are still worth it",
-    "description": "Allbirds has comfortable, easy-to-wear sneakers that we've come to rely on whenever we travel. Here are our reviews on each style we've ever tested.",
-    "fullText": "A thoughtfully crafted shoe that’s light and breezy. It offers comfort and is ideal for every escapade with its cooling design.\n\n Check price at Allbirds\n\n Check price at Amazon",
-    "readingTime": 1,
-    "keywords": [
-      "check"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/guides/style/allbirds-review",
-    "thumbnail_url": "https://i.insider.com/682e405ec6ad288d1481981d?width=1200&format=jpeg",
-    "created_at": "2026-02-22T01:11:32.670Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "briton-ryan-becomes-twoweight-world-champion",
-    "title": "Briton Ryan becomes two-weight world champion",
-    "description": "Briton Sandy Ryan becomes a two-weight world champion with a hard-fought points win over light-welterweight Karla Ramos Zamora in Nottingham.",
-    "fullText": "Briton Sandy Ryan became a two-weight world champion with a hard-fought points win over Karla Ramos Zamora in Nottingham, claiming the vacant WBC light-welterweight title.\n\nThe 32-year-old was below her best in a high-tempo contest against the awkward Mexican at the Motorpoint Arena.\n\nZamora's relentless output made several rounds difficult to score, but Ryan's cleaner counters proved decisive with the judges.\n\nScores of 95-95, 97-93 and 97-93 gave the Derby fighter a majority decision.\n\n\"I knew Zamora was going to be tough, but my lord she is tough,\" Ryan said. \"I think I broke my right hand in round three and from there it became a bit more messy.\n\n\"I made it hard work for myself. But it's because she's tough as well.\"\n\nA former welterweight world champion, Ryan improves her record to nine wins, three defeats and one draw.\n\nShe was fighting on the undercard of Leigh Wood v Josh Warrington, who meet in their rematch later on Saturday.\n\nWood v Warrington 2: Ryan becomes two-weight world champion - listen\n\nThe Uber-driving English champion & his 30-year fight for a passport\n\nBenn joining Zuffa 'dagger in the heart' for Hearn\n\nRyan returned to the world stage after considering retirement following back-to-back defeats by Mikaela Mayer.\n\nShe lost her WBO welterweight title in a close decision in September 2024 and was beaten again in their March 2025 rematch.\n\nRyan sprinted to the ring at 19:20 GMT to a quarter-full 8,000-seat arena, though a vocal pocket of Derby fans cut through the quiet.\n\nThe fight started at a quick pace. Zamora - fighting at world level for the first time - pressed forward and targeted the body.\n\nRyan responded with a sharp left hook in the second but was forced onto the back foot as Zamora kept the pressure on.\n\nAlthough Ryan was landing with the cleaner counters, Zamora was more effective with her inside work. By halfway, it was tighter than expected.\n\nBruised around the eyes, Ryan traded in the seventh as blood streamed from Zamora's nose, the visitor edging the exchanges.\n\nRyan boxed behind the jab in the ninth before they ended toe-to-toe, swinging at close range.\n\nAt the final bell, a case could be made for either fighter, or a draw.\n\nThe win, gritty rather than pretty, puts Ryan back in contention.\n\nUndisputed champion Katie Taylor holds the division's other belts but has yet to confirm her next move. At welterweight, unified champion Lauren Price may loom as a future target.\n\nA crossover bout with former MMA champion Cris Cyborg - now 5-0 in professional boxing - has also been previously mooted.\n\nEarlier in the night, Bilal Fawaz became British and Commonwealth light-middleweight champion by dethroning Ishmael Davis in a close contest.\n\nDavis, 30, started well and landed the more crisp and cleaner punches with Fawaz guilty of too much showboating and theatrics.\n\nBut Fawaz, 37, upped his punch output and took advantage in the second half as Davis tired.\n\nThe judges scored it 114-114, 115-113 and 115-114.\n\nNigerian-born Fawaz adds the British and Commonwealth titles to his collection, though he continues the fight for a British passport and is currently not able to fight or travel abroad.\n\nFawaz, who was trafficked to the UK as a teenager and after escaping a traumatic beginning to life, is now married and a father of two children, as well as working as an Uber driver.\n\n\"I know I'm 37 years old and I don't have much time. If I don't capitalise on what I have now, my dream will slip away. This is just the beginning, I am ready. I want it all,\" he said.\n\n\"It's sensational. It's overwhelming.\"\n\n\"I'm not a domestic fighter,\" he said. \"It's just that nobody gave me a chance. Eddie [Hearn] gave me a chance and I've proved him right ever since.\n\n\"Now I need to make some money and feed my family.\"\n\nWithout a passport, Fawaz cannot travel abroad to accept any world title opportunities outside of the UK.\n\n\"Get this man a passport,\" promoter Eddie Hearn added.\n\nAlso on the undercard in Nottingham, Molly McCann claimed her third professional win by outpointing Beata Dudek, while teenagers Leo Atang and Tiah Mai Ayton continued their unbeaten runs.\n\nHeavyweight Atang, 19, stopped Dan Garber inside a minute to make it five from five, and Ayton, also 19, went the distance for the first time in her fifth bout, defeating Catherine Tacone Ramos on points.\n\nPopular heavyweight Dave Allen returned to winning ways with a first-round stoppage of Karim Berredjem. The 33-year-old from Doncaster had lost to Russian Arslanbek Makhmudov - who is scheduled to face Tyson Fury in April - in his last outing.\n\nBoxing schedule and results 2026\n\nWatch every Born to Brawl episode\n\nNotifications, social media and more with BBC Sport",
-    "readingTime": 4,
-    "keywords": [
-      "travel abroad",
-      "cleaner counters",
-      "british and commonwealth",
-      "eddie hearn",
-      "champion",
-      "fight",
-      "passport",
-      "ryan",
-      "title",
-      "fighter"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.bbc.com/sport/boxing/articles/cp85mn2lypno?at_medium=RSS&at_campaign=rss",
-    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/5554/live/08fc7350-0f62-11f1-8c6e-2da2e1a0e6bb.jpg",
-    "created_at": "2026-02-22T01:11:29.946Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "littler-thrashes-de-decker-at-polish-darts-open",
-    "title": "Littler thrashes De Decker at Polish Darts Open",
-    "description": "World champion Luke Littler ruthlessly sweeps aside Mike de Decker 6-1 to reach the last 16 at the Poland Darts Open in Krakow.",
-    "fullText": "World champion Luke Littler was in ruthless form as he swept past Mike de Decker to reach the last 16 at the Poland Darts Open in Krakow.\n\nLittler landed three 180s and averaged almost 114 as he thrashed former World Grand Prix champion De Decker 6-1.\n\nLittler is aiming to become the inaugural champion at the tournament which is the first European Tour event to be held in Poland.\n\nThe 19-year-old will play Ross Smith in the last 16 on Sunday after his 6-1 win over Daryl Gurney.\n\nElsewhere, world number two Luke Humphries survived a last-leg decider to beat home favourite Krzysztof Ratajski 6-5.\n\nHumphries looked in control at 4-1 up but Ratajski, who was inspired by the Polish fans, fought back to level the tie at 5-5 before the Englishman got over the line.\n\nWorld Championship runner-up Gian van Veen edged past Andrew Gilding 6-5, while Stephen Bunting beat Niels Zonneveld 6-4 despite missing 17 doubles.\n\nJonny Clayton followed up his Premier League win in Glasgow last week with a 6-4 victory over Adam Gawlas.\n\nBoris Krcmar 6-4 Martin Schindler\n\nNathan Aspinall 6-3 Darryl Pilgrim\n\nJermaine Wattimena 6-5 Danny Noppert\n\nWessel Nijman 6-2 Gary Anderson\n\nLuke Littler 6-1 Mike de Decker\n\nLuke Humphries 6-5 Krzysztof Ratajski\n\nStephen Bunting 6-4 Niels Zonneveld\n\nGian van Veen 6-5 Andrew Gilding",
-    "readingTime": 2,
-    "keywords": [
-      "gian van",
-      "van veen",
-      "krzysztof ratajski",
-      "beat",
-      "luke",
-      "littler",
-      "champion",
-      "decker",
-      "humphries",
-      "mike"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://www.bbc.com/sport/darts/articles/c743w83d38jo?at_medium=RSS&at_campaign=rss",
-    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/573b/live/3380edb0-0f6f-11f1-b2d8-b16f92c9fce1.jpg",
-    "created_at": "2026-02-22T01:11:29.681Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "official-boca-unveil-adam-bareiro",
-    "title": "🚨 Official: Boca unveil Adam Bareiro",
-    "description": "The \"Boca World\" has a new protagonist. Adam Bareiro was officially presented as the club's new signing after sealing a deal that will tie him to the institution for the next three seasons. The 29-yea...",
-    "fullText": "The \"Boca World\" has a new protagonist. Adam Bareiro was officially presented as the club's new signing after sealing a deal that will tie him to the institution for the next three seasons. The 29-year-old Paraguayan forward returns to Argentine football after his stint with Fortaleza in Brazil, thus fulfilling a long-held wish of Juan Román Riquelme, who always had him as a top priority on his radar.\n\nThe transfer was closed for a figure close to 3 million dollars. A significant detail of the operation is that half of that amount went to River Plate, a club that still owned 50% of his rights. In fact, his \"millonario\" past sparked the first tense moment of the day: while heading to his medical examination, a River fan confronted him, shouting \"traitor.\" Bareiro, far from getting into controversy, simply smiled and continued with the signing protocol.\n\nAfter passing his medical exams and signing a three-year contract (with an option for one more), the striker immediately moved to La Bombonera. There, he was seen in one of the boxes watching the match against Racing, already immersed in the atmosphere of his new home. With this move, Boca adds hierarchy and attacking power to face the challenges of 2026, backed by the absolute confidence of the management in his goal-scoring ability.\n\nThis article was translated into English by Artificial Intelligence. You can read the original version in 🇪🇸 here.",
-    "readingTime": 2,
-    "keywords": [
-      "signing",
-      "medical",
-      "boca",
-      "bareiro",
-      "river"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://sports.yahoo.com/articles/official-boca-unveil-adam-bareiro-180200398.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/onefootball_articles_802/67c4fc291e36ebe26f649b7475d0a4b0",
-    "created_at": "2026-02-21T18:21:35.850Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "orioles-spring-training-game-thread-vs-pirates-105",
-    "title": "Orioles spring training game thread: vs. Pirates, 1:05",
-    "description": "Dean Kremer makes his spring debut for the O’s before his stint in the World Baseball Classic.",
-    "fullText": "The Orioles’ Grapefruit League opener yesterday was a resounding success, at least if you’re a pitcher or Pete Alonso. The Birds’ newest slugger mashed a two-run homer in his O’s spring debut to provide all the offense in a 2-0 win over the Yankees. Trevor Rogers, Keegan Akin, Rico Garcia, Grant Wolfram, Jose Espada, and Trey Gibson combined on a three-hit shutout, with Gibson pitching the final three innings for the save. All of those guys except Gibson are either locks or strong candidates for the Opening Day roster, so it’s nice to see them all start well.\n\nThe O’s have a return engagement at Ed Smith Stadium today against the Pirates. Dean Kremer, who will soon be leaving the Orioles to pitch for Team Israel in the World Baseball Classic, takes the mound today. It’s strange to think that Kremer might have to compete for a rotation spot, but that may be the case, as he, Chris Bassitt, and Zach Eflin (if healthy) are three candidates for two openings behind Rogers, Kyle Bradish, and Shane Baz.\n\nToday’s game marks the Orioles debuts for Taylor Ward and Blaze Alexander, while Dylan Beavers and Ryan Mountcastle will also be starting for the first time this spring. Adley Rutschman and Gunnar Henderson, the latter of whom will soon leave for the WBC as well, are the only Orioles from yesterday’s game who are starting again today. They’ll take on Pirates prospect Wilber Dotel. Former Orioles Ryan O’Hearn and Billy Cook are in the Pirates’ lineup this afternoon.\n\nThe game will be televised on MASN and on radio on 98 Rock.\n\nLF Taylor Ward\nC Adley Rutschman\n1B Ryan Mountcastle\n2B Blaze Alexander\nDH Gunnar Henderson\nRF Dylan Beavers\nCF Leody Taveras\n3B Weston Wilson\nSS Luis Vázquez",
-    "readingTime": 2,
-    "keywords": [
-      "taylor ward",
-      "blaze alexander",
-      "dylan beavers",
-      "adley rutschman",
-      "gunnar henderson",
-      "ryan mountcastle",
-      "gibson",
-      "game",
-      "spring",
-      "rogers"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://sports.yahoo.com/articles/orioles-spring-training-game-thread-180303977.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/6MyyoyMspdi1z44V4Ci4_g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/40d104a91325991bfb7596059f324add",
-    "created_at": "2026-02-21T18:21:34.946Z",
     "topic": "sports"
   }
 ]
