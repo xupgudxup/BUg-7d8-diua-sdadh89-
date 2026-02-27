@@ -1,5 +1,29 @@
 [
   {
+    "slug": "the-guy-who-coined-vibe-coding-says-ai-is-making-programming-unrecognizable",
+    "title": "The guy who coined vibe coding says AI is making programming 'unrecognizable'",
+    "description": "OpenAI and Tesla alum Andrej Karpathy wrote that there was no more \"business as usual\" in software, thanks to AI.",
+    "fullText": "The AI coding timeline is accelerating, according to the guy who coined \"vibe coding.\"\n\nAndrej Karpathy has a long list of AI bona fides. He was a founding member of OpenAI, left to lead AI at Tesla, then returned to the ChatGPT-maker and eventually started his own lab. In early 2025, he introduced the term vibe coding into the zeitgeist.\n\nIn his latest X post, Karpathy described a speed-up in agentic coding, one that has taken place in just a few months. \"Coding agents basically didn't work before December and basically work since,\" he wrote.\n\nThese agents are \"extremely disruptive to the default programming workflow,\" Karpathy wrote.\n\nHe gave an example. Over the weekend, Karpathy said he used AI to make a video analysis dashboard for his home cameras. His AI agent completed it in 30 minutes, encountering errors and researching solutions. It was all hands-free, he wrote.\n\n\"Programming is becoming unrecognizable,\" Karpathy wrote. \"This is nowhere near 'business as usual' time in software.\"\n\nPosts like these are now Karpathy's specialty: long, multi-paragraph takes on the state of software engineering. In one recent post, the creator of Claude Code commented that Karpathy always had a \"very thoughtful and well reasoned take.\"\n\nIn the comments on this post, an AI developer asked about the state of software engineers. \"Are teams of hundreds of people going to be replaced by a few chosen prompters?\" they asked.\n\n\"Vibe coders are now able to get somewhere, but at the top tiers, deep technical expertise may be even more of a multiplier than before because of the added leverage,\" Karpathy responded.\n\nSome big names in AI aren't so thrilled with Karpathy's linguistic invention. OpenClaw creator Peter Steinberger called vibe coding \"a slur,\" arguing that it implied coding with AI was easy and didn't still involve real work.\n\nIn another comment, Karpathy referenced an old Tesla slogan: \"Every action is error.\" The goal is to arrange your agents so you can \"remove yourself as the bottleneck,\" he wrote.\n\nFor many, coding with AI can feel fantastical. Karpathy offered a quick reality check: the agents require \"high-level direction\" and (the frequently memed) \"taste.\"\n\n\"It's not magic, it's delegation,\" he wrote.",
+    "readingTime": 2,
+    "keywords": [
+      "vibe coding",
+      "agents",
+      "software",
+      "karpathy",
+      "tesla",
+      "didn't",
+      "programming",
+      "karpathy's",
+      "creator",
+      "it's"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/andrej-karpathy-programming-unrecognizable-ai-2026-2",
+    "thumbnail_url": "https://i.insider.com/69a056701fb3fcb426487d98?width=1200&format=jpeg",
+    "created_at": "2026-02-27T12:34:24.313Z",
+    "topic": "finance"
+  },
+  {
     "slug": "programming-has-changed-dramatically-due-to-ai-in-the-last-2-months-karpathy",
     "title": "Programming has changed dramatically due to AI in the last 2 months (Karpathy)",
     "description": "It is hard to communicate how much programming has changed due to AI in the last 2 months: not gradually and over time in the \"progress as usual\" way, but specifically this last December. There are a number of asterisks but imo coding agents basically didn’t work before December",
@@ -1980,30 +2004,6 @@
     "link": "https://github.com/jgbrwn/vibebin",
     "thumbnail_url": "https://opengraph.githubassets.com/b08d7ce148c865871d7a69b11f4c233a6cd39949454bb9455bb3bdcf87a6a575/jgbrwn/vibebin",
     "created_at": "2026-01-21T12:26:57.995Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "pragmatic-notes-on-running-dangerous-ai-coding-agents-in-cloud-vms",
-    "title": "Pragmatic Notes on Running Dangerous AI Coding Agents in Cloud VMs",
-    "description": "A practical approach to safely running AI coding agents with strong isolation using cloud VMs, Tailscale, and simple notification patterns.",
-    "fullText": "Running coding agents with free reign is very powerful for a certain class of tasks, especially ones that require little human supervision, or where you want to close (or disconnect) your laptop, walk away, and come back to results.\n\nRecently there have been several HN discussions about safely running Claude Code or Copilot CLI agents, such as Yolobox – Run AI coding agents with full sudo without nuking home dir and Running Claude Code dangerously. These post detail the potential dangers and show how to run these agents more safely, and while reasonable, I find they lack in a few respects.\n\nIn particular, I want strong isolation, long running agent tasks, minimal cognitive overhead and I really value being able to close my laptop, walk away, and get notified on my phone when things are done. I do not mind paying for a cloud VM.\n\nThere are many valid ways to solve this problem. This post describes mine. It covers running multiple coding agents concurrently in a cloud VM, how I handle access and repos, and how I keep notifications simple.\n\nI generated some Terraform to spin up an Azure VM with a cloud-init.yml for setting up common tools/environments I use. Claude can generate a decent starting point for this quite easily, given your particular environment.\n\nFor secure access, I use Tailscale. Note: I'm not paid by them, but it is easily my favorite piece of infrastructure software!\n\nA cloud-init script installs Tailscale on first boot and automatically joins the VM to my tailnet. SSH access is enabled using Tailscale SSH. Once the VM is up, it appears on my private network with a stable hostname via Magic DNS. No SSH key management, no exposed ports.\n\nor connect using VS Code Remote SSH:\n\nhttps://code.visualstudio.com/docs/remote/ssh\n\nMost of the time I prefer tight, step by step control over code generation, working locally in VS Code with Copilot. For longer running or experimental tasks, I instead let an agent work remotely on a branch inside the VM, and pull the results once I am satisfied.\n\nWhile this is arguably git basics, it works well for me and I found that it is useful sharing how to set up a VM as a remote:\n\nOn the local machine, from the repo directory:\n\nThen you can pull clone and check out the branch, do the work, commit, and push to bare repo:\n\nFinally, locally, you can get the changes:\n\nI use tmux to manage long running sessions. This lets agents keep running after I disconnect, and makes it easy to juggle multiple concurrent sessions. If you are not familiar with tmux, it is worth learning!\n\nFor notifications, I use https://ntfy.sh.\n\nIt is free, extremely simple, and works over plain HTTP POST. I have the iOS app installed, so I can walk away from my laptop and still get notified when work completes. I explicitly instruct my agents to make a POST request once their work is done in the agent instructions.\n\nThat is it. No SDKs, no auth setup required for basic usage. The notification shows up immediately on my phone/browser.\n\nIf there is interest, I can publish a repo with the Terraform, cloud-init scripts, makefile, etc, and the old .devcontainer setup.",
-    "readingTime": 3,
-    "keywords": [
-      "coding agents",
-      "tasks",
-      "laptop",
-      "away",
-      "access",
-      "repo",
-      "free",
-      "close",
-      "disconnect",
-      "safely"
-    ],
-    "qualityScore": 1,
-    "link": "https://jakobs.dev/pragmatic-notes-running-dangerous-ai-agents-cloud-vms/",
-    "thumbnail_url": "/media/agents-vm.jpg",
-    "created_at": "2026-01-21T12:26:57.044Z",
     "topic": "tech"
   }
 ]
