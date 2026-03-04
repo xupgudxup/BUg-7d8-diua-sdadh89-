@@ -1,5 +1,29 @@
 [
   {
+    "slug": "codeoffline",
+    "title": "Code-Offline",
+    "description": "A 100% local, containerized AI coding agent powered by pi and llama.cpp. Run private LLMs on CPU or NVIDIA GPU without external API dependencies. - opensecurity/code-offline",
+    "fullText": "A localized, containerized development environment for running the pi coding agent backed by llama.cpp. This stack lets you run local models and the agent without needing external API dependencies, keeping your code and data private. It supports both CPU and NVIDIA GPU setups via a unified interface.\n\nSettings are managed via the .env file. Copy the example file to get started:\n\nYou can change the Hugging Face repo and model file in .env to try different models. By default, it downloads the highly-capable Qwen 3.5 models using the preferred UD-Q4_K_XL quantization for the best balance of speed and precision.\n\nThe environment is managed through a Makefile. The default mode is CPU. To use GPU acceleration, just append MODE=gpu to any command.\n\nBuild the images before starting:\n\nIf you need to pull fresh base images and rebuild without cache:\n\nStart the llama.cpp server in the background. It will automatically download the models specified in your .env file to the local models directory on its first run.\n\nYou can check the download progress or server status by tailing the logs:\n\nOnce the LLM backend is up and running, you can drop into the interactive agent terminal. This spins up a temporary container that attaches to your current TTY and cleans itself up when you exit.\n\nTo spin down the background services:\n\nTo nuke all containers, networks, and volumes (this will not delete your downloaded models or workspace code):\n\nVolumes are mapped to your host machine for persistence:",
+    "readingTime": 2,
+    "keywords": [
+      "env file",
+      "models",
+      "agent",
+      "environment",
+      "llama.cpp",
+      "without",
+      "code",
+      "managed",
+      "default",
+      "images"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://github.com/opensecurity/code-offline",
+    "thumbnail_url": "https://opengraph.githubassets.com/772c8739ba5b900a2706fe6ab522cd58222519c22b0ff4d68e48a1babac004e8/opensecurity/code-offline",
+    "created_at": "2026-03-04T01:08:01.661Z",
+    "topic": "tech"
+  },
+  {
     "slug": "nvidia-bull-drops-shocking-take-on-upside",
     "title": "Nvidia bull drops shocking take on upside",
     "description": "I’ve been in the stock game long enough to know what it means when there is a stock sell-off after an earnings beat. In a nutshell, the numbers aren’t the issue — expectations are. That’s exactly what’s happening with Nvidia (NVDA). The chip giant did what it does best: posted one of the best and ...",
@@ -2156,29 +2180,5 @@
     "thumbnail_url": "https://static01.nyt.com/images/2023/05/04/multimedia/00dc-chips/00dc-chips-facebookJumbo.jpg",
     "created_at": "2026-01-15T00:56:32.889Z",
     "topic": "business"
-  },
-  {
-    "slug": "china-limits-nvidia-chip-purchases-to-special-circumstances-information-reports",
-    "title": "China limits Nvidia chip purchases to special circumstances, Information reports",
-    "description": "The Chinese government this week told some tech companies it would only approve their purchases ​of Nvidia's H200 AI chips under special circumstances, such ‌as for university research, the Information reported on Tuesday, citing two people with ‌direct knowledge of the situation.  The move signals Beijing is remaining cautious about fully reopening the Chinese market to Nvidia, whose semiconductors are pivotal in operating the most advanced artificial intelligence applications and ⁠data centers.  China's government issued ‌a \"deliberately vague\" directive, the report said, telling some technology firms to buy chips only when \"necessary\" but was ‍unclear as to what that means.",
-    "fullText": "Jan 13 (Reuters) - The Chinese government this week told some tech companies it would only approve their purchases ​of Nvidia's H200 AI chips under special circumstances, such ‌as for university research, the Information reported on Tuesday, citing two people with ‌direct knowledge of the situation.\n\nThe move signals Beijing is remaining cautious about fully reopening the Chinese market to Nvidia, whose semiconductors are pivotal in operating the most advanced artificial intelligence applications and ⁠data centers.\n\nChina's government issued ‌a \"deliberately vague\" directive, the report said, telling some technology firms to buy chips only when \"necessary\" but was ‍unclear as to what that means.\n\nThe Information reported last week that China had asked some companies to halt their orders for the H200 ​chips, as it looked to prioritize domestic firms in their ‌race to dominate AI.\n\nNvidia is caught between Washington and Beijing, as the U.S. weighs tighter export controls on its most advanced technology while China pushes to strengthen domestic AI capabilities and urges local firms to curb reliance on foreign tech.\n\n\"As principle, ensuring ⁠the smooth development of economic, trade, ​and technological cooperation is in the ​common interest of both China and the U.S.,\" Chinese Embassy spokesperson Liu Pengyu said when reached for ‍comment.\n\nNvidia did not ⁠respond to a Reuters request for comment.\n\nThe Chinese government plans to convene additional meetings with more companies to deliver ⁠the purchase directive, though it is unclear whether those sessions will include any ‌new guidance, the report said.",
-    "readingTime": 2,
-    "keywords": [
-      "chips",
-      "firms",
-      "china",
-      "tech",
-      "advanced",
-      "directive",
-      "technology",
-      "unclear",
-      "domestic",
-      "chinese"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://finance.yahoo.com/news/china-limits-nvidia-chip-purchases-172555875.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/reuters-finance.com/568afe3dde3975e1bc45b0f99edb4bcc",
-    "created_at": "2026-01-14T06:23:40.032Z",
-    "topic": "finance"
   }
 ]

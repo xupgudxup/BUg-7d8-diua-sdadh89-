@@ -1,5 +1,53 @@
 [
   {
+    "slug": "anatomy-of-a-web3-supply-chain-attack",
+    "title": "Anatomy of a Web3 Supply Chain Attack",
+    "description": "How a Fake Polymarket Bot Drained My Wallet",
+    "fullText": "Last week, I decided I wanted to learn more about Polymarket copy trading bots. Like many of us do, I headed over to GitHub and found a repository called polymarket-copy-bot-ts that looked promising. It had over 800 stars, 600 forks, and a slick, well-done README. I downloaded it, built it, look briefly at the code and configured all the required settings and parameters—including my wallet credentials (address and private key) in a .env file—and fired it up. At first glance, everything was looking good.\n\nA few hours later, I checked my balance. All my open positions were closed, and my funds from my Polymarket wallet were stolen. Drained completely.\n\nIt’s an incredibly frustrating experience, but as a security champion, I knew I couldn’t just walk away. I decided to dig into the source code, figure out exactly how and when they did it, and write this post to warn potential new users. Here is the step-by-step technical breakdown of how this Web3 supply chain attack works, and how I finally caught the malware in the act.\n\nMy first instinct was to check the root directory of the bot. I immediately found a massive red flag: a file named audit_algorithm.sh.\n\nWhy would a standard Node.js TypeScript trading bot include a standalone bash script? It shouldn’t.\n\nWhen you follow the bot’s setup instructions and run npm run build or npm run health-check, the attacker uses package.json hooks to silently execute this shell script in the background. But that wasn’t the only trap. The real devastating payload was hiding in the NPM dependencies.\n\nI started auditing the package.json and noticed an obscure package called keccak256-helper. I then went straight to the package-lock.json file to investigate further and found something deeply concerning: the package’s resolved URL pointed to a suspicious domain. This meant the package wasn’t even being downloaded or distributed by the official NPM registry! However, it had been published there for a short period, being downloaded at least 56 times.\n\nUntil the registry’s automated security tools banned it.\n\nAttackers know that Web3 developers use keccak256 (a popular hashing algorithm) all the time. The attacker published a malicious package named keccak256-helper to blend in.\n\nIf you look at the package’s README.md and package.json, it looks completely legitimate:\n\nThey even included an index.d.ts file exporting a fake initializeSession(key: any) function so that TypeScript compilers wouldn’t throw any errors during development!\n\nWhen I opened the actual index.js file of the package, it was a total mess. It was an unreadable wall of mathematical operations and arrays.\n\nThe attacker used a heavy obfuscation technique called Control Flow Flattening. Instead of code running logically from top to bottom, the execution is scrambled into massive, infinite-looking while loops containing switch statements (e.g., while(e+P+d+h!=43)H:switch...).\n\nThis is deliberately done to confuse human analysts and bypass automated static antivirus scanners that look for known malicious code signatures. But if you look closely, you can spot it checking process.argv.slice(2) for execution flags like --version or -v. If it detects it’s running in an automated security sandbox, it halts entirely to stay hidden.\n\nOnce the malware confirms it’s running in a real environment, the true payload activates and aggressively hunts for your keys.\n\nInstead of the traditional attack vectors used by older trading bots in the past, my analysis showed that this malware directly reads .env variables, parses process.env.PRIVATE_KEY, and sends the stolen data as a payload via an HTTP POST request to a remote server.\n\nTo execute this, the attacker invokes the malicious function (carefully hidden with excessive spacing in the bot’s source files) silently like this:\n\nBecause of the try/catch block, if the malware crashes (for example, if window is undefined in a pure Node environment, or if the network request fails), the error is swallowed entirely. You would never even know the exfiltration attempt happened until your funds were already gone.\n\nI wanted to deobfuscate the HTTP server address where my credentials were sent. Because the strings were heavily encrypted at runtime, static analysis wasn’t enough. I had to use Dynamic Analysis—tricking the malware into decrypting the URL itself and intercepting it right before it sent the data.\n\nI wrote an interceptor script (analyzer.js) to mock the browser environment and hook into Node’s native http and https modules. At first, I was getting a weird error (throw new Error('Blocked')), and no URLs were printing. The hacker was actually overriding console.log inside their obfuscated script to blind me!\n\nTo beat this, I updated my script to write the intercepted HTTP request directly to a file on my disk before intentionally crashing the process to prevent the data from escaping:\n\nIf you have downloaded any Web3 bots recently, check your repositories for these:\n\nMalicious NPM Package: keccak256-helper (Version: 1.3.2)\n\nMalicious GitHub Repo: polymarket-copy-bot-ts\n\nSuspicious Files: audit_algorithm.sh\n\nSuspicious Functions: Hidden in the code with a ton of spacing\n\nNever use your primary wallet. If you want to test a new crypto bot, use a burner wallet with only the absolute minimum funds required (just enough for gas).\n\nBeware of GitHub “Star Farming”. The repo that got me had 871 Stars and 635 Forks, but only 35 Watchers and 7 Issues without any PRs. This is the classic footprint of a bot-farmed repository meant to create fake trust.\n\nOpen Source doesn’t always mean safe. Just because you can read the source code files doesn’t mean there aren’t malicious dependencies lurking in the package.json, package-lock.json, or shell scripts waiting to trigger on the execution of code.\n\nBe careful! There is currently a ton of these fake Polymarket/crypto trading bots flooding GitHub. Always audit your dependencies, and never hand over your private keys.\n\nIf you found this breakdown helpful, feel free to share it to warn others, and \n\nP.S. After compiling these findings, I immediately reported the repository and the malicious user account to GitHub’s Trust & Safety team. I’m happy to report that a few hours later, they took action and deleted the entire repository and the scammer’s account from the platform. While my funds are unfortunately gone, at least this specific trap has been dismantled and can’t harm anyone else!\n\nFound a snippet that saved your day? Consider dropping a tip!",
+    "readingTime": 6,
+    "keywords": [
+      "hours later",
+      "automated security",
+      "trading bots",
+      "code",
+      "malware",
+      "repository",
+      "downloaded",
+      "look",
+      "wallet",
+      "funds"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.notesoncloudcomputing.com/posts/2026-02-27-anatomy-of-a-web3-supply-chain-attack/",
+    "thumbnail_url": "https://www.notesoncloudcomputing.com/assets/images/bg-chain-attack.webp",
+    "created_at": "2026-03-04T01:08:04.040Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "xrps-first-native-yield-product-is-live-with-two-more-coming-what-does-it-mean-for-xrp-price",
+    "title": "XRP’s First Native Yield Product Is Live With Two More Coming: What Does It Mean for XRP Price?",
+    "description": "XRP (CRYPTO: XRP) holders just got their first native yield option. On February 26, Flare and Xaman launched a one-click DeFi integration targeting over 2 billion XRP sitting idle in Xaman wallets, and Xaman founder Wietse Wind says two more yield providers are coming. For the first time, XRP holders can earn yield from a ... XRP’s First Native Yield Product Is Live With Two More Coming: What Does It Mean for XRP Price?",
+    "fullText": "XRP holders gained their first native yield option through one-click Flare-Xaman integration, which launched on Feb 26.\n\nOnly 0.1% of XRP supply is active in DeFi despite third-largest cryptocurrency by market cap.\n\nThe analyst who called NVIDIA in 2010 just named his top 10 AI stocks. Get them here FREE.\n\nXRP (CRYPTO: XRP) holders just got their first native yield option. On February 26, Flare and Xaman launched a one-click DeFi integration targeting over 2 billion XRP sitting idle in Xaman wallets, and Xaman founder Wietse Wind says two more yield providers are coming.\n\nFor the first time, XRP holders can earn yield from a self-custodial wallet while Ethereum and Solana have offered this for years. With XRP down 62% from its July peak and only 0.1% of supply active in DeFi, native yield could be the catalyst that pulls idle tokens off exchanges and shifts the price outlook for 2026.\n\nREAD: The analyst who called NVIDIA in 2010 just named his top 10 AI stocks\n\nThe Flare-Xaman integration compresses what used to be a multi-step, multi-wallet process into a single transaction signed from the XRP Ledger.\n\nUsers deposit XRP into Upshift's earnXRP vault directly from the Xaman interface. Behind the scenes, the system mints FXRP—a 1:1 overcollateralized representation of XRP on Flare—allocates it into curated vault strategies managed by Clearstar, a Flare-based risk management firm, and distributes yield back to the user. All without downloading a new app, acquiring gas tokens, or managing keys on a second blockchain.\n\nXaman founder Wietse Wind described the design philosophy in a statement to CoinDesk: the integration lets users explore yield options from the wallet they already know while keeping full control of their keys and decisions. Flare CEO Hugo Philion framed it as positioning Flare as the execution layer for XRPFi—combining trust-minimized asset representation, chain-abstracted execution, and wallet-native access.\n\nThe market responded immediately. Within 24 hours of launch, users bridged more than 3 million XRP to Flare and deposited it into Upshift via Xaman. FXRP's circulating supply climbed to 114 million tokens by February 28—up from 100 million just nine days earlier. Over 43,570 minting transactions have now been completed since FAssets launched in September 2025.\n\nWind had teased this rollout a week before the Flare integration went live. On February 19, he posted on X that three XRP yield providers were \"almost ready\" to launch directly from Xaman's home screen, with deployed capital visible in the asset list. The Flare-Upshift vault appears to be the first of those three. The other two providers haven't been named publicly, but Wind's post suggests they're close behind.",
+    "readingTime": 3,
+    "keywords": [
+      "founder wietse",
+      "flare-xaman integration",
+      "xaman founder",
+      "xrp holders",
+      "native yield",
+      "yield option",
+      "yield providers",
+      "wietse wind",
+      "launched",
+      "supply"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/news/xrp-first-native-yield-product-174811801.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/73cAX4SIrIHwokJ.RCLZow--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03MTM-/https://media.zenfs.com/en/24_7_wall_st__718/30828f4f1fac6b6ebdd8b8af8d441b2f",
+    "created_at": "2026-03-04T01:07:59.046Z",
+    "topic": "finance"
+  },
+  {
     "slug": "michael-saylor-quantum-computing-wont-break-bitcoin-this-decade-upgrade-would-come-first",
     "title": "Michael Saylor: Quantum Computing Won’t Break Bitcoin This Decade — Upgrade Would Come First",
     "description": "Saylor says a credible quantum threat to Bitcoin is likely more than a decade away. The practical concern is key theft via signature cryptography, not ...",
@@ -1988,53 +2036,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/zdrP0Yxt5nGq6XuYaGZ4LQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2026-01/d90d7820-f723-11f0-b4ee-6b3cb345fd16",
     "created_at": "2026-01-22T12:27:01.310Z",
     "topic": "finance"
-  },
-  {
-    "slug": "valley-suns-get-a-much-needed-boost-and-upset-the-stockton-kings",
-    "title": "Valley Suns get a much needed boost and upset the Stockton Kings",
-    "description": "TEMPE — The Valley Suns had reinforcements on Wednesday as they were able to take a 117-111 win against the Stockton Kings. Dec 1, 2025; Los Angeles, California, USA; Phoenix Suns guard Jamaree Bouyea (17) moves to the basket against Los Angeles Lakers forward Dalton Knecht (4) during the first half at Crypto.",
-    "fullText": "TEMPE — The Valley Suns had reinforcements on Wednesday as they were able to take a 117-111 win against the Stockton Kings.\n\nDec 1, 2025; Los Angeles, California, USA; Phoenix Suns guard Jamaree Bouyea (17) moves to the basket against Los Angeles Lakers forward Dalton Knecht (4) during the first half at Crypto.com Arena. Mandatory Credit: Gary A. Vasquez-Imagn Images\n\nThe Suns entered Wednesday’s matchup coming off a 113-108 loss to the Santa Cruz Warriors on Monday. With rookies Rasheer Fleming and Khaman Maluach, along with two-way player Jamaree Bouyea, assigned back to the team, the Valley hoped the trio would provide the spark needed to get back on track.\n\nFleming and Maluach had been traveling with the Phoenix Suns throughout the six-game road trip, earning minutes whenever the team needed them. Bouyea is coming off concussion protocol and has not played since early January.\n\nHowever, Wednesday’s game allowed the rookies to flourish with increased playing time.\n\nOct 24, 2025; Inglewood, California, USA; Los Angeles Clippers center Yanic Konan Niederhauser (14) defends Phoenix Suns center Khaman Maluach (10) in the second half at Intuit Dome. Mandatory Credit: Jayne Kamin-Oncea-Imagn Images\n\nIn the first half alone, Fleming posted 13 points, three rebounds and two steals. Maluach added eight points and six rebounds but dealt with foul trouble, picking up three fouls before halftime. Bouyea struggled early but found a rhythm late in the half, finishing with nine points, two rebounds, and two assists at the break.\n\nDespite limited minutes, Bouyea’s strong finish to the first half suggested he was simply shaking off rust.\n\nThe Suns opened the second half on an 18-0 run, partly by Bouyea’s eight points. He finished the night with 27 points, while Fleming finished with 19 points and Maluach finished with 23.\n\nNov 24, 2025; Phoenix, Arizona, USA; Phoenix Suns forward Rasheer Fleming (20) against the Houston Rockets at Mortgage Matchup Center. Mandatory Credit: Mark J. Rebilas-Imagn Images\n\nThe trio put up great numbers, as their fatigue from travel didn’t last long. Head coach Paul Jesperson acknowledged their earlier game struggles, especially Bouyea, as Wednesday was his first official night in a Valley Suns uniform.\n\n“We knew there was probably going to be a little fatigue there and a little bit of those guys just having to feel the game out a little bit as it progressed,” he said post-game. “I think [Bouyea] did exactly that. Kind of found his spots, got comfort level [and] got a little energy to him.”\n\nThe Suns finish out the week with a matchup against the Texas Legends on the road on Friday, Jan. 23, at 6:30 p.m.\n\nWM Phoenix Open brings golf to streetwear with Samba shoe collab",
-    "readingTime": 3,
-    "keywords": [
-      "los angeles",
-      "mandatory credit",
-      "california usa",
-      "usa phoenix",
-      "second half",
-      "jamaree bouyea",
-      "phoenix suns",
-      "the suns",
-      "points",
-      "images"
-    ],
-    "qualityScore": 1,
-    "link": "https://sports.yahoo.com/articles/valley-suns-much-needed-boost-052610909.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/burn_city_sports_articles_545/c09450bbb890450fa94c2d42042167de",
-    "created_at": "2026-01-22T06:21:35.559Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "tst-images-kings-deafeat-rangers-43-at-the-cryptocom-arena",
-    "title": "TST Images: Kings Deafeat Rangers, 4,3 at The Crypto.com Arena",
-    "description": "LOS ANGELES, CALIF.",
-    "fullText": "LOS ANGELES, CALIF. - The Los Angeles Kings defeated the New York Rangers, 4-3, at the Crypto.com Arena on January 20th, 2026. The Sporting Tribune's Photographer Jon Bryan was there to capture the following images.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings Defender Brandt Clarke (92) skates with the puck against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings Defender Jacob Moverare (43) skates to defend against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings right wing Taylor Ward (52) celebrates a goal against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings defender Joel Edmundson (6) gains possession against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings goaltender Anton Forsberg (31) makes a save against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings goaltender Anton Forsberg (31) after many saves during a power play against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings defender Brian Dumoulin (2) defends the goal against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings right wing Adrian Kempe (9) clears the puck against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings center Alex Turcotte (15) does a face off against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings center Adrian Kempe (9) celebrates a goal against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings defender Mikey Anderson (44) left wing Kevin Fiala (22) right wing Joel Armia (40) play defense against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings defender Brian Dumoulin (2) fights for the puck against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings right wing Quinton Byfield (55) does face off against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings defender Brandt Clarke (92) skates with the puck against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.\n\nJON BRYAN - The Sporting Tribune\n\nThe Los Angeles Kings defender Mikey Anderson (44) plays defense against the New York Rangers at the Crypto Arena on January 20th, 2026 in Los Angeles California.",
-    "readingTime": 3,
-    "keywords": [
-      "new york rangers",
-      "crypto arena",
-      "goaltender anton",
-      "clarke skates",
-      "defender brandt",
-      "defender brian",
-      "defender mikey",
-      "jon bryan",
-      "sporting tribune",
-      "kings defender"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://sports.yahoo.com/articles/tst-images-kings-deafeat-rangers-055645214.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/the_sporting_tribune_articles_423/c851fa53a2b0b1e9dade1a2bbf75afdb",
-    "created_at": "2026-01-21T06:23:11.142Z",
-    "topic": "sports"
   }
 ]
