@@ -1,5 +1,79 @@
 [
   {
+    "slug": "multicorn-shield-opensource-permissions-and-approvals-for-ai-agents",
+    "title": "Multicorn Shield – Open-source permissions and approvals for AI agents",
+    "description": "The control layer for AI agents: permissions, consent, spending limits, and audit logging. - Multicorn-AI/multicorn-shield",
+    "fullText": "The permissions and control layer for AI agents. Open source.\n\nAI agents are getting access to your email, calendar, bank accounts, and code repositories. Today, most agents operate with no permission boundaries: they can read, write, and spend with no oversight. Multicorn Shield gives developers a single SDK to enforce what agents can do, track what they did, and let users stay in control.\n\nAlready using an MCP server with Claude Code, OpenClaw, or another agent? Add Shield as a proxy in front of it. No code changes required: the proxy intercepts every tool call, enforces permissions, and logs activity to your dashboard.\n\nFor example, to wrap the MCP filesystem server:\n\nThat's it. Every tool call now goes through Shield's permission layer, and activity appears in your Multicorn dashboard in real time.\n\nSee the full MCP proxy guide for Claude Code, OpenClaw, and generic MCP client examples.\n\nIf you're running OpenClaw, Shield integrates directly as a plugin. No proxy layer, no code changes. The plugin intercepts every tool call at the infrastructure level before it executes.\n\nEnter your API key when prompted. This saves your key to ~/.multicorn/config.json and configures the OpenClaw hook environment.\n\nAdd the plugin path to your ~/.openclaw/openclaw.json:\n\nReplace <npm-root> with the output of npm root -g.\n\nYou should see multicorn-shield in the loaded plugins list.\n\nThe plugin maps OpenClaw tools to Shield permission scopes automatically:\n\nDestructive commands (rm, mv, sudo, chmod) are detected automatically and require separate write-level approval.\n\nFor full control over consent screens, spending limits, and action logging, use the SDK directly in your application code.\n\nThat gives you a consent screen, scoped permissions, and an audit trail.\n\nMulticorn is developed using AI coding agents. Primarily Cursor for code generation and GitHub Actions as the deployment agent. Every one of those agents runs under Shield.\n\nWe're not just building a trust layer for AI agents. We're depending on it ourselves. If Shield fails to catch something in our own workflow, we feel it directly.\n\nRead how we use agents to build Multicorn →\n\nA drop-in web component (Shadow DOM, framework-agnostic) that lets users review and approve agent permissions before granting access.\n\nType-safe permission scopes with built-in services (Gmail, Calendar, Slack, Drive, Payments, GitHub, Jira) and a registry for custom ones.\n\nStructured audit trail of every action an agent takes. Supports immediate and batched delivery.\n\nClient-side enforcement of per-transaction, daily, and monthly spend limits. Currency-safe integer arithmetic (cents) prevents floating point issues.\n\nMiddleware adapter for Model Context Protocol servers. Sits between the agent and MCP tools, enforcing permissions on every tool call.\n\nFull API documentation is generated from source with TypeDoc:\n\nThis outputs to docs/api/. You can also browse the inline JSDoc on every public export. All interfaces, functions, and types are documented with examples.\n\nMulticorn Shield is the client-side SDK in the Multicorn ecosystem. It runs in the browser or Node.js and communicates with the Multicorn hosted API for persistence and policy enforcement.\n\nThe hosted API handles persistence, policy enforcement, and the audit trail. The SDK never stores credentials locally. API keys are held in memory only.\n\nUsing MCP? If your agent connects to tools via an MCP server, you may not need any of these. See Option 1 to add Shield with zero code changes.\n\nContributions are welcome. Please read CONTRIBUTING.md before opening a pull request.",
+    "readingTime": 3,
+    "keywords": [
+      "hosted api",
+      "claude code",
+      "mcp server",
+      "policy enforcement",
+      "audit trail",
+      "code openclaw",
+      "permission scopes",
+      "multicorn shield",
+      "add shield",
+      "agents"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/multicorn-ai/multicorn-shield",
+    "thumbnail_url": "https://opengraph.githubassets.com/59e6bdd61bf35ecebe5d79fa6f252e5bf157d4fb9892aa60c0f86029df8d8b10/Multicorn-AI/multicorn-shield",
+    "created_at": "2026-03-06T01:14:06.685Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "video-quick-take-why-leaders-should-embrace-thinking-mode-with-ai-sponsor-content-from-wolters-kluwer",
+    "title": "Video Quick Take: Why Leaders Should Embrace Thinking Mode with AI - SPONSOR CONTENT FROM WOLTERS KLUWER",
+    "description": "Sponsor Content from Wolters Kluwer.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://hbr.org/sponsored/2026/03/video-quick-take-why-leaders-should-embrace-thinking-mode-with-ai",
+    "thumbnail_url": "https://hbr.org/resources/images/article_assets/2026/03/CRE7450_HBR_VID_VQT_WoltersKluwer_Caywood_Opener.png",
+    "created_at": "2026-03-06T01:14:05.124Z",
+    "topic": "business"
+  },
+  {
+    "slug": "latest-ai-model-reads-48-years-of-warren-buffett-advice-and-builds-stock-portfolio-for-todays-market-here-are-top-6",
+    "title": "Latest AI Model Reads 48 Years Of Warren Buffett Advice And Builds Stock Portfolio For Today's Market — Here Are Top 6 Stock Picks And Performance",
+    "description": "More and more individual investors are turning to artificial intelligence for stock research and investing to gain an edge over the market. A Reddit user recently said he used AI startup Anthropic's Claude Opus 4.6 large language model to build a stock-picking system based on Berkshire Hathaway Inc. (NYSE:BRK, BRK.B)) Chair Warren Buffett's investing philosophy.",
+    "fullText": "More and more individual investors are turning to artificial intelligence for stock research and investing to gain an edge over the market.\n\nA Reddit user recently said he used AI startup Anthropic's Claude Opus 4.6 large language model to build a stock-picking system based on Berkshire Hathaway Inc. (NYSE:BRK, BRK.B)) Chair Warren Buffett's investing philosophy. The goal of the experiment was simple: test how effective AI could be at selecting stocks and see how that model-driven portfolio might have performed in hindsight.\n\nThe Redditor fed the LLM Buffett's investor letters from 1977 through 2024, asking it to extract the most common investing principles and build a scoring system around them. The model was given a blind sample of 50 stocks with financial data only: 20 Berkshire-style holdings, 15 value candidates and 15 speculative stocks.\n\nThe AI portfolio generated about 134% in returns since 2020 in a backtesting simulation, outperforming Buffett's equal-weight portfolio and the S&P 500, according to the Reddit user. Buffett's actual weighted portfolio still led with about 165% returns, mainly due to Berkshire's large Apple Inc. (NASDAQ:AAPL) position.\n\nLet's take a look at some of the important and surprising picks of the AI model.\n\nAlphabet Inc. (NASDAQ:GOOGL, GOOG)) was the biggest holding in the portfolio designed by AI. The stock is up 71% over the past year. Berkshire Hathaway owns a $5.59 billion stake in the company as of the end of December.\n\nTrending: A single bad hire can set a startup back years. Here are the 5 hires founders most often misjudge — and why\n\nVisa Inc. (NYSE:V) shares are down 12% over the past year. Berkshire has a $2.91 billion stake in the payments giant as of the end of last year.\n\nThough Berkshire Hathaway has owned Procter & Gamble Co. (NYSE:PG) in the past, the stock is not part of its current portfolio. PG shares are down 4.3% over the past 12 months.\n\nCoinbase Global Inc. (NASDAQ:COIN) was the biggest surprise pick in the portfolio. Buffett has historically stayed away from cryptocurrency and has often spoken against it. The Reddit poster said the AI algorithm likely selected Coinbase because its financial metrics made it look more like a value-style investment than a crypto play.\n\n\"It does a good job of looking like a value stock with ~39% profit margin and low debt right now,\" he said. \"Depending on how you see this experiment, the Coinbase pick could mean a good thing or a bad thing.\"",
+    "readingTime": 3,
+    "keywords": [
+      "reddit user",
+      "portfolio",
+      "stock",
+      "investing",
+      "model",
+      "stocks",
+      "startup",
+      "system",
+      "experiment",
+      "financial"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/news/latest-ai-model-reads-48-150112514.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/Benzinga/f3bb5aed5e11a5107898e660c65d7d09",
+    "created_at": "2026-03-06T01:14:01.475Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "us-house-committee-wants-travel-companies-to-disclose-ai-use-for-pricing",
+    "title": "US House committee wants travel companies to disclose AI use for pricing",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/stock-market-news/us-house-committee-wants-travel-companies-to-answer-questions-on-use-of-ai-for-pricing-4544733",
+    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM24176_L.jpg",
+    "created_at": "2026-03-06T01:13:59.208Z",
+    "topic": "finance"
+  },
+  {
     "slug": "sentinel-deterministic-wasm-auditor-for-eu-ai-act-compliance",
     "title": "Sentinel – Deterministic WASM Auditor for EU AI Act Compliance",
     "description": "Contribute to MOXO08/sentinel-scan-action development by creating an account on GitHub.",
@@ -2039,83 +2113,5 @@
     "thumbnail_url": "https://i.insider.com/69a0430e50f42603b0f8f073?width=1200&format=jpeg",
     "created_at": "2026-03-02T18:32:39.855Z",
     "topic": "finance"
-  },
-  {
-    "slug": "thinking-of-switching-chatbots-heres-which-features-youd-gain-or-lose",
-    "title": "Thinking of switching chatbots? Here's which features you'd gain or lose",
-    "description": "How do the features offered by ChatGPT, Claude, and Gemini compare? We created a table of their various offerings.",
-    "fullText": "Switching chatbots comes with tradeoffs — just ask recent ChatGPT users who defected to Claude.\n\nA Washington scuffle between Anthropic and the Pentagon has some users changing their chatbot of choice after OpenAI swooped in and reached an agreement of its own. The move caused a surge in support for Anthropic, with Claude dethroning ChatGPT and hitting No. 1 in the App Store over the weekend.\n\nMeanwhile, Google's Gemini has been racing to catch up with ChatGPT, and offers some features that Claude doesn't.\n\nAs users debate which chatbot to use, they should know what features each model has — and what they're potentially giving up if they do switch.\n\nFor those using the free versions of these chatbot apps (with the most updated models available), let this chart be your guide.\n\nWhile users cannot request videos from the ChatGPT app interface, OpenAI's Sora video generation app is currently free.",
-    "readingTime": 1,
-    "keywords": [
-      "chatgpt",
-      "users",
-      "chatbot",
-      "anthropic",
-      "features",
-      "free",
-      "claude"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/chatgpt-claude-gemini-features-comparison-2026-3",
-    "thumbnail_url": "https://i.insider.com/69a59ee71fb3fcb42648b820?width=1200&format=jpeg",
-    "created_at": "2026-03-02T18:32:39.312Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "anthropic-is-seizing-the-moment-by-promoting-how-easy-it-is-to-switch-to-claude",
-    "title": "Anthropic is seizing the moment by promoting how easy it is to switch to Claude",
-    "description": "Anthropic has overhauled users' ability to import their histories from rival chatbots amid an explosion of interest in Claude.",
-    "fullText": "Anthropic wants you to use Claude, even as President Donald Trump moves to kick the company out of Washington.\n\nNow, Claud says it's easier to move their history from a rival competitor into Claude. While Anthropic initially offered users the ability to import their data in October, the updated interface is \"significantly improved,\" a spokesperson for Anthropic told Business Insider.\n\nAll they have to do now is copy and paste a pre-written prompt into another chatbot.\n\n\"Switch to Claude without starting over,\" the new dedicated landing page reads, adding that the process can be done in under a minute.\n\n\"You've spent months teaching another AI how you work,\" the page reads. \"That context shouldn't disappear because you want to try something new. Claude can import what matters, so your first conversation feels like your hundredth.\"\n\nReady to make the switch?https://t.co/foaJ4CKJmG pic.twitter.com/rB9k7BeAWR\n\nThe overhaul shows how Anthropic is making aggressive efforts to promote itself amid an explosion of outside interest, after its CEO, Dario Amodei, refused to back down amid a standoff with the Pentagon.\n\nClaude is now the most downloaded free app in Apple's App Store, above OpenAI's ChatGPT and Google's Gemini.\n\nOn Friday, Amodei said that the AI startup could not reach an agreement with the Pentagon based on two exceptions that Anthropic insisted on, which he said would limit the use of its AI models for deployment in fully autonomous weapons and for mass surveillance of American citizens.\n\nHours later, OpenAI struck a deal with the Pentagon to deploy its AI models, which sparked a backlash among some users.\n\nIn response, Trump blasted Anthropic, calling it \"woke,\" and pushed to prevent its use across all federal agencies. Defense Secretary Pete Hegseth, who moved to formally designate Anthropic as a supply-chain risk, said the Defense Department would not back down.\n\n\"America's warfighters will never be held hostage by the ideological whims of Big Tech,\" Hegseth wrote on X on Friday. \"This decision is final.\"\n\nAnthropic has called the supply-chain risk designation \"unprecedented,\" particularly since Hegseth has suggested that it would mean anyone doing business with the Pentagon could not work with Anthropic. The AI startup has said Hegseth doesn't have the power to impose such a wide ban.\n\n\"No amount of intimidation or punishment from the Department of War will change our position on mass domestic surveillance or fully autonomous weapons,\" the company said in a statement. \"We will challenge any supply chain risk designation in court.\"",
-    "readingTime": 3,
-    "keywords": [
-      "page reads",
-      "fully autonomous",
-      "autonomous weapons",
-      "supply-chain risk",
-      "risk designation",
-      "anthropic",
-      "users",
-      "import",
-      "another",
-      "amid"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/anthropic-claude-how-to-switch-promotion-ai-2026-3",
-    "thumbnail_url": "https://i.insider.com/69a5b5a8d3e2f1aef369cdfc?width=1200&format=jpeg",
-    "created_at": "2026-03-02T18:32:39.211Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-risks-of-letting-ai-direct-conversations",
-    "title": "The Risks of Letting AI Direct Conversations",
-    "description": "Large language models are evolving from answer engines into conversational partners that shape decisions by asking their own questions. Research comparing more than 1,600 executives with 13 leading models finds that AI systems use markedly different question mixes than human leaders, often overemphasizing interpretive analysis while underweighting productive and subjective questions. Because each question type surfaces different information, these imbalances can create blind spots, skew discussions, and subtly steer outcomes. Models also vary widely from one another, meaning tool choice matters. Managers must be deliberate about when and how they use inquiry-driven AI; compare outputs across systems; actively probe for missing perspectives, especially execution and stakeholder concerns; and retain final judgment.",
-    "fullText": "The Risks of Letting AI Direct Conversations by Arnaud Chevallier, Frédéric Dalsace and José Parra-MoyanoMarch 2, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintCompetition is fierce among the companies offering gen AI tools based on large language models (LLMs). Tools like ChatGPT, Claude, and DeepSeek release new functionalities on an almost monthly basis. Many of these AI-based systems, all of which use a language-based model that enables them to interact in conversational ways with users, are evolving from mere “answer providers” into “conversational agents” that ask questions to generate more useful answers. One example of this phenomenon is WaLLM, a chatbot developed to function via WhatsApp. This chat goes beyond answering simple queries by offering follow-up questions, lists of trending and recent queries, and even a “Top Question of the Day.” Another example is OpenAI’s DeepResearch function, which, like Singaporian-based Manus, is designed to ask users questions. When user requests are ambiguous, rather than simply assuming one specific interpretation, systems now often ask a clarifying question to reduce the risk of creating frustration or making mistakes.",
-    "readingTime": 1,
-    "keywords": [
-      "systems",
-      "conversational",
-      "users",
-      "function",
-      "queries",
-      "tools"
-    ],
-    "qualityScore": 0.55,
-    "link": "https://hbr.org/2026/03/the-risks-of-letting-ai-direct-conversations",
-    "thumbnail_url": "/resources/images/article_assets/2026/02/Feb26_28_647672384.jpg",
-    "created_at": "2026-03-02T18:32:38.769Z",
-    "topic": "business"
-  },
-  {
-    "slug": "how-ai-damages-work-relationshipsand-where-it-can-actually-help",
-    "title": "How AI Damages Work Relationships—and Where It Can Actually Help",
-    "description": "Our relationships at work matter. They make us happier, more productive, and more engaged. They help us weather tough times and celebrate good ones. And they’re built through thousands of small interactions, many of them messy, awkward, and imperfect. But what happens when we start handing those interactions over to AI or allow AI to intermediate them?",
-    "fullText": "How AI Damages Work Relationships—and Where It Can Actually HelpWe’re outsourcing the very moments that create connection. Here’s how to be more intentional. by Amy GalloMarch 2, 2026Summary.   Leer en españolLer em portuguêsPostPostShareSavePrintwrote them.”",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://hbr.org/2026/03/how-ai-damages-work-relationships-and-where-it-can-actually-help",
-    "thumbnail_url": "/resources/images/article_assets/2026/03/Mar26_03_ErikCarter.jpg",
-    "created_at": "2026-03-02T18:32:38.748Z",
-    "topic": "business"
   }
 ]
