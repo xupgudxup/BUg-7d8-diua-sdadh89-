@@ -1,5 +1,29 @@
 [
   {
+    "slug": "contrabass-go-and-charm-stack-implementation-of-openais-symphony",
+    "title": "Contrabass – Go and Charm Stack Implementation of OpenAI's Symphony",
+    "description": "🎸 A project-level orchestrator for AI coding agents — Go & Charm stack implementation of OpenAI's Symphony - junhoyeo/contrabass",
+    "fullText": "A project-level orchestrator for AI coding agents \n\nGo + Charm stack reimplementation of OpenAI's Symphony (openai/symphony) — manage work, not agents\n\nContrabass is a terminal-first orchestrator for issue-driven agent runs, with an optional local web dashboard for live visibility.\n\nFrom a fresh clone, run bun install once before using the JS/landing build and test commands.\n\nPre-built binaries for macOS and Linux (amd64/arm64) are available on the\nReleases page.\n\nmake build first builds packages/dashboard/dist/ and then embeds it into the Go binary.\n\nNote: go install github.com/junhoyeo/contrabass/cmd/contrabass@latest works for the\nCLI and TUI, but the embedded web dashboard (--port) will be empty because go install\ndoes not run the JS build step.\n\nThen open http://localhost:8080.\n\nContrabass reads a Markdown workflow file with YAML front matter followed by the prompt template body.\n\nThe current prompt renderer exposes:\n\nString values in YAML front matter can reference environment variables using $NAME syntax.\n\nWhen --port is set, Contrabass serves the embedded dashboard and a small JSON/SSE API.\n\nThe dashboard currently renders:\n\nFor day-to-day local validation, use make test-quick.\nFor a fuller pre-push or CI-style pass, use make ci.\n\nThe repository is a root Bun workspace with packages/dashboard and packages/landing.\nThe Astro landing site renders README.md, so this file is both repo documentation and site content.\n\nDirect dependencies from the Charm v2 ecosystem:\n\nCI and release workflows run automatically via GitHub Actions:\n\nThis builds cross-platform binaries (macOS/Linux, amd64/arm64) via GoReleaser,\npublishes a GitHub Release with grouped changelogs, and updates the\nHomebrew tap.",
+    "readingTime": 2,
+    "keywords": [
+      "yaml front",
+      "web dashboard",
+      "contrabass",
+      "install",
+      "orchestrator",
+      "agents",
+      "binaries",
+      "amd64/arm",
+      "embedded",
+      "port"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://github.com/junhoyeo/contrabass",
+    "thumbnail_url": "https://opengraph.githubassets.com/5660fe8f9af763f459cff985c8c480ebe1883d1ea25a6af62f90e5b02fbda708/junhoyeo/contrabass",
+    "created_at": "2026-03-07T06:26:28.334Z",
+    "topic": "tech"
+  },
+  {
     "slug": "worried-that-ai-might-replace-you-check-out-this-graph-from-anthropic-showing-the-jobs-most-at-risk",
     "title": "Worried that AI might replace you? Check out this graph from Anthropic showing the jobs most at risk",
     "description": "Anthropic economists say there's not yet evidence to suggest AI is fueling a spike in job losses in highly exposed fields like computer programming.",
@@ -1977,21 +2001,6 @@
     "link": "https://github.com/internet-development/daedalus",
     "thumbnail_url": "https://opengraph.githubassets.com/471147f12cb10edd91f2072a6602ce03fd3e4339e4f03a4a184ee7336b8d31ea/internet-development/daedalus",
     "created_at": "2026-01-30T06:35:17.254Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "cwt-sandbox-ai-coding-agents-using-git-worktrees",
-    "title": "Cwt – Sandbox AI coding agents using Git Worktrees",
-    "description": "Contribute to benngarcia/claude-worktree development by creating an account on GitHub.",
-    "fullText": "benngarcia\n\n /\n\n claude-worktree\n\n Public\n\n License\n\n MIT license\n\n 0\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n benngarcia/claude-worktree",
-    "readingTime": 1,
-    "keywords": [
-      "license"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://github.com/benngarcia/claude-worktree",
-    "thumbnail_url": "https://opengraph.githubassets.com/73752eaadbf154afd745270d32c1743038163f0555993f4c462cecd915f63c02/benngarcia/claude-worktree",
-    "created_at": "2026-01-30T01:07:08.980Z",
     "topic": "tech"
   }
 ]

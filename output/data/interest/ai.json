@@ -1,5 +1,72 @@
 [
   {
+    "slug": "ai-error-may-have-contributed-to-girls-school-bombing-in-iran",
+    "title": "AI Error May Have Contributed to Girl's School Bombing in Iran",
+    "description": "Pentagon investigators believe a bombing of a girls' school in Iran on Saturday likely resulted from inaccurate information provided by AI.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://thisweekinworcester.com/exclusive-ai-error-girls-school-bombing/",
+    "thumbnail_url": "https://thisweekinworcester.com/wp-content/uploads/2026/03/pentagon-overhead-1.webp",
+    "created_at": "2026-03-07T06:26:29.363Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "slidehtml-render-html-files-as-slides",
+    "title": "SlideHTML – render HTML files as slides",
+    "description": "The presentation tool for the AI age. HTML files → slides, live.",
+    "fullText": "How it works\n Six steps.\nNo copy-paste.\n\n 1\n\n Open a folder\n Click \"Open Folder\" — SlideHTML sets up your project and generates CLAUDE.md automatically.\n\n 2\n\n Talk to your AI\n Run Claude Code or Gemini CLI and ask for a slide. The AI already knows the rules.\n\n 3\n\n Slides appear live\n SlideHTML watches the folder. Files are detected the instant they're written.\n\n 4\n\n Full Chromium rendering\n CDN libraries, animations, charts, video embeds — everything works. It's a real browser.\n\n 5\n\n Edit and iterate\n See your slides in the editor. Ask the AI to fix something. Changes reflect instantly.\n\n 6\n\n Present\n Hit Present. Full screen. Arrow keys to navigate. ESC to exit. That's it.",
+    "readingTime": 1,
+    "keywords": [
+      "slides",
+      "folder",
+      "slidehtml"
+    ],
+    "qualityScore": 0.55,
+    "link": "https://yourhrh.github.io/slidehtml/",
+    "thumbnail_url": "screenshots/02-editor.png",
+    "created_at": "2026-03-07T06:26:28.846Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "contrabass-go-and-charm-stack-implementation-of-openais-symphony",
+    "title": "Contrabass – Go and Charm Stack Implementation of OpenAI's Symphony",
+    "description": "🎸 A project-level orchestrator for AI coding agents — Go & Charm stack implementation of OpenAI's Symphony - junhoyeo/contrabass",
+    "fullText": "A project-level orchestrator for AI coding agents \n\nGo + Charm stack reimplementation of OpenAI's Symphony (openai/symphony) — manage work, not agents\n\nContrabass is a terminal-first orchestrator for issue-driven agent runs, with an optional local web dashboard for live visibility.\n\nFrom a fresh clone, run bun install once before using the JS/landing build and test commands.\n\nPre-built binaries for macOS and Linux (amd64/arm64) are available on the\nReleases page.\n\nmake build first builds packages/dashboard/dist/ and then embeds it into the Go binary.\n\nNote: go install github.com/junhoyeo/contrabass/cmd/contrabass@latest works for the\nCLI and TUI, but the embedded web dashboard (--port) will be empty because go install\ndoes not run the JS build step.\n\nThen open http://localhost:8080.\n\nContrabass reads a Markdown workflow file with YAML front matter followed by the prompt template body.\n\nThe current prompt renderer exposes:\n\nString values in YAML front matter can reference environment variables using $NAME syntax.\n\nWhen --port is set, Contrabass serves the embedded dashboard and a small JSON/SSE API.\n\nThe dashboard currently renders:\n\nFor day-to-day local validation, use make test-quick.\nFor a fuller pre-push or CI-style pass, use make ci.\n\nThe repository is a root Bun workspace with packages/dashboard and packages/landing.\nThe Astro landing site renders README.md, so this file is both repo documentation and site content.\n\nDirect dependencies from the Charm v2 ecosystem:\n\nCI and release workflows run automatically via GitHub Actions:\n\nThis builds cross-platform binaries (macOS/Linux, amd64/arm64) via GoReleaser,\npublishes a GitHub Release with grouped changelogs, and updates the\nHomebrew tap.",
+    "readingTime": 2,
+    "keywords": [
+      "yaml front",
+      "web dashboard",
+      "contrabass",
+      "install",
+      "orchestrator",
+      "agents",
+      "binaries",
+      "amd64/arm",
+      "embedded",
+      "port"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://github.com/junhoyeo/contrabass",
+    "thumbnail_url": "https://opengraph.githubassets.com/5660fe8f9af763f459cff985c8c480ebe1883d1ea25a6af62f90e5b02fbda708/junhoyeo/contrabass",
+    "created_at": "2026-03-07T06:26:28.334Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "llm-doesnt-write-correct-code-it-writes-plausible-code",
+    "title": "LLM Doesn't Write Correct Code. It Writes Plausible Code",
+    "description": "Your LLM Doesn't Write Correct Code. It Writes Plausible Code.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://twitter.com/katanalarp/status/2029928471632224486",
+    "thumbnail_url": "https://pbs.twimg.com/media/HCu3Su9WUAA1dzR.jpg:large",
+    "created_at": "2026-03-07T06:26:27.411Z",
+    "topic": "tech"
+  },
+  {
     "slug": "nobel-laureate-joe-stiglitz-says-not-only-can-ai-take-your-job-itll-make-the-tech-bro-class-richer-while-doing-so",
     "title": "Nobel laureate Joe Stiglitz says not only can AI take your job, it’ll make the ‘tech bro’ class richer while doing so",
     "description": "“Unfortunately, the tech bros, who are obviously advocates of this, are at the same time pushing for smaller government,” Stiglitz told Fortune.",
@@ -2068,86 +2135,5 @@
     "thumbnail_url": "https://i.insider.com/69a75250d3e2f1aef369eda8?width=1200&format=jpeg",
     "created_at": "2026-03-04T01:07:58.419Z",
     "topic": "finance"
-  },
-  {
-    "slug": "amazons-cloud-reboot-shows-the-future-of-consulting-in-the-ai-era",
-    "title": "Amazon's cloud reboot shows the future of consulting in the AI era",
-    "description": "AWS ProServe's AI-driven consulting changes signal shifts for firms like PwC and EY. Industry adapts to AI, impacting hiring and workflows.",
-    "fullText": "My youngest daughter, Tessa, just accepted an internship with PwC in San Francisco. We're overjoyed she'll be home for a few months after heartlessly leaving us 18 months ago to study accounting at Wake Forest in North Carolina.\n\nWhat surprised me: her internship isn't until summer 2027. I had no idea these things were locked in so far ahead.\n\nWith AI reshaping so much, I can't help wondering what consulting will look like by the time she starts. This week brought some clues, via another megascoop from Business Insider's Eugene Kim.\n\nHe reported on ProServe, Amazon's in-house cloud consulting arm. The unit influences more than $10 billion in annual revenue for AWS. Read the full story, but here's the big takeaway: AI is driving radical change inside ProServe, offering a glimpse of where the broader consulting industry may be headed.\n\nI asked Polly Thompson, who covers the Big Four at Business Insider, for her view:\n\n Reach out to me via email at abarr@businessinsider.com.",
-    "readingTime": 1,
-    "keywords": [
-      "consulting",
-      "internship",
-      "business",
-      "proserve"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://www.businessinsider.com/amazon-cloud-reboot-future-consulting-ai-era-2026-3",
-    "thumbnail_url": "https://i.insider.com/69a752fefd4fbd083f29767e?width=1200&format=jpeg",
-    "created_at": "2026-03-04T01:07:58.352Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-ai-boom-is-minting-startup-multimillionaires-at-an-unprecedented-speed",
-    "title": "The AI boom is minting startup multimillionaires at an unprecedented speed",
-    "description": "AI startup Anthropic's soaring valuation enriches employees quickly, with stock options creating multimillionaires within a short timeframe.",
-    "fullText": "One of the wildest stories in tech right now is what's happening at Anthropic. New data from Levels.fyi shows how some employees at this AI startup have effectively become multimillionaires about a year after joining.\n\nOne engineer who started in late 2024 got 60,000 stock options at a $13 strike price, when Anthropic was valued around $18 billion. At the time, the equity penciled out to roughly $200,000 a year on paper.\n\nFast forward to a recent share sale valuing Anthropic near $350 billion. Even after estimated dilution and other factors, this employee probably owns about $4 million to $5 million in vested stock now. The full equity grant, which typically vests in quarters over four years, is likely worth about $18 million to $20 million, according to Levels.fyi estimates.\n\nOther examples, based on real compensation packages submitted to Levels.fyi by Anthropic employees: A senior software engineer with about $1.6 million in vested stock after a year; a more senior staffer with roughly $8 million after 18 months; and a business operations leader with at least $9 million after two years.\n\nTax can take a big chunk of this value, especially if you live in California. Still, outcomes like this used to take five to 10 years and an IPO. In frontier AI, it's happening a lot faster now — as long as you get hired by the right startup.\n\n\"The biggest variable in maximizing your compensation will almost always be the company you work at, even beating out things like your job title,\" said Hakeem Shibly, a data guru from Levels.fyi.\n\n Reach out to me via email at abarr@businessinsider.com.",
-    "readingTime": 2,
-    "keywords": [
-      "vested stock",
-      "employees",
-      "startup",
-      "engineer",
-      "equity",
-      "roughly",
-      "compensation",
-      "senior",
-      "anthropic",
-      "levels.fyi"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.businessinsider.com/anthropic-ai-boom-mint-startup-multimillionaires-unprecedented-speed-2026-3",
-    "thumbnail_url": "https://i.insider.com/69a755bfd3e2f1aef369ee3f?width=1200&format=jpeg",
-    "created_at": "2026-03-04T01:07:58.259Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-anthropicopenai-fight-could-usher-in-a-new-era-chatbot-monogamy",
-    "title": "The Anthropic-OpenAI fight could usher in a new era: chatbot monogamy",
-    "description": "The AI giants behind two of the world's most popular chatbots, Claude and ChatGPT, have escalated their beef. Now people are picking sides.",
-    "fullText": "Anthropic vs. ChatGPT: Who ya got?\n\nThe AI giants behind two of the world's most popular chatbots, Claude and ChatGPT, have escalated their beef. Now people are picking sides.\n\n(It looks like Katy Perry picked Claude Pro … and she liked it.)\n\nIt could represent a new stage in the AI wars. One where people settle down with one chatbot instead of playing the field.\n\nIn case you're out of the loop: Anthropic and the Department of Defense disagreed over the government's usage of its tech. Anthropic refused to back down. President Donald Trump banned federal agencies from using Anthropic. OpenAI cut a deal with the Pentagon a few hours later.\n\nIt shows how heated the rivalry between the two startups has gotten. From snarky Super Bowl ads to refusing to hold hands, here's the history of the Anthropic-OpenAI relationship.\n\nAnthropic isn't shying away from the attention. It streamlined how users can import data from competing chatbots into Claude, which is now topping the App Store chart. \"Every single day last week was an all-time record for Claude sign-ups,\" a spokesperson told BI.\n\nIf you're wondering about the differences between the chatbots, we break it all down here.\n\nUltimately, this could mark a new era of chatbot monogamy.\n\nAll signs point to AI giants pushing for more of a commitment from users.\n\nTheir top models all sit behind paywalls, with the gap between premium and free versions continuing to grow.\n\nAI companies are also under considerable pressure to demonstrate a viable business model, potentially ahead of a public debut. A stable base of paid subscribers is a lot more appetizing to investors than a bunch of non-committal freeloaders.\n\nUsers also might gravitate toward a preferred chatbot. As experimentation fades into practical use, navigating multiple AI chats to be productive doesn't feel … productive. And if it's not free, are you really willing to pay for multiple subscriptions?\n\nWhich brings us back to Anthropic. The fight with the DoD is a perfect way to try and juice customer acquisition efforts. There are plenty of concerns about AI use. Anthropic can pitch itself as a safe antidote.\n\nBut catering to that crowd could prove challenging as competition ramps up and pressure to move quickly intensifies. Anthropic, which was founded on the proper development of AI, already weakened its foundational safety principle last week.",
-    "readingTime": 2,
-    "keywords": [
-      "chatbots",
-      "chatbot",
-      "users",
-      "anthropic",
-      "giants",
-      "behind",
-      "you're",
-      "back",
-      "free",
-      "pressure"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/anthropic-openai-chatgpt-claude-katy-perry-pentagon-subscription-2026-3",
-    "thumbnail_url": "https://i.insider.com/69a60619d3e2f1aef369d847?width=1200&format=jpeg",
-    "created_at": "2026-03-03T18:34:46.963Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "peer-influence-can-make-or-break-your-ai-rollout",
-    "title": "Peer Influence Can Make or Break Your AI Rollout",
-    "description": "AI adoption stalls not because of weak tools or insufficient training, but because learning remains invisible. Generative AI requires employees to redesign their own workflows, and in uncertain environments many experiment quietly—or not at all. What drives meaningful adoption is peer influence. When employees see trusted colleagues using AI in real tasks, sharing tips, modeling guardrails, and discussing both successes and missteps, AI feels safe, practical, and relevant. For managers, the takeaway is clear: focus less on mandates and more on visibility.",
-    "fullText": "Peer Influence Can Make or Break Your AI Rollout by Nancy Baym, Sonia Jaffe and Eleanor DillonMarch 3, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintLeaders face a cruel paradox in AI adoption. They’ve done what they’re supposed to do—deployed the right tools, invested in training, embedded AI into everyday workflows—yet real adoption remains uneven and hard to scale. The playbook that worked for past technology waves—top‑down messaging, broad access, formal training—is no longer enough.",
-    "readingTime": 1,
-    "keywords": [
-      "adoption"
-    ],
-    "qualityScore": 0.35,
-    "link": "https://hbr.org/2026/03/peer-influence-can-make-or-break-your-ai-rollout",
-    "thumbnail_url": "/resources/images/article_assets/2026/03/Mar26_03_-2257858671.jpg",
-    "created_at": "2026-03-03T18:34:45.253Z",
-    "topic": "sports"
   }
 ]
