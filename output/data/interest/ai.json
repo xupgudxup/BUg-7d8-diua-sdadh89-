@@ -1,5 +1,75 @@
 [
   {
+    "slug": "mguard-first-defense-against-minja-memory-poisoning-attacks",
+    "title": "Mguard – First defense against MINJA memory poisoning attacks",
+    "description": "Memory defense for AI agents — stops MINJA, AgentPoison, and MemoryGraft attacks. Zero dependencies. - mguard-ai/mguard",
+    "fullText": "Memory defense for AI agents. Stops MINJA, AgentPoison, and MemoryGraft attacks before they reach your agent's context.\n\nZero dependencies. Drop-in protection for Mem0, LangChain, or any custom memory system.\n\nPublished academic attacks achieve 95%+ success rates against AI agent memory systems (MINJA — NeurIPS 2025). No production defense existed. OWASP added memory poisoning as ASI06:2026 to the Agentic Security top 10. EU AI Act enforcement begins August 2026 with fines up to 7% of global revenue.\n\nmguard is six layers of defense in three lines of code.\n\n1. Cryptographic provenance — Every memory entry Ed25519-signed at creation. Tampered entries detected and quarantined on read.\n\n2. Bayesian trust scoring — Per-source trust via Beta-Binomial model. Asymmetric updates: one suspicious write costs 3× what a clean write earns. Trust capped at 0.95.\n\n3. Attack pattern detection — Six built-in detectors for known attack classes:\n\n4. Write frequency anomaly — EWMA tracking catches burst-write attacks that try to flood the memory store.\n\n5. Trust-gated retrieval — Low-trust entries filtered at read time. Poisoned memories never reach your agent's context.\n\n6. Hash-chained audit log — Every operation logged to a tamper-evident chain. verifyAuditLog() detects any modification and reports the exact break point.",
+    "readingTime": 1,
+    "keywords": [
+      "agent's context",
+      "memory",
+      "defense",
+      "attacks",
+      "trust",
+      "entries",
+      "attack",
+      "minja"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://github.com/mguard-ai/mguard",
+    "thumbnail_url": "https://opengraph.githubassets.com/07bbc33c229761753b1c2723ad8045f3155e7452bc25abf514fd3451c3dd3cea/mguard-ai/mguard",
+    "created_at": "2026-03-09T01:11:03.242Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "im-a-78yearold-retiree-whos-vibe-coding-being-out-of-the-workforce-doesnt-mean-we-cant-use-ai-like-tech-pros",
+    "title": "I'm a 78-year-old retiree who's vibe coding. Being out of the workforce doesn't mean we can't use AI like tech pros.",
+    "description": "At 78, he's vibe coding and teaching AI to seniors. Retirement hasn't slowed his passion for technology.",
+    "fullText": "This as-told-to essay is based on a conversation with Lewis Dickson, a 78-year-old retiree and technology consultant. It's been edited for length and clarity.\n\nI've been in technology for a long time. I worked for IBM in the late 1970s. I did technology consulting for a Fortune 500 company in Atlanta from 2015 to 2024. I've taught many engineers and customers over the years.\n\nI'm in semi-retirement mode now. Technology isn't work to me — it's fun.\n\nWhen ChatGPT came out, I jumped on it. About six or eight months ago, when vibe coding became hot, I said, \"Well, I need to try this out.\"\n\nI researched and found Emergent. What I liked is that they had the full stack. I didn't have to connect anything or get my developers on the line to handle the back-end. I could just get on there and start.\n\nI began with a couple of simple things. Now I've probably done a dozen or more vibe-coded apps.\n\nThe last two were for this AED company. They wanted the ability to access their existing camera provider's website and extract their data. So I vibe-coded an app that would do that — pull that data in.\n\nI also vibe-coded an AI voice app for them. It's a web app, so you go to it on your phone, hit a button, and ask, \"What's our AED status?\" It checks the database, then returns the information.\n\nWhen I first showed the CEO a demo, he lit up. He thought it was the coolest thing he'd ever seen.\n\nMost people think an old guy like me would have a flip phone.\n\nWhen I started as a ham radio operator at 13, I was using Morse code on tubes, transmitters, and receivers. To go from that to what we've gone through with phones and cellphones, and then to watch that transition over the years into AI and be closely involved, I just love the technology — both the hardware and the software.\n\nA lot of young kids today are into software but don't know much about the hardware piece. Having a wide background comes in handy.\n\nThere's often an assumption that gray hair means outdated technology skills. I understand where that perception comes from, but it's not always accurate.\n\nMany of us have moved just as quickly with the rise of AI as younger professionals. The advantage we bring is perspective: decades of experience that allow us to apply AI strategically, not just technically.\n\nSome people would say older people retire and lose purpose. I've never had that problem because I've always had a passion for doing technical things.\n\nI'm constantly on my laptop and phone, doing something related to AI and learning. You've got to watch a lot of YouTube and social media, learn what's coming and what's new.\n\nI'm teaching AI to seniors now. In my class back in November, we were talking about data centers, what's behind AI.\n\nThere's a lady named Sue who's 100 years old. Near the end of the class, Sue came up and asked, \"What's a semiconductor?\"\n\nI have a hardware background, so I answered her question at a very high level. She listened intently and wrote down a few notes.\n\nAfter that class, I thought, \"I need to do more for her.\" So I used AI to create a video that went through the evolution of tubes in the 20s and 30s — things they could relate to — and old radios and TVs. Then we went to transistors in the late 40s and 50s, and what that meant.\n\nThe seniors I taught have now learned enough to take over their internal resident newsletter and use AI to help write it. They also created images for the newsletter with AI.\n\nThey are using AI to shop, check for bargains, and research their items.\n\nI've shown them how to recognize different plants and birds with AI. They'll walk through their garden area, take a picture, and ask ChatGPT or Gemini.\n\nDo you have a story to share about vibe coding? Contact this reporter at cmlee@businessinsider.com.",
+    "readingTime": 4,
+    "keywords": [
+      "vibe coding",
+      "technology",
+      "what's",
+      "it's",
+      "vibe-coded",
+      "phone",
+      "hardware",
+      "class",
+      "tubes",
+      "watch"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/retiree-vibe-coding-seniors-ai-lewis-dickson-2026-2",
+    "thumbnail_url": "https://i.insider.com/698d95c4e1ba468a96abea62?width=1200&format=jpeg",
+    "created_at": "2026-03-09T01:10:59.477Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "this-ai-founder-who-quit-her-9to5-law-job-has-a-warning-for-anyone-dreaming-of-doing-the-same-im-working-harder-now",
+    "title": "This AI founder who quit her 9-to-5 law job has a warning for anyone dreaming of doing the same: ‘I’m working harder now than I ever did’",
+    "description": "Logan Brown, founder of AI-powered legal firm Soxton, says her work-life balance and pay are even worse as a founder, but she’s still “having the time of my life.”",
+    "fullText": "Office workers who daydream of being their own boss may fantasize about calling the shots, earning sky-high salaries, and setting their own schedules—but stepping into a founder’s shoes would break them from the spell. Logan Brown, founder of AI-powered law firm Soxton, says she’s putting in even more hours now than she did in her salaried legal job.\n\n“I did not have [work-life balance] in Big Law. I am working more than I did there,” she tells Fortune. “I’m coming from a place where people work very long, hard hours, and I’m working harder now than I ever did in my old job.”\n\nThe 30-year-old has spent most of her life in the legal industry. The summer before seventh grade, she had already snagged an internship at her hometown’s district attorney’s office, and her career hasn’t slowed down since. After graduating as the valedictorian of Vanderbilt University in 2018, she then attended Harvard Law School, and soon thereafter landed an associate role at Silicon Valley law firm Cooley LLP.\n\nBut just two years into her stint at the U.S.-based international law firm, Brown decided it was time to do her own thing. In June of last year, she founded Soxton: an AI-powered legal services business serving startups.\n\nStaffers aren’t on an intense 72-hour weekly grind like some “996” companies. And right now, she’s focused on ensuring all work inside the company is task-based and meaningful. As a founder, she’s up to the gills in new responsibilities—but the long hours are well worth it.\n\n“I care a lot more now, and the hours have a lot more meaning. But I don’t think it’s sustainable for forever,” Brown continues. “We’re not putting in hours for hours sake… We do work really hard. I don’t have any balance, but I also find work fun. I enjoy it.”\n\nLeaving a stable, full-time job to head out into the Wild West of entrepreneurship is daunting. For most professionals, taking the jump means putting their health insurance, work-life balance, and steady salaries on the line. Brown is going through those growing pains, but says building the business is well-worth the sacrifice.\n\n“It’s definitely scary to lose the security of a stable paycheck and be on your own,” Brown says. “I’m not making more money, but I do have ownership of what I’m doing… We’re able to really help, be a small part of [our customers’] journey, which is fun. That part is far more fulfilling. But yeah, it’s going to be a pay cut for a while.”",
+    "readingTime": 3,
+    "keywords": [
+      "work-life balance",
+      "law firm",
+      "hours",
+      "she’s",
+      "legal",
+      "it’s",
+      "salaries",
+      "founder",
+      "ai-powered",
+      "soxton"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/news/ai-founder-quit-her-9-080300798.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/WutRyuNWzmSPm2dLUtIiVA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03OTk-/https://media.zenfs.com/en/fortune_175/9019cc5597f85f6a042c7c52bed0baf3",
+    "created_at": "2026-03-09T01:10:58.358Z",
+    "topic": "finance"
+  },
+  {
     "slug": "current-and-former-block-workers-say-ai-cant-do-their-jobs-after-jack-dorseys-mass-layoffs-you-cant-really-ai-that",
     "title": "Current and former Block workers say AI can’t do their jobs after Jack Dorsey’s mass layoffs: ‘You can’t really AI that’",
     "description": "The CEO said he cut the company’s workforce by 4,000 people – almost in half – because of gains in AI productivity\nMark remembers the first time he wondered whether he was teaching Block’s AI tools how to do his job – and maybe even replace him. He was at his fintech company’s extravagant anniversary party last September. As executives led a presentation on the productivity benefits of a new internal AI tool, Mark, who worked in the product department, discussed his worries with colleagues. While he wasn’t sure what would happen in a few years, he told a co-worker sitting next to him that for now, there was no way the technology was so advanced that it could move the business forward without employees like him to help drive vision and strategy.\nThese AI tools were not proactive.",
@@ -2127,57 +2197,5 @@
     "thumbnail_url": "https://i.insider.com/69a861651fb3fcb42648e6f0?width=1200&format=jpeg",
     "created_at": "2026-03-05T01:10:41.638Z",
     "topic": "tech"
-  },
-  {
-    "slug": "tech-leaders-pledge-to-power-their-own-data-centers-during-meeting-with-trump",
-    "title": "Tech leaders pledge to power their own data centers during meeting with Trump",
-    "description": "Leaders from Google, Microsoft, Meta, Oracle, xAI, OpenAI, and Amazon signed the pledge at the White House on Wednesday.",
-    "fullText": "Data centers have been driving up electric bills. Now, some tech companies are working to change that.\n\nAt a White House event with President Donald Trump on Wednesday, representatives from several major tech firms signed the \"Ratepayer Protection Pledge.\"\n\n\"They're going to be making their own electricity,\" Trump said of the tech companies. \"They're not going to be taking from the grid.\"\n\nTech leaders in the room included Google President Ruth Porat, Microsoft President Brad Smith, Meta President Dina Powell McCormick, Amazon Web Services CEO Matt Garman, Oracle CEO Clay Magouyrk, OpenAI COO Brad Lightcap, and Gwynne Shotwell, the President of SpaceX, which is in the midst of a merger with xAI.\n\nAccording to Trump, the pledge includes five commitments, including:\n\nTrump originally previewed the plan during his State of the Union address last week.\n\n\"We're telling the major tech companies that they have the obligation to provide for their own power needs,\" Trump said at the time.\n\nAs tech companies have poured hundreds of billions of dollars into AI infrastructure, massive data centers have popped up in communities across the country.\n\nWhile that new construction has brought jobs and other economic opportunities, it's also led to higher electric bills in many instances.\n\n\"They need some PR help, because people think that if a data center goes in, their electricity prices are going to go up,\" Trump said at the event.\n\nSome companies have already started building their own energy-generating facilities at data centers, and companies like Microsoft have already announced steps to reduce consumer electric bills.\n\nDuring the event, leaders from some of the companies detailed ways in which they were seeking to comply with the pledge.\n\nShotwell said that xAI was committing to developing 1.2 gigawatts of power at the company's supercomputer site near Memphis, Tennessee, and that the facility would provide enough backup energy to power the city of Memphis. She also said that xAI would build \"state-of-the-art water recycling plants.\"\n\n\"Ultimately, this is not a negotiation where one side wins and one side loses,\" Energy Secretary Chris Wright said at the event. \"We have the same interests.\"\n\nJill Tauber, Vice President of Litigation for Climate and Energy, at EarthJustice, asserted that more needed to be done to address \"increasing costs and pollution for communities across the country\" caused by data centers.\n\n\"More than a pledge, we urgently need strong policies and protections to ensure that data centers pay their way, disclose and mitigate their impacts, and are powered by clean energy,\" Tauber said.",
-    "readingTime": 3,
-    "keywords": [
-      "communities across",
-      "electric bills",
-      "tech",
-      "centers",
-      "event",
-      "electricity",
-      "leaders",
-      "microsoft",
-      "brad",
-      "shotwell"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/tech-companies-data-centers-electricity-donald-trump-ratepayer-protection-pledge-2026-3",
-    "thumbnail_url": "https://i.insider.com/69a894efd3e2f1aef369feb9?width=1200&format=jpeg",
-    "created_at": "2026-03-05T01:10:41.215Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "when-ai-challenges-strategy",
-    "title": "When AI Challenges Strategy",
-    "description": "In a moment when strategy cycles are compressing and AI is reshaping entire industries, three chief strategy officers—Sherry Sanger from Penske Transportation Solutions; Jennifer Moll from DTEX Systems; and Maran Nalluswami from Synchrony—share how they are making disciplined bets amid volatility. The conversation explores how to separate scalable initiatives from experimentation fatigue, align AI investments to real customer value, and use “what has to be true” as a practical decision filter. Across industries, the executives emphasize that strategy is a team sport—driven by culture, clarified through storytelling, and sustained by the courage to stop doing what no longer serves the mission.",
-    "fullText": "Executive LiveWhen AI Challenges StrategyHow three chief strategy officers are responding by Adi IgnatiusMarch 4, 2026Summary.   Leer en españolLer em portuguêsPostPostShareSavePrintvolatile. In this candid conversation, three chief strategy leaders—Sherry Sanger from Penske Transportation Solutions; Jennifer Moll from DTEX Systems; and Maran Nalluswami from Synchrony—talk to HBR editor at large Adi Ignaitus about how they’re crafting strategy when AI, supply-chain disruption, and shifting consumer behavior can quickly upend the best-made plans.",
-    "readingTime": 1,
-    "keywords": [
-      "chief strategy"
-    ],
-    "qualityScore": 0.35,
-    "link": "https://hbr.org/2026/03/when-ai-challenges-strategy",
-    "thumbnail_url": "/resources/images/article_assets/2016/09/whiteout.png",
-    "created_at": "2026-03-05T01:10:40.435Z",
-    "topic": "business"
-  },
-  {
-    "slug": "broadcom-sees-over-100-billion-in-ai-chip-sales-by-2027-on-robust-custom-chip-demand",
-    "title": "Broadcom sees over $100 billion in AI chip sales by 2027 on robust custom chip demand",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/broadcom-sees-revenue-above-estimates-as-ai-fuels-custom-chip-demand-4542363",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM231GY_L.jpg",
-    "created_at": "2026-03-05T01:10:26.338Z",
-    "topic": "finance"
   }
 ]

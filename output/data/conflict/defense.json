@@ -1,5 +1,27 @@
 [
   {
+    "slug": "mguard-first-defense-against-minja-memory-poisoning-attacks",
+    "title": "Mguard – First defense against MINJA memory poisoning attacks",
+    "description": "Memory defense for AI agents — stops MINJA, AgentPoison, and MemoryGraft attacks. Zero dependencies. - mguard-ai/mguard",
+    "fullText": "Memory defense for AI agents. Stops MINJA, AgentPoison, and MemoryGraft attacks before they reach your agent's context.\n\nZero dependencies. Drop-in protection for Mem0, LangChain, or any custom memory system.\n\nPublished academic attacks achieve 95%+ success rates against AI agent memory systems (MINJA — NeurIPS 2025). No production defense existed. OWASP added memory poisoning as ASI06:2026 to the Agentic Security top 10. EU AI Act enforcement begins August 2026 with fines up to 7% of global revenue.\n\nmguard is six layers of defense in three lines of code.\n\n1. Cryptographic provenance — Every memory entry Ed25519-signed at creation. Tampered entries detected and quarantined on read.\n\n2. Bayesian trust scoring — Per-source trust via Beta-Binomial model. Asymmetric updates: one suspicious write costs 3× what a clean write earns. Trust capped at 0.95.\n\n3. Attack pattern detection — Six built-in detectors for known attack classes:\n\n4. Write frequency anomaly — EWMA tracking catches burst-write attacks that try to flood the memory store.\n\n5. Trust-gated retrieval — Low-trust entries filtered at read time. Poisoned memories never reach your agent's context.\n\n6. Hash-chained audit log — Every operation logged to a tamper-evident chain. verifyAuditLog() detects any modification and reports the exact break point.",
+    "readingTime": 1,
+    "keywords": [
+      "agent's context",
+      "memory",
+      "defense",
+      "attacks",
+      "trust",
+      "entries",
+      "attack",
+      "minja"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://github.com/mguard-ai/mguard",
+    "thumbnail_url": "https://opengraph.githubassets.com/07bbc33c229761753b1c2723ad8045f3155e7452bc25abf514fd3451c3dd3cea/mguard-ai/mguard",
+    "created_at": "2026-03-09T01:11:03.242Z",
+    "topic": "tech"
+  },
+  {
     "slug": "djokovic-battles-back-to-win-indian-wells-opener",
     "title": "Djokovic battles back to win Indian Wells opener",
     "description": "Five-time champion Novak Djokovic rallied from a set down to beat 57th-ranked Kamil Majchrzak 4-6, 6-1, 6-2 and reach the third round of the Indian Wells ATP Masters 1000 on Saturday.- Draper rallies -\nBritain's Jack Draper launched his title defense with a 3-6, 6-3, 6-2 victory over Spain's Roberto Bautista Agut.",
@@ -2205,29 +2227,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/zcb1NYwyZ07Yx7JD97jO_Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ap.org/8e5679083b37992923421c66683a8041",
     "created_at": "2026-01-27T12:26:43.307Z",
     "topic": "news"
-  },
-  {
-    "slug": "seahawks-defense-ranks-6th-alltime-in-advanced-metrics-ahead-of-super-bowl",
-    "title": "Seahawks defense ranks 6th all-time in advanced metrics ahead of Super Bowl",
-    "description": "Mike Macdonald appears in the top 10 twice.",
-    "fullText": "Seahawks defense ranks 6th all-time in advanced metrics ahead of Super Bowl originally appeared on The Sporting News. Add The Sporting News as a Preferred Source by clicking here.\n\nOne advanced metric places the 2025–26 Seattle Seahawks defense among the greatest units in NFL history. That metric is DVOA, which stands for “Defense-adjusted Value Over Average.”\n\nDVOA measures a team’s efficiency by comparing the success of every single play to a league average, adjusted for situation and quality of opponent. In simpler terms, it evaluates how good a team truly is while accounting for context — down, distance, game situation, and who they’re playing.\n\nAaron Schatz, the chief analytics officer of FTN Fantasy and the creator of DVOA, recently shared a list of the best defenses by the metric dating back to 1978. Including playoff performances, this year’s Seahawks defense ranks sixth all-time in DVOA — a remarkable achievement considering the volume of elite units over the past four decades.\n\nHere's where the #Seahawks stand among the top teams in DVOA history, including the playoffs. Regular-season ratings are also included. pic.twitter.com/q9MEUiju83\n\n— Aaron Schatz 🏈 (@ASchatzNFL) January 26, 2026\n\nMORE: Report: Rams, Seahawks coaches nearly came to blows in elevator\n\nThe only defenses ranked ahead of Seattle are some of the most legendary teams the league has ever seen:\n\n1991–92 Washington Commanders — Super Bowl champions\n\n1985–86 Chicago Bears — Super Bowl champions and the iconic “Super Bowl Shuffle” team\n\n2007–08 New England Patriots — lost the Super Bowl to Eli Manning and the Giants after an undefeated regular season\n\n1989–90 San Francisco 49ers — Super Bowl champions following a dominant 55–10 victory\n\n1996–97 Green Bay Packers — led by Reggie White and Super Bowl winners\n\nJust behind Seattle at No. 7 are the 2023–24 Baltimore Ravens, who fell to Patrick Mahomes and the Kansas City Chiefs in the AFC championship. The defensive coordinator for that Ravens team? Current Seahawks head coach Mike Macdonald, adding another layer of intrigue to Seattle’s historic ranking.\n\nMORE: Seahawks fans will love these 11 Super Bowl predictions from ESPN\n\nTo cement their place in NFL lore, the Seahawks still have one final hurdle: Super Bowl Sunday. Standing in their way are the Patriots, a franchise back on the league’s biggest stage just a few years removed from a two-decade run of dominance. New England boasts one of the NFL’s most explosive offenses and an MVP candidate at quarterback in Drake Maye.\n\nIf Seattle’s defense can slow down offensive coordinator Josh McDaniels’ attack and deliver one more elite performance, it will not just bring a Lombardi Trophy — it could elevate this unit into the top five defenses of all time.\n\nHow Seahawks could end up trading Sam Darnold this offseason despite Super Bowl appearance\n\nWill Sam Darnold get an extension this offseason? ESPN reveals contract update on Seahawks QB\n\nSuper Bowl MVP Odds 2026: Best bets, predictions, prop pick strategy for Super Bowl 60's Most Valuable Player award\n\nJohn Schneider makes NFL Super Bowl history with two completely different Seahawks teams",
-    "readingTime": 3,
-    "keywords": [
-      "bowl champions",
-      "seahawks defense",
-      "super bowl",
-      "defense ranks",
-      "dvoa",
-      "metric",
-      "history",
-      "team",
-      "defenses",
-      "teams"
-    ],
-    "qualityScore": 1,
-    "link": "https://sports.yahoo.com/articles/seahawks-defense-ranks-6th-time-060143669.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/the_sporting_news_articles_584/ea59f8f6a9c3c6c5da35c594f6a06ea9",
-    "created_at": "2026-01-27T06:22:17.732Z",
-    "topic": "sports"
   }
 ]
