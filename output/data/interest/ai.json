@@ -1,5 +1,53 @@
 [
   {
+    "slug": "anip-an-agentnative-protocol-with-rest-graphql-and-mcp-adapters",
+    "title": "ANIP: An agent-native protocol with REST, GraphQL, and MCP adapters",
+    "description": "Agent-Native Interface Protocol — software interfaces designed for AI agents, not humans - anip-protocol/anip",
+    "fullText": "REST APIs are simple. ANIP gives agents confidence.\n\nThe value is not \"agents can call APIs better.\" The value is \"agents can reason before acting.\"\n\nRead the Manifesto | Read the Spec | Read the Guide | Contribute\n\nAgent-Native Interface Protocol. Two words do different work:\n\nThis follows a well-established naming pattern in networked systems: HTTP (HyperText Transfer Protocol), SMTP (Simple Mail Transfer Protocol), IP (Internet Protocol). In each case, \"protocol\" describes the standardized rules, while the preceding words describe what flows through them. ANIP is no different — it's the protocol for agent-native interfaces.\n\nEvery major interface paradigm emerged when the dominant consumer changed:\n\nEach shift wasn't a new format — it was a new set of assumptions about who is on the other end. That shift is happening again. The primary consumer of digital services is becoming an AI agent.\n\nToday's interfaces were designed for humans. When agents interact with them, they do it in one of two ways — both wrong:\n\nComputer-use agents (OpenClaw, Anthropic Computer Use, Operator) teach AI to operate a mouse and keyboard against GUIs built for human eyes. Brilliant engineering. Fundamentally a workaround.\n\nREST APIs assume a human developer reads docs, writes deterministic code, and ships a program. When an agent uses an API directly, it discovers auth requirements by getting a 401, learns permissions by getting a 403, finds out costs after being charged, and can't undo what it doesn't know is irreversible.\n\nMCP (Model Context Protocol) adds a discovery layer but is still REST with a wrapper. The agent still guesses, still fails forward, still treats errors as learning opportunities rather than having the information upfront.\n\nWithout ANIP — what agents deal with today:\n\nEvery assumption that was implicit becomes explicit, typed, and queryable.\n\nFive things an agent doesn't know with REST but does with ANIP:\n\nThat last one is the killer feature. When a budget-exceeded failure comes back, it doesn't just say \"denied\" — it tells the agent exactly who can increase the budget. The agent can autonomously escalate to the right person. That's a capability that doesn't exist in REST, MCP, or OpenAPI.\n\nANIP is the right interface when the consumer is an AI agent. The distinction isn't complexity — it's consumer.\n\nA simple read-only get_weather capability still benefits from ANIP when an agent consumes it: the agent knows it's safe to call repeatedly (side_effect: read), can discover it without reading docs, can verify its delegation scope before calling, and gets structured failures instead of HTTP codes.\n\nANIP scales down gracefully. A read-only service with no auth needs only the 5 core primitives and the ceremony is minimal. The value is in the consistency: agents that speak ANIP can interact with any ANIP service without reading documentation, regardless of complexity.\n\nHTTP isn't overkill for serving a single static HTML file. The protocol is the same — GET, 200, content. The simplicity of the content doesn't make the protocol unnecessary. What makes HTTP unnecessary is when you're not on the web at all. Same with ANIP — what makes it unnecessary is when there's no agent in the picture.\n\nThe adoption argument we didn't expect: implement ANIP once and you get every surface for free.\n\nANIP ships with generic adapters for REST/OpenAPI, GraphQL, and MCP. They're fully generic — point any adapter at any ANIP service URL and it auto-generates the entire surface. No per-service code. No glue. No second implementation.\n\nThis inverts the usual calculus. The conventional path — build a REST API, then layer MCP on top for agents — gives you two surfaces that each need maintenance and neither speaks the agent's language natively. ANIP gives you the native agent interface and REST, GraphQL, and MCP as byproducts. You're actually better off implementing ANIP than building REST first.\n\nStandard REST and GraphQL clients work normally — they ignore the ANIP metadata (x-anip-* OpenAPI extensions, @anip* GraphQL directives). ANIP-aware agents use the metadata for delegation, cost awareness, and side-effect reasoning. Graceful degradation by design.\n\nOne honest caveat. The REST and GraphQL adapters simplify the delegation chain to a single identity. For read and write capabilities, that's fine. For irreversible financial operations, native ANIP is strongly recommended — purpose-bound authority and multi-hop delegation don't survive the translation. The adapter READMEs document the exact translation loss for each surface.\n\nThese adapters are reference implementations. They run as separate proxy processes to demonstrate that ANIP translates cleanly to existing surfaces. For production, the recommended path is direct integration — ANIP client SDKs and libraries that speak the protocol natively, giving agents full access to delegation chains, budget constraints, and side-effect reasoning without translation loss. The adapters prove interoperability; direct ANIP integration is the production deployment path.\n\nANIP defines 9 primitives in two tiers:\n\nCore (ANIP-compliant) — every implementation MUST support:\n\nContextual (ANIP-complete) — standardized shape, SHOULD support:\n\nANIP is early-stage. The spec is a v0.1 draft. The core ideas have been validated through independent design review but the hard problems — trust verification, multi-agent coordination — are open. See SPEC.md § Roadmap for the full breakdown of what's enforced now vs what requires v2 protocol work.\n\nv0.1 is trust-on-declaration. Services declare their capabilities, costs, and side effects, and agents take those declarations at face value. There is no cryptographic verification that a service actually behaves as declared. This makes ANIP v0.1 convincing as an internal protocol for trusted environments — within an organization, between known services, behind a gateway. Internet-scale trust verification (attestation, capability proofs, third-party auditing) is an explicit v2 concern. See SPEC.md § Open Questions for the full list of deferred problems.\n\nThis is a community effort. We'd rather define this standard thoughtfully and in the open than let it emerge ad-hoc.\n\nAgent skills are themselves an example of ANIP's philosophy applied to documentation. Instead of prose docs written for humans that agents have to interpret, ANIP ships structured skill files that agents can consume directly. The protocol eats its own cooking. These skill files were generated by an agent working directly from the spec, demonstrating the principle that ANIP documentation should be agent-consumable from day one.\n\nIf this resonates, star the repo, open an issue, or contribute. If you think we're wrong, tell us why — that's equally valuable.\n\nANIP was designed through parallel sessions with Claude Opus and Claude Code as co-authors, with OpenAI Codex serving as adversarial reviewer — probing the delegation model, finding real security bypasses, and pushing the implementation until no serious findings remained. The commit history reflects that collaboration — every commit is co-authored, and we kept it that way deliberately. A protocol for agent-native interfaces, co-created with agents.\n\nSpecification documents (SPEC.md, MANIFESTO.md, GUIDE.md, skills/, docs/): CC-BY 4.0\nReference implementations and tooling (examples/, adapters/, schema/): Apache 2.0\n\nWhen implementing or referencing ANIP, please cite:\n\"Agent-Native Interface Protocol (ANIP) — anip-protocol/anip\"",
+    "readingTime": 6,
+    "keywords": [
+      "transfer protocol",
+      "side-effect reasoning",
+      "reference implementations",
+      "skill files",
+      "translation loss",
+      "trust verification",
+      "without reading",
+      "agent-native interfaces",
+      "anip ships",
+      "agent-native interface"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/anip-protocol/anip",
+    "thumbnail_url": "https://opengraph.githubassets.com/f51542f251c12659922cdc27691e9dc8fc70b7d8426bf65eb01d58445ceab0be/anip-protocol/anip",
+    "created_at": "2026-03-09T06:49:36.714Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "the-ceo-of-a-15-billion-ai-company-says-the-biggest-ai-winners-wont-be-software-theyll-be-mines-farms-and-trucks",
+    "title": "The CEO of a $15 billion AI company says the biggest AI winners won't be software — they'll be mines, farms, and trucks",
+    "description": "The CEO of a $15 billion AI company says the biggest AI winners won't be software but industries like farming, mining, and trucking.",
+    "fullText": "AI's biggest impact will likely happen far from laptops, says the CEO of a $15 billion AI company.\n\nQasar Younis, the cofounder and CEO of Applied Intuition, said on an episode of \"Lenny's Podcast\" published Sunday that \"the real impact of AI in the next 5 to 10 years\" would show up in physical industries, like \"in farming, in mining, in construction, in self-driving trucks.\"\n\nApplied Intuition develops software to test and power autonomous vehicles and other machines. The company said in June that it raised $600 million in a funding round, valuing it at $15 billion.\n\nSoftware tools like Moltbook and OpenClaw may excite developers, but Younis said they touch only a small slice of society.\n\n\"I love the stuff that's happening on these platforms, but it's still segregated to, like, frankly, developers,\" he added.\n\nInstead, he said the biggest shift will come from adding intelligence to machines already embedded in the physical economy.\n\n\"More pragmatically, it's actually just putting intelligence into things that already exist all around us.\"\n\nIndustries like trucking and farming urgently need that kind of autonomy, he said.\n\n\"People are not fighting for those trucking jobs,\" Younis said. The average farmer is already in their late 50s, meaning many will retire in the coming decade, potentially worsening labor shortages.\n\nAI is more likely to help fill labor shortages in these industries than replace them entirely, he added.\n\nThe company has tested autonomous trucks in Japan, where an aging workforce means a driver shortage, and it's working on AI in mining safety and efficiency.\n\nEarlier this year, Wall Street grew worried that new AI tools and agents could replace some software products entirely.\n\nA research paper by Citrini, an investment firm focused on thematic equity investing, triggered a global stock sell-off last month after researchers outlined a scenario in which the AI boom wipes out white-collar jobs and ultimately slows economic growth.\n\nAgainst that backdrop, some industry leaders say physical industries could end up benefiting from the technology.\n\nFor instance, robots could help address labor shortages in manufacturing. Daniel Diez, the chief business officer of Agility Robotics, told Business Insider in a report published on Sunday that manufacturers globally \"simply can't find the people to do this work.\"\n\nFord CEO Jim Farley said last year that AI-powered augmented-reality tools are helping technicians repair trucks more efficiently, though he warned that automation could still reshape jobs across the broader economy.\n\nBusiness Insider reported last year that some Gen Z workers are increasingly considering trade and blue-collar careers as automation and AI create uncertainty around traditional white-collar professions.",
+    "readingTime": 3,
+    "keywords": [
+      "labor shortages",
+      "physical industries",
+      "business insider",
+      "trucks",
+      "software",
+      "tools",
+      "it's",
+      "jobs",
+      "biggest",
+      "impact"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/ai-biggest-winners-farms-mines-trucks-blue-collar-software-2026-3",
+    "thumbnail_url": "https://i.insider.com/69ae455dfd4fbd083f29bd30?width=1200&format=jpeg",
+    "created_at": "2026-03-09T06:49:30.529Z",
+    "topic": "tech"
+  },
+  {
     "slug": "mguard-first-defense-against-minja-memory-poisoning-attacks",
     "title": "Mguard – First defense against MINJA memory poisoning attacks",
     "description": "Memory defense for AI agents — stops MINJA, AgentPoison, and MemoryGraft attacks. Zero dependencies. - mguard-ai/mguard",
@@ -2149,53 +2197,5 @@
     "thumbnail_url": "https://i.insider.com/69a8ef271fb3fcb42648f29f?width=1200&format=jpeg",
     "created_at": "2026-03-05T06:38:20.720Z",
     "topic": "finance"
-  },
-  {
-    "slug": "jira-tasks-can-now-write-their-own-code-openai-symphony",
-    "title": "Jira tasks can now write their own code (OpenAI Symphony)",
-    "description": "Symphony turns project work into isolated, autonomous implementation runs, allowing teams to manage work instead of supervising coding agents. - openai/symphony",
-    "fullText": "Symphony turns project work into isolated, autonomous implementation runs, allowing teams to manage\nwork instead of supervising coding agents.\n\nIn this demo video, Symphony monitors a Linear board for work and spawns agents to handle the tasks. The agents complete the tasks and provide proof of work: CI status, PR review feedback, complexity analysis, and walkthrough videos. When accepted, the agents land the PR safely. Engineers do not need to supervise Codex; they can manage the work at a higher level.\n\nSymphony is a low-key engineering preview for testing in trusted environments.\n\nSymphony works best in codebases that have adopted\nharness engineering. Symphony is the next step --\nmoving from managing coding agents to managing work that needs to get done.\n\nTell your favorite coding agent to build Symphony in a programming language of your choice:\n\nImplement Symphony according to the following spec:\nhttps://github.com/openai/symphony/blob/main/SPEC.md\n\nCheck out elixir/README.md for instructions on how to set up your environment\nand run the Elixir-based Symphony implementation. You can also ask your favorite coding agent to\nhelp with the setup:\n\nSet up Symphony for my repository based on\nhttps://github.com/openai/symphony/blob/main/elixir/README.md\n\nThis project is licensed under the Apache License 2.0.",
-    "readingTime": 1,
-    "keywords": [
-      "favorite coding",
-      "coding agent",
-      "coding agents",
-      "symphony",
-      "project",
-      "implementation",
-      "manage",
-      "tasks",
-      "engineering",
-      "managing"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://github.com/openai/symphony/blob/main/README.md",
-    "thumbnail_url": "https://opengraph.githubassets.com/878e4aaaf02f44100a113e171dbcd248aa9bde7d6efc0476f351d0c6c642b895/openai/symphony",
-    "created_at": "2026-03-05T06:38:11.818Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "claude-outages-lay-bare-software-developers-growing-reliance-on-ai-i-guess-ill-write-code-like-a-caveman",
-    "title": "Claude outages lay bare software developers' growing reliance on AI: 'I guess I'll write code like a caveman'",
-    "description": "AI tools like Claude are becoming embedded in engineers' day-to-day work, which means outages can send them back to an earlier era of coding manually.",
-    "fullText": "When Anthropic's Claude AI tools stopped working this week, some software developers faced the unthinkable: coding manually.\n\nOn Monday, users began reporting outages across Anthropic's AI tools. The company's Claude status page said that it was seeing \"elevated errors\" as users reported issues accessing both Claude.ai and Claude Code, which continued into Tuesday. An Anthropic spokesperson said Wednesday that the problems had been resolved.\n\nThe outages highlight the growing popularity of Claude's coding tool and how many software developers have become dependent on it for generating and fixing code.\n\nGauresh Pandit, a senior software engineer at Meta, told Business Insider that tools like Claude have quickly become embedded in engineers' day-to-day work. He said that when Claude went down, he turned his attention to non-coding tasks because he believed it might be slower to tackle the coding manually.\n\n\"It might not be that the muscle is lost but it feels like it's just simple to use an LLM even for the simplest things now, because it acts like a single button action to get things done,\" he said, referring to large language models.\n\nDozens of Claude users posted on sites such as Reddit and Discord to remark on how reliant they've become on these tools.\n\n\"Claude outages hit way harder when you realize you've outsourced half your brain to it,\" one Redditor posted. Another joked: \"I guess I'll write code like a caveman.\"\n\nSoftware development has been significantly disrupted by AI. Developers say AI tools are making them simultaneously more productive and more overworked. It's leading to fewer junior coding roles. Some Big Tech companies are baking AI use into performance reviews. And across the broader workforce, leaders worry about employee skill atrophy from leaning on AI.\n\nAnthropic's outages came during a tumultuous couple of weeks. After a standoff with the Pentagon that came from Anthropic drawing red lines around how its tech could be used, President Donald Trump directed federal agencies to stop using Anthropic's AI tools.\n\nOpenAI then secured a deal with the Department of Defense instead, leading to a surge in users canceling their ChatGPT subscriptions and protests outside the company's office. Anthropic's app shot up to the top of Apple's App Store this week.\n\nBoris Cherny, Anthropic's head of Claude Code, said in a Monday X post that the recent outages were due to \"rapid user growth straining our services.\"\n\nEven before the show of public support after the Pentagon spat, Claude was popular among coders. Dishant Banga, a data scientist based in Charlotte, North Carolina, told Business Insider he has come to rely heavily on Claude as part of his daily learning routine after being laid off and entering the job market.\n\nHe said he uses Claude to experiment with fine-tuning large language models and to prepare for technical interviews. While this week's disruptions didn't cause much disruption for Banga, he said Claude's integration with Microsoft's Visual Studio development platform has made it increasingly central to his routine. \"It helps me code better,\" he said.\n\nEngineers at companies including Meta, Netflix, Salesforce, and Accenture use Claude Code. OpenAI and Google offer competing tools that are also being rapidly adopted by engineers and companies.\n\nGergely Orosz, a former Uber engineering manager who now writes a newsletter on the industry, recently surveyed nearly 1,000 subscribers about their top AI tools. Claude Code came out on top, he wrote in a newsletter on Tuesday. \"Claude Code is today nearly as widespread as GitHub Copilot was in our survey three years ago,\" wrote Orosz.\n\nSathika Hettiarachchi, an IT student and software developer, told Business Insider that he prefers Claude over alternatives from Google and xAI, and that it has become his \"go-to\" AI model for his project.\n\n\"Since I do a lot of coding and problem solving, Claude is the better option for me,\" he said.\n\nOn Tuesday, he posted on X: \"I never realized how people (including myself) have become so dependent on AI in such a short time until the Claude outage happened.\"",
-    "readingTime": 4,
-    "keywords": [
-      "language models",
-      "coding manually",
-      "software developers",
-      "tools claude",
-      "business insider",
-      "anthropic's ai",
-      "claude code",
-      "outages",
-      "users",
-      "engineers"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/claude-outages-anthropic-ai-software-engineers-developers-coding-dependance-2026-3",
-    "thumbnail_url": "https://i.insider.com/69a861651fb3fcb42648e6f0?width=1200&format=jpeg",
-    "created_at": "2026-03-05T01:10:41.638Z",
-    "topic": "tech"
   }
 ]
