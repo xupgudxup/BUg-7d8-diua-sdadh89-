@@ -1,5 +1,29 @@
 [
   {
+    "slug": "crit-review-ai-agent-work-like-you-review-prs",
+    "title": "Crit – Review AI agent work like you review PRs",
+    "description": "GitHub PR-style review tool for all of your LLM agent's output - tomasz-tomczyk/crit",
+    "fullText": "Your agent writes plans and code. Before any of it lands, review it. Crit opens a browser-based UI where you leave inline comments on any file: plans, code diffs, specs, whatever your agent produced. Click \"Finish Review\" and a structured prompt goes to your clipboard. Paste it back, the agent iterates, Crit shows you the diff. Repeat until it's right.\n\nWorks with Claude Code, Cursor, GitHub Copilot, Aider, Cline, Windsurf - any agent that reads files.\n\nWhen you finish a review, Crit generates .crit.json, structured comment data that your agent reads and acts on. Add it to your .gitignore:\n\nA 5-minute walkthrough: leaving inline comments on a plan, followed by branch review (crit with no args), wchih uses the same UI with git diffs instead of rendered markdown.\n\nGrab the latest binary for your platform from Releases.\n\nRun crit with no arguments. Crit auto-detects changed files in your repo and opens them as syntax-highlighted git diffs. A file tree on the left shows every file with its status (added, modified, deleted) and comment counts. Toggle between split and unified diff views.\n\nPass specific files to review them directly: crit plan.md api-spec.md. Markdown files render as formatted documents with per-line commenting. Code files show as syntax-highlighted source. Both support the same inline comment workflow and multi-round iteration.\n\nAfter your agent edits the file, Crit shows a split or unified diff of what changed - toggle it in the header.\n\nClick a line number to comment. Drag to select a range. Comments are rendered inline after their referenced lines, just like a GitHub PR review.\n\nSelect lines and use \"Insert suggestion\" to pre-fill the comment with the original text. Edit it to show exactly what the replacement should look like. Your agent gets a concrete before/after.\n\nWant a second opinion before handing off to the agent? Enable sharing by setting CRIT_SHARE_URL=https://crit.live (or pass --share-url), then click the Share button to upload your review and get a public URL anyone can open in a browser, no install needed. Each reviewer's comments are color-coded by author. Unpublish anytime.\n\nWhen you click \"Finish Review\", Crit collects your comments, formats them into a prompt, and copies it to your clipboard. Paste directly into your agent.\n\nArchitecture diagrams in fenced ```mermaid blocks render inline. You can comment on the diagram source just like any other block.\n\nCrit ships with drop-in configuration files for popular AI coding tools. Each one teaches your agent to write a plan, launch crit for review, and wait for your feedback before implementing.\n\nThe fastest way to set up an integration:\n\nThis copies the right files to the right places in your project. Safe to re-run - existing files are skipped (use --force to overwrite).\n\nSee integrations/ for the full files and details.\n\nClaude Code, Cursor, and GitHub Copilot support a /crit slash command that automates the full review loop:\n\nIt launches Crit, waits for your review, reads your comments, revises the plan, and signals Crit for another round. Other tools use rules files that teach the agent to suggest Crit when writing plans.\n\nRequires Go 1.25+ (install via asdf, Homebrew, or go.dev):\n\nThe e2e/ directory has a Playwright test suite that runs the full frontend against a real Crit server. Requires Node.js (listed in mise.toml).\n\nCrit embeds the following open-source libraries:",
+    "readingTime": 3,
+    "keywords": [
+      "clipboard paste",
+      "github copilot",
+      "claude code",
+      "code cursor",
+      "finish review",
+      "git diffs",
+      "unified diff",
+      "inline comments",
+      "review crit",
+      "agent"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/tomasz-tomczyk/crit",
+    "thumbnail_url": "https://opengraph.githubassets.com/e9a15ec8b850ae5337e981ae96808ace623b52728bc5ab308382544ff25d235c/tomasz-tomczyk/crit",
+    "created_at": "2026-03-10T12:36:22.182Z",
+    "topic": "tech"
+  },
+  {
     "slug": "odds-of-a-stockmarket-meltdown-have-surged-as-70sstyle-stagflation-fears-flare-market-vet-says",
     "title": "Odds of a stock-market meltdown have surged as 70s-style stagflation fears flare, market vet says",
     "description": "The risks of a market \"meltdown\" have climbed to 35%, Ed Yardeni said, as the Iran war raises the risk of stagflation hitting the economy.",
@@ -2169,21 +2193,5 @@
     "thumbnail_url": "https://i.insider.com/6980f786e1ba468a96ab3025?width=1200&format=jpeg",
     "created_at": "2026-02-03T12:35:05.609Z",
     "topic": "finance"
-  },
-  {
-    "slug": "this-rowing-machines-video-gamestyle-races-are-a-fun-and-motivating-way-for-you-to-get-a-cardio-workout",
-    "title": "This rowing machine's video game-style races are a fun and motivating way for you to get a cardio workout",
-    "description": "The Ergatta Rower offers tons of full-body workouts disguised as video game-like races and exercises. Here's what it's like to use.",
-    "fullText": "The Concept2 RowErg indoor rowing machine brings the gym to your home with its sturdy build, smooth gliding action, comfortable design, and superb quality.\n\n Check price at Amazon\n\n Check price at Concept2",
-    "readingTime": 1,
-    "keywords": [
-      "concept",
-      "check"
-    ],
-    "qualityScore": 0.1,
-    "link": "https://www.businessinsider.com/guides/health/fitness/ergatta-connected-rower-review",
-    "thumbnail_url": "https://i.insider.com/67366a41ede4eeae3927b353?width=1200&format=jpeg",
-    "created_at": "2026-02-03T06:37:39.134Z",
-    "topic": "health"
   }
 ]
