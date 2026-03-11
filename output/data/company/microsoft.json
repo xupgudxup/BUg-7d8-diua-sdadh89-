@@ -1,5 +1,53 @@
 [
   {
+    "slug": "microsoft-patch-tuesday-march-2026-edition",
+    "title": "Microsoft Patch Tuesday, March 2026 Edition",
+    "description": "Microsoft Corp. today pushed security updates to fix at least 77 vulnerabilities in its Windows operating systems and other software. There are no pressing \"zero-day\" flaws this month (compared to February's five zero-day treat), but as usual some patches may…",
+    "fullText": "Microsoft Corp. today pushed security updates to fix at least 77 vulnerabilities in its Windows operating systems and other software. There are no pressing “zero-day” flaws this month (compared to February’s five zero-day treat), but as usual some patches may deserve more rapid attention from organizations using Windows. Here are a few highlights from this month’s Patch Tuesday.\n\nTwo of the bugs Microsoft patched today were publicly disclosed previously. CVE-2026-21262 is a weakness that allows an attacker to elevate their privileges on SQL Server 2016 and later editions.\n\n“This isn’t just any elevation of privilege vulnerability, either; the advisory notes that an authorized attacker can elevate privileges to sysadmin over a network,” Rapid7’s Adam Barnett said. “The CVSS v3 base score of 8.8 is just below the threshold for critical severity, since low-level privileges are required. It would be a courageous defender who shrugged and deferred the patches for this one.”\n\nThe other publicly disclosed flaw is CVE-2026-26127, a vulnerability in applications running on .NET. Barnett said the immediate impact of exploitation is likely limited to denial of service by triggering a crash, with the potential for other types of attacks during a service reboot.\n\nIt would hardly be a proper Patch Tuesday without at least one critical Microsoft Office exploit, and this month doesn’t disappoint. CVE-2026-26113 and CVE-2026-26110 are both remote code execution flaws that can be triggered just by viewing a booby-trapped message in the Preview Pane.\n\nSatnam Narang at Tenable notes that just over half (55%) of all Patch Tuesday CVEs this month are privilege escalation bugs, and of those, a half dozen were rated “exploitation more likely” — across Windows Graphics Component, Windows Accessibility Infrastructure, Windows Kernel, Windows SMB Server and Winlogon. These include:\n\n–CVE-2026-24291: Incorrect permission assignments within the Windows Accessibility Infrastructure to reach SYSTEM (CVSS 7.8)\n\n–CVE-2026-24294: Improper authentication in the core SMB component (CVSS 7.8)\n\n–CVE-2026-24289: High-severity memory corruption and race condition flaw (CVSS 7.8)\n\n–CVE-2026-25187: Winlogon process weakness discovered by Google Project Zero (CVSS 7.8).\n\nBen McCarthy, lead cyber security engineer at Immersive, called attention to CVE-2026-21536, a critical remote code execution bug in a component called the Microsoft Devices Pricing Program. Microsoft has already resolved the issue on their end, and fixing it requires no action on the part of Windows users. But McCarthy says it’s notable as one of the first vulnerabilities identified by an AI agent and officially recognized with a CVE attributed to the Windows operating system. It was discovered by XBOW, a fully autonomous AI penetration testing agent.\n\nXBOW has consistently ranked at or near the top of the Hacker One bug bounty leaderboard for the past year. McCarthy said CVE-2026-21536 demonstrates how AI agents can identify critical 9.8-rated vulnerabilities without access to source code.\n\n“Although Microsoft has already patched and mitigated the vulnerability, it highlights a shift toward AI-driven discovery of complex vulnerabilities at increasing speed,” McCarthy said. “This development suggests AI-assisted vulnerability research will play a growing role in the security landscape.”\n\nMicrosoft earlier provided patches to address nine browser vulnerabilities, which are not included in the Patch Tuesday count above. In addition, Microsoft issued a crucial out-of-band (emergency) update on March 2 for Windows Server 2022 to address a certificate renewal issue with passwordless authentication technology Windows Hello for Business.\n\nSeparately, Adobe shipped updates to fix 80 vulnerabilities — some of them critical in severity — in a variety of products, including Acrobat and Adobe Commerce. Mozilla Firefox v. 148.0.2 resolves three high severity CVEs.\n\nFor a complete breakdown of all the patches Microsoft released today, check out the SANS Internet Storm Center’s Patch Tuesday post. Windows enterprise admins who wish to stay abreast of any news about problematic updates, AskWoody.com is always worth a visit. Please feel free to drop a comment below if you experience any issues apply this month’s patches.",
+    "readingTime": 4,
+    "keywords": [
+      "accessibility infrastructure",
+      "windows operating",
+      "publicly disclosed",
+      "remote code",
+      "code execution",
+      "cvss cve",
+      "patch tuesday",
+      "vulnerabilities",
+      "patches",
+      "critical"
+    ],
+    "qualityScore": 1,
+    "link": "https://krebsonsecurity.com/2026/03/microsoft-patch-tuesday-march-2026-edition/",
+    "thumbnail_url": "https://krebsonsecurity.com/wp-content/uploads/2026/03/winupdatechecking.png",
+    "created_at": "2026-03-11T01:05:56.765Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "microsoft-backs-anthropic-in-its-legal-fight-against-the-pentagon",
+    "title": "Microsoft backs Anthropic in its legal fight against the Pentagon",
+    "description": "Microsoft said the effective blacklisting of Anthropic \"imposes substantial and wide-ranging costs and risks\" on the company.",
+    "fullText": "Microsoft is squarely in Anthropic's corner.\n\nIn a legal filing on Tuesday, Microsoft warned that the Pentagon's effective blacklisting of Anthropic has \"negative ramifications for the entire technology sector and American business community.\"\n\n\"This is not the time to put at risk the very AI ecosystem that the Administration has helped to champion,\" a lawyer for the tech giant wrote in a proposed amicus brief to the California federal court overseeing Anthropic's case.\n\nOn Monday, Anthropic sued Hegseth, the Pentagon, the Executive Office of the Presidency, and a host of federal agencies in a bid to both temporarily block Hegseth's order and to permanently prevent its implementation.\n\nMicrosoft, as it stated in the filing, has a vested interest in whether Defense Secretary Pete Hegseth's decision to label Anthropic and its products as a supply chain risk remains in place. In November, Microsoft pledged to invest up to $5 billion in Anthropic, as part of an expanded partnership between Anthropic, Microsoft, and Nvidia.\n\n\"Immediate implementation of the Determination imposes substantial and wide-ranging costs and risks on Microsoft and other U.S. government contractors that partner with Anthropic and rely on Anthropic's technology as a foundational layer of their own products and services, which they provide to the U.S. military,\" Microsoft's lawyers wrote in the filing.\n\nIn the brief, Microsoft echoed Anthropic CEO Dario Amodei's concerns about how AI could be abused if the Pentagon did not take into account proper safeguards.\n\n\"Microsoft's position is that AI should be focused on lawful and appropriately guarded use cases. For example, AI should not be used to conduct domestic mass surveillance or put the country in a position where autonomous machines could independently start a war,\" the company's lawyers wrote in the filing.\n\nAnthropic has received support for its fight from Silicon Valley. OpenAI CEO Sam Altman had urged the Pentagon not to follow through with the supply chain designation, even as OpenAI faced intense criticism for a rushed deal with the Defense Department.\n\nDozens of OpenAI and Google employees, in their personal capacities, including Google's chief scientist Jeff Dean, backed a separate amicus brief on Monday opposing the Pentagon's action against Anthropic.\n\nLast week, the Pentagon formally informed Anthropic that it was taking the unprecedented step of requiring defense contractors to cease doing business with Anthropic. Related to the action, President Donald Trump has also ordered all federal agencies to phase out their usage of Anthropic's models within the next six months.\n\nMicrosoft noted that Hegseth's formal determination does not have the same six-month window for contractors that the federal government gave itself to transition away from Anthropic's products.\n\n\"By setting a six-month period for DoW itself to transition services away from Anthropic, DoW recognized that, even if the Determination stands, an orderly transition takes time,\" the filing stated. \"But the Determination does not provide the same transition period for contractors that may use Anthropic products or services to perform under DoW contracts.\"\n\nHegseth and top Pentagon officials have rejected Amodei's concerns about how AI could be deployed in fully autonomous weapons or potentially abused to spy on Americans.\n\nA spokesperson for Microsoft said all sides \"need time and a process to find common ground.\"\n\n\"The Department of War needs reliable access to the country's best technology,\" the spokesperson said in a statement to Business Insider. And everyone wants to ensure AI is not used for mass domestic surveillance or to start a war without human control. The government, the entire tech sector, and the American public need a path to achieve all these goals together.\"",
+    "readingTime": 3,
+    "keywords": [
+      "amodei's concerns",
+      "supply chain",
+      "amicus brief",
+      "federal agencies",
+      "anthropic's",
+      "filing",
+      "pentagon",
+      "products",
+      "contractors",
+      "transition"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/microsoft-backs-anthropic-pentagon-legal-fight-2026-3",
+    "thumbnail_url": "https://i.insider.com/69b098c4a96e437d6eb81867?width=1200&format=jpeg",
+    "created_at": "2026-03-11T01:05:51.163Z",
+    "topic": "finance"
+  },
+  {
     "slug": "oracle-is-under-pressure-from-more-than-100-billion-in-debt-and-massive-layoffs-as-it-pushes-ahead-with-larry-ellisons",
     "title": "Oracle is under pressure from more than $100 billion in debt and massive layoffs as it pushes ahead with Larry Ellison’s 3-step transformation",
     "description": "The Larry Ellison-led software giant is remaking its cloud infrastructure to rival Amazon and Microsoft.",
@@ -2119,54 +2167,6 @@
     "link": "https://www.investing.com/news/stock-market-news/microsoft-in-record-deal-for-soil-carbon-credits-as-data-centres-surge-4448586",
     "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM0E06E_L.jpg",
     "created_at": "2026-01-15T06:19:57.685Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "uk-police-blame-microsoft-copilot-for-an-error-that-led-to-a-controversial-soccer-fan-ban",
-    "title": "UK police blame Microsoft Copilot for an error that led to a controversial soccer fan ban",
-    "description": "Officials ultimately banned fans of Maccabi Tel Aviv from attending a November match, a decision that has sparked immense criticism.",
-    "fullText": "An apparent error by Microsoft's Copilot is roiling a UK police scandal.\n\nOn Monday, West Midlands Police chief constable Craig Guildford wrote to a Parliamentary committee that his officers did not catch a hallucination by Microsoft's AI tool when they were preparing their security recommendations for a soccer match between Maccabi Tel Aviv and Aston Villa on November 6.\n\nUltimately, fans of Maccabi Tel Aviv were barred from attending the UEFA Europa League fixture, a decision that sparked a torrent of criticism reaching as high as Prime Minister Keir Starmer.\n\nThe episode highlights the importance of all workers verifying AI output as the technology's adoption expands. A spokesperson for Microsoft said it could not replicate the results Guildford said the department received.\n\n\"Copilot combines information from multiple web sources into a single response with linked citations. It informs users they are interacting with an AI system and encourages them to review the sources,\" the spokesperson said in a statement to Business Insider.\n\nGuildford said that Microsoft Copilot provided false information about a game between Maccabi Tel Aviv and West Ham United, a different Premier League squad. That game never happened, but the details were used to inform a decision that led to the police force's decision to deny Maccabi Tel Aviv fans entry to the game against Aston Villa.\n\nOn Wednesday, Home Secretary Shabana Mahmood told Parliament that she had lost confidence in Guildford.\n\nIn the letter, Guildford apologized to the parliamentary committee investigating the matter because he had testified that AI was not used by the force in preparing their recommendations. He had previously said a Google search provided the inaccurate information.\n\n\"I had understood and been advised that the match had been identified by way of a Google search in preparation for attending HAC. My belief that this was the case was honestly held, and there was no intention to mislead the Committee,\" he wrote.\n\nAccording to the BBC, more than 700 police officers were deployed ahead of the game. Multiple protests occurred outside the stadium. In November, West Midlands Police said they had classified the match as \"high risk.\"\n\nIn an October statement, the police force had said its decision was based on \"current intelligence and previous incidents, including violent clashes and hate crime offences\" that occurred during a separate game involving Maccabi Tel Aviv in Amsterdam the previous year.\n\nAs Israel's oldest soccer team, Maccabi Tel Aviv has spent decades trying to break through at the top levels of European soccer. The Europa League is UEFA's second-highest level of competition for continental teams, behind the Champions League.",
-    "readingTime": 3,
-    "keywords": [
-      "aston villa",
-      "google search",
-      "west midlands",
-      "europa league",
-      "midlands police",
-      "maccabi tel",
-      "tel aviv",
-      "parliamentary committee",
-      "game",
-      "decision"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/microsoft-copilot-craig-guildford-maccabi-tel-aviv-2026-1",
-    "thumbnail_url": "https://i.insider.com/6967bced04eda4732f2f0d04?width=1200&format=jpeg",
-    "created_at": "2026-01-15T00:56:15.940Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "microsoft-promised-consumers-wont-foot-the-bill-for-its-data-centers-our-interactive-map-shows-where-its-facilities-are",
-    "title": "Microsoft promised consumers won't foot the bill for its data centers. Our interactive map shows where its facilities are located.",
-    "description": "Business Insider found where 44 of Microsoft's data centers are located as of 2024. It promised this week consumers won't be on the hook for them.",
-    "fullText": "As backlash intensifies against data centers nationwide, Microsoft says it has a plan.\n\n\"We'll pay our way to ensure our datacenters don't increase your electricity prices,\" Brad Smith, Microsoft's president, wrote in a blog post one day after President Trump said in a Truth Social post that he does not want Americans to \"pick up the tab\" for data center electricity costs. Microsoft, he said, was \"first up.\"\n\nThe announcement comes amid an unprecedented data center construction boom across the US. Developers filed permits for 1,240 data centers in the US as of 2024 — roughly quadruple the level in 2010, according to a 2025 Business Insider investigation.\n\nWith it has come concerns over rising consumer electricity costs and grassroots opposition to construction buildouts.\n\nMicrosoft filed permits for 44 data centers as of the end of 2024, Business Insider found, the fifth highest count in our analysis. Half of Microsoft's permitted facilities are among the very largest in the analysis — the 322 massive data centers that we estimated consume 40 megawatts of electricity or more each.\n\nTake a look at where Microsoft's data centers are found:\n\nTwenty-four of Microsoft's data centers are located in Virginia as of 2024, followed by Texas with eight, and Illinois and Iowa each with four, according to Business Insider's count.\n\nMicrosoft's data centers are extremely electricity-intensive, Business Insider's analysis suggests. Its most power-intensive facility as of 2024 is in Maricopa County, Arizona, according to the analysis.\n\nAmazon's 177 data centers are on pace to command the highest electricity demand in Business Insider's analysis at between 30 and 48 terawatt-hours a year. Microsoft — with only around a quarter of Amazon's facilities — claims the next-highest spot.\n\nWhen reached in 2025, a Microsoft spokesperson acknowledged that its data centers \"do not always run at 100% of their installed capacity.\" Amazon disputed Business Insider's methodology, and QTS declined to comment. Google and Meta did not respond to Business Insider's requests for comment.\n\nIf all of Microsoft's 44 permitted facilities come online, their electricity demand could reach between 16 and 25 terawatt-hours a year, according to Business Insider's estimate. The midpoint of that range is about as much electricity as 1.8 million US homes based on average annual use.\n\nIf every permitted facility in Business Insider's dataset comes online, their electricity demand could reach between 149.6 terawatt-hours and 239.3 terawatt-hours annually, Business Insider's investigation found.\n\nThe low end of Business Insider's estimate is roughly equivalent to the state of Ohio's electricity needs in 2023, and on the high end, is nearly as much power as the entire state of Florida used that same year. A 2024 federal report projects demand could reach levels at the higher end of Business Insider's estimates by 2026.\n\nThe location of data centers has sparked a surge in community outcry, with neighboring residents concerned about their impact on rising electricity prices. Data centers' extreme electricity demand frequently requires utilities to build out new grid infrastructure. Utilities often socialize the investment costs, shifting billions of dollars of costs to all ratepayers, including residential customers, a Business Insider investigation found.\n\n\"Utilities can fund discounts to Big Tech by socializing their costs through electricity prices charged to the public,\" a 2025 Harvard Law study of regulatory proceedings about utility rates for data centers found.\n\nTo ensure Microsoft's data centers do not increase residential electricity bills, Smith, Microsoft's president, wrote that the tech giant plans to ask utilities and regulators to set the company's rates high enough to cover its data centers' electricity costs.\n\nSmith pointed to Microsoft's recent support of new electricity rates that charge \"very large customers,\" such as data centers, for the costs incurred to provide them with electricity. Smith also said that when grid infrastructure improvements were necessary to serve its data centers, the company would pay for those improvements.\n\n\"We believe the long-term success of AI infrastructure requires that tech companies pay their own way for the electricity costs they create,\" Smith wrote.\n\nThe promise comes amid a broader affordability push from President Trump, including plans to lower mortgage rates and cap credit card interest rates.\n\nHave a tip? Contact Hannah Beckler via email at hbeckler@businessinsider.com or Signal at hbeckler.72. Use a personal email address and a non-work device; here's our guide to sharing information securely.",
-    "readingTime": 4,
-    "keywords": [
-      "business insider's",
-      "insider investigation",
-      "insider's estimate",
-      "microsoft's permitted",
-      "filed permits",
-      "microsoft's president",
-      "grid infrastructure",
-      "permitted facilities",
-      "insider's analysis",
-      "electricity demand"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/microsoft-data-centers-map-electricity-costs-trump-2026-1",
-    "thumbnail_url": "https://i.insider.com/6968054a764ca5f34d2a7716?width=1200&format=jpeg",
-    "created_at": "2026-01-15T00:56:15.549Z",
     "topic": "finance"
   }
 ]

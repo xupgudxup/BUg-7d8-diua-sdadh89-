@@ -1,5 +1,53 @@
 [
   {
+    "slug": "microsoft-patch-tuesday-march-2026-edition",
+    "title": "Microsoft Patch Tuesday, March 2026 Edition",
+    "description": "Microsoft Corp. today pushed security updates to fix at least 77 vulnerabilities in its Windows operating systems and other software. There are no pressing \"zero-day\" flaws this month (compared to February's five zero-day treat), but as usual some patches may…",
+    "fullText": "Microsoft Corp. today pushed security updates to fix at least 77 vulnerabilities in its Windows operating systems and other software. There are no pressing “zero-day” flaws this month (compared to February’s five zero-day treat), but as usual some patches may deserve more rapid attention from organizations using Windows. Here are a few highlights from this month’s Patch Tuesday.\n\nTwo of the bugs Microsoft patched today were publicly disclosed previously. CVE-2026-21262 is a weakness that allows an attacker to elevate their privileges on SQL Server 2016 and later editions.\n\n“This isn’t just any elevation of privilege vulnerability, either; the advisory notes that an authorized attacker can elevate privileges to sysadmin over a network,” Rapid7’s Adam Barnett said. “The CVSS v3 base score of 8.8 is just below the threshold for critical severity, since low-level privileges are required. It would be a courageous defender who shrugged and deferred the patches for this one.”\n\nThe other publicly disclosed flaw is CVE-2026-26127, a vulnerability in applications running on .NET. Barnett said the immediate impact of exploitation is likely limited to denial of service by triggering a crash, with the potential for other types of attacks during a service reboot.\n\nIt would hardly be a proper Patch Tuesday without at least one critical Microsoft Office exploit, and this month doesn’t disappoint. CVE-2026-26113 and CVE-2026-26110 are both remote code execution flaws that can be triggered just by viewing a booby-trapped message in the Preview Pane.\n\nSatnam Narang at Tenable notes that just over half (55%) of all Patch Tuesday CVEs this month are privilege escalation bugs, and of those, a half dozen were rated “exploitation more likely” — across Windows Graphics Component, Windows Accessibility Infrastructure, Windows Kernel, Windows SMB Server and Winlogon. These include:\n\n–CVE-2026-24291: Incorrect permission assignments within the Windows Accessibility Infrastructure to reach SYSTEM (CVSS 7.8)\n\n–CVE-2026-24294: Improper authentication in the core SMB component (CVSS 7.8)\n\n–CVE-2026-24289: High-severity memory corruption and race condition flaw (CVSS 7.8)\n\n–CVE-2026-25187: Winlogon process weakness discovered by Google Project Zero (CVSS 7.8).\n\nBen McCarthy, lead cyber security engineer at Immersive, called attention to CVE-2026-21536, a critical remote code execution bug in a component called the Microsoft Devices Pricing Program. Microsoft has already resolved the issue on their end, and fixing it requires no action on the part of Windows users. But McCarthy says it’s notable as one of the first vulnerabilities identified by an AI agent and officially recognized with a CVE attributed to the Windows operating system. It was discovered by XBOW, a fully autonomous AI penetration testing agent.\n\nXBOW has consistently ranked at or near the top of the Hacker One bug bounty leaderboard for the past year. McCarthy said CVE-2026-21536 demonstrates how AI agents can identify critical 9.8-rated vulnerabilities without access to source code.\n\n“Although Microsoft has already patched and mitigated the vulnerability, it highlights a shift toward AI-driven discovery of complex vulnerabilities at increasing speed,” McCarthy said. “This development suggests AI-assisted vulnerability research will play a growing role in the security landscape.”\n\nMicrosoft earlier provided patches to address nine browser vulnerabilities, which are not included in the Patch Tuesday count above. In addition, Microsoft issued a crucial out-of-band (emergency) update on March 2 for Windows Server 2022 to address a certificate renewal issue with passwordless authentication technology Windows Hello for Business.\n\nSeparately, Adobe shipped updates to fix 80 vulnerabilities — some of them critical in severity — in a variety of products, including Acrobat and Adobe Commerce. Mozilla Firefox v. 148.0.2 resolves three high severity CVEs.\n\nFor a complete breakdown of all the patches Microsoft released today, check out the SANS Internet Storm Center’s Patch Tuesday post. Windows enterprise admins who wish to stay abreast of any news about problematic updates, AskWoody.com is always worth a visit. Please feel free to drop a comment below if you experience any issues apply this month’s patches.",
+    "readingTime": 4,
+    "keywords": [
+      "accessibility infrastructure",
+      "windows operating",
+      "publicly disclosed",
+      "remote code",
+      "code execution",
+      "cvss cve",
+      "patch tuesday",
+      "vulnerabilities",
+      "patches",
+      "critical"
+    ],
+    "qualityScore": 1,
+    "link": "https://krebsonsecurity.com/2026/03/microsoft-patch-tuesday-march-2026-edition/",
+    "thumbnail_url": "https://krebsonsecurity.com/wp-content/uploads/2026/03/winupdatechecking.png",
+    "created_at": "2026-03-11T01:05:56.765Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ulli-a-linux-installer-without-a-live-usb-flash-drive",
+    "title": "ULLI – A Linux installer without a live USB flash drive",
+    "description": "USB-less Linux installer for Linux and Windows. Install Linux without a USB stick. - rltvty2/ulli",
+    "fullText": "Donations/tips: https://ko-fi.com/rltvty\n\nWebsite: https://rltvty.net/installlinux.html\n\nInstall a bootable Linux partition to your hard drive without a USB stick or manual BIOS configuration.\n\n⚠️ WARNING: THIS SOFTWARE IS IN ALPHA AND IS NOT RECOMMENDED FOR USE ON YOUR MAIN/CRITICAL PC. THIS SOFTWARE IS PROVIDED AS-IS. THE AUTHOR ACCEPTS NO LIABILITY FOR DAMAGES OR DATA LOSS CAUSED BY THIS SOFTWARE. BACK UP YOUR DATA BEFORE USE. USE AT YOUR OWN RISK.\n\nAcknowledgement: AI (mostly Claude) was used in the development of this software. That being said I always test before releasing code.\n\nDownload ulli-linux.py, right click on ulli-linux.py, click properties, and then, under the permissions tab check \"Allow this file to run as a program\". Then double click on the .py and click \"Run in Terminal\".\n\nAlternatively just run this code in your terminal, in the same folder you downloaded to:\n\nDownload ulli-windows.zip, extract all files, right click on run-ulli-windows.bat, and then run the program as administrator.\n\nAlternatively you can turn off smart app control under windows security, and then simply double click on run-ulli-windows.bat to run the program.\n\nYou may have to disable bitlocker/decrypt your hard drive to use this software.\n\nYou may have to disable Secure Boot in the BIOS depending on your computer.\n\nCurrently the installer supports the installation of Linux Mint 22.3 Cinnamon, Ubuntu 24.04.4 LTS, Kubuntu 24.04.4 LTS, Debian Live 13.3.0 KDE, and Fedora 43 - KDE Plasma Desktop. You may also use your own .iso files, but Debian and Fedora based distros don't work for now. Linux Mint Debian Edition is an exception.\n\nulli attempts to set Linux as the default boot entry automatically, but this doesn't work on all systems. You may have to select Linux as the default boot option in the BIOS. The BIOS is accessible during startup by pressing F2, DEL, F10, ESC, F1, F12, or F11. Refer to your PC or motherboard's documentation \n\nTo create a persistent Kubuntu installation after creating the live partition, run the installer, and then when the partitioning option comes up choose replace partition and choose the free space created by the linux installer.\n\nTo create a persistent Linux Mint installation after installing the live image, you must click on the install Linux Mint icon on the desktop from within the live partition Linux Mint OS. Once the partitioning screen comes up you must create a swap area (equal to your RAM size. If disk space is limited, 8 GB is the minimum recommended.), and a btrfs file system in the rest of the free space at /. I recommend btrfs as opposed to ext4, because if you ever want to install another distro using this software, only btrfs supports resizing the mounted partition.\n\nUnder Linux Mint, Ubuntu, and Kubuntu, Windows can be accessed upon booting by selecting \"Boot from next volume\", however ⚠️ WATCH OUT — under Debian and Fedora, you must change your boot order in the BIOS to access Windows.\n\nReleased under GNU General Public License v3.0. You are free to do whatever you like with the source except distribute a closed source version.",
+    "readingTime": 3,
+    "keywords": [
+      "create persistent",
+      "free space",
+      "default boot",
+      "debian and fedora",
+      "linux mint",
+      "software",
+      "partition",
+      "install",
+      "program",
+      "installer"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/rltvty2/ulli",
+    "thumbnail_url": "https://opengraph.githubassets.com/62b74e679ea6103b5fb7e9a29018ed12a026e06627758076fb8405ecaf6802ad/rltvty2/ulli",
+    "created_at": "2026-03-11T01:05:56.478Z",
+    "topic": "tech"
+  },
+  {
     "slug": "awesome-voice-typing",
     "title": "Awesome Voice Typing",
     "description": "Curated list of open-source speech-to-text and voice typing tools for Linux, macOS, Windows, Android, and iOS. Offline, local, and cloud. - primaprashant/awesome-voice-typing",
