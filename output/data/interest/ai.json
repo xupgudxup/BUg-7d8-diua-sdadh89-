@@ -1,5 +1,73 @@
 [
   {
+    "slug": "github-copilot-model-routing-error",
+    "title": "GitHub Copilot: Model Routing Error",
+    "description": "Explore why GitHub Copilot silently defaults AI models like Opus to Sonnet, and its implications for development performance, predictability, and tooling strategy for dev teams and leaders.",
+    "fullText": "GitHub Copilot has become an indispensable companion for many developers, promising to elevate productivity and streamline coding workflows. Yet, a recent community discussion on GitHub, initiated by user dddyfx, has brought to light a perplexing issue: users attempting to select advanced AI models like Opus 4.5 or 4.6 find their requests silently defaulting to Sonnet 4.5. This behavior isn't just a minor annoyance; it sparks critical questions within the developer community about control over AI models and its direct impact on development performance.\n\nThe core of the problem, as illuminated by insightful community members like abhi478jeetur-rgb and Sonic-12, isn't a bug but rather an intentional design choice by GitHub. When a user selects a specific model like Opus 4.5 or 4.6 in Copilot's UI, it's often treated more as a \"hint\" than a hard guarantee. Copilot's backend employs a sophisticated routing logic that dynamically assigns requests to different underlying models based on various factors.\n\nFor dev teams, product managers, and technical leaders, this silent model routing presents several challenges that directly affect development performance and project predictability:\n\nDifferent AI models, even within the same family, can produce varying outputs. If a developer expects the nuanced understanding of Opus for a complex refactoring task but silently receives Sonnet's output, the quality and consistency of the generated code can suffer. This makes it difficult to achieve reproducible results, impacting testing, debugging, and overall code quality. For teams tracking engineering kpi examples like code quality metrics or bug density, this inconsistency can skew data and make performance analysis challenging.\n\nThe lack of transparency in model selection can erode developer trust in the tool. Developers rely on Copilot to enhance their work, and the expectation is that their explicit choices are honored. When a tool operates with hidden logic, it creates uncertainty and can lead to developers spending more time verifying AI-generated code, rather than leveraging it for pure acceleration.\n\nFor organizations looking to benchmark AI assistant performance or conduct a software developer performance review in an AI-assisted environment, this dynamic routing poses a significant hurdle. How can you accurately assess the impact of a specific model if you cannot guarantee its consistent application? This makes it harder to justify investments in higher-tier subscriptions or to measure the true ROI of AI tooling.\n\nWhile GitHub's routing logic aims for optimal system performance, the community's feedback highlights a clear need for greater transparency and control. Here are actionable steps for dev teams and technical leadership:\n\nThe discussion around Copilot's model routing underscores a broader challenge in the rapidly evolving landscape of AI-assisted development: how to balance the need for system-wide performance and stability with individual developer control and predictability. While GitHub's approach prioritizes a smooth experience for the masses, the specific needs of high-performing engineering teams often demand greater transparency and the ability to guarantee consistent tooling behavior.\n\nAs AI tools become more integral to our daily workflows, the conversation must shift towards empowering developers and leaders with the insights and controls necessary to fully leverage these powerful assistants. Only then can we truly optimize development performance and ensure that AI serves as a predictable, trusted partner in our coding journey.",
+    "readingTime": 3,
+    "keywords": [
+      "greater transparency",
+      "dev teams",
+      "code quality",
+      "routing logic",
+      "development performance",
+      "model routing",
+      "while github's",
+      "developer",
+      "developers",
+      "models"
+    ],
+    "qualityScore": 1,
+    "link": "https://devactivity.com/posts/trends-news-insights/copilots-hidden-logic-how-ai-model-routing-impacts-development-performance/",
+    "thumbnail_url": "https://drive.google.com/thumbnail?id=1_lBEIR03aerYAmBlqSIBJPsM3wkcu_GV&sz=w751",
+    "created_at": "2026-03-12T06:40:55.118Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "agency-agents-opensource-framework-for-building-multiagent-ai-workflows",
+    "title": "Agency Agents: Open-source framework for building multi-agent AI workflows",
+    "description": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes...",
+    "fullText": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.\n\nBorn from a Reddit thread and months of iteration, The Agency is a growing collection of meticulously crafted AI agent personalities. Each agent is:\n\nThink of it as: Assembling your dream team, except they're AI specialists who never sleep, never complain, and always deliver.\n\nBrowse the agents below and copy/adapt the ones you need!\n\nSee the Multi-Tool Integrations section below for full details.\n\nBuilding the future, one commit at a time.\n\nMaking it beautiful, usable, and delightful.\n\nTurning ad spend into measurable business outcomes.\n\nTurning pipeline into revenue through craft, not CRM busywork.\n\nGrowing your audience, one authentic interaction at a time.\n\nBuilding the right thing at the right time.\n\nKeeping the trains running on time (and under budget).\n\nBreaking things so users don't have to.\n\nThe unique specialists who don't fit in a box.\n\nBuilding worlds, systems, and experiences across every major engine.\n\nResult: Ship faster with specialized expertise at every stage.\n\nResult: Multi-channel coordinated campaign with platform-specific expertise.\n\nResult: Enterprise-grade delivery with quality gates and documentation.\n\nResult: Systematic account takeover with tracking verified, waste eliminated, structure optimized, and creative refreshed — all within the first 30 days.\n\nYour Team: All 8 divisions working in parallel on a single mission.\n\nSee the Nexus Spatial Discovery Exercise -- a complete example where 8 agents (Product Trend Researcher, Backend Architect, Brand Guardian, Growth Hacker, Support Responder, UX Researcher, Project Shepherd, and XR Interface Architect) were deployed simultaneously to evaluate a software opportunity and produce a unified product plan covering market validation, technical architecture, brand strategy, go-to-market, support systems, UX research, project execution, and spatial UI design.\n\nResult: Comprehensive, cross-functional product blueprint produced in a single session. More examples.\n\nWe welcome contributions! Here's how you can help:\n\nHave you used these agents successfully? Share your story in the Discussions!\n\n\"I don't just test your code - I default to finding 3-5 issues and require visual proof for everything.\"\n\n-- Evidence Collector (Testing Division)\n\n\"You're not marketing on Reddit - you're becoming a valued community member who happens to represent a brand.\"\n\n-- Reddit Community Builder (Marketing Division)\n\n\"Every playful element must serve a functional or emotional purpose. Design delight that enhances rather than distracts.\"\n\n-- Whimsy Injector (Design Division)\n\n\"Let me add a celebration animation that reduces task completion anxiety by 40%\"\n\n-- Whimsy Injector (during a UX review)\n\nThe Agency works natively with Claude Code, and ships conversion + install scripts so you can use the same agents across every major agentic coding tool.\n\nStep 1 -- Generate integration files:\n\nStep 2 -- Install (interactive, auto-detects your tools):\n\nThe installer scans your system for installed tools, shows a checkbox UI, and lets you pick exactly what to install:\n\nOr install a specific tool directly:\n\nAgents are copied directly from the repo into ~/.claude/agents/ -- no conversion needed.\n\nSee integrations/claude-code/README.md for details.\n\nAgents are copied directly from the repo into ~/.github/agents/ -- no conversion needed.\n\nThen activate in GitHub Copilot:\n\nSee integrations/github-copilot/README.md for details.\n\nEach agent becomes a skill in ~/.gemini/antigravity/skills/agency-<slug>/.\n\nActivate in Gemini with Antigravity:\n\nSee integrations/antigravity/README.md for details.\n\nInstalls as a Gemini CLI extension with one skill per agent plus a manifest.\n\nSee integrations/gemini-cli/README.md for details.\n\nAgents are placed in .opencode/agents/ in your project root (project-scoped).\n\nSee integrations/opencode/README.md for details.\n\nEach agent becomes a .mdc rule file in .cursor/rules/ of your project.\n\nRules are auto-applied when Cursor detects them in the project. Reference them explicitly:\n\nSee integrations/cursor/README.md for details.\n\nAll agents are compiled into a single CONVENTIONS.md file that Aider reads automatically.\n\nThen reference agents in your Aider session:\n\nSee integrations/aider/README.md for details.\n\nAll agents are compiled into .windsurfrules in your project root.\n\nReference agents in Windsurf's Cascade:\n\nSee integrations/windsurf/README.md for details.\n\nEach agent becomes a workspace with SOUL.md, AGENTS.md, and IDENTITY.md in ~/.openclaw/agency-agents/.\n\nAgents are registered and available by agentId in OpenClaw sessions.\n\nSee integrations/openclaw/README.md for details.\n\nWhen you add new agents or edit existing ones, regenerate all integration files:\n\nCommunity-maintained translations and regional adaptations. These are independently maintained -- see each repo for coverage and version compatibility.\n\nWant to add a translation? Open an issue and we'll link it here.\n\nMIT License - Use freely, commercially or personally. Attribution appreciated but not required.\n\nBorn from a Reddit discussion about AI agent specialization. Thanks to the community for the feedback, requests, and inspiration.\n\nSpecial recognition to the 50+ Redditors who requested this within the first 12 hours - you proved there's demand for real, specialized AI agent systems.\n\n🎭 The Agency: Your AI Dream Team Awaits 🎭\n\n⭐ Star this repo • 🍴 Fork it • 🐛 Report an issue • ❤️ Sponsor\n\nMade with ❤️ by the community, for the community",
+    "readingTime": 5,
+    "keywords": [
+      "dream team",
+      "integration files",
+      "reddit community",
+      "copied directly",
+      "conversion needed",
+      "reference agents",
+      "project root",
+      "details agents",
+      "the agency",
+      "repo"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/msitarzewski/agency-agents",
+    "thumbnail_url": "https://opengraph.githubassets.com/2db9d1565eaddc708fe5bb2f45c47bd1926297298efd878937454ce6e7fd3267/msitarzewski/agency-agents",
+    "created_at": "2026-03-12T06:40:53.406Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "watch-what-atlassians-ceo-said-in-a-4minute-video-on-the-companys-aiinduced-layoffs",
+    "title": "Watch what Atlassian's CEO said in a 4-minute video on the company's AI-induced layoffs",
+    "description": "Atlassian CEO Mike Cannon-Brookes explained the company's 1,600 layoffs in a four-minute video as the software firm pivots more heavily toward AI.",
+    "fullText": "Atlassian CEO Mike Cannon-Brookes addressed employees in a four-minute video explaining why the company is laying off about 1,600 workers — roughly 10% of its workforce — as it pivots more aggressively toward AI.\n\nCannon-Brookes said in a message on the company's blog that the decision was difficult but necessary as AI reshapes how software companies operate. The shift isn't simply about cutting costs, he said, but about changing the mix of skills the company needs as it builds products for the AI era.\n\nAbout 30% of the affected roles are based in Australia. The Australian-American software firm was founded in 2002 by Cannon-Brookes and Scott Farquhar, both of whom are ranked among Australia's 50 richest people by Forbes.\n\nThe layoffs come amid a wider shift across the tech industry as companies restructure for the AI era. Last month, Block slashed nearly half its workforce, citing productivity gains from AI.\n\nWatch Cannon-Brookes' video message to employees here:",
+    "readingTime": 1,
+    "keywords": [
+      "employees",
+      "workforce",
+      "message",
+      "software",
+      "shift",
+      "cannon-brookes"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/atlassian-ceo-ai-layoffs-video-message-tech-software-2026-3",
+    "thumbnail_url": "https://i.insider.com/69b21ffea7a4f9df67ba3396?width=1200&format=jpeg",
+    "created_at": "2026-03-12T06:40:50.870Z",
+    "topic": "tech"
+  },
+  {
     "slug": "what-disruption-deutsche-bank-turns-bullish-on-software-stocks-saying-ai-fears-have-peaked",
     "title": "What disruption? Deutsche Bank turns bullish on software stocks, saying AI fears have peaked.",
     "description": "AI jitters tanked software stocks this year, but Deutsche Bank says fears have peaked. The firm upgraded its software rating on strong earnings.",
@@ -2155,77 +2223,5 @@
     "thumbnail_url": "https://i.guim.co.uk/img/media/2d2e5a6ca0268804a65a57473173c5b302c42e75/561_0_4203_3363/master/4203.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=acabf47bf7bb20232d6fe07a4ad1a928",
     "created_at": "2026-03-09T12:36:43.454Z",
     "topic": "tech"
-  },
-  {
-    "slug": "the-next-phase-of-the-corporate-ai-boom-measuring-which-employees-actually-understand-it",
-    "title": "The next phase of the corporate AI boom: measuring which employees actually understand it",
-    "description": "Corporations have scrambled to adopt AI in the workplace. Now they are measuring how well their employees actually understand it.",
-    "fullText": "Executives are hyping their AI adoption rates like it's their quarterly revenue.\n\nOver the past 90 days, CEOs have referenced \"early AI adopters\" at least 60 times in earnings calls, conference presentations, speeches, and other prepared remarks, according to business intelligence platform AlphaSense, signaling their determination to show they're outpacing competitors in the race to leverage AI.\n\nNow, some of the largest American companies are shifting from simply adopting AI to assessing how well their employees actually understand it.\n\n\"If you can measure people fairly accurately, you can actually do a lot of things better in society,\" Kian Katanforoosh, CEO and founder of Workera, a business skills intelligence platform, told Business Insider. \"You can hire better and more meritocratically. You can match people to the right project. Internally at companies, you can determine what people should learn to maximize.\"\n\nWorkera says it now serves about 10% of the Fortune 500, helping them understand AI and upskill their employees on everything from basic terminology to recognizing biases in AI systems.\n\nWorkera's AI fluency framework goes well beyond just knowing how to prompt ChatGPT. It's divided into three parts to assess employee fluency: AI, generative AI, and responsible AI.\n\nAt the most basic level, it asks that employees be able to differentiate between machine learning, deep learning, and generative AI. Another requirement is the ability to describe an AI agent and its basic functionalities — a concept that can feel nebulous amid the current AI race.\n\nTo evaluate generative AI fluency, employees should be able to write basic AI prompts and spot hallucinations in AI-generated responses. They should also understand how large language models are trained and generate information.\n\nAnd while responsible AI sometimes seems to take a back seat at major corporations, Workera's framework asks employees to distinguish between biases in AI systems that are algorithmic, data, and human, and to explore common privacy risks in AI.\n\nThrough its initial assessments, the company has found that only 11% of users accurately estimate their proficiency before taking an adaptive AI assessment, while 32% overestimate their skills, and 56% underestimate them.\n\nKatanforoosh said this shift to assessing AI skills is part of a broader transition in the tech world.\n\n\"The last decade in education was about access. The next decade is about measurement,\" he said.",
-    "readingTime": 2,
-    "keywords": [
-      "intelligence platform",
-      "employees",
-      "basic",
-      "understand",
-      "skills",
-      "fluency",
-      "generative",
-      "race",
-      "assessing",
-      "accurately"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.businessinsider.com/ai-adoption-companies-workera-assessing-employees-2026-3",
-    "thumbnail_url": "https://i.insider.com/69acadd5d3e2f1aef36a317c?width=1200&format=jpeg",
-    "created_at": "2026-03-09T12:36:36.847Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ai-agents-are-upending-the-company-org-chart",
-    "title": "AI agents are upending the company org chart",
-    "description": "As a torrent of AI agents enter the workforce, consulting firms are predicting a new \"Great Flattening\" of the corporate management structure.",
-    "fullText": "Every few years, corporate executives call for a \"Great Flattening,\" arguing that their organizations have grown sluggish from the weight of over management, duplicate roles, and bureaucracy.\n\nBack in 2023, Meta CEO Mark Zuckerberg coined one of the tech industry's favorite tongue twisters when he said at a company Q&A session that he didn't want to see a management structure governed by \"managers managing managers, managing managers, managing managers, managing the people who are doing the work.\"\n\nThat year he cut 10,000 workers from the company's ranks. Other companies followed suit. Later that year, Citi announced plans to cut its 13 layers of management to 8. By January 2024, UPS had begun eliminating 12,000 of its 85,000 managers.\n\nNow, as AI unleashes waves of digital agents into the workforce, consulting firms are predicting a new wave of delayering and organizational change.\n\n\"Your org chart is probably going to start condensing into becoming more flat horizontally,\" Eno Reyes, the chief technology officer and cofounder of Factory, told Business Insider.\n\nFactory is an AI-native software development platform that builds and deploys autonomous coding agents for consulting firms like EY and companies like Nvidia and Adobe.\n\nReyes said he's seen how the advances in AI can equip a single person with the capacity to manage more human teams because basic job functions like reporting and data can be automated.\n\n\"I think that breaks the middle management hierarchy,\" he said.\n\nAnd as companies embrace teams in which digital and human workers co-exist, Reyes believes management structures will only become more streamlined. AI-focused groups inside companies are already \"looking very flat compared to maybe the rest of the company,\" he said.\n\nIBM Consulting expects different management structures to emerge as it embeds \"digital workers\" alongside its 150,000 human consultants, Mohamad Ali, the division's senior vice president, told Business Insider. IBM says it has built thousands of agents now deployed across nearly 300 client projects.\n\n\"I don't think human managers are going to manage these things in the same way as we manage people,\" Ali said. \"There'll be systems to manage these things. There'll be systems to set up the guardrails.\"\n\nManagement hierarchies may not collapse immediately, but the expectation that they'll stay the same is fading, Arvind Vasudevan, a former McKinsey & Company engagement manager, told Business Insider.\n\n\"This current model of an engagement manager plus three business analysts and associates — which creates the lower part of the pyramid — doesn't need to exist,\" he said, referring to a classic consulting project structure.\n\nInstead, he envisions leaner consulting teams led by experienced generalists, supported not by layers of junior analysts, but by technical specialists who build and refine agents that can be deployed across multiple projects.\n\nMcKinsey is already on the search for candidates who can work double duty. Alex Singla, a senior partner at McKinsey who co-leads its AI arm QuantumBlack, told Business Insider in December that the firm is looking for \"5Xers\" who are deeply skilled in one area, but can manage three or four different things well.\n\nVasudevan, now the cofounder of Plaido, a startup that he described as \"building a consulting team in a box,\" thinks that the next era of work goes beyond an agile group of workers. Instead, it will shift toward \"megamanagers\" — individuals managing larger teams and broader scopes of responsibility than before.\n\n\"You're going to have teams which are manager-heavy — where everybody is a manager, sometimes manager of humans, but always manager of agents.\"\n\nSomething to share about how consultants are using AI? Business Insider would like to hear from you. Email Lakshmi Varanasi at lvaranasi@businessinsider.com or contact her on Signal at lvaranasi.70.",
-    "readingTime": 4,
-    "keywords": [
-      "deployed across",
-      "engagement manager",
-      "consulting firms",
-      "management structures",
-      "managers managing",
-      "agents",
-      "teams",
-      "workers",
-      "human",
-      "digital"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/ai-agents-management-structure-org-chart-consulting-firms-mckinsey-ibm-2026-3",
-    "thumbnail_url": "https://i.insider.com/69ab4487fd4fbd083f29b45c?width=1200&format=jpeg",
-    "created_at": "2026-03-09T12:36:36.817Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "wells-fargo-is-in-growth-mode-the-banks-ai-head-thinks-three-principles-will-get-it-where-it-wants-to-go",
-    "title": "Wells Fargo is in 'growth mode.' The bank's AI head thinks three principles will get it where it wants to go.",
-    "description": "Saul Van Beurden thinks AI will fundamentally transform how Wells Fargo operates. Here's his playbook for getting there.",
-    "fullText": "Saul Van Beurden has a folder on his phone labeled \"productivity.\" He's constantly consulting the many AI apps that live there, whether sitting in his 60th-floor office in Hudson Yards or in front of his broken laundry machine.\n\nVan Beurden, who was named Wells Fargo's head of AI in November, is betting the technology will catapult the major retail bank forward after the Federal Reserve lifted its $1.95 trillion asset cap last summer. Some growth is already starting: the bank opened almost three million new credit card accounts and refurbished 700 branches, with plans to upgrade more. And Wells Fargo has big ambitions, including becoming one of the industry's \"top five\" M&A advisors, partly by hiring top talent.\n\nTo Van Beurden, AI is crucial to attaining those goals — it's going to touch every line of business and every workflow, from call centers to the investment bank. His job is to keep a bird's-eye view of it all, making sure to prioritize the most urgent, innovative initiatives.\n\n\"It creates a complete new window of opportunity,\" Van Beurden, a Netherlands native, told Business Insider about AI. \"If you look at our strategy, it's pretty simple: to fundamentally transform the way the bank operates.\"\n\nThe bank's AI infrastructure runs through a \"hub and spoke\" model: Van Beurden's small, central team is the hub, while each business line, from commercial banking to human resources, has a designated generative AI lead as a spoke. Those leads are responsible for identifying, scaling, funding, and executing use cases. Alongside his AI duties, Van Beurden is also co-CEO of consumer banking and lending. He suspects that his dual roles make it a bit easier for leaders on both the business and tech sides of the bank to trust him.\n\nPart of his job is identifying which tools can be used firm-wide and spotting potential conflicts before they happen.\n\n\"We will do air traffic control when we start to see there's a collision,\" he said. \"So if two use cases need something at the same time — ROI, the return on investment, will determine which one will go first. It's very clear. The highest impact use case will get the priority.\"\n\nAI agents are becoming central to some of the high-impact projects, especially those that rely on manual workflows, but they aren't yet used in typical human-to-human interactions.\n\nWells Fargo has relationships with several providers, including Microsoft and Google Cloud. The bank ranks sixth on Evident AI's most recent tracker of AI maturity in the banking industry, above rivals Goldman Sachs, Bank of America, and Citigroup.\n\nOn any given day, Van Beurden likely knows how Wells Fargo is faring on its AI journey. His team tracks AI tools and usage against eight other large banks, measuring daily, weekly, and monthly adoption rates. Wells Fargo declined to share the data.\n\nThe retail banking giant doesn't mandate AI use, partly because Van Beurden thinks forcing adoption can feel like simply \"complying to my boss.\" He instead wants to build \"AI literacy\" through efforts such as training, internal demos, and regular communication.\n\nLeaders, he said, must be able to answer a basic question for employees: \"Why should I use it? Why is it better? If you cannot answer that question, you fail.\"\n\nVan Beurden believes a few key principles will help Wells Fargo differentiate itself: continuous learning, simple messaging, and relentless execution.\n\nA small team is always exploring new LLMs, since models and their capabilities evolve by the day, or even by the hour.\n\n\"This is a horse race with constantly different horses leading the race,\" Van Beurden said about the AI vendors. Wells Fargo is building platforms that can accommodate new models as they come out, making decisions based on capabilities and costs.\n\nDespite operating in the world of technical jargon, Van Beurden believes in explaining AI as simply as possible to employees. A company, he said, loses people as soon as it starts \"hiding behind\" technical language.\n\nStill, strategy and messaging mean little without execution.\n\n\"It takes a village to get an AI program off the ground and at speed,\" Van Beurden said. \"Execution is really the thing that matters the most.\"",
-    "readingTime": 4,
-    "keywords": [
-      "van beurden",
-      "wells fargo",
-      "bank",
-      "banking",
-      "it's",
-      "team",
-      "execution",
-      "constantly",
-      "retail",
-      "partly"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/wells-fargo-growth-ai-head-saul-van-beurden-2026-3",
-    "thumbnail_url": "https://i.insider.com/69a885bffd4fbd083f298577?width=1200&format=jpeg",
-    "created_at": "2026-03-09T12:36:36.702Z",
-    "topic": "finance"
   }
 ]
