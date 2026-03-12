@@ -1,5 +1,29 @@
 [
   {
+    "slug": "webzero-a-web-server-that-serves-5k-reqsec-on-a-2001-pentium-iii",
+    "title": "WebZero – a web server that serves 5k req/SEC on a 2001 Pentium III",
+    "description": "Ultra-minimal web server for low-end hardware. Serves static sites from a single .web binary bundle with zero runtime dependencies, zero heap allocations, and zero config. Runs on Linux 2.6+ and Wi...",
+    "fullText": "A web server that serves 5,000 req/sec on a 2001 Pentium III.\n\nSingle binary. No dependencies. Runs on Linux 2.6+ and Windows XP+.\n\nEvery web server assumes you have RAM, disk IOPS, and a modern CPU. WebZero assumes you don't. It is built for:\n\nThe design constraint is simple: if memory can fragment, it will. If there are threads, they will deadlock. If there's a config parser, it will crash on edge cases. WebZero eliminates all of those.\n\nYour site is compiled into a single binary file:\n\nAt startup, the server mmap()s this file. The entire site lives in virtual memory. The OS page cache does all the work. Zero file I/O during requests.\n\nOne flat arena, allocated once, used forever. After main() initialization:\n\nThe server cannot fragment, cannot leak, cannot race.\n\nResponse headers are pre-built byte arrays — no sprintf during serving:\n\nNo queue. No waiting. Under overload, the server sheds load immediately instead of accumulating state and eventually crashing.\n\nBenchmark: wrk -t4 -c50 -d30s, serving a 12KB HTML page (3.2KB brotli-compressed).\n\nThis installs the wz command globally and automatically downloads the right prebuilt binary for your platform.\n\nSee BUNDLE_SPEC.md for the full specification.\n\nThe entire file is validated at load time, then never touched again.\n\nApache 2.0 — free to use, modify, and distribute. See LICENSE for details.\n\n\"The best code is no code. The second best is code that does exactly one thing with zero waste.\"",
+    "readingTime": 2,
+    "keywords": [
+      "web server",
+      "file",
+      "binary",
+      "cannot",
+      "code",
+      "assumes",
+      "memory",
+      "fragment",
+      "site",
+      "page"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://github.com/davitotty/webzero",
+    "thumbnail_url": "https://opengraph.githubassets.com/b27878c8977eb82a7e31f763d78ff25ea37ce1863e2353460ba850bf7d74634e/davitotty/webzero",
+    "created_at": "2026-03-12T18:39:06.057Z",
+    "topic": "tech"
+  },
+  {
     "slug": "lady-vol-named-sec-golf-freshman-of-the-week",
     "title": "Lady Vol named SEC Golf Freshman of the Week",
     "description": "Lady Vol named SEC Golf Freshman of the Week.",

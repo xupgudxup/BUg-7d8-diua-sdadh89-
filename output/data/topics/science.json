@@ -1,5 +1,29 @@
 [
   {
+    "slug": "local-agents-with-llamacpp-and-pi",
+    "title": "Local Agents with Llama.cpp and Pi",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+    "fullText": "Local Agents with llama.cpp and Pi\n\nand get access to the augmented documentation experience\n\nYou can run a coding agent entirely on your own hardware. Pi connects to a local llama.cpp server to give you an experience similar to Claude Code or Codex — but everything runs on your machine.\n\nPi is the agent behind OpenClaw and is now integrated directly into Hugging Face, giving you access to thousands of compatible models.\n\nSet your local hardware so it can show you which models are compatible with your setup.\n\nGo to huggingface.co/settings/local-apps and configure your local hardware profile. Select llama.cpp in the Local Apps section as this will be the engine you’ll use.\n\nBrowse for models compatible with Pi: huggingface.co/models?apps=pi&sort=trending\n\nOn the model page, click the “Use this model” button and select llama.cpp. Pi will show you the exact commands for your setup. The first step is to start a llama.cpp server, e.g.\n\nThis downloads the model and starts an OpenAI-compatible API server on your machine. See the llama.cpp guide for installation instructions.\n\nIn a separate terminal, install Pi:\n\nThen add your local model to Pi’s configuration file at ~/.pi/agent/models.json:\n\nUpdate the id field to match the model you launched in step 3.\n\nStart Pi in your project directory:\n\nPi connects to your local llama.cpp server and gives you an interactive agent session.\n\nThe setup has two components running locally:\n\nllama-agent takes a different approach — it builds the agent loop directly into llama.cpp as a single binary with zero external dependencies. No Node.js, no Python, just compile and run:\n\nBecause tool calls happen in-process rather than over HTTP, there is no network overhead between the model and the agent. It also supports subagents, MCP servers, and an HTTP API server mode.",
+    "readingTime": 2,
+    "keywords": [
+      "api server",
+      "select llama.cpp",
+      "model",
+      "hardware",
+      "models",
+      "setup",
+      "access",
+      "experience",
+      "connects",
+      "machine"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://huggingface.co/docs/hub/agents-local",
+    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/docs/hub/agents-local.png",
+    "created_at": "2026-03-12T18:38:59.730Z",
+    "topic": "tech"
+  },
+  {
     "slug": "exercise-and-brain-function-hedgehog-hearing-and-can-ai-change-our-minds-podcast",
     "title": "Exercise and brain function, hedgehog hearing, and can AI change our minds? – podcast",
     "description": "The Guardian’s science editor, Ian Sample, talks to Madeleine Finlay about three eye-catching science stories from the week, including a study that explores the link between exercise and brain health. Also on the agenda: the discovery that hedgehogs can hear high-frequency ultrasound and what this could mean for their conservation, and new research examining how biased AI autocomplete tools can influence the beliefs of users.\nUltrasound repellers could keep hedgehogs off roads, scientists hope\nSupport the Guardian: theguardian.com/sciencepod\n Continue reading...",
