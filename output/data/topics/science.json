@@ -1,5 +1,29 @@
 [
   {
+    "slug": "flashhead-up-to-40-faster-multimodal-reasoning-on-top-of-quantization",
+    "title": "FlashHead: Up to 40% Faster Multimodal Reasoning on Top of Quantization",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+    "fullText": "Optimized version of nvidia/Cosmos-Reason2-2B using quantization, targeted mixed-precision exclusions, and FlashHead, Embedl's efficient replacement for the language model head.\n\nThis model builds on embedl/Cosmos-Reason2-2B-W4A16-Edge2 and adds FlashHead, a lightweight replacement for the dense LM head that significantly improves throughput while preserving accuracy.\n\nThis model was created by quantizing the base language model to INT4 weights while keeping activations and a small selection of sensitive layers in FP16 precision.\nThe model preserves Text + Image / Video -> Text behavior and reasoning capabilities while reducing memory footprint, enabling the Cosmos-Reason2 model to run even on an NVIDIA Jetson Orin Nano Super.\n\nFlashHead requires the Embedl Docker container for inference on edge devices. See the Usage Examples section for available container images per platform.\n\nReal output captured from NVIDIA Jetson Orin Nano Super.\n\nsystem: You are a helpful assistant.\n\nuser: Describe this video in detail: https://nvidia-cosmos.github.io/cosmos-cookbook/gallery/vs_assets/clip_1_short.mp4\n\nassistant:\nThe video showcases a dynamic scene of vehicular movement along a multi-laned highway, set against a picturesque backdrop of leafless trees and barren landscapes indicative of a winter or early spring setting. The highway features two lanes in each direction, separated by a median strip bordered by grassy embankments. Vehicles are traveling in both directions, with traffic flowing smoothly in the opposite directions.\n\nIn the foreground, a white sedan is prominently visible, moving away from the camera towards the right side of the frame. Its rear lights are illuminated, suggesting it might be braking or slowing down. Further down the road, a red hatchback follows closely behind, maintaining a safe distance from the white sedan. Further ahead, a silver hatchback is seen driving in the same direction as the white sedan, maintaining a consistent pace.\n\nOn the opposite side of the highway, a white pickup truck is traveling in the same direction as the white sedan, maintaining a steady speed. Further ahead, a blue hatchback is also traveling in the same direction as the white sedan, keeping a safe distance from the other vehicles. Additional vehicles can be seen further down the road, including a red hatchback and a black hatchback, all moving in the same direction as the white sedan.\n\nOn-device performance benchmarks can be explored on embedl/Edge-Inference-Benchmarks.\n\nFlashHead requires the Embedl Docker container with patched vLLM.\n\nDocker image: embedl/vllm:latest-jetson-orin-flashhead\n\nTest Hardware (serve command): NVIDIA Jetson AGX Orin\n\nTest Hardware (Python example): NVIDIA Jetson AGX Orin, NVIDIA Jetson Orin Nano Super\n\nThis model is a derivative of nvidia/Cosmos-Reason2-2B.\n\nLicensed by NVIDIA Corporation under the NVIDIA Open Model License\n\nIf you are evaluating on-device inference, building products on this model, or exploring custom model optimization, reach out for:",
+    "readingTime": 3,
+    "keywords": [
+      "nano super",
+      "further ahead",
+      "docker container",
+      "orin nano",
+      "jetson agx",
+      "nvidia jetson",
+      "safe distance",
+      "red hatchback",
+      "white sedan",
+      "sedan maintaining"
+    ],
+    "qualityScore": 1,
+    "link": "https://huggingface.co/embedl/Cosmos-Reason2-2B-W4A16-Edge2-FlashHead",
+    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/embedl/Cosmos-Reason2-2B-W4A16-Edge2-FlashHead.png",
+    "created_at": "2026-03-13T12:34:37.883Z",
+    "topic": "tech"
+  },
+  {
     "slug": "local-agents-with-llamacpp-and-pi",
     "title": "Local Agents with Llama.cpp and Pi",
     "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",

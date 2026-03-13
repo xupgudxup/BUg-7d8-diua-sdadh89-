@@ -1,5 +1,77 @@
 [
   {
+    "slug": "soloterm",
+    "title": "Soloterm",
+    "description": "Run AI coding agents alongside your dev server and queue workers. Visual dashboard, auto-restart, MCP integration. 25MB, not another IDE.",
+    "fullText": "Run Claude Code, Codex, and Gemini CLI alongside your dev server, queue workers, and databases.\n\nClaude Code in one tab. Codex in another. Amp in a third. npm is maybe running. The queue worker crashed twenty minutes ago but nobody told you. You have nine terminals open and you can't remember what's running in any of them.\n\nSomething needs your attention. Is it terminal three? Five? You're clicking through all nine trying to find the one that's screaming. By the time you find it, another terminal has rung a bell.\n\nYour AI agent can't see your process output. It doesn't know your dev server crashed ten minutes ago. It's generating code against a stack that isn't even running. Garbage in, garbage out.\n\nYou're running three agents and a full dev stack. Green? Red? Running? Crashed? You have no idea without checking each terminal one by one.\n\nRun any CLI agent right alongside your dev stack. Solo auto-starts your stack, restarts crashes, and gives your agents visibility into your logs and process state via MCP.\n\nRuns your agents and your dev stack together. No bloat, no configuration rabbit holes.\n\nAdd Claude Code, Codex, Gemini, Amp, whatever agents you need. Define your dev stack and hit play. Everything spins up together. When you're done, shut it all down with one click.\n\nNo more opening six terminals and trying to remember what this project needs.\n\nDev servers die. Solo notices and restarts them automatically. Set up file watchers so code changes restart the relevant process too.\n\nYour AI agent won't generate code against a server that silently crashed 20 minutes ago.\n\nGreen means running. Red means crashed. See your agents and your entire dev stack in one dashboard. No clicking through terminals or guessing.\n\nIf something's wrong — agent or process — you'll see it.\n\nCommit your solo.yml to the repo and everyone gets the same stack — including which agents to run. No more outdated READMEs or Slack messages asking how to set up the project.\n\nNew teammate? They're running the same agents and stack in minutes.\n\nYour agents need a reliable environment. Solo gives them one.\n\nSolo speaks MCP. Your AI agents can read logs, see process status, and restart crashed services — without you lifting a finger. Context-aware agents write better code.\n\nClaude Code, Codex, Gemini CLI, Aider, your own scripts — if it runs in a terminal, it runs in Solo. No built-in models, no vendor lock-in. Use whatever agent is best for the job.\n\nType directly into running agents and processes. Respond to Claude's prompts, interact with your Rails console, or attach a debugger — all without switching windows. Smooth rendering with full ANSI support.\n\nEverything in Solo is accessible via keyboard. Open the command palette, jump between projects, start and stop processes.\n\nCheck in your solo.yml and give your team a shared source of truth — including which agents to run and how. Everyone gets the same dev environment in seconds.\n\nBuilt with Tauri, not Electron. Solo is a lightweight dashboard, not a 500MB IDE replacement. It runs your processes and gets out of the way. Your editor stays your editor.\n\nDetails you'll appreciate every day. Polish that shows someone actually uses this.\n\nSolo exposes your processes, logs, and project state to AI agents via MCP. Let Claude or other AI tools help debug and manage your stack.\n\nSet your default editor and open any project directly. One click to VS Code, Zed — whatever you use.\n\nBuilt with Tauri, not Electron. Around 25MB download. Uses less RAM than a single Chrome tab.\n\nIf your solo.yml changes after a git pull, Solo asks you to confirm before running anything. No surprises.\n\nLight mode and dark mode included. Your dev environment doesn't have to clash with your setup.\n\nLaunch projects, start processes, and manage your stack from Raycast. (Pending Raycast Store approval.)\n\nSolo works wherever you work. Mac available now, Windows and Linux coming soon.\n\nEvery feature included in Free. Most developers never need Pro—upgrade only when you need more than 3 projects.",
+    "readingTime": 4,
+    "keywords": [
+      "gemini cli",
+      "via mcp",
+      "codex gemini",
+      "code codex",
+      "minutes ago",
+      "dev server",
+      "dev environment",
+      "dev stack",
+      "your ai",
+      "agents"
+    ],
+    "qualityScore": 0.8,
+    "link": "https://soloterm.com/",
+    "thumbnail_url": "https://soloterm.com/brand/og-v2.png",
+    "created_at": "2026-03-13T12:34:36.103Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "im-an-amazon-tech-lead-who-got-promoted-by-building-ai-products-here-are-my-top-vibe-coding-tips",
+    "title": "I'm an Amazon tech lead who got promoted by building AI products. Here are my top vibe coding tips.",
+    "description": "An Amazon tech lead who rose quickly building AI products shares tips for vibe coding and avoiding common mistakes.",
+    "fullText": "This as-told-to essay is based on a conversation with Anni Chen, who has worked in Amazon software engineering for about three-and-a-half years. It has been edited for length and clarity. Business Insider has verified her employment history.\n\nAI helped me code, but more importantly, it helped with turning it into products. It's the combination of grasping AI and translating it into scalable products that helped me get promoted faster.\n\nI started off as a Software Engineer I, an entry-level role, in 2022. I was in the recommendations team working on serving recommendation widgets.\n\nAbout two years ago, I started working on AI products on the side. That became huge and eventually spun off into its own team, which I'm a founding engineer of.\n\nI was promoted in the recommendations team to Software Engineer II, and then I got promoted in the current team to senior engineer.\n\nI focus on what we call memory, which powers personalization in generative AI experiences across Amazon.\n\nI started using AI as a side project to generate engaging titles for recommendation widgets when ChatGPT and Claude emerged. I saw how powerful it is in generating something really creative.\n\nI started thinking: whenever I have a question or I want to code something up, I'll just ask AI for help first before I attempt it.\n\nI saw that the solution it came up with was leveling up my own code, and it helped me code more, too. Now I would say almost 95% of the code authored by me is written by AI.\n\nI'm not just using AI to code; I also integrate AI's output into products. I need to have a deep understanding of how AI works, what works well, and what doesn't.\n\nI have to be open and receptive to new models and tools coming out that can help with product iterations and make products better.\n\nI work as a tech lead on large-scale LLM-driven systems in production environments, so I have a front-row seat to how AI-assisted workflows behave, not just in prototypes but under real-world scale and cross-team collaboration.\n\nThe first tip is understanding the inner workings of LLMs and where they might fail.\n\nLLMs are pre-trained — they're trained on a large corpus, and it's a probabilistic game. It's followed by supervised fine-tuning, so the model will answer based on the structuring of a question and the answering format. Lastly, it's followed by RLHF — reinforcement learning from human feedback.\n\nMy second tip: Think before vibe coding.\n\nIf you check the answer first, then your thoughts will be swayed by the answers. Compare your thoughts versus the LLM's and see what the gaps are — what you didn't know, and why the answer differs. From there, you know what implicit assumptions you haven't told the LLM.\n\nThirdly, prompt for hard questions. Ask questions like what is the fallback when there is an error, or how this is going to scale? This is like a teacher asking a student, or a senior engineer asking a junior engineer to make sure the hard cases are covered. If you want the product to scale, think about it from day one and be conscious about asking those scaling questions.\n\nLastly, review and understand. Always review at each step, not just review after the whole code is generated. This ensures errors stop early rather than cascading all the way to the end, where you need to redo everything.\n\nCreating wrong code is very dangerous. The presence of code makes people think, \"Okay, this is good, it's working.\" But wrong code that enters production can cause more damage than the absence of functionality.\n\nYou have to understand your own code. AI lowers the barrier to writing code, but not the responsibility for understanding it.\n\nIf something goes wrong and the code was committed by you, you're the one responsible.\n\nImagine your code breaks in production, and you need to fix it, and you say, \"I also don't know, AI told me.\" That's not the correct way.\n\nI don't think we can entrust AI with such high-stakes tasks yet.\n\nUnderstanding becomes easier with AI because it's also a perfect learning opportunity. You can simply open another window and ask it to explain the concept.\n\nIf you ask in the same window about what it produced, it will explain only in that context. But you want to understand the concept more generally and see whether it makes sense to apply in this case.\n\nDo you have a story to share about coding with AI? Contact this reporter at cmlee@businessinsider.com.",
+    "readingTime": 4,
+    "keywords": [
+      "recommendation widgets",
+      "recommendations team",
+      "senior engineer",
+      "it's followed",
+      "code",
+      "products",
+      "understanding",
+      "promoted",
+      "production",
+      "scale"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/amazon-tech-lead-promotion-vibecoding-tips-ai-products-2026-3",
+    "thumbnail_url": "https://i.insider.com/69b37c0aa96e437d6eb840c5?width=1200&format=jpeg",
+    "created_at": "2026-03-13T12:34:35.830Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "i-run-an-aipowered-startup-and-we-canceled-our-chatgpt-business-plan-months-ago-claude-feels-more-like-the-promise-of-ai",
+    "title": "I run an AI-powered startup, and we canceled our ChatGPT business plan months ago. Claude feels more like the promise of AI.",
+    "description": "An AI startup cofounder explains their switch from ChatGPT to Claude, highlighting better nuance understanding and reduced coding errors.",
+    "fullText": "This as-told-to essay is based on a conversation with Sidhant Bendre, a 26-year-old cofounder of Oleve, an AI-driven consumer software portfolio company, based in New York. His words have been edited for length and clarity.\n\nI used ChatGPT for roughly two years before moving over to Claude as my preferred model and ending my company's ChatGPT subscription.\n\nWhen we launched our company, Oleve, we were already using AI, so we've always relied heavily on it in our workflow, from coding to marketing to our hiring process. ChatGPT was our go-to model. After Anthropic released its 4.5 model suite for Claude last fall, that changed.\n\nWe weren't pushed away from ChatGPT; we were pulled into Claude.\n\nWe didn't have any major frustrations with ChatGPT that forced us to switch, but I think one of the promises of AI is to speed up our work, and Claude let us move faster because we spent less time correcting it.\n\nWhen we were primarily using ChatGPT, I noticed that the content it generated didn't sound very human. It would overuse emojis where I wouldn't, and it felt really forced. I haven't used ChatGPT rigorously for a while now, but whenever I go back to test prompts with the model, I still get those overly verbose responses.\n\nClaude is better at mimicking human writing. Even before Claude's 4.5 suite came out, we'd heard students talk about how the model was so good at mimicking their writing style after they fed it examples.\n\nWith Claude's coding, we were able to automate a lot of our development time with blueprints we already had. Now we can focus more on the product itself rather than spending so much energy on build time.\n\nThe biggest difference between the models seems to be parsing context and considering nuance.\n\nIf I feed Claude a large research document and I'm looking for something small, it almost always understands when to be concise, while providing the appropriate context and highlighting what I'm asking \n\nSometimes it felt like ChatGPT was overcompensating for poor judgment about what to focus on by spitting out more content. If I'm using it at all now, I usually have to ask it multiple times to summarize or reinstruct it to be more concise.\n\nWe've integrated AI into more of our workflows after switching to Claude. It made more sense to invest the time and energy it takes to do that when I know the payoff is worth it.\n\nRecently, Claude has been giving us its own set of issues with bugginess. Some of our messages or chats have been disappearing, and this has been frustrating.\n\nIt's not perfect. I feel like there are still hallucinations I see in the model's output every now and then, and that makes my trust in Claude crumble a little bit. I have to push back in these scenarios to self-correct, even with web search on their new Opus 4.6 model.\n\nI haven't really been paying attention to the larger OpenAI vs Anthropic debate. If ChatGPT launches a product suite that provides significant value to me, I would try it. I don't feel attached to Claude to the point where I wouldn't try something else.\n\nI think that the biggest thing for me has been that Claude feels so much more like what the promise of AI is supposed to be. All the models have provided significant value, but it feels a lot more like it's taking away the busywork from my day-to-day and giving me back time to think big picture.\n\nDo you have a story to share about using AI? Contact this reporter, Agnes Applegate, at aapplegate@businessinsider.com.",
+    "readingTime": 4,
+    "keywords": [
+      "model",
+      "claude",
+      "suite",
+      "back",
+      "chatgpt",
+      "based",
+      "oleve",
+      "we've",
+      "coding",
+      "away"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.businessinsider.com/why-ai-startup-founder-switched-chatgpt-to-claude-2026-3",
+    "thumbnail_url": "https://i.insider.com/69b2ee494d65ec517529e8d0?width=1200&format=jpeg",
+    "created_at": "2026-03-13T12:34:35.608Z",
+    "topic": "finance"
+  },
+  {
     "slug": "valea-an-ainative-systems-programming-language",
     "title": "Valea: An AI-native systems programming language",
     "description": "Contribute to hvoetsch/valea development by creating an account on GitHub.",
@@ -1989,60 +2061,6 @@
     "link": "https://addyosmani.com/blog/agentic-engineering/",
     "thumbnail_url": "https://addyosmani.com/assets/images/agentic-engineering.jpg",
     "created_at": "2026-02-05T12:36:55.943Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "mark-zuckerbergs-2004-coding-jams-were-loud-emo-and-very-on-brand",
-    "title": "Mark Zuckerberg's 2004 coding jams were loud, emo, and very on brand",
-    "description": "Mark Zuckerberg published a playlist of five songs he was pumping while building Facebook in 2004. It includes hard-rocking hits and some synth funk.",
-    "fullText": "Mark Zuckerberg is feeling nostalgic.\n\nOn the 22nd anniversary of Facebook's founding, Zuckerberg reposted a meme about the fresh-faced Harvard student \"getting ready to make history.\" Then he linked a playlist titled \"2004 Facebook coding jams.\"\n\nZuckerberg said he \"had these bangers on repeat\" while building Facebook. The playlist's cover features the young founder — long before his bulked-up rebrand — listening to music on headphones.\n\nThe playlist's five songs feature a fair share of emo wails, electric guitars, and even some funky synthesizers. Some of them have receded into the tides of music history; others remain classics for weddings and bar mitzvahs.\n\nThey're also evocative of a quieter, easier time in tech. There were no culture wars, cage matches, or capex worries. What would a 2004 Zuckerberg think of $10 billion data centers?\n\nMusic speaks to how we feel. Here's what these five songs might say about a 19-year-old Zuckerberg — and just how far he's come.\n\nZuckerberg liked hard rock, it seems.\n\n\"Headstrong\" is a loud, thrashing song that feels built to be played on \"Guitar Hero.\" There's even a good guttural scream in there before one chorus. The lyrics are equally attacking. \"Back off, I'll take you on,\" Chris Taylor Brown sings.\n\nThe opening of \"Headstrong\" sounds like UFC walkout music, hyping up a big fight. That's now a favorite sport of Zuckerberg's. Some things never change.\n\n\"Like a Stone\" is about death and religion — two subjects that Zuckerberg has long been interested in.\n\nFrontman Chris Cornell prays to God and angels on their deathbed that they will get into heaven. \"In dreams until my death / I will wander on,\" he sings.\n\nZuckerberg seems more interested in extending human life than forecasting its end. His philanthropic initiative invests heavily in drug and disease research. He also has an intense fitness routine, including jiu-jitsu and CrossFit routines.\n\nAs for faith, Zuckerberg said in 2020 that he had \"become more religious.\" He cited two sources: The issues his company has faced in the prior years and the birth of his daughters.\n\nMostly, though, \"Like A Stone\" is another huge rock hit. It seems like Zuckerberg enjoyed the sound of banging drums and wailing guitar.\n\nNow this one is a nostalgia trip.\n\nYou can't help but feel something when Douglas Robb croons out, \"I'm not a perfect person.\" Was Zuckerberg a perfect person? Most people who have watched \"The Social Network\" would say no.\n\nIt's a romantic song. After considering their flaws, Robb sings out that they've found a reason to change. \"The reason is you,\" he repeats, over and over.\n\nZuckerberg met his wife, Priscilla Chan, in 2003, one year before this playlist's date. Maybe he was thinking of her.\n\nHe'd be less happy to hear that the song reemerged on TikTok — a Meta competitor — in a 2021 trend.\n\nWe all knew that Zuckerberg liked rap. He recorded his own version of T-Pain's \"Get Low\" in tribute to his wife. He also started dressing like Eminem.\n\n\"In the End\" is peak 2010s emo rap-rock. One of its refrains is \"I tried so hard.\" Zuckerberg did try so hard — he often worked till late into the night.\n\nThe song is more pessimistic in its outlook: \"In the end, it doesn't even matter.\" Zuckerberg would likely disagree here. He tried so hard — and in the end, it did matter. Meta is now a trillion-dollar company.\n\nHard pivot! After four hard rock tunes, Zuckerberg's last song leans into synth-funk.\n\nThe lyrics here feel self-explanatory for Zuckerberg's workplace ethos: \"Work it harder, make it better / Do it faster, makes us stronger / More than ever, hour after hour / Work is never over.\"\n\nAfter Meta's year of intensity, I'm sure that some of Zuckerberg's employees can relate.\n\nAlso, the Daft Punk helmet doesn't look that different from a Meta Quest.",
-    "readingTime": 4,
-    "keywords": [
-      "zuckerberg liked",
-      "like stone",
-      "song",
-      "music",
-      "playlist's",
-      "rock",
-      "sings",
-      "history",
-      "songs",
-      "headstrong"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/mark-zuckerberg-2004-coding-jams-playlist-loud-emo-on-brand-2026-2",
-    "thumbnail_url": "https://i.insider.com/69838cc9d3c7faef0ecd9c7b?width=1200&format=jpeg",
-    "created_at": "2026-02-05T12:36:52.821Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "whats-behind-the-saaspocalypse-plunge-in-software-stocks",
-    "title": "What’s Behind the ‘SaaSpocalypse’ Plunge in Software Stocks",
-    "description": "Since ChatGPT arrived on the scene some three years ago, analysts have been warning that entire industries, including software programming, legal services and film production, are at risk of being disrupted by artificial intelligence.",
-    "fullText": "MarketsExplainerBy Lynn Doan and Carmen ReinickeSaveSince ChatGPT arrived on the scene some three years ago, analysts have been warning that entire industries, including software programming, legal services and film production, are at risk of being disrupted by artificial intelligence.But it took a wave of disappointing earnings reports, some improvements in AI models, and the release of a seemingly innocuous add-on from AI startup Anthropic to suddenly wake up investors en masse to the threat. The result has been the biggest stock selloff driven by the fear of AI displacement that markets have seen. And no stocks are hurting more than those of software-as-a-service (SaaS) companies.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.35,
-    "link": "https://www.bloomberg.com/news/articles/2026-02-04/what-s-behind-the-saaspocalypse-plunge-in-software-stocks",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iDiaprGarUKI/v0/1200x800.jpg",
-    "created_at": "2026-02-05T01:08:08.737Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "webhook-skills-agent-skills-for-webhook-providers-and-best-practices",
-    "title": "Webhook Skills – Agent skills for webhook providers and best practices",
-    "description": "Webhook integration skills for AI coding agents (Claude Code, Cursor, Copilot). Step-by-step guidance for setting up webhook receivers, signature verification, and event handling for Stripe, Shopif...",
-    "fullText": "hookdeck\n\n /\n\n webhook-skills\n\n Public\n\n Webhook integration skills for AI coding agents (Claude Code, Cursor, Copilot). Step-by-step guidance for setting up webhook receivers, signature verification, and event handling for Stripe, Shopify, GitHub, and more. Built on the Agent Skills specification.\n\n License\n\n MIT license\n\n 0\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n hookdeck/webhook-skills",
-    "readingTime": 1,
-    "keywords": [
-      "webhook",
-      "skills",
-      "license"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://github.com/hookdeck/webhook-skills",
-    "thumbnail_url": "https://opengraph.githubassets.com/ed9e4e830971c76b02864c100a37accbc7ef947718023c6abb2ba2536dad1e19/hookdeck/webhook-skills",
-    "created_at": "2026-02-04T12:35:28.405Z",
     "topic": "tech"
   }
 ]
