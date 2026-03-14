@@ -1,5 +1,25 @@
 [
   {
+    "slug": "blame-rms-for-ai-coding",
+    "title": "Blame RMS for AI Coding",
+    "description": "We should all blame Richard Stallman for the advances in AI coding.\r\nIf free and open-source software did not exist, LLMs would not have\r\nthe training data n...",
+    "fullText": "We should all blame Richard Stallman for the advances in AI coding.\nIf free and open-source software did not exist, LLMs would not have\nthe training data needed to learn how to code. This is one of the\ndeepest ironies of the 21st century.\n\nBut this makes one to think about the nature of LLM generated code. In\nthat this code was available on the WWW even before LLMs. So it also\nbegs the question weather LLMs can innovate better than the free and\nopensource developers that had access to this code before.\n\nBut ultimately it sort of takes the magic out of LLM code. It allows\none to treat it as free and opensource code like the other\ndependencies you may be using or some code you copied from\nStackoverflow.\n\nI do wonder if RMS had the foresight to see that AI will one\nday be trained on Free Software. Weather he knew this or not it still\nshows the power of Free Software in shaping our modern world.",
+    "readingTime": 1,
+    "keywords": [
+      "code",
+      "opensource",
+      "free",
+      "software",
+      "llms",
+      "weather"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://bit1993.bearblog.dev/blame-rms-for-ai-coding/",
+    "thumbnail_url": "/static/og-image.png",
+    "created_at": "2026-03-14T06:34:12.275Z",
+    "topic": "tech"
+  },
+  {
     "slug": "coding-agents-and-complexity-budgets",
     "title": "Coding Agents and Complexity Budgets",
     "description": "$260 in tokens and hundreds of coding agents later.",
@@ -2037,30 +2057,6 @@
     "link": "https://retrogamecoders.com/programming-bbs-with-python/",
     "thumbnail_url": "https://retrogamecoders.com/wp-content/uploads/2026/02/custom-bbs-server-in-python.jpg",
     "created_at": "2026-02-05T18:36:01.035Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-coding-agent-os",
-    "title": "The Coding Agent OS",
-    "description": "We believe that a great coding agent isn't a simple chatbot—it's an operating system for the model.",
-    "fullText": "Most coding agents are presented as a chat UI glued to an LLM and integrated into an IDE or\n CLI. This can work really well for developers who provide the development environment along\n with constant babysitting to build functional software.\n\nCharlie, however, is built around a different premise: We believe that a great coding agent\n isn't a simple chatbot—it's an operating system for the model.\n\nCharlie's \"OS layer\" gives a model the primitives required to complete end-to-end\n engineering work:\n\nWhen agents run in an operating system, they can diagnose → plan → implement → verify →\n publish reviewable artifacts all within the systems where your team already works.\n\nWe've got two hot takes on why the OS is essential for great agents:\n\nCLI expressiveness beats bespoke \"LLM tools.\" CLI tools are composable (|, &&, xargs), self-documenting (--help), and match\n how engineers actually work. One-off JSON tools tend to be isolated and require tool\n designers to predict every use case up front.\n\nOpen-loop orchestration beats rigid workflows. Real engineering has surprises:\n flaky tests, missing context, failing builds, CI-only failures, new constraints. The \"OS loop\"\n lets the agent decide the next step based on what it observes, instead of forcing every task into\n a fixed graph.\n\nIDE-native assistants like Claude Code are great for interactive, in-editor work: drafting,\n refactors, quick iteration. But they're not optimized to serve as a team-facing execution\n environment.\n\nOS-style agents are built for that missing layer: cross-tool orchestration + durable,\n reviewable artifacts.\n\nA mention, review request, regression, or scheduled trigger.\n\nCharlie normalizes + enriches the signal\n\nInto \"this is the work request, with relevant context.\"\n\nDecide whether to act, what thread it belongs to, and which capabilities are allowed.\n\nA durable Task is created (or appended-to)\n\nSingle-winner claiming, enters a durable, turn-based loop.\n\nAssemble context, decide + plan, call the LLM, dispatch tool calls, observe results +\n check mailbox/cancel + continue.\n\nBack to the source system (PRs, reviews, issue updates, summaries).\n\nRecord terminal status + telemetry\n\nDurable transcript/state remains; ephemeral compute is cleaned up.\n\nThe agentic operating system delivers better outcomes:",
-    "readingTime": 2,
-    "keywords": [
-      "reviewable artifacts",
-      "operating system",
-      "agents",
-      "durable",
-      "tools",
-      "context",
-      "coding",
-      "environment",
-      "agent",
-      "model"
-    ],
-    "qualityScore": 1,
-    "link": "https://charlielabs.ai/coding-agents-as-operating-systems/",
-    "thumbnail_url": "https://charlielabs.ai/_astro/caos-architecture.JbhqvI6s.png",
-    "created_at": "2026-02-05T12:36:57.286Z",
     "topic": "tech"
   }
 ]
