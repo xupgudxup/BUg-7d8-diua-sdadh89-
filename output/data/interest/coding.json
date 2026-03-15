@@ -1,5 +1,29 @@
 [
   {
+    "slug": "goalmd-a-goalspecification-file-for-autonomous-coding-agents",
+    "title": "Goal.md, a goal-specification file for autonomous coding agents",
+    "description": "A goal-specification file for autonomous coding agents. Generalizes Karpathy's autoresearch to domains with constructed metrics. - jmilinovich/goal-md",
+    "fullText": "Give an AI agent a number to make go up and a loop to do it in. Then go to sleep.\n\nOne prompt. Any agent. Paste this into Claude, Cursor, Windsurf, or any coding agent:\n\nWatch the 2-minute explainer video\n\nKarpathy's autoresearch proved the formula: agent + fitness function + loop = overnight breakthroughs. But autoresearch only works when you already have a scalar metric. Loss goes down, paper gets better. Most software isn't like that. You have to construct the metric before you can optimize it.\n\nGOAL.md is the pattern for doing that. One file you drop into a repo that turns a coding agent into an autonomous improver. This repo itself is designed to be consumed by agents — the template is a prompt, the examples are few-shot training data, and the CLAUDE.md teaches an agent how to write a good GOAL.md for your project.\n\nI had 30 Playwright tests for a routing system. Half were broken, no way to tell which. I wanted Claude to fix them, but the real problem wasn't \"fix the tests.\" It was: how do you even measure whether test infrastructure is trustworthy? There's no coverage tool for that. No test runner. Nothing. I had to build the ruler before I could measure.\n\nSo I constructed a metric: four weighted components that together define \"routing confidence.\" Then I wrote a file that told Claude: here's the score, here's how to make it go up, here's when to stop. Went to bed. Woke up to 12 commits, each atomic, each pushing the score higher. 47 → 83.\n\nThat file became GOAL.md. The wild part wasn't the loop — any agent can loop. It was that I had to construct the ruler before the agent could measure anything. Once it had a number, it knew exactly what to do.\n\nThe Playwright story convinced me this works. But tests are at least somewhat measurable — they pass or fail. The real question was: does this generalize to things that seem genuinely immeasurable?\n\nDocumentation quality. \"Are my docs actually good?\" There's no test runner for that. No coverage tool. No pytest --cov equivalent. Just vibes. The docs-quality GOAL.md had to construct the entire measurement apparatus from scratch: a prop-accuracy checker, an example compiler, a calibrated linter. Three tools that didn't exist, producing a score that didn't exist, for a quality dimension that most teams just eyeball.\n\nBut here's the part that surprised me. The agent needed a dual scoring system — one score for documentation quality, another for instrument quality. Because the linter itself was broken. Vale was flagging onChange as a spelling error. A naive agent would \"fix\" the docs to satisfy the linter, making them worse. So the GOAL.md scored the measuring tools separately: \"how much can we trust the docs score?\" The agent fixed its own telescope first, then used that telescope to fix the docs. It was building the ruler and measuring with it at the same time, and the dual-score pattern kept it from fooling itself.\n\nThat's when I knew this was a real pattern. If you can construct a fitness function for documentation quality — something with no natural metric at all — you can construct one for anything.\n\nCLAUDE.md is a manual. It tells an agent how to work in your repo. GOAL.md is a reward function. It tells an agent what \"better\" means and gives it a loop to get there. The agent measures, diagnoses, acts, and verifies on its own. You don't need to be in the room.\n\nThe harder problem is when \"better\" has no existing metric. Test coverage has pytest --cov. But documentation quality? API trustworthiness? Code health? You have to construct the metric first. That's what a GOAL.md does — it gives the agent both the ruler and the thing to measure.\n\nNot a vibe. A number. The agent needs a computable definition of \"better.\"\n\nautoresearch locks evaluate_bpb() in a read-only file. That's fine when you're optimizing loss. But most software metrics are made up by you, so who gets to change the ruler?\n\nSplit mode is the one I actually use. I had two scores: \"is the routing working?\" (the thing) and \"can we trust the tests?\" (the instrument). The agent could sharpen the instrument (add tests, fix detection) without gaming the outcome. You need a dual-score setup when the agent is building its own telescope.\n\nMeasure → diagnose → act → verify → keep or revert. Every iteration leaves the repo better or unchanged, never worse.\n\nThis is the same structure as autoresearch (modify train.py → run → check val_bpb → keep or git reset), just generalized beyond training runs.\n\nEach iteration appends one line to iterations.jsonl — before/after scores, the action taken, and whether it was kept or reverted. Future sessions read this log to avoid repeating failed experiments and to build on what worked.\n\nA menu of concrete moves, ranked by impact. Tells the agent where to spend its time.\n\nautoresearch leaves this implicit (\"everything in train.py is fair game\") which is fine for neural nets. For software, being explicit prevents the agent from burning cycles on 1-point changes when 5-point moves are sitting right there. The point estimates don't need to be precise. They're prioritization signals, not promises.\n\nHow long is the leash? Same agent, different levels of autonomy.\n\nThe lines the agent must not cross. These are load-bearing, not suggestions.\n\nautoresearch has the same idea: \"don't modify prepare.py\", \"don't add dependencies\", \"simpler is better.\" Without constraints the agent will absolutely find creative ways to make the number go up that you did not intend.\n\nSee also: Eval-Driven Development (evaldriven.org) — measurable correctness specs, but a methodology for humans, not a file format for agents. AGENTS.md (Google, OpenAI) — proved agents need repo-level context files, but descriptive (\"how we work\") not directive (\"what to optimize\"). Ralph Wiggum (Huntley) — persistent bash loop with a circuit breaker, but no numeric fitness function. GOAP (game AI, 2003) — action catalogs with preconditions and effects; LLM agents need less formalism but the idea is the same. GEPA (Khattab et al.) — multi-objective prompt evolution with fitness functions; the iteration log pattern here borrows from their approach of tracking what worked across generations.\n\nThis repo has its own GOAL.md and scoring script:\n\nA future Claude session can pick up the GOAL.md in this repo and keep improving the score. The scoring script is just bash and jq so it's not exactly robust, but it works.\n\nYou need one when the work is an optimization loop, not a one-shot task. When \"better\" requires a metric you have to construct, not just \"tests pass.\" When you want to go to sleep and wake up to progress.\n\nYou don't need one for a single well-defined change (\"add a dark mode toggle\") or when \"done\" is obvious. If a CLAUDE.md with good instructions is enough, it's enough.\n\nThe fastest way: point an agent at this repo and let it do the work.\n\nThese aren't just documentation — they're the few-shot examples an agent uses to pattern-match when writing a GOAL.md for your project. Each one demonstrates a different domain, metric style, and operating mode so the agent has enough variety to generalize.\n\nMore examples welcome. Open a PR — more variety here means better GOAL.md files for everyone's projects.\n\nNeed help writing the fitness function? See examples/scoring-scripts.md for copy-paste scoring script recipes across common domains.\n\nTweet images for the launch thread:",
+    "readingTime": 7,
+    "keywords": [
+      "pytest cov",
+      "didn't exist",
+      "test runner",
+      "scoring script",
+      "fitness function",
+      "documentation quality",
+      "coding agent",
+      "metric",
+      "loop",
+      "construct"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/jmilinovich/goal-md",
+    "thumbnail_url": "https://opengraph.githubassets.com/b446ae43dd3b4dd2e711ce3f9290e14ef90d5b3864979e4e1e3e43b003db8517/jmilinovich/goal-md",
+    "created_at": "2026-03-15T18:25:06.111Z",
+    "topic": "tech"
+  },
+  {
     "slug": "agentic-docs-templates-keep-ai-coding-agents-disciplined",
     "title": "Agentic Docs Templates, keep AI coding agents disciplined",
     "description": "A language-agnostic, framework-agnostic repository template for document-driven AI coding agent development. - Sukitly/agentic-docs-templates",
@@ -2059,20 +2083,5 @@
     "thumbnail_url": "https://image.cnbcfm.com/api/v1/image/108184664-1754999709333-gettyimages-2214520187-img_1248.jpeg?v=1754999753&w=1920&h=1080",
     "created_at": "2026-02-06T06:40:18.191Z",
     "topic": "finance"
-  },
-  {
-    "slug": "termoil-terminal-dashboard-for-managing-parallel-ai-coding-agents",
-    "title": "Termoil – Terminal dashboard for managing parallel AI coding agents",
-    "description": "Less friction for your multi-agent workflow. Contribute to fantom845/termoil development by creating an account on GitHub.",
-    "fullText": "fantom845\n\n /\n\n termoil\n\n Public\n\n Less friction for your multi-agent workflow\n\n 1\n star\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n fantom845/termoil",
-    "readingTime": 1,
-    "keywords": [
-      "star"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://github.com/fantom845/termoil",
-    "thumbnail_url": "https://opengraph.githubassets.com/3f4c60f9807e7fd26c4cd7d8070eb9f12a1c2217f6b59354a3d271fb86812016/fantom845/termoil",
-    "created_at": "2026-02-06T06:40:14.221Z",
-    "topic": "tech"
   }
 ]
