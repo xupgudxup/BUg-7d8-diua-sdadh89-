@@ -1,5 +1,44 @@
 [
   {
+    "slug": "lfg-wow-raid-frames-for-ai-agents-on-a-25-led",
+    "title": "Lfg – WoW raid frames for AI agents on a $25 LED",
+    "description": "I built a WoW-inspired raid frame on a 64x64 LED panel to monitor my AI coding agents. When an agent needs approval, it catches fire.",
+    "fullText": "I run up to ten AI coding agents at a time. I wanted to see what they were all doing. So obviously I built a WoW raid frame on a $25 LED panel.\n\nEach agent gets an 8x8 sprite. When it's working, you see an ability icon. When it's idle, it sleeps. When it needs approval, it catches fire. That's it. That's the project.\n\nThe hardware is an iDotMatrix 64x64 LED panel, ~$25. You send it pixel data over Bluetooth and it displays it. btleplug handles the Bluetooth side in Rust.\n\nThe webhook handler and BLE renderer are fully decoupled. The handler updates state; a separate render loop polls every 250ms, diffs the state hash, and debounces 2 seconds before pushing. When an agent enters Requesting, animation speed doubles so the fire pulses with urgency.\n\nThe render pipeline produces a 6-frame animated GIF per cycle. It uses NeuQuant quantization to build a single global 256-color palette across all frames — no per-frame palette switching, which the panel can't handle anyway — then splits the final GIF into 4KB BLE packets with a 16-byte header and CRC32 for integrity. The panel reassembles and plays the animation on loop until the next push.\n\nEach agent gets an 8x8 animated sprite from one of eleven themes — Slimes, Ghosts, Space Invaders, Pac-Men, and more. Each IDE host gets its own theme, so I can tell Claude Code from Cursor at a glance.\n\nThree states: Idle, Working, Requesting. The transitions seem obvious until you run them against real hook traffic.\n\nClaude Code fires PermissionRequest and PreToolUse within ~100μs of each other, out of order. Handle them naively and PreToolUse clobbers Requesting. Second problem: PostToolUse fires after every tool call — transition to Idle on it and agents flash Working → Idle → Working constantly.\n\nDesign principle: idle and approval states are the most important to display correctly. Everything else is nice-to-have.\n\nRequesting is sticky — only cleared by PostToolUse (approval resolved, agent is now working) or Stop. The failure mode — agents appearing idle when they're actually waiting — is the exact thing the whole project exists to prevent.\n\nThe code is MIT, the hardware is $25. github.com/terraboops/lfg\n\nLFG. Looking For Group. Let's f***ing go.",
+    "readingTime": 2,
+    "keywords": [
+      "led panel",
+      "claude code",
+      "agent",
+      "agents",
+      "approval",
+      "frame",
+      "sprite",
+      "it's",
+      "fire",
+      "that's"
+    ],
+    "qualityScore": 1,
+    "link": "https://terratauri.com/blog/lfg-raid-frame-for-ai-agents/",
+    "thumbnail_url": "https://terratauri.com/blog/lfg-raid-frame-for-ai-agents/lfg-hero.gif",
+    "created_at": "2026-03-15T01:19:50.450Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "playing-with-fire-jeffrey-epstein-bankrolled-bill-gates-reported-girlfriend",
+    "title": "'Playing with fire': Jeffrey Epstein bankrolled Bill Gates reported girlfriend",
+    "description": "Epstein arranged for a visa; wired cash; paid for coding classes; and even housed a woman tied to Gates in a New York apartment, DOJ documents show.",
+    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
+    "readingTime": 1,
+    "keywords": [
+      "fortune"
+    ],
+    "qualityScore": 0.1,
+    "link": "https://fortune.com/2026/03/14/epstein-bankrolled-bill-gates-mistress-doj-documents-playing-with-fire/",
+    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/03/GettyImages-2174266986-e1773348759952.jpg?resize=1200,600",
+    "created_at": "2026-03-15T01:19:49.257Z",
+    "topic": "tech"
+  },
+  {
     "slug": "playing-with-fire-epstein-bankrolled-bill-gates-reported-exgirlfriend-for-yearsthen-asked-gates-to-reimburse-him-five",
     "title": "‘Playing with fire’: Epstein bankrolled Bill Gates’ reported ex-girlfriend for years—then asked Gates to ‘reimburse’ him five months before he died",
     "description": "Epstein arranged for a visa; wired cash; paid for coding classes; and even housed a woman tied to Gates in a New York apartment, DOJ documents show.",
@@ -2035,39 +2074,5 @@
     "thumbnail_url": "https://i.insider.com/6985593bd3c7faef0ecdbefa?width=1200&format=jpeg",
     "created_at": "2026-02-06T06:40:12.752Z",
     "topic": "tech"
-  },
-  {
-    "slug": "a-very-small-sat-solver-from-haskell-now-in-dafny-proved-correct-with-llms",
-    "title": "A Very Small SAT Solver (From Haskell) Now in Dafny, Proved Correct with LLMs",
-    "description": "Dafny for Metatheory of Programming Languages. Contribute to namin/dafny-sandbox development by creating an account on GitHub.",
-    "fullText": "Skip to content\n\n You signed in with another tab or window. Reload to refresh your session.\n You signed out in another tab or window. Reload to refresh your session.\n You switched accounts on another tab or window. Reload to refresh your session.\n\nDismiss alert\n\n namin\n\n /\n\n dafny-sandbox\n\n Public\n\n You can’t perform that action at this time.",
-    "readingTime": 1,
-    "keywords": [
-      "window reload",
-      "another tab",
-      "refresh",
-      "session",
-      "signed"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://github.com/namin/dafny-sandbox/blob/master/Sat.dfy",
-    "thumbnail_url": "https://opengraph.githubassets.com/37f757a4876729fbb57a662e8bc8730df5cfc0bc7de82e6b36f6b3d99b39b44a/namin/dafny-sandbox",
-    "created_at": "2026-02-06T01:06:52.715Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "openais-new-model-leaps-ahead-in-coding-capabilitiesbut-raises-unprecedented-cybersecurity-risks",
-    "title": "OpenAI’s new model leaps ahead in coding capabilities—but raises unprecedented cybersecurity risks",
-    "description": "Why OpenAI’s latest coding breakthrough is forcing the company to rethink how—and how fast—it can deploy its most powerful models.",
-    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
-    "readingTime": 1,
-    "keywords": [
-      "fortune"
-    ],
-    "qualityScore": 0.1,
-    "link": "https://fortune.com/2026/02/05/openai-gpt-5-3-codex-warns-unprecedented-cybersecurity-risks/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2025/08/GettyImages-2214110034.jpg?resize=1200,600",
-    "created_at": "2026-02-06T01:06:50.989Z",
-    "topic": "business"
   }
 ]

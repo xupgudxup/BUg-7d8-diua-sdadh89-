@@ -1,5 +1,66 @@
 [
   {
+    "slug": "building-a-koreader-plugin-for-anki",
+    "title": "Building a KOReader Plugin for Anki",
+    "description": "How I built a KOReader plugin that generates AI-powered Anki flashcards from highlighted text on a Kobo e-reader, using Qwen to generate definitions, IPA, synonyms, example sentences, and anime-style images.",
+    "fullText": "After building my Anki Vocabulary Card Generator, the natural next step was: what if I could do the same thing directly on my Kobo while I’m reading?\n\nWhen I read in English, I highlight phrases I don’t know—especially phrasal verbs and idioms. The Kobo’s built-in dictionary is decent for single words, but it falls short for:\n\nI wanted the same AI card generation I had on the desktop, but triggered directly from the highlight menu on the device.\n\nExtract from “The Power of Habit” by Charles Duhigg\n\nBefore writing a single line of code, I looked at what was out there:\n\nai-dictionary-koreader — AI-powered dictionary plugin with multiple LLM support. Great concept, but it only gives you a dictionary lookup, not an Anki card. Qwen and Claude didn’t work for me even via OpenRouter.\n\nanki.koplugin — Sends cards to Anki, but generates them from the internal KOReader dictionary. No AI involved—so no context-aware definitions, no example sentences, no images.\n\nNeither did exactly what I needed, so I built my own.\n\nThe AnkiFlashcards KOReader plugin adds three entries to the highlight dialog:\n\nTap Anki Card, wait a few seconds, and the card appears:\n\nThe front shows the definition and a cloze sentence—the phrase is hidden. Tap Show Answer to reveal the full card:\n\nThe back has the canonical phrase (normalized to base form), the American English IPA, an anime-style illustration generated from the example sentence, and the full cloze with the phrase revealed in bold.\n\nHere’s the full flow in action:\n\nThe plugin is a reduced version of my desktop card generator. It uses Qwen (via DashScope) for everything:\n\nThe built-in dictionary on a Kobo will give you a definition for send. It won’t tell you what send in means in the context of a corporate email culture in 1987. The AI card does—because it sees the sentence around the highlight and generates a definition grounded in that context.\n\nCards are saved locally on the device, and can be:\n\nThe template it uses is the same one from my desktop app, so cards land in Anki looking exactly the same—or can be refined there if needed.\n\nReading and vocabulary learning have always been separate workflows for me. I’d finish a chapter with a list of highlighted phrases and then spend time later converting them into cards—breaking the flow twice, once while reading and once at the desk.\n\nThis plugin closes that loop. The card is generated the moment I encounter the phrase, while the context is still fresh. By the time I sit down to review in Anki, the card is already there, with a definition that actually reflects why I highlighted it in the first place.\n\nIt’s a small thing, but it’s made a real difference in how I read and how much vocabulary actually sticks.\n\nThe plugin is open source and available on GitHub: github.com/lgallard/anki-flashcards-koreader",
+    "readingTime": 3,
+    "keywords": [
+      "built-in dictionary",
+      "anki card",
+      "card generator",
+      "plugin",
+      "highlight",
+      "definition",
+      "phrase",
+      "reading",
+      "desktop",
+      "context"
+    ],
+    "qualityScore": 1,
+    "link": "https://lgallardo.com/2026/02/25/koreader-anki-flashcard-plugin/",
+    "thumbnail_url": "https://lgallardo.com/assets/images/KOreader-Qwen-robot.png",
+    "created_at": "2026-03-15T01:19:49.259Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "wales-end-losing-streak-with-comfortable-win-over-italy",
+    "title": "Wales end losing streak with comfortable win over Italy",
+    "description": "Wales finally end a three-year Six Nations losing streak in spectacular style by celebrating a bonus-point win against Italy in Cardiff.",
+    "fullText": "Wales end losing streak with comfortable win over ItalyThis content is not available in your location.There was an errorWales finally end a three-year Six Nations losing streak in spectacular style by celebrating a bonus-point win against Italy in Cardiff.MATCH REPORT: Wales stun Italy to end Six Nations losing streakAvailable to UK users only.SubsectionWalesPublished5 hours agoShareclose panelCopy linkAbout sharingRead description",
+    "readingTime": 1,
+    "keywords": [
+      "six nations",
+      "streak",
+      "italy",
+      "wales"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.bbc.com/sport/rugby-union/videos/cvg59vl4yjzo?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/4e88/live/7b0e4070-1fd6-11f1-9120-a910fc22c6ac.jpg",
+    "created_at": "2026-03-15T01:19:41.435Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "strange-minteh-goal-enough-to-give-brighton-win-over-sunderland",
+    "title": "Strange Minteh goal enough to give Brighton win over Sunderland",
+    "description": "Yankuba Minteh scores the only goal of the game in bizarre fashion as Brighton beat Sunderland 1-0 at the Stadium of Light, for their third win in four games in the Premier League.",
+    "fullText": "Strange Minteh goal enough to give Brighton win over SunderlandThis content is not available in your location.There was an errorYankuba Minteh scores the only goal of the game in bizarre fashion as Brighton beat Sunderland 1-0 at the Stadium of Light, for their third win in four games in the Premier League.MATCH REPORT: Premier League - Sunderland 0-1 BrightonAvailable to UK users only.SubsectionPremier LeaguePublished2 hours agoShareclose panelCopy linkAbout sharingRead description",
+    "readingTime": 1,
+    "keywords": [
+      "goal",
+      "brighton",
+      "sunderland",
+      "premier",
+      "minteh"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.bbc.com/sport/football/videos/c363y9zzlg2o?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/fbd8/live/45e1e600-1fda-11f1-801d-ed3cff6bf876.jpg",
+    "created_at": "2026-03-15T01:19:41.188Z",
+    "topic": "sports"
+  },
+  {
     "slug": "mark-zuckerberg-and-jeff-bezos-turn-toward-fashion-is-about-more-than-the-clothes-expert-says",
     "title": "Mark Zuckerberg and Jeff Bezos' turn toward fashion is about more than the clothes, expert says",
     "description": "Tech bros were famously indifferent toward fashion, but now Mark Zuckerberg, Jeff Bezos, and other tech billionaires are embracing it. Here's why.",
@@ -2126,68 +2187,5 @@
     "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1597/15976769/4647645-08b789db-adc8-4a3e-bbfa-c6b77b3eebc8.jpg",
     "created_at": "2026-02-07T01:05:55.321Z",
     "topic": "gaming"
-  },
-  {
-    "slug": "the-20-best-menswear-brands-for-business-casual-work-clothes",
-    "title": "The 20 best menswear brands for business casual work clothes",
-    "description": "Modern-day workwear prioritizes comfort and style. These are the best menswear brands for timeless business casual looks to wear in the office.",
-    "fullText": "A crisp light blue dress shirt works in any season and with plenty of different shades when it comes to tailoring, be it a navy suit or a khaki blazer. This shirt also happens to boast a flattering, tailored fit and a collar that frames the face while pairing with a classic tie. \n\n Check price at Todd Snyder",
-    "readingTime": 1,
-    "keywords": [
-      "shirt"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/guides/style/best-mens-business-casual-work-clothes",
-    "thumbnail_url": "https://i.insider.com/682ce1c6ac40ae2b0c9e9633?width=1200&format=jpeg",
-    "created_at": "2026-02-07T01:05:51.308Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "how-melania-trumps-style-has-evolved-from-her-modeling-days-to-first-lady-life",
-    "title": "How Melania Trump's style has evolved, from her modeling days to first lady life",
-    "description": "Melania Trump used to walk red carpets in sparkly, sheer outfits. As first lady, she embraces suits, high-fashion designers, and bold accessories.",
-    "fullText": "At a \"Celebrity\" party in 1998, Melania chose a figure-hugging silk dress in periwinkle. Its neckline scooped gently.\n\nMelania arrived at the 1999 Annual Fragrance Foundation Fifi Awards in a form-fitting dress covered entirely in pink sparkles.\n\nThe gown's subtle slit was sexy without being over the top.\n\nShe attended the New York premiere of \"Charlie's Angels\" in a white skirt suit, but added a daring edge to the look with a sheer lace top.\n\nStrappy heels completed her outfit.\n\nWhen she accompanied Donald Trump to the Oscars, Melania wore a form-fitting white dress embellished with sparkly sequins.\n\nThe gown had a V-neckline, which mirrored the slit running up the center of the dress.\n\nBefore her life had political ties, Melania was often spotted in casual looks, like this all-orange ensemble she wore to a Fashion Week show.\n\nShe paired the silk off-the-shoulder top with wide-legged pants that featured a striped pattern and sparkles.\n\nA full skirt accented the gown's form-fitting bodice.\n\nThe black-and-tan dress had a feathered skirt with sheer detailing, and she paired it with coordinating shoes.\n\nTrump proposed to Melania on April 26, 2004, the evening of the Met Gala.\n\nShe paired her 15-carat engagement ring with a black ball gown, which had a corset covered in cutouts.\n\nAttending a Fashion Week event, Melania paired fitted jeans with a sheer pink babydoll top. High heels completed the look.\n\nMelania attended the Night of Stars party in October 2005 when she was expecting Barron Trump.\n\nShe wore an empire-waist black gown to the event, which featured sheer fabric on the neckline and sparkly embellishments.\n\nBlack dresses with sheer detailing became a bit of a uniform for Melania in the early 2000s, as she showed with her dress for the Metropolitan Opera Opening Night Dinner in 2006.\n\nThe silk dress had lace detailing on the sheer bodice and the neckline. Crisscross straps and lace paneling on the skirt added to the sexy gown.\n\nAt the 2007 Met Gala, Melania wore a shiny gold minidress with fabric tassels that swayed as she walked. She paired the look with coordinating gold shoes.\n\nMelania was photographed attending a Fashion Week event in 2007 alongside Donald Trump.\n\nShe wore all-black, and her hat and wrap featured fuzzy detailing. Knee-high boots completed the wintry ensemble.\n\nMelania kept up her streak of eye-catching Met Gala looks in 2008, arriving in a bright-pink, strapless Vera Wang dress.\n\nThe dress had a bow on the neckline and ruffle detailing on its mermaid skirt.\n\nAt the premiere of \"Nine,\" Melania wore a short, long-sleeved dress embroidered with sparkles, which she paired with pointed-toe shoes.\n\nMelania's black cocktail dress had a form-fitting bodice with a subtle sweetheart neckline and spaghetti straps. The dress hit her knees, and she paired it with open-toe shoes.\n\nMelania's black suit was simple, featuring flared pants and a fitted jacket. The top buttons of her white blouse were open, and the sleeves poked out from under the jacket.\n\nBlack, pointed heels complemented the ensemble.\n\nMelania's gray dress for her \"Good Afternoon America\" appearance had a professional feel.\n\nThe fitted dress had a V-neckline and covered her knees, and a black belt cinched her waist. She also wore black heels.\n\nWhen Trump hosted an Invitational Grand Prix at Mar-a-Lago in January 2013, Melania showed that she could nail a dress code.\n\nHer white, sleeveless dress had a scooped neckline and a pleated skirt that felt like an elevated version of a golf ensemble. She added white heels to the look.\n\nThe jumpsuit featured long sleeves, subtly flared pants, and semi-sheer paneling on the bodice adorned with black lace.\n\nBlack heels accented the ensemble.\n\nAfter Trump announced he was running for president in the summer of 2015, he and Melania appeared on \"Barbara Walters Presents: The 10 Most Fascinating People of 2015.\"\n\nMelania chose a simple pink dress with short sleeves and a modest neckline for the interview. Her pink, pointed shoes matched the dress.\n\nLauren A. Rothman, a style strategist and image coach, told Business Insider that Melania seemed to be telling \"two narratives\" with fashion throughout her life, leaning into glamour and slightly more daring looks when she was first in the public eye.\n\nBut after Trump entered politics, Rothman said Melania's looks became more intentional because \"she was trying to say something with more storytelling\" about her identity and her husband through her fashion, as she showed at the 2016 RNC.\n\nFor the RNC, Melania wore the \"Margot\" dress from Roksanda, which she bought from Net-a-Porter, according to Vanity Fair. The modest white dress had a high neckline, a knee-length hem, and quarter-length sleeves that ended in ruffles.\n\nThe dress was simple and elegant, striking a similar tone to first ladies of years past.\n\nMelania attended her husband's inauguration in a powder-blue dress designed by Ralph Lauren Collection. The dress was paired with a matching shrug and gloves.\n\nThe silhouette was reminiscent of Jackie Kennedy's outfits during her time as first lady.\n\n\"It was so curated,\" Rothman said of the look. \"It was an instant revival of that Jackie memory.\"\n\nRothman said the nostalgia in the look lent Melania some of the power Jackie Kennedy held in the American mind, striking the right tone for the beginning of her tenure as first lady.\n\nRalph Lauren is also a classic American designer, though Melania would go on to wear European designers throughout Trump's presidency.\n\nMelania changed into a gown custom-designed by Hervé Pierre Braillard for his Hervé Pierre line.\n\nThe form-fitting, cream dress had off-the-shoulder sleeves made of the same fabric as a three-dimensional swath that cut across the bodice, creating volume. The same fabric flowed on the skirt, creating a train on one side, and a red belt cinched her waist.\n\nBraillard became Melania's stylist and strategy consultant throughout Trump's first term.\n\nIn 2018, Melania visited the Texas-Mexico border to speak to child migrants wearing a green jacket that said \"I really don't care, do u?\" on the back.\n\nThe Zara jacket instantly became controversial, leading people to speculate that the first lady was sending a message to the president or migrants at the border.\n\nIn her book \"I'll Take Your Questions Now,\" Stephanie Grisham, Melania's former aide, wrote that Trump yelled at Melania for wearing the jacket, though he later told media outlets she wore it to send a message to \"fake news\" outlets. Melania later repeated Trump's comments on the jacket, CNN reported.\n\nMelania accompanied Trump to the debate in a pinstripe Dolce & Gabbana suit.\n\nShe wore the jacket open over a white blouse with no tie and completed her look with Christian Louboutin heels.\n\nWhen the Trumps left the White House on January 20, 2021, Melania wore an all-black outfit comprising a Chanel jacket with gold button detailing, a Dolce & Gabbana dress, and Christian Louboutin heels. Black gloves and sunglasses completed the somber but chic ensemble.\n\nBut when they arrived at Mar-a-Lago later that day, Melania exited Air Force One in a $3,700 Gucci dress, though she wore the same sunglasses she had on earlier that day. Her loose gown featured quarter-length sleeves and an orange-and-navy print.\n\n\"Like anyone, sometimes we take off our work clothes, and we put on our play clothes,\" Rothman said. \"She went from wearing something super fitted to something loose that is right out of Palm Beach.\"\n\nMelania kept her public appearances more limited after Trump left office, but she appeared alongside him at a New Year's Eve party at Mar-a-Lago in December 2022.\n\nFor the occasion, she wore another Dolce & Gabbana dress. The knee-length, silver gown had long sleeves. It was covered in sparkles, as were her pointed-toe shoes.\n\nMelania paired a black long-sleeved top with a high-waisted, midi-length brown skirt from Martin Grant, which was belted with a bow at her waist. Her Chanel ballet flats featured both colors.\n\nA black Chanel bag completed her look.\n\nMelania stepped out at Mar-a-Lago in a black Versace dress for the last day of 2024.\n\nThe gown had an asymmetrical neckline that scooped low, hugged Melania's figure, then formed a slit on one leg.\n\nIt was glamorous and more reminiscent of her looks before Trump entered politics.\n\nMelania arrived at the 2025 inauguration in a custom navy coat designed by Adam Lippes.\n\nThe double-breasted jacket was elegant, and Melania paired it with navy pumps and a white scarf. However, the standout element of her look was her Eric Javits hat, which was also navy and white.\n\n\"It's a huge fashion moment,\" Rothman said of Melania's hat. She said the summery shape of the hat nodded to Melania's day-to-day life at Mar-a-Lago, while the wool texture and dark colors spoke to the role she was stepping back into.\n\n\"She wore a hat that bridges her worlds together,\" she added.\n\nMelania again turned to Hervé Pierre for her evening look at Donald Trump's inaugural balls, donning a strapless white dress. Black fabric crisscrossed the bodice and skirt, creating a slit on one side.\n\nA black choker made of the same fabric tied the look together.\n\nThe first lady wore a slew of menswear looks in early 2025, including a Ralph Lauren suit she wore to support the Take It Down Act at the US Capitol in March 2025.\n\nThe camel-toned, three-piece suit included a jacket, fitted trousers, and a vest. She paired it with a white blouse, black tie, and coordinating pumps, giving the look a distinctly formal feel.\n\nIn September 2025, Melania joined her husband on a state visit to the UK, spending time with King Charles III and Queen Camilla, as well as Prince William and Kate Middleton, the Princess of Wales.\n\nFor a white-tie dinner at Windsor Castle, Melania wore a bright-yellow gown designed by Carolina Herrera. The off-the-shoulder dress had long sleeves and a floor-length skirt, and it cinched at Melania's waist with a wide purple belt.\n\nThe gown's bright color was a bold choice for the royal dinner and a marked change from the neutral looks Melania had been wearing for much of 2025.\n\nThe Trumps hosted Saudi Arabia's Crown Prince, Mohammed bin Salman, for dinner at the White House in November 2025.\n\nThe first lady wore a strapless, green gown for the dinner. Designed by Elie Saab, the $3,350 dress featured ruching on the bodice and skirt, with a slit running up the center.\n\nThe dress was pretty, but it also radiated a warm welcome for Salman, as the deep-green fabric resembled the colors of the Saudi flag. Likewise, Elie Saab held a historic fashion show in Saudi Arabia in 2024, so the choice of designer seemed to nod to Salman's country as well.\n\nWhen the 2025 Christmas tree arrived at the White House, Melania donned a knee-length white coat. The high-neck, wide-sleeved coat was typical for the first lady, but her accessories were more colorful than she might have worn in years past.\n\nShe wore red leather gloves from Max Mara, which brought drama to the look, as well as tartan pumps from Manolo Blahnik. The look was festive but still felt authentic to Melania's style.\n\nAt the start of 2026, the first lady returned to her more neutral-toned wardrobe in a Dolce & Gabbana look while promoting \"Melania.\"\n\nHer high-neck suit jacket was buttoned down the center and belted at the waist. Her midi-length skirt was column-style, and she paired the set with black pumps.\n\nThe outfit struck a professional, restrained tone, particularly compared to the colorful looks she wore in the second half of 2025.",
-    "readingTime": 10,
-    "keywords": [
-      "throughout trump's",
-      "louboutin heels",
-      "trump entered",
-      "entered politics",
-      "flared pants",
-      "shoes melania's",
-      "belt cinched",
-      "melania chose",
-      "pointed-toe shoes",
-      "attending fashion"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/melania-trump-style-evolution-photos",
-    "thumbnail_url": "https://i.insider.com/6984a8eed3c7faef0ecdabf3?width=1200&format=jpeg",
-    "created_at": "2026-02-06T18:34:27.516Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "eddie-bauer-through-the-years-from-outdoor-apparel-icon-to-bankruptcy-watch",
-    "title": "Eddie Bauer through the years, from outdoor apparel icon to bankruptcy watch",
-    "description": "Eddie Bauer, one of the oldest brands in American outdoor apparel,  is facing potential closures of most of its stores as bankruptcy looms.",
-    "fullText": "For more than a century, Eddie Bauer has been synonymous with American outdoor adventure apparel. Now the iconic brand is facing the possible collapse of most of its brick-and-mortar business as a bankruptcy filing looms.\n\nThe retailer's roughly 180 stores across the United States and Canada could soon be shuttered amid plans for a Chapter 11 bankruptcy filing tied to the brand's North American store operations.\n\nEddie Bauer, one of the oldest brands in American outdoor apparel, has a storied history. It's also faced bankruptcy twice before.\n\nThe brand was founded in Seattle in 1920 by outdoorsman Eddie Bauer, who two decades later patented the first quilted goose-down jacket in the country.\n\nAt its height, Eddie Bauer had more than 500 stores worldwide, including hundreds across North America and additional locations in Japan and Germany.\n\nToday, Eddie Bauer's retail footprint has shrunk to roughly 200 stores — most of which could soon be on the chopping block as the entity operating the retailer's stores in the US and Canada prepares a bankruptcy filing, sources familiar with the situation have told Business Insider.\n\nAny potential bankruptcy filing would not affect Eddie Bauer's manufacturing, wholesale, or e-commerce operations, nor its retail business outside the US and Canada. Japan is home to several Eddie Bauer stores.\n\nHere's a look back at the Eddie Bauer brand through the years:\n\nThe late Bauer patented the iconic water-resistant, bomber-style \"Skyliner\" jacket in 1940. He was inspired to create the coat after a near-fatal experience with hypothermia during a winter fishing trip in Washington state.\n\n''I was climbing a very steep hill when I started to get sleepy,'' Bauer said in a 1981 interview with The New York Times while describing the encounter. ''I reached to touch my back and it was ice. I realized I was freezing to death.''\n\nOver the years, the Eddie Bauer brand cemented its place in the outdoor apparel industry through durable, innovative gear and clothing designed to withstand extreme conditions.\n\nEddie Bauer gear has long been used by adventurers.\n\nIn 1953, Bauer created his first mountaineering parka for the American team attempting the first ascent of K2 mountain in Pakistan.\n\nIn the decades that followed, the Eddie Bauer brand continued outfitting elite climbing teams with parkas and other cold-weather gear, including the first American team to reach the summit of Mount Everest in 1963.\n\nGeneral Mills Inc. is a big part of Eddie Bauer's history.\n\nThe cereal maker and food conglomerate owned the outdoor apparel brand from 1971 to 1988.\n\nGeneral Mills built up Eddie Bauer into a prominent retail brand, expanding it to about 60 stores before selling it to Spiegel Inc. for $260 million.\n\nEddie Bauer and Ford Motor Company partnered in the early 1980s to launch special edition Eddie Bauer vehicles. That collaboration lasted for nearly three decades.\n\nUnder the partnership, models like the Ford Explorer, Expedition, and F-150 featured Eddie Bauer trim branding and upgrades, including leather interiors and two-tone exteriors.\n\nThe Eddie Bauer Ford Explorer was particularly popular.\n\n\"Customers come in and ask to see the Eddie Bauer version, and it's almost sold on sight,\" a general manager of an Ohio car dealership told The Plain Dealer newspaper in 1991.\n\nIn 2000, Eddie Bauer partnered with the environmental organization Riverkeeper on the Eddie Bauer-Riverkeeper Kayak Challenge held on the Hudson River near Manhattan's Chelsea Piers.\n\nActor brothers Alec Baldwin and Billy Baldwin were among the participants at the event. Photos from the challenge show that the Baldwin brothers got soaked.\n\nEddie Bauer has previously been through two Chapter 11 bankruptcy restructurings.\n\nThe first time was in 2003 when its then-parent company, Spiegel, filed for bankruptcy. Eddie Bauer emerged from that bankruptcy two years later as a stand-alone company.\n\nFacing mounting debt, the retailer filed for Chapter 11 in 2009 and was acquired by private equity firm Golden Gate Capital later that year through a bankruptcy auction.\n\nThe brand was later acquired by Authentic Brands Group, in partnership with SPARC Group (which has since become Catalyst Brands), in 2021.",
-    "readingTime": 4,
-    "keywords": [
-      "eddie bauer",
-      "ford explorer",
-      "american team",
-      "american outdoor",
-      "chapter bankruptcy",
-      "outdoor apparel",
-      "roughly stores",
-      "bankruptcy filing",
-      "bauer brand",
-      "eddie bauer's"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/eddie-bauer-outdoor-retailer-store-closures-loom-history-photos-2026-2",
-    "thumbnail_url": "https://i.insider.com/69825f62a645d11881889b44?width=1200&format=jpeg",
-    "created_at": "2026-02-06T18:34:26.874Z",
-    "topic": "finance"
   }
 ]
