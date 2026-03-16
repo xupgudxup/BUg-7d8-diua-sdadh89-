@@ -1,5 +1,29 @@
 [
   {
+    "slug": "cursor-rules-and-prompts",
+    "title": "Cursor Rules and Prompts",
+    "description": "A comprehensive, open-source collection of rules and prompts designed to guide Cursor AI in generating better, more consistent code. Enhance code quality, enforce coding standards, and streamline d...",
+    "fullText": "💡 Stop repeating yourself. Make Cursor AI follow your coding standards automatically.\n\nA comprehensive collection of rules and prompts that transform Cursor from a helpful assistant into a team member who knows your codebase conventions. These rules enforce best practices, maintain code quality, and ensure consistency—without you having to explain the same things over and over.\n\nEver find yourself constantly reminding Cursor to \"use @/ instead of relative paths\" or \"don't add inline styles\"? This repository solves that. 🤯\n\nInstead of manually correcting the AI every time, these rules ensure it follows your standards automatically. Think of it as a coding style guide that the AI actually reads, understands, and applies consistently across your entire project.\n\n💼 It's like having a senior developer review every AI-generated change before it hits your codebase.\n\n✨ Automatic Enforcement - Rules apply automatically, no manual intervention needed\n\n🎯 Project-Agnostic - Works with any tech stack, easily customizable\n\n📚 Comprehensive - Covers code style, organization, documentation, and more\n\n🔄 Maintainable - Well-organized, easy to understand and modify\n\n🚀 Time-Saving - Stop repeating the same instructions to AI\n\n❌ Before: You ask Cursor to create a component, and it generates:\n\n✅ After: With these rules, Cursor automatically generates:\n\n🎉 The AI knows your conventions and follows them without being told!\n\nUse the sync script to automatically keep your .cursor directory updated across all your projects:\n\n⚠️ Important: The script requires a .include file in each destination's .cursor/ directory to specify what to sync. See sync-cursor.md for detailed documentation.\n\n💡 Note: The old fetch-cursor-rules.sh script is deprecated. Use sync-cursor.sh instead. See sync-cursor.md for full documentation.\n\n💬 The rules are organized by category and apply automatically when you're working in Cursor. No configuration needed.\n\nThis repository contains a growing collection of rules and prompts organized by category. The rules cover areas like:\n\n📍 Rules are stored in .cursor/rules/ organized by category, and reusable prompts are in .cursor/prompts/. The collection continues to grow as new patterns and best practices are identified. 🌱\n\nAll rules follow a consistent format:\n\nThese rules are designed to be:\n\n📖 See the rule creation guidelines in .cursor/rules/organization/rule-creation.mdc for details on creating new rules.\n\nThis is a proprietary project. For permissions or inquiries, please contact Himel Das.\n\nPROPRIETARY LICENSE - All Rights Reserved\n\nThis software is proprietary and confidential. You are NOT permitted to:\n\nIf you are granted explicit permission to share, you must provide attribution to Himel Das.\n\nSee LICENSE file for full terms and conditions.\n\nCreated to help developers leverage Cursor AI more effectively and maintain high code quality standards.\n\n✨ No setup, no configuration, no hassle. Just better code, automatically.\n\n⚠️ Note: These rules work with Cursor's AI features. Make sure you have Cursor installed and the .cursor folder in your project root for them to take effect.\n\nMade with ❤️ for the developer community\n\nIf this helps you write better code, consider giving it a ⭐ and sharing it with your team!",
+    "readingTime": 3,
+    "keywords": [
+      "himel das",
+      "cursor directory",
+      "stop repeating",
+      "code quality",
+      "apply automatically",
+      "standards automatically",
+      "rules",
+      "collection",
+      "prompts",
+      "instead"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/thehimel/cursor-rules-and-prompts",
+    "thumbnail_url": "https://opengraph.githubassets.com/5b72f027537fa446f0378ad170b0770d98088b76116747b49396d5bb3e5827eb/thehimel/cursor-rules-and-prompts",
+    "created_at": "2026-03-16T07:04:49.283Z",
+    "topic": "tech"
+  },
+  {
     "slug": "slop-creep-the-great-enshittification-of-software",
     "title": "Slop Creep: The Great Enshittification of Software",
     "description": "Coding agents didn't make poor engineers dangerous. They made them unstoppable.",
@@ -2058,30 +2082,6 @@
     "link": "https://imagine.dev/blog/post/what-i-wish-i-knew",
     "thumbnail_url": "/images/blog/what-i-wish-i-knew/cover.png",
     "created_at": "2026-02-06T18:34:47.896Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "tech-stack-is-a-business-decision",
-    "title": "Tech stack is a business decision",
-    "description": "Why tech stack choices should be driven by business context and constraints—not framework preferences—and why this matters even more with agentic coding tools.",
-    "fullText": "Developers love to argue about tech stacks.\n\nFlutter vs React Native.\n\nNative vs cross-platform.\n\nJava vs Ruby vs C#.\n\nReact vs Angular.\n\nRiverpod vs Bloc.\n\nDrift vs Hive.\n\nThese debates can go arbitrarily deep, down to library-level choices that have little impact on whether a product succeeds or fails.\n\nEveryone has preferences, and that’s fine. Preferences come from experience. Someone who started with strongly typed languages will value compiler guarantees and explicitness. Someone who started with dynamic languages will value flexibility and speed. Both viewpoints are internally consistent.\n\nWhat they are not is universally correct.\n\nThere is no hard data that can rank one stack as objectively “better” across all contexts. Teams, constraints, markets, and goals differ too much. Most arguments rely on anecdotes, and anecdotes do not generalize.\n\nSo if preference is not a reliable guide, how should a tech stack be chosen?\n\nThis question is often interpreted at the feature or use-case level. That misses the point.\n\nIn almost all non-hobby software, the problem being solved is a business problem.\n\nIf there is no business, no users, no revenue, then the software is irrelevant. It may be elegant or technically impressive, but it has no economic value. Software only matters insofar as it supports a business outcome.\n\nThat framing matters because it establishes the correct hierarchy.\n\nTechnology is not the goal.\n\nTechnology is a tool.\n\nAnd tools are chosen based on the job they need to do.\n\nEarly on, nobody knows whether the business will work.\n\nYou don’t know if users care. You don’t know if they will pay. You don’t know if the problem is real or imagined.\n\nAt this stage, obsessing over the “right” stack is misplaced effort. The dominant constraint is uncertainty, not scalability or architectural purity.\n\n“The FIRST rule of enterprenuership is you use what you have” - Alex Hormozi\n\nThis is simple rule of entrepreneurship applies surprisingly well to engineering.\n\nFounders and early teams start with what they already know. Not because it is theoretically optimal, but because it minimizes friction. Familiar tools reduce cognitive overhead, increase speed, and allow faster learning.\n\nEarly success is rarely determined by technical elegance. It is determined by whether you can ship something people want before you run out of time or money.\n\nAs the business grows, the constraints change.\n\nRevenue appears.\n\nUsers depend on the system.\n\nThe team grows.\n\nThe cost of failure increases.\n\nNow the stack begins to matter more. Not because some technologies are inherently superior, but because the software must support new business realities. Hiring, onboarding, operational cost, maintainability, performance characteristics, and risk management all become relevant.\n\nThis is where teams often conclude that an early stack choice was “wrong.” In most cases, it wasn’t wrong. It was right for the phase the business was in. The mistake was assuming it would remain right indefinitely.\n\nTwitch is often mentioned as a scaling story, but the more interesting part is how long the architecture stayed simple.\n\nAt one point, Twitch was serving millions of users with a monolithic Ruby on Rails application and a single PostgreSQL database. That setup was not elegant or future proof, but it worked. It allowed the team to move quickly, ship features, and grow the business without adding unnecessary complexity.\n\nOver time, the constraints changed. Growth amplified failures. Database contention increased. Reliability, support load, and churn started to matter more than raw development speed. The cost of incidents became visible in a way it had not been before.\n\nThat was when the architecture began to evolve. The database was scaled and restructured, services were split out, and new infrastructure and languages were introduced. None of this happened because the original stack was flawed. It happened because the business had outgrown it.\n\nThe technology changed in response to the business, not the other way around.\n\nIf you want to read more about how Twitch migrated from a monolith to microservices, see Breaking the Monolith at Twitch and Breaking the Monolith at Twitch: Part Two.\n\nIf you want to know more about how Twitch scaled its database, see How Twitch Uses PostgreSQL.\n\nAgentic coding tools make this even more important.\n\nTools like Claude Code and Cursor reduce the advantage of deep, framework-specific familiarity. Generating boilerplate, navigating unfamiliar code, applying patterns across modules, and keeping implementation consistent are no longer manual, error-prone tasks.\n\nWhen an agent can help you stay productive across technologies, the cost of switching or extending a stack drops. What remains expensive is not syntax or APIs, but domain knowledge, product decisions, and the long-term behavior of the system.\n\nIn other words, the more the tooling levels the technical playing field, the more tech stack decisions become about business fit.\n\nInstead of asking whether one technology is better than another in the abstract, ask questions that reflect the reality of the business:\n\nWhat are we optimizing for right now? Speed, cost, reliability, hiring, or time-to-market?\n\nHow quickly do we need to validate this idea?\n\nHow expensive will change be later, and what changes are most likely?\n\nWhat kind of team will maintain this system?\n\nWhat risks could realistically kill the business, and does the stack reduce or increase them?\n\nOnce framed this way, stack decisions become clearer and less emotional. Sometimes multiple choices are equally valid. Sometimes the boring option is correct. Sometimes speed matters more than correctness. Sometimes correctness matters more than speed.\n\nThere is no universal answer. The answer depends on the context.\n\nMost tech stack arguments are debates about taste, not outcomes.\n\nOnce technology is treated as a business decision rather than a personal identity, those arguments lose their intensity. The question stops being “what do I prefer?” and becomes “what does the business need right now?”\n\nThe right stack is not the one that wins debates.\n\nIt is the one that helps the business survive and grow at its current stage.\n\nIf are starting a project and need help with tech stack decision, connect with me on LinkedIn and I’ll take it from there.\n\nSoftware Developer specializing in Flutter, Android, and mobile development.\n Writing about code, architecture, and developer productivity.",
-    "readingTime": 6,
-    "keywords": [
-      "tech stack",
-      "stack decisions",
-      "business",
-      "speed",
-      "technology",
-      "users",
-      "tools",
-      "database",
-      "debates",
-      "languages"
-    ],
-    "qualityScore": 1,
-    "link": "https://dinkomarinac.dev/blog/tech-stack-is-a-business-decision/",
-    "thumbnail_url": "https://dinkomarinac.dev/og/tech-stack-is-a-business-decision.png",
-    "created_at": "2026-02-06T12:35:39.062Z",
     "topic": "tech"
   }
 ]
