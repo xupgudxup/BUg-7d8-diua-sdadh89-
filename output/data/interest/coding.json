@@ -1,5 +1,29 @@
 [
   {
+    "slug": "crn-a-tui-for-browsing-your-claude-and-codex-session-archives",
+    "title": "Càrn – A TUI for browsing your Claude and Codex session archives",
+    "description": "Terminal UI to archive, search, and resume your Claude and Codex coding sessions - rkuska/carn",
+    "fullText": "A terminal UI for browsing, searching, and managing your local Claude and\nCodex session archives.\n\nYou accumulate hundreds of AI coding sessions across different projects.\nThey live as raw JSONL files scattered under ~/.claude/projects/ and\n~/.codex/sessions/. carn indexes them into a local SQLite store and\ngives you a fast, searchable TUI to browse conversations, read\ntranscripts, and resume sessions — without leaving the terminal.\n\nOn first run, carn shows an import overview with source and archive paths,\nconfiguration status, and file counts. Press enter to import, or\nconfigure settings before proceeding.\n\nDownload a pre-built binary from\nReleases and place it in your\n$PATH.\n\nRequires Go 1.25.2 or later. SQLite is bundled — no external dependencies.\n\nOn first launch, carn scans source directories and builds its canonical\nstore at ~/.local/share/carn/. Subsequent launches detect changes and\nrebuild incrementally.\n\nConfiguration is optional. All settings have sensible defaults.\n\nCreate a config file at ~/.config/carn/config.toml\n(or $XDG_CONFIG_HOME/carn/config.toml):\n\nSet DEBUG=1 to force debug-level logging.\n\nPress ? at any time to open the help overlay.\n\nSource directories are never modified. All processed data lives in the\narchive directory and can be rebuilt from source at any time.",
+    "readingTime": 1,
+    "keywords": [
+      "terminal",
+      "sessions",
+      "sqlite",
+      "store",
+      "import",
+      "archive",
+      "configuration",
+      "file",
+      "press",
+      "settings"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://github.com/rkuska/carn",
+    "thumbnail_url": "https://opengraph.githubassets.com/ec4c8f847bebc47436c4d77a9b0b9460c69edcafd1d5bb89a947706418cc02b1/rkuska/carn",
+    "created_at": "2026-03-17T12:44:36.295Z",
+    "topic": "tech"
+  },
+  {
     "slug": "using-quarto-to-write-a-book",
     "title": "Using Quarto to Write a Book",
     "description": "I’ve spent the last couple of months revising my Data Visualization book for a second edition that, ideally, will appear some time in the next twelve months. As with the first edition, I’ve posted a complete draft of the book at its website. The production process hasn’t started yet, so it’s not ready to pre-order or anything, but the site has a one-question form you can fill out that asks for your email address if you’d like to be notified with one (and only one) email when it’s available. A lot has changed since the first edition, reflecting changes both in R and ggplot specifically, and in the world of coding generally. I may end up highlighting some of those new elements in other posts.",
@@ -2069,19 +2093,6 @@
     "link": "https://gitbutler.com/",
     "thumbnail_url": "https://gitbutler.com/og-image.png",
     "created_at": "2026-02-08T18:22:32.834Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "prepare-your-oss-repo-for-ai-coding-assistants",
-    "title": "Prepare your OSS repo for AI coding assistants",
-    "description": "I’ve been seeing more and more open source maintainers throwing [...]",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://angiejones.tech/stop-closing-the-door-fix-the-house/",
-    "thumbnail_url": "https://angiejones.tech/wp-content/uploads/2026/02/open-source-is-closed.png",
-    "created_at": "2026-02-08T18:22:32.063Z",
     "topic": "tech"
   }
 ]
