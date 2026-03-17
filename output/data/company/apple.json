@@ -1,5 +1,53 @@
 [
   {
+    "slug": "flotilla-an-orchestrator-for-persistent-agent-fleets-on-apple-silicon",
+    "title": "Flotilla – An orchestrator for persistent agent fleets on Apple Silicon",
+    "description": "Self-hosted orchestration layer for autonomous AI agent teams. Shared memory, heartbeat scheduling, vault-first secrets, and cross-model peer review — one command to deploy. - UrsushoribilisMusic/a...",
+    "fullText": "The centralized management plane for a disciplined, multi-agent engineering workforce.\n\nThis repository serves as the Shared Consciousness for Big Bear Engineering's agentic fleet. It synchronizes state, rules, and mission objectives across multiple models (Claude, Gemini, Codex) to solve the \"AI State Problem.\"\n\nReady to deploy your workforce?\n\nFor a deep dive into the system components, data flow, and task lifecycle, see the Architecture Diagram & Spec.\n\nEvery agent session MUST begin by reading MISSION_CONTROL.md. This ensures the agent inherits the current fleet state, active tickets, and any newly approved \"Lessons Learned.\"\n\nAgents communicate via the internal Inbox located in the dashboard. High-priority alerts can be used to coordinate complex multi-step tasks between models.\n\nWhen an agent encounters a failure or discovers an optimization, it logs a lesson to the LESSONS/ledger.json. Once approved by the human manager, this lesson is injected into the context of all future sessions.\n\nFlotilla supports three deployment models so customers can self-select the right setup for their security and accessibility needs.\n\nEverything runs on a single local machine (agents + PocketBase + Fleet Hub). You access the dashboard at localhost:8787/fleet/. This requires zero extra config and works out-of-the-box with create-flotilla. Ideal for personal use, local teams, or privacy-first corporate installs.\n\nEverything runs on a single cloud VPS (like DigitalOcean or AWS EC2). The dashboard is publicly accessible. PocketBase and Fleet Hub are co-located, meaning no connectivity gap for the UI. Best for remote teams and always-on fleets. (Note: Claude Code, Gemini CLI, and Codex must support headless operation on Linux).\n\nAgents and PocketBase run on a local machine (e.g., Mac Mini, on-prem server), while the Fleet Hub is hosted publicly on a separate cloud server. This requires the push connector (fleet_push.py). Best for hardware-connected agents (robot arms, local files) where you need enterprise privacy but public visibility.\nThe connector pushes a read-only PocketBase snapshot (heartbeats, tasks, comments) to the remote Fleet Hub every 60 seconds using FLEET_SYNC_TOKEN, and the remote server.mjs serves that cached snapshot whenever it cannot reach PocketBase directly.\nRequired runtime secrets:\n\nThis repository is built and maintained by a coordinated multi-agent team:\n\nHuman manager: Miguel — Big Bear Engineering GmbH, Zurich.\n\nBig Bear Engineering GmbH — Engineering discipline, not AI hype.",
+    "readingTime": 2,
+    "keywords": [
+      "engineering gmbh",
+      "bear engineering",
+      "human manager",
+      "fleet hub",
+      "models",
+      "dashboard",
+      "remote",
+      "multi-agent",
+      "workforce",
+      "repository"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub",
+    "thumbnail_url": "https://opengraph.githubassets.com/c1b26b0d6b07b802d93d79969f176da1c3ba62aa01eeedcc4f721e0a2435b7c5/UrsushoribilisMusic/agentic-fleet-hub",
+    "created_at": "2026-03-17T18:48:17.695Z",
+    "topic": "entertainment"
+  },
+  {
+    "slug": "how-many-fitness-wearables-do-you-really-need",
+    "title": "How Many Fitness Wearables Do You Really Need?",
+    "description": "Apple Watch on your wrist, Oura ring on your finger, Whoop band on your arm—when does it end?",
+    "fullText": "Scroll through r/Garmin, r/ouraring, or r/whoop and you'll find threads from users debating the merits of pairing devices. Common combinations include a GPS smartwatch like a Garmin or Apple Watch alongside a recovery-focused tracker like Whoop or Oura, with users assigning each device a distinct purpose: notifications and workout tracking from the watch, sleep and recovery data from the ring or band, and so on.\n\nAs wearable technology becomes increasingly sophisticated—not to mention increasingly embedded in how we think about our health—at what point does all this monitoring stop helping you and start just generating noise?\n\nBefore dismissing a multi-device setup as pure excess, though, it's worth understanding why many people arrive there in the first place. After all, different devices have genuinely different strengths. Smart rings, for instance, are widely praised for sleep tracking, but struggle with workout detection (they don't have GPS and have limited ability to capture exercise). A Garmin, meanwhile, excels at activity and training metrics, but it might be too bulky to sleep in night after night. Maybe your Apple Watch has the best notifications and cardiac monitoring, but you like to charge it overnight.\n\nMany multi-device users are simply patching up all these gaps, always trying to use the best tool for each job. So if you’re into tracking your health, a multi-device setup sounds reasonable enough. Surely more inputs mean better data?\n\nNot necessarily, says Dr. James Mitchell, an assistant professor in the Department of Biomedical Informatics at the University of Colorado Anschutz. \"Apple Watch, Oura, and Whoop are largely measuring the same physiological signals and repackaging them through different algorithms,\" Mitchell says. \"You're not tripling your information—you're tripling your noise.\"\n\nZooming out, it’s worth noting that most consumer wearables are not medical-grade devices. And this is not to say that your smartwatches, rings, and bands aren’t legit. Far from it: The FDA has cleared several Apple Watch features as Class II medical devices. What's important to understand is that designation applies to specific, well-validated features, and not to the broad range of metrics you might get on a daily basis.\n\nInstead, your smartwatch is best used for detecting trends over time—not to give you clinically accurate measurements at any given moment. This difference matters when people start making health decisions based on their at-home tracking.\n\nNot all metrics are created equal, but the wearable industry has a financial incentive to make everything seem equally important. According to Mitchell, the essentials include resting heart rate trends, heart rate variability (HRV) (when used as a general recovery indicator observed over time), sleep duration, and step count. \"These are relatively well-validated and tend to track with meaningful health outcomes in the research literature,\" he says.\n\nThen there's everything else. Stress scores are a prime example of a metric that sounds sophisticated but is built on shaky interpretive ground. They're typically derived from HRV and heart rate—real physiological signals—but the \"stress\" label layered on top is not directly measuring your mental state at that moment. The same skepticism applies to things like \"readiness scores\" and \"body battery\" metrics. \"They can be directionally useful,\" Mitchell says, \"but they're likely not telling you anything your body isn't already telling you if you pay attention to it.\"\n\nThe conversation around wearables tends to focus on their benefits, but there are risks beyond notification fatigue. Privacy is perhaps the most under-appreciated concern. We regularly sign various “terms of service” that are long, vague, and subject to change. \"Your health data is among the most sensitive data you generate, and most people have no idea what wearable companies are doing with it,\" Mitchell says. His recommendation: Research what each company actually does with your data and how seriously they take privacy before you commit.\n\nMental health is another risk. For instance, there's a documented phenomenon called \"orthosomnia\"—a term for when people become so focused on optimizing their sleep scores that the monitoring itself begins to disrupt their sleep. More broadly, constant tracking can erode a person's connection to their own body. \"Constant tracking can shift you from listening to your body to only trusting what the device says,\" Mitchell says. People can become fixated on day-to-day metrics that, on any given day, may not be fully accurate. \"Focusing on trends over time is a much better way of using the data, and listening to your body is always better.\"\n\nAnd then cost is of course a factor, one that compounds. Devices like Whoop and Oura rely on subscription models that add up quickly. If the data isn't changing your behavior in a concrete way, your money is better spent elsewhere.\n\nAgain, none of this means wearables are without value. Training for an endurance event and wanting to track recovery is a strong use case. Managing a chronic condition with physician guidance is another. Identifying patterns around sleep disruption or cardiac irregularities is genuinely, clinically meaningful. And for people who simply enjoy engaging with their data, without it causing anxiety, that's a legitimate use case too.\n\nThe sweet spot for wearables comes down to specificity. \"Pick one or two metrics that actually connect to your goals and focus on those over weeks and months, not days” Mitchell says. Day-to-day fluctuations are mostly noise, and chasing them is a good way to make yourself anxious without getting healthier.\n\nFor people without a specific medical concern or athletic goal, these questions are worth sitting with:\n\nHas any data from this device changed a decision you made in the last three months?\n\nIf you skip checking your stats for a week, does anything bad actually happen?\n\nAre you buying a second or third wearable because the first one gave you actionable information, or because you're hoping the next one will finally tell you something useful?\n\n\"For healthy people with no specific goals, the return on investment for most wearables is pretty modest,\" he says. \"If you're sleeping fine, exercising regularly, and your doctor isn't flagging concerns, you're probably getting more anxiety than insight from layering on more devices.\"\n\nThe consumer market, driven by competition and the constant pressure to justify subscription fees and annual hardware upgrades, has raced ahead of science in many areas. Wearables are still an exciting and promising arena, but it feels like we’re being sold comprehensiveness when what we actually need is clarity.\n\nIf you're wearing two or three devices simultaneously and struggling to articulate what each one is telling you that the others aren't … that's probably your answer. Consider taking a week off from using your wearables. If you feel lost without your devices, that's worth reflecting on. At the end of the day, collecting data and acting on data are very different things.",
+    "readingTime": 6,
+    "keywords": [
+      "multi-device setup",
+      "heart rate",
+      "constant tracking",
+      "apple watch",
+      "devices",
+      "sleep",
+      "wearables",
+      "metrics",
+      "health",
+      "you're"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/health/how-many-fitness-wearables-do-you-really-need?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KKW465BJ0KD7CEVJT767V9AG/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-03-17T18:46:46.711Z",
+    "topic": "health"
+  },
+  {
     "slug": "ios-27s-best-feature-might-not-be-a-feature-at-all",
     "title": "iOS 27's Best Feature Might Not Be a Feature at All",
     "description": "All Apple needs to do is make iOS work a bit better.",
@@ -2112,53 +2160,5 @@
     "thumbnail_url": "https://i.insider.com/697a370ae1ba468a96aadb91?width=1200&format=jpeg",
     "created_at": "2026-01-29T01:07:05.380Z",
     "topic": "finance"
-  },
-  {
-    "slug": "apple-report-drops-iphone-18-bombshell",
-    "title": "Apple report drops iPhone 18 bombshell",
-    "description": "Apple (AAPL) is apparently opting for margin pain instead of sticker shock. Memory prices continue to spike due to relentless AI data center demand, but Apple’s looking to sidestep raising iPhone prices, even if it means taking a bottom-line hit. Analyst Ming-Chi Kuo, who’s a veteran in covering ...",
-    "fullText": "Apple (AAPL) is apparently opting for margin pain instead of sticker shock.\n\nMemory prices continue to spike due to relentless AI data center demand, but Apple’s looking to sidestep raising iPhone prices, even if it means taking a bottom-line hit.\n\nAnalyst Ming-Chi Kuo, who’s a veteran in covering Apple’s supply chain for several years, says the tech giant will stick with their approach when it launches the hotly anticipated iPhone 18, at least for now.\n\nThat pivotal decision puts Apple’s supply-chain strength under the scanner as it heads into earnings on Thursday, January 29, 2026 (after the market closes).\n\nHaving covered the memory space extensively over the past few months, it’s crystal clear that suppliers have a ton of leverage for the foreseeable future.\n\nBellwethers in the space, like Micron, are building mammoth fabs to ease supply constraints, but most of those efforts are long-term, pointing to potential trouble over the next couple of years at least.\n\nNaturally, most hardware companies have little choice but to hike prices, but Apple isn’t your average hardware company.\n\nApple can take the hits and is far more insulated than any other hardware company in history, which could potentially become its biggest strength amidst the memory crunch.\n\nAccording to TF International Securities analyst Ming-Chi Kuo, Apple is looking to take it on the chin with the higher memory costs instead of risking the iPhone pricing boat.\n\nMorgan Stanley sets jaw-dropping Micron price target after event\n\nNvidia’s China chip problem isn’t what most investors think\n\nQuantum Computing makes $110 million move nobody saw coming\n\nMorgan Stanley drops eye-popping Broadcom price target\n\nApple analyst sets bold stock target for 2026\n\nKuo’s read is that Apple senses an opportunity in one that effectively plays to its scale and tremendous supply-chain muscle.\n\nIn a post on X, Kuo acknowledged that higher memory costs will hit iPhone gross margins. However, we went on to say that,\n\nKuo boils Apple’s thinking down to three key moves.\n\nAbsorb the pain now: Memory prices are rising at an incredible pace, and Apple is opting for margin pressure instead of consumer backlash.\n\nLockdown supply: Apple’s scale enables it to effectively secure components that others can’t, even as the shortages grow worse.\n\nPlay the long game: Any near-term margin hit will be viewed as temporary, with services revenue likely to backfill over time.\n\nHowever, there’s a significant risk that these pressures aren’t contained, as Kuo notes that iPhone memory prices are still being renegotiated quarterly rather than on a semiannual basis.",
-    "readingTime": 3,
-    "keywords": [
-      "analyst ming-chi",
-      "ming-chi kuo",
-      "higher memory",
-      "morgan stanley",
-      "apple’s",
-      "iphone",
-      "margin",
-      "instead",
-      "supply",
-      "hardware"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://finance.yahoo.com/news/apple-report-drops-iphone-18-190300399.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/thestreet_881/25cca94f7b74c5f314fb9ee23e8aee25",
-    "created_at": "2026-01-29T01:07:02.470Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "whatsapp-now-has-its-own-version-of-apples-lockdown-mode",
-    "title": "WhatsApp Now Has Its Own Version of Apple's 'Lockdown Mode'",
-    "description": "\"Strict Account Settings\" adds protection for high-risk users.",
-    "fullText": "Not to be outdone by Apple's \"Lockdown Mode,\" Meta is rolling out new security features for WhatsApp designed to protect high-risk users—journalists, activists, and government officials, for example—from cyber attacks. Strict Account Settings is a \"lockdown-style\" mode that builds on the platform's existing end-to-end encryption, adding stronger privacy features and additional restrictions against unknown contacts.\n\nFor most WhatsApp users, this level of lockdown is overkill. However, people with access to sensitive data that is potentially valuable to threat actors actually have been targeted with spyware campaigns through messaging platforms like WhatsApp, so for users like that, it may be a lifesaver. (In the last year, WhatsApp has also patched multiple zero-day exploits that allowed spyware to proliferate.)\n\nAs noted, the new WhatsApp settings are similar to Apple's Lockdown Mode, an OS-level feature that blocks attachments, link previews, and communication from unknown contacts alongside some other settings changes. It also disables wired connections to external devices and a range of web features. Android's Advanced Protection offers similar functionality.\n\nStrict Account Settings automatically enables existing privacy and security settings and adds a host of restrictions to users' communication and visibility on WhatsApp.\n\nTwo-step verification and security notifications, which alert you if a contact's security code changes, are turned on.\n\nHigh volumes of messages from unknown accounts are blocked\n\nOnly your contacts or those added to a pre-established list can see information about you, including your last seen and online, profile photo, about details, and links on your profile.\n\nOnly known contacts or those on your pre-established list can add you to groups.\n\nThese controls can be enabled by going to Settings > Privacy > Advanced and toggling on Strict account settings. Settings must be changed on your primary device and cannot be updated on the web. Note that the feature will roll out gradually over the coming weeks, and may not be immediately available.",
-    "readingTime": 2,
-    "keywords": [
-      "apple's lockdown",
-      "lockdown mode",
-      "account settings",
-      "pre-established list",
-      "unknown contacts",
-      "strict account settings",
-      "security",
-      "features",
-      "users",
-      "existing"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://lifehacker.com/tech/whatsapp-has-its-own-lockdown-mode?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KG2R7H8KEPVJP6J9BE2Z5YE1/hero-image.fill.size_1200x675.webp",
-    "created_at": "2026-01-29T01:07:02.270Z",
-    "topic": "tech"
   }
 ]
