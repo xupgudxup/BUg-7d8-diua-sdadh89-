@@ -1,5 +1,45 @@
 [
   {
+    "slug": "writing-for-developers",
+    "title": "Writing for Developers",
+    "description": "Pragmatic methods for writing blogs, articles, and other technical pieces that stand out from the crowd!",
+    "fullText": "5, 10 or 20 seats+ for your team - learn more\n\n5, 10 or 20 seats+ for your team - learn more\n\n5, 10 or 20 seats+ for your team - learn more\n\nLoaded with specific examples of writing in the wild that can serve as object lessons.\n\nDemystifies the technical writing process and helps make you a better writer.\n\nFull of simple, practical guidance for improving your craft and increasing your impact. I will be recommending it far and wide.\n\nOffers lots of actionable tips, even for those who have been writing for years. Plus, it’s a seriously fun read.",
+    "readingTime": 1,
+    "keywords": [
+      "team learn",
+      "seats"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.manning.com/books/writing-for-developers",
+    "thumbnail_url": "https://images.manning.com/book/6/4e43c0b-fe7b-4295-aa2c-7c9d74c6455f/Dunlop-HI.png",
+    "created_at": "2026-03-18T18:44:34.742Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-mermaid-planning-tool-for-ai",
+    "title": "A Mermaid Planning Tool for AI",
+    "description": "The practice of writing code has been changing fast. Really fast. I–and a large portion of the industry–write code …",
+    "fullText": "The practice of writing code has been changing fast. Really fast. I–and a large\nportion of the industry–write code in a completely different way from a year\nago. And by that I mean that I largely manage a sophisticated coding machine\nthat does the work. Writing code is now a process very similar to some of my\nprevious experience as VP of Architecture at\nCommunity: I help co-design an architecture that will\nsupport the desired implementation, and then I help supervise the plan to do\nso. I review PRs, and suggest changes. I ensure docs and patterns are up to\ndate. It’s a familiar role.\n\nAs I’ve become more adept at coding with AI, I’ve found that what worked well\nfor teams of developers works well for AI. And, one of those things is that\nstarting with a diagram-focused discussion is a lot easier. In person this\noften starts at a whiteboard. In remote teams it’s often some cobbled together\ncombination of other tools. Some years ago now, thanks to Community.com\nbeing 100% remote, my brother Jeffrey Matthias\nintroduced me to Mermaid and its\nimplementation of sequence diagrams. I was (and remain) impressed by the\nsimplicity of that diagram and how easily the most important interactions are\nmade clear.\n\nSome months back, Tom Patterer and I started\nasking Claude Code to generate Mermaid diagrams for when exploring existing\ncode, and when creating implementation plans. And, it turns out, as a fantastic\ntool in debugging.\n\nThis evolved into flipping the order around: on most projects we just start\nwith the diagram. That diagram can codify an awful lot of thinking: it’s a\nreally dense carrier of meaning. Once you have that, and if you have good rules\nin your AGENTS.md/CLAUDE.md file, you will get a very good plan, and likley a\nclean implementation. We learned to always include the diagram in the plan, so\nthat it is not lost in the context of the planning session. When I get a plan\nfrom the agent, I usually clear the context and have it compare the plan to the\ndiagram a second time to catch any errors or oversights. I rarely catch major\nissues in plans or implementation now.\n\nBut now you have another problem: collaborating on a diagram is somewhat\npainful. Certain IDEs enable collaboration on a file with auto-reloading, but\nthat requires that you are editing in an IDE and it has the necessary plugins.\nThe few of you reading this who know me may also know that I am a 35 year vi\nand vim user and not a fan of most IDEs. I co-wrote an O’Reilly book (with\nSean Kane) in vim. I don’t want to use an IDE,\nneovim + Claude Code is enough. Further\nand in the mermaid.live tool, looking at an actual\ndiagram of any size is not great. If you have this tooling and prefer it,\ngreat.\n\nBut for my preferences, I decided to write a tool that would allow us to\ncollaborate on a diagram in a way that is more natural to AI. And which is more\nnatural to programmers. It does include an editor, so that I can directly edit\nthe diagram, but for the most part it’s the ability to push and pull diagrams\nfrom the agent that is the biggest win. I has both an MCP server and a CLI tool\nto interact with it, so take your pick. Both allow the agent to directly push\nupdates. It supports going entirely full screen with the diagram, too.\n\nMost of the rest of the Mozi team are now using this tool.\nI am pretty sold on this workflow at the moment. And it’s fun how it harkens\nback to the way we all talked about designing software in the aughts, back when\nwe thought we might largely generate code from diagrams, as Todd\nSundsted pointed out to me awhile back. The\ncode generator is just a lot more sophisticated these days.\n\nIt’s a pretty simple app, but I tried to polish it up enough to make it nice to\nuse. Other co-workers have now contributed to it as well. I’m a light-mode guy\nbut co-workers are not all, so there is a dark mode as well. vim bindings are\nsupported but not required.\n\nOn Linux and Windows, it’s a server and opens the browser to the diagram. On\nmacOS, it’s a desktop app that opens the diagram. It can also open .mmd files\nin the event you want to review previous work.\n\nIf you are serious about improving your AI workflow, I encourage you to try it\nout.",
+    "readingTime": 4,
+    "keywords": [
+      "ai and",
+      "claude code",
+      "diagram",
+      "it’s",
+      "implementation",
+      "plan",
+      "tool",
+      "diagrams",
+      "back",
+      "agent"
+    ],
+    "qualityScore": 1,
+    "link": "https://relistan.com/mermaid-tool-for-ai",
+    "thumbnail_url": "http://localhost:4000/images/bio-photo.png",
+    "created_at": "2026-03-18T18:44:34.036Z",
+    "topic": "tech"
+  },
+  {
     "slug": "should-liverpool-get-rid-of-slot-fans-give-their-verdict",
     "title": "Should Liverpool get rid of Slot? Fans give their verdict...",
     "description": "[Getty Images]After more dopped points over the weekend against a relegation-threated side in Tottenham just a couple of weeks after drawing with bottom-placed Wolves, it led to vocal disgruntlement from fans.BBC Sport pundit Wayne Rooney believes the club will have to have \"conversations\" this summer if results don't improve under boss Arne Slot and they miss out on Champions League qualification.Our Liverpool fan writer suggested on Monday the Dutchman \"needs to save his job on Wednesday\" against Galatasaray as supporters lose patience with \"painfully tepid\" displays from the team.We asked you what you believe the club should do about the current manager, and an overwhelming 82% suggested he should go either now or in the summer. Here is a breakdown of the responses at the time of writing:Sack Slot now - 42%Sack Slot in the summer - 40%Keep Slot - 18%You can add your selection here",
@@ -2100,42 +2140,5 @@
     "thumbnail_url": "https://media.zenfs.com/en/mediaite_845/14ad98684991a13d9b9c7d5587ec3f0a",
     "created_at": "2025-12-21T18:15:58.663Z",
     "topic": "news"
-  },
-  {
-    "slug": "multimillionaire-musician-william-says-worklife-balance-is-for-people-working-on-someone-elses-dreamhe-grinds-from-5to9",
-    "title": "Multimillionaire musician Will.i.am says work-life balance is for people ‘working on someone else’s dream’—he grinds from 5-to-9 after his 9-to-5",
-    "description": "When Will.i.am’s not writing hit songs like “OMG” for Usher, he’s looking for the next big pop star on The Voice U.K., or running his new AI company, FYI.",
-    "fullText": "Orianna Rosa Royle is the Success associate editor at Fortune, overseeing careers, leadership, and company culture coverage. She was previously the senior reporter at Management Today, Britain's longest-running publication for CEOs.\n\nWill.i.am is busy. When he’s not writing hit songs like “OMG” for Usher, he’s looking for the next big pop star on The Voice UK, or running his new AI company, FYI. So how exactly does he balance it all?\n\nThe Grammy Award–winning artist turned tech entrepreneur revealed to Fortune that he maxes out the 5-to-9 after the daily grind of his 9-to-5, and he advises Gen Zers to forget about work-life balance if they want to emulate his success.\n\n“If you’re trying to build something that doesn’t exist, it’s about dream-reality balance,” he says. “Work-life balance means that you’re working for somebody else’s dream. You just have a job supporting somebody else’s dream, and you want to balance your work and your life.\n\n“But if it’s dream-reality balance, then it’s not work. It’s a dream that you’re trying to put into reality, and you’re ignoring your current reality.”\n\nFor example, after working on his tech venture from 9 a.m. to 5 p.m., Will.i.am says that he goes back to work on his creative business until 9 p.m. But before his AI company was a reality, his day was flipped. He’d work on music first before dipping into his tech side hustle well into the evening.\n\nIt’s why he advises young people to reframe how they think of their time off work and their current 9-to-5 reality.\n\n“I’m not really paying attention to this reality,” he explains. “I’m trying to bring that one [a new business venture or idea] here and focusing on how do I get people who believe in this dream to help me materialize it? So for that, you have to make some type of sacrifice to bring this thing that doesn’t exist here.\n\n“From that perspective, work-life balance is not for the architects that are pulling visions into reality. Those words don’t compute to the mindset of the materializers.”\n\nOf course, many young people already put in hours to their side hustles and personal development after work. Millions of Gen Zers and millennials are tuning into people’s 5-to-9 evening routines on TikTok.\n\nBut Will.i.am says chipping away at your dream when most people are off work extends to weekends, birthdays, and holidays.\n\n“I didn’t party. I was always a square, meaning, ‘You work too much, man, let’s go out.’ Like what? Go out. I don’t want to go out. I just always worked,” the rapper says. “It’s your birthday what are you gonna do? Work. You ain’t gonna celebrate?”\n\nThe multimillionaire says he’s always saved the celebrating for the stage, where he can finally enjoy the fruits of his labor.\n\n“There’s nothing that’s ever gonna feel that glorious than when you’re actually at a festival. But how do you get to headline a festival? You’ve got to work. My friends would go out and party, hanging out with chicks, doing drugs, drinking. I was just in the studio working, writing songs.”\n\nTo this day, he says that he hasn’t gone out and celebrated a birthday—including his most recent one, which was just last week on March 15.\n\n“Like on Christmas for the past 12 years: I could celebrate Christmas with my family, and then on the 26th, I fly to China because that’s dream maker heaven. Anything you want to make is there.”\n\nWill.i.am was speaking to Fortune in Rome for the rollout of Raidio.FYI radios in Mercedes-Benz cars.\n\n7 a.m.: Will.i.am is not a part of the CEO-approved 5 a.m. club. Instead, he told Fortune he wakes up at around 7 a.m., and he sticks to this routine whether he’s living in L.A. or London.\n\n8 a.m.: “I walk, do my calls, and get to work,” he says, with the aim to start work at 9 a.m.\n\n9 a.m. to 5 p.m.: “I get a lot done from nine to 12, do my little lunch, then back to work at one, finish at five, and that’s all my tech, like entrepreneurial activities.”\n\n5 p.m. to 9 p.m.: “The night hours are creativity,” he says, adding that specifically between 7 p.m. and 9 p.m. is when he gets the best ideas. “That’s the juicy bits, [when] I’m freaking soaking in emotion, to where I just rinse it out in the phone.”\n\n9 p.m. onward: When Will.i.am was in his late twenties, he says going to sleep at 4 a.m. (and waking up at noon) was the norm. But now, at 50 and balancing both his tech and music ventures, he starts unwinding for bed after 9 p.m. and is asleep by 11 p.m.\n\nA version of this story originally published on Fortune.com on March 23, 2025.",
-    "readingTime": 5,
-    "keywords": [
-      "doesn’t exist",
-      "somebody else’s",
-      "else’s dream",
-      "work-life balance",
-      "dream-reality balance",
-      "it’s",
-      "tech",
-      "you’re",
-      "fortune",
-      "he’s"
-    ],
-    "qualityScore": 0.8,
-    "link": "https://fortune.com/article/will-i-am-says-work-life-balance-for-people-working-on-someone-elses-dream/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2025/03/GettyImages-1487800046.jpg?resize=1200,600",
-    "created_at": "2025-12-21T18:15:57.676Z",
-    "topic": "business"
-  },
-  {
-    "slug": "what-the-hyperproduction-of-ai-slop-is-doing-to-science",
-    "title": "What the hyperproduction of AI slop is doing to science",
-    "description": "A new study shows AI writing is turning traditional measures of research quality upside down.",
-    "fullText": "Want to write?\n\n Write an article and join a growing community of more than 216,700 academics and researchers from 5,395 institutions.\n\n Register now",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.3,
-    "link": "https://theconversation.com/what-the-hyperproduction-of-ai-slop-is-doing-to-science-272250",
-    "thumbnail_url": "https://images.theconversation.com/files/709831/original/file-20251219-66-vklc4z.jpg?ixlib=rb-4.1.0&rect=0%2C132%2C2400%2C1200&q=45&auto=format&w=1356&h=668&fit=crop",
-    "created_at": "2025-12-19T06:18:41.817Z",
-    "topic": "tech"
   }
 ]
