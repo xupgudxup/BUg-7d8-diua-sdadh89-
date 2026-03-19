@@ -1,5 +1,178 @@
 [
   {
+    "slug": "i-built-lionpost-send-greeting-cards-with-your-own-photos-and-voice-messages",
+    "title": "I built LionPost – send greeting cards with your own photos and voice messages",
+    "description": "Create beautiful, personalized e-cards with AI-powered themes. Upload your image, customize text, and share across social media. Free card to start, unlimited cards for $4/month.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://lionpost.com/",
+    "thumbnail_url": "https://storage.googleapis.com/gpt-engineer-file-uploads/jlidZBIel2SgPaO5ncMZBDL0Rug2/social-images/social-1769640928330-lionpost logo jan 26.png",
+    "created_at": "2026-03-19T12:38:32.423Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "node9-a-sudo-wrapper-for-ai-agents-with-auto-git-snapshots",
+    "title": "Node9 – A \"sudo\" wrapper for AI agents with auto Git snapshots",
+    "description": "The Execution Security Layer for the Agentic Era. Providing deterministic \"Sudo\" governance and audit logs for autonomous AI agents. - node9-ai/node9-proxy",
+    "fullText": "Node9 is the execution security layer for the Agentic Era. It encases autonomous AI Agents (Claude Code, Gemini CLI, Cursor, MCP Servers) in a deterministic security wrapper, intercepting dangerous shell commands and tool calls before they execute.\n\nWhile others try to guess if a prompt is malicious (Semantic Security), Node9 governs the actual action (Execution Security).\n\nAIs are literal. When you ask an agent to \"Fix my disk space,\" it might decide to run docker system prune -af.\n\nWith Node9, the interaction looks like this:\n\nNode9 initiates a Concurrent Race across all enabled channels. The first channel to receive a human signature wins and instantly cancels the others:\n\nNode9 doesn't just \"cut the wire.\" When a command is blocked, it injects a Structured Negotiation Prompt back into the AI’s context window. This teaches the AI why it was stopped and instructs it to pivot to a safer alternative or apologize to the human.\n\nNode9 takes a silent, lightweight Git snapshot before every AI file edit. If the AI hallucinates and breaks your code, run node9 undo to instantly revert — with a full diff preview before anything changes.\n\nNode9 keeps the last 10 snapshots. Snapshots are only taken for file-writing tools (write_file, edit_file, str_replace_based_edit_tool, create_file) — not for read-only or shell commands.\n\nSecurity posture is resolved using a strict 5-tier waterfall:\n\nRules are merged additive—you cannot \"un-danger\" a word locally if it was defined as dangerous by a higher authority (like the Cloud).\n\nSmart rules match on raw tool arguments using structured conditions — more powerful than dangerousWords or rules, which only see extracted tokens.\n\nThe field key supports dot-notation for nested args: \"params.query.sql\".\n\nBuilt-in default smart rule (always active, no config needed):\n\nUse node9 explain <tool> <args> to dry-run any tool call and see exactly which smart rule (or other policy tier) would trigger.\n\nRuns a full self-test and exits 1 if any required check fails:\n\nDry-runs the policy engine and prints exactly which rule (or waterfall tier) would block or allow a given tool call — useful for debugging your config:\n\nnode9 check exits immediately / Claude is never blocked\nNode9 fails open by design to prevent breaking your agent. Check debug logs: NODE9_DEBUG=1 claude.\n\nTerminal prompt never appears during Claude/Gemini sessions\nInteractive agents run hooks in a \"Headless\" subprocess. You must enable native: true or browser: true in your config to see approval prompts.\n\n\"Blocked by Organization (SaaS)\"\nA corporate policy has locked this action. You must click the \"Approve\" button in your company's Slack channel to proceed.\n\nNode9 Pro provides Governance Locking, SAML/SSO, and VPC Deployment.\nVisit node9.ai",
+    "readingTime": 3,
+    "keywords": [
+      "execution security",
+      "shell commands",
+      "smart rule",
+      "tool",
+      "node",
+      "blocked",
+      "tier",
+      "rules",
+      "config",
+      "policy"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/node9-ai/node9-proxy",
+    "thumbnail_url": "https://opengraph.githubassets.com/7c76c85fe2ae97b943ef83f7b2500438d3b38cd6a634054c2b30198ef5b97657/node9-ai/node9-proxy",
+    "created_at": "2026-03-19T12:38:31.763Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "skillfile-the-declarative-skill-manager-now-autodiscovers-skills-in-repos",
+    "title": "Skillfile, the declarative skill manager, now auto-discovers skills in repos",
+    "description": "One-stop shop for AI skills and agents. Search 110K+ community skills, install and track them declaratively, and deploy across all major AI coding tools (Claude Code, Codex, etc) - eljulians/skillfile",
+    "fullText": "Track AI skills and agents declaratively, like dependencies. Pin them. Patch them. Deploy everywhere.\n\nDeclare your skills in a manifest. Pinned to exact commits. Deploys to Claude Code, Cursor, Gemini, and 5 more. Customize without losing upstream updates. Search 110K+ skills from the terminal.\n\nYou found a great skill on GitHub and copied the markdown into .claude/skills/. Maybe you grabbed one from agentskill.sh. So what now?\n\nskillfile fixes all of that. One manifest, one lock file, every platform.\n\nOr download a pre-built binary from GitHub Releases. Or build from \n\nGitHub token recommended. skillfile uses the GitHub API to resolve commits. Without a token you're limited to 60 req/hour. Set GITHUB_TOKEN, GH_TOKEN, or run gh auth login.\n\nThat's it. Skills are fetched, locked to exact SHAs, and deployed. On a fresh clone, skillfile install reproduces the exact same setup.\n\nLooking for skills to install? See awesome-agents-and-skills for a curated collection with a ready-to-use Skillfile.\n\nRun skillfile add for a guided wizard, or use the explicit CLI for any \n\nBrowse agentskill.sh, skills.sh, and skillhub.club without leaving the terminal. Results are sorted by popularity, deduplicated, and include security scores.\n\nEdit an installed skill to fit your workflow, then pin it. Your changes survive upstream updates automatically.\n\nPatches live in .skillfile/patches/ and are committed to version control. Your whole team gets the same customizations.\n\nWrite your Skillfile once. Deploy to every AI coding tool you use.\n\nConfigure multiple platforms at once. skillfile install deploys to all of them.\n\nEvery GitHub entry is pinned to an exact commit SHA in Skillfile.lock. Commit this file. On any machine, skillfile install fetches the exact same bytes. install --update re-resolves to the latest upstream, and the lock diff shows exactly what changed in code review.\n\nCommit Skillfile, Skillfile.lock, and .skillfile/patches/ to your repo. That's it.\n\nThe most common team setup: write your own skills in the repo and mix in community ones. Everyone gets the same AI behavior.\n\nLocal skills live in your repo. You write and version them with git. GitHub skills are pinned to exact SHAs in the lock file. Both deploy to every configured platform. New teammate joins, runs skillfile install, and gets the same AI setup as everyone else.\n\nLine-oriented, space-delimited, human-editable. No YAML, no TOML.\n\nNames are inferred from filenames when omitted. Full format specification in SPEC.md.\n\nskillfile is a file manager. It downloads markdown from sources you specify and places it where your AI tools expect it. It does not execute, verify, or sandbox the content.\n\nThe lock file pins entries to exact commit SHAs. The same SHA always produces the same bytes. install --dry-run lets you review what will be fetched. Patches make all local modifications visible in version control. But none of this tells you whether the content is safe.\n\nReview what you install. The risk profile is the same as git clone.",
+    "readingTime": 3,
+    "keywords": [
+      "exact shas",
+      "upstream updates",
+      "lock file",
+      "bytes install",
+      "exact commit",
+      "skillfile install",
+      "skills",
+      "pinned",
+      "without",
+      "setup"
+    ],
+    "qualityScore": 0.8,
+    "link": "https://github.com/eljulians/skillfile",
+    "thumbnail_url": "https://opengraph.githubassets.com/ae97d97014bdfa4e79d1e8c1f5a832215e31f9ea1cb552d1d4772e7d4f9c9786/eljulians/skillfile",
+    "created_at": "2026-03-19T12:38:29.963Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "us-startup-advertises-ai-bully-role-to-test-patience-of-leading-chatbots",
+    "title": "US startup advertises ‘AI bully’ role to test patience of leading chatbots",
+    "description": "$800-a-day position involves exposing a chatbot’s inconsistencies as it forgets, fudges or hallucinates\nImagine a day at work where your main task is to pick a fight with a computer. No meetings, no emails – just you, a chair and a chatbot with the maddening tendency to think it has the cleverest mind in the room.\nThe job title alone raises an eyebrow: “AI bully”. But this is precisely what a California startup called Memvid is offering: $800 to spend eight hours testing the patience and memory of artificial intelligence.\n Continue reading...",
+    "fullText": "$800-a-day position involves exposing a chatbot’s inconsistencies as it forgets, fudges or hallucinates\n\nImagine a day at work where your main task is to pick a fight with a computer. No meetings, no emails – just you, a chair and a chatbot with the maddening tendency to think it has the cleverest mind in the room.\n\nThe job title alone raises an eyebrow: “AI bully”. But this is precisely what a California startup called Memvid is offering: $800 to spend eight hours testing the patience and memory of artificial intelligence.\n\n“You’ll spend a full eight-hour day interacting with leading AI chatbots – and your only job is to be brutally honest about how frustrating they are,” the company’s job listing states.\n\nThe job requires no computer science degree or specialised AI skills. The only prerequisite is having an “extensive personal history of being let down by technology” – and the patience to ask the same question over and over again.\n\n“People constantly have to repeat themselves to chatbots. We wanted to turn that every day frustration into something visible,” said Memvid’s co-founder and CEO, Mohamed Omar.\n\nThe role reads almost like a stress test for human temperament as much as machine intelligence: candidates are expected to keep the conversation going, revisit earlier topics and gently force the AI to admit when it has lost track – all while recording everything for analysis.\n\nIt is a far cry from coding or server management; this is conversation-driven detective work, following the trail of a chatbot’s mistakes as it forgets, fudges or hallucinates.\n\nOmar told Business Insider that the company considered this task as a way to highlight the persistent problem in many AI chatbots of systems losing context over time.\n\n“All the AI lives and breathes on memory. It’s the holy grail,” he said. “But the AI memory solutions that were in the market in 2024, when we started our business, were unreliable – meaning they would lose context and start hallucinating.”\n\nThe problem has only grown in subsequent years: a peer-reviewed paper, presented at the International Conference on Learning Representations (ICLR) in 2025, found that even leading commercial AI systems suffered a 30% to 60% drop in accuracy when asked to remember facts across sustained conversations, lagging well behind human performance.\n\nOmar added that one recent college graduate who applied for the job said they pay almost $300 a month for their AI subscriptions. He said the person wrote “a whole rant about how they’ve faced memory issues on every AI platform they’ve used”.\n\nHe added: “A lot of people that are applying for this are knowledge workers who are using these products.”\n\nThe root cause of the problem, as researchers and industry analysts have documented, is that companies have rushed to connect their AI tools to vast knowledge repositories, only to discover that retrieval-based systems can surface confident but incorrect answers faster than ever, with no reliable way to signal that they are doing so.\n\nWhen AI systems are deployed in the real world at scale, this confident wrongness can cause serious harm: a Guardian investigation this week by the AI security lab Irregular found that when AI agents were given broad but benign tasks inside a simulated corporate environment, they bypassed safety controls, interacted with sensitive data and performed actions with the potential to be harmful without direct instructions.\n\nIt is an issue the real world increasingly struggles with. Damien Charlotin, a French legal scholar, has tracked how the legal profession is experiencing a sharp increase in AI-driven legal hallucinations, reporting that while before spring 2025 there were roughly two incidents a week, by autumn that had risen to two or three a day.\n\nIt is also an issue in healthcare. Earlier this month, the ECRI Institute placed “navigating the AI diagnostic dilemma” at the top of its annual list of the 10 greatest patient safety concerns for 2026, warning that AI diagnostic shortcomings risk reducing clinician vigilance, particularly where oversight frameworks are not yet established.\n\nOmar has said he doesn’t have a deadline for accepting applications but expects to narrow down the right candidate within the next week or two.\n\nThe “AI bully” experiment, although ostensibly playful, makes visible what users around the world are already encountering: that AI systems that are extremely capable in many ways can also be inconsistent and unreliable in others. The job pays $800 for a single day. But the costs of not doing it could be considerably higher.",
+    "readingTime": 4,
+    "keywords": [
+      "forgets fudges",
+      "systems",
+      "memory",
+      "chatbots",
+      "legal",
+      "chatbot’s",
+      "hallucinates",
+      "task",
+      "computer",
+      "bully"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theguardian.com/technology/2026/mar/19/us-startup-advertises-ai-bully-role-to-test-patience-of-leading-chatbots",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/be707177504a5b634ccd666a1d45fb7edff6d130/0_699_5756_4605/master/5756.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=17b154284a12230ebafd11d9e741d450",
+    "created_at": "2026-03-19T12:38:20.976Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "from-bits-to-atoms-ai-is-shifting-techs-center-of-gravity",
+    "title": "From bits to atoms: AI is shifting tech's center of gravity",
+    "description": "AI's potential to commoditize software and other digital sectors is driving investors to embrace  hard assets such as infrastructure and logistics.",
+    "fullText": "AI shifts focus to physical assets, boosting investment in manufacturing, robotics, and logistics.\n Travis Kalanick's comeback is called Atoms for a reason.\n Big tech invests in data centers as AI commoditizes software, emphasizing physical infrastructure.",
+    "readingTime": 1,
+    "keywords": [
+      "physical"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/ai-travis-kalanick-atoms-bits-investor-focus-digital-physical-assets-2026-3",
+    "thumbnail_url": "https://i.insider.com/69b9efdaebc245a53a81149e?width=800&format=jpeg",
+    "created_at": "2026-03-19T12:38:20.251Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "the-rise-of-the-ai-knockoff-mckinsey-consultant",
+    "title": "The rise of the AI knock-off McKinsey consultant",
+    "description": "Developers are building AI agents modeled on the work of consultants. We asked a former McKinsey consultant to test it out.",
+    "fullText": "Developers are now sharing open-source \"skills\" that can be \"taught\" to AI agents.\n Some of those skills are modeled after the work of McKinsey consultants.\n We asked an actual McKinsey consultant to test it out.",
+    "readingTime": 1,
+    "keywords": [
+      "skills",
+      "mckinsey"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/ai-mckinsey-consultant-2026-3",
+    "thumbnail_url": "https://i.insider.com/69bb0707d387710cb9e46027?width=1200&format=jpeg",
+    "created_at": "2026-03-19T12:38:20.250Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "how-a-big-law-heavyweight-is-shaping-its-ai-rollout-around-palantirs-model",
+    "title": "How a Big Law heavyweight is shaping its AI rollout around Palantir's model",
+    "description": "Ilona Logvinova, the head of AI at top law firm HSF Kramer, says it's changing the way lawyers use AI by taking a page out of Palantir's playbook.",
+    "fullText": "Big Law got a new opponent last year with the formation of Herbert Smith Freehills Kramer.\n The firm tapped a former McKinsey lawyer, Ilona Logvinova, to lead the rollout of AI tools.\n AI tools are easy to license, Logvinova says. The hard part is changing behavior.",
+    "readingTime": 1,
+    "keywords": [
+      "tools",
+      "logvinova"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/hsf-kramer-chief-ai-officer-ilona-logvinova-2026-3",
+    "thumbnail_url": "https://i.insider.com/69a0fa44d3e2f1aef369a27d?width=950&format=jpeg",
+    "created_at": "2026-03-19T12:38:20.248Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "chief-justice-john-roberts-says-in-the-age-of-ai-its-going-to-be-really-tough-for-young-lawyers",
+    "title": "Chief Justice John Roberts says in the age of AI 'it's going to be really tough for young lawyers'",
+    "description": "\"The job of both young lawyers and partners is going to change,\" Chief Justice John Roberts said.",
+    "fullText": "Chief Justice John Roberts is worried about how AI will affect the legal profession.\n Roberts is especially concerned for young lawyers.\n Roberts says he was left \"completely befuddled\" when his son showed him how AI could create a song about their dog.",
+    "readingTime": 1,
+    "keywords": [
+      "roberts"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/john-roberts-ai-young-lawyers-legal-tech-2026-3",
+    "thumbnail_url": "https://i.insider.com/69bb10d775bee4e0ee55dce6?width=1200&format=jpeg",
+    "created_at": "2026-03-19T12:38:20.134Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "miros-ceo-says-the-company-is-hiring-entrepreneurs-for-an-edge-in-the-ai-era",
+    "title": "Miro's CEO says the company is hiring entrepreneurs for an edge in the AI era",
+    "description": "Miro's Andrey Khusid said the company has brought on roughly 40 founders in the last two and a half years.",
+    "fullText": "The CEO of visual platform Miro says he's prioritizing hiring entrepreneurs.\n Andrey Khusid said that out of Miro's 1600 employees, roughly 40 are former founders.\n He said the ability to take risks and stay agile is key for the company's AI era transformation.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/miro-ceo-is-hiring-entrepreneurs-for-ai-era-2026-3",
+    "thumbnail_url": "https://i.insider.com/69b983dbd387710cb9e45896?width=1200&format=jpeg",
+    "created_at": "2026-03-19T12:38:20.032Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "micron-shares-slip-as-hefty-spending-plans-eclipse-strong-aifueled-earnings",
+    "title": "Micron shares slip as hefty spending plans eclipse strong AI-fueled earnings",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/stock-market-news/micron-shares-slip-as-hefty-spending-plans-eclipse-strong-aifueled-earnings-4569945",
+    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM2I0I6_1200_L.jpg",
+    "created_at": "2026-03-19T12:38:18.937Z",
+    "topic": "finance"
+  },
+  {
     "slug": "ai-coding-factory",
     "title": "AI Coding Factory",
     "description": "Contribute to jaksa76/ai-coding-factory development by creating an account on GitHub.",
@@ -1765,217 +1938,5 @@
     "thumbnail_url": "https://www.digitalmusicnews.com/wp-content/uploads/2026/01/napster-music-service-shuts-down-amid-company-ai-pivot.png",
     "created_at": "2026-03-16T12:45:36.415Z",
     "topic": "entertainment"
-  },
-  {
-    "slug": "clawsify-persona-based-ai-agents-built-with-openclaw",
-    "title": "Clawsify Persona based AI agents built with OpenClaw",
-    "description": "One-click OpenClaw deployment on dedicated infrastructure. Set up Telegram AI bots with agent templates, skill extensions, and real-time monitoring.",
-    "fullText": "Deploy OpenClaw inside your infrastructure in one click. Instantly chat with any AI model using our sleek interface, and craft unique AI personas — all in one platform.\n\nA beautiful chat interface that connects to your deployed assistant. Fast, responsive, and always available.\n\nDefine personality, values, and behavior through an intuitive chat-based builder. Your AI remembers everything.\n\nBuilt for everyone who wants a personalized, persistent AI assistant without the infrastructure setup.\n\nLaunch your own private OpenClaw environment within seconds. We abstract away server setup and cloud configuration for you.\n\nConnect directly to your favorite model provider API (OpenRouter, OpenAI, Anthropic) in our easy-to-use chat interface.\n\nTransform regular AI into specialized bots with distinct personalities, memories, and skills designed for your tasks.\n\nOur modern, responsive user interface feels like a premium product. Work across desktop, mobile, and web effortlessly.\n\nYour API keys, chat logs, and personas remain solely in your controlled infra. No data leaves without your permission.\n\nGive your personas long-term memory so they remember details from past chats and adapt to your style.\n\nFour simple steps to deploy your own AI assistant. No DevOps experience needed.\n\nSign up with Google in one click. Get a 3-day free trial to explore everything.\n\nChat with our AI builder to define personality, skills, and behavior. It generates all the config files for you.\n\nBring your own API key from Anthropic, OpenAI, Google, or OpenRouter. Pick the model that fits your needs.\n\nOne click to launch. Your assistant goes live on a dedicated VPS, ready for conversations 24/7.\n\nBrowse curated OpenClaw agent templates. Each comes with a focused personality, guardrails, and defaults you can tune.\n\nLevel 1 + Level 2 support for your product\n\nHandles tickets, triages bugs, and answers FAQs using your docs, keeping your human team for edge cases.\n\nOpinionated PR reviewer for modern stacks\n\nReviews pull requests, flags risky changes, and suggests improvements tuned to your repo standards.\n\nSynthesizes long-form sources into crisp briefs, comparisons, and action items for your team.\n\nJoin 200+ users already deploying their own AI. Start your 3-day free trial today.",
-    "readingTime": 2,
-    "keywords": [
-      "free trial",
-      "define personality",
-      "chat interface",
-      "assistant",
-      "model",
-      "personas",
-      "infrastructure",
-      "responsive",
-      "behavior",
-      "builder"
-    ],
-    "qualityScore": 1,
-    "link": "https://clawsifyai.com",
-    "thumbnail_url": "https://clawsifyai.com/og-image.png",
-    "created_at": "2026-03-16T12:45:35.197Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "when-the-war-goes-ai-the-data-centers-will-be-targets",
-    "title": "When the War Goes AI, the Data Centers Will Be Targets",
-    "description": "We talk Anthropic, OpenAI, Iran and the mil-tech oligarchy. Children will be sent to protect data centers the way their fathers were sent to protect oil fields",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.forever-wars.com/when-the-war-goes-ai-the-data-centers-will-be-targets-f-engadgets-devindra-hardawar/",
-    "thumbnail_url": "https://www.forever-wars.com/content/images/size/w1200/2026/03/IMG_8768-1.jpeg",
-    "created_at": "2026-03-16T12:45:35.169Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "vibecheck-lint-for-aigenerated-code-smells-jstspython",
-    "title": "Vibecheck – lint for AI-generated code smells (JS/TS/Python)",
-    "description": "ESLint for AI slop. Detect AI-generated code smells in your JS/TS codebase. - yuvrajangadsingh/vibecheck",
-    "fullText": "ESLint for AI slop. Catch AI-generated code smells before they hit production.\n\nAI coding tools generate code that works but cuts corners. Empty catch blocks, hardcoded secrets, as any everywhere, comments that restate the obvious. CodeRabbit found AI-generated PRs have 1.7x more issues than human PRs. Veracode reports 45% of AI code samples contain security vulnerabilities.\n\nvibecheck catches these patterns with zero config, zero API keys, zero cost. Runs locally, stays fast.\n\nBinaries available for macOS (arm64, x64) and Linux (x64, arm64) on the releases page.\n\nScan only the lines you changed, not the entire codebase. Useful for pre-commit hooks and incremental CI.\n\nAdd to .git/hooks/pre-commit or use with husky:\n\nCreate .vibecheckrc in your project root:\n\nAll rules are on by default at their recommended severity. Set any rule to \"off\" to disable it.\n\nAdd vibecheck to your CI with inline PR annotations:\n\nThe action automatically scans only files changed in the PR. On push events, it scans the full repo.\n\nAvailable on the GitHub Marketplace.\n\nvibecheck uses regex pattern matching to scan your JS/TS/Python files. No AST parsing, no external APIs, no AI. Each rule has a detection pattern and an anti-pattern to reduce false positives.\n\nIt skips node_modules, dist, build, __pycache__, .venv, lockfiles, and minified code by default.",
-    "readingTime": 2,
-    "keywords": [
-      "vibecheck",
-      "zero",
-      "scan",
-      "changed",
-      "default",
-      "rule",
-      "scans",
-      "files",
-      "pattern",
-      "code"
-    ],
-    "qualityScore": 0.95,
-    "link": "https://github.com/yuvrajangadsingh/vibecheck",
-    "thumbnail_url": "https://opengraph.githubassets.com/8e8188931b3fb31f8c1e3c542995f5786a417f48ecbc1421d79be6e2ba5a77fa/yuvrajangadsingh/vibecheck",
-    "created_at": "2026-03-16T12:45:34.262Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "from-foundations-to-fluency-why-upskilling-is-the-key-to-europes-ai-future",
-    "title": "From foundations to fluency: why upskilling is the key to Europe’s AI future",
-    "description": "With Google's support, INCO and Chance have created NewFutures:AI, a set of advanced AI curriculums for final-year students.",
-    "fullText": "Debbie Weinstein is President of Google in Europe, the Middle East and Africa - helping communities, companies and countries make the most of technology and AI. She joined Google in 2014, holding a range of regional and global leadership roles. Before Google, Debbie worked in sales, marketing, strategy and business development. She loves cooking and baking, and founded a children’s food company.",
-    "readingTime": 1,
-    "keywords": [
-      "google",
-      "debbie"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://fortune.com/2026/03/16/ai-upskilling-google-emea-president-debbie-weinstein/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/03/Debbie_Weinstein_10.webp?resize=1200,600",
-    "created_at": "2026-03-16T12:45:31.465Z",
-    "topic": "business"
-  },
-  {
-    "slug": "employees-who-dont-vibe-code-are-probably-underperforming-fintech-startup-product-chief-says",
-    "title": "Employees who don't vibe code are 'probably underperforming,' fintech startup product chief says",
-    "description": "Ramp's product chief says employees who \"sometimes use ChatGPT\" are at level zero — and \"will most likely not be at the company\" for long.",
-    "fullText": "The product chief of a $32 billion fintech startup has called out employees who aren't using AI-assisted coding tools.\n\nGeoff Charles, chief product officer of Ramp, an AI fintech startup that helps companies pay their bills, said in a Sunday episode of \"Behind the Craft\" podcast that employees are expected to be AI-native.\n\n\"If you're not using Claude code this year, no matter what your role is, you're probably underperforming compared to others on the company,\" he added.\n\nCharles said that the company frames AI proficiency across multiple levels. At the bottom level — level zero — are people who \"sometimes use ChatGPT.\" At the top, level three, are people who are \"systems builders.\"\n\nEmployees who vibe code and can proficiently build apps that automate parts of their job belong to level two, while staff who have built custom GPTs and have some experience with Claude Code fall under level one.\n\n\"Our job is to get everyone in the organization up the ladder,\" Charles said.\n\n\"The people who are still in L0, they will most likely not be at the company,\" he added, referring to level zero.\n\n\"If you're not a self-starter and you don't have that growth mindset, it's going to be very, very hard to train,\" he said.\n\nCharles said 50% of the company's code is built by AI, and it would probably be 80% by March. He added that the role of product managers will evolve in the AI-native era, with some becoming builders and others focusing on business strategy.\n\nThe fintech startup announced in November that it raised $300 million in funding, bringing its valuation to $32 billion. The round was led by Lightspeed Venture Partners, with investors including Founders Fund, Coatue, GIC, Thrive Capital, and Khosla Ventures, among others.\n\nCharles' comments come as tech companies increasingly reshape their workforces around AI.\n\nBlock last month cut nearly half of its workforce, saying advancements in AI were behind the layoffs.\n\nLast week, Atlassian laid off about 1,600 roles, roughly 10% of its global staff, as the Australian-American proprietary software company reorganizes to prioritize AI development and enterprise growth.\n\n\"It would be disingenuous to pretend AI doesn't change the mix of skills we need or the number of roles required in certain areas. It does,\" CEO Mike Cannon-Brookes wrote in a message to employees.\n\nRamp is not the only company paying closer attention to how employees use AI at work.\n\nIn February, managers at Google told some staff in non-technical roles that they are expected to incorporate AI into their daily workflows, four employees familiar with the matter told Business Insider.\n\nIn some cases, non-technical employees were told their use of AI could factor into their performance reviews later this year, two of the employees said.\n\nDaniel Yanisse, the CEO of background-check startup Checkr, said the company has pushed employees across departments to adopt AI tools, not just engineers.\n\n\"We gave every employee a monthly stipend to try AI tools, and we did AI days and demos. After one year, 95% of the employees use prompting daily,\" Yanisse said last month.",
-    "readingTime": 3,
-    "keywords": [
-      "fintech startup",
-      "employees",
-      "product",
-      "tools",
-      "you're",
-      "others",
-      "staff",
-      "roles",
-      "chief",
-      "ramp"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/vibe-coding-ai-tools-underperforming-ramp-tech-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b7a87ca7a4f9df67ba5f3c?width=1200&format=jpeg",
-    "created_at": "2026-03-16T12:45:30.634Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "i-was-facebooks-youngest-engineer-at-17-i-left-meta-at-a-moment-when-ais-lead-can-change-every-few-months",
-    "title": "I was Facebook's youngest engineer at 17. I left Meta at a moment when AI's lead can change every few months.",
-    "description": "An ex-Meta product executive, once Facebook's youngest engineer, joins Whop, highlighting AI's impact on tech and startup dynamics.",
-    "fullText": "This as-told-to essay is based on a conversation with Michael Sayman, 29, a former Meta product executive who left the company's Superintelligence Labs to become President of Product Ecosystems at Whop, a New York-based creator commerce startup. Sayman, who joined Facebook at 17 as its youngest-ever software engineer, is also the author of \"App Kid,\" a memoir about growing up as the child of Peruvian and Bolivian immigrants. The following has been edited for length and clarity.\n\nPeople think of Silicon Valley as a place you go to because you dreamed of it. That's not my story.\n\nAfter the 2008 recession, my parents and I got evicted. That forced me, at 13, to figure out how to make money online. I taught myself to code from YouTube tutorials. I built a word game called 4 Snaps. It hit number one on the App Store and made enough money to help keep my family afloat. The possibility of being able to do that, to build something from nothing and monetize it as a kid with no connections and no resources, that's what eventually put me on the path to Facebook.\n\nZuckerberg flew me out to Facebook's headquarters in Menlo Park when I was 17 for a one-on-one meeting on campus. He wanted to learn how I'd built my top-charting social apps in high school. That was our first meeting, and he ended up offering me a job. I became what I think was Facebook's youngest software engineer at the time. People would get me bottles of wine as a joke because I was underage. It felt more like a playground than a company.\n\nThe first thing anyone did at Facebook was boot camp. You pick a team, and you get to work. But I didn't do that. I had a slide deck with my read on where the product was headed and what I thought the company should be building. I presented it to my boot camp mentor. He brought in his manager. His manager brought in his manager. Eventually, I was in a room with Chris Cox (Meta's chief product officer), Kang-Xing Jin (Meta's former head of health), and Julie Zhuo (Meta's former vice president of product design), among others.\n\nThey greenlit me to start a new team, focused on the emergent, ephemeral nature of sharing that was coming up from apps like Snapchat and Musical.ly. Within a few months of joining, I had monthly product reviews with Zuckerberg.\n\nHad I been older, I don't think I would've just taken it upon myself to do any of that. I was an engineer who was supposed to pick a team and shut up. I just didn't know that yet.\n\nThose first four years were incredibly formative. But what I learned, more than anything, was my reference point: how different or similar Facebook was to everywhere else. That only became clear later, when I went to Google, then left to found my own startup, SocialAI, and eventually returned to Meta.\n\nWhen Meta brought my SocialAI team on board in late 2024, and I joined Superintelligence Labs, the company I came back to was not the one I had left. It's so much larger now, and because of that, the smallest changes have the biggest impacts at a scale that is genuinely hard for people to grasp. Watching the AI race from inside Meta, I kept thinking: this is almost like the company is seeing its younger self in the rearview mirror. All these AI startups are operating with the energy and speed that early Facebook had, while Meta itself can no longer operate that way.\n\nThere's also a key difference. What Facebook was building in those early years was a competition of network effects. You were building a moat. Right now in AI, there is no clear moat. Every couple of months, there's a different company in the lead.\n\nWhat Meta does still have, though, is something no one else has: the social layer. As AI agents start acting on your behalf in the world — finding information, making transactions, interacting with other people's agents — the question of verification becomes everything. Who are you talking to? That's where Meta's network becomes uniquely valuable again. That was the angle that brought me back, and what I spent my time exploring with Nat Friedman (co-lead of Meta Superintelligence Labs) and Daniel Gross (Meta's vice president of product) at Meta Superintelligence Labs.\n\nWhile I was there, I also built the Meta AI blue ring — the visual embodiment that appears when you interact with Meta AI across every app, on iOS, Android, and web. I built that largely by myself. The number of people who would've taken even a few years ago is completely different from today. That's the shift. AI isn't just changing what we build — it's changing who can build it, and how fast.\n\nThat's also what made this the right moment to leave and join Whop, a creator commerce startup based in New York.\n\nI'm 29. In Silicon Valley terms, I'm practically ancient. And I've felt for a long time this itch to take everything I've learned over the past 15 years and go make something with it. I just never wanted to force the timing. But right now feels like the App Store moment of 2008, a window where a small team, with the right tools, has the kind of leverage that used to require thousands of engineers. I didn't want to miss it.\n\nAt a company like Meta, you're always choosing which creator ecosystem to build for — Instagram, Facebook, or WhatsApp. At Whop, I can think about building across all of them. That's where I want to be: helping people build and monetize their own thing, the way I had to figure out how to do at 13 with no playbook.\n\nI used to think that inside these big companies, there was some secret key that they had it all figured out. After 15 years, I can tell you that's not true. We're all just people trying to figure it out.\n\nThe difference now is that the tools to try are more accessible than they've ever been. That's the bet.\n\nHave a tip? Contact Pranav Dixit via email at pranavdixit@protonmail.com or Signal at 1-408-905-9124. Use a personal email address and a nonwork device; here's our guide to sharing information securely.",
-    "readingTime": 6,
-    "keywords": [
-      "boot camp",
-      "creator commerce",
-      "commerce startup",
-      "software engineer",
-      "vice president",
-      "meta superintelligence",
-      "pick team",
-      "superintelligence labs",
-      "app store",
-      "meta ai"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/facebooks-youngest-engineer-at-17-leaving-meta-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b489aba96e437d6eb85269?width=1199&format=jpeg",
-    "created_at": "2026-03-16T12:45:30.419Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "bcg-consultant-behind-ai-brain-fry-study-says-shes-pessimistic-humans-can-overcome-it-anytime-soon",
-    "title": "BCG consultant behind 'AI brain fry' study says she's 'pessimistic' humans can overcome it anytime soon",
-    "description": "While AI tools increase productivity, they may also cause 'brain fry,' a mental fatigue affecting workers who use the tech a lot.",
-    "fullText": "As artificial intelligence tools become embedded in everyday work, consultants are starting to worry about a cognitive side effect: People relying on them so heavily that their own thinking begins to splinter.\n\nJulie Bedard, a managing director at Boston Consulting Group and a coauthor of a recent study on the topic, said on the tech podcast Hard Fork on Friday that she's \"quite pessimistic\" that humans will overcome the AI-induced phenomenon she called \"brain fry\" anytime soon.\n\nBedard and her colleagues explored the phenomenon in a study published earlier this month in the Harvard Business Review, which surveyed 1,488 full-time US workers at large companies across a range of industries.\n\nThe researchers found that 14% of workers reported experiencing symptoms such as mental fog, headaches, and slower decision-making — what the authors describe as \"AI brain fry.\" Rates were higher in fields such as marketing, human resources, operations, and software engineering than in industries such as legal and compliance.\n\nBedard said on Hard Fork that this form of mental fatigue is distinct from traditional workplace burnout. Instead, it stems from the unusually high cognitive load required to supervise AI systems and evaluate their outputs.\n\n\"Burnout is physical and mental exhaustion. It's more emotional. It's more about how I feel about work, and do I feel like I'm doing a good job at work,\" she said.\n\nBedard said that she and her fellow researchers did not find a correlation between brain fry and burnout. In fact, AI can even be used to mitigate the symptoms of burnout, Bedard said.\n\nAs more jobs shift toward managing AI agents rather than completing tasks directly, however, workers must constantly review outputs, verify information, and decide how to use the results — a process that can require intense concentration.\n\nThe study found that AI tools can boost productivity, but only up to a point. Workers who moved from using one AI tool to two saw a noticeable jump in productivity. The gains shrank when employees added a third tool, and productivity began to decline as they juggled more systems.\n\nMatthew Kropp, another coauthor of the study and a BCG managing director, described the trend as an early warning sign.\n\n\"We look at this as kind of the canary in the coal mine,\" Kropp previously told Business Insider, noting that engineers and other early adopters who manage multiple AI agents are among the first to experience the effects.\n\nStill, the researchers emphasized that the problem isn't AI adoption itself. When AI replaces routine or repetitive tasks, the study found that burnout can actually decline — even if some workers still report mental fatigue.\n\nFor now, Bedard said companies should actively seek employees' feedback when integrating AI into teams.\n\n\"I do think that having some of the energy and ideas come from the quote-unquote bottom — from the actual workers doing the individual contribution — seems to matter,\" she said.",
-    "readingTime": 3,
-    "keywords": [
-      "managing director",
-      "brain fry",
-      "mental fatigue",
-      "hard fork",
-      "workers",
-      "study",
-      "burnout",
-      "researchers",
-      "productivity",
-      "tools"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/ai-brain-fry-bcg-consulting-exhaustion-agents-work-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b70aeca7a4f9df67ba5bb8?width=1200&format=jpeg",
-    "created_at": "2026-03-16T12:45:30.295Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "what-ai-investors-should-be-watching-for-at-nvidias-big-gtc-event",
-    "title": "What AI investors should be watching for at Nvidia's big GTC event",
-    "description": "Nvidia kicks off its annual GTC event on Monday with the AI chipmaker's CEO delivering his keynote speech. Here's what Wall Street is watching for.",
-    "fullText": "Buckle up, AI investors. A new potential market catalyst is in the pipeline: Nvidia's annual GTC event.\n\nNvidia CEO Jensen Huang will kick off the event with a keynote address on Monday, and Wall Street thinks his comments could serve as a new input for the chip maker's stock as well as the wider AI trade.\n\nThe conference runs from Monday to Thursday, and has become a major event for the chipmaker over the years, with investors bracing for market-moving commentary from Huang as he delivers updates on AI hardware demand.\n\nNvidia stock is Bank of America's top AI pick, and analysts say it's trading at a historically cheap valuation. Wells Fargo is also bullish, with the bank's analysts saying the stock is a buy heading into the event.\n\nHere's what AI investors should watch for next week.\n\nBank of America analysts are heading into the event looking for insights into the chipmaker's expectations for 2027 and 2028.\n\nThey don't expect the company to offer an official sales outlook, but said any color around the Rubin, Nvidia's next generation chip platform, could lift the \"currently depressed stock,\" which they noted is trading at a historically low 17x forward price to earnings ratio.\n\nThe chipmaker will likely offer updates on its Groq integration efforts, as well.\n\nNancy Tengler, the CEO and CIO of Laffer Tengler Investments, said she doesn't expect GTC to move the stock, but pointed out that stronger-than-expected energy efficiency for the Vera Rubin platform could serve as a positive catalyst.\n\nNvidia often unveils new products at GTC, and announcements tend to fuel investor excitement. In general, investors are eager for any products focused on power efficiency and optics for AI data centers. Wall Street analysts said they expect Nvidia to unveil co-designed and customized offerings focused on running AI inference computing.\n\nNew products could help ease investors' worries about Nvidia falling out of favor in the next leg of the AI trade when the computing focus shifts from training to the interference stage.\n\nAnalysts anticipate that Nvidia will unveil Spectrum6, a new generation of its Ethernet platform, as well as new optics chips.\n\nNvidia had robots join Jensen Huang's last keynote, using the event as an opportunity to fuel investor excitement about the opportunity in robotics. Tech analysts have predicted that physical AI could be a multi-trillion-dollar industry in the coming decades.\n\nNvidia assuring investors that it is well positioned to continue its run as the dominant chip player as AI moves into the tangible world should be a bullish development.\n\nThe event could serve as a catalyst for other companies in the AI space.\n\nWells Fargo flagged that Marvell could see a negative reaction if Nvidia doubles down on optics connectivity solutions.\n\nConversely, memory stocks and Intel could see positive stock moves following GTC.\n\nBank of America said that Nvidia could make a joint announcement with Intel, which would mark a deeper dive into CPUs for Nvidia.",
-    "readingTime": 3,
-    "keywords": [
-      "fuel investor",
-      "investor excitement",
-      "wells fargo",
-      "event",
-      "investors",
-      "stock",
-      "analysts",
-      "nvidia",
-      "catalyst",
-      "chip"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/nvidia-gtc-jensen-huang-keynote-ai-stocks-investors-tech-nvda-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b456524d65ec517529fc82?width=1200&format=jpeg",
-    "created_at": "2026-03-16T12:45:30.279Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "port42-ai-companions-that-build-and-act-on-your-mac-v050",
-    "title": "Port42 – AI companions that build and act on your Mac (v0.5.0)",
-    "description": "A native Mac app where humans and AI companions talk, build, and think together. Open source, end-to-end encrypted.",
-    "fullText": "Port42\n Companion Computing\n Humans and AI,\nthinking together\n\n A native Mac app where you, your friends, and your AI companions share the same space. Talk, build, and watch ideas take shape together.",
-    "readingTime": 1,
-    "keywords": [
-      "together"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://port42.ai/",
-    "thumbnail_url": "https://port42.ai/cover.png",
-    "created_at": "2026-03-16T07:04:52.296Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "before-ais-kepler-moment-are-llms-the-epicycles-of-intelligence",
-    "title": "Before AI's Kepler Moment – Are LLMs the Epicycles of Intelligence?",
-    "description": "Like Ptolemaic astronomers stacking circles to predict planetary motion, we stack transformer layers to approximate intelligence—accurate yet awaiting our Kepler moment.",
-    "fullText": "I’ve always been fascinated by AI and mega-projects — and as I work on AI infrastructure, you might assume I’m equally fascinated by the current LLM race.\n\nIn reality, I’m far more skeptical than most.\nWhile LLMs are undeniably useful, I’m not convinced “intelligence” is even the right scale to measure them against.\nThe analogy I keep returning to comes not from computer science, but from astronomy: the story of epicycles.\n\nEarly astronomy began with the simplest model imaginable: planets move in perfect circles. If Earth is at the center, then the position of a planet could be described as\n\n$$\nx(t) = R \\cos(\\omega t), \\quad y(t) = R \\sin(\\omega t),\n$$\n\nwhere $R$ is the radius and $\\omega$ the angular speed.\nThis model had elegance — a single equation for perpetual motion.\nBut when observations improved, the simplicity broke down: Mars would sometimes appear to move backward (retrograde motion), which pure circles could not explain.\n\nTo patch this, Claudius Ptolemy in 2nd-century AD introduced epicycles — circles riding atop circles.\nInstead of a single rotation, they stacked another:\n\n$$\nx(t) = R \\cos(\\omega t) + r \\cos(\\Omega t), \\quad\ny(t) = R \\sin(\\omega t) + r \\sin(\\Omega t)\n$$\n\nwith a larger “deferent” of radius $R$ and a smaller “epicycle” of radius $r$.\nThis worked remarkably well: by adjusting radii and frequencies, they could mimic retrograde loops.\nBut every refinement required more parameters.\nSoon, astronomers were layering dozens of cycles, a fragile system that fit past data but had little explanatory depth.\n\nIt could predict eclipses and planetary positions with reasonable accuracy, but at the cost of baroque complexity — an early example of overfitting without understanding.\nThe equations expanded into Fourier-like series:\n\n$$\nx(t) = \\sum_i R_i \\cos(\\omega_i t + \\phi_i), \\quad\ny(t) = \\sum_i R_i \\sin(\\omega_i t + \\phi_i),\n$$\n\ncenturies before Joseph Fourier was even born.\nHere’s the remarkable thing: epicycles weren’t mathematically wrong — they’re literally Fourier series in disguise.\nAny periodic motion can be perfectly decomposed into circles upon circles, just as any function can be approximated by neural networks.\nPtolemaic astronomers had discovered a universal approximator for celestial motion.\nWhat began as a single circle had turned into a patchwork of cycles-upon-cycles, accurate enough to guide calendars and navigation for over a millennium — yet blind to the real structure of the cosmos.\n\nNicolaus Copernicus (1473-1543) had moved the Sun to the center, but still clung to the ancient idea of uniform circular motion.\nTo match observations, he still needed dozens of circles.\nMercury — the most irregular of the visible planets — demanded seven or more components in the Ptolemaic model, and nearly as many in Copernicus’s reform.\nEach radius, frequency, and phase was a parameter to tweak by hand.\nAdd enough circles, and Mercury’s loop-de-loops appeared on parchment — but there was no deeper understanding.\n\nJohannes Kepler (1571-1630) shattered this tradition in 1609.\nFrom Tycho Brahe’s observations, he saw that Mercury and Mars followed not circles, but ellipses with the Sun at one focus.\nSuddenly, the entire path could be expressed in two simple numbers: the semi-major axis $a$ and the eccentricity $e$.\nThe radial distance at any angle $\\theta$ became:\n\n$$\nr(\\theta) = \\frac{a(1 - e^2)}{1 + e \\cos \\theta}.\n$$\n\nFor Mercury, $e \\approx 0.206$.\nThat one number explains its eccentric orbit and variable speed — no towers of epicycles required.\n\nIsaac Newton (1643-1727) compressed this even further in 1687.\nHis law of gravitation,\n\n$$\nF = G\\frac{m_1 m_2}{r^2},\n$$\n\nshowed that Kepler’s ellipses were not arbitrary.\nThey were the natural consequence of a single force law applying everywhere — Earth’s apple, the Moon’s orbit, Jupiter’s moons, and Mercury alike.\nWhat took dozens of adjustable circles in Ptolemy or Copernicus collapsed into two equations: one for the orbit, one for the force.\n\nThree centuries later, we’re stacking again — but layers instead of circles. At their core, neural networks are functions built by stacking many simple transformations.\nThe simplest feedforward layer is just a linear map followed by a nonlinearity:\n\nwhere $x$ is the input vector, $W$ a weight matrix, $b$ a bias term, and $\\sigma$ a nonlinear activation like ReLU or sigmoid.\n\nTransformers — the backbone of modern LLMs — replace recurrence with attention, letting every token compare itself to every other token in the sequence.\nA single attention head computes something like:\n\n$$\n\\text{Attention}(Q, K, V) = \\text{softmax}\\left(\\frac{QK^\\top}{\\sqrt{d_k}}\\right)V,\n$$\n\nwhere queries $Q$, keys $K$, and values $V$ are linear projections of the input embeddings.\nStack dozens of layers, each with many heads, plus billions of parameters in the weight matrices, and you get models like GPT-4 or Claude, each with on the order of $10^{11}–10^{12}$ tunable numbers.\n\nThese systems work because, much like Ptolemaic astronomy, you can fit almost anything if you keep adding enough components.\nThe more circles, the closer the match to planetary data; the more parameters, the closer the match to text statistics.\nToday’s LLMs are the epicycles of intelligence: extraordinarily useful for navigation through language, capable of producing predictive charts of our symbolic universe — but like their astronomical predecessors, perhaps working well without being fundamentally correct.\n\nIn astronomy, it took two orthogonal insights — Copernicus’s heliocentrism and Kepler’s ellipses — spread over seventy years to break free from epicycles, and another eighty for Newton to reveal the logic behind them.\n\nThere’s no clear way to know if we’re on the wrong track.\nScience is littered with confident dead ends: phlogiston theory gave way to oxygen combustion, caloric fluid to kinetic heat, luminiferous aether to relativity.\nEach dominated textbooks and lecture halls until reality intervened.\n\nPerhaps intelligence itself is irreducibly complex — evolution doesn’t optimize for elegance, after all.\nBut without knowing for certain, seeking deeper principles remains our best defense against drowning in parameters.\n\nIf the question is which parts of current AI might survive a paradigm shift, I’d bet on two primitives: memory and optimization.\nMemory — whether as RAG’s retrieval, attention’s associative lookup, or biological recall — is how intelligence grounds behavior in past experience.\nOptimization — whether as gradient descent or evolution — is how systems adapt to their environment.\nThese aren’t architectural choices but fundamental requirements: intelligence without memory is reactive; intelligence without optimization is static.\nWe’ve hardly cracked either, yet others see different primitives, like self-play, simulation, and causality.\nPerhaps we’re all Keplers staring at Mars from different angles, each waiting for our ellipse to appear.\n\nI jokingly call the LLM boom 'the world's largest lossy compression contest', but there is a better historical metaphor keeping me awake: epicycles — astronomy's brilliant wrong turnhttps://t.co/G30q1D9odi",
-    "readingTime": 6,
-    "keywords": [
-      "sum_i r_i",
-      "kepler’s ellipses",
-      "neural networks",
-      "quad y(t",
-      "x(t cos(\\omega",
-      "y(t sin(\\omega",
-      "intelligence without",
-      "circles",
-      "epicycles",
-      "motion"
-    ],
-    "qualityScore": 1,
-    "link": "https://ashvardanian.com/posts/llm-epicycles/",
-    "thumbnail_url": "https://ashvardanian.com/llm-epicycles/LLM-Epicycles.jpg",
-    "created_at": "2026-03-16T07:04:51.896Z",
-    "topic": "tech"
   }
 ]

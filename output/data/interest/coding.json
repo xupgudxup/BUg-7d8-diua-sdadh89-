@@ -1,5 +1,29 @@
 [
   {
+    "slug": "skillfile-the-declarative-skill-manager-now-autodiscovers-skills-in-repos",
+    "title": "Skillfile, the declarative skill manager, now auto-discovers skills in repos",
+    "description": "One-stop shop for AI skills and agents. Search 110K+ community skills, install and track them declaratively, and deploy across all major AI coding tools (Claude Code, Codex, etc) - eljulians/skillfile",
+    "fullText": "Track AI skills and agents declaratively, like dependencies. Pin them. Patch them. Deploy everywhere.\n\nDeclare your skills in a manifest. Pinned to exact commits. Deploys to Claude Code, Cursor, Gemini, and 5 more. Customize without losing upstream updates. Search 110K+ skills from the terminal.\n\nYou found a great skill on GitHub and copied the markdown into .claude/skills/. Maybe you grabbed one from agentskill.sh. So what now?\n\nskillfile fixes all of that. One manifest, one lock file, every platform.\n\nOr download a pre-built binary from GitHub Releases. Or build from \n\nGitHub token recommended. skillfile uses the GitHub API to resolve commits. Without a token you're limited to 60 req/hour. Set GITHUB_TOKEN, GH_TOKEN, or run gh auth login.\n\nThat's it. Skills are fetched, locked to exact SHAs, and deployed. On a fresh clone, skillfile install reproduces the exact same setup.\n\nLooking for skills to install? See awesome-agents-and-skills for a curated collection with a ready-to-use Skillfile.\n\nRun skillfile add for a guided wizard, or use the explicit CLI for any \n\nBrowse agentskill.sh, skills.sh, and skillhub.club without leaving the terminal. Results are sorted by popularity, deduplicated, and include security scores.\n\nEdit an installed skill to fit your workflow, then pin it. Your changes survive upstream updates automatically.\n\nPatches live in .skillfile/patches/ and are committed to version control. Your whole team gets the same customizations.\n\nWrite your Skillfile once. Deploy to every AI coding tool you use.\n\nConfigure multiple platforms at once. skillfile install deploys to all of them.\n\nEvery GitHub entry is pinned to an exact commit SHA in Skillfile.lock. Commit this file. On any machine, skillfile install fetches the exact same bytes. install --update re-resolves to the latest upstream, and the lock diff shows exactly what changed in code review.\n\nCommit Skillfile, Skillfile.lock, and .skillfile/patches/ to your repo. That's it.\n\nThe most common team setup: write your own skills in the repo and mix in community ones. Everyone gets the same AI behavior.\n\nLocal skills live in your repo. You write and version them with git. GitHub skills are pinned to exact SHAs in the lock file. Both deploy to every configured platform. New teammate joins, runs skillfile install, and gets the same AI setup as everyone else.\n\nLine-oriented, space-delimited, human-editable. No YAML, no TOML.\n\nNames are inferred from filenames when omitted. Full format specification in SPEC.md.\n\nskillfile is a file manager. It downloads markdown from sources you specify and places it where your AI tools expect it. It does not execute, verify, or sandbox the content.\n\nThe lock file pins entries to exact commit SHAs. The same SHA always produces the same bytes. install --dry-run lets you review what will be fetched. Patches make all local modifications visible in version control. But none of this tells you whether the content is safe.\n\nReview what you install. The risk profile is the same as git clone.",
+    "readingTime": 3,
+    "keywords": [
+      "exact shas",
+      "upstream updates",
+      "lock file",
+      "bytes install",
+      "exact commit",
+      "skillfile install",
+      "skills",
+      "pinned",
+      "without",
+      "setup"
+    ],
+    "qualityScore": 0.8,
+    "link": "https://github.com/eljulians/skillfile",
+    "thumbnail_url": "https://opengraph.githubassets.com/ae97d97014bdfa4e79d1e8c1f5a832215e31f9ea1cb552d1d4772e7d4f9c9786/eljulians/skillfile",
+    "created_at": "2026-03-19T12:38:29.963Z",
+    "topic": "tech"
+  },
+  {
     "slug": "ai-coding-factory",
     "title": "AI Coding Factory",
     "description": "Contribute to jaksa76/ai-coding-factory development by creating an account on GitHub.",
@@ -2058,29 +2082,5 @@
     "thumbnail_url": "https://tidewave.ai/assets/opengraph/pthe-future-of-coding-agents-is-vertical-integration-4pklmn64vmtcox2ktoauj7nxoy-a84d118a102998c2aa4a25c686d9af29.png?vsn=d",
     "created_at": "2026-02-11T01:19:44.413Z",
     "topic": "tech"
-  },
-  {
-    "slug": "this-ceo-wants-ai-agents-to-outnumber-his-human-employees-this-year",
-    "title": "This CEO wants AI agents to outnumber his human employees this year",
-    "description": "The CEO of StackBlitz, Eric Simons, says the web development startup has \"gone all in\" on AI agents.",
-    "fullText": "StackBlitz CEO Eric Simons aims to have more AI agents than human employees working at the startup this year, a milestone he sees as emblematic of a broader shift underway across the software industry.\n\nSpeaking in an interview with Business Insider, Simons said StackBlitz has \"gone all in on agents,\" deploying internally built AI systems across business intelligence, coding, product development, customer support, and outbound sales.\n\nAI has become increasingly good at writing software code, to the point where the technology is beginning to change how companies are run. OpenClaw, an open-source AI assistant that works inside platforms like WhatsApp, Slack, and iMessage, is an early example of digital agents communicating and coordinating with one another without direct human involvement.\n\n\"To me, this is a crystal ball into the wildness of the inevitable future,\" Simons told Business Insider. \"Your AI agents will talk to other people's agents on your behalf, negotiating pricing for a product you want to buy, inquiring about availability for a restaurant, arguing your political viewpoints.\"\n\n\"Agents are an extension of yourself,\" he added. \"People will generally trust their agents with whatever they recommend them to buy, reserve, believe, or otherwise.\"\n\nSimons's comments come as software and SaaS stocks have slumped in recent weeks, a move he attributes to growing investor recognition that AI can now build software autonomously. As AI tools become more capable, he said, long-standing competitive moats based on specialized knowledge are eroding.\n\nHe compared the shift to the transformation of manufacturing over the past century. Craft knowledge once protected businesses, he said, but automation and digital design ultimately displaced many incumbents. \"Today, it's a CAD file you can 3D print,\" Simons said.\n\n\"While every individual does not use these profound new powers directly (like 3D printing a chair), there's an entire new generation of companies that do — and they have replaced the previous era of companies,\" Simons explained. \"They disrupted those incumbents by leveraging automation that made it far cheaper and at a massive scale not possible previously when moats were just knowledge and bare hands.\"\n\nFor businesses, the implications are stark. Even traditionally \"safe\" enterprise software may be vulnerable if AI agents can migrate or rebuild systems rapidly.\n\n\"What does it mean when all of software can be written, rewritten, migrated, or otherwise, 100x or 10,000x faster than it could've ever been done before, by a workforce that does not sleep, and can be parallelized near infinitely?\" Simons said. \"It's daunting and mind-bending, and I think the repricing of SaaS in public markets more accurately reflects this today.\"\n\n Reach out to me via email at abarr@businessinsider.com.",
-    "readingTime": 3,
-    "keywords": [
-      "business insider",
-      "agents",
-      "software",
-      "knowledge",
-      "human",
-      "shift",
-      "across",
-      "systems",
-      "product",
-      "digital"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/tech-ceo-ai-agents-outnumber-human-employees-eric-simons-stackblitz-2026-2",
-    "thumbnail_url": "https://i.insider.com/698b6915a645d11881890f3a?width=1200&format=jpeg",
-    "created_at": "2026-02-11T01:19:42.667Z",
-    "topic": "finance"
   }
 ]
