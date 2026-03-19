@@ -1,5 +1,29 @@
 [
   {
+    "slug": "ai-coding-factory",
+    "title": "AI Coding Factory",
+    "description": "Contribute to jaksa76/ai-coding-factory development by creating an account on GitHub.",
+    "fullText": "Autonomous AI agents that pull issues from a task manager, implement them, and push code — continuously. Inspired by AI Coding Factories.\n\nWorkers poll a task manager for unassigned issues, claim one, clone the repo, invoke an AI agent to implement it, commit and push the result, then loop back for the next issue. The task manager is the single source of truth — no local task store.\n\nThe task management backend is pluggable via the TASK_MANAGER environment variable (default: jira).\n\nClone the repository and run the setup script:\n\nRe-run setup.sh at any time to update credentials or change the agent.\n\nAll configuration is passed via environment variables. setup.sh writes these to an env file for you, but you can also set them manually.\n\nThe default backend is jira. Provide your Jira credentials:\n\nPROJECT is the canonical target passed to loop --project:\n\nClaude (subscription): log in with claude login first, then import your credentials (see below). Or set them manually from ~/.claude/.credentials.json:\n\nThere are three ways to run workers: directly, via Docker, or via the factory.\n\nRun the loop script directly on your machine (no Docker required):\n\nThis uses whatever agent script is on your PATH (set by setup.sh) and the environment variables in your current shell. Useful for development and testing.\n\nBuild a worker image and run it with your env file:\n\nUse factory to manage multiple Docker workers at once:\n\nThis uses the worker-claude image by default. Override with FACTORY_WORKER_IMAGE=<image>. Images are automatically built or rebuilt when missing or outdated.\n\nYou can also set the env file globally:\n\nFor lower-level control (e.g. a specific image):\n\nTo run workers on AWS ECS Fargate instead of local Docker, create a runtime symlink in the factory directory pointing to runtime-aws:\n\nThen set the required AWS variables:\n\nAll other factory commands (factory workers, factory status, factory logs, etc.) work the same way.\n\nTo open a PR per issue instead of pushing directly to the default branch:\n\nOr add a needs-branch label to individual Jira issues. The worker creates feature/<ISSUE-KEY>, pushes it, opens a PR, posts a comment with the PR URL, and attempts to transition the issue to In Review.\n\nIndividual issues can opt out with the skip-branch label (takes precedence over FEATURE_BRANCHES=true).\n\nIf you use a Claude subscription, OAuth tokens expire periodically. After running claude login to refresh them, import the new credentials into your env file with:\n\nThis reads ~/.claude/.credentials.json and updates the CLAUDE_* variables in your env file in place.\n\nIf your workflow requires a planning step before implementation, run planner workers alongside your regular workers. Planners claim issues, generate a written plan, commit it to plans/<ISSUE-KEY>.md in the repo, and move on. A human reviews the plan; once approved, a regular implementation worker picks the issue up.\n\nThis uses the planner-claude image by default. Override with FACTORY_PLANNER_IMAGE=<image>.\n\nTo require planning for all issues by default, set:\n\nIndividual issues can bypass planning with the skip-plan label (takes precedence over PLAN_BY_DEFAULT=true).",
+    "readingTime": 3,
+    "keywords": [
+      "claude subscription",
+      "claude login",
+      "default override",
+      "task manager",
+      "env file",
+      "environment variables",
+      "credentials",
+      "docker",
+      "agent",
+      "loop"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/jaksa76/ai-coding-factory",
+    "thumbnail_url": "https://opengraph.githubassets.com/4cf70529cdd1199d46ef641e261a8bf4b39736a5fab68cd1f27a0685e281ee88/jaksa76/ai-coding-factory",
+    "created_at": "2026-03-19T06:44:35.782Z",
+    "topic": "tech"
+  },
+  {
     "slug": "the-flawed-ephemeral-software-hypothesis",
     "title": "The Flawed Ephemeral Software Hypothesis",
     "description": "Why software won't become disposable despite the rise of agentic AIs for coding",
@@ -2058,29 +2082,5 @@
     "thumbnail_url": "https://i.insider.com/698b6915a645d11881890f3a?width=1200&format=jpeg",
     "created_at": "2026-02-11T01:19:42.667Z",
     "topic": "finance"
-  },
-  {
-    "slug": "composer-15",
-    "title": "Composer 1.5",
-    "description": "Improved reasoning over challenging coding tasks by scaling RL over 20x.",
-    "fullText": "A few months ago, we released our first agentic coding model, Composer 1. Since then, we've made significant improvements to the model’s coding ability.\n\nOur new release, Composer 1.5, strikes a strong balance between speed and intelligence for daily use. Composer 1.5 was built by scaling reinforcement learning 20x further on the same pretrained model. The compute used in our post-training of Composer 1.5 even surpasses the amount used to pretrain the base model.\n\nWe see continued improvements on coding ability as we scale. Measured by our internal benchmark of real-world coding problems, we find that the model quickly surpasses Composer 1 and continues to climb in performance. The improvements are most significant on challenging tasks.\n\nComposer 1.5 is a thinking model. In the process of responding to queries, the model generates thinking tokens to reason about the user’s codebase and plan next steps. We find that these thinking stages are critical to the model’s intelligence. At the same time, we wanted to keep Composer 1.5 fast and interactive for day-to-day use. To achieve a balance, the model is trained to respond quickly on easy problems with minimal thinking, while on hard problems it will think until it has found a satisfying answer.\n\nTo handle longer running tasks, Composer 1.5 has the ability to self-summarize. This allows the model to continue exploring for a solution even when it runs out of available context. We train self-summarization into Composer 1.5 as part of RL by asking it to produce a useful summary when context runs out in training. This may trigger several times recursively on hard examples. We find that self-summarization allows the model to maintain its original accuracy as context length varies.\n\nComposer 1.5 is a significantly stronger model than Composer 1 and we recommend it for interactive use. Its training demonstrates that RL for coding can be continually scaled with predictable intelligence improvements.\n\nLearn more about Composer 1.5 pricing here.",
-    "readingTime": 2,
-    "keywords": [
-      "tasks composer",
-      "coding ability",
-      "model",
-      "improvements",
-      "intelligence",
-      "context",
-      "model’s",
-      "balance",
-      "surpasses",
-      "quickly"
-    ],
-    "qualityScore": 1,
-    "link": "https://cursor.com/blog/composer-1-5",
-    "thumbnail_url": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/assets/blog/composer-1.5-og.png",
-    "created_at": "2026-02-10T06:54:10.475Z",
-    "topic": "tech"
   }
 ]

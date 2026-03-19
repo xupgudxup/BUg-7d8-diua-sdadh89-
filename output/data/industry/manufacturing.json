@@ -1,5 +1,29 @@
 [
   {
+    "slug": "ai-coding-factory",
+    "title": "AI Coding Factory",
+    "description": "Contribute to jaksa76/ai-coding-factory development by creating an account on GitHub.",
+    "fullText": "Autonomous AI agents that pull issues from a task manager, implement them, and push code — continuously. Inspired by AI Coding Factories.\n\nWorkers poll a task manager for unassigned issues, claim one, clone the repo, invoke an AI agent to implement it, commit and push the result, then loop back for the next issue. The task manager is the single source of truth — no local task store.\n\nThe task management backend is pluggable via the TASK_MANAGER environment variable (default: jira).\n\nClone the repository and run the setup script:\n\nRe-run setup.sh at any time to update credentials or change the agent.\n\nAll configuration is passed via environment variables. setup.sh writes these to an env file for you, but you can also set them manually.\n\nThe default backend is jira. Provide your Jira credentials:\n\nPROJECT is the canonical target passed to loop --project:\n\nClaude (subscription): log in with claude login first, then import your credentials (see below). Or set them manually from ~/.claude/.credentials.json:\n\nThere are three ways to run workers: directly, via Docker, or via the factory.\n\nRun the loop script directly on your machine (no Docker required):\n\nThis uses whatever agent script is on your PATH (set by setup.sh) and the environment variables in your current shell. Useful for development and testing.\n\nBuild a worker image and run it with your env file:\n\nUse factory to manage multiple Docker workers at once:\n\nThis uses the worker-claude image by default. Override with FACTORY_WORKER_IMAGE=<image>. Images are automatically built or rebuilt when missing or outdated.\n\nYou can also set the env file globally:\n\nFor lower-level control (e.g. a specific image):\n\nTo run workers on AWS ECS Fargate instead of local Docker, create a runtime symlink in the factory directory pointing to runtime-aws:\n\nThen set the required AWS variables:\n\nAll other factory commands (factory workers, factory status, factory logs, etc.) work the same way.\n\nTo open a PR per issue instead of pushing directly to the default branch:\n\nOr add a needs-branch label to individual Jira issues. The worker creates feature/<ISSUE-KEY>, pushes it, opens a PR, posts a comment with the PR URL, and attempts to transition the issue to In Review.\n\nIndividual issues can opt out with the skip-branch label (takes precedence over FEATURE_BRANCHES=true).\n\nIf you use a Claude subscription, OAuth tokens expire periodically. After running claude login to refresh them, import the new credentials into your env file with:\n\nThis reads ~/.claude/.credentials.json and updates the CLAUDE_* variables in your env file in place.\n\nIf your workflow requires a planning step before implementation, run planner workers alongside your regular workers. Planners claim issues, generate a written plan, commit it to plans/<ISSUE-KEY>.md in the repo, and move on. A human reviews the plan; once approved, a regular implementation worker picks the issue up.\n\nThis uses the planner-claude image by default. Override with FACTORY_PLANNER_IMAGE=<image>.\n\nTo require planning for all issues by default, set:\n\nIndividual issues can bypass planning with the skip-plan label (takes precedence over PLAN_BY_DEFAULT=true).",
+    "readingTime": 3,
+    "keywords": [
+      "claude subscription",
+      "claude login",
+      "default override",
+      "task manager",
+      "env file",
+      "environment variables",
+      "credentials",
+      "docker",
+      "agent",
+      "loop"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/jaksa76/ai-coding-factory",
+    "thumbnail_url": "https://opengraph.githubassets.com/4cf70529cdd1199d46ef641e261a8bf4b39736a5fab68cd1f27a0685e281ee88/jaksa76/ai-coding-factory",
+    "created_at": "2026-03-19T06:44:35.782Z",
+    "topic": "tech"
+  },
+  {
     "slug": "reliance-signs-3b-deal-with-samsung-ct-for-15year",
     "title": "Reliance signs $3B deal with Samsung C&T for 15-year",
     "description": "Reliance is building a factory that turns sunlight into fuel...",
@@ -1944,18 +1968,5 @@
     "thumbnail_url": "https://media.zenfs.com/en/reuters-finance.com/120da1729fa70ac22a4e754f0f87f4d4",
     "created_at": "2025-12-19T18:17:16.962Z",
     "topic": "finance"
-  },
-  {
-    "slug": "switch-2-game-ditches-gamekey-cards-for-a-physical-release-but-itll-cost-more",
-    "title": "Switch 2 Game Ditches Game-Key Cards For A Physical Release, But It'll Cost More",
-    "description": "Game-Key Cards have been divisive since they were first introduced, but the good news is that the full R-Type Dimensions 3 game will be on the Switch 2 cartridge. The bad news? You're going to have to pay a little bit extra for that side-scrolling shoot-'em-up, as the price is going up to €70.\nIt's worth noting that those who already preordered the physical Special Edition will not see their price change.\nPublisher Inin Games had previously explained that switching the entire run to standard cartridges would have resulted in manufacturing costs increasing by \"at least\" €15 per game copy, which is why it chose the Game-Key Card option.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.gamespot.com/articles/switch-2-game-ditches-game-key-cards-for-a-physical-release-but-itll-cost-more/1100-6537110/?ftag=CAD-01-10abi2f",
-    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1601/16018044/4626202-r-type-switch-2.jpg",
-    "created_at": "2025-12-19T18:17:16.426Z",
-    "topic": "gaming"
   }
 ]
