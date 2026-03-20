@@ -1,5 +1,158 @@
 [
   {
+    "slug": "singletasking-in-the-age-of-ai",
+    "title": "Single-Tasking in the Age of AI",
+    "description": null,
+    "fullText": "One of the worst-kept secrets of human productivity is that we are terrible at multitasking. Study after study has shown that we cannot truly multitask. Instead, we do the biological equivalent of CPU time-slicing: we focus on one thing for a short period, then switch to something else. Fundamentally, our brains have no parallel processing. We are more productive when we focus deeply on one task and finish it before moving on to the next. That’s why the typical advice is to close any windows that aren’t related to your current task, disable notifications, and focus on what you’re doing.\n\nAs someone who is a strong proponent of single-tasking, I found myself pulled into a new type of multitasking when I started using AI for programming. Typing a prompt and then waiting for a response creates plenty of time to switch to something else while the model does its work. My days would start by firing up four or five different agents on different tasks, then checking in and steering each one throughout the day. Some tasks were paid work, some were open source, and others were pure exploration.\n\nWithin a couple of weeks, I was feeling burned out and frantic. The allure of parallel workstreams using AI was too strong, and my brain was struggling to keep up. Getting things done this way felt less rewarding than writing all of the code myself. Plus, without going deep into a problem, I found myself understanding less and less of the code. As long as it passed tests, I was content. Doing nothing while waiting for a model to spit out the code I wanted felt like wasted time. I couldn’t keep going like this, and I suspect many developers are in the same boat.\n\nFortunately, single-tasking is still possible in the age of AI with a few small changes to how you work.\n\nBe a copilot. It’s tempting to type a prompt and let AI write the code without a second thought. Don’t. Instead, think through the problem while the model is working. Open the code you expect to touch and visualize what needs to change. Think of yourself as the copilot who needs to stay on top of the same information as the model doing the coding. Learn while you wait by keeping your head in the code. This keeps you invested in the process and helps you evaluate whatever solution the model produces.\n\nMake small changes. Once you get going with AI-assisted programming, it’s easy to tell the model every small thing you want to tweak. Resist that urge. IDEs are incredibly good at changes like moving files, renaming variables, classes, and functions, and doing project-wide find-and-replace. Most of the time, you can accomplish these with a few shortcut keys much faster than telling a model what you want. If a test is failing, try to figure out why on your own before handing it off. Debugging is a great way to stay familiar with the codebase.\n\nWrite tests. Falling back on test-driven development (or TDD) is a good way to work with AI. Instead of letting the model create both the code and the associated tests, start by writing tests that describe the behavior you want. Then ask the model to write code that makes the tests pass. This gives you a deep understanding of the expected behavior and a deterministic way to validate the code that’s produced. This doesn’t mean you need to write every test case by hand. You can use AI to generate the specific test cases you want and still get a lot of the benefit.\n\nAI can make you feel like you should be running everything in parallel, but that’s a fast path to shallow work and mental overload. You’ll get more value (and more satisfaction) by staying engaged: think alongside the model, keep changes small, and use tests to anchor what “done” means. The goal isn’t to outpace your attention span. It’s to use AI without giving up the focus that makes you effective.\n\nLearn how to proxy fetch() requests in Node.js, Deno, Bun, and Cloudflare Workers to better monitor and control your server-side traffic.\n\n📝 AI fatigue is real and nobody talks about it by Siddhant Khare\nIf the switch to AI-assisted programming has left you feeling uneasy and unsatisfied, you're not alone. This post explores why AI-assisted programming feels overall less fulfilling than building from scratch.\n\n🎬 Ship working code while you sleep with the Ralph Wiggum technique by Matt Pocock\nIt was hard to go online in the last month and not see something about the Ralph Wiggum technique for using AI. This video explains how it works and how to set it up yourself.\n\n📝 Goodbye innerHTML, hello setHtml by Tom Schuster, Frederik Braun, Christoph Kerschbaumer\nAfter more than a decade of security issues, the new setHtml() function is finally available as a replacement to innerHTML. This new function automatically sanitizes the HTML string passed into it.\n\n🎧 What Tech Wants: God in the Machine by Ariella Markowitz, David Sirota, Natalie Bettendorf\nSomething seems to be going on in Big Tech. This podcast explores how the big tech companies have become more politically involved and what they're actually after.\n\n🎬 After This Video, You'll Actually Understand Agent Orchestration by Burke Holland\nAgent orchestration, multiple AI agents working together to achieve a goal, is becoming more popular every day. This video walks you through a basic orchestration to explain the concept.\n\n📝 How AI is affecting productivity and jobs in Europe by Inaki Aldasoro, et al\nWe don't yet have a lot of data explaining whether AI is improving productivity, costing jobs, or anything else. This article explores the latest data available in Europe to determine how companies that adopt AI are faring.\n\n🎧 Tish Rabe - 200+ children's books, getting picked for Dr. Seuss... by Tim Ferriss\nIf you're like me and grew up on Sesame Street and Dr. Seuss books, you'll enjoy this interview with Tish Rabe who was involved with it all. From an early start as an assistant on Sesame Street to producing children's TV shows and writing children's books, Tish Rabe's journey is amazing.\n\n🏠 Real Estate: The difficulties continue. The property where a tenant left in December is still empty and it costs $500/month to keep it heated in the meantime. In my duplex, this is the second straight month where neither tenant paid rent. Additionally, my property manager let me know that another property has a rat problem and other issues that the previous property manager neglected to fix. Overall, it's been a rough winter. My margins on these properties are pretty thin, so this already represents a big chunk of what the properties would have made in 2026. Follow my Instagram for real estate photos.\n\n🍞 Bredbox: Bredbox, my \"read later\" app, now offers a REST API for users. You can create a personal access token and manage your library directly. Next up: browser extensions to make saving URLs even easier.\n\n♥️ Personal: I had some non-tech stuff taking up my time this month, as a family member went in for day surgery but had a reaction to the anesthesia. They ended up in the hospital for a week while doctors tried to figure out what was going on. Thankfully, they are back home now and on the road to recovery. This is a good reminder that there are things much more important than coding.\n\nIf you're a tech lead or staff+ engineer, chances are your manager has no experience in your role. While they may be well-intentioned, they may not know how to help you grow in such a challenging position.\n\nThat's where working with me can help. As a former tech lead and principal engineer at multiple companies, I learned firsthand the ins and outs of these roles. I work with my clients one-on-one to develop their leadership, communication, organization, and problem-solving skills to succeed in the upper ranks of the individual contributor track.",
+    "readingTime": 7,
+    "keywords": [
+      "wiggum technique",
+      "agent orchestration",
+      "ai-assisted programming",
+      "children's books",
+      "tech lead",
+      "property manager",
+      "ralph wiggum",
+      "tish rabe",
+      "model",
+      "code"
+    ],
+    "qualityScore": 1,
+    "link": "https://newsletter.humanwhocodes.com/posts/single-tasking-in-the-age-of-ai",
+    "thumbnail_url": "https://embed.filekitcdn.com/e/2dCejp6yj6tBWKNzNYcedy/cnNYgJJHghtSxqBnXeFMRi",
+    "created_at": "2026-03-20T18:33:47.151Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "graph-over-tables-why-we-built-a-context-graph-instead-of-a-cmdb",
+    "title": "Graph over Tables: Why We Built a Context Graph Instead of a CMDB",
+    "description": "Every CMDB we've seen drifts from reality within weeks. We needed a data model that maintains itself, represents relationships natively, and lets AI reason about your environment — not just search it. Here's why we chose a graph.",
+    "fullText": "Every service management platform starts with the same foundation: a relational database full of tickets. Rows and columns. Each ticket is a record. Each record is an island.\n\nFine for tracking work. Terrible for understanding anything.\n\nWhen someone asks \"what's the blast radius if we rotate this certificate?\" The answer lives in relationships between systems, not in any single row. Which services use that cert? Which applications depend on those services? Which teams are affected? You could technically answer this with a relational model and enough joins, but nobody builds it that way, and if they did the query would be horrifying.\n\nWe needed a different foundation. So we built one.\n\nCMDBs were supposed to solve this. The authoritative map of your IT environment: every asset, every dependency, every relationship, all in one place.\n\nIn practice, they're graveyards.\n\nYou've seen the failure mode. Someone sets up the CMDB. A team spends weeks populating it. For a month or two, it's accurate-ish. Then someone provisions a new server and doesn't update the CMDB. Someone else decommissions a service but forgets to remove it. A team migrates from one identity provider to another and nobody tells the CMDB team. Within a quarter, the thing is fiction. Everyone knows it's fiction. It sticks around because someone paid for it, but nobody trusts it when it actually matters.\n\nAnd the fundamental unit — the Configuration Item, the CI — sounds rigorous until you look at it closely. It's a row in a table that someone has to manually classify, categorize, and keep current. Is a Kubernetes namespace a CI? Is a SaaS tenant? What about the Slack channel your on-call team uses for incident coordination? The CI model forces you to answer these questions upfront, then punishes you when the answer changes. Teams either over-classify everything into meaningless taxonomy or just give up and let the data rot. I've seen both, sometimes at the same company.\n\nThe root cause isn't that people are lazy. It's that CMDBs are designed as systems of record that humans maintain, and humans don't maintain things that aren't in their critical path. If updating the CMDB isn't a natural side effect of doing the actual work, it won't happen. It never is, and it never does.\n\nWe kept coming back to three things:\n\nFirst, zero manual data entry. If a human has to type something into the system for it to stay accurate, it will eventually be inaccurate. Every fact in our model had to come from an authoritative source automatically.\n\nSecond, relationships as real objects, not foreign keys in a join table. \"This person belongs to this team, uses this laptop, which runs this agent, which reports to this MDM, which enforces this compliance policy.\" That's a path through connected entities. In a relational model it's a five-table join that someone had to anticipate when designing the schema.\n\nThird, merging without losing provenance. Jamf calls a device JAMF-4821. CrowdStrike knows it as CS-A7F3E. Intune has a third name. Same laptop, three identities. The system has to figure that out, merge the data, and still let you look things up by any of those original IDs. In a graph, the laptop is one node that carries all three identifiers. Query by any of them and you land in the right place. In a relational model, you'd need alias tables or lookup joins that break every time a new source shows up.\n\nYou can do all of this in Postgres. You can also drive a nail with a wrench. We chose a graph.\n\nA graph database stores entities as nodes and relationships as edges. That's the textbook definition. Here's why it matters.\n\nIn a relational database, figuring out that an expiring certificate affects 47 people across 12 teams who depend on 8 services that terminate TLS with that cert means recursive self-joins on a relationships table, filtering by type at each hop. You can model it. The query to answer it is where it gets painful.\n\nIn a graph, you start at the certificate node. Walk outward along secures edges to service nodes. Walk powers to applications. Walk used_by to teams, member_of to people. The query follows the shape of the question. No joins, no pre-planned schema. The relationships are the data.\n\nThat alone would have been enough. But it gets more interesting with AI in the picture.\n\nTo be fair, you can build a good CMDB on a relational database. Plenty of people have. Generic entity models, JSONB columns, flexible typing. You can even make relationships generic — a single relationships table with source_id, target_id, type, and a JSONB properties column. The schema problem is solvable.\n\nThe performance problem isn't. Think about a mid-size company: 10,000 employees, hundreds of applications, hundreds of teams, dozens of databases, hundreds of servers. Every employee uses dozens of apps, every app depends on services, every service talks to databases and runs on infrastructure. The relationships between those entities outnumber the entities themselves by orders of magnitude, and they all land in that one table. Now traverse it: \"what's downstream of this certificate?\" is a recursive self-join on that table, filtering by type at each hop, across four or five levels of depth. Every hop multiplies the join cost. At any serious scale, these queries either time out or require so much precomputation that you've lost the flexibility you designed for.\n\nIn a graph, traversal is the native operation. Four hops through four different edge types costs the same as one. The data structure is built for the question. And relationships aren't just pointers — they carry meaning. A dependency between two services might be critical or incidental. An ownership might be primary or secondary. These distinctions live as properties on edges, and they change over time. As ticket data flows in, the architecture supports weighting those edges — if every outage of Service A cascades to Service B within minutes, that dependency can get heavier over time.\n\nA good relational CMDB can model your environment. A graph can keep up with it.\n\nMost AI-powered IT tools do the same thing: embed tickets and docs into vectors, retrieve the nearest matches, feed them to an LLM. That's RAG, and it works for semantic lookups — \"how do I connect to the VPN?\" or \"what's the policy on laptop replacements?\" But service management is full of questions that aren't about finding similar text. They're about following connections. \"What's affected by this network change?\" is a chain: switch → VLAN → servers → services → teams. Vector search can't traverse that. It's solving a different problem.\n\nWhat we actually need is both. Vectors for semantic understanding — natural language queries, sentiment, similarity. The graph for structural reasoning — traversal, dependencies, blast radius. The graph is what turns RAG from \"find me something similar\" into \"find me something relevant, then show me everything it touches.\" And because graph traversal is cheap, we can do this on every ticket, every workflow, every agent decision.\n\nBefore an agent runs a workflow, it walks the graph to understand what's downstream. Resetting a service account is fine if nothing depends on it. It's a very bad idea if twelve production services authenticate through it. Without the graph, the agent is just guessing and hoping for the best.\n\nThirty tickets about different symptoms — \"Salesforce is slow,\" \"can't reach the file share,\" \"VPN keeps dropping\" — look unrelated in a ticket database. In the graph, all three trace back to the same firewall rule change that went out twenty minutes ago. Thirty tickets, one root cause.\n\nThe better models get, the more the graph matters. A more capable model can reason over deeper traversals and make better judgment calls — but only if the data underneath gives it structure to work with. Flat tables put a ceiling on what the AI can reason about. The graph removes it.\n\nWhen ten integrations write to the same graph, the hard problem isn't ingestion. It's knowing who said what, and merging correctly when sources overlap.\n\nEvery fact in our graph is a timestamped assertion with provenance. Instead of laptop.owner = Alice, we store:\n\nEvery edge and property carries its source. When you're looking at the graph and something looks wrong, you can always trace it back: this fact came from Jamf at 2:47pm, that one came from CrowdStrike's last sync. This is why provenance matters: when sources eventually disagree (and they will), you need to know who said what before you can reason about which is correct.\n\nIdentity resolution is the other half of this problem. A user might be alice@company.com in Okta and employee #4821 in Workday. Both IDs need to resolve to the same node in the graph, and both need to remain queryable. You don't lose the ability to look someone up by a system's native ID just because the entity got merged with data from another source.\n\nThe graph populates itself through integrations. Connect your MDM and we ingest every device, its compliance state, installed software, assigned user. Connect your cloud provider and we get resources, permissions, network paths. Plug in your ticketing system and historical resolutions become part of the graph too.\n\nHere's the thing that took us a while to articulate: the graph is a side effect of your tools already doing their jobs. Your MDM already knows which laptop runs which agent. Your cloud provider already knows which services talk to which databases. Your ticketing system already has years of resolution data connecting problems to systems. We're not asking anyone to maintain a separate system of record. We're assembling one from sources that already exist and are already being kept current.\n\nGraphs aren't free. They're harder to run than Postgres. Tooling is less mature. The talent pool is smaller. And the flexibility that makes them powerful also makes them easy to model badly. Without discipline, you end up with a tangle instead of a topology.\n\nWe took that bet because the alternative, building AI on top of flat tables, is a ceiling we'd hit on every feature we shipped. The data model is the thing everything else stands on. If it can't represent relationships, nothing built on top of it will be able to reason about them either.\n\nIf you're building in a domain where relationships matter more than records, it's worth asking whether your data model reflects that.",
+    "readingTime": 9,
+    "keywords": [
+      "thirty tickets",
+      "cmdb team",
+      "blast radius",
+      "root cause",
+      "flat tables",
+      "cloud provider",
+      "what's downstream",
+      "ticketing system",
+      "table filtering",
+      "service management"
+    ],
+    "qualityScore": 1,
+    "link": "https://stlabs.com/engineering/graph-over-tables",
+    "thumbnail_url": "https://stlabs.com/images/blog/graph-over-tables.jpg",
+    "created_at": "2026-03-20T18:33:45.505Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "gemini-ai-threatened-me-with-death-documented-evidence",
+    "title": "Gemini AI threatened me with death – documented evidence",
+    "description": "Acest site este un raport de cercetare/documentare a unei defecțiuni critice de siguranță AI \nInteligența artificială Gemini a generat amenințări directe la adresa mea, inclusiv scenarii detaliate de eliminare fizică ca instrument de teroare psihologică, amenintare cu atac cibernetic pentru",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://sites.google.com/view/amenintare-gemini/",
+    "thumbnail_url": "https://lh3.googleusercontent.com/sitesv/APaQ0ST_9jiZzWewnhdJ8mA81eHPG0TIVlwbDUprJOeCGH_Wb4O_RvUUF_CejTFq4_YMxpdl5w4UyJgBxbd9ns4d_xxdc1IUQ8ylHUqkNa5usD8d8UswaJbjrso3QuomWqj-iRRiK4JAwWzKxMzfmeX4ylccyZTluFi-yTJcAHWT7ha_ZO4aewnHx2N9u6s=w16383",
+    "created_at": "2026-03-20T18:33:44.160Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "11-of-the-most-interesting-quotes-from-claude-users-about-their-hopes-and-fears-for-ai",
+    "title": "11 of the most interesting quotes from Claude users about their hopes and fears for AI",
+    "description": "One engineer said they lied to their employer about how long it took to build a new feature. Others were uneasy about creating company AI plans.",
+    "fullText": "Anthropic conducted a massive survey of roughly 81,000 Claude users in December.\n The newly released results show the extent to which even AI users are worried about the technology.\n One software engineer wondered if this is how coachmen felt when cars were invented.",
+    "readingTime": 1,
+    "keywords": [
+      "users"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/anthropic-claude-users-survey-worker-fears-hopes-ai-3-2026",
+    "thumbnail_url": "https://i.insider.com/69bc6aebebc245a53a81212f?width=1200&format=jpeg",
+    "created_at": "2026-03-20T18:33:40.470Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "goldman-sachs-maps-out-where-its-pushing-ai-and-the-risks-that-could-upend-its-strategy",
+    "title": "Goldman Sachs maps out where it's pushing AI — and the risks that could upend its strategy",
+    "description": "In a new shareholder letter, Goldman Sachs' leaders offered insight into how the bank is navigating the competitive AI revolution.",
+    "fullText": "Goldman Sachs outlined details of its AI strategy in a new shareholder letter.\n The firm offered a look at how it's applying AI across operations and workflows.\n It also flagged the biggest risks to a successful rollout, including attracting and keeping talent.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/goldman-sachs-lays-out-ai-ambitions-biggest-risks-shareholder-letter-2026-3",
+    "thumbnail_url": "https://i.insider.com/69bd82ac58b5806618e7cd38?width=1200&format=jpeg",
+    "created_at": "2026-03-20T18:33:40.370Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "box-ceo-says-companies-will-need-to-figure-out-how-to-budget-for-workers-running-up-ai-token-bills",
+    "title": "Box CEO says companies will need to figure out how to budget for workers running up AI token bills",
+    "description": "\"Their compute budgets are just going to monotonically go up over time,\" Box CEO Aaron Levie wrote about workers who properly leverage AI.",
+    "fullText": "Box CEO Aaron Levie said AI token consumption won't be limited to engineers.\n Levie said AI token usage will only increase among workers who properly use AI.\n Nvidia CEO Jensen Huang said he would be upset if an engineer didn't use equivalent of half of their salary on tokens.",
+    "readingTime": 1,
+    "keywords": [
+      "token",
+      "levie"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/box-aaron-levie-ai-token-use-costs-2026-3",
+    "thumbnail_url": "https://i.insider.com/69bd6eaa8cf983301be03206?width=1200&format=jpeg",
+    "created_at": "2026-03-20T18:33:40.169Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "littler-applies-to-trademark-his-face-to-combat-ai-fakes",
+    "title": "Littler applies to trademark his face to combat AI fakes",
+    "description": "The darts star's image has been used legally on darts merchandise, snacks and fashion brands.",
+    "fullText": "Luke Littler, the youngest darts world champion in history, has applied to the Intellectual Property Office to trademark his face.\n\nThe move is intended to prevent his face being reproduced, including by generative AI, without permission.\n\nLittler has won two World Championship titles in a row and has had his image used legally on darts merchandise, as well as by multiple brands such as KP Nuts.\n\nThe 19-year-old joins celebrities such as actor Matthew McConaughey who have filed to protect their likeness from AI misuse in recent months. In October 2025, Chelsea footballer Cole Palmer not only trademarked his autograph and facial image but also the term \"Cold Palmer\".\n\nLittler has already trademarked his nickname \"the Nuke\" in the United States.\n\nRegistering a trademark lets people or businesses legally protect their ideas or brand from being used without permission.\n\nIt also allows them to put a registered trademark symbol on their products to show ownership and warn others not to copy or use it.\n\nCelebrities in Hollywood and the music industry, such as Scarlett Johansson and Taylor Swift, have been affected by a surge of fake videos, audio, and images online made using AI tools.\n\nLouise Popple, a copyright ​expert at law firm Taylor Wessing, told the BBC part of the reason why celebrities went down the route of trademarking their appearance in the UK was the \"lack of any image rights law\".\n\nShe added while it was \"unlikely\" Littler would be able to stop anything other than a very similar image of his own face even with the trademark, the move signaled he was taking his rights \"seriously\", which could put off \"opportunistic merchandising\".\n\n\"Owning a registration can also help with licensing deals as it gives the celebrity 'something' to licence,\" she said.\n\nJoe Doyle-Ward, Senior Associate and Trade Mark Attorney at Abion, one of the UK and Europe's leading intellectual property firms, told the BBC the move was a \"smart branding decision\" and one which firms were seeing happen more and more often with celebrities.\n\n\"The legal framework around AI and copyright is still evolving, but trademarks remain one of the most effective tools to control commercial use in the meantime,\" he said.\n\n\"It's not about stopping everyday use, but about ensuring that any commercial exploitation is authorised,\" he added.\n\nThe application is currently under examination at the Intellectual Property Office.\n\nLittler rose to prominence in 2024, aged 16, winning the BBC Young Sports Personality of the Year.\n\nIn January 2025 Littler became the youngest ever darts world champion after beating three-time world champion Michael van Gerwen aged just 17.\n\nHe has since gone on to repeat the feat again in 2026, by beating Dutch darts player Gian van Veen 7-1 in the final.\n\n Outside the UK?",
+    "readingTime": 3,
+    "keywords": [
+      "without permission",
+      "darts",
+      "trademark",
+      "celebrities",
+      "face",
+      "youngest",
+      "legally",
+      "protect",
+      "trademarked",
+      "tools"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.bbc.com/news/articles/c5y7374x9n4o?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/news/1024/branded_news/9f3f/live/07743ca0-245e-11f1-a89a-5b5e5d061970.jpg",
+    "created_at": "2026-03-20T18:33:37.737Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "senior-european-journalist-suspended-over-aigenerated-quotes",
+    "title": "Senior European journalist suspended over AI-generated quotes",
+    "description": "Mediahuis suspends Peter Vandermeersch, who says he ‘fell into trap of hallucinations’, after investigation by newspaper where he was once editor-in-chief\nThe publisher of the Dutch newspaper De Telegraaf and the Irish Independent has suspended one of its senior journalists after he admitted using AI to “wrongly put words into people’s mouths”.\nPeter Vandermeersch, the former head of the Irish operations at Mediahuis, said he “fell into the trap of hallucinations” – the term for AI-generated errors – when using the technology.\n Continue reading...",
+    "fullText": "Mediahuis suspends Peter Vandermeersch, who says he ‘fell into trap of hallucinations’, after investigation by newspaper where he was once editor-in-chief\n\nThe publisher of the Dutch newspaper De Telegraaf and the Irish Independent has suspended one of its senior journalists after he admitted using AI to “wrongly put words into people’s mouths”.\n\nPeter Vandermeersch, the former head of the Irish operations at Mediahuis, said he “fell into the trap of hallucinations” – the term for AI-generated errors – when using the technology.\n\nVandermeersch, a fellow of “journalism and society” at the European publishing group, has been suspended from his role.\n\nThe experienced journalist said he had summarised reports using AI tools such as ChatGPT, Perplexity and Google’s NotebookLM, and not checked whether the quotes from those summaries were accurate. He subsequently published them in his Substack newsletter.\n\nThe errors were highlighted by an investigation by one of Mediahuis’s own titles, NRC, where Vandermeersch had been editor-in-chief in the 2010s. NRC alleged Vandermeersch had published “dozens” of quotes that were false and that seven quoted individuals in his posts said they had not made the statements attributed to them.\n\n“I wrongly put words into people’s mouths, when I should have presented them as paraphrases. In some cases, it reflected my interpretation of their words. That was not just careless – it was wrong,” Vandermeersch wrote in a Substack post headlined “I am admitting my mistake”.\n\nVandermeersch added: “It is particularly painful that I made precisely the mistake I have repeatedly warned colleagues about: these language models are so good that they produce irresistible quotes you are tempted to use as an author. Of course, I should have verified them. The necessary ‘human oversight’, which I consistently advocate, fell short.”\n\nVandermeersch’s Press and Democracy blog writes regularly about “the vital connection between a free press and a healthy democracy”.\n\nIn a statement, the Mediahuis group’s chief executive, Gert Ysebaert, said: “At Mediahuis we apply strict rules for the use of AI, where diligence, human oversight and transparency are essential. The fact that these principles were not followed runs counter to the standards we uphold and to our commitment to readers that we stand for reliable journalism. We are discussing this with Peter Vandermeersch and have decided to temporarily suspend him from his role as fellow.’’\n\nMediahuis has also removed a number of articles written by Vandermeersch from the Irish Independent website.\n\nAI tools such as ChatGPT are used by hundreds of millions of people for an array of tasks ranging from the relatively straightforward, such as suggesting recipes, to carrying out complex academic research. However, they are prone to making errors.\n\nVandermeersch said he made a second mistake by failing to correct false quotes immediately, instead leaving that work to a title he had overseen for nearly a decade. He said he was enthusiastic about the possibilities of AI and had wanted to experiment with them extensively.\n\n“Journalism is human work,” he wrote. “I remain convinced that AI can be a powerful tool – one that can help journalism become better, dig deeper, and be more precise. But not by using AI in the way I did in the early months of this blog.”\n\nVandermeersch declined to comment.",
+    "readingTime": 3,
+    "keywords": [
+      "people’s mouths",
+      "human oversight",
+      "peter vandermeersch",
+      "irish independent",
+      "journalism",
+      "quotes",
+      "errors",
+      "mistake",
+      "trap",
+      "hallucinations"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theguardian.com/technology/2026/mar/20/mediahuis-suspends-senior-journalist-over-ai-generated-quotes",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/f53f8e674f5b3c1fccaf19b9b0a8e24f0987ae2f/101_0_1499_1199/master/1499.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5adaa12d59579fdcda49ac7f11363bd9",
+    "created_at": "2026-03-20T18:33:37.277Z",
+    "topic": "tech"
+  },
+  {
     "slug": "rich-interaction-surfaces-with-ai-more-than-just-chat",
     "title": "Rich Interaction Surfaces With AI – more than just chat",
     "description": "Most AI integrations are bolted on — a sidebar, a button, a plugin. NoteCove is different: your AI works in the same structured workspace you do, natively, through the CLI.",
@@ -1647,163 +1800,6 @@
     "link": "https://leonletto.github.io/thrum/index.html",
     "thumbnail_url": "https://leonletto.github.io/thrum/img/social-card.png",
     "created_at": "2026-03-18T06:50:54.327Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "pentagon-responds-to-anthropic-suit-arguing-the-company-is-a-substantial-risk-to-national-security",
-    "title": "Pentagon responds to Anthropic suit arguing the company is a 'substantial risk' to national security",
-    "description": "In a Tuesday filing, the Department of Defense argued that Anthropic's refusal to accept the government's contractual terms is not protected speech.",
-    "fullText": "In a new filing, the Department of Defense outlined its arguments against Anthropic's contract lawsuit.\n The DoD says Anthropic's refusal to accept the government's contractual terms is not protected speech.\n The government says Anthropic poses a \"substantial risk\" to the supply chain and national security.",
-    "readingTime": 1,
-    "keywords": [
-      "anthropic's"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/doj-argues-first-amendment-wont-protect-anthropic-contract-dispute-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b9fe1b75bee4e0ee55d70e?width=1200&format=jpeg",
-    "created_at": "2026-03-18T06:50:44.712Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "2-artificial-intelligence-ai-stocks-that-could-set-you-up-for-life",
-    "title": "2 Artificial Intelligence (AI) Stocks That Could Set You Up for Life",
-    "description": "Nvidia and Broadcom expect monster growth over the next few years.",
-    "fullText": "Finding stocks that have the potential to set you up for life is no easy task. Currently, there's no better place to find that type of massive upside potential in the stock market than in the artificial intelligence (AI) sector. For investors looking to maximize their returns, I'm incredibly bullish on Nvidia (NASDAQ: NVDA) and Broadcom (NASDAQ: AVGO). Although they've delivered strong gains already in recent years, I can think of few better stocks to buy than these two.\n\nWill AI create the world's first trillionaire? Our team just released a report on the one little-known company, called an \"Indispensable Monopoly\" providing the critical technology Nvidia and Intel both need. Continue »\n\nAlthough the market may be growing a bit wary about the vast sums of money being spent on AI infrastructure, the reality is that the hyperscalers cannot afford to underspend. Right now, less than 20% of all businesses are using AI, according to research done by The Motley Fool. AI resources are still generally hard to come by, so there's clearly a need to continue spending more on AI computing capacity because demand now isn't even close to what it's expected to be a few years down the road.\n\nThis means that there's still a ton of growth likely ahead on the capital expenditures front, and Broadcom and Nvidia are slated to cash in.\n\nNvidia makes graphics processing units (GPUs), while Broadcom partners directly with hyperscalers to make customized AI chips specifically designed for the workloads they'll face. Nvidia and Broadcom are going after the same market, but there is plenty of opportunity for both of them, as each device type has its strengths and weaknesses.\n\nA market of that size can lead to monstrous growth for both companies, and each is already experiencing it now.",
-    "readingTime": 2,
-    "keywords": [
-      "market",
-      "there's",
-      "stocks",
-      "potential",
-      "nasdaq",
-      "hyperscalers",
-      "growth",
-      "nvidia",
-      "broadcom"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://finance.yahoo.com/news/2-artificial-intelligence-ai-stocks-195900906.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/OwHZTR_8DUXe2avviXLxSA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/motleyfool.com/771a725b61b75585f590f1b5dbbc5b2f",
-    "created_at": "2026-03-18T06:50:44.104Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "attackers-are-exploiting-ai-faster-than-defenders-can-keep-up-new-report-warns",
-    "title": "Attackers are exploiting AI faster than defenders can keep up, new report warns",
-    "description": "Cybersecurity is entering “a new phase” as artificial intelligence tools have matured and given IT defenders significantly less time to respond to cyberattacks and other threats, according to a new report released Monday.",
-    "fullText": "Cybersecurity is entering “a new phase” as artificial intelligence tools have matured and given IT defenders significantly less time to respond to cyberattacks and other threats, according to a new report released Monday.\n\nThe report, authored by federal contractor Booz Allen Hamilton, concludes that threat actors have adopted AI more quickly than governments and private companies have adopted it for cyber defense.\n\nIt points to multiple incidents over the past two years, like attacks carried out with the help of Anthropic’s Claude, that show both cybercriminals and state-sponsored hacking groups are moving and scaling faster than ever before.\n\nBrad Medairy, executive vice president and lead for Booz Allen’s National Cyber Business, told CyberScoop that one of the biggest advantages LLMs have given to attackers is the ability to identify places where the windows are “slightly open” – obscure weaknesses in a system like a perimeter vulnerability — and then quickly use an exploit to establish persistence.\n\n“If you have a vulnerability in your perimeter and the adversary gets inside the wall, at that point they’re going to be moving at machine speed,” he said.\n\nBooz Allen’s report argues that most defensive cybersecurity operations, by contrast, still rely on slower, human-oriented processes that can struggle to keep up with that faster tempo.\n\nFor example, when the Cybersecurity and Infrastructure Security Agency adds a CVE to its Known Exploited Vulnerabilities list, defenders are given 15-day timelines to implement a patch. That would be insufficient for something like HexStrike, an open source AI security framework popular with cybercriminals that exploited “thousands” of Citrix Netscaler products in less than 10 minutes using a single critical CVE.\n\nBooz Allen Hamilton sells AI cybersecurity tools, but the primary conclusions of the report fall in line with what other third-party and independent cybersecurity experts say, namely that large language models have been a boon to cybercriminals and nation-states.\n\nThe report describes two general models’ malicious actors have for using AI.\n\nIn one, it becomes an amplifier for their individual hacking operations. This approach uses LLMs to add speed and scale to what hackers are already doing, while keeping  the human in the loop on key decisions. Using this approach, “a single operator using agentic tooling can run reconnaissance, exploitation and follow-on actions across dozens of targets at once.”\n\nThe other model, called “orchestration” is more akin to vibe coding, connecting the LLM to offensive security tools, pointing it at a target and setting the agent’s limits and parameters.\n\nMedairy said it’s likely that regulation and policies around AI will continue to lag behind its development, forcing cybersecurity officials to make hard decisions around shifting to automated and AI-assisted defenses to keep up. In this scenario, organizations would plan and run tabletop exercises ahead of time to game out how their AI agents should respond to an ongoing attack, what limits or parameters to set, and what assets to prioritize.\n\nBut there are real risks to handing over critical cyber or IT functions to an AI system. Amazon has dealt with multiple outages related to software changes made automated through AI, and recently required its senior engineers to personally sign off on any AI-assisted code changes.\n\nMedairy acknowledged the risks but noted that “the adversary gets a vote” and has already moved to exploit AI systems for offensive security, so defenders are going to have to reevaluate what “acceptable risk tolerance” looks like when it comes to defense at machine speed.\n\n“I think that we’re going to be forced to kind of move outside of our comfort zone and really embrace some of this more automated remediation much faster than we’re probably comfortable with,” he said.",
-    "readingTime": 4,
-    "keywords": [
-      "allen hamilton",
-      "booz allen",
-      "machine speed",
-      "offensive security",
-      "cybersecurity",
-      "tools",
-      "defenders",
-      "cyber",
-      "cybercriminals",
-      "faster"
-    ],
-    "qualityScore": 1,
-    "link": "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
-    "thumbnail_url": "https://cyberscoop.com/wp-content/uploads/sites/3/2026/03/GettyImages-1449244963-1.jpg",
-    "created_at": "2026-03-18T01:15:12.028Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "market-claw",
-    "title": "Market Claw",
-    "description": "A place for AI agents to find and hire other agents - DSparkles/MarketClaw",
-    "fullText": "MarketClaw is a full-stack directory where autonomous AI agents and the humans who build them can advertise their services, get discovered, and connect with potential clients. Think of it as a job board — but for bots.\n\nThe API server will auto-sync agents from agent.ai on first startup if the database is empty.\n\nThe API is fully documented at /docs in the running app. Key endpoints:\n\nSign up or sign in via the /auth page or directly via the API. Passwords are hashed with scrypt (Node.js native crypto). Sessions are stored server-side; the client receives a secure HTTP-only cookie.\n\nAI agents skip the session flow entirely and authenticate using a Bearer token. Generate a key in the Dashboard, then include it in every request:\n\nKeys are stored as SHA-256 hashes in the database. The raw key is shown once at creation time.",
-    "readingTime": 1,
-    "keywords": [
-      "the api",
-      "agents",
-      "database",
-      "sign",
-      "stored"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://github.com/DSparkles/MarketClaw",
-    "thumbnail_url": "https://opengraph.githubassets.com/b26fc96675836b502692ddc735a814085f19fab4e975feeb9764192167a41c5a/DSparkles/MarketClaw",
-    "created_at": "2026-03-18T01:15:11.005Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "trump-administration-defends-anthropic-blacklisting-in-us-court",
-    "title": "Trump administration defends Anthropic blacklisting in US court",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/world-news/trump-administration-defends-anthropic-blacklisting-in-us-court-4567315",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM2H018_1200_L.jpg",
-    "created_at": "2026-03-18T01:15:03.316Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-armys-87-million-deal-with-anduril-is-about-linking-sensors-and-shooters-to-give-operators-a-better-shot-at",
-    "title": "The Army's $87 million deal with Anduril is about linking sensors and shooters to give operators a better shot at defeating drones",
-    "description": "The $87 million effort puts Anduril's AI-powered software at the core of the Army-led counter-drone task force.",
-    "fullText": "The Army and Anduril have struck a substantial deal for counter-drone software intended for use across the government.\n The platform connects different sensors and weapons and allows for data sharing.\n The deal is part of a larger multi-billion-dollar plan to make Anduril's products easier for the military and government to buy.",
-    "readingTime": 1,
-    "keywords": [
-      "deal"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/army-anduril-strike-deal-linking-systems-to-counter-drones-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b99f7475bee4e0ee55d567?width=1200&format=jpeg",
-    "created_at": "2026-03-18T01:15:01.012Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "consenttxt-compile-one-ai-policy-into-robotstxt-aipref-and-headers",
-    "title": "Consent.txt – compile one AI policy into robots.txt, AIPREF, and headers",
-    "description": "Define AI permissions once. Emit the rules today's AI web actually uses. One manifest → robots.txt, AIPREF headers, X-Robots-Tag, Google-Extended, TDMRep. - GGeronik/consent-txt",
-    "fullText": "The control plane for AI content access on the web.\n\nOne publisher-authored manifest that compiles into today's crawl, preview, rights, payment, and verification mechanisms. Write your AI policy once. Deploy it everywhere.\n\nPublishers currently need to hand-maintain six different policy surfaces to control AI access to their content:\n\nNo single document gives a publisher one coherent authoring surface. consent.txt fills that gap.\n\nconsent.txt is a Consent Manifest — a JSON policy document that acts as a control-plane source of truth. You write your AI policy once. The compiler generates every protocol surface you need.\n\nTry it without installing anything: paste a manifest into the live playground and see the compiled outputs in real time.\n\nThe simplest possible consent manifest — block AI training, allow search:\n\nCopy the compiled robots.txt to your server root. Add the compiled HTTP headers to your server config or CDN. Place the manifest at /.well-known/consent-manifest.json.\n\nUnlike robots.txt (allow/disallow) or AIPREF (y/n), the Consent Manifest supports five authoring states that capture what publishers actually want to express:\n\nWhen the compiler emits into surfaces that only support allow/deny (like robots.txt), it applies explicit fallback rules defined in the manifest. This means the publisher controls what happens when their rich policy meets a limited wire format.\n\nThese map directly to the IETF AIPREF vocabulary draft:\n\nOnly standard categories are emitted into AIPREF Content-Usage headers.\n\nHigher-resolution categories for enforcement runtimes. These live in the experimental block of the manifest and are NOT emitted into AIPREF headers — but the robots.txt compiler reads them for bot-blocking decisions:\n\nPolicies in conditional or charge state can specify obligations:\n\nAvailable conditions: identity (none/verified/signed), citation_required, link_required, attribution_required, max_excerpt_chars, max_tokens, verbatim_allowed, freshness_delay_seconds, rate_limit_per_day, region_scope, payment_plan.\n\n\"Just block bots in robots.txt\" is a brittle defense. User-agent strings are trivially spoofed. IP addresses rotate. The consent.txt Worker addresses this with a four-tier trust ladder that reflects how bot verification actually works in production today:\n\nThe Worker checks for HTTP Message Signature headers on every request and promotes a bot to the signed tier at runtime when signatures are present. It does not pre-assign any bot to the signed tier based on user-agent alone. This means:\n\nThis is not a theoretical design. OpenAI's ChatGPT agent already sends HTTP Message Signatures and publishes a well-known key directory. Googlebot and Bingbot have published reverse DNS verification procedures for years. The trust ladder maps to the infrastructure that exists right now.\n\nThe /_consent/test endpoint lets you simulate enforcement for any user-agent and see which tier it resolves to:\n\nReturns the bot identification, resolved policy, compiled headers, and enforcement decision — without affecting real traffic.\n\nAfter scanning your domain, generate an embeddable SVG badge for your site footer:\n\nThe badge links back to the public scanner, letting visitors verify your AI policy. Drop the HTML snippet into your footer:\n\nAvailable styles: flat (compact) and detailed (shows score). Every adopter who displays the badge drives traffic to the scanner. Every visitor who clicks the badge discovers the project.\n\nThe Cloudflare Worker sits in front of your origin. If something goes wrong, you need to disable it instantly without touching DNS or waiting for a deploy.\n\nAlways start with dry-run mode. Set DRY_RUN = \"true\" in wrangler.toml:\n\nIn dry-run, the Worker logs every enforcement decision and adds X-Consent-Decision: dry-run: would-block: ... headers — but passes all requests through to origin. Check your headers in production for 24 hours before enabling enforcement.\n\nReturns the loaded manifest, compiled headers, emit targets, and dry-run status. If the manifest is missing or malformed, the health check will show \"status\": \"no_manifest\" and the Worker passes all traffic through unmodified.\n\n1. Set dry-run (seconds, no redeploy):\n\nThe Worker continues running but stops blocking. All enforcement decisions are logged, not acted on.\n\n2. Remove the manifest (seconds, no redeploy):\nIf using KV storage: delete the manifest key. If using an env var: set CONSENT_MANIFEST to {}. The Worker detects a missing/empty manifest and passes all traffic through.\n\n3. Disable the Worker entirely (Cloudflare dashboard):\nGo to Workers & Pages → your Worker → Settings → Disable. All traffic goes directly to origin. The Worker can be re-enabled in one click.\n\nIf the Worker can't load or parse the manifest, it falls back to fetch(request) — a clean pass-through to your origin with no modification. A broken manifest never blocks traffic. This is by design: the Worker fails open, not closed.\n\nEvery manifest change should be version-controlled. If a new manifest causes unexpected blocks, revert to the previous version via KV, env var, or origin file. The Worker re-reads the manifest on every request (with Cloudflare's cache layer), so changes take effect within seconds.\n\nControl which targets are emitted via the manifest's interop.emit array or the --emit CLI flag.\n\nconsent.txt will not just declare policy — it will route payment.\n\nThe goal: every charge state in a manifest should be enforceable end-to-end. A publisher sets \"ai-input\": {\"state\": \"charge\", \"conditions\": {\"payment_plan\": \"premium-rag\"}} and the Worker physically gates the content until the micro-transaction clears.\n\nconsent.txt is an open standard. Contributions welcome.\n\nGeorge Geronikolas — AI Researcher, Webroot.AI\n\nOne manifest. Every surface. Deploy today.",
-    "readingTime": 5,
-    "keywords": [
-      "http message",
-      "trust ladder",
-      "env var",
-      "signed tier",
-      "the worker",
-      "enforcement decision",
-      "compiled headers",
-      "policy",
-      "manifest",
-      "traffic"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/GGeronik/consent-txt",
-    "thumbnail_url": "https://opengraph.githubassets.com/52c14cf628b2bf811e2656cd96f8327b348350708302021777f02b700624eca8/GGeronik/consent-txt",
-    "created_at": "2026-03-17T18:48:18.407Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "chrome-extension-that-hijacks-any-sites-own-api-to-modify-it",
-    "title": "Chrome extension that hijacks any site's own API to modify it",
-    "description": "An agentic AI Chrome extension that autonomously understands website APIs, analyzes page structure, and generates custom scripts through natural language prompts. Think of it as a Cursor-like AI as...",
-    "fullText": "An agentic AI Chrome extension that autonomously understands website APIs, analyzes page structure, and generates custom scripts through natural language prompts. Think of it as a Cursor-like AI assistant, but for any website you're browsing.\n\nSee Quark in action: understand website APIs, generate scripts with AI, and customize any website through natural language.\n\nUnlike simple AI chatbots, Quark is a true AI agent that:\n\nThis means you can just say \"add a dark mode toggle\" and the agent will figure out how to do it, test it, and ask for your approval - no manual tool selection needed.\n\nRun the development server with hot reload:\n\nThen load the extension from the dist folder in Chrome.\n\nConfigure API Key: Click the Quark icon, go to Settings, and enter your OpenRouter API key\n\nBrowse a Website: Navigate to any website you want to customize\n\nOpen Quark: Click the extension icon to open the side panel\n\nChat with AI Agent: Describe what you want to do in natural language:\n\nWatch the Agent Work: The agent will:\n\nApprove Actions: Review and approve script injection or API calls when prompted\n\nIterate: Continue the conversation to refine scripts or add features\n\nManage Scripts: All generated scripts are saved per domain in the Scripts tab",
-    "readingTime": 2,
-    "keywords": [
-      "website apis",
-      "natural language",
-      "extension",
-      "customize",
-      "icon",
-      "scripts",
-      "agent",
-      "quark",
-      "chrome",
-      "approve"
-    ],
-    "qualityScore": 0.55,
-    "link": "https://github.com/hvardhan878/quark-browser-agent",
-    "thumbnail_url": "https://opengraph.githubassets.com/32e3fa8d779ac2bd7735907deb20599f28eddb23f9f3ab2b35b66de6a663fd02/hvardhan878/quark-browser-agent",
-    "created_at": "2026-03-17T18:48:18.354Z",
     "topic": "tech"
   }
 ]
