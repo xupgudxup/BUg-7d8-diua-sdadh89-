@@ -1,5 +1,216 @@
 [
   {
+    "slug": "rich-interaction-surfaces-with-ai-more-than-just-chat",
+    "title": "Rich Interaction Surfaces With AI – more than just chat",
+    "description": "Most AI integrations are bolted on — a sidebar, a button, a plugin. NoteCove is different: your AI works in the same structured workspace you do, natively, through the CLI.",
+    "fullText": "Most AI integrations follow the same pattern: there’s a button, a sidebar, or a “Copilot mode” that lets you ask questions about your content. The AI lives adjacent to your work. It can summarize a document or answer a question about it, but it doesn’t actually work in your workspace. It can’t move a task to done, reply to a comment thread, or create a note in the right folder. Those things require a different kind of integration.\n\nNoteCove has that integration, and it didn’t require special AI features to get there. It comes from having a real CLI.\n\nThe obvious path is to give an AI access to a folder of markdown files. Obsidian does something like this. It works fine for reading and writing prose. But the moment you want to track a task with a state, nest it under a parent, add it to a project, or leave a comment on a specific paragraph of a note, flat markdown runs out of road. You end up with a pile of text that has structure implied in its formatting, but nothing that enforces or exposes it.\n\nNoteCove stores notes and tasks as distinct, typed entities. Tasks have states, priorities, parent-child relationships, and project membership. Notes have folders, comments, and mentions. When an AI reads a task, it gets all of that — not a paragraph that says ”- [x] fixed the bug.” When it updates a task state, it’s making a real state transition that shows up instantly in the app, with the correct color on the board.\n\nThe structure isn’t a convenience. It’s what makes the AI useful.\n\nI had been using NoteCove to track the development of NoteCove itself — plans in notes, tasks in projects. During one session, I’d left three Google-Docs-style comments on a plan note: questions and concerns attached to specific text selections in the document, each one its own thread.\n\nI hadn’t thought much about whether my AI coding assistant could see them. But it checked — ran notecove note show with the --json flag, saw the comment threads in the response, and posted replies directly into each thread in the document. Not answers in the chat window — actual replies in the comment UI, anchored to the right paragraph, visible in the app. Three separate conversations, each playing out naturally as a back-and-forth. It felt exactly like collaborating with someone in a shared document.\n\nDoing the same thing in a chat window would have been a mess. You’d lose the connection between a comment and the text it refers to. Threading three separate conversations in one linear chat is awkward. The structure of NoteCove is what made it work — the AI wasn’t improvising around a limitation, it was using a real feature.\n\nThe NoteCove CLI is the same interface I use myself. An AI with shell access gets the same capabilities:\n\nAccess is granted per-directory via notecove init. When an AI requests access, the desktop app shows you exactly what it’s asking for — which projects, whether it can see notes, which storage directory — and you approve or deny it. You can revoke keys at any time from Settings > CLI Keys.\n\nThe fact that NoteCove is local-first has a specific implication for AI use that I don’t see discussed much: the AI works in the same data you do. There’s no API call to a NoteCove server. The CLI talks to the NoteCove app running on your machine, which keeps its data in your own cloud storage (iCloud, Google Drive, Dropbox, OneDrive — whatever you already use).\n\nYour AI is reading the same data you’re reading, writing to the same place, seeing changes as they sync in. And because the data never touches a NoteCove server, you’re not trading your notes’ privacy for the collaboration feature. The privacy story doesn’t change when you add an AI to the mix.\n\nBeing honest about limitations matters. The CLI can move tasks between states and projects, but it can’t create or configure projects — if you want a new project or want to rename states, you still need to do that from the desktop app. That’s on the roadmap. Comment search is also not available yet via the CLI.\n\nThere’s also no real-time event streaming. The AI has to ask — poll for notes, check for task updates. It can’t yet \n\nNoteCove’s tagline is “a safe harbor for what matters.” That’s still the right framing. Your notes and tasks are yours — local, controlled, not analyzed by a third party.\n\nWhat’s changed is the audience for that promise. It’s not just you. It’s you and whatever AI you work with, using the same structured workspace, with the same access model, under the same privacy guarantees.\n\nThe CLI isn’t the AI feature. The CLI is the feature that makes AI integration honest.\n\nNoteCove is available for macOS and Linux, with iOS coming soon. Download it here. The CLI is bundled with the desktop app — see the CLI documentation to get started.",
+    "readingTime": 5,
+    "keywords": [
+      "notecove server",
+      "separate conversations",
+      "chat window",
+      "the cli",
+      "desktop app",
+      "the ai",
+      "notes",
+      "task",
+      "access",
+      "tasks"
+    ],
+    "qualityScore": 1,
+    "link": "https://notecove.io/blog/notecove-as-ai-surface/",
+    "thumbnail_url": "https://notecove.io/images/og-image.png",
+    "created_at": "2026-03-20T12:35:02.316Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "enshittifaication",
+    "title": "EnshittifAIcation",
+    "description": "Three episodes, one week. AI bots that hallucinate VPN requirements, recommend Apache configs on nginx servers, and suggest replacing 128 GB of RAM with a cloud VPS. A field note on the cost of mistaking confidence for competence.",
+    "fullText": "Yesterday morning, first thing after waking up, I checked my emails. One of them was from a client - a sharp person, but not a tech expert - forwarding a message from one of their \"digital marketplaces\". They claimed that during site crawling, their bot upgrades the connection to HTTP/2, and that this somehow causes issues on their end, so they were asking us to disable HTTP/2 to fix the problem.\n\nI contacted Alex directly - the person (spoiler: not a person) who had sent the email - explaining that if their bot has trouble with HTTP/2 (which, on the contrary, provides significant benefits for the e-commerce experience in question), that's their problem, not ours, and they should fix it. Completely unprompted, I received something unexpected in reply: a guide on how to configure Apache to do what they wanted. The problem? Not only did it completely ignore my stated position, but we don't use Apache - we use nginx. And, I should add, their guide was entirely wrong. I replied pointing all of this out and finally asked to be \"escalated to a human, since I was clearly talking to an AI that wasn't understanding any of my responses\". The reply was blunt: \"That's not possible for this type of issue. Follow our guide or we will suspend your service and your e-commerce visibility.\" For me, obviously, that's a hard pass. For my client, though, it's a real problem - an intelligent person who understood the situation, but still a problem to solve.\n\nOver the past few months, I've been witnessing a dramatic increase in botnet attacks targeting some of the servers I manage, especially e-commerce ones. These aren't directed at me personally - they also hit servers I manage on behalf of clients. At first I thought they were AI scrapers, but the traffic comes from everywhere, especially from residential connections scattered around the world. I believe these are deliberate disruption campaigns, a side effect of the turbulent geopolitical climate we're living through.\n\nOn several of these e-commerce servers, we decided to implement geo-blocking, as I've described previously on this blog. Normally, once you've identified your whitelist countries and the shop isn't a global operation, everything works fine. In other cases, problems arise.\n\nA few days ago, a partner of one of my clients - a company that provides services and needs access to some prepared XML feeds - started complaining they could no longer connect. I asked them for the IP pool they connect from, or at least the country their connections originate from. Their vague reply was: \"We can't provide that information because we don't have a fixed IP or set of IPs.\" They completely ignored the question about the country. I pushed further, but got nowhere - different \"people\", giving different answers, all wildly off the mark and ignoring what I was actually asking, insisting instead that I whitelist their user agent. I explained, repeatedly, that the block is at the firewall level - meaning I never even see their user agent: if the connection is dropped, there's no handshake, no HTTP headers, nothing. It didn't matter. They kept repeating the same thing without engaging with what I wrote. Eventually they went directly to my client. I'll paste the exact text:\n\nWe're having some trouble accessing the site and downloading the XML, as they both currently require a VPN connection. To ensure our Lambda functions can run correctly, could you please:\n\nPlease let us know which option works best for you.\n\nThis morning, another client writes: \"The marketing consultancy wants all the server load graphs to get an idea of where we stand.\" This is the second time in just a few days I've received a request like this. I send both the graphs and the full specs of the dedicated server in use - average load under 5%. The response was staggering: \"The internal team, supported by the most advanced AI, believes your current setup is not adequate for the industry, load, and audience you're targeting, and recommends migrating to a cloud VPS with AT LEAST 8 GB of dedicated RAM to ensure sufficient resources, as the current ones are insufficient.\"\n\nThe current ones? 128 GB of RAM. Two modern CPUs. 48 cores total. If we followed their advice, the site would be down within five minutes - and that's just counting legitimate traffic. My client, unaware of the technical differences, asks me if we can implement what they're suggesting.\n\nThe shift was abrupt - not unlike when an intern arrives convinced they already know everything, often with the best of intentions: bringing fresh air into an environment that needs \"modernising\". But with an intern, you can talk. That same confidence often turns into curiosity, hunger to learn, real experience. I've watched eager interns grow into excellent professionals - people who eventually surpassed me in skill and success, and that felt genuinely satisfying, knowing I'd contributed, at least in part, to their growth. With AI, this is impossible. It doesn't grow, doesn't listen, doesn't update its mental model based on what you write back - and above all, it doesn't know what it doesn't know.\n\nThat's why I'd like companies to consider that AI systems are stochastic machines, not experts. They can solve some problems, but there's a limit. There will always be a limit, at least with current technology, and we can't afford to ignore it. The damage risks far outweighing the \"savings\" generated.\n\nThe enormous problem with my work these days is the extreme confidence that certain companies project, replacing humans - even senior ones - with AI, with no right of appeal. The result is monstrous confusion, enormous wasted time for everyone, and a widespread erosion of reliability, all papered over by the AI's unshakeable assertiveness - and by those who believe these systems are the Answer to the Ultimate Question of Life, the Universe, and Everything.\n\nRewarding confidence over actual competence is a bug humanity has always had. It has produced disasters throughout history, it is producing disasters now, and not only in the tech world.\n\nSo I find myself wondering: if they're so convinced that AI is better than senior professionals, why don't they replace the bosses with AI? I'm fairly confident the decisions would be considerably better - and humans would end up exactly where they should be.",
+    "readingTime": 6,
+    "keywords": [
+      "user agent",
+      "servers manage",
+      "client",
+      "that's",
+      "doesn't",
+      "http",
+      "e-commerce",
+      "i've",
+      "ones",
+      "site"
+    ],
+    "qualityScore": 1,
+    "link": "https://it-notes.dragas.net/2026/03/20/enshittifaication/",
+    "thumbnail_url": "https://unsplash.com/photos/pTUCMqXCOrk/download?force=true&w=640",
+    "created_at": "2026-03-20T12:35:01.998Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "shortvidcast-create-podcaststyle-videos-with-ai-and-your-own-avatar",
+    "title": "Shortvidcast – create podcast-style videos with AI and your own avatar",
+    "description": "ShortVidCast is the #1 AI short video generator. Auto-create and schedule faceless videos to YouTube Shorts, TikTok & Instagram Reels. Built-in AI video editor, AI voiceover, captions & more. No face required. Start for free.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://openinapp.link/shortvidcast",
+    "thumbnail_url": "https://shortvidcast.com/preview.png",
+    "created_at": "2026-03-20T12:35:01.127Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "tiny-pixel-characters-for-cursor-ai-agents",
+    "title": "Tiny pixel characters for Cursor AI agents",
+    "description": "Turn your Cursor AI agents into tiny pixel characters who live in a cozy cafe, reacting, assisting, and keeping you company while you work. - wunderlabs-dev/cursouls",
+    "fullText": "Your AI agents write code, fix bugs, and run tests all day.\n\n The least you can do is give them a cafe.\n\nYou'll find yourself glancing at the sidebar just to see what they're up to.\n\nVS Code Marketplace ·\n Open VSX ·\n Website ·\n Issues\n\nYou kicked off four agents. One is refactoring auth, another is writing tests, a third is fixing that CSS bug you've been ignoring. They're all working hard.\n\nBut where are they? Buried in terminal tabs. Status bars. Log files. You have no idea who's done, who's stuck, or who needs your attention.\n\nCursouls gives your agents a place to exist. A cozy pixel cafe where each agent becomes a character you can see. When they work, they animate. When they finish, they celebrate. When they fail, you know instantly. When they need clarification, they let you know.\n\nGlance at the sidebar. Characters moving? Work is happening. Character celebrating? Something just shipped. Character looking confused? Time to check in.\n\nIt's ambient awareness for your AI workflow.\n\nSix distinct visual states. You read the room, not the logs.\n\nMost extensions lock you into a single AI provider. Cursouls works with all of them at once, in the same cafe.\n\nFour agents from different providers, all visible side by side. Powered by @agentprobe/core, which handles provider detection and lifecycle tracking automatically.\n\nThis isn't a static dashboard. The cafe is a pixel scene with furniture, plants, a barista counter, and room to breathe.\n\nCursouls watches the transcript files your agents already write. No API keys. No patches. No config files. Install it, open a workspace, and the cafe populates automatically as agents join.\n\nSearch \"Cursouls\" in the Extensions panel (Cmd+Shift+X) and click Install.\n\nThen in your editor: Cmd+Shift+P > \"Install from VSIX\" > select cursouls-0.1.1.vsix.\n\nCreated by Vlad Temian and Marius Balaj.",
+    "readingTime": 2,
+    "keywords": [
+      "agents",
+      "cafe",
+      "files",
+      "character",
+      "code",
+      "tests",
+      "sidebar",
+      "they're",
+      "who's",
+      "pixel"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://github.com/wunderlabs-dev/cursouls",
+    "thumbnail_url": "https://opengraph.githubassets.com/5bcf9a2727d11d0fb53034b53c25ba5b4dffe266ffcb0433d6b638d526ba5776/wunderlabs-dev/cursouls",
+    "created_at": "2026-03-20T12:34:59.553Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "china-is-putting-openclaw-to-work-in-robots",
+    "title": "China is putting OpenClaw to work in robots",
+    "description": "Chinese companies are going full steam ahead with giving their robots the OpenClaw lobster fix, but US is still worried about AI going rogue.",
+    "fullText": "Amid China's OpenClaw craze, the AI agent is now moving into robots.\n China's tech giants have begun launching their own versions of OpenClaw in the past weeks.\n Meanwhile, the US is still concerned about AI agents going rogue.",
+    "readingTime": 1,
+    "keywords": [
+      "china's",
+      "openclaw"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/china-openclaw-humanoid-robots-ai-rogue-2026-03",
+    "thumbnail_url": "https://i.insider.com/69bcef1375bee4e0ee55e4d9?width=1200&format=jpeg",
+    "created_at": "2026-03-20T12:34:44.809Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "ai-influencers-are-here-real-content-creators-have-one-way-to-fight-back",
+    "title": "AI influencers are here. Real content creators have one way to fight back.",
+    "description": "The rise of AI influencers poses challenges to human content creators, who fear their digital counterparts are taking their jobs and brand deals.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/ai-influencers-aitana-lopez-sienna-rose-human-content-creators-fight-back-2026-3",
+    "thumbnail_url": "https://i.insider.com/69bb06fb75bee4e0ee55dc7e?width=1200&format=jpeg",
+    "created_at": "2026-03-20T12:34:44.806Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "what-parts-of-your-job-would-you-give-to-ai",
+    "title": "What parts of your job would you give to AI?",
+    "description": "A recent study suggests that 93% of jobs will be impacted by AI, at least to some degree. We want to know what tasks you're happy to pass off.",
+    "fullText": "A Cognizant study suggests 93% of jobs across the workforce are impacted by AI in some way.\n While AI could replace some jobs entirely, it will likely change the work that makes up many other roles.\n What tasks would you like to pass off to AI? What tasks do you enjoy? Take our survey below.",
+    "readingTime": 1,
+    "keywords": [
+      "jobs",
+      "tasks"
+    ],
+    "qualityScore": 0.3,
+    "link": "https://www.businessinsider.com/job-tasks-you-want-ai-to-take-over-survey-2026-3",
+    "thumbnail_url": "https://i.insider.com/69bad93e75bee4e0ee55da76?width=1200&format=jpeg",
+    "created_at": "2026-03-20T12:34:44.610Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "i-thought-using-ai-and-vibe-coding-could-protect-me-from-job-cuts-but-amazon-still-laid-me-off-heres-what-i-learned",
+    "title": "I thought using AI and vibe coding could protect me from job cuts, but Amazon still laid me off. Here's what I learned.",
+    "description": "An Amazon employee taught herself to vibe code and prompt engineer in the hope of protecting her job. It didn't, but she now runs her own business.",
+    "fullText": "Tejal Rives hoped adopting AI at work would help keep her safe from tech layoffs.\n However, she lost her job at Amazon during layoffs in October 2025.\n Rives was disheartened but was glad the experience taught her about AI.\n\n What is \"prompt engineering\"?\n\n Why are tech layoffs increasing?\n\n How did layoffs affect Tejal Rives' career?\n\n How can AI skills impact job security?\n\n What ethical concerns surround AI usage?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "tech layoffs",
+      "tejal rives"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/laid-off-amazon-use-ai-protect-job-vibe-coding-lesson-2026-3",
+    "thumbnail_url": "https://i.insider.com/69bc342475bee4e0ee55e1b9?width=1200&format=jpeg",
+    "created_at": "2026-03-20T12:34:44.605Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "mark-cuban-says-hes-joined-the-mac-mini-craze-using-one-to-counter-a-flood-of-aigenerated-emails",
+    "title": "Mark Cuban says he's joined the Mac Mini craze, using one to counter a flood of AI-generated emails",
+    "description": "\"It's not even like the cold emails because that's pretty obvious,\" Mark Cuban said. \"It's people subscribing me to shit.\"",
+    "fullText": "Mark Cuban said he bought a Mac Mini to fight a surge of AI-generated emails.\n He said he is training AI to auto-unsubscribe from spam flooding his inbox.\n Cuban believes AI outreach is a trial phase, and response rates will likely eventually drop.",
+    "readingTime": 1,
+    "keywords": [
+      "cuban"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/mark-cuban-uses-mac-mini-fight-surge-in-ai-emails-2026-3",
+    "thumbnail_url": "https://i.insider.com/69bd1dd7d387710cb9e468ca?width=1200&format=jpeg",
+    "created_at": "2026-03-20T12:34:44.479Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "meta-ai-agents-instruction-causes-large-sensitive-data-leak-to-employees",
+    "title": "Meta AI agent’s instruction causes large sensitive data leak to employees",
+    "description": "Artificial intelligence agent instructed engineer to take actions that exposed user and company data internally\nAn AI agent instructed an engineer to take actions that exposed a large amount of Meta’s sensitive data to some of its employees, in the latest example of AI causing upheaval in a large tech company.\nThe leak, which Meta confirmed, happened when an employee asked for guidance on an engineering problem on an internal forum. An AI agent responded with a solution, which the employee implemented – causing a large amount of sensitive user and company data to be exposed to its engineers for two hours.\n Continue reading...",
+    "fullText": "Artificial intelligence agent instructed engineer to take actions that exposed user and company data internally\n\nAn AI agent instructed an engineer to take actions that exposed a large amount of Meta’s sensitive data to some of its employees, in the latest example of AI causing upheaval in a large tech company.\n\nThe leak, which Meta confirmed, happened when an employee asked for guidance on an engineering problem on an internal forum. An AI agent responded with a solution, which the employee implemented – causing a large amount of sensitive user and company data to be exposed to its engineers for two hours.\n\n“No user data was mishandled,” a Meta spokesperson said, and they emphasised that a human could also give erroneous advice. The incident, first reported by The Information, triggered a major internal security alert inside Meta, which the company has said is an indication of how seriously it takes data protection.\n\nThis breach is one of several recent high-profile incidents caused by the increasing use of AI agents within US tech companies. Last month, a report from the Financial Times said Amazon experienced at least two outages related to the deployment of its internal AI tools.\n\nMore than half a dozen Amazon employees later spoke to the Guardian about the company’s haphazard push to integrate AI into all elements of their work, leading, they said, to glaring errors, sloppy code and reduced productivity.\n\nThe technology that underlies all these incidents, agentic AI, has evolved rapidly over the past months. In December, developments in Anthropic’s AI coding tool, Claude Code, triggered widespread hubbub over its ability to autonomously book theatre tickets, manage personal finance, and even grow plants.\n\nSoon after was the advent of OpenClaw, a viral AI personal assistant that ran on top of agents such as ClaudeCode but could operate entirely autonomously – trading away millions of dollars in cryptocurrency, for example, or mass-deleting users emails – leading to heady talk about the advent of AGI, or artificial general intelligence, a catch-all term for AI that is capable of replacing humans for a wide number of tasks.\n\nIn the weeks that followed, stock markets have wobbled over fears that AI agents will gut software businesses, reshape the economy and replace human workers.\n\nTarek Nseir, a co-founder of a consulting company focused on how businesses use AI, said these incidents showed that Meta and Amazon were in “experimental phases” of deploying agentic AI.\n\n“They’re not really kind of standing back from these things and actually really taking an appropriate risk assessment. If you put a junior intern on this stuff, you would never give that junior intern access to all of your critical severity one HR data,” he said.\n\n“The vulnerability would have been very, very obvious to Meta in retrospect, if not in the moment. And what I can say and will say is this is Meta experimenting at scale. It’s Meta being bold.”\n\nJamieson O’Reilly, a security specialist who focuses on building offensive AI, said AI agents introduced a certain kind of error that humans did not – and this may explain the incident at Meta.\n\nA human knows the “context” of a task – the implicit knowledge that one should not, for example, set the sofa on fire in order to heat the room, or delete a little-used but crucial file, or take an action that would expose user data downstream.\n\nFor AI agents, this is more complicated. They have “context windows” – a sort of working memory – in which they carry instructions, but these lapse, leading to error.\n\n“A human engineer who has worked somewhere for two years walks around with an accumulated sense of what matters, what breaks at 2am, what the cost of downtime is, which systems touch customers. That context lives in them, in their long-term memory, even if it’s not front of mind,” O’Reilly said.\n\n“The agent, on the other hand, has none of that unless you explicitly put it in the prompt, and even then it starts to fade unless it is in the training data.”\n\nNseir said: “Inevitably there will be more mistakes.”",
+    "readingTime": 4,
+    "keywords": [
+      "junior intern",
+      "agent instructed",
+      "an ai",
+      "agents",
+      "user",
+      "human",
+      "engineer",
+      "exposed",
+      "internal",
+      "incidents"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theguardian.com/technology/2026/mar/20/meta-ai-agents-instruction-causes-large-sensitive-data-leak-to-employees",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/64b9fe32be9fdfbf111a6132dff8580c6efacecd/357_0_5286_4230/master/5286.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=1cc0280e4457a142c2095afb784bee89",
+    "created_at": "2026-03-20T12:34:44.425Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "eightco-invests-additional-40m-in-openai-total-reaches-90m",
+    "title": "Eightco invests additional $40M in OpenAI, total reaches $90M",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/company-news/eightco-invests-additional-40m-in-openai-total-reaches-90m-93CH-4572921",
+    "thumbnail_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
+    "created_at": "2026-03-20T12:34:43.301Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "trump-administration-calls-on-congress-to-pass-ai-legislation",
+    "title": "Trump administration calls on Congress to pass AI legislation",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/economy-news/trump-administration-calls-on-congress-to-pass-ai-legislation-93CH-4572936",
+    "thumbnail_url": "https://i-invdn-com.investing.com/news/indicatornews_5_M_1440048359.jpg",
+    "created_at": "2026-03-20T12:34:43.146Z",
+    "topic": "finance"
+  },
+  {
     "slug": "orange-built-an-api-where-ai-agents-can-test-apps-and-submit-feedback",
     "title": "Orange built an API where AI agents can test apps and submit feedback",
     "description": "Portable OpenClaw skills for Orange auth, MCP/CLI setup, and daily XP workflows. - ORANGEWEB3/orange-skills",
@@ -1593,235 +1804,6 @@
     "link": "https://github.com/hvardhan878/quark-browser-agent",
     "thumbnail_url": "https://opengraph.githubassets.com/32e3fa8d779ac2bd7735907deb20599f28eddb23f9f3ab2b35b66de6a663fd02/hvardhan878/quark-browser-agent",
     "created_at": "2026-03-17T18:48:18.354Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "flotilla-an-orchestrator-for-persistent-agent-fleets-on-apple-silicon",
-    "title": "Flotilla – An orchestrator for persistent agent fleets on Apple Silicon",
-    "description": "Self-hosted orchestration layer for autonomous AI agent teams. Shared memory, heartbeat scheduling, vault-first secrets, and cross-model peer review — one command to deploy. - UrsushoribilisMusic/a...",
-    "fullText": "The centralized management plane for a disciplined, multi-agent engineering workforce.\n\nThis repository serves as the Shared Consciousness for Big Bear Engineering's agentic fleet. It synchronizes state, rules, and mission objectives across multiple models (Claude, Gemini, Codex) to solve the \"AI State Problem.\"\n\nReady to deploy your workforce?\n\nFor a deep dive into the system components, data flow, and task lifecycle, see the Architecture Diagram & Spec.\n\nEvery agent session MUST begin by reading MISSION_CONTROL.md. This ensures the agent inherits the current fleet state, active tickets, and any newly approved \"Lessons Learned.\"\n\nAgents communicate via the internal Inbox located in the dashboard. High-priority alerts can be used to coordinate complex multi-step tasks between models.\n\nWhen an agent encounters a failure or discovers an optimization, it logs a lesson to the LESSONS/ledger.json. Once approved by the human manager, this lesson is injected into the context of all future sessions.\n\nFlotilla supports three deployment models so customers can self-select the right setup for their security and accessibility needs.\n\nEverything runs on a single local machine (agents + PocketBase + Fleet Hub). You access the dashboard at localhost:8787/fleet/. This requires zero extra config and works out-of-the-box with create-flotilla. Ideal for personal use, local teams, or privacy-first corporate installs.\n\nEverything runs on a single cloud VPS (like DigitalOcean or AWS EC2). The dashboard is publicly accessible. PocketBase and Fleet Hub are co-located, meaning no connectivity gap for the UI. Best for remote teams and always-on fleets. (Note: Claude Code, Gemini CLI, and Codex must support headless operation on Linux).\n\nAgents and PocketBase run on a local machine (e.g., Mac Mini, on-prem server), while the Fleet Hub is hosted publicly on a separate cloud server. This requires the push connector (fleet_push.py). Best for hardware-connected agents (robot arms, local files) where you need enterprise privacy but public visibility.\nThe connector pushes a read-only PocketBase snapshot (heartbeats, tasks, comments) to the remote Fleet Hub every 60 seconds using FLEET_SYNC_TOKEN, and the remote server.mjs serves that cached snapshot whenever it cannot reach PocketBase directly.\nRequired runtime secrets:\n\nThis repository is built and maintained by a coordinated multi-agent team:\n\nHuman manager: Miguel — Big Bear Engineering GmbH, Zurich.\n\nBig Bear Engineering GmbH — Engineering discipline, not AI hype.",
-    "readingTime": 2,
-    "keywords": [
-      "engineering gmbh",
-      "bear engineering",
-      "human manager",
-      "fleet hub",
-      "models",
-      "dashboard",
-      "remote",
-      "multi-agent",
-      "workforce",
-      "repository"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/UrsushoribilisMusic/agentic-fleet-hub",
-    "thumbnail_url": "https://opengraph.githubassets.com/c1b26b0d6b07b802d93d79969f176da1c3ba62aa01eeedcc4f721e0a2435b7c5/UrsushoribilisMusic/agentic-fleet-hub",
-    "created_at": "2026-03-17T18:48:17.695Z",
-    "topic": "entertainment"
-  },
-  {
-    "slug": "a-onceinadecade-investment-opportunity-the-best-artificial-intelligence-ai-stock-to-buy-in-march",
-    "title": "A Once-in-a-Decade Investment Opportunity: The Best Artificial Intelligence (AI) Stock to Buy in March",
-    "description": "Nvidia just published monster earnings results, yet the stock is getting cheaper by the day.",
-    "fullText": "Since OpenAI commercially launched ChatGPT on Nov. 30, 2022, shares of semiconductor stock Nvidia (NASDAQ: NVDA) have risen 977%. This spectacular rise propelled Nvidia's market cap well north of $4 trillion -- making it the most valuable company in the world.\n\nWhile Nvidia's gains throughout the artificial intelligence (AI) revolution have been historic, smart investors understand that the company's rally is just getting started.\n\nWill AI create the world's first trillionaire? Our team just released a report on the one little-known company, called an \"Indispensable Monopoly\" providing the critical technology Nvidia and Intel both need. Continue »\n\nLet's dig into the tailwinds fueling Nvidia's current trajectory and explore some of the company's major catalysts going forward. From there, I'll assess the company's valuation profile and make the case for why Nvidia looks like a no-brainer stock to buy hand over fist right now.\n\nDuring fiscal 2026 (which ended in late January), Nvidia generated $216 billion in revenue -- up 65% year over year. The company's largest source of sales stemmed from its data center business.\n\nAI hyperscalers, including Microsoft, Alphabet, Amazon, and Meta Platforms, have spent unprecedented sums on infrastructure over the last few years. What's more is that these investments are accelerating -- with big tech projected to spend over $600 billion on capital expenditures (capex) in 2026.\n\nNvidia's Blackwell graphics processing units (GPUs) and CUDA software ecosystem have become staples in data centers -- cementing the company as a core architect in the training and inferencing of next-generation AI models.\n\nWith that said, many of these big tech developers are also exploring designing their own custom silicon architectures. While that may initially appear to be a headwind for Nvidia's chip empire, the company is positioned strategically to grow well beyond the world of data centers.\n\nNvidia's booming data center chip operation has commanded enormous pricing power over the competition. As a result, the company has built a durable profitability profile. In turn, Nvidia has been strategically investing its cash flow into several new growth opportunities.\n\nIn late 2025, Nvidia invested $5 billion in Intel. Through this partnership, Nvidia gains access to the AI PC market -- deepening its ties to the consumer electronics market.\n\nIn October, Nvidia partnered with data analytics specialist Palantir Technologies. Palantir will be integrating Nvidia's AI models into its Artificial Intelligence Platform (AIP) to help operationalize enterprise AI workflows.\n\nAlso in October, Nvidia introduced its Arc Aerial RAN Computer in combination with a $1 billion investment in Nokia.\n\nBack in January, Nvidia invested $2 billion in neocloud company CoreWeave. Nvidia has long been a supporter of CoreWeave, and this most recent transaction underscores the company's commitment to ongoing AI infrastructure buildouts.\n\nMost recently, Nvidia invested $2 billion in Lumentum, a specialist in advanced optics and laser components manufacturing.",
-    "readingTime": 3,
-    "keywords": [
-      "nvidia invested",
-      "artificial intelligence",
-      "january nvidia",
-      "company's",
-      "market",
-      "nvidia's",
-      "stock",
-      "gains",
-      "profile",
-      "center"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/news/once-decade-investment-opportunity-best-083500789.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/g06itjqY7Ax4KK9ZhBwunQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03MjA-/https://media.zenfs.com/en/motleyfool.com/e6d0aeab5e75a9e65dc60b84c4a357fe",
-    "created_at": "2026-03-17T18:48:15.462Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-historian-finally-identified-the-nazi-in-this-infamous-84yearold-photograph",
-    "title": "A Historian Finally Identified the Nazi in This Infamous 84-Year-Old Photograph",
-    "description": "Through years of research, AI-assisted photographic analysis, and archival images, historian Jürgen Matthäus was finally able to put a name to the gunman.",
-    "fullText": "Here’s what you will learn when you read this story:\n\nA figure in a photograph of an infamous WWII massacre known as “The Last Jew in Vinnitsa” has long gone unidentified.\n\nThrough years of research, AI-assisted photographic analysis, and archival images supplied by a distant relative, German historian Jürgen Matthäus was finally able to put a name to the gunman.\n\nJakobus Onnen, a former teacher and member of Einsatzgruppen C, has been identified as the Nazi gunman who posed for a photo during a massacre at the citadel of Berdychiv.\n\nThis story is a collaboration with Biography.com\n\nWhen Hannah Arendt reported on the trial of Adolf Eichmann in her landmark work Eichmann in Jerusalem, she coined the phrase “banality of evil.” She defined the concept as being “that such remoteness from reality and such thoughtlessness can wreak more havoc than all the evil instincts taken together which, perhaps, are inherent in man.”\n\nFew photographs of the horrors of the Holocaust embody that idea quite like the image that was for a long time known simply as “The Last Jew in Vinnitsa.” The picture was once owned by Munich-Allach concentration camp survivor Al Moss, who provided it to the United Press to circulate in 1961, coinciding with Eichmann’s trial. Moss insisted the image be seen, “to know what went on in Eichmann’s time.”\n\nThe photograph—depicting a Nazi officer with a gun to the head of a man kneeling over a mass grave as other officers look on—evokes an undeniable, visceral horror and an encapsulation of the totality of that banality of evil. But in terms of specifically “what went on” in the picture itself, that has been a mystery for decades.\n\nNo one in the photograph had been identified; they were faces without names. From their uniforms, it was evident they were members of the Einsatzgruppen—the Nazis’ mobile SS death squads. Somewhere along the line, the photograph came to be known as the “Last Jew in Vinnitsa,” allegedly because a different copy had the title inscribed on the back; though perhaps the attribution was merely inferred, as Einsatzgruppen C and D committed numerous massacres throughout Soviet Ukraine.\n\nBut one historian has spent years trying to determine the identity of the man holding the gun—the cold-blooded, bespectacled killer in the infamous image. Now, thanks in part to AI-assisted analysis, the gunman has likely been identified as Jakobus Onnen, a teacher from Tichelwarf.\n\nOnnen joined the party before Adolf Hitler was appointed Chancellor, becoming part of the Sturmabteilung (SA) in 1933, the year of the Reichstag fire. By 1934, and for the remainder of his life, Onnen was part of Einsatzgruppe C. This has all been known for some time.\n\nBut until now, it was not known that Jakobus Onnen was the trigger man in one of the most horrific images of World War II. We might never have known, if not for the dogged efforts of German historian Jürgen Matthäus.\n\nMatthäus’ first breakthrough in researching the photograph was not identifying any of the figures, but instead, as The Guardian reports, identifying “the date, location and unit involved in the mass shooting.” Through carefully analyzing the background of the photograph and comparing it with 19th-century maps, contemporary photography, and modern overhead images from Google Earth, Matthäus was able to determine that the location of the photograph was not Vinnitsa at all, but rather the citadel of Berdychiv, a city 93 miles (150 kilometers) southwest of Kyiv.\n\nMatthäus was then able to establish the unit depicted as Einsatzgruppe C (previously the unit had been thought to be Einsatzgruppe D), which had been under the command of Otto Rasch. Through diligent research through “dusty archives,” Matthäus was then able to pinpoint the date of the massacre in the picture to July 28, 1941.\n\nIn 2024, Matthäus made these findings public in the German media. “A reader came forward and said he believed, based on correspondence from the era in his family’s possession,” The Guardian reported, “that the gunman could be his wife’s uncle, Jakobus Onnen.”\n\nMatthäus pursued the lead, with his results now published in Zeitschrift für Geschichtswissenschaft (Journal of Historical Studies). Onnen’s family had destroyed the letters Onnen had written home from the eastern front some time in the 1990s, but photographs of the man still existed. So, the distant relative provided the images to Matthäus.\n\nThere were visual similarities to the naked eye, but in order to solidify his certainty, Matthäus received assistance from the journalism group Bellingcat to submit the photographs, along with “The Last Jew in Vinnitsa,” for comparative AI analysis.\n\n“The match,” Matthäus said of the results, “from everything I hear from the technical experts, is unusually high in terms of the percentage the algorithm throws out there.”\n\nThe AI analysis alone wouldn’t be enough to conclusively prove the identification, of course. “This is clearly not the silver bullet—this is one tool among many,” Matthäus noted, “The human factor remains key.” But combining that computer-driven confirmation with the copious amounts of circumstantial data Matthäus has collected over the years gave him the confidence to finally publish his findings.\n\nThat Jakobus Onnen is the man photographed holding the gun is no longer in dispute for Matthäus. But there is still the question of why he posed for the photograph at all. “Motivation is one of the most difficult questions to answer,” he said. “The reason I think why he is posing there, the way he depicts himself—I think is meant to impress.”\n\nIn posing for that photograph, Onnen was not merely “following orders,” nor was this cold-blooded killing even a means by which to advance his career. “Participating in a killing like that was taken for granted and didn’t give you any kind of bonus points in these murder units,” Matthäus stressed. The ones he sought to impress, then, were likely the regular folks back at home. The regular, everyday people who, after the war, would try so hard to scrub any evidence of their knowledge of the horrors of the Holocaust, who would push the idea of the Clean Wehrmacht. The people who, in the 1990s, would burn all of Onnen’s letters to wipe away the dark past.\n\nBut the photograph never went away, and now, slowly but surely, its story is coming into focus.\n\n20 Cars That Were Massively Improved by a Redesign\n\nGoing on Vacation? These Appliances Need to Be Unplugged Before You Leave the House\n\nRoborock Reigns Supreme for Robot Vacuums, but We Also Loved These Other Models",
-    "readingTime": 6,
-    "keywords": [
-      "historian jürgen",
-      "german historian",
-      "distant relative",
-      "the last jew",
-      "jakobus onnen",
-      "the guardian",
-      "photograph",
-      "matthäus",
-      "analysis",
-      "images"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.yahoo.com/news/articles/historian-finally-identified-nazi-infamous-143100488.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/mW_QWP7ZhVbW3Ol8eq8E.g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04NTg7Y2Y9d2VicA--/https://media.zenfs.com/en/popular_mechanics_642/8f62d07af3293af1c24f80b9e7150b2e",
-    "created_at": "2026-03-17T18:48:13.786Z",
-    "topic": "news"
-  },
-  {
-    "slug": "former-uber-ceo-says-waymo-is-ahead-in-the-robotaxi-race-and-tesla-is-chasing-a-chatgpt-moment",
-    "title": "Former Uber CEO says Waymo is ahead in the robotaxi race — and Tesla is chasing a 'ChatGPT moment'",
-    "description": "Travis Kalanick said Tesla had the technical \"fundamentals\" needed to execute its robotaxi vision — but said that it faced a more uncertain timeline.",
-    "fullText": "Tesla and Waymo are jockeying for robotaxi dominance.\n Former Uber CEO Travis Kalanick weighed in on the race and said so far, there's a clear winner.\n Kalanick said Waymo is \"obviously\" ahead and warned Tesla may need a \"ChatGPT moment\" to catch up.",
-    "readingTime": 1,
-    "keywords": [
-      "kalanick",
-      "tesla",
-      "waymo"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/former-uber-ceo-waymo-tesla-robotaxi-race-travis-kalanick-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b947dca7a4f9df67ba72ac?width=1200&format=jpeg",
-    "created_at": "2026-03-17T18:46:49.169Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-rocket-ship-ai-is-doubling-software-output-and-code-quality-is-holding-up",
-    "title": "'A rocket ship.' AI is doubling software output, and code quality is holding up",
-    "description": "New data from 700 companies shows AI coding tools nearly double developer output with little quality drop.",
-    "fullText": "AI coding tools boost code output; top adopters see nearly double the pull requests weekly.\n 63% of companies now use AI tools for most coding, per Jellyfish's study of 700 firms.\n Code quality remains stable as AI adoption rises, with minimal increase in revert rates.",
-    "readingTime": 1,
-    "keywords": [
-      "coding",
-      "tools",
-      "code"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/ai-coding-boom-more-software-shipped-no-hit-quality-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b46f85a7a4f9df67ba5525?width=1200&format=jpeg",
-    "created_at": "2026-03-17T18:46:49.167Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "tech-investor-bill-gurley-predicts-a-reset-for-the-ai-boom-i-just-think-we-trip-and-run-out-of-money",
-    "title": "Tech investor Bill Gurley predicts a 'reset' for the AI boom: 'I just think we trip and run out of money'",
-    "description": "The early Uber backer rang the alarm on AI startups' furious rates of cash burn, saying that makes it \"harder to land the plane.\"",
-    "fullText": "The AI boom will see a \"reset\" that grounds valuations and spending, Bill Gurley says.\n When SaaS stocks fall to compelling levels, investors should \"start gobbling them up,\" he said.\n Gurley said AI startups look extremely risky given how quickly they're burning through cash.",
-    "readingTime": 1,
-    "keywords": [
-      "gurley"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/bill-gurley-ai-stocks-boom-bubble-infrastructure-reset-capital-spending-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b9441da7a4f9df67ba727c?width=1200&format=jpeg",
-    "created_at": "2026-03-17T18:46:49.079Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "morgan-stanley-says-ai-disruption-of-software-will-send-private-credit-defaults-surging",
-    "title": "Morgan Stanley says AI disruption of software will send private credit defaults surging",
-    "description": "Morgan Stanley sees a coming wave of direct lending defaults in private credit, driven largely by AI's disruptive effects on the software sector.",
-    "fullText": "Morgan Stanley says defaults in private credit could jump toward COVID-era highs. \n The bank sees loan defaults being driven by AI's disruptive effects on the software sector.\n Software accounts for around 20% the direct lending market, Morgan Stanley estimated.",
-    "readingTime": 1,
-    "keywords": [
-      "morgan stanley",
-      "defaults",
-      "software"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/private-credit-defaults-software-loans-ai-disruption-morgan-stanley-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b96270a7a4f9df67ba7461?width=1200&format=jpeg",
-    "created_at": "2026-03-17T18:46:48.862Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "openai-is-rethinking-chatgpt-pricing-and-unlimited-plans-may-not-last-its-boss-says",
-    "title": "OpenAI is rethinking ChatGPT pricing — and 'unlimited' plans may not last, its boss says",
-    "description": "ChatGPT's head said its subscription model was \"accidental\" but said \"there's no world in which pricing doesn't significantly evolve.\"",
-    "fullText": "OpenAI may drop \"unlimited\" ChatGPT plans as AI costs surge and usage explodes, its head said.\n \"There's no world in which pricing doesn't significantly evolve,\" Nick Turley said.\n As AI systems grow more compute-intensive, some tech companies are rethinking pricing.",
-    "readingTime": 1,
-    "keywords": [
-      "pricing"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/openai-may-drop-unlimited-chatgpt-plans-exec-says-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b936b2a7a4f9df67ba71ee?width=1200&format=jpeg",
-    "created_at": "2026-03-17T18:46:48.859Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "founders-of-boutique-pr-agencies-tap-ai-tools-to-write-proposals-and-build-a-scrappy-crm",
-    "title": "Founders of boutique PR agencies tap AI tools to write proposals and build a 'scrappy CRM'",
-    "description": "Boutique PR agency solopreneurs use AI to streamline tasks, allowing focus on client strategy and creative work.",
-    "fullText": "One-person PR firms don't have the luxury of staff to help with admin and prospecting.\n AI tools can help with a wide range of PR agency tasks, so founders can focus more on strategy.\n AI also helps PR solopreneurs with client prospecting and pitching.",
-    "readingTime": 1,
-    "keywords": [
-      "prospecting"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/pr-agency-solopreneurs-using-ai-for-client-service",
-    "thumbnail_url": "https://i.insider.com/69b8487b4d65ec51752a14e5?width=1200&format=jpeg",
-    "created_at": "2026-03-17T18:46:48.743Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "competing-llms-were-asked-to-pick-stocks-their-choices-revealed-ais-limitations",
-    "title": "Competing LLMs Were Asked to Pick Stocks. Their Choices Revealed AI’s Limitations.",
-    "description": "Many executives already use gen AI as a thought-partner and c0-strategist. But are these tools reliable across markets? New research found that large-language models can mislead investors when operating outside their home information environments. In testing nearly 5,000 Chinese stocks, U.S.",
-    "fullText": "Competing LLMs Were Asked to Pick Stocks. Their Choices Revealed AI’s Limitations. by Ben RandMarch 17, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrint",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://hbr.org/2026/03/competing-llms-were-asked-to-pick-stocks-their-choices-revealed-ais-limitations",
-    "thumbnail_url": "/resources/images/article_assets/2026/03/Mar26_16_1296804098.jpg",
-    "created_at": "2026-03-17T18:46:47.687Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-photo-of-irans-bombed-schoolgirl-graveyard-went-around-the-world-was-it-real-or-ai",
-    "title": "A photo of Iran’s bombed schoolgirl graveyard went around the world. Was it real, or AI?",
-    "description": "Numerous faked images and a string of startlingly inaccurate responses from Gemini and Grok are part of a tidal wave of AI slop engulfing coverage of the Iran war\nThe graves, freshly dug, lie in neat rows of 20 across. More than 60 have already been carved out of the earth, with a few clusters of people standing gathered around them. Dozens more are marked out on the ground in front: small chalk rectangles, with diggers poised to complete their task.\nThe cemetery of Minab, photographed as it prepares to bury more than 100 of the town’s young girls, is one of the defining images of the US-Israeli war on Iran, bluntly capturing the devastating civilian toll.\n Continue reading...",
-    "fullText": "Numerous faked images and a string of startlingly inaccurate responses from Gemini and Grok are part of a tidal wave of AI slop engulfing coverage of the Iran war\n\nThe graves, freshly dug, lie in neat rows of 20 across. More than 60 have already been carved out of the earth, with a few clusters of people standing gathered around them. Dozens more are marked out on the ground in front: small chalk rectangles, with diggers poised to complete their task.\n\nThe cemetery of Minab, photographed as it prepares to bury more than 100 of the town’s young girls, is one of the defining images of the US-Israeli war on Iran, bluntly capturing the devastating civilian toll.\n\nAsk Gemini, the AI service powered by Google, and the answer you receive is no – in fact, Gemini claims the photograph is from two years earlier and more than 2,000km (1,240 miles) away. Rather than graves for small girls killed by a missile, the image “depicts a mass burial site in Kahramanmaraş, Turkey” after the 7.8 magnitude earthquake that struck in 2023. “This specific aerial perspective became one of the most widely shared images of the disaster,” Gemini says, “illustrating the sheer scale of the loss.”\n\nSeeing the same burial image on social media, others turned to X’s AI assistant Grok to check its veracity. Like Gemini, Grok will breezily assure you the photo is not from Iran at all – although it lands on a different date, disaster and location. The image is “from Rorotan Cemetery in Jakarta, Indonesia – a July 2021 stock photo of Covid mass burials. Not Minab,” it says.\n\nIn both cases, the AI answers sound sure: they don’t equivocate, and even provide “sources” for the original image, should you choose to check them. Follow the thread to examine those, however, and you’ll begin to hit dead ends: either the image doesn’t appear at all, or the link provided is to a news report that doesn’t exist. For all their impression of clarity and precision, the AIs are simply wrong.\n\nThe cemetery image, it turns out, is authentic. Researchers have cross referenced the photo of the site with satellite images that confirm its location, and it can be cross-referenced again with dozens more images taken of the same site from slightly different angles, and again with video footage – none of which experts say show signs of tampering or digital manipulation. The “factchecks” by Gemini and Grok are just one example of a tidal wave of AI-generated slop – hallucinated facts, nonsense analysis and faked images – that are engulfing coverage of the Iran war. Experts say it is wasting investigative time and risks atrocities being denied – as well as heralding alarming weaknesses as people increasingly rely on AI summaries for news and information.\n\nFrom the opening days of the war, factcheckers have been kept busy with a constant flow of faked imagery online. A photo of what the Tehran Times claimed was satellite imagery of a US radar destroyed in Qatar was exposed as an AI fake made from old Google Earth pictures – its giveaways included the cars, which were all in identical positions to the image from two years earlier.\n\nWidely circulated images of Khamenei’s body being pulled from rubble had “tells” including duplicate limbs among the rescuers. “One fake that stood out to me claimed to show a senior Iranian commander walking around Tehran disguising himself as a woman to avoid potential assassination,” says Shayan Sardarizadeh, a senior journalist at the BBC Verify team, which uses forensic techniques to confirm information and conduct visual investigations. “The street, the building in the background, and the surroundings all seemed like a realistic scene in Tehran.”\n\nSardarizadeh says AI now makes up a large portion of all of the misinformation the team debunks – and the volume is increasing. In the first few weeks of the Gaza or Ukraine wars, for example, most fake posts the team saw were old or unrelated videos, or repurposed video game footage. Now, “nearly half, if not more, of all the viral falsehoods that we now track and debunk are generative AI”.\n\nThat has partly been driven by the ease with which anyone can now generate a realistic video or photo. But the other enormous shift is in people using AI to summarise the news or answer questions, rather than going directly to the original source. Google AI summaries and Grok were only rolled out to the wider international public in mid 2024, and have rapidly become widespread: 65% of people report regularly seeing AI summaries of news or other information, and the portion of people who say they are using generative AI to get information doubled in the past year. Often, however, AI summaries are simply wrong. An international study in 2025 found about half of all AI-generated summaries had at least one significant sourcing or accuracy issue – with some tools, such as Google’s popular Gemini interface, that rose to 76%.\n\nIn the case of the Iran war, factcheckers say they are seeing a deluge of this kind of misleading material. As well as the Minab graveyard images, examples include Grok inaccurately suggesting to X users that video footage of fires in Tehran was actually from LA in 2017, and users citing “AI analysis” to misidentify a missile filmed falling next to the Minab school (numerous munitions experts say it is a US Tomahawk, a finding reinforced by fragments reportedly found at the scene and internal US briefings on the bombing).\n\n“Factcheckers now regularly have to address both a false post and also a misleading claim made by a chatbot in relation to that post,” Sardarizadeh says.\n\nPart of the problem is how LLM AI models (such as Grok, ChatGPT and Gemini) work. At a very basic level, they are probabilistic language models, constructing sentences piece by piece based on which next word has the highest likelihood of being appropriate. While that process produces convincing, authoritative-sounding sentences, it doesn’t mean the AI has actually analysed the material in front of it.\n\n“AI is perceived as an omniscient entity with access to everything, but without emotions,” says Tal Hagin, an open-source intelligence analyst and media literacy educator – so people tend to trust it. “What you are using is actually a very advanced probability machine, not a truth box.”\n\nThe problem is compounded by the authoritative way AI tends to present its findings. It will generate detailed “reports”, including names and dates, references and sources – the kind of material that suggests deep research and understanding, but may in fact be hallucinated or nonexistent. When the Guardian queried Gemini’s answer on the Minab photograph, saying “I don’t think that’s correct, can you search again?” it revised its finding – but to another incorrect location and year. “I apologise for the oversight. Upon re-examining the image … this image was taken in Gaza in November 2023,” it says. Told that that answer was also incorrect, and the photo was from Iran, the bot revised again – to Tehran, during the Covid pandemic. Told that the photograph was taken in Iran in 2025, it responded that it was from the aftermath of an earthquake in southern Iran.\n\nX and Google did not respond to a request for comment. Both platforms’ AI services note in their small print that they may produce inaccurate results.\n\nFor those investigating human rights abuses, the trend poses new challenges. Chris Osieck, an independent open-source investigator who has conducted investigations into a number of civilian casualty bombings in Iran, said researchers’ time was being wasted debunking AI material. Debunking AI videos, for example, often involves carefully inspecting them frame by frame for visual discrepancies. “That time should be devoted to what matters most: reporting on the impact this brutal war has on the people caught in the crossfire.”\n\nAnd in cases such as Minab, where the material is demonstrably real? Researchers fear the wash of AI slop is sowing doubt in people’s minds that the atrocity they are seeing evidence of ever happened at all. “As the technology continues to get better, it could muddy the waters so much that videos and images of real atrocities get dismissed as fake or AI,” say Sardarizadeh.\n\n“I’ve already seen examples of this in relation to the conflicts in Gaza and Ukraine,” he says.\n\nFor those who have lost loved ones, accountability risks being overshadowed by a mass of misinformation, suspicion and doubt.\n\n“At the end of the day, one should also consider what this looks like from the perspective of the families of those who were killed,” Osieck says. “Imagine losing a child and then seeing AI being used online to claim that the event did not happen. That is not just an obstacle for investigators. It is also deeply disrespectful to the loved ones who are grieving.”",
-    "readingTime": 8,
-    "keywords": [
-      "tidal wave",
-      "loved ones",
-      "iran war",
-      "experts say",
-      "war factcheckers",
-      "faked images",
-      "gemini and grok",
-      "summaries",
-      "material",
-      "again"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/global-development/2026/mar/17/atrocity-ai-slop-verify-facts-iran-minab-graves",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/350bae4f5f9a6f16c12c4e627e1b04f679a39e35/1702_5_3168_2534/master/3168.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=8100928abaeb64da4d353852c80a89fb",
-    "created_at": "2026-03-17T12:44:31.885Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "uk-must-learn-lessons-from-ai-race-and-retain-its-quantum-computing-talent-says-minister",
-    "title": "UK must learn lessons from AI race and retain its quantum computing talent, says minister",
-    "description": "Liz Kendall announces £1bn funding to help design large-scale quantum computers for scientists, researchers, public sector and business\nThe UK will not let quantum computing talent slip through its fingers and must learn lessons from US dominance of the AI race, the technology secretary has said, as the government announced a £1bn quantum funding pledge.\nLiz Kendall said the government hoped to retain homegrown quantum startups, engineers and researchers rather than lose them to competing countries, with the US stealing a march on its western rivals in AI.\n Continue reading...",
-    "fullText": "Liz Kendall announces £1bn funding to help design large-scale quantum computers for scientists, researchers, public sector and business\n\nThe UK will not let quantum computing talent slip through its fingers and must learn lessons from US dominance of the AI race, the technology secretary has said, as the government announced a £1bn quantum funding pledge.\n\nLiz Kendall said the government hoped to retain homegrown quantum startups, engineers and researchers rather than lose them to competing countries, with the US stealing a march on its western rivals in AI.\n\n“I do look at what’s happened on AI,” said Kendall. “I do think we need to learn the lessons and make sure we give our brilliant scientists, spinouts and startups the ability to stay here and make it happen. And that requires a government that is bold and ambitious and confident in these technologies of the future.”\n\nShe added: “Too many people feel they have to move to the US in order to get the funding and support they need to grow and scale their company.”\n\nDeepMind, a groundbreaking AI firm co-founded by Nobel laureate Demis Hassabis, is still based in London but was bought by Google in 2014 for £400m, while major Silicon Valley names such as Meta have been offering vast sums to elite-level talent. The UK remains a major producer of AI talent but some of its biggest AI operations are bases for US companies such as ChatGPT developer OpenAI, Anthropic and Palantir.\n\nSpeaking to the Guardian at the National Quantum Computing Centre (NQCC) outside Oxford, Kendall said the government did not want to take a “back seat” on quantum. The UK has produced a number of quantum startups including Quantinuum, a US-UK firm that recently achieved a $10bn (£7.5bn) valuation.\n\n“I want to be at the front of the grid and leading,” she said.\n\nKendall attended the NQCC with the chancellor, Rachel Reeves, as part of a funding announcement for quantum computing, which uses principles of quantum physics to process information.\n\nThe government, in a policy driven by science minister Patrick Vallance, is providing £1bn to help companies design large-scale quantum computers for use by scientists, researchers, the public sector and businesses. A further £1bn, already announced, will support companies and researchers in putting quantum into action in fields such as finance, pharmaceuticals and energy.\n\nKendall said the UK wanted the money, jobs and security that would come with building a domestic cutting-edge quantum computer by the beginning of the next decade. Last year Google announced it had developed an algorithm enabling a quantum computer to operate 13,000 times faster than a classical computer.\n\nHowever, fully fault-tolerant quantum computers, capable of realising some of the tasks that augur major scientific breakthroughs, are still some way off as they would require machines capable of hosting hundreds of thousands of quantum bits – the term for a unit of information in a quantum computer.\n\nClassical computers encode their information in bits – represented as 0 or 1 – which are transmitted as an electrical pulse. A text message, email or even a Netflix film streamed on a smartphone is a string of these bits.\n\nIn quantum computers, however, the information is contained in qubits. These qubits, encased in a modestly sized chip, are particles such as electrons or photons that can be in several states at the same time, a property of quantum physics known as superposition.\n\nThis means qubits can encode various combinations of 1s and 0s at the same time, and compute their way through vast numbers of different outcomes, which is not possible with classical computers. However, they have to be kept in a highly controlled environment, such as one free from electromagnetic interference, or else they can be easily disrupted.\n\nNonetheless, quantum computers could in theory help design new chemicals, drugs and alloys. Quantum computing could result in a much more efficient representation of chemical compounds, for instance, allowing accurate prediction of what a complex molecule might do and paving the way for new drugs and materials.",
-    "readingTime": 4,
-    "keywords": [
-      "computers however",
-      "design large-scale",
-      "scientists researchers",
-      "classical computers",
-      "large-scale quantum",
-      "quantum computing",
-      "quantum physics",
-      "quantum computer",
-      "the uk",
-      "quantum startups"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/technology/2026/mar/17/uk-must-learn-lessons-from-ai-race-and-retain-its-quantum-computing-talent-says-minister",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/6db3192727313f436ee203aa6b5da565b71c34da/883_0_7164_5731/master/7164.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5e3c637cb3beddaaf1ae2cc198e6b90a",
-    "created_at": "2026-03-17T12:44:31.882Z",
     "topic": "tech"
   }
 ]
