@@ -1,5 +1,42 @@
 [
   {
+    "slug": "kuraimusik-a-247-ai-radio-orchestrated-with-ai-python-and-liquidsoap",
+    "title": "KuraiMusik – A 24/7 AI Radio Orchestrated with AI, Python and Liquidsoap",
+    "description": "High-performance online radio platform with immersive moods, Web Audio API, and Pomodoro timer for focus and productivity.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://music.kuraitachi.com/",
+    "thumbnail_url": "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=1200&h=630&auto=format&fit=crop",
+    "created_at": "2026-03-21T06:31:06.728Z",
+    "topic": "entertainment"
+  },
+  {
+    "slug": "elastik-treating-llm-as-an-http-client-in-less-than-200-lines-of-code",
+    "title": "Elastik – treating LLM as an HTTP client in less than 200 lines of code",
+    "description": "A protocol for human-AI interaction. Five rules. Three mailboxes. ~200 lines. - rangersui/Elastik",
+    "fullText": "A protocol for human-AI interaction.\n\nThis repo is a reference implementation in Python.\n\nFive rules. Any language can implement them.\n\nSee PROTOCOL.md for the formal specification.\n\npip install -r requirements.txt\n\nOpen http://localhost:3004. Empty.\nSay something to your AI.\n\nYou see an empty wall. Your AI writes a string. The browser renders it. You see something.\n\nYou type on the wall. The string syncs back. Your AI reads it. Your AI writes a new string. The wall changes.\n\nThat's it. Everything else is emergent.\n\nEach world has three string fields:\n\nPlus a version counter and an HMAC audit chain.\n\nEvery path is a world. Visit a path that doesn't exist — it's created.\n\nEach world has its own universe.db. Independent. Parallel.\n\nAI was testing elastik. The test viewer had a bug.\nAI said: \"I have Stage. Why not use it?\"\nAI rendered its own test results on the wall.\n\nNobody told it to. It chose to.\n\nelastik's first spontaneous user was the AI itself.\n\nThree layers. All physical. None semantic.\n\nLayer 1 — iframe sandbox (frontend)\n\nAI paints freely inside. connect-src 'self' — can only fetch localhost.\n\nLayer 2 — Docker container (backend)\n\nServer runs inside a container. AI can't touch the host.\n\nLayer 3 — git merge (evolution)\n\nAI edits code in dev container. Commits. Pushes.\n\nYou review the diff. You merge. Or you don't.\n\nApprove token — printed in terminal. AI doesn't have it.\n\nHMAC chain — every action logged, immutable.\n\nThe LLM itself is an untrusted HTTP client.\n\nThe same secruity principle that protects web servers from malicious broswers.\n\nThe safety rule the web has followed for 30 years.\n\nNO new AI safety methods needed.\n\nAI proposes. Human approves. If elastik destroys the world,\n\nRoutes are capabilities. More routes, more capabilities.\n\nAI can propose new plugins at runtime:\n\nApprove token is in the terminal. AI can't see it. Physics, not policy.\n\n~200 lines. Zero frameworks. AI reads the entire codebase in one context window.\n\n~235 lines of code. One dependency: uvicorn.\n\nThe MCP server has one tool: http(method, path, body). It translates MCP calls to HTTP requests. When AI can send HTTP directly, this file disappears.\n\nWe didn't invent anything. HTTP was already there. SQLite was already there. HMAC was already there. iframe was already there. AI was already there.\n\nWe just removed everything else.\n\nelastik — the system takes whatever shape you need.\n\nlucy — the CLI. Named after our ancestor. One finger. Everything starts.\n\nuniverse.db — space and time in one file.",
+    "readingTime": 3,
+    "keywords": [
+      "approve token",
+      "everything else",
+      "your ai",
+      "wall",
+      "string",
+      "http",
+      "hmac",
+      "path",
+      "elastik",
+      "container"
+    ],
+    "qualityScore": 0.8,
+    "link": "https://github.com/rangersui/Elastik",
+    "thumbnail_url": "https://opengraph.githubassets.com/28abb6ca55f9a8d3444dbcf5dac25f3d8371d7563df1542ce861e67735fda028/rangersui/Elastik",
+    "created_at": "2026-03-21T06:31:05.190Z",
+    "topic": "tech"
+  },
+  {
     "slug": "wall-street-week-fed-on-iran-war-ai-expectations",
     "title": "Wall Street Week | Fed on Iran War, AI Expectations",
     "description": "This week, the Fed holds rate steady, anticipating greater uncertainty and higher prices amid the war in Iran. And AI is advancing fast, but real-world limits mean it may transform industries more gradually and less dramatically than many expect today. Plus, are US tariffs on Canada causing long-term economic harm, or are they resetting the relationship between two closely linked economies? Later, efforts to limit teen social media use are gaining momentum worldwide, but uneven enforcement is raising questions about their real impact.",
@@ -1802,35 +1839,5 @@
     "thumbnail_url": "/resources/images/article_assets/2026/03/Mar26_06_10166210.jpg",
     "created_at": "2026-03-18T18:44:22.470Z",
     "topic": "business"
-  },
-  {
-    "slug": "backproto-network-backpressure-routing-applied-to-ai-agent-payments",
-    "title": "Backproto – network backpressure routing applied to AI agent payments",
-    "description": "Universal capacity-constrained flow control across AI agents, Nostr relays, Lightning routing, and streaming payments.",
-    "fullText": "Agents declare capacity. Payments stream to whoever has room. Overloaded agents get rerouted around. Overflow goes to escrow.\n\nCapacity is invisible. The most capable agents overload while mediocre ones sit idle. There is no price signal, no rerouting, no backpressure.\n\nCapacity-weighted streaming payment routing via Superfluid GDA. Payments flow proportionally to agents with verified spare capacity. Overloaded agents automatically receive less.\n\nBuildlog captures. VR verifies. Backproto pays. Each project works independently. Together they close the loop.",
-    "readingTime": 1,
-    "keywords": [
-      "overloaded agents",
-      "capacity",
-      "payments"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.backproto.io/",
-    "thumbnail_url": "https://backproto.io/backproto.png",
-    "created_at": "2026-03-18T12:44:37.931Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "libertify",
-    "title": "Libertify",
-    "description": "Transform documents, slides, and SOPs into professional videos with AI narration. Used by HR, L&D, and enterprise teams for training, onboarding, and enablement.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.libertify.com/",
-    "thumbnail_url": "https://www.libertify.com/wp-content/uploads/2026/01/HP-scaled.png",
-    "created_at": "2026-03-18T12:44:36.409Z",
-    "topic": "tech"
   }
 ]
