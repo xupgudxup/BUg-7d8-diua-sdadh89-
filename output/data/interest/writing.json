@@ -1,5 +1,29 @@
 [
   {
+    "slug": "i-built-an-ai-teammate-that-takes-jira-tickets-and-turns-them-into-prs",
+    "title": "I built an AI teammate that takes Jira tickets and turns them into PRs",
+    "description": "Claude Teammate is an AI bot that works around the clock - picking up tickets, writing plans, opening PRs, acting on feedback, and reviewing code. - ignify-rd/claude-teammate",
+    "fullText": "Quickstart ·\n How It Works ·\n It Remembers ·\n GitHub\n\nClaude Teammate is an AI bot that works around the clock - picking up tickets, writing plans, opening PRs, acting on feedback, and reviewing code. No stand-ups. No Slack pings. No passive-aggressive \"per my last email.\" Just like your best teammate, minus the coffee breath.\n\nClaude Teammate is not limited to tickets it implemented itself. Add it as a reviewer on a human-authored pull request and it will read the diff, inspect the repository, and leave structured review feedback. This can be an alternative to paid tools like CodeRabbit or GitHub Copilot code review.\n\nEvery epic has its own memory. The bot picks up exactly where it left off - no matter how much time has passed.\n\nThat memory is built from more than the original Jira description. Claude Teammate updates it from planning, implementation, review comments, and recurring human feedback so future tickets inherit the durable parts of the work instead of starting from scratch.\n\nThe memory stays compact on purpose. It is cleaned up, deduplicated, and summarized over time so later tickets can reuse the important context without dragging an ever-growing prompt window behind them.\n\nstart creates ~/.tm8/.env on the first run. If that config already exists with the required values, setup is skipped and your credentials are not prompted for again.\n\nTo run multiple agents on the same machine, use --local to store agent status and memory in the current working directory.\n\nRuntime files and memory are stored in:\n\nHow is this different from just prompting Claude directly?\nClaude Teammate is a persistent, scheduled process. It doesn't wait for you to type - it polls, acts, and remembers.\n\nWhat happens if a Jira issue lacks context?\nIt asks. The bot comments on the Jira issue with clarifying questions and waits for answers before doing anything.\n\nCan it handle multiple Jira workspaces and GitHub repos?\nYes. Each epic is scoped to its own Jira domain and workspace, and can map to one or more GitHub repositories.\n\nDoes it understand the codebase or just generate generic code?\nIt reads the actual repository before writing anything - structure, conventions, existing patterns. The plan it proposes is specific to your code, not a template.\n\nCan it test code and verify UI changes?\nYes. It works in its own cloned working environment, can run the repo's test and build commands, and can use Playwright to take screenshots and verify frontend changes instead of relying only on the diff.\n\nCan I use Claude skills or MCP, and does it respect CLAUDE.md?\nYes. Claude skills, configured MCP servers, and repo instructions in CLAUDE.md are available and respected just like they are in a normal Claude-driven workflow. Playwright MCP is built in and enabled by default so challenging frontend tasks can be verified in-browser.\n\nContributions are welcome. Open an issue to discuss before submitting large changes.\n\nThis software is provided \"as is\", without warranty of any kind. The authors and contributors are not responsible for any damage, data loss, or unintended consequences arising from the use or misuse of this project. Use at your own risk.\n\nOpen source under MIT. Built for engineers who want to ship, not supervise.",
+    "readingTime": 3,
+    "keywords": [
+      "claude skills",
+      "claude teammate",
+      "code",
+      "memory",
+      "jira",
+      "tickets",
+      "feedback",
+      "review",
+      "diff",
+      "repository"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/ignify-rd/claude-teammate",
+    "thumbnail_url": "https://opengraph.githubassets.com/f60f77407c5a52d929a80ac87b20c2d0e0fbbbc5312c41e033ac3a68393b6c73/ignify-rd/claude-teammate",
+    "created_at": "2026-03-22T01:14:15.455Z",
+    "topic": "tech"
+  },
+  {
     "slug": "when-writing-becomes-detached-from-thought",
     "title": "When Writing Becomes Detached from Thought",
     "description": "As AI floods the world with fluent text, writing is losing its old status as evidence of human thought.",
@@ -2113,21 +2137,5 @@
     "thumbnail_url": "https://i.insider.com/69496af604eda4732f2df686?width=1200&format=jpeg",
     "created_at": "2025-12-23T12:23:26.481Z",
     "topic": "finance"
-  },
-  {
-    "slug": "alloconda-zig-toolkit-for-writing-cpython-extensions",
-    "title": "Alloconda: Zig toolkit for writing CPython extensions",
-    "description": "Zig-first Python extensions with cross-compiled wheels - mattrobenolt/alloconda",
-    "fullText": "mattrobenolt\n\n /\n\n alloconda\n\n Public\n\n Zig-first Python extensions with cross-compiled wheels\n\n alloconda.withmatt.com\n\n License\n\n Apache-2.0 license\n\n 1\n star\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n mattrobenolt/alloconda",
-    "readingTime": 1,
-    "keywords": [
-      "star",
-      "license"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://github.com/mattrobenolt/alloconda",
-    "thumbnail_url": "https://opengraph.githubassets.com/a2496d8ff611964da1e92da6207f8854fcee7c8b17f1cf714d77ec0faa33320f/mattrobenolt/alloconda",
-    "created_at": "2025-12-23T06:19:53.662Z",
-    "topic": "tech"
   }
 ]
