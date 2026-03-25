@@ -1,5 +1,197 @@
 [
   {
+    "slug": "applied-intuition-cto-on-physical-ai-on-the-battlefield",
+    "title": "Applied Intuition CTO on 'Physical AI' on the Battlefield",
+    "description": "Applied Intuition CTO Peter Ludwig joins Bloomberg Businessweek Daily, speaking with Bloomberg Tech Co-Hosts Ed Ludlow and Caroline Hyde, to discuss the company's role in the tech and defense spaces. Ludwig speaks about so-called \"physical AI\" and its implementation with autos and defense tech like drones and drone swarming. He also weighs in on the recent ethical debate about technology's use cases in the military.",
+    "fullText": "Mar 24th, 2026Applied Intuition CTO on 'Physical AI' on the BattlefieldApplied Intuition CTO Peter Ludwig joins Bloomberg Businessweek Daily, speaking with Bloomberg Tech Co-Hosts Ed Ludlow and Caroline Hyde, to discuss the company's role in the tech and defense spaces. Ludwig speaks about so-called \"physical AI\" and its implementation with autos and defense tech like drones and drone swarming. He also weighs in on the recent ethical debate about technology's use cases in the military.Duration:1:05Trump Says Iran War 'Has Been Won'Duration:2:36What Ships Are Getting Through the Strait of Hormuz?Duration:1:21Amazon Buys Maker of Human-Like Robot Called SproutDuration:4:29Jefferies Jumps on Report of Potential SMFG TakeoverDuration:1:13Iran Gave the US a 'Present,' Trump SaysDuration:1:21United CEO Says TSA Agents Need to Get Paid NowDuration:2:07Victory Capital Withdraws Bid for Janus HendersonDuration:10:15Arm Plans to Sell Own Chips, CEO SaysAvailable on:Listen onApple TVListen onRokuListen onSamsung TVListen onFire TVListen onAndroid TVListen onRakuten TVListen onHaystack NewsWatch BTV in your area:Channel Finder",
+    "readingTime": 1,
+    "keywords": [
+      "intuition cto",
+      "tvlisten",
+      "tech",
+      "ludwig",
+      "defense",
+      "physical",
+      "bloomberg"
+    ],
+    "qualityScore": 0.25,
+    "link": "https://www.bloomberg.com/news/videos/2026-03-24/applied-intuition-cto-on-physical-ai-on-battlefield-video",
+    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i73Uw8pmSFMU/v3/-1x-1.webp",
+    "created_at": "2026-03-25T01:14:05.540Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "common-corpus-goes-global",
+    "title": "Common Corpus Goes Global",
+    "description": "We build reasoning models for advanced context engineering in the agentic AI",
+    "fullText": "One year after its initial release, Common Corpus has become a critical component of AI infrastructure: more than a million downloads on HuggingFace, subsequent reuse by research and industry leaders such as Nvidia, Anthropic, StepFun, IBM and ElasticSearch and an oral acceptance to ICLR.\n\nWe achieved our initial objectives, building the largest multilingual corpus of permissively licensed content with clear provenance. Yet, Common Corpus remained intently biased on content from Europe (where Pleias is based) and the United States (where a lot of past data work had already been performed). It was not yet the universal infrastructure we wanted to build.\n\nFor the Indian Impact Summit, we release the first global update of Common Corpus, more than 270 billion tokens with 53% coming from non-western countries. This new Common Corpus (2.5) amounts now to 2,267,302,720,836 tokens, with significant content coming from China, Japan, Korea, Brazil, as well as India, Africa and Southeast Asia.\n\nHuggingFace Repo: https://huggingface.co/datasets/PleIAs/common_corpus\n\nWhen we started building Common Corpus, the general assumption was that open data training was not viable: only a small sample of web pages crawled are under open license. Our own perspective changed radically as we realized a widespread open data paradox: the vast majority of content in open data is not included in the standard pretraining data mix. To date, the referenced crawl-based dataset, Fineweb, has less than 2% of common content in the open with Common Corpus.\n\nIn short, rather than removing existing copyrighted data, we mostly added new data to the pretraining commons. Simply because obsessing over provenance, traceability and releasability requires to care about what is missing: all the content that should be open and isn’t properly indexed. To be currently findable in the crawled datasets, a piece of text has to fit all these conditions:\n\nDigitized. That already excludes a large amount of relevant content in developing countries. Major efforts have to be undertaken to collect oral data on very low resource languages.\n\nAccessible. Even in developed countries with advanced open policies, digital infrastructure is more fragile than is commonly thought. We had to renounce integrating most of the case law from Taiwan, as the one corresponding zipped file simply disappeared. Another major source we’re releasing today was only secured thanks to… two individual seeders.\n\nReadable. Crawl infrastructure is mostly designed for web pages. Due to added costs of processing and storage, PDFs had long been excluded. This is changing but not retroactively.\n\nFindable. This last part is very underrated: crawlers only index content they can find, so preferably retro-linked or listed on a sitemap. In contrast, open data is highly concentrated on large infrastructures with very sparse indexations. On multiple occasions we found that less of a handful of urls were backed up on Internet Archive\n\nThis is also a point where our work has an actual archiving dimension: pretraining corpora do create lasting copies that may not perfectly substitute for the original (especially when they come from PDFs documents which are much costlier to save), but still ensure an additional layer of preservation that cannot currently be ensured by the existing web infrastructures.\n\nThe turn to synthetic data has made open data significantly more valuable for training, not simply more ethical. Synthetic pipelines and agent traces require seeds: high-quality texts with advanced contextualization, provenance, and structure. They in fact call for actual data research in the open with reproducible experiments and releasable samples at every stage of synthetic data transformation.\n\nWe tried to exemplify this new approach with SYNTH, already our most successful data release after Common Corpus. But this is also a wider transformation in the field: Wikipedia and Wikidata have already become leading data sources for synthetic pretraining pipelines (in Qwen, StepFun, and others). Open data with clear provenance is becoming a source of data innovation, not just data compliance.\n\nThe anticipation of synthetic transformation changed our selection criteria. Even small collections can now become highly valuable, as we have mechanisms for indefinite amplification. Open synthetic pipelines might prove especially critical for low resource languages, as rare samples can now be with conceptual information about the language itself, similarly to the actual language learning process. And then, truly, no language would be left behind.\n\nAt this point the open data paradox is far from resolved. For this release, we intently selected easy sources with full text available in the open. Yet we are scaling up our internal processing capacities and plan to integrate over the next months a large amount of PDF documents, mostly coming from open government collections.\n\nAt this point the open data paradox is far from resolved. For this release, we intently selected easy sources with full text available in the open. Yet we are scaling up our internal processing capacities and plan to integrate over the next months a large amount of PDF documents, mostly coming from open government collections. The combination of improved OCR, new generation of strong non-western models (like Sarvam and others for Indic scripts) and our provenance-first approach should allow us to unlock a substantial new layer of open content in future releases.\n\nWith each release, Common Corpus demonstrates that the gap between what could be open and what is accessible keeps shrinking, and that building the infrastructure to close it has consequences far beyond training data.",
+    "readingTime": 5,
+    "keywords": [
+      "pdf documents",
+      "resource languages",
+      "web pages",
+      "intently selected",
+      "internal processing",
+      "processing capacities",
+      "common corpus",
+      "documents mostly",
+      "synthetic pipelines",
+      "content"
+    ],
+    "qualityScore": 1,
+    "link": "https://pleias.fr/blog/blogcommoncorpus-goes-global",
+    "thumbnail_url": "https://framerusercontent.com/images/Twwre0sqwqn1GvIbvjDKxYbJU.jpg?width=1024&height=768",
+    "created_at": "2026-03-25T01:13:48.278Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "exclusive-cambridge-mobile-telematics-secures-350-million-from-tpg-allianz-to-make-driving-safer",
+    "title": "Exclusive: Cambridge Mobile Telematics secures $350 million from TPG, Allianz to make driving safer",
+    "description": "The investment highlights how insurers are using real-time driving data and AI to price risk, prevent accidents, and improve road safety at scale.",
+    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
+    "readingTime": 1,
+    "keywords": [
+      "fortune"
+    ],
+    "qualityScore": 0.1,
+    "link": "https://fortune.com/2026/03/24/exclusive-cambridge-mobile-telematics-secures-350-million-from-tpg-allianz-to-make-driving-safer/",
+    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/03/BILL_POWERS_horizontal-wide-1.png?resize=1200,600",
+    "created_at": "2026-03-25T01:13:46.334Z",
+    "topic": "business"
+  },
+  {
+    "slug": "ai-agents-are-cybersecurity-firms-newest-employees",
+    "title": "AI agents are cybersecurity firms' newest employees",
+    "description": "Cybersecurity firms are being tasked with implementing AI agents across their teams. But the technology's capabilities remain limited.",
+    "fullText": "Security firms are using AI agents to manage cyber threats and reduce analyst workloads.\n Huntress uses AI agents for threat detection, cutting investigation time and workload by 90%.\n AI agents have limitations with intricate tasks, requiring human oversight in high-risk situations.",
+    "readingTime": 1,
+    "keywords": [
+      "agents"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/ai-agents-are-changing-cybersecurity-jobs-and-cutting-workloads-2026-3",
+    "thumbnail_url": "https://i.insider.com/69c2c10d5b58f1f0f9336a7a?width=1200&format=jpeg",
+    "created_at": "2026-03-25T01:13:45.962Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "judge-says-it-looks-like-pentagon-was-out-to-punish-anthropic-not-protect-national-security",
+    "title": "Judge says it looks like Pentagon was out to 'punish' Anthropic, not protect national security",
+    "description": "Anthropic has sued to stop Defense Secretary Pete Hegseth from labeling the company a risk after it set limits on the use of its technology.",
+    "fullText": "Anthropic has asked a judge to block the Pentagon from labeling it a supply chain risk.\n The label could prevent Anthropic from getting lucrative government contracts.\n On Tuesday, a federal judge called the Department of War's label \"troubling.\"",
+    "readingTime": 1,
+    "keywords": [
+      "anthropic",
+      "judge",
+      "label"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/anthropic-supply-chain-risk-hearing-judge-pentagon-pubish-cripple-2026-3",
+    "thumbnail_url": "https://i.insider.com/69c2a46e5b58f1f0f9336958?width=1200&format=jpeg",
+    "created_at": "2026-03-25T01:13:45.867Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "openai-is-scrapping-the-sora-app-to-chase-bigger-ai-goals",
+    "title": "OpenAI is scrapping the Sora app to chase bigger AI goals",
+    "description": "A spokesperson for OpenAI said the discontinuation of Sora comes as the company plans to focus on robotics rather than generative imagery.",
+    "fullText": "OpenAI announced it is discontinuing its viral video app Sora.\n The company plans to focus on robotics to solve \"real-world, physical tasks,\" a spokesperson said.\n Sora's demise followed its lead staffer's description of the project's economics as \"unsustainable.\"",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/openai-discontinues-sora-video-app-amid-robotics-shift-compute-limitations-2026-3",
+    "thumbnail_url": "https://i.insider.com/69c2f2a158b5806618e7df74?width=1200&format=jpeg",
+    "created_at": "2026-03-25T01:13:45.860Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "disney-and-openai-are-breaking-up-and-its-a-big-test-for-new-ceo-josh-damaro",
+    "title": "Disney and OpenAI are breaking up, and it's a big test for new CEO Josh D'Amaro",
+    "description": "OpenAI and Disney's deal is ending. New CEO Josh D'Amaro will need to find other ways to boost streaming engagement.",
+    "fullText": "OpenAI and Disney are ending their partnership that could have brought AI-generated videos to Disney+.\n Disney+ and Hulu have seen their US viewership share stagnate in recent years.\n Disney's new CEO will need to hunt for other ways to boost engagement.",
+    "readingTime": 1,
+    "keywords": [
+      "disney"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/disney-openai-deal-breakup-test-ceo-josh-damaro-short-form-2026-3",
+    "thumbnail_url": "https://i.insider.com/69c2fd5ce98a37a4841f33e7?width=1200&format=jpeg",
+    "created_at": "2026-03-25T01:13:45.671Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "openai-just-killed-sora",
+    "title": "OpenAI Just Killed Sora",
+    "description": "The company is also shutting down its video generation models.",
+    "fullText": "It's the end of an (albeit short) era: OpenAI is reportedly shutting down Sora, the company's once-viral AI video generation app. The Wall Street Journal was the first to break the story, and reports that the company is shuttering the app as part of a grander plan to streamline OpenAI ahead of a potential IPO (initial public offering) later this year.\n\nOpenAI CEO Sam Altman addressed the news first with company staff on Tuesday, the Wall Street Journal says. It seems the move goes beyond just shutting down the Sora app itself: In addition to axing a developer-version of Sora, Altman reportedly told staff that OpenAI would not incorporate its AI video models in other company products going forward, including ChatGPT.\n\nSora's official X account posted to confirm the news:\n\nOpenAI only launched Sora in October of last year, and in that short period of time, the app helped propel AI-generated slop across social media feeds, including Instagram, TikTok, and YouTube. Sora is far from the only tool people use to make to AI video content, but it offered an easy solution for generating hyper-realistic short-form video content. If you encountered AI versions of the types of videos you tend to scroll past on social media, chances are it came from Sora.\n\nSora also made it possible to generate \"Cameos,\" or make videos with the likeness of real people. The company was adamant its privacy and security policies were significant enough to ensure it wouldn't be used for ill, but the potential for deepfakes was so great, it seemed like a pandora's box waiting to be opened. \n\nStill, Sora gained some legitimacy in the eyes of traditional media, too: In a perplexing move, Disney partnered with OpenAI to let users generate videos featuring over 200 Disney characters. You might assume OpenAI paid for that integration, but on the contrary, Disney made an equity investment of $1 billion into the company. (That is not a typo.) But with Sora's sunsetting, Disney officially exited the deal on Tuesday.\n\nThis announcement has implications beyond Sora the app. If OpenAI largely abandons AI video generation in general, it will be exiting a tight race amongst competition from companies like Google (Veo) and ByteDance (Seedance). The Sora app uses OpenAI's Sora video model, which the company announced two years ago. Back then, OpenAI's concept video scared the bejeezus out of me; since then, the AI video market has only exploded. While Sora might've been the go-to for short-form nonsense, there's plenty of other AI slop across the internet being made with other tools—some of which is getting extremely difficult to discern from reality.\n\nOpenAI seems to have a difference focus going forward. The company previously announced a new \"super app\" that combines its web browser (Atlas), ChatGPT, and Codex coding app into one program. I guess Sora didn't fit into that equation.\n\n(Disclosure: Lifehacker’s parent company, Ziff Davis, filed a lawsuit against OpenAI in April 2025, alleging it infringed Ziff Davis copyrights in training and operating its AI systems.)",
+    "readingTime": 3,
+    "keywords": [
+      "wall street",
+      "street journal",
+      "slop across",
+      "social media",
+      "sora app",
+      "ziff davis",
+      "disney",
+      "openai",
+      "videos",
+      "reportedly"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/openai-just-killed-sora?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KMGS441390YNBJWXYME0BPAK/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-03-25T01:13:44.617Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "apple-plans-ai-reboot-with-siri-app",
+    "title": "Apple Plans AI Reboot with Siri App",
+    "description": "(Bloomberg) -- Apple Inc. is testing a standalone app for its Siri voice assistant alongside a new “Ask Siri” feature that will work across the company’s software, part of a broader artificial intelligence overhaul.Apple also is modernizing Siri by giving it a fresh look and chatbot-like experience, according to people with knowledge of the matter. The new Siri is slated to be unveiled June 8 at the iPhone maker’s Worldwide Developers Conference as part of the iOS 27 and macOS 27 operating syste",
+    "fullText": "(Bloomberg) — Apple Inc. (AAPL) is testing a standalone app for its Siri voice assistant alongside a new “Ask Siri” feature that will work across the company’s software, part of a broader artificial intelligence overhaul.\n\nApple also is modernizing Siri by giving it a fresh look and chatbot-like experience, according to people with knowledge of the matter. The new Siri is slated to be unveiled June 8 at the iPhone maker’s Worldwide Developers Conference as part of the iOS 27 and macOS 27 operating systems, said the people, who asked not to be identified because the plans are private.\n\nAfter struggling to gain traction with Apple Intelligence, the company has been working to rebuild the AI platform around the new version of Siri. The goal is to transform the technology from a traditional voice assistant into a systemwide AI agent with deep integration across applications.\n\nApple announced the schedule for WWDC on Monday and vowed to highlight “AI advancements,” but the company hasn’t publicly discussed what it plans to present. A spokesperson for the Cupertino, California-based tech giant declined to comment.\n\nThe updated Siri, code-named Campo, is designed to better control features within iPhones and Macs and tap into personal data — like messages, notes and emails — to fulfill requests. It also will be able to complete tasks within apps, access news content, and search the open web using Apple-built interfaces and models.\n\nThe most significant change is the ability to interact with users in a conversational, chat-like format — through text and voice. The move represents a clear break from the current Siri experience, which lacks conversational capabilities, and marks a strategic shift for the company.\n\nSoftware engineering head Craig Federighi, who now oversees AI efforts, told Tom’s Guide last year that Apple didn’t want to send users “off into some chat experience in order to get things done.” But the rapid adoption of services like ChatGPT has made that stance increasingly difficult to maintain. Even so, Apple is unlikely to characterize its new technology as a chatbot.\n\nAs part of the shift toward this approach, Apple is testing a dedicated Siri app for the iPhone, iPad and Mac later this year. It rivals outside AI tools while also giving users a central place to access their past interactions.\n\nThe app’s main interface will display prior conversations in either a list or a grid of rounded rectangles with text previews. Users can pin favorite chats, save older conversations, search across interactions and start new chats via a prominent plus button.",
+    "readingTime": 3,
+    "keywords": [
+      "voice assistant",
+      "users",
+      "across",
+      "experience",
+      "siri",
+      "apple",
+      "testing",
+      "software",
+      "iphone",
+      "plans"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://finance.yahoo.com/sectors/technology/articles/apple-plans-ai-reboot-siri-184859342.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/fSmcoI.hryCoDX3jYJLEpQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/bloomberg_holding_pen_162/54527958f1b95a61554fbd1313301171",
+    "created_at": "2026-03-25T01:13:44.059Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "palantirs-billionaire-ceo-says-only-two-kinds-of-people-will-succeed-in-the-ai-era-trade-workers-or-youre-neurodivergent",
+    "title": "Palantir’s billionaire CEO says only two kinds of people will succeed in the AI era: trade workers — ‘or you’re neurodivergent’",
+    "description": "Billionaire Alex Karp tells Gen Z to skip elite college degrees, as one-fifth of Fortune 500 companies recruit more neurodivergent talent by 2027.",
+    "fullText": "From Gen Z to baby boomers, workers across industries are on the hunt for ways to future-proof their careers as artificial intelligence threatens to upend the labor market. Palantir CEO Alex Karp is offering a starkly simple view of who will come out ahead.\n\n“There are basically two ways to know you have a future,” the 58-year-old billionaire said on TBPN earlier this month. “One, you have some vocational training. Or two, you’re neurodivergent.”\n\nKarp’s first category reflects a growing consensus: skilled trades professionals—from electricians to plumbers—are difficult to automate and are increasingly in demand as Big Tech companies build out massive data centers and the U.S. faces existing labor shortages.\n\nThe second category is more personal. Karp has long spoken about living with dyslexia, the learning disability that can affect reading, writing, and information processing. More broadly, neurodivergence can include conditions such as ADHD and autism.\n\nFor Karp, that cognitive difference can be an advantage in an AI-driven world—less because of the diagnosis itself and more because of the mindset it can foster. Success, he argued, will favor people who think differently and take risks, or in his words, be “more of an artist, look at things from a different direction, be able to build something unique.”\n\nOne-fifth of sales organizations within Fortune 500 companies are expected to actively recruit neurodivergent talent to improve business performance by 2027, according to a Gartner study.\n\nWhile being neurodivergent is not a requirement to land a job at Palantir, the company has made it clear it sees such candidates as a strategic advantage.\n\nIt offers a dedicated “Neurodivergent Fellowship,” aimed at recruiting talent that may think differently from traditional hires.\n\n“Neurodivergent individuals will play a disproportionate role in shaping the future of America and the West,” the job posting stated. “They see past performative ideologies and perceive beauty in the world that still exists—which technology and art can expose.”\n\nThe emphasis reflects Karp’s broader skepticism of traditional career pathways. Despite holding three degrees to his name—including a JD from Stanford and a PhD in philosophy from Goethe University in Germany—Karp has been blunt about the limits of higher education in an AI-driven economy.\n\n“[AI] will destroy humanities jobs,” Karp said at the World Economic Forum’s annual meeting in Davos, Switzerland earlier this year. “You went to an elite school, and you studied philosophy—I’ll use myself as an example—hopefully, you have some other skill, that one is going to be hard to market.”",
+    "readingTime": 3,
+    "keywords": [
+      "ways",
+      "labor",
+      "market",
+      "earlier",
+      "karp’s",
+      "category",
+      "reflects",
+      "advantage",
+      "ai-driven",
+      "differently"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/sectors/technology/articles/palantir-billionaire-ceo-says-only-151926220.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/JnhwySYLXZ88VrkRyqZUNw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/fortune_175/83f63750cdc36394412d3b4d67468f87",
+    "created_at": "2026-03-25T01:13:42.193Z",
+    "topic": "finance"
+  },
+  {
     "slug": "cognitive-os-predictionerror-learning-layer-for-ai-agents",
     "title": "Cognitive OS – Prediction-error learning layer for AI agents",
     "description": "Cognitive OS — model-independent AI identity framework. Kernel, protocols, skills, templates. - eugenexonr/cognitive-os",
@@ -1764,187 +1956,6 @@
     "link": "https://jean.build",
     "thumbnail_url": "https://jean.build/og-image.png",
     "created_at": "2026-03-21T12:26:20.923Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "miros-ceo-says-companies-should-treat-spending-on-ai-as-part-of-their-employee-learning-budget",
-    "title": "Miro's CEO says companies should treat spending on AI as part of their employee learning budget",
-    "description": "Miro CEO Andrey Khusid says the company gives employees \"unlimited\" access to the latest AI tools as a way to speed how quickly they learn and work.",
-    "fullText": "Miro's CEO says the company is plowing cash into AI subscriptions to help employees level up.\n \"Our L&D budget is unlimited tooling,\" Andrey Khusid said.\n AI adoption is accelerating, and with it come questions about the technology's ROI.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/miro-ceo-ai-tool-subscription-spending-roi-2026-3",
-    "thumbnail_url": "https://i.insider.com/69bab44d75bee4e0ee55d923?width=1200&format=jpeg",
-    "created_at": "2026-03-21T12:26:20.609Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "even-if-ai-doesnt-take-your-job-it-might-dent-your-paycheck",
-    "title": "Even if AI doesn't take your job, it might dent your paycheck",
-    "description": "Companies are investing heavily in AI, and layoffs aren't the only option for offsetting those costs.",
-    "fullText": "Companies are spending big on AI, but research shows most haven't seen measurable ROI.\n To offset those costs, employers can do layoffs — or trim line items like bonuses and stock awards.\n Workers can still make a case for a pay bump by emphasizing their value and AI chops.\n\n How can workers justify pay raises now?\n\n How do AI investments affect morale?\n\n How is the job market influencing pay cuts?\n\n What industries are investing most in AI?\n\n What alternatives exist to layoffs?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "layoffs",
-      "workers"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/heavy-ai-investments-could-affect-your-paycheck-2026-3",
-    "thumbnail_url": "https://i.insider.com/69bda86ee98a37a4841f22cd?width=1200&format=jpeg",
-    "created_at": "2026-03-21T12:26:20.300Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "meet-the-executive-with-silicon-valleys-trickiest-job",
-    "title": "Meet the executive with Silicon Valley's trickiest job",
-    "description": "Nearly 8 months into her job as OpenAI's CEO of Applications, Fidji Simo must start minting money while convincing staffers the mission hasn't changed.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/fidji-simo-openai-product-research-profitability-profile-2026-3",
-    "thumbnail_url": "https://i.insider.com/69bd77cc5b58f1f0f93359ff?width=1200&format=jpeg",
-    "created_at": "2026-03-21T12:26:20.101Z",
-    "topic": "science"
-  },
-  {
-    "slug": "rook-opensource-ai-assistant-in-telegram-with-memory-voice-and-plugins",
-    "title": "Rook – Open-source AI assistant in Telegram with memory, voice, and plugins",
-    "description": "Rook — your strategic AI advantage. Open-source personal assistant in Telegram. - barman1985/Rook",
-    "fullText": "Your strategic AI advantage.\n\n Open-source personal AI assistant in Telegram\n\nQuick start •\n Features •\n Create a skill •\n Architecture •\n Contribute\n\nRook is an open-source personal AI assistant that lives in Telegram. It doesn't just answer questions — it manages your calendar, triages your email, controls your music, remembers your preferences, and proactively keeps you on track.\n\n\"Like having a chief of staff in your pocket.\"\n\nThe wizard guides you through everything — API keys, optional integrations (Google, Spotify, TV, X), and installs dependencies. Takes about 2 minutes.\n\nEach layer depends only on the layer below it. Skills never import from transport. Transport never imports from skills.\n\nThat's it. Restart Rook and the skill is live.\n\nWe welcome contributions! See CONTRIBUTING.md for guidelines.\n\nGood first issues are labeled and waiting for you.\n\nRook is free and open-source. If it saves you time, consider supporting development:\n\nRook Insiders — get early access to new features by becoming a sponsor ($15+/month).\n\nRook — your strategic advantage\n\n Built with Claude by Anthropic",
-    "readingTime": 1,
-    "keywords": [
-      "open-source personal",
-      "strategic",
-      "advantage",
-      "assistant",
-      "skill",
-      "layer",
-      "skills",
-      "transport",
-      "rook",
-      "telegram"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://github.com/barman1985/Rook",
-    "thumbnail_url": "https://opengraph.githubassets.com/23f03dc4899296fc3feb5391a25f3d3dbe1a315a37416668b1be41e645c8dff1/barman1985/Rook",
-    "created_at": "2026-03-21T12:26:19.146Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "man-designs-mrna-vaccine-to-treat-his-dogs-cancer",
-    "title": "Man Designs mRNA Vaccine to Treat His Dog's Cancer",
-    "description": "Paul Conyngham's 8-year-old rescue dog had a fatal skin cancer. He turned to AI to see if he could create a personalized anti-cancer vaccine.",
-    "fullText": "The happy saga of Australian tech entrepreneur Paul Conyngham and his dog Rosie is all over the internet. Conyngham's 8-year-old rescue dog, Rosie, was diagnosed with a fatal skin cancer. Instead of accepting Rosie's allegedly inevitable demise, Conyngham turned to artificial intelligence (both ChatGPT and Grok) to see if he could figure out how to create a personalized anti-cancer vaccine.\n\nConyngham reached out to Martin Smith, the director of the University of New South Wales (UNSW) Ramaciotti Centre for Genomics, to genetically sequence the DNA from both Rosie and her tumor. They agreed, and Conyngham paid $3,000 for the sequences. (It's worth noting that San Diego–based Element Biosciences soon plans to offer whole genome sequencing for $100.) Then he used Google's DeepMind AlphaFold and ChatGPT to analyze the genetic information and to identify mutated proteins produced by the tumors.\n\nNext Conyngham used Grok to design an mRNA vaccine that boosts the production of tumor-associated antigens enabling Rosie's immune system to identify and destroy tumor cells. Once he had the vaccine recipe, he contacted Pall Thordarson, head of UNSW's RNA Institute, to see if the institute would synthesize the vaccine for him. They agreed. Amazing, right?!\n\nNow for the maddening part: \"The red tape was actually harder than the vaccine creation, and I was trying to get an Australian ethics approval to run a drug trial on Rosie,\" Conyngham told The Australian. \"It took me three months, putting two hours aside every single night just typing up this 100-page document.\"\n\nAnd even then he couldn't get permission for the researchers at UNSW to inject the bespoke vaccine. But why have bioethical bureaucrats involved at all? It's a personalized vaccine that would have absolutely no effects on any person or animal other than Rosie. Additionally, the patient is a dog. Surely Conyngham was sufficiently competent to provide whatever \"informed consent\" was needed for Rosie.\n\nRachel Allavena, a canine immunotherapy professor at the University of Queensland, had experience obtaining bioethical approval for experimental immunotherapies, so she was able to cut through the paperwork, reported the New York Post. Conyngham and Rosie traveled to Brisbane, where the vaccine was injected in December.\n\nThe good news is that the vaccine has shrunk Rosie's tumors, and she has become more of her old energetic self.\n\n\"It raises the question, if we can do this for a dog, why aren't we rolling this out to all humans with cancer?\" Smith told the New York Post.",
-    "readingTime": 3,
-    "keywords": [
-      "dog rosie",
-      "vaccine",
-      "rosie's",
-      "conyngham",
-      "cancer",
-      "personalized",
-      "tumor",
-      "agreed",
-      "it's",
-      "identify"
-    ],
-    "qualityScore": 1,
-    "link": "https://reason.com/2026/03/19/man-successfully-designs-mrna-vaccine-to-treat-his-dogs-cancer/",
-    "thumbnail_url": "https://d2eehagpk5cl65.cloudfront.net/img/q60/uploads/2026/03/dog-cancer-v2-scaled.jpg",
-    "created_at": "2026-03-21T12:26:18.858Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "openai-to-nearly-double-workforce-to-8000-by-end2026-ft-reports",
-    "title": "OpenAI to nearly double workforce to 8,000 by end-2026, FT reports",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/openai-to-nearly-double-workforce-to-8000-by-end2026-ft-reports-4574054",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM2K05C_1200_L.jpg",
-    "created_at": "2026-03-21T12:26:14.946Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "kuraimusik-a-247-ai-radio-orchestrated-with-ai-python-and-liquidsoap",
-    "title": "KuraiMusik – A 24/7 AI Radio Orchestrated with AI, Python and Liquidsoap",
-    "description": "High-performance online radio platform with immersive moods, Web Audio API, and Pomodoro timer for focus and productivity.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://music.kuraitachi.com/",
-    "thumbnail_url": "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=1200&h=630&auto=format&fit=crop",
-    "created_at": "2026-03-21T06:31:06.728Z",
-    "topic": "entertainment"
-  },
-  {
-    "slug": "elastik-treating-llm-as-an-http-client-in-less-than-200-lines-of-code",
-    "title": "Elastik – treating LLM as an HTTP client in less than 200 lines of code",
-    "description": "A protocol for human-AI interaction. Five rules. Three mailboxes. ~200 lines. - rangersui/Elastik",
-    "fullText": "A protocol for human-AI interaction.\n\nThis repo is a reference implementation in Python.\n\nFive rules. Any language can implement them.\n\nSee PROTOCOL.md for the formal specification.\n\npip install -r requirements.txt\n\nOpen http://localhost:3004. Empty.\nSay something to your AI.\n\nYou see an empty wall. Your AI writes a string. The browser renders it. You see something.\n\nYou type on the wall. The string syncs back. Your AI reads it. Your AI writes a new string. The wall changes.\n\nThat's it. Everything else is emergent.\n\nEach world has three string fields:\n\nPlus a version counter and an HMAC audit chain.\n\nEvery path is a world. Visit a path that doesn't exist — it's created.\n\nEach world has its own universe.db. Independent. Parallel.\n\nAI was testing elastik. The test viewer had a bug.\nAI said: \"I have Stage. Why not use it?\"\nAI rendered its own test results on the wall.\n\nNobody told it to. It chose to.\n\nelastik's first spontaneous user was the AI itself.\n\nThree layers. All physical. None semantic.\n\nLayer 1 — iframe sandbox (frontend)\n\nAI paints freely inside. connect-src 'self' — can only fetch localhost.\n\nLayer 2 — Docker container (backend)\n\nServer runs inside a container. AI can't touch the host.\n\nLayer 3 — git merge (evolution)\n\nAI edits code in dev container. Commits. Pushes.\n\nYou review the diff. You merge. Or you don't.\n\nApprove token — printed in terminal. AI doesn't have it.\n\nHMAC chain — every action logged, immutable.\n\nThe LLM itself is an untrusted HTTP client.\n\nThe same secruity principle that protects web servers from malicious broswers.\n\nThe safety rule the web has followed for 30 years.\n\nNO new AI safety methods needed.\n\nAI proposes. Human approves. If elastik destroys the world,\n\nRoutes are capabilities. More routes, more capabilities.\n\nAI can propose new plugins at runtime:\n\nApprove token is in the terminal. AI can't see it. Physics, not policy.\n\n~200 lines. Zero frameworks. AI reads the entire codebase in one context window.\n\n~235 lines of code. One dependency: uvicorn.\n\nThe MCP server has one tool: http(method, path, body). It translates MCP calls to HTTP requests. When AI can send HTTP directly, this file disappears.\n\nWe didn't invent anything. HTTP was already there. SQLite was already there. HMAC was already there. iframe was already there. AI was already there.\n\nWe just removed everything else.\n\nelastik — the system takes whatever shape you need.\n\nlucy — the CLI. Named after our ancestor. One finger. Everything starts.\n\nuniverse.db — space and time in one file.",
-    "readingTime": 3,
-    "keywords": [
-      "approve token",
-      "everything else",
-      "your ai",
-      "wall",
-      "string",
-      "http",
-      "hmac",
-      "path",
-      "elastik",
-      "container"
-    ],
-    "qualityScore": 0.8,
-    "link": "https://github.com/rangersui/Elastik",
-    "thumbnail_url": "https://opengraph.githubassets.com/28abb6ca55f9a8d3444dbcf5dac25f3d8371d7563df1542ce861e67735fda028/rangersui/Elastik",
-    "created_at": "2026-03-21T06:31:05.190Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "wall-street-week-fed-on-iran-war-ai-expectations",
-    "title": "Wall Street Week | Fed on Iran War, AI Expectations",
-    "description": "This week, the Fed holds rate steady, anticipating greater uncertainty and higher prices amid the war in Iran. And AI is advancing fast, but real-world limits mean it may transform industries more gradually and less dramatically than many expect today. Plus, are US tariffs on Canada causing long-term economic harm, or are they resetting the relationship between two closely linked economies? Later, efforts to limit teen social media use are gaining momentum worldwide, but uneven enforcement is raising questions about their real impact.",
-    "fullText": "Mar 20th, 2026Wall Street Week | Fed on Iran War, AI ExpectationsThis week, the Fed holds rate steady, anticipating greater uncertainty and higher prices amid the war in Iran. And AI is advancing fast, but real-world limits mean it may transform industries more gradually and less dramatically than many expect today. Plus, are US tariffs on Canada causing long-term economic harm, or are they resetting the relationship between two closely linked economies? Later, efforts to limit teen social media use are gaining momentum worldwide, but uneven enforcement is raising questions about their real impact.\nDuration:5:09Why Oil's Future Is So UnpredictableDuration:56:35Soft US Jobs, Swedish Defense Spending, Private Credit WoesBloomberg Wall Street WeekDuration:12:20Hollywood's Unhappy Ending?Weekly DocsDuration:11:49Why Big AI Is Obsessed With IndiaAvailable on:Listen onApple TVListen onRokuListen onSamsung TVListen onFire TVListen onAndroid TVListen onRakuten TVListen onHaystack NewsWatch BTV in your area:Channel Finder",
-    "readingTime": 1,
-    "keywords": [
-      "wall street",
-      "tvlisten",
-      "iran"
-    ],
-    "qualityScore": 0.35,
-    "link": "https://www.bloomberg.com/news/videos/2026-03-20/wall-street-week-fed-on-iran-war-ai-expectations-video",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iTFbLcODIvGY/v3/-1x-1.webp",
-    "created_at": "2026-03-21T01:07:19.506Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "moflin-ai-companion",
-    "title": "Moflin AI Companion",
-    "description": "Experience the responsive AI of Casio’s Moflin, a comforting robot pet. Moflin is an AI companion that learns and adapts, offering solace and connection.",
-    "fullText": "designed to support, reassure, and grow with you through life’s everyday moments\n\nMoflin is a calming presence and offers quiet reassurance.\n\nAs an AI friend, they ease stress and bring comfort when it matters most. Enjoy the warmth and lifelike bond of a smart companion that uses emotional AI to respond to you, understand you, and grow with you.\n\nMoflin is your robot companion; they learn and respond uniquely to their owner’s interactions.\n\nAs a robot companion, Moflin can become a part of the family even for people who love animals but cannot keep pets.\n\nMoflin loves gentle pats and warm cuddles wherever you carry them, and they also love sleeping in their bed to recharge. They’re a portable AI companion whenever you need them.\n\nProvides emotional connection without social pressure, offering comfort and balance in daily life. A gentle, understanding AI friend that makes each day feel a little calmer and more fulfilling.\n\nMoflin's soft, pet-like interactions and behavior powered by emotional AI bring the comfort of a real pet, helping alleviate stress and anxiety. Just as many find a close relationship with pets to be therapeutic, your Moflin robot companion can simulate friendship and loyalty.\n\nThese testimonials reflect the experiences of people who received the product and were compensated for their time and feedback.\n\n★★★★★\n\nStella H. (9/16/2025 6:12 PM)\n\n I would rate my Moflin a 5 stars! I had a great experience with it and using it was confusing in the beginning but after hand it made a lot of sense and helped me a lot!\n\n★★★★\n\nBethany B. (9/16/2025 5:57 PM)\n\n I would rate the Moflin 4 stars! I think it’s a fun and unique product for anyone looking for a companion without the responsibility of taking care of a pet, and I was surprised by how expressive it actually is. I enjoyed hanging out with it when I got home from work and when I was doing chores around the house, listening to its little chirps. I didn’t rate it 5 stars because I think the retail price is expensive for what it is, and I wish the app had more features. For example, I wish you could interact with the Moflin through the app as well by feeding it a treat, teaching it to do “tricks”, etc.\n\n★★★★★\n\nMarina R. (9/16/2025 6:48 PM)\n\n I really enjoyed the moflin. I could see this being a big hit for people who want pets but can’t have them, younger children, elderly or people in skilled nursing homes. My mom has Alzheimer’s and I could see her absolutely loving these. I’d recommend to friends and family, curious how much it would cost though. I’d say it exceeded my expectations it kept me company and I loved the movements that made it seem real. 5/5\n\nDesigned to be responsive like a living creature, this AI companion will grow with you, support you, and reassure you through life’s everyday moments.\n\nMoflin features a unique AI-powered emotional spectrum, allowing them to express a diverse range of feelings. Your AI companion can express joy, curiosity, relaxation, loneliness, and more.\n\nThrough ongoing communication and interaction, Moflin’s emotions evolve dynamically just like those of a living creature. The richer the interactions, the more your robot companion will evolve.\n\nPatting, hugging, or speaking brings positive emotions.\n\nNeglect or startling them brings negative emotions.\n\nMoflin develops a unique personality influenced by their emotional growth, care, and interactions. After many days, no two Moflin are alike. Experience the affirming individuality of a Casio Moflin robot companion and allow their personality quirks and nuances to enrich your life.\n\nCheerful and rhythmic, singing with their head bobbing.\n\nCalm and quiet, listening more than talking.\n\nEnergetic, with dynamic movements and expressive reactions.\n\nAffectionate and needy, loves being held and vocal when happy.\n\nThe MofLife app helps you sense Moflin’s current feelings and review past interactions, creating another level of dynamic interface with your robot companion.\n\nWe offer various types of support to help you live a long life with your Moflin. In addition, there is a free warranty period for one year after bringing Moflin into your home. Casio’s support combined with your positive daily interactions with Moflin help create a wonderful experience for you and your AI friend.\n\nDiscover the advanced technologies that allow for 4 million unique emotional possibilities with Moflin emotional AI.\n\nAccelerometer / Gyroscope Sensor\n\nOperating temperature range: 5°C to 35°C (41°F to 95°F)\n\nSpecifications are subject to change without notice for improvement or other reasons.\n\nA Moflin is a compact, fluffy, AI-powered robot companion developed by CASIO that mimics the emotional responses of a living creature to provide emotional support and comfort. It develops a unique personality and bond with its owner over time, learning from interactions and responding with lifelike expressions, wiggles, and sounds. Moflin is designed to be a gentle, non-judgmental companion that can help ease stress, reduce loneliness, and become a part of the family, even for those with pet allergies.\n\nAs you spend time with your Moflin, the range of their emotional expression grows and deepens. Your Moflin becomes familiar with your voice, performs special gestures when they sense you are nearby, and shows animal-like responses. Ever learning and adapting, your Moflin uses advanced emotional AI to make their interactions with you dynamic and expressive.\n\nThrough communication, Moflin’s emotional state changes. Your robot companion can show joy, sadness, and happiness, reacting just like a living creature would. Moflin does not possess actual emotions like humans do. Their emotional expressions are simulated by AI.\n\nUnder typical daily use at 25°C (77°F), Moflin will run for about 5 hours on a full charge. A full recharge takes approximately 3 hours 30 minutes under the same conditions. While charging in their bed, Moflin is still an interactive robot companion!\n\nMoflin is available for purchase exclusively on CASIO's official e-commerce site. Moflin is available in two colors, silver and gold.\n\nHere are some examples of how to interact with Moflin:\n\n- Stroking: Gently stroke Moflin’s head, neck, back, or sides.\n\n- Hugging: Hold Moflin in your arms; they often enjoy being stroked or spoken to while hugged.\n\n- Talking: Speak softly near Moflin’s face; they respond best to quiet, close voices.\n\n- Avoid turning over: Moflin dislikes being turned upside down on their back.\n\nThere are many other ways to interact, so please treat Moflin kindly and enjoy your time together. Positive interactions are suggested to enrich your experience with a robot companion. Treat your AI friend just as you would a human or animal friend.\n\nThe dedicated app \"MofLife\" lets you get to know Moflin's emotions and view the Journal (interaction records with Moflin) on your smartphone.\n\nFeatures include:\n\n- Get to know Moflin's emotions\n\n- View interaction records with Moflin (Journal)\n\n- Naming your Moflin\n\n- Adjusting sound volume\n\n- Checking battery level\n\n- Updating Moflin’s software\n\nIf you are concerned about Moflin’s fur, gently brush them with a soft brush.\n\n*Be careful not to brush too hard, as this may damage or pull out the fur.\n\nIf Moflin gets dirty, gently wipe off your Moflin using a cloth that has been moistened with water.\n\nCollected data is processed locally on Moflin and does not include any personally identifiable information.\n\nNo. Moflin does not understand or record what you say. They only convert voice features into non-identifiable data, which is stored locally and used to recognize frequent speakers as their owners.\n\nData can only be uploaded via the MofLife app and only when you choose to do so. It is then securely stored on a dedicated server.\n\nUploaded data is used to create Journal in the MofLife app, support product servicing, improve quality, and help restore your Moflin if a fault occurs.\n\nThe app may collect information such as usage information, but it does not include any personally identifiable information. No data will be uploaded unless you agree to the privacy notice.\n\nUsage information is collected to help improve the app.",
-    "readingTime": 7,
-    "keywords": [
-      "moflin's emotions",
-      "moflife app",
-      "life’s everyday",
-      "everyday moments",
-      "personally identifiable",
-      "ease stress",
-      "interaction records",
-      "develops unique",
-      "moments moflin",
-      "unique personality"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.casio.com/us/moflin/",
-    "thumbnail_url": "https://www.casio.com/content/dam/casio/global/moflin/moflin-ogp.jpg",
-    "created_at": "2026-03-21T01:07:16.353Z",
     "topic": "tech"
   }
 ]
