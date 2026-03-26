@@ -1,5 +1,29 @@
 [
   {
+    "slug": "cutting-p99-latency-in-go-by-74-with-adaptive-hedged-requests",
+    "title": "Cutting p99 latency in Go by 74% with adaptive hedged requests",
+    "description": "Adaptive hedged requests for Go. Cut your p99 latency with zero configuration. Based on Google's \"The Tail at Scale\" paper. - bhope/hedge",
+    "fullText": "hedge is a Go library that reduces tail latency in fan-out architectures using adaptive hedged requests. It learns your service's latency distribution in real-time using DDSketch and fires backup requests only when the primary is genuinely slow - matching hand-tuned static thresholds with zero configuration. A token bucket budget prevents load amplification during outages.\n\nIn fan-out architectures, a single user request fans out to dozens or hundreds of downstream services. Even when each service has only 1% slow responses, the probability that at least one backend is slow compounds dramatically - with 100 services, 63% of top-level requests will be delayed by at least one straggler. Dean & Barroso (2013) identified hedged requests as the most effective mitigation: send a duplicate request to another server after a brief delay, and use whichever responds first.\n\nhedge implements this with three components. A per-host DDSketch (Masson et al., VLDB 2019) tracks the latency distribution in real time with relative-error guarantees and constant memory, automatically adapting to load changes and deployments. When a request exceeds the estimated p90 latency, a backup is fired to the same target; whichever responds first wins and the loser is cancelled. A token bucket budget caps the hedge rate at a configurable percentage of total traffic, so that during genuine outages - when every request is slow - hedging stops before it doubles backend load.\n\n50,000 requests against a backend with lognormal base latency (mean=5ms) and 5% straggler probability (10× multiplier). Adaptive hedge matches the best hand-tuned static threshold at p99 (17.3ms vs 17.5ms) without requiring any manual configuration. Static thresholds either hedge too aggressively (10ms: 7.7% overhead) or too conservatively (50ms: p99 still at 54.9ms). In production where latency distributions shift with load and deployments, adaptive tracking avoids the stale-threshold problem entirely.\n\nReproduce: cd benchmark/simulate && go run .\n\nZero configuration - the transport learns latency automatically:\n\nTuned - with explicit options and observability:\n\nAll options from the HTTP transport are supported. Per-target latency tracking uses cc.Target() as the host key.\n\nDDSketch is a streaming quantile sketch with relative-error guarantees: the returned quantile is always within ±ε of the true value (default ε=1%). hedge maintains one sketch per target host, updated on every completed request in O(1) time with constant memory. A tumbling window (default 30s) decays old observations so the sketch adapts to changing conditions.\n\nWhen a request exceeds the estimated p90 latency, a backup request is fired to the same target using a child context derived from the caller's context. Whichever response arrives first is returned to the caller; the other is cancelled and its response body drained to release the connection back to the pool. If the primary wins, it was just slow but not a straggler - no overhead is incurred.\n\nA token bucket limits hedge rate to a configurable percentage of total traffic (default 10%). The bucket refills at estimatedRPS × budgetPercent / 100 tokens per second. When the bucket is empty, the request waits for the primary without firing a hedge. During genuine outages - when every request is slow and the bucket drains - hedging stops automatically, preventing the load-doubling spiral that would worsen the outage.\n\nA static 10ms threshold looks great in benchmarks with fixed distributions. In production, latency shifts with load, deployments, GC pauses, and time of day - a threshold that is perfect at 3am causes 90%+ hedge rate at peak traffic. You would need to continuously monitor per-service latency and reconfigure thresholds as conditions change across every target your client talks to. Adaptive tracking handles this automatically: the sketch updates on every request, and the hedge threshold follows the actual distribution wherever it goes.\n\nContributions are welcome! Please open an issue to discuss your idea before submitting a PR.\n\nSee CONTRIBUTING.md for development setup and guidelines.\n\nhedge is released under the MIT License.",
+    "readingTime": 4,
+    "keywords": [
+      "fan-out architectures",
+      "relative-error guarantees",
+      "constant memory",
+      "configurable percentage",
+      "hedging stops",
+      "zero configuration",
+      "whichever responds",
+      "genuine outages",
+      "hand-tuned static",
+      "hedged requests"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/bhope/hedge/blob/main/README.md",
+    "thumbnail_url": "https://opengraph.githubassets.com/cab7d7011f0d6287650195e8d5e76347476a7c257527493a04097cff03097c38/bhope/hedge",
+    "created_at": "2026-03-26T18:52:17.091Z",
+    "topic": "tech"
+  },
+  {
     "slug": "big-tech-invincibility-is-over-historic-ruling-could-open-legal-floodgates",
     "title": "'Big Tech invincibility is over:' Historic ruling could open legal floodgates",
     "description": "A historic ruling finding Mark Zuckerberg’s Meta and YouTube parent Google liable for fueling teen social media addiction could open the floodgates for an unprecedented legal crackdown on Big Tech,…",
@@ -2063,29 +2087,5 @@
     "thumbnail_url": "https://i.insider.com/69960082f8731049f3af53a8?width=1200&format=jpeg",
     "created_at": "2026-02-19T12:38:38.411Z",
     "topic": "finance"
-  },
-  {
-    "slug": "you-can-preorder-the-google-pixel-10a-for-500-and-get-a-100-amazon-gift-card",
-    "title": "You Can Preorder the Google Pixel 10a for $500 and Get a $100 Amazon Gift Card",
-    "description": "This is a great chance to get the latest budget-friendly Pixel.",
-    "fullText": "Google is releasing their budget a-series version of the Pixel 10 on March 5, a whole month earlier than the 9a was released in 2025. There is not much dividing the 10a from the 9a, but there are a few software updates that can make it worth it for some people. Throw in a $100 Amazon gift card, and it's hard to say no. Google has the pre-orders for the Google 10a out already, going for $499, plus the gift card. Alternatively, you can get their Pixel Buds 2a instead of the $100 gift card for the same $499 price.\n\nLifehacker's Associate Tech Editor Michelle Ehrhardt actually got her hands on the Pixel 10a during a recent Google demo event. As she pointed out, the specs on the Pixel 10a are not like the Pixel 10. It's more similar to the 9 instead. It has a Tensor G4 processor, 8GB of RAM, and up to 256GB of storage, as well as the same camera system, with a 48MP main lens, a 13MP ultrawide lens, and a 13MP selfie camera. The battery life is the same 30+ hours, too, and the MagSafe-like Pixelsnap feature is gone. The main upgrade here is a brighter 3,000 nits screen, a thinner bezel, and an improved Corning Gorilla Glass 7i cover glass. But the value might be in the software and AI.\n\nThere are two AI camera features that debuted with the Pixel 10. One is Auto Best Take, which takes 150 frames in one click, chooses the best picture, and automatically deletes the rest (or stitches together elements from multiple shots to make a new \"best\" image). And Camera Coach, which guides you with AI on how to take the best picture. Google also brought Satellite SOS for the first time to an a-series phone. It lets you connect to a Satellite and ping emergency services for help if you have no cell signal.\n\nIf you're thinking of upgrading from a Pixel 9a or later, there's not much here to make it worth it. However, if you have anything older than a Pixel 9 or are switching to Pixel for the first time, this is a great opportunity and phone to do so.",
-    "readingTime": 2,
-    "keywords": [
-      "gift card",
-      "google",
-      "pixel",
-      "a-series",
-      "software",
-      "worth",
-      "instead",
-      "lens",
-      "phone",
-      "camera"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://lifehacker.com/tech/google-pixel-10a-preorder-deal-february-2026?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KHSBF5T36DN9YA6HX01AZN37/hero-image.fill.size_1200x675.png",
-    "created_at": "2026-02-19T01:12:44.849Z",
-    "topic": "tech"
   }
 ]
