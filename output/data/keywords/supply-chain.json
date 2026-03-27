@@ -1,5 +1,29 @@
 [
   {
+    "slug": "ghost-gap-supply-chain-firewall-for-litellm",
+    "title": "Ghost Gap: Supply chain firewall for LiteLLM",
+    "description": "Supply Chain Firewall — block compromised packages, close the Ghost Gap, cure infections. Zero dependencies. - Vezran/ghostgap",
+    "fullText": "Supply Chain Firewall for pip, npm, and 6 more ecosystems.\n\n Zero dependencies. Python 3.8+. Safe on infected machines.\n\nUpdating a compromised package doesn't make you safe. The backdoor already ran. Your keys are already stolen. litellm_init.pth is still on your disk auto-executing on every Python startup.\n\nThat's the Ghost Gap — the damage that patching doesn't fix. This tool closes it.\n\nThis is bash, not Python. It quarantines litellm_init.pth using system tools (find/grep/mv), then launches Python with -S (skips all .pth processing). The malware never runs. Not even once.\n\nWhy two methods? Python .pth files auto-run during interpreter startup at the C level (Py_InitializeFromConfig -> site.main() -> addpackage() -> line 213), BEFORE any user code. No Python tool — ours or anyone else's — can prevent this. ghostgap-safe.sh uses bash + python -S to bypass .pth entirely. The pip-installed ghostgap command quarantines .pth and rotates all credentials, but the .pth may run one final time during that invocation.\n\nLiteLLM's official fix: \"delete some files and rotate keys manually.\"\n\nArthur's community scripts: \"scan your CI logs\" (but their Python scanner loads the malicious .pth on startup — the LiteLLM CEO acknowledged this).\n\nghostgap: one command, finds everything, fixes everything, doesn't trigger the malware.\n\nDrop this into .github/workflows/ghostgap.yml:\n\n.pth files in Python's site-packages are auto-executed on every Python startup. Here's the exact CPython code that does it (Lib/site.py, line 212-213):\n\nThe litellm 1.82.8 attack dropped litellm_init.pth which means:\n\nghostgap-safe.sh is a bash script (not Python) that:\n\nThe result: .pth malware never runs. Not even once. Not in a throwaway process. Not anywhere.\n\nThe execution chain is: Py_InitializeFromConfig() (C) -> import site -> site.main() -> addsitepackages() -> addsitedir() -> addpackage() -> exec(line). This happens at the interpreter level before any user Python code runs. There is no Python-level mechanism to intercept or prevent .pth code execution. The -S flag is the only built-in defense, and our safe .pth parser is the only way to get site-packages imports working without .pth code execution.\n\nWhen you run ghostgap check <package> <version>, it downloads the package, extracts it, and scans every file for:\n\nThe verdict logic minimizes false positives: credential access alone is common in cloud tools (boto3, litellm, awscli) and doesn't trigger a block. Only credential access combined with obfuscation triggers a block — the actual attack pattern.\n\nTested against 67 manifest files across 5 ecosystems in a real production codebase (16 microservices, multiple languages):\n\n29/29 unit tests passed across all 8 ecosystems.\n\nghostgap uses only Python stdlib. No requests, no click, no rich, no pydantic. pip install ghostgap adds exactly one package to your environment.\n\nFor a supply chain security tool, this isn't a feature — it's a requirement. Every dependency is an attack surface.\n\nFound a compromised package we don't cover? Open an issue or PR with the threat record:\n\nVezran x taazbro\n\n Closing the Ghost Gap — because updating doesn't undo the damage.",
+    "readingTime": 3,
+    "keywords": [
+      "ghost gap",
+      "credential access",
+      "supply chain",
+      "compromised package",
+      "doesn't trigger",
+      "python startup",
+      "code execution",
+      "pth files",
+      "ghostgap",
+      "ecosystems"
+    ],
+    "qualityScore": 0.8,
+    "link": "https://github.com/Vezran/ghostgap",
+    "thumbnail_url": "https://opengraph.githubassets.com/8305396df42ae936c9eaa3d1be56bfc612897dff3dc257bc8171e1cbcf66ca72/Vezran/ghostgap",
+    "created_at": "2026-03-27T06:56:42.987Z",
+    "topic": "tech"
+  },
+  {
     "slug": "ai-boom-accelerates-chinas-chip-industry-growth-as-demand-strains-supply-chain",
     "title": "AI boom accelerates China's chip industry growth as demand strains supply chain",
     "description": "China's chip industry is showing strong growth momentum as a global sprint to build AI infrastructure creates an explosion in demand, sparking higher capital spending and ‌capacity expansion as chipmakers race to keep up, executives said on Wednesday.  Growth in the industry \"is coming ‌faster than expected\" this year, Jerry Zhang, China sales head at Swiss semiconductor components firm VAT, told Reuters on the sidelines of Semicon ​China 2026 in Shanghai, one of the industry's largest annual gatherings.  As companies race to ramp up production, China's manufacturing capacity for chips made on mature 22nm to 40nm process nodes - used in cars, smartphones and electronics - is projected to reach 42% of global output by 2028, up from 37% in 2026, SEMI China President Lily Feng said.",
