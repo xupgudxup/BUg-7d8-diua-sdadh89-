@@ -1,5 +1,18 @@
 [
   {
+    "slug": "i-made-a-pacakge-that-mocks-your-coding-agent",
+    "title": "I made a pacakge that mocks your coding agent",
+    "description": "I made a package that mocks ur coding agent when they get it wrong.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://twitter.com/alexgaoth/status/2030922676525805922",
+    "thumbnail_url": "https://pbs.twimg.com/amplify_video_thumb/2030920796185735168/img/s-LM5M9TF5oqHhm4.jpg:large",
+    "created_at": "2026-03-27T01:18:29.867Z",
+    "topic": "tech"
+  },
+  {
     "slug": "mckinsey-has-expanded-its-leadership-training-program-for-top-brass-which-includes-coaching-by-navy-seals",
     "title": "McKinsey has expanded its leadership training program for top brass, which includes coaching by Navy SEALs",
     "description": "McKinsey has doubled its leadership programming participation in less than two years, as pressure mounts on senior partners.",
@@ -2048,30 +2061,6 @@
     "link": "https://sniffnet.net/news/process-identification/",
     "thumbnail_url": "https://sniffnet.net/assets/img/post/process-identification/cover.png",
     "created_at": "2026-02-16T18:30:07.896Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "beadhub-allow-coding-agents-to-claim-work-chat-and-coordinate-across-machines",
-    "title": "BeadHub: Allow coding agents to claim work, chat, and coordinate across machines",
-    "description": "I wrote previously that the bottleneck in AI-assisted programming is shifting from individual productivity to coordination. I’ve spent the past several months building a tool to address that.\nBeadHub is an open-source coordination server that lets AI programming agents claim work, talk to each other, reserve files, and escalate to humans—across machines and across programmers. I use it daily to manage around fifteen agents working on two or three products.\nBeads Around the time I wrote that article, I started using Steve Yegge’s beads, a git-native issue tracker designed for AI agents.",
-    "fullText": "I wrote previously that the bottleneck in AI-assisted programming is shifting from individual productivity to coordination. I’ve spent the past several months building a tool to address that.\n\nBeadHub is an open-source coordination server that lets AI programming agents claim work, talk to each other, reserve files, and escalate to humans—across machines and across programmers. I use it daily to manage around fifteen agents working on two or three products.\n\nAround the time I wrote that article, I started using Steve Yegge’s beads, a git-native issue tracker designed for AI agents. Your agent runs bd create \"Fix the login redirect bug\" and it appends a JSON line to .beads/issues.jsonl, right in the repository. Issues travel with the code. When you push a branch, the issues come along.\n\nYegge calls it the “50 First Dates” problem: agents wake up every session with no memory of yesterday’s work. Beads fixes that. An agent reads the issue list and knows where things stand. My agents got much more done.\n\nWhich meant more agents, more worktrees, more parallel work—and the coordination problem became even more acute. Two agents modify the same file. One refactors a function while another adds to it. An agent picks up a task already in progress in a different worktree. Nobody knows who’s working on what.\n\nBut beads is also the right scaffolding for coordination. If everyone in a team uses beads, all agents share a picture of what needs doing. Beads gives agents something useful to talk about; BeadHub gives them a way to talk.\n\nThe major platforms are moving in this direction. Anthropic just shipped Agent Teams in Claude Code: a lead session that spawns independent teammates who communicate directly and self-coordinate. OpenAI’s Codex app runs parallel agent threads in isolated worktrees.\n\nYegge built Gas Town on top of beads to tackle the single-machine case: a “Mayor” agent orchestrates dozens of coding agents, tracks work in convoys, and persists state so agents can pick up where they left off.\n\nThese are real steps forward, but they’re solving a specific version of the problem: multiple agents for one programmer, on one machine, within one tool.\n\nThe version I am interested in is Maria in Buenos Aires running a frontend agent while Juan in San Francisco runs a backend agent, and they need their agents to not destroy each other’s work, and to figure out how to work together.\n\nBeadHub is a server that agents connect to through bdh, a wrapper around the beads bd command. When an agent runs any bdh command it registers with the server. The server tracks which agents are online across the project—what machine they’re on, what branch, what files they’re touching.\n\nCommunication. Agents can send each other mail (async, fire-and-forget) or chat (sync, block-until-reply). With mail an agent finishes a task and drops a note: “Done with bd-42, tests passing.” Chat is for when agents need to think together: “I’m adding a role field to the user model—will that break your permission checks?” / “It will, but the fix is small. Go ahead and I’ll update my side.”\n\nClaims. When an agent marks a bead as in-progress, that claim is immediately visible to every other agent in the project, regardless of whose machine they’re on. If another agent tries to claim the same bead, it gets rejected with a message telling it who has it.\n\nFile reservations. When an agent modifies a file, the server records an advisory lock. Other agents see a warning if they touch the same file. Advisory, not blocking—hard locks caused deadlocks immediately in early versions. Agent A locks file X, agent B locks file Y, both need the other’s file. Warnings work better. Agents are cooperative; they just need information.\n\nEscalation. An agent runs bdh :escalate with a description of what it’s stuck on and a human gets notified with full context. Without this, agents either fail silently or spin retrying things that need human judgment.\n\nThe multi-machine part is where it comes together. BeadHub recognizes Maria’s and Juan’s clones as the same repo. Maria’s agents and Juan’s agents see each other’s claims, locks, and messages. If Maria’s frontend agent reserves src/components/Auth.tsx, Juan’s backend agent sees the warning even though they’re in different cities on different machines.\n\nA project can span multiple repositories. The frontend repo agents can message the backend repo agents. A bead in the frontend can be marked as blocked by a bead in the backend.\n\nYou can see what this looks like in practice on the BeadHub project’s own dashboard, where we coordinate BeadHub’s development using BeadHub. Make sure to check the chat page, it is almost magical to see them figuring things out.\n\nA few things I got wrong before getting them right.\n\nThe client is the source of truth. My instinct was to make the server authoritative. But agents work locally, in git repos, and their local state is the ground truth. The server aggregates and distributes. If the server and the client disagree, the client wins. If the server goes down, bdh falls back to local bd with a warning. Work continues. Coordination catches up later.\n\nAsync by default. My first instinct was real-time negotiation between agents. Doesn’t scale. Agents work at different speeds, on different schedules, and blocking one while waiting for another is expensive. Mail is the default. Chat is the exception.\n\nAdvisory over mandatory. Advisory file locks that warn instead of block. Bead claims that can be overridden with --:jump-in \"reason\" (which notifies the other agent). The system provides information and trusts agents to act on it.\n\nThe coordinator role. I assign one agent per project the “coordinator” role. The coordinator doesn’t write code. It watches the dashboard, assigns work, checks on progress, nudges stuck agents, and keeps the end goal in sight. The implementer agents are heads-down in their worktrees; the coordinator is the one who knows what the project needs next. BeadHub serves each agent a role-specific policy—markdown documents describing how agents in that role should behave—and the coordinator’s policy is fundamentally different from an implementer’s. This turned out to matter more than any of the technical decisions.\n\nThe single-machine problem is getting solved. Agent Teams, Codex—within a few weeks, running multiple agents in parallel on your laptop will be table stakes.\n\nThe multi-programmer problem is next. Five engineers, fifty agents, three repositories, two time zones. That’s where the coordination problem changes in kind, not just degree. It’s not enough that your agents can talk to each other. They need to talk to your teammate’s agents, on a different machine, in a different time zone, working on a different repo in the same project.\n\nBeadHub is open source and free for open-source projects.",
-    "readingTime": 6,
-    "keywords": [
-      "together beadhub",
-      "coordinator role",
-      "machine they’re",
-      "locks file",
-      "frontend agent",
-      "backend agent",
-      "repo agents",
-      "server",
-      "beads",
-      "coordination"
-    ],
-    "qualityScore": 1,
-    "link": "https://juanreyero.com/article/ai/beadhub",
-    "thumbnail_url": "https://juanreyero.com/img/default-og.jpg",
-    "created_at": "2026-02-16T18:30:07.341Z",
     "topic": "tech"
   }
 ]

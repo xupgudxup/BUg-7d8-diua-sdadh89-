@@ -1,5 +1,29 @@
 [
   {
+    "slug": "gnat",
+    "title": "Gnat",
+    "description": "TUI Client for NATS. Contribute to galaxy-io/gnat development by creating an account on GitHub.",
+    "fullText": "gnat\nA NATS JetStream TUI that won't bug you\n\nFeatures\nStream Management\n\nBrowse, create, update, delete, and purge streams\nView stream details, subjects, and message counts\nImport stream configurations from JSON\nPurge by subject\n\nConsumer Management\n\nList, create, update, and delete consumers\nReal-time consumer lag monitoring dashboard\nInspect consumer details and delivery state\n\nKey-Value Stores\n\nBrowse KV buckets and keys\nGet, put, and delete key-value entries\nLive watch mode for real-time change tracking\n\nObject Stores\n\nBrowse object store buckets\nUpload and download objects\n\nMessaging\n\nMessage browser with sequence-based navigation and search\nLive message monitor with configurable delivery policies\nRequest/Reply tester with header support\nPub/Sub playground for publishing messages to subjects\n\nNavigation & Search\n\nGlobal fuzzy finder (Ctrl+P) to jump to any resource\nCommand bar (:) with tab completion and built-in commands\nBookmarks for quick access to frequently used resources\nJSONPath filtering for JSON message payloads\n\nConnection Profiles\n\nSave multiple NATS server configurations\nTLS/mTLS, NKey, token, credentials file, and user/password auth\nEnvironment variable expansion for sensitive fields ($MY_TOKEN)\nJetStream domain support\nQuick profile switching with P key\n\nCustomization\n\nBuilt-in color themes (TokyoNight, Catppuccin, Dracula, Nord, Gruvbox, and more)\nLive theme preview while selecting\nCustom user commands with template variables and configurable output modes\n\nInstallation\nFrom Source\n\nBrew\n\nBuild Locally\n\nUsage\n\nCommand Line Flags\n\nFlag\nDescription\n\n-profile\nConnection profile name (from config)\n\n-url\nNATS server URL (overrides profile)\n\n-creds\nPath to credentials file (overrides profile)\n\n-theme\nColor theme (overrides config)\n\n-version\nPrint version and exit\n\nKeybindings\nNavigation\n\nKey\nAction\n\nj / k\nNavigate down / up\n\nEnter\nSelect / expand\n\nEsc / Backspace\nGo back\n\nTab\nSwitch panes\n\nq\nQuit (from root view)\n\nGlobal\n\nKey\nAction\n\n?\nShow help\n\nT\nTheme selector\n\nP\nProfile selector\n\nB\nBookmark current resource\n\nCtrl+P\nFuzzy finder\n\n:\nCommand mode\n\nCommands\n<code>:streams, :s Streams list\n:kv, :k KV stores\n:objects, :obj Object stores\n:dashboard, :d Dashboard\n:monitor, :m Message monitor\n:lag, :cl Consumer lag dashboard\n:request, :req Request/Reply tester\n:subjects, :subj Subject explorer\n:playground, :play Pub/Sub playground\n:stream <name> Navigate to stream\n:consumer <stream> <name> Navigate to consumer\n:watch <bucket> Watch KV bucket\n:pub <subject> <data> Publish message\n:purge <stream> Purge stream\n:bookmarks, :bm Show bookmarks\n:profile, :p Switch profiles\n:quit, :q Exit\n</code>\nConfiguration\nConfiguration is stored in ~/.config/gnat/config.yaml (or $XDG_CONFIG_HOME/gnat/config.yaml).\n\nRequirements\n\nGo 1.24+\nA running NATS server with JetStream enabled\n\nMIT License - see LICENSE for details.\nWays to Contribute\nYou can contribute by:\n\nReporting bugs\nProposing features or design improvements\nImproving documentation\nFixing issues labeled good first issue\n\nTo report a bug, make a feature request, and more, visit our issues page\nAcknowledgments\n\nNATS - The messaging system this client connects to\ntview - Terminal UI library\njig - UI component framework",
+    "readingTime": 3,
+    "keywords": [
+      "request/reply tester",
+      "pub/sub playground",
+      "nats server",
+      "stores browse",
+      "object stores",
+      "fuzzy finder",
+      "credentials file",
+      "consumer lag",
+      "message monitor",
+      "overrides profile"
+    ],
+    "qualityScore": 0.6,
+    "link": "https://github.com/galaxy-io/gnat",
+    "thumbnail_url": "https://opengraph.githubassets.com/1c348639fb246681920397d9efe7ad0331106235fb29a02442bacb728f53d198/galaxy-io/gnat",
+    "created_at": "2026-03-27T01:18:31.239Z",
+    "topic": "tech"
+  },
+  {
     "slug": "inter-miami-and-la-galaxy-line-up-move-for-casemiro-when-he-leaves-man-united",
     "title": "Inter Miami and LA Galaxy line up move for Casemiro when he leaves Man United",
     "description": "Major League Soccer sides Inter Miami and LA Galaxy are exploring moves for Casemiro when he leaves Manchester United this summer, according to The Athletic.The 34-year-old confirmed in January that h...",
