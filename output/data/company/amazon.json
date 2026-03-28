@@ -1,5 +1,20 @@
 [
   {
+    "slug": "my-son-and-i-built-a-successful-bow-tie-business-on-amazon-together-we-had-to-shut-it-down-to-save-our-relationship",
+    "title": "My son and I built a successful bow tie business on Amazon together. We had to shut it down to save our relationship.",
+    "description": "We built a successful business on Amazon, using the revenue to pay for my son's college tuition. But we couldn't agree on the company's direction.",
+    "fullText": "After noticing a bow tie trend at a wedding, my son and I launched an Amazon private label business.\n The business helped pay for Roland's tuition at a private HBCU, but we disagreed often.\n We shut the business down because our relationship was worth more than the revenue.",
+    "readingTime": 1,
+    "keywords": [
+      "business"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/mom-son-built-successful-business-together-fought-2026-3",
+    "thumbnail_url": "https://i.insider.com/69c56f2f48461c18d7be66d4?width=1200&format=jpeg",
+    "created_at": "2026-03-28T18:26:11.908Z",
+    "topic": "finance"
+  },
+  {
     "slug": "inside-project-kobe-amazons-plan-to-build-walmartstyle-supercenters-powered-by-warehouse-robots-and-ai",
     "title": "Inside Project Kobe: Amazon's plan to build Walmart-style supercenters powered by warehouse robots and AI",
     "description": "Amazon's Project Kobe aims to disrupt Walmart with supercenters that blend retail and fulfillment automation, internal documents reveal.",
@@ -2159,30 +2174,6 @@
     "link": "https://www.theguardian.com/technology/2026/feb/06/amazon-georgia-warehouse-tour-robots",
     "thumbnail_url": "https://i.guim.co.uk/img/media/cf8ad9af45536c6e35643a5c11b07083ca1209a3/0_0_3000_2400/master/3000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=7be920205b49f16890ec97170de0215c",
     "created_at": "2026-02-06T12:35:42.488Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "aws-intruder-achieved-admin-access-in-under-10-minutes-thanks-to-ai-assist",
-    "title": "AWS intruder achieved admin access in under 10 minutes thanks to AI assist",
-    "description": "UPDATED: LLMs automated most phases of the attack",
-    "fullText": "UPDATED A digital intruder broke into an AWS cloud environment and in just under 10 minutes went from initial access to administrative privileges, thanks to an AI speed assist.\n\nThe Sysdig Threat Research Team said they observed the break-in on November 28, and noted it stood out not only for its speed, but also for the \"multiple indicators\" suggesting the criminals used large language models to automate most phases of the attack, from reconnaissance and privilege escalation to lateral movement, malicious code writing, and LLMjacking - using a compromised cloud account to access cloud-hosted LLMs.\n\n\"The threat actor achieved administrative privileges in under 10 minutes, compromised 19 distinct AWS principals, and abused both Bedrock models and GPU compute resources,\" Sysdig's threat research director Michael Clark and researcher Alessandro Brucato said in a blog post about the cloud intrusion. \"The LLM-generated code with Serbian comments, hallucinated AWS account IDs, and non-existent GitHub repository references all point to AI-assisted offensive operations.\"\n\nThe attackers initially gained access by stealing valid test credentials from public Amazon S3 buckets. The credentials belonged to an identity and access management (IAM) user with multiple read and write permissions on AWS Lambda and restricted permissions on AWS Bedrock. Plus, the S3 bucket also contained Retrieval-Augmented Generation (RAG) data for AI models, which would come in handy later during the attack.\n\nTo prevent this type of credential theft, don't leave access keys in public buckets. Sysdig recommends using temporary credentials for IAM roles, and for organizations that insist on granting long-term credentials to IAM users, make sure you rotate them periodically.\n\nAfter unsuccessfully trying usernames such as \"sysadmin\" and \"netadmin\" typically associated with admin-level privileges, the attacker ultimately achieved privilege escalation through Lambda function code injection, abusing the compromised user's UpdateFunctionCode and UpdateFunctionConfiguration permissions:\n\nThey replaced the code of an existing Lambda function named EC2-init three times, iterating on their target user. The first attempt targeted adminGH, which, despite its name, lacked admin privileges. Subsequent attempts eventually succeeded in compromising the admin user frick.\n\nThe security sleuths note that the comments in the code are written in Serbian - likely indicating the intruder's origin - the code itself listed all IAM users and their access keys, created access keys for frick, and listed S3 buckets along with their content.\n\nPlus, the attacker's code contained \"comprehensive\" exception handling, according to the security sleuths, including logic to limit S3 bucket listings and an increase to the Lambda execution timeout from three seconds to 30 seconds.\n\nThese factors, combined with the short time from credential theft to Lambda execution, \"strongly suggest\" the code was written by an LLM, according to the threat hunters.\n\nNext, the miscreant set about collecting account IDs and attempting to assume OrganizationAccountAccessRole in all AWS environments. Interestingly, they included account IDs that did not belong to the victim organization: two with ascending and descending digits (123456789012 and 210987654321), and one ID that appeared to belong to a legitimate external account.\n\n\"This behavior is consistent with patterns often attributed to AI hallucinations, providing further potential evidence of LLM-assisted activity,\" Clark and Brucato wrote.\n\nIn total, the attacker gained access to 19 AWS identities, including six different IAM roles across 14 sessions, plus five other IAM users. And then, with the new admin user account they had created, the crims snarfed up a ton of sensitive data: secrets from Secrets Manager, SSM parameters from EC2 Systems Manager, CloudWatch logs, Lambda function source code, internal data from S3 buckets, and CloudTrail events.\n\nThey then turned to the LLMjacking part of the attack to gain access to the victim's cloud-hosted LLMs. For this, they abused the user's Amazon Bedrock access to invoke multiple models including Claude, DeepSeek, Llama, Amazon Nova Premier, Amazon Titan Image Generator, and Cohere Embed.\n\nSysdig notes that \"invoking Bedrock models that no one in the account uses is a red flag,\" and enterprises can create Service Control Policies (SCPs) to allow only certain models to be invoked.\n\nAfter Bedrock, the intruder focused on EC2, querying machine images suitable for deep learning applications. They also began using the victim's S3 bucket for storage, and one of the scripts stored therein looks like it was designed for ML training - but it uses a GitHub repository that doesn't exist, suggesting an LLM hallucinated the repo in generating the code.\n\nWhile the researchers say they can't determine the attacker's goal - possibly model training or reselling compute access - they note that the script launches a publicly accessible JupyterLab server on port 8888, providing a backdoor to the instance that doesn't require AWS credentials.\n\nHowever, they terminated the instance after five minutes for unknown reasons.\n\nThis is the latest in examples of attackers increasingly relying on AI to help them at almost every stage in the attack chain, and some security chiefs have warned that it's just a matter of time before criminals can fully automate attacks at scale.\n\nThere are things organizations can do to defend against similar intrusions and most involve hardening identity security and access management. First off: apply principles of least privilege to all IAM users and roles.\n\nSysdig also recommends restricting UpdateFunctionConfiguration and PassRole permission in Lambda, limiting UpdateFunctionCode permissions to specific functions and assigning them only to identities that need code deployment capabilities to do their jobs.\n\nAlso, make sure S3 buckets containing sensitive data, including RAG data and AI model artifacts, are not publicly accessible.\n\nAnd it's a good idea to enable model invocation logging for Amazon Bedrock to detect unauthorized usage.\n\nWe reached out to Amazon for comment, but they said they wouldn't be able to get us anything by publication time. We'll update this story with any relevant information we receive from them. ®\n\nto add the following comment sent by AWS.\n\n“AWS services and infrastructure are not affected by this issue, and they operated as designed throughout the incident described,\" the company told The Reg by email. \"The report describes an account compromised through misconfigured S3 buckets. We recommend all customers secure their cloud resources by following security, identity, and compliance best practices, including never opening up public access to S3 buckets or any storage service, least-privilege access, secure credential management, and enabling monitoring services like GuardDuty, to reduce risks of unauthorized activity.\"\n\nThe cloud giant also wants its customers who suspect or become aware of malicious activity within their AWS accounts to check out guidance for remediating potentially compromised credentials or contact AWS Support for assistance.\"",
-    "readingTime": 6,
-    "keywords": [
-      "cloud-hosted llms",
-      "github repository",
-      "iam users",
-      "lambda function",
-      "lambda execution",
-      "account ids",
-      "iam roles",
-      "publicly accessible",
-      "bedrock models",
-      "privilege escalation"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theregister.com/2026/02/04/aws_cloud_breakin_ai_assist/",
-    "thumbnail_url": "https://regmedia.co.uk/2024/05/24/robot_shutterstock.jpg",
-    "created_at": "2026-02-06T12:35:39.171Z",
     "topic": "tech"
   }
 ]

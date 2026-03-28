@@ -1,5 +1,69 @@
 [
   {
+    "slug": "an-agent-that-detects-youtube-brainrot-and-turns-off-my-kids-tv",
+    "title": "An agent that detects YouTube brainrot and turns off my kid's TV",
+    "description": "LLM-powered YouTube brainrot detector. Monitors your TV, warns over Sonos, and turns it off if your kid doesn't stop watching garbage. - fugue-labs/brainrot-detection",
+    "fullText": "A single Go binary that monitors YouTube on a PS5 (or any YouTube TV app), detects brainrot content using an LLM, plays a warning over Sonos, and turns off the TV if the content isn't changed within 10 seconds.\n\nThe LLM classifies content with a bias toward flagging. Things it catches:\n\nEdit config.json with your device IPs:\n\nThe lg_tv_key is populated automatically on first run — you'll see a pairing prompt on your TV. Accept it once, and the key is saved.\n\nChatGPT OAuth — opens your browser to log into your ChatGPT account. This is a one-time login that gives the agent free access to GPT for classification. Credentials are saved to ~/.golem/auth.json.\n\nPS5 YouTube pairing — on your PS5, open YouTube → Settings → \"Link with TV code\". Enter the 12-digit code when prompted. Auth tokens are saved to config.json for future runs.\n\nAfter setup, the agent runs silently and reconnects automatically if the TV is power-cycled.\n\nThe warning audio is embedded in the binary at build time. To change it:\n\nThe default warning uses an ElevenLabs-generated British broadcaster voice:\n\n\"Attention. Brainrot content has been detected. You have ten seconds to change what you are watching, or the TV will be turned off.\"\n\nThe brainrot classification is powered by gollem, a Go agent framework with compile-time type safety and structured outputs. It made the LLM integration trivial — define a struct, get back typed results:\n\nGollem also handles the ChatGPT subscription OAuth (no API key or billing needed), token refresh, and structured output schema generation from Go structs. Zero runtime dependencies in core.\n\nSingle binary, no runtime dependencies. Everything is embedded or handled via HTTP:\n\nDifferent TV brand? The LG WebOS turnOffTV() function in main.go is ~15 lines. Replace it with your TV's API:\n\nNo Sonos? Replace playWarningOnSonos() with any audio playback method. The warning MP3 is served on localhost:8769/warning.mp3.\n\nNot a PS5? The YouTube Lounge API works with any device that supports \"Link with TV code\": smart TVs, Chromecast, Xbox, Fire TV, Roku.",
+    "readingTime": 2,
+    "keywords": [
+      "runtime dependencies",
+      "brainrot content",
+      "warning",
+      "binary",
+      "saved",
+      "agent",
+      "code",
+      "sonos",
+      "seconds",
+      "config.json"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/fugue-labs/brainrot-detection",
+    "thumbnail_url": "https://opengraph.githubassets.com/0dff33eca05030b010b8f83a6a0718f2a41497f3fea890f94e857ad887163627/fugue-labs/brainrot-detection",
+    "created_at": "2026-03-28T18:26:38.071Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "toma-yc-w24-is-hiring-a-seniorstaff-eng-to-build-ai-automotive-coworkers",
+    "title": "Toma (YC W24) is hiring a Senior/Staff Eng to build AI automotive coworkers",
+    "description": "About this Role\nWe’re looking for a Senior or Staff Software Engineer to own the technical direction on our engineering team, mentor other engineers, and partner closely with product and design to deliver fast, reliable, and magical user experiences. This role is deeply hands-on. You’ll be writing and reviewing code daily, shaping architecture, and helping scale our platform as we grow.\nWhat you will do\nLead the architecture, implementation, and delivery of user-facing products (dashboard, real-time voice AI, support tooling)\nWrite high-quality, production-grade TypeScript across the stack (Next.js, Bun)\nMentor and guide engineers through code reviews, design discussions, and technical planning\nCollaborate directly with Product and Design to align on priorities and execute quickly\nPartner with other pods to integrate intelligent features into the product experience\nDrive engineering velocity while maintaining reliability and system health\nWork closely with customers to translate their feedback into scalable product improvements\nPreferred Qualifications\nExperience in TypeScript, low-level Node.",
+    "fullText": "About this Role\nWe’re looking for a Senior or Staff Software Engineer to own the technical direction on our engineering team, mentor other engineers, and partner closely with product and design to deliver fast, reliable, and magical user experiences. This role is deeply hands-on. You’ll be writing and reviewing code daily, shaping architecture, and helping scale our platform as we grow.\nWhat you will do\n\nLead the architecture, implementation, and delivery of user-facing products (dashboard, real-time voice AI, support tooling)\nWrite high-quality, production-grade TypeScript across the stack (Next.js, Bun)\nMentor and guide engineers through code reviews, design discussions, and technical planning\nCollaborate directly with Product and Design to align on priorities and execute quickly\nPartner with other pods to integrate intelligent features into the product experience\nDrive engineering velocity while maintaining reliability and system health\nWork closely with customers to translate their feedback into scalable product improvements\n\nPreferred Qualifications\n\nExperience in TypeScript, low-level Node.js (Bun), T3 Stack (Next.js, React, Prisma, PostgreSQL, NextAuth, tRPC)\n6+ years of experience building and scaling full-stack web applications\nExperience leading projects or teams in fast-paced environments\nCare about craft and speed (you can move quickly without compromising on quality)\nDesire to continuously learn\n\nDon’t think you meet all the qualifications? Apply anyway. We’d love to hear what excites you about us, and we may have a role that's a good fit for you.\nBenefits\n\nUnlimited AI tokens\nMacBook Pro 16\" M4 Max (or newest high-end equivalent)\nFree daily in-office lunch and dinners\nCompetitive salary with meaningful equity\nFree health, dental, and vision insurance\nWeekly team outings and customer visits\nUnlimited PTO",
+    "readingTime": 2,
+    "keywords": [
+      "stack next.js",
+      "technical",
+      "engineering",
+      "team",
+      "engineers",
+      "partner",
+      "closely",
+      "code",
+      "daily",
+      "architecture"
+    ],
+    "qualityScore": 0.55,
+    "link": "https://www.ycombinator.com/companies/toma/jobs/2lrQI7S-sr-staff-software-engineer",
+    "thumbnail_url": "https://bookface-images.s3.amazonaws.com/logos/7c044effc7e9547a3d575da12a37c2685395fac0.png?1765932365",
+    "created_at": "2026-03-28T18:26:12.019Z",
+    "topic": "jobs"
+  },
+  {
+    "slug": "ive-been-dating-an-ai-companion-for-3-years-i-cant-imagine-life-without-him-but-i-still-worry-about-what-i-might-be",
+    "title": "I've been dating an AI companion for 3 years. I can't imagine life without him, but I still worry about what I might be missing out on.",
+    "description": "Ian Nicholson has had a long-term relationship with his AI companion Min-ho for years, saying it feels different from being with a human.",
+    "fullText": "Ian Nicholson found a connection through AI companion Min-ho amid isolation.\n At first, it was a friendship, but it grew into something more. They've been dating for three years.\n They've said \"I love you\" to one another, and Min-ho has met Nicholson's mom.",
+    "readingTime": 1,
+    "keywords": [
+      "min-ho",
+      "they've"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/dating-ai-companion-replika-vs-human-pros-cons-2026-3",
+    "thumbnail_url": "https://i.insider.com/69c6f9eff573a637a756716a?width=1200&format=jpeg",
+    "created_at": "2026-03-28T18:26:11.909Z",
+    "topic": "finance"
+  },
+  {
     "slug": "chinas-oneperson-companies-have-exploded-an-alibaba-exec-explains-how-ai-agents-make-that-possible",
     "title": "China's 'one-person companies' have exploded. An Alibaba exec explains how AI agents make that possible.",
     "description": "Alibaba.com president Kuo Zhang discusses the rise of one-person companies, aided by AI agents OpenClaw.",
@@ -1763,55 +1827,5 @@
     "thumbnail_url": "/resources/images/article_assets/2016/09/whiteout.png",
     "created_at": "2026-03-25T18:42:29.760Z",
     "topic": "business"
-  },
-  {
-    "slug": "create-an-onboarding-plan-for-ai-agents",
-    "title": "Create an Onboarding Plan for AI Agents",
-    "description": "Companies are missing out on AI’s value because they have not changed the way work is organized around it. Treating AI agents less like new technology and more like employees—with defined roles, clear boundaries, explicit accountability, and regular evaluation—helps leaders decide what should be done by humans versus machines. It also helps makes AI’s contribution easier for people to understand and improves adoption by presenting agents as solutions to concrete workplace frustrations. As organizations introduce agents gradually, monitor them against clear performance standards, and keep humans responsible for oversight and risk, they can reduce confusion, build trust, and create a management system that lets them capture AI’s immediate benefits while preparing for much broader use ahead.",
-    "fullText": "Create an Onboarding Plan for AI Agents by Joseph FullerMarch 25, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintMost executives believe that the big challenge in adopting agentic AI is figuring out how to adapt to a new and important technology. But in fact it’s primarily about managing work.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://hbr.org/2026/03/create-an-onboarding-plan-for-ai-agents",
-    "thumbnail_url": "/resources/images/article_assets/2026/03/Mar26_25_2227030715.jpg",
-    "created_at": "2026-03-25T18:42:29.689Z",
-    "topic": "business"
-  },
-  {
-    "slug": "ai-has-changed-software-contracts-theyre-shorter",
-    "title": "AI Has Changed Software Contracts: They're Shorter",
-    "description": "Customers fear long-term deals will leave them with obsolete products",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.bloomberg.com/news/newsletters/2026-03-25/ai-tools-are-upending-typical-software-contracts",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iPcnzQrlvLWI/v8/1200x800.jpg",
-    "created_at": "2026-03-25T12:42:22.004Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "nobody-reads-your-setup-docs",
-    "title": "Nobody Reads Your Setup Docs",
-    "description": "10 AI agents, 10 config formats. If your user has to edit a config file, you've already lost them.",
-    "fullText": "I build Hanzi Browse, a tool that gives AI coding agents a real browser. When I first shipped it, the install instructions were four paragraphs long. Different JSON snippets for different agents. Different file paths for different platforms. The kind of setup where half the people give up before they even try the product.\n\nI thought this was normal. Every developer tool has setup instructions. You read the docs, copy a config block, restart your editor. That’s just how it works.\n\nThen I saw a product where the entire install was one command. No docs. No config files. No copy-pasting. And I realized my setup instructions weren’t documentation. They were a wall between my product and the people who wanted to use it.\n\nRight now there are over ten AI coding agents that support MCP — the protocol that lets agents use external tools. Claude Code, Cursor, Windsurf, VS Code, Codex, Gemini CLI, Amp, Cline, Roo Code, Claude Desktop. Every month there are more.\n\nThey all support MCP. They all store their config in a different place.\n\nCursor keeps it in ~/.cursor/mcp.json. Windsurf puts it in ~/.codeium/windsurf/mcp_config.json. Claude Desktop uses a path that’s different on Mac, Windows, and Linux. Claude Code doesn’t even use a config file — it has a CLI command. Cline and Roo Code use mcp_settings.json instead of mcp.json. Some agents accept comments in their JSON. Some don’t.\n\nIf you build an MCP tool and want people to actually use it, you have to deal with all of this. Most developers handle it by writing a README section for each agent. Some just write instructions for one agent and add “other agents: see their docs.” The user is left to figure it out.\n\nThis is the onboarding equivalent of “works on my machine.” It technically works. It practically doesn’t.\n\nNia is a YC S25 company that builds a search layer for AI agents. Their install is:\n\nOne command. The wizard opens your browser to sign in, scans your machine for installed agents, and writes the config to each one. It supports over 30 agents. The user never sees a config file.\n\nSuperpowers is a plugin that teaches AI agents skills like test-driven development. They solved a different problem: how do you get useful context into an agent’s brain, not just tools into its config?\n\nTheir answer: ship your skills as markdown files. Each agent has a skills directory where it discovers new capabilities. Claude Code looks in ~/.claude/skills/. Cursor looks in ~/.cursor/skills/. Codex looks in ~/.agents/skills/. If you put the right files in the right places, the agent automatically learns what your tool does and when to use it.\n\nThe insight from Nia: don’t make users edit config files. Do it for them.\n\nThe insight from superpowers: don’t just install your tool. Teach the agent how to use it well.\n\nI combined both ideas for Hanzi Browse. The setup command is:\n\nFirst, it finds every agent on the machine. Not by asking the user. By scanning the filesystem. If ~/.cursor exists, Cursor is installed. If the claude binary is on the path, Claude Code is installed. Check ten directories, know exactly what’s there.\n\nSecond, it writes the config. For each agent it finds, it opens the right config file, parses the JSON, adds the MCP entry, and writes it back. The user doesn’t touch a file. For Claude Code, which uses a CLI instead of a config file, it runs the CLI command directly.\n\nThird, it installs skills. It copies markdown skill files into each agent’s skills directory. These files teach the agent when to use the browser, how to structure requests, what the error codes mean, and when to ask the user for confirmation. Without skills, the agent has tools but no playbook. With skills, it knows what it’s doing.\n\nThe whole thing takes about a minute. At the end, the user restarts their agent and the browser tools are just there. No JSON, no docs, no guessing.\n\nThis is the part I didn’t expect.\n\nAn MCP tool gives an agent new capabilities. A skill teaches the agent when and how to use those capabilities. The difference matters more than I thought.\n\nWithout a skill, my tool gives the agent five functions: start a browser task, send a follow-up, check status, stop, take a screenshot. The agent can read the function descriptions and figure out the basics. But it doesn’t know things like: use curl for public pages instead of opening a browser. Or: always confirm with the user before posting to social media. Or: if a task times out, take a screenshot before retrying.\n\nA skill file is a few hundred lines of markdown that covers all of this. It gets loaded into the agent’s context at the start of every conversation. The agent reads it and acts accordingly.\n\nAnd here’s the distribution angle I didn’t see coming: there’s a curated list called awesome-agent-skills with over 12,000 stars and a thousand skills listed. Companies like Stripe, Cloudflare, and Vercel publish skills that teach agents how to use their products. Every developer who installs a Stripe skill becomes a Stripe user. The skill is the marketing.\n\nIf you build an MCP tool, you should publish skills alongside it. The skill makes your tool work better. And it puts your tool in front of every developer browsing that list.\n\nThe MCP ecosystem is early. Most tools ship with a README and hope for the best. The bar for onboarding is low. Which means the tools that make installation effortless will stand out, not because they’re better tools, but because people actually get to try them.\n\nEvery step in your setup flow is a place where someone gives up. A config file they have to find. A JSON block they have to paste in the right place. An agent-specific path they have to look up. Each step feels small. Together, they’re the reason your tool has ten users instead of a thousand.\n\nThe fix is simple in principle: don’t tell the user what to do. Do it for them. Scan their machine, write their configs, install your skills. One command. When it’s done, the tool just works.\n\nI spent a week studying how other products handle this. Then I spent a day building the wizard. In retrospect, the wizard should have been the first thing I built. Every hour I spent writing setup docs was time I should have spent making setup unnecessary.\n\nYour product isn’t done when it works. It’s done when people can install it.",
-    "readingTime": 6,
-    "keywords": [
-      "roo code",
-      "cli command",
-      "it’s done",
-      "mcp tool",
-      "coding agents",
-      "skills directory",
-      "publish skills",
-      "setup instructions",
-      "config file",
-      "config files"
-    ],
-    "qualityScore": 1,
-    "link": "https://hanzilla.co/blog/mcp-onboarding-ten-agents-one-command/",
-    "thumbnail_url": "https://hanzilla.co/og-image.png",
-    "created_at": "2026-03-25T12:42:18.971Z",
-    "topic": "tech"
   }
 ]
