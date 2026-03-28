@@ -1,5 +1,205 @@
 [
   {
+    "slug": "whisper-ai-local-mac-setup",
+    "title": "Whisper AI Local Mac Setup",
+    "description": "Learn how to set up Whisper AI local transcription on Mac - from Python install to model tuning - plus a faster alternative that skips the setup entirely.",
+    "fullText": "\"Any sufficiently advanced technology is indistinguishable from magic.\" - Arthur C. Clarke\n\nEvery time you send audio to a cloud transcription service, you are handing over more than words. You are handing over tone, cadence, background noise, ambient conversations, and - depending on the service - a permanent recording that lives on someone else's servers. For developers, researchers, lawyers, and anyone handling sensitive material, that is not a trade-off worth making.\n\nOpenAI's Whisper changed the equation. Released as an open-source model in late 2022, Whisper demonstrated that speech recognition approaching human-level accuracy could run entirely on local hardware. No API keys. No internet connection. No data leaving your machine.\n\nBut \"open-source\" does not mean \"easy to set up.\" Between Python environments, model selection, dependency conflicts, and hardware acceleration, getting Whisper running locally on a Mac still involves a meaningful amount of technical work.\n\nThis guide walks you through the entire Whisper AI local transcription setup on Mac - from first terminal command to working transcription. We will cover both the original Python implementation and the faster whisper.cpp alternative, discuss realistic performance expectations on Apple Silicon, and be honest about where the DIY approach falls short.\n\nThe short answer: privacy, cost, and control.\n\nCloud transcription APIs - including OpenAI's own Whisper API - charge per minute of audio. At scale, those costs add up quickly. More importantly, every audio file you upload is transmitted, processed, and potentially stored on infrastructure you do not control. For anyone working with patient data, legal recordings, proprietary research, or personal voice notes, that is a non-starter.\n\nIf you have read our deep dive into how speech recognition works, you already know that modern models like Whisper use transformer architectures trained on hundreds of thousands of hours of multilingual audio. The remarkable thing is that this entire model - training weights and all - can now fit on a MacBook.\n\nAny Mac with Apple Silicon (M1, M2, M3, M4, or their Pro/Max/Ultra variants) can run Whisper locally. Intel Macs can technically run it too, but performance will be significantly slower without Neural Engine or GPU acceleration.\n\nHere is a realistic breakdown of what to expect:\n\nThese timings are for whisper.cpp with Core ML acceleration. The pure Python implementation will be roughly 2–4x slower depending on your configuration.\n\nFor most users, the small or medium model offers the best balance of accuracy and speed. The large model is worth the wait only if you are transcribing accented speech, technical vocabulary, or multilingual content.\n\nThis is the original, most documented approach. It uses OpenAI's official Python package.\n\nIf you do not already have Homebrew installed, open Terminal and run:\n\nThen install Python 3.11 (Whisper works best with 3.10 or 3.11 - newer versions can cause dependency conflicts):\n\nNever install AI packages into your system Python. Create an isolated environment:\n\nYou will need to run that source command every time you open a new terminal session to use Whisper.\n\nThe ffmpeg dependency handles audio format conversion. Whisper accepts most common formats (MP3, WAV, M4A, FLAC), but ffmpeg is required to decode them.\n\nThis will download the small model on first run (approximately 466 MB), then transcribe your file. Output appears in the terminal and is saved as .txt, .srt, and .vtt files in the current directory.\n\nThe Python implementation is straightforward but not fast. Georgi Gerganov's whisper.cpp is a C/C++ reimplementation that runs significantly faster on Apple Silicon by taking advantage of the Neural Engine and Metal GPU acceleration.\n\nOn Apple Silicon Macs, make will automatically detect and enable Metal support.\n\nThis downloads the small model in GGML format (approximately 466 MB). Available sizes: tiny, base, small, medium, large-v3.\n\nwhisper.cpp requires 16kHz mono WAV input:\n\nFor even faster performance on Apple Silicon, you can build with Core ML support:\n\nThis adds complexity but can improve transcription speed by 30–50% on M-series chips.\n\nEasier to install. Slower execution - roughly 2–4x real-time on Apple Silicon for the medium model. Higher memory usage. Better for batch processing where speed is not critical.\n\nRequires compilation. Significantly faster - often faster than real-time for small/medium models on M-series Macs. Lower memory footprint. Better for frequent or near-real-time use.\n\nHere is where honesty matters. Running Whisper locally is genuinely useful, but it is not a polished product experience. After helping developers get this set up, we have seen the same friction points come up repeatedly.\n\nOut of the box, Whisper processes audio files. It does not listen to your microphone and transcribe in real time as you speak. Building a real-time pipeline requires additional code - capturing audio from the microphone, chunking it into segments, feeding those segments to the model, and stitching the output together. Projects like whisper-live and buzz attempt this, but they add their own complexity and dependencies.\n\nPython environments break. Dependencies conflict. A macOS update can invalidate your build. If you are not already comfortable maintaining Python virtual environments, expect to spend time troubleshooting pip install failures, version mismatches, and missing system libraries.\n\nWhisper runs in a terminal. It does not integrate with your text editor, your email client, or your browser. If you want transcription output to appear where you are actually working, you need to build that integration yourself - clipboard scripts, file watchers, or custom automation.\n\nWhen OpenAI releases a new Whisper model (like the jump from large-v2 to large-v3), you need to manually download the new weights, potentially update the Python package or rebuild whisper.cpp, and verify that nothing broke.\n\nWhisper is speech-to-text only. If you also want text-to-speech capabilities - having your Mac read text aloud to you - that is an entirely separate system to set up and maintain.\n\nIf you have read this far and thought \"I just want private transcription that works without all this setup,\" that is a fair reaction. The DIY approach is rewarding if you enjoy the technical work, but it is not for everyone.\n\nYaps exists precisely because we went through this process ourselves and wanted something better. It is a native companion - built with Tauri and Rust, not Electron - that handles on-device speech-to-text and text-to-speech without any of the setup described above. Yaps is available on macOS today, with Windows and Android support on the way.\n\nInstall Python, manage virtual environments, download models manually, build from source, convert audio formats, write integration scripts, maintain everything across OS updates. Works in the terminal only.\n\nDownload and open. Hold Fn to dictate anywhere on your system. All processing on-device, no internet required. Under 200MB RAM, starts in under one second. Works across every app. No configuration needed.\n\nThe fundamental difference is that Yaps is designed as a system-wide companion that fits into how you already work, not a command-line process that requires you to change your workflow. Hold Fn and start speaking - your words appear wherever your cursor is. Hold Option+Fn and Yaps reads selected text aloud. That is it.\n\nBoth approaches keep your audio completely private. The question is whether you want to build and maintain the infrastructure yourself or use something purpose-built. For developers who enjoy tinkering, the DIY route is a worthy project. For everyone else - and for developers who would rather spend their time on their actual work - Yaps handles the complexity for you.\n\nThe DIY approach makes sense in specific scenarios:\n\nFor daily dictation, voice notes, and real-time transcription as part of your normal workflow, a purpose-built companion like Yaps will save you hours of setup and ongoing maintenance. Our guide to offline dictation covers more about why on-device processing matters for daily use.\n\nIf you decide to run Whisper locally for batch processing but want system-wide dictation for daily use, the two approaches are not mutually exclusive. Use Whisper scripts for your audio archives and Yaps for everything else.\n\nYou are likely running the wrong Python binary. Confirm you are inside your virtual environment:\n\nIf Whisper is running surprisingly slowly, check two things. First, confirm you are using an ARM-native Python build, not an x86 version running under Rosetta:\n\nSecond, for whisper.cpp, ensure Metal support is enabled by checking the build output for \"Metal\" references.\n\nThe large-v3 model needs approximately 10 GB of RAM. If your Mac has 8 GB, stick with the small or medium model. There is no workaround for this - the model weights must fit in memory.\n\nCore ML model generation requires specific versions of coremltools and ane_transformers. If it fails, try pinning versions:\n\nWe ran Whisper on a 5-minute English podcast clip across different configurations on an M2 MacBook Air with 16 GB RAM. These numbers are representative, not definitive - your results will vary with audio quality, speaker accents, and background noise.\n\nA real-time factor below 1.0 means the transcription completes faster than the audio duration. whisper.cpp with Core ML on the small model processes audio roughly 33x faster than real-time - fast enough that the bottleneck becomes reading the output, not waiting for it.\n\nThese benchmarks are for file-based transcription. Real-time microphone transcription introduces additional latency from audio capture, chunking, and output assembly. Expect end-to-end latency of 1–3 seconds per utterance with a well-configured whisper.cpp setup.\n\nRunning Whisper locally gives you genuine, verifiable privacy. The model runs entirely on your CPU and GPU. No audio data is transmitted anywhere. You can verify this yourself by running Whisper with your network connection disabled - it works identically.\n\nThis is a fundamentally different privacy model from cloud services that claim to \"delete your data after processing.\" With local processing, there is no data to delete because it never left your device in the first place.\n\nFor professionals working with sensitive content - medical dictation, legal recordings, confidential business discussions - this is not a nice-to-have. It is a requirement. Our coverage of voice data privacy explores why on-device processing is the only architecture that truly satisfies regulatory frameworks like HIPAA and attorney-client privilege.\n\nRunning Whisper AI locally on your Mac is a genuinely practical project. The models are capable, the hardware is sufficient, and the privacy benefits are real. If you enjoy the command line and want maximum control over your transcription pipeline, the setup described in this guide will serve you well.\n\nBut technology is at its best when it disappears. The hours spent configuring Python environments, downloading models, converting audio formats, and writing integration scripts are hours not spent on the work you actually care about. That is why we built Yaps - to give you the same on-device privacy without any of the setup. Hold a key, speak, and your words appear. No terminal required.\n\nWhether you choose the DIY path or the ready-made one, the important thing is that your voice stays yours. Every word, processed on your machine, under your control.\n\nYes. Once you have downloaded the model weights (which range from 75 MB for the tiny model to approximately 3 GB for large-v3), Whisper runs entirely offline. No internet connection is needed for transcription. The model, the inference engine, and all processing happen locally on your Mac hardware.\n\nFor most users, the small model (244M parameters, ~466 MB) offers the best balance of speed and accuracy. It handles clear English speech well and runs quickly on Apple Silicon. If you regularly transcribe accented speech, technical vocabulary, or non-English languages, step up to the medium model. The large-v3 model delivers the highest accuracy but requires 10 GB of RAM and is significantly slower.\n\nYes, significantly. In our testing on an M2 MacBook Air, whisper.cpp with Core ML acceleration processed audio roughly 2–4x faster than the Python implementation for the same model size. The whisper.cpp project is specifically designed to take advantage of Apple Silicon hardware, including the Neural Engine and Metal GPU acceleration.\n\nTranscription is computationally intensive and will draw noticeable power during processing. For the small model on Apple Silicon, expect similar battery impact to running a video call. Batch transcribing hours of audio will drain your battery faster than normal use. If battery life is a concern, plug in before processing large audio files.\n\nNot out of the box. The standard Whisper implementation is designed for file-based transcription. Real-time microphone transcription requires additional software to capture audio, segment it into chunks, feed those chunks to the model, and assemble the output. Several open-source projects add this capability, but they introduce additional complexity. Yaps provides real-time, system-wide dictation natively without any additional setup.\n\nThe accuracy is identical to OpenAI's Whisper API because it is the same model. The large-v3 model has been independently benchmarked at word error rates competitive with commercial services across multiple languages. The difference is purely in where the computation happens - on your device versus on a remote server.\n\nNo dedicated GPU is required. On Apple Silicon Macs (M1 and later), Whisper leverages the integrated GPU and Neural Engine through Metal and Core ML. Intel Macs can run Whisper on CPU alone, though performance will be notably slower. There is no need for an external GPU or eGPU setup.\n\nYes, using the Python implementation. Fine-tuning requires a dataset of audio paired with correct transcriptions in your domain. This is a more advanced workflow involving PyTorch and typically takes several hours on consumer hardware. Fine-tuning is worthwhile if you regularly transcribe content with domain-specific terminology - medical terms, legal jargon, or proprietary product names - that the base model struggles with.\n\nApple's built-in Dictation on macOS now supports on-device processing, which is a strong privacy baseline. However, it is designed for real-time dictation of short passages, not transcription of audio files. Whisper supports 99 languages (compared to Apple Dictation's more limited set), handles longer audio, and produces timestamped subtitle files. The trade-off is that Whisper requires manual setup and does not integrate system-wide without additional work. For a detailed comparison of dictation options on Mac, see our complete Mac dictation guide.\n\nYes, verifiably so. You can confirm this by disconnecting from the internet and running a transcription - it works identically. No audio is transmitted, no telemetry is sent, and no logs are uploaded. Your data exists only on your local filesystem. This is the same privacy architecture that Yaps uses, with the difference that Yaps packages it into a native companion that requires no technical setup.",
+    "readingTime": 12,
+    "keywords": [
+      "diy approach",
+      "gpu acceleration",
+      "python package",
+      "apple silicon",
+      "python implementation",
+      "background noise",
+      "metal gpu",
+      "silicon macs",
+      "python environments",
+      "dependency conflicts"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.yaps.ai/blog/whisper-ai-local-mac-setup",
+    "thumbnail_url": "https://www.yaps.ai/og-image.png",
+    "created_at": "2026-03-28T01:12:53.045Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "brad-feld-nothing-new-to-see-here",
+    "title": "Brad Feld – Nothing New to See Here",
+    "description": "A founder told me seasoned engineers keep saying AI-built software is not possible. I've heard this exact story before - about the Internet, the Web, SaaS, and mobile.",
+    "fullText": "A founder I’ve been emailing with sent me something that made me laugh. Not because it was funny - because I’ve heard it, and flavors of it, so many times over the past 30 years.\n\n“I committed to Cursor and went heads down for about 4 months. Our platform went live in January. We have about 400 users across 50 paying customers. With the exception of the AWS IAC, the platform was 100% built with AI. Unfortunately, I’ve had very seasoned engineers emphatically tell me, ‘It’s not possible,’ ‘It’s a house of cards,’ or ‘It has to be AI slop.’”\n\nShe’s not an engineer by training, but she’s tech savvy enough to have run product, dev, and operations teams at scale. She committed to a tool, went heads down, and shipped a platform that now has paying customers.\n\nAnd now “seasoned engineers\" are telling her it’s not possible.\n\nI told her that was nonsense. There is a ton of crappy AI-generated software out there - I won’t argue that. But you can build high-quality, production-grade software using AI right now.\n\nThen she asked the money question.\n\n“I also hear that investors are reluctant to invest in AI-developed platforms… especially one not developed by an engineer. Here’s my question. From your experience, is the approach I took a pro or a con for investors?”\n\nInvestors who don’t think very hard will have that reaction. But a React app hacked together by two technical co-founders in a garage isn’t inherently better than one built by a domain expert using AI tools. Code quality at the seed stage has never determined whether a company succeeds. What matters is whether you can find AI-first engineers to join your team and help harden the systems as you scale.\n\nAs a devotee of Battlestar Galactica, I can comfortably say, “All this has happened before, and all of this will happen again.”\n\nThe Internet - “It’s a toy.” I sat in meetings in the mid-1990s where smart people explained patiently that the Internet was a curiosity for academics. I had a CEO friend tell me to stop bothering him about the Internet - he ran a direct mail business and he’d been doing it successfully for twenty years. Real commerce happened in stores and through catalogs.\n\nThe Web - “Web software doesn’t really work and isn’t secure.” I remember a CTO at a financial services company who said that his team would never deploy software they didn’t compile and install themselves. Web apps were demos. They broke. They couldn’t be audited. They couldn’t be controlled. He had a compliance department to answer to.\n\nSaaS and the Cloud - “It’s not as secure, reliable, or safe as running your own data center.” I heard this one for a decade. I sat across from CIOs and CTOs who insisted they needed their own racks, their own physical control, and keycard access to the data center. One told me he’d be the last person on earth to move to the cloud. Last time I checked, he was on AWS.\n\nMobile - “It’s a toy. Mobile devices will never replace a computer.” Steve Ballmer’s 2007 reaction to the iPhone\n. “Five hundred dollars? Fully subsidized with a plan?” The phone was for calls and maybe email. Real work happened on a laptop. Apps were games for kids.\n\nThe engineers telling this founder “it’s not possible” are in the same camp as the CTO who wouldn’t deploy web software. The VCs who won’t fund an AI-built product are like the CIOs who refused to move to the cloud.\n\nShe built something real. She should talk about it publicly. She should find AI-first engineers to help her scale it. And she should ignore anyone who tells her what she built isn’t possible - especially while she’s running it in production.",
+    "readingTime": 4,
+    "keywords": [
+      "ai-first engineers",
+      "it’s toy",
+      "web software",
+      "seasoned engineers",
+      "platform",
+      "she’s",
+      "scale",
+      "investors",
+      "isn’t",
+      "founder"
+    ],
+    "qualityScore": 1,
+    "link": "https://feld.com/archives/2026/03/nothing-new-to-see-here/",
+    "thumbnail_url": "https://feld.com/og-default.png",
+    "created_at": "2026-03-28T01:12:52.926Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "meta-orders-10-gasfired-power-plants-for-its-hyperion-ai-campus-in-rural-louisianamore-than-triple-the-initial-plan",
+    "title": "Meta orders 10 gas-fired power plants for its Hyperion AI campus in rural Louisiana—more than triple the initial plan",
+    "description": "The Meta AI complex represents an over 30% increase to Louisiana’s total power grid capacity.",
+    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
+    "readingTime": 1,
+    "keywords": [
+      "fortune"
+    ],
+    "qualityScore": 0.1,
+    "link": "https://fortune.com/2026/03/27/meta-hyperion-10-gas-power-plants-louisiana-entergy/",
+    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/03/Meta-Datacenter.jpg?resize=1200,600",
+    "created_at": "2026-03-28T01:12:52.392Z",
+    "topic": "business"
+  },
+  {
+    "slug": "is-ai-coming-for-your-job-take-this-quiz-to-find-out",
+    "title": "Is AI coming for your job? Take this quiz to find out.",
+    "description": "Worried AI might replace your job? Take our quiz to see how exposed you are to AI disruption — and what you can do to stay ahead.",
+    "fullText": "Careers\n\n Is AI coming for your job? Take this quiz to find out.\n\n By\n\n Andy Kiersz \n\n and\n\n Katie Notopoulos \n\n HOME",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.4,
+    "link": "https://www.businessinsider.com/will-ai-replace-your-job-quiz-2026-3",
+    "thumbnail_url": "https://i.insider.com/69c6a3a6445048b5f68bba9e?width=1200&format=jpeg",
+    "created_at": "2026-03-28T01:12:52.073Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "meta-is-running-intensive-ai-training-weeks-to-get-employees-testing-agents-and-coding-with-claude",
+    "title": "Meta is running intensive AI training weeks to get employees testing agents and coding with Claude",
+    "description": "Meta's latest internal push are AI training weeks. CEO Mark Zuckerberg says 2026 is the year AI will \"dramatically change\" work at Meta.",
+    "fullText": "The latest AI push at Meta is \"AI Week,\" where employees build things using Claude and other tools.\n Staff is spinning up interactive vibe coding guides, competing in hackathons, and watching demos.\n 2026 is the year AI will begin to \"dramatically change the way we work,\" CEO Mark Zuckerberg says.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/meta-ai-week-employee-training-claude-agents-vibe-coding-2026-3",
+    "thumbnail_url": "https://i.insider.com/69c6c2308e44c01630d318a2?width=1200&format=jpeg",
+    "created_at": "2026-03-28T01:12:52.004Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "claudes-popularity-is-forcing-it-to-hit-the-brakes-on-users",
+    "title": "Claude's popularity is forcing it to hit the brakes on users",
+    "description": "\"I know this was frustrating,\" an Anthropic official wrote in an announcement of the changes. \"We're continuing to invest in scaling efficiently.",
+    "fullText": "Anthropic adjusted Claude usage caps during peak hours.\n The changes show that the AI company is experiencing some compute strain.\n Anthropic saw a surge of interest after the Pentagon moved to effectively blacklist it.",
+    "readingTime": 1,
+    "keywords": [
+      "anthropic"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/claude-usage-caps-changes-popularity-anthropic-2026-3",
+    "thumbnail_url": "https://i.insider.com/69c6dec58373a547629c730f?width=1200&format=jpeg",
+    "created_at": "2026-03-28T01:12:51.788Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "cybersecurity-stocks-fall-on-report-anthropic-is-testing-a-powerful-new-model",
+    "title": "Cybersecurity stocks fall on report Anthropic is testing a powerful new model",
+    "description": "The cybersecurity sector has slumped this year on fears that new AI will massively disrupt their business models.",
+    "fullText": "Cybersecurity stocks slumped on Friday following a report that Anthropic is testing a powerful new artificial intelligence model that is more advanced in cyber capabilities and also presents potential security risks.\n\nFortune first reported the news on Thursday, citing information from a publicly accessible draft blog post. According to the report, the new Mythos model is being touted as Anthropic's most powerful yet. However, the company is planning a slow rollout due to potential cybersecurity implications.\n\nAnthropic did not immediately respond to CNBC's request for comment.\n\nCybersecurity stocks slumped on the news, as the iShares Cybersecurity ETF lost 4.5%, while CrowdStrike, Palo Alto Networks and Zscaler dropped about 6% each. SentinelOne tumbled 6%, while Okta and Netskope each fell more than 7%. Tenable plummeted 9%.\n\nThis isn't a new phenomenon for the sector that's fallen prey to AI disruption fears.\n\nLast month, cyber stocks fell after Anthropic announced a new code-scanning security tool to Claude. The broader software space is also feeling the pressure from tech innovation.\n\nThe rise of AI and autonomous agents is shifting the threat landscape, putting pressure on cybersecurity companies to keep up with more sophisticated attacks and tools that make hacking easier.\n\nAnthropic said in November that a state-sponsored group in China utilized Claude to automate a cyberattack.\n\nRead the full Fortune article here.",
+    "readingTime": 2,
+    "keywords": [
+      "stocks slumped",
+      "cybersecurity stocks",
+      "anthropic",
+      "model",
+      "potential",
+      "fortune",
+      "pressure",
+      "cyber",
+      "security",
+      "claude"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://www.cnbc.com/2026/03/27/anthropic-cybersecurity-stocks-ai-mythos.html",
+    "thumbnail_url": "https://image.cnbcfm.com/api/v1/image/108274236-1772723676353-gettyimages-2264080846-omarques_03032026_tech_11_of_15.jpeg?v=1772723700&w=1920&h=1080",
+    "created_at": "2026-03-28T01:12:51.374Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "welcome-to-a-multidimensional-economic-disaster",
+    "title": "Welcome to a Multidimensional Economic Disaster",
+    "description": "The AI boom wasn’t built for the polycrisis.",
+    "fullText": "The global economy has become dependent on the AI industry. Trillions of dollars are being invested into the technology and the infrastructure it relies on; in the final months of 2025, functionally all economic growth in the United States came from AI investments. This would be risky even in ideal conditions. And we are very far from ideal conditions.\n\nMuch of the AI supply chain—chips, data centers, combustion turbines, and so on—relies on key materials that are produced in or transported through just a few places on Earth, with little overlap. In particular, the industry is highly dependent on the Middle East, which has been destabilized by the war in Iran. A global energy shock seems all but certain to come soon—the kind where even the best-case scenario is a disaster. The war could grind the AI build-out to a halt. This would be devastating for the tech firms that have issued historic amounts of debt to race against their highly leveraged competitors, and it would be devastating for the private lenders and banks that have been buying up that debt in the hope of ever bigger returns.\n\nFor the better part of the past year, Wall Street analysts and tech-industry observers have fretted publicly about an AI bubble. The fear is that too much money is coming in too fast and that generative-AI companies still have not offered anything close to a viable business model. If growth were to stall or the technology were to be seen as failing to deliver on its promises, the bubble might burst, triggering a chain reaction across the financial system. Everyone—big banks, private-equity firms, people who have no idea what’s mixed into their 401(k)—would be hit by the AI crash.\n\nUntil recently, that kind of crash felt hypothetical; today, it feels plausible and, to some, almost inevitable. “What’s unusual about this, unlike commercial real estate during the global financial crisis,” Paul Kedrosky, an investor and financial consultant, told us, “is all of these interlocking points of fragility.”\n\nRead: Here’s how the AI crash happens\n\nPerhaps the clearest examples are advanced memory and training chips, which are among the most important—and are by far the most expensive—components of training any AI model. Currently, most of them are produced by two companies in South Korea and one in Taiwan. These countries, in turn, get a large majority of their crude oil and much of their liquefied natural gas—which help fuel semiconductor manufacturing—from the Persian Gulf. The chip companies also require helium, sulfur, and bromine—three key inputs to silicon wafers—largely sourced from the region. In addition, Saudi Arabia, Qatar, the United Arab Emirates, and other regional petrostates have become key investors in the American AI firms that purchase most of those chips.\n\nBecause of the war in Iran, the Strait of Hormuz is functionally closed to most shipping vessels, stranding one-fifth of the world’s exports of natural gas, one-third of the world’s exports of crude oil, and significant quantities of the planet’s exportable fertilizer, helium, and sulfur. Meanwhile, Iran and Israel have begun bombing much of the fossil-fuel infrastructure in the region, which could take many years to replace. In only a month of war, the price of Brent crude—a global oil benchmark—has jumped by 40 percent and could more than double, liquefied-natural-gas prices are soaring in Europe and Asia, and helium spot prices have already doubled. The strait is “critical to basically every aspect of the global economy,” Sam Winter-Levy, a technology and national-security researcher at the Carnegie Endowment for International Peace, told us. “The AI supply chain is not insulated.”\n\nThe situation could quickly deteriorate from here. A helium crunch could trigger a shortage of AI chips or cause chip prices to rise. AI companies need ever more advanced chips to fill their data centers—at higher prices, the massive server farms, already hurting from elevated energy costs caused by the war, would have almost no hope of becoming profitable. Without these chips, new data centers would not be built or would sit empty. Astronomical tech valuations, and in turn the entire stock market, could collapse.\n\nOne industry’s precarious position isn’t usually everyone’s problem. Unfortunately, AI is different. The biggest data-center players, known as hyperscalers, are among the biggest corporations in the history of capitalism; they include Microsoft, Google, Meta, and Amazon. But even they will be pressed by collectively spending nearly $700 billion on AI in a single year. In order to get the money for these unprecedented projects, data-center providers are beginning to take on colossal amounts of debt. Some of this is done through creative deals with private-equity firms including Blackstone, BlackRock, and Blue Owl Capital—which themselves operate as sort of shadow banks that, since the most recent financial crisis, have arguably become as powerful and as influential as Bear Stearns and Lehman Brothers were prior to 2008. Endowments, pensions, insurance funds, and other major institutions all trust private equity to invest their money.\n\nFor a while, it seemed like every time Google or Microsoft announced more data-center investments, their stock prices rose. Now the opposite occurs: The hyperscalers are spending far more, but investors have started to notice that they are not generating anything near the revenue they need to. The data-center boom’s top players—Google, Meta, Microsoft, Amazon, Nvidia, and Oracle—have all lost 8 to 27 percent of their value since the start of the year, making them a huge drag on the overall stock market. And the $121 billion of debt that hyperscalers issued in 2025, four times more than what they averaged for years prior, is expected to grow dramatically.\n\nAll of the major players in this investment ecosystem are vulnerable. Private-equity firms are being squeezed on both ends by generative AI: During the coronavirus pandemic, they bought up software companies, which are now plummeting in value because AI is expected to eat their lunch. Meanwhile, private equity’s new investment strategy, data centers, is also falling apart because of AI. Blackstone, Blue Owl, and the like are sinking huge sums into data-center construction with the assumption that lease payments from tech companies will pay for their debt. In order to pay for their investments, private-equity companies raised money from major financial institutions—but now the viability of those lease payments is coming into question as the hyperscalers’ cash flow is strained. “There’s a reason to think we’re seeing some of the same 2008 dynamics now,” Brad Lipton, a former senior adviser at the Consumer Financial Protection Bureau and now the director of corporate power and financial regulation at the Roosevelt Institute, told us. “Everyone’s getting tied up together. Banks are lending money to private credit, which in turn lends it elsewhere. That amps up the risk.”\n\nAnnie Lowrey: How to guess if your job will exist in five years\n\nThe way the money moves is concerning, but so is the AI industry’s underlying business model. At every layer, the technology appears to decrease the value of its assets. The advanced AI chips that make up the majority of the cost of a data center? Their value rapidly decreases as they are superseded by the next generation of chips, meaning that the ultimate backstop for all of the data-center debt—selling the data center itself—is not actually a backstop. The way that AI companies make money when people use their products is also deflationary. OpenAI, Anthropic, and others charge users for using “tokens,” the components of words processed by their bots. This means that tokens are an industrial commodity akin to, say, crude oil or steel. But unlike other commodities, the cost of each token is rapidly decreasing owing to advancements in AI’s capabilities. Kedrosky called this “a death spiral to zero.” As the value of a token plummets, the value of what data centers can produce also falls.\n\nThe war in Iran affects data-center finances as well. Should energy prices continue to skyrocket, so will the cost of this already very expensive computing equipment, because it needs tremendous amounts of energy to manufacture and operate. And the war has exposed physical risks to these buildings. Janet Egan, a senior fellow at the Center for a New American Security, described data centers to us as “large, juicy targets.” It is impossible to hide these facilities, which can cover 1 million square feet. Earlier this month, Iran bombed Amazon data centers in the UAE and Bahrain. American hyperscalers had been planning to build far more data centers in the region, because the Trump administration and the AI industry have sought funding from Saudi Arabia, the UAE, Qatar, and Oman. Now there’s a two-way strain on those relationships. The physical security of the data centers is more precarious, and the conflict is damaging the economic health of the petrostates, thereby jeopardizing a major source of further investment in American AI firms. The Trump administration “staked a lot on the Gulf as their close AI partner, and now the war that they’ve launched poses a huge threat to the viability of the Gulf as that AI partner,” Winter-Levy said.\n\nPlus, “what’s to prevent Iran or a proxy group, or another maligned actor, from tomorrow launching an armed drone against a data center in Northern Virginia?” Chip Usher, the senior director for intelligence at the Special Competitive Studies Project, a national-security and AI think tank, told us. “It could happen. Our defenses are not adequate.” State-sponsored cyberattacks of the variety Iran is known for could also knock a data center offline. You can build all manner of defenses—reinforced concrete, drone-interception systems—but doing so adds cost and time to already costly and slow construction.\n\nJust a few things going a bit wrong could compound, all at once, into a cataclysm. To wit: Qatari and Saudi money dries up. Sustained high oil and natural-gas prices drive up the costs of manufacturing chips and running data centers. Already cash-strapped hyperscalers struggle to make lease payments on their data centers, while similarly strained private lenders suffer as all of the AI bonds become deadweight. Tech valuations fall, taking public markets with them; private-equity firms have to sell and torch their assets, putting intense stress on the institutional investors and banks. The rest of the economy, drained of investment because everything was poured into data centers for years, is already weak. Unemployment goes up, as do interest rates. “Bubbles pop. That’s the system,” Lipton said. “What isn’t supposed to happen is that it takes down the whole financial system. But the concern here is that AI investment isn’t confined and may spread to the whole economy.”\n\nEven if Iran and the Strait of Hormuz don’t directly trigger an AI-driven financial crisis, the odds are decent that another vector could. (Remember tariffs?) Energy prices could stay elevated for years, because the targeted fossil-fuel facilities in the Persian Gulf will take a long time to restore. As the U.S. directs huge amounts of attention and military resources toward Iran, it’s easy to imagine China launching an invasion of Taiwan—a scenario that terrifies Silicon Valley, because it would halt the production of chips needed to train frontier models. That’s not even considering the single Dutch company that makes the high-tech lithography machines used to print virtually all AI chips, or the German company that makes the mirrors used in those machines. “There are too many ways for it to fail for it not to fail,” Kedrosky said of the AI industry’s web of risk. “All you can say for sure is this is a fragile and overdetermined system that must break, so it will.”\n\nThere are, of course, possibilities other than a full-blown, AI-driven financial crisis. Data-center spending could cool gradually enough that a crash is avoided. The revenues of Anthropic and OpenAI have been multiplying every year, which proponents argue means that generative-AI products are on track to eventually become profitable. But on the current trajectory, that would still take years, and there are good reasons to think that this growth will slow or halt. Notably, the main draw of AI tools is “efficiency”: Rather than growing their overall output and the opportunities available to people, executives are hoping that AI will allow them to make cuts to their business operations. The medium-term success of generative AI would likely involve millions of people being put out of work. The range of options seems to be somewhere from mildly bad to historically so.\n\nShould the system break, much of the blame would lie squarely with the technology companies. The stakes of this build-out, from the beginning, have been framed in civilizational terms—a geopolitical race alongside an existential one. The winners will control the future and reap the rewards. At every step of the way, AI firms have appeared to prioritize speed above the physical security of data centers, supply-chain redundancy, energy efficiency and independence, political stability, even financial returns. And in that quest for unbridled growth, the AI industry has wrested ungodly amounts of capital from investors all looking for the next big thing, ensnaring the entire economy.\n\nSimultaneously, these firms have courted and even bent the knee to a presidential administration that has encouraged their “let it rip” ethos, only to watch as that same administration has plunged the industry into this emerging polycrisis. The AI industry was not made for the turbulence its leaders have helped usher in. The situation has grown so ungainly and untenable that, if Silicon Valley is merely forced to slow down, the viability of all this spending will likely be called into question in ways that could be devastating for many. In finance, being early is the same as being wrong. AI firms want the world to think they’re right on time. The world may have other plans.",
+    "readingTime": 12,
+    "keywords": [
+      "blue owl",
+      "saudi arabia",
+      "trump administration",
+      "ai-driven financial",
+      "ideal conditions",
+      "world’s exports",
+      "lease payments",
+      "stock market",
+      "tech valuations",
+      "business model"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theatlantic.com/technology/2026/03/ai-boom-polycrisis/686559/",
+    "thumbnail_url": "https://cdn.theatlantic.com/thumbor/76paG7j-m7NQaWdtrpXzXo5tiKI=/0x43:2000x1085/1200x625/media/img/mt/2026/03/2026_03_26_datacenter_mpg/original.jpg",
+    "created_at": "2026-03-28T01:12:50.783Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "how-ai-is-making-tax-scams-harder-to-spot",
+    "title": "How AI Is Making Tax Scams Harder to Spot",
+    "description": "Here's what to watch out for, so you don't get taken in.",
+    "fullText": "Tax time is high season for scammers, who target taxpayers with fraud campaigns ranging from IRS impersonation to \"ghost\" preparers that take your money and run. In fact, the IRS publishes its annual \"Dirty Dozen,\" a list of the tax scams consumers should be especially aware of. And this year's list reveals that, as with romance scams and scams targeting travelers, AI is making tax scams appear more sophisticated—and harder to spot.\n\nOne of the IRS' top scams for 2026 is AI-powered impersonation by phone: fraudsters are using AI tools for voice cloning and caller ID spoofing so recipients believe they are talking to a legitimate IRS representative. These forms of impersonation are so good that it's difficult to distinguish between what's fake and what's real. Scammers may call you about your tax bill and demand payment, or tell you that your information is being used in a crime and ask you to verify sensitive details.\n\nOf course, AI facilitates other forms of impersonation, spoofing, and phishing. It's easy to set up an AI-generated fake website (such as for the IRS or other organizations that provide tax prep or support services) that looks nearly identical to the real thing, and which scammers can use to harvest personally identifiable information and login credentials. The same goes for other communication, such as text messages and notices sent via email or snail mail.\n\nAI isn't just an external threat. Researchers at McAfee found that 30% of taxpayers plan to use an AI tool like ChatGPT to help them prepare their taxes. Not only will a chatbot potentially provide incorrect (if relatively harmless) information to users, it could also put personal data at risk in the event of a data breach.\n\nTaxpayers may be particularly vulnerable to these scams because the possibility of getting into trouble with the IRS is especially scary, and fraudsters capitalize on this fear. People may be more likely to act on an urgent message that comes with the threat of financial penalties, wage garnishment, or a lien being placed on their home. And since AI can make communication sound more human—and both believable and trustworthy—than an actual human, the typical scam red flags like poor grammar and odd language aren't reliable indicators.\n\nFirst and foremost, remember that the IRS almost always initiates contact by mail and will not call taxpayers to demand payment or threaten arrest. The agency also does not leave prerecorded messages. Legitimate notices sent by mail are informational and should contain specific references to your tax return rather than vague demands for money. It is possible you will receive a call or even an-person visit from the IRS, but these occur in specific cases and only after multiple mailed notices.\n\nBecause AI scams can be so difficult to spot, you should be wary of all communication related to taxes. You can set up an online IRS account through ID.me and view any notices and letters you've been sent to verify they are legitimate. As always, never comply with any demand for money or information without confirming who you are talking to—because it's almost certainly not the IRS.",
+    "readingTime": 3,
+    "keywords": [
+      "demand payment",
+      "tax scams",
+      "taxpayers",
+      "impersonation",
+      "notices",
+      "scammers",
+      "money",
+      "legitimate",
+      "it's",
+      "communication"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/money/ai-is-making-tax-scams-harder-to-spot?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KMR7J2TT65TM67A31QSBD3TT/hero-image.fill.size_1200x675.png",
+    "created_at": "2026-03-28T01:12:50.727Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "china-boycotts-top-ai-conference-after-ban-on-papers-from-ussanctioned-entities",
+    "title": "China boycotts top AI conference after ban on papers from US-sanctioned entities",
+    "description": "SHANGHAI, March 27 (Reuters) - China's largest federation for science and technology professionals on Friday announced a boycott of a top artificial intelligence conference after ‌the California-based...",
+    "fullText": "SHANGHAI, March 27 (Reuters) - China's largest federation for science and technology professionals on Friday announced a boycott of a top artificial intelligence conference after ‌the California-based foundation that runs the gathering stopped accepting submissions from entities under ‌U.S. sanctions.\n\nThe Conference on Neural Information Processing Systems, known as NeurIPS, announced earlier this week a policy change ​that effectively banned entities like Chinese tech companies Huawei and SMIC under U.S. sanctions from submitting papers.\n\nThe decision sparked outrage in China, which is locked in an intensifying race with the United States to develop the most cutting-edge AI models. NeurIPS provides a crucial forum for researchers ‌and companies worldwide to submit ⁠peer-reviewed research, discuss the latest breakthroughs in AI and recruit the best talent in the industry.\n\nIn response, China Association for Science and Technology (CAST) said ⁠in a statement that it would stop accepting funding applications for members wanting to attend NeurIPS and would instead redirect them to domestic conferences or \"international conferences that respect the rights and interests ​of ​Chinese academics.\"\n\nNeurIPS' new policy, which it said was ​enacted to comply with U.S. laws, ‌means that previous Chinese sponsors of the conference, such as Huawei, are excluded from submitting research papers.\n\nCAST added that papers accepted at NeurIPS would no longer be recognised as qualifying research outputs for its funding programmes. However, it will still acknowledge their academic impact if evaluated by Chinese academic societies.\n\nThe escalating conflict highlights the effect of geopolitical tensions on cutting-edge ‌AI research, as the U.S. and China try to ​use state power to influence each other's frontier technology ​capabilities.\n\nWashington has in recent years increased ​scrutiny on Chinese scientists at U.S. universities, investigating a growing number over ‌alleged ties to entities in mainland China. ​It has also imposed ​sanctions on hundreds of Chinese universities and companies, preventing them from legally acquiring a wide range of advanced U.S. technology.\n\nChina has also recently tightened its regulatory screws, ​reportedly barring two executives of ‌AI agent startup Manus from leaving the country as regulators review whether Meta ​Platforms' $2 billion acquisition of the Chinese-founded firm originally violated investment rules.",
+    "readingTime": 2,
+    "keywords": [
+      "u.s sanctions",
+      "chinese",
+      "neurips",
+      "research",
+      "entities",
+      "papers",
+      "accepting",
+      "policy",
+      "submitting",
+      "cutting-edge"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.yahoo.com/news/articles/china-boycotts-top-ai-conference-065826433.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/abeea6f64d0bb45d2b40c23a0c5a7f4d",
+    "created_at": "2026-03-28T01:12:48.711Z",
+    "topic": "news"
+  },
+  {
     "slug": "wikipedia-bans-aigenerated-content-in-its-online-encyclopedia",
     "title": "Wikipedia bans AI-generated content in its online encyclopedia",
     "description": "Ban includes two exceptions: AI can still be used for translations, and to make minor copy edits\nWikipedia has banned the use of artificial intelligence in the generation or rewriting of content for its voluminous online encyclopedia.\nIn a recent policy change, Wikipedia said that the use of large language models (or LLMs) “often violates” its core principles and will not be allowed. The English language version of Wikipedia has more than 7.1m articles.\n Continue reading...",
@@ -1611,174 +1811,5 @@
     "thumbnail_url": "https://i.guim.co.uk/img/media/3d9cc6f1553853f0e0f1c48699fd6ae57e012bf4/610_0_3979_3185/master/3979.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=8e04d987c50a2555afc4d173ea8b455c",
     "created_at": "2026-03-25T12:42:12.466Z",
     "topic": "tech"
-  },
-  {
-    "slug": "chinas-ai-stocks-gain-as-state-media-tout-rising-token-usage",
-    "title": "China’s AI Stocks Gain as State Media Tout Rising Token Usage",
-    "description": "Chinese artificial intelligence service stocks rallied after state media highlighted a sharp increase in domestic AI model adoption and a surge in token usage they generate.",
-    "fullText": "TechnologyBy Bloomberg NewsSaveChinese artificial intelligence service stocks rallied after state media highlighted a sharp increase in domestic AI model adoption and a surge in token usage they generate.Shares of Knowledge Atlas Technology JSC Ltd., known as Zhipu, rose as much as 8% in Hong Kong on Wednesday, while peer MiniMax Group Inc.’s stock pared earlier gains. Data-center operators also advanced, with Beijing Sinnet Technology Co. and GDS Holdings Ltd. gaining, as expectations build for continued capacity demand.",
-    "readingTime": 1,
-    "keywords": [
-      "technology"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.bloomberg.com/news/articles/2026-03-25/china-s-ai-stocks-gain-as-state-media-tout-rising-token-usage",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iKAwEX3KTzxE/v1/1200x801.jpg",
-    "created_at": "2026-03-25T06:51:40.170Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "mideast-funds-ride-china-ai-wave-to-worldbeating-ipo-gains",
-    "title": "Mideast Funds Ride China AI Wave to World-Beating IPO Gains",
-    "description": "Middle Eastern funds have racked up outsize gains from bets on newly listed Chinese artificial intelligence companies, bucking a broader selloff in equity markets caused by the ongoing conflict in the Gulf.",
-    "fullText": "MarketsBy Laura Gardner Cuesta and Ben ScentSaveMiddle Eastern funds have racked up outsize gains from bets on newly listed Chinese artificial intelligence companies, bucking a broader selloff in equity markets caused by the ongoing conflict in the Gulf.Abu Dhabi Investment Authority’s $65 million cornerstone investment in MiniMax Group Inc. had risen more than sixfold as of Tuesday’s close to over $400 million since the firm listed in Hong Kong in January. Aramco Ventures’ roughly $30 million pre-IPO investment in Knowledge Atlas Technology JSC Ltd., known as Zhipu, has climbed to about $415 million since its debut at the start of the year.",
-    "readingTime": 1,
-    "keywords": [
-      "listed",
-      "investment"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.bloomberg.com/news/articles/2026-03-24/tiny-china-ai-bets-hand-gulf-funds-hundreds-of-millions-in-gains",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/inuVWYE0xuWo/v1/1200x800.jpg",
-    "created_at": "2026-03-25T06:51:34.191Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "openais-sora-decision-is-all-about-ai-compute",
-    "title": "OpenAI's Sora decision is all about AI compute",
-    "description": "OpenAI's Fidji Simo focuses on profitability, shutting down Sora AI video app due to compute constraints in favor of ChatGPT's growth.",
-    "fullText": "OpenAI pivots from a broad focus to prioritize key projects, shelving the Sora AI video app.\n CEO of Applications, Fidji Simo, is pushing OpenAI to focus more.\n Surging AI compute demand is forcing OpenAI to prioritize revenue-generating projects like ChatGPT.",
-    "readingTime": 1,
-    "keywords": [
-      "openai",
-      "focus",
-      "prioritize",
-      "projects"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/openai-kills-sora-app-ai-compute-crunch-forces-hard-choices-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c3207de98a37a4841f34b1?width=1200&format=jpeg",
-    "created_at": "2026-03-25T06:51:31.332Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "meta-executives-could-make-billions-under-a-blockbuster-elonstyle-pay-package",
-    "title": "Meta executives could make billions under a blockbuster Elon-style pay package",
-    "description": "AI competition is heating up as Meta plans new pay increases. CEO Mark Zuckerberg isn't included in the plan.",
-    "fullText": "Six top Meta execs are set to receive huge pay increases — excluding CEO Mark Zuckerberg.\n But that hinges on Meta meeting \"exceedingly aggressive\" stock prices over five years, Meta said.\n It's getting expensive to retain top leaders as AI makes tech more competitive than ever.",
-    "readingTime": 1,
-    "keywords": [
-      "meta"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/meta-boost-executive-pay-compensation-targets-stock-price-market-cap-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c324815b58f1f0f9336dad?width=1200&format=jpeg",
-    "created_at": "2026-03-25T06:51:31.256Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "applied-intuition-cto-on-physical-ai-on-the-battlefield",
-    "title": "Applied Intuition CTO on 'Physical AI' on the Battlefield",
-    "description": "Applied Intuition CTO Peter Ludwig joins Bloomberg Businessweek Daily, speaking with Bloomberg Tech Co-Hosts Ed Ludlow and Caroline Hyde, to discuss the company's role in the tech and defense spaces. Ludwig speaks about so-called \"physical AI\" and its implementation with autos and defense tech like drones and drone swarming. He also weighs in on the recent ethical debate about technology's use cases in the military.",
-    "fullText": "Mar 24th, 2026Applied Intuition CTO on 'Physical AI' on the BattlefieldApplied Intuition CTO Peter Ludwig joins Bloomberg Businessweek Daily, speaking with Bloomberg Tech Co-Hosts Ed Ludlow and Caroline Hyde, to discuss the company's role in the tech and defense spaces. Ludwig speaks about so-called \"physical AI\" and its implementation with autos and defense tech like drones and drone swarming. He also weighs in on the recent ethical debate about technology's use cases in the military.Duration:1:05Trump Says Iran War 'Has Been Won'Duration:2:36What Ships Are Getting Through the Strait of Hormuz?Duration:1:21Amazon Buys Maker of Human-Like Robot Called SproutDuration:4:29Jefferies Jumps on Report of Potential SMFG TakeoverDuration:1:13Iran Gave the US a 'Present,' Trump SaysDuration:1:21United CEO Says TSA Agents Need to Get Paid NowDuration:2:07Victory Capital Withdraws Bid for Janus HendersonDuration:10:15Arm Plans to Sell Own Chips, CEO SaysAvailable on:Listen onApple TVListen onRokuListen onSamsung TVListen onFire TVListen onAndroid TVListen onRakuten TVListen onHaystack NewsWatch BTV in your area:Channel Finder",
-    "readingTime": 1,
-    "keywords": [
-      "intuition cto",
-      "tvlisten",
-      "tech",
-      "ludwig",
-      "defense",
-      "physical",
-      "bloomberg"
-    ],
-    "qualityScore": 0.25,
-    "link": "https://www.bloomberg.com/news/videos/2026-03-24/applied-intuition-cto-on-physical-ai-on-battlefield-video",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i73Uw8pmSFMU/v3/-1x-1.webp",
-    "created_at": "2026-03-25T01:14:05.540Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "common-corpus-goes-global",
-    "title": "Common Corpus Goes Global",
-    "description": "We build reasoning models for advanced context engineering in the agentic AI",
-    "fullText": "One year after its initial release, Common Corpus has become a critical component of AI infrastructure: more than a million downloads on HuggingFace, subsequent reuse by research and industry leaders such as Nvidia, Anthropic, StepFun, IBM and ElasticSearch and an oral acceptance to ICLR.\n\nWe achieved our initial objectives, building the largest multilingual corpus of permissively licensed content with clear provenance. Yet, Common Corpus remained intently biased on content from Europe (where Pleias is based) and the United States (where a lot of past data work had already been performed). It was not yet the universal infrastructure we wanted to build.\n\nFor the Indian Impact Summit, we release the first global update of Common Corpus, more than 270 billion tokens with 53% coming from non-western countries. This new Common Corpus (2.5) amounts now to 2,267,302,720,836 tokens, with significant content coming from China, Japan, Korea, Brazil, as well as India, Africa and Southeast Asia.\n\nHuggingFace Repo: https://huggingface.co/datasets/PleIAs/common_corpus\n\nWhen we started building Common Corpus, the general assumption was that open data training was not viable: only a small sample of web pages crawled are under open license. Our own perspective changed radically as we realized a widespread open data paradox: the vast majority of content in open data is not included in the standard pretraining data mix. To date, the referenced crawl-based dataset, Fineweb, has less than 2% of common content in the open with Common Corpus.\n\nIn short, rather than removing existing copyrighted data, we mostly added new data to the pretraining commons. Simply because obsessing over provenance, traceability and releasability requires to care about what is missing: all the content that should be open and isn’t properly indexed. To be currently findable in the crawled datasets, a piece of text has to fit all these conditions:\n\nDigitized. That already excludes a large amount of relevant content in developing countries. Major efforts have to be undertaken to collect oral data on very low resource languages.\n\nAccessible. Even in developed countries with advanced open policies, digital infrastructure is more fragile than is commonly thought. We had to renounce integrating most of the case law from Taiwan, as the one corresponding zipped file simply disappeared. Another major source we’re releasing today was only secured thanks to… two individual seeders.\n\nReadable. Crawl infrastructure is mostly designed for web pages. Due to added costs of processing and storage, PDFs had long been excluded. This is changing but not retroactively.\n\nFindable. This last part is very underrated: crawlers only index content they can find, so preferably retro-linked or listed on a sitemap. In contrast, open data is highly concentrated on large infrastructures with very sparse indexations. On multiple occasions we found that less of a handful of urls were backed up on Internet Archive\n\nThis is also a point where our work has an actual archiving dimension: pretraining corpora do create lasting copies that may not perfectly substitute for the original (especially when they come from PDFs documents which are much costlier to save), but still ensure an additional layer of preservation that cannot currently be ensured by the existing web infrastructures.\n\nThe turn to synthetic data has made open data significantly more valuable for training, not simply more ethical. Synthetic pipelines and agent traces require seeds: high-quality texts with advanced contextualization, provenance, and structure. They in fact call for actual data research in the open with reproducible experiments and releasable samples at every stage of synthetic data transformation.\n\nWe tried to exemplify this new approach with SYNTH, already our most successful data release after Common Corpus. But this is also a wider transformation in the field: Wikipedia and Wikidata have already become leading data sources for synthetic pretraining pipelines (in Qwen, StepFun, and others). Open data with clear provenance is becoming a source of data innovation, not just data compliance.\n\nThe anticipation of synthetic transformation changed our selection criteria. Even small collections can now become highly valuable, as we have mechanisms for indefinite amplification. Open synthetic pipelines might prove especially critical for low resource languages, as rare samples can now be with conceptual information about the language itself, similarly to the actual language learning process. And then, truly, no language would be left behind.\n\nAt this point the open data paradox is far from resolved. For this release, we intently selected easy sources with full text available in the open. Yet we are scaling up our internal processing capacities and plan to integrate over the next months a large amount of PDF documents, mostly coming from open government collections.\n\nAt this point the open data paradox is far from resolved. For this release, we intently selected easy sources with full text available in the open. Yet we are scaling up our internal processing capacities and plan to integrate over the next months a large amount of PDF documents, mostly coming from open government collections. The combination of improved OCR, new generation of strong non-western models (like Sarvam and others for Indic scripts) and our provenance-first approach should allow us to unlock a substantial new layer of open content in future releases.\n\nWith each release, Common Corpus demonstrates that the gap between what could be open and what is accessible keeps shrinking, and that building the infrastructure to close it has consequences far beyond training data.",
-    "readingTime": 5,
-    "keywords": [
-      "pdf documents",
-      "resource languages",
-      "web pages",
-      "intently selected",
-      "internal processing",
-      "processing capacities",
-      "common corpus",
-      "documents mostly",
-      "synthetic pipelines",
-      "content"
-    ],
-    "qualityScore": 1,
-    "link": "https://pleias.fr/blog/blogcommoncorpus-goes-global",
-    "thumbnail_url": "https://framerusercontent.com/images/Twwre0sqwqn1GvIbvjDKxYbJU.jpg?width=1024&height=768",
-    "created_at": "2026-03-25T01:13:48.278Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "exclusive-cambridge-mobile-telematics-secures-350-million-from-tpg-allianz-to-make-driving-safer",
-    "title": "Exclusive: Cambridge Mobile Telematics secures $350 million from TPG, Allianz to make driving safer",
-    "description": "The investment highlights how insurers are using real-time driving data and AI to price risk, prevent accidents, and improve road safety at scale.",
-    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
-    "readingTime": 1,
-    "keywords": [
-      "fortune"
-    ],
-    "qualityScore": 0.1,
-    "link": "https://fortune.com/2026/03/24/exclusive-cambridge-mobile-telematics-secures-350-million-from-tpg-allianz-to-make-driving-safer/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/03/BILL_POWERS_horizontal-wide-1.png?resize=1200,600",
-    "created_at": "2026-03-25T01:13:46.334Z",
-    "topic": "business"
-  },
-  {
-    "slug": "ai-agents-are-cybersecurity-firms-newest-employees",
-    "title": "AI agents are cybersecurity firms' newest employees",
-    "description": "Cybersecurity firms are being tasked with implementing AI agents across their teams. But the technology's capabilities remain limited.",
-    "fullText": "Security firms are using AI agents to manage cyber threats and reduce analyst workloads.\n Huntress uses AI agents for threat detection, cutting investigation time and workload by 90%.\n AI agents have limitations with intricate tasks, requiring human oversight in high-risk situations.",
-    "readingTime": 1,
-    "keywords": [
-      "agents"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/ai-agents-are-changing-cybersecurity-jobs-and-cutting-workloads-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c2c10d5b58f1f0f9336a7a?width=1200&format=jpeg",
-    "created_at": "2026-03-25T01:13:45.962Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "judge-says-it-looks-like-pentagon-was-out-to-punish-anthropic-not-protect-national-security",
-    "title": "Judge says it looks like Pentagon was out to 'punish' Anthropic, not protect national security",
-    "description": "Anthropic has sued to stop Defense Secretary Pete Hegseth from labeling the company a risk after it set limits on the use of its technology.",
-    "fullText": "Anthropic has asked a judge to block the Pentagon from labeling it a supply chain risk.\n The label could prevent Anthropic from getting lucrative government contracts.\n On Tuesday, a federal judge called the Department of War's label \"troubling.\"",
-    "readingTime": 1,
-    "keywords": [
-      "anthropic",
-      "judge",
-      "label"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/anthropic-supply-chain-risk-hearing-judge-pentagon-pubish-cripple-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c2a46e5b58f1f0f9336958?width=1200&format=jpeg",
-    "created_at": "2026-03-25T01:13:45.867Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "openai-is-scrapping-the-sora-app-to-chase-bigger-ai-goals",
-    "title": "OpenAI is scrapping the Sora app to chase bigger AI goals",
-    "description": "A spokesperson for OpenAI said the discontinuation of Sora comes as the company plans to focus on robotics rather than generative imagery.",
-    "fullText": "OpenAI announced it is discontinuing its viral video app Sora.\n The company plans to focus on robotics to solve \"real-world, physical tasks,\" a spokesperson said.\n Sora's demise followed its lead staffer's description of the project's economics as \"unsustainable.\"",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/openai-discontinues-sora-video-app-amid-robotics-shift-compute-limitations-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c2f2a158b5806618e7df74?width=1200&format=jpeg",
-    "created_at": "2026-03-25T01:13:45.860Z",
-    "topic": "finance"
   }
 ]
