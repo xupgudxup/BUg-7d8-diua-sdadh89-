@@ -1,5 +1,108 @@
 [
   {
+    "slug": "play-anthakshari",
+    "title": "Play Anthakshari",
+    "description": "Play Antakshari online! Challenge friends or AI in the classic musical chain game with voice recognition. Free multiplayer singing game.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://anthakshari.ai/",
+    "thumbnail_url": "https://antakshari.game/og-image.jpg",
+    "created_at": "2026-03-28T06:45:35.728Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "stop-calling-every-ai-miss-a-hallucination",
+    "title": "Stop Calling Every AI Miss a Hallucination",
+    "description": "Sometimes the model really did make something up. Fine, call that a hallucination.",
+    "fullText": "Hallucination has become a garbage-can label for AI misses.\n\nSometimes the model really did make something up. Fine, call that a hallucination.\n\nBut a lot of what engineers are calling hallucination is something else: omitted scope, default fill-in, or blended inference. If you diagnose all of it the same way, you stop seeing what actually failed.\n\nI’m using hallucination the way OpenAI does: plausible but false statements. I’m separating that from omitted scope, default fill-in, and blended inference because those are different failures and need different fixes.\n\nThis is one of the most common misses in coding work.\n\nYou ask for one change. The model makes that change. But the same rule also needed to hold somewhere else, and you never named that second place.\n\nSo one path changes and the other does not.\n\nThat is not best described as hallucination. It is a scope failure.\n\nThe model did the named work and missed the unnamed consequence.\n\nSometimes the model is not inventing facts. It is filling open slots.\n\nYou left key choices unspecified, so it picked something plausible:\n\nThat may still be wrong. But wrong because the system guessed a default is not the same as wrong because it made up unsupported content.\n\nThose are different problems. They need different corrections.\n\nThis is the failure type buried in your AI answers.\n\nThen it returns all of that in one fluent answer.\n\nYou are no longer just checking whether the answer sounds good. You are trying to figure out where the model stopped knowing and started guessing.\n\nThat is not the same thing as the model making something up either.\n\nThese failures need different fixes.\n\nIf the model made something up, you need grounding, verification, or tighter constraints.\n\nIf it missed scope, you need to name the full change and the other places where the rule has to hold.\n\nIf it filled in defaults, you need to specify the choices you left open.\n\nIf it blended facts and assumptions, you need a way to separate them before acting on the answer.\n\nCalling all of that hallucination makes the model look magical when the failure is often much more ordinary.\n\nThis is why I built VDG: Verified / Deduction / Gap.\n\nVDG does not make the model smarter. It does not eliminate hallucinations. It breaks blended answers apart.\n\nThat matters most with blended inference. In a normal answer, what is grounded, what is inferred, what is assumed, and what is missing can all be blended into one smooth response. VDG is designed to break that blend apart.\n\nThat also helps with the other failure classes. VDG will not fix omitted scope for you. But it makes missing scope more visible. It will not stop the model from choosing defaults. But it forces those defaults to surface instead of passing as if they were simply part of the answer.\n\nStop using hallucination as the label for every AI miss.\n\nUse it when the model actually made something up.\n\nThen diagnose the rest more precisely.\n\nThat alone will help you see what failed and why it failed.",
+    "readingTime": 3,
+    "keywords": [
+      "default fill-in",
+      "omitted scope",
+      "blended inference",
+      "model",
+      "hallucination",
+      "failure",
+      "stop",
+      "failed",
+      "defaults",
+      "label"
+    ],
+    "qualityScore": 1,
+    "link": "https://ai.gtzilla.com/papers/stop-calling-every-ai-miss-a-hallucination-v1.0/",
+    "thumbnail_url": "https://ai.gtzilla.com/assets/brand-card-hal-9000.jpg",
+    "created_at": "2026-03-28T06:45:34.919Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "poison-ai-training-data-scrapers",
+    "title": "Poison AI Training Data Scrapers",
+    "description": "Trap AI web scrapers in an endless poison pit. Contribute to austin-weeks/miasma development by creating an account on GitHub.",
+    "fullText": "AI companies continually scrape the internet at an enormous scale, swallowing up all of its contents to use as training data for their next models. If you have a public website, they are already stealing your work.\n\nMiasma is here to help you fight back! Spin up the server and point any malicious traffic towards it. Miasma will send poisoned training data from the poison fountain alongside multiple self-referential links. It's an endless buffet of slop for the slop machines.\n\nMiasma is very fast and has a minimal memory footprint - you should not have to waste compute resources fending off the internet's leeches.\n\nInstall with cargo (recommended):\n\nOr, download a pre-built binary from releases.\n\nRun miasma --help for full details:\n\nLet's walk through an example of setting up a server to trap scrapers with Miasma. We'll pick /bots as our server's path to direct scraper traffic. We'll be using Nginx as our server's reverse proxy, but the same result can be achieved with many different setups.\n\nWhen we're done, scrapers will be trapped like so:\n\nWithin our site, we'll include a few hidden links leading to /bots.\n\nThe style=\"display: none;\", aria-hidden=\"true\", and tabindex=\"1\" attributes ensure links are totally invisible to human visitors and will be ignored by screen readers and keyboard navigation. They will only be visible to scrapers.\n\nSince our hidden links point to /bots, we'll configure this path to proxy Miasma. Let's assume we're running Miasma on port 9855.\n\nThis will match all variations of the /bots path -> /bots, /bots/, /bots/12345, etc.\n\nLastly, we'll start Miasma and specify /bots as the link prefix. This instructs Miasma to start links with /bots/, which ensures scrapers are properly routed through our Nginx proxy back to Miasma.\n\nWe'll also limit the number of max in-flight connections to 50. At 50 connections, we can expect 30-40 MB peak memory usage. Note that any requests exceeding this limit will immediately receive a 429 response rather than being added to a queue.\n\nLet's deploy and watch as multi-billion dollar companies greedily eat from our endless slop machine!\n\nBe sure to protect friendly bots and search engines from Miasma in your robots.txt!\n\nContributions are welcome! Please open an issue for bugs reports or feature requests. Primarily AI-generated contributions will be automatically rejected.",
+    "readingTime": 2,
+    "keywords": [
+      "hidden links",
+      "miasma we'll",
+      "bots bots",
+      "scrapers",
+      "slop",
+      "path",
+      "proxy",
+      "training",
+      "back",
+      "server"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/austin-weeks/miasma",
+    "thumbnail_url": "https://opengraph.githubassets.com/92f9c3aa573b5c2f511f714ae782d8f832ad358eb461e7119862a9160c2f87b6/austin-weeks/miasma",
+    "created_at": "2026-03-28T06:45:34.219Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "building-shared-coding-guidelines-for-ai-and-people-too",
+    "title": "Building shared coding guidelines for AI (and people too)",
+    "description": null,
+    "fullText": "As engineering organizations grow, getting everyone to work on the same software starts to get unwieldy. Everybody has their own quirks and styles, which can lead to a Tower of Babel implemented as a service-oriented architecture. So leadership folks came up with ticketing systems, scrum, and deployment pipelines to bring some consistency to the process. For the code itself, they wrote coding standards and guidelines.\n\nIn 2026, software engineers are writing less and less code by hand. Instead, they use coding agents to write code based on their designs. But if those agents contribute to an enterprise code base, then they need to follow the standards and guidelines. Fortunately, most of the code generators have implemented ways to add standards and guidelines to your agents.\n\nThe catch is that it’s not the same as onboarding a new junior developer. You can’t just throw a few documents at them and let them explore. Agents are fast but lack the context of your code. And a lot of the context for human coders comes as tacit learnings as they see particular forms, styles, and patterns. We call red flags in code “smells,” which speaks to the vibe-based nature of a lot of code understanding. Despite popular discourse, coding agents don’t run on vibes, at least not in professional situations.\n\nAs coding agents create more and more code, the cognitive burden of software engineering is shifting to design and architecture as well as code review. Code review will be most engineers’ first look at the code since they didn’t write it themselves. They just know what they wanted the code to do. Coding guidelines for agents can inject a bit of determinism into a non-deterministic process.\n\nCoding guidelines and standards (which I’ll just call “guidelines”) for agents need to be a little different—more explicit, demonstrative of patterns, and obvious. But not super different, as good documentation is for all coding entities.\n\nHere’s how to best create coding standards for agents and humans.\n\nThe code that agents produce needs to work with a bunch of code that’s already in production (unless you live a blessed life building a purely greenfield project). It needs to use the same languages and libraries, hook into any build and deployment systems, and fit with the platform engineering systems and paradigms you use. If your front end uses Express, your agent shouldn’t code with React.\n\nBeyond the tech stack, your engineering team has a set of methodologies and best practices they use to write code for a shared codebase. Some of these may be universal best practices, some may be team culture, and some may be the ways that your team deviates from or ignores best practices. While this may be assumed common knowledge with your human teammates, take nothing for granted with agents. “What are the prompts that you need to give it, like DRY?” said Vish Abrams, chief architect at Heroku. “There's classic programming principles that to seasoned engineers are common knowledge. The same thing is true about deployment. You want to build your application where configuration and code are separate. You can tell the LLM to build your application that way, or you can just say, build me a snake game and it'll do whatever it wants to. Maybe it’s not maintainable at all.”\n\nThis might be the time to revisit your coding guidelines altogether. Many of the best practices were created when code was artisanal and hand-written. If you’re only engaging with the code during review, maybe some guidelines change. Maybe having multiple copies of functionality is better for code review, so you see the functionality with the PR. Maybe not. But many of the best practices serve to make code readable and maintainable for humans.\n\nCoding, like writing, has a lot of little decisions that can vary across organizations. For outsiders, they may seem small and arbitrary, but they can have downstream impacts and slow down reviews for colleagues used to certain conventions. We use the serial comma here on the Stack Overflow blog, but others don’t and are wrong.\n\nLike a style guide, your agentic coding guidelines should indicate the decisions your team has made about which language constructs to use and why. Here are a few decisions to consider including:\n\nThis is not a comprehensive list of guidelines for coding agents, and you’ll likely find more annoying quirks your agent uses along the way. See below for dealing with that.\n\nI know this is meant to be a guide for agentic coding guidelines, but ultimately good documentation is the same whether it’s for people or agents. In fact, many of the qualities below are more important for agents because they are much more unpredictable.\n\nThe guidelines should be clear and consistent. It should be dead obvious how to follow any guidelines that you write. Test your guidelines by approaching them in the most bad faith manner as possible; if you can find a way to misinterpret it, rewrite it. Write in a simple, repeated style throughout the document—you don’t have to be perfect, just predictable. AI loves patterns.\n\nDon’t confuse the AI. When I wrote documentation, I assumed the reader could have a wide range of English skills. They could be a non-native speaker. That means not using idiomatic language or other constructs that require interpretation. Be simple, explicit, and boring. The same goes for code examples. Cover all edge cases so there are no decisions for the AI to make.\n\nMake your decisions obvious. Engineers build conventions tacitly. “We take for granted as engineers that when you're writing code and you spend a whole evening and you're writing a bunch of new functions, you're also implicitly absorbing the context of the code base,” said Greg Foster, CTO of Graphite. Any guideline needs to take this tacit knowledge and make it explicit. Provide objective reasons for each guideline. Some guidelines might be inherited from standard conventions (“We use tabs because we’re primarily a Python shop and this makes indentation more consistent”).\n\nI resisted examples in documentation at first. But once I had to use documentation to solve a problem, boy did I get it. Screenshots, sample code, API playgrounds, all these showed me how to use tools better than a numbered list of steps alone. There’s a reason that we jokingly offered a CTRL+C+V keyboard (and then not so jokingly): that sample code gives you a template you can use to customize your own code. And AIs love a good template.\n\nProvide explicit examples of both correct and incorrect implementations of the code guidelines. AIs can use these as patterns to determine what the correct code looks like in most given situations. Multiple examples for each won’t hurt, but again, ensure that your examples are consistent.\n\nConsider also giving the agents an overall example of what code looks like when it follows all guidelines—a “gold standard” file. Individual examples are like unit tests: your gold standard is the end-to-end test. There’s some discussion on whether you only need the gold standard file, or whether it can work in concert with individual examples. We suggest testing to see which gets the best results.\n\nIf you’ve worked with agents enough, you probably know already that you’re not gonna get this in one. Your first version of the coding guidelines isn’t going to deliver perfectly formed agentic code. That’s okay; those failures are feedback that you can use to make your guidelines better.\n\nOn this blog, Charity Majors talked about using CI/CD processes to speed up the SDLC feedback loop; agents are no different. While you don’t need to implement a Ralph Wiggum loop, you can and should take mistakes in the code as an opportunity to update your standards files. Those errors might even be helpful to reveal the tacit parts of your coding conventions, those secret requirements that you may not have been explicitly aware of.\n\nUsing failure as a feedback loop is how you’ll have better agentic processes in general. “There's a big difference between people that just chicken-type a prompt,” said Quinn Slack, CEO and co-founder of Sourcegraph. “They don't really want the AI to win. Then there's people that put in a ton of time defining their rules, their `agents.md` file, and they write out what it should do. If it makes a mistake, then they'll go and update that and try to get it to be a flywheel.”\n\nThe other feedback loop to pay attention to is human. Keep the standards file open as a dialogue with your engineering team. Put it in Stack Internal or another documentation repository and get everyone to edit, comment, and update. This is the code that everyone will be building and reviewing; they should have a say in the guidelines.\n\nThe last step, of course, is to make sure that these guidelines live with your code and your agent context. Explicitly put all these rules in your `agents.md` and check them into a standard repo or build a Claude skill for them. Document the standard package for a coding setup like you do for the deployment pipeline.\n\nThat said, this shouldn’t be your call to give up all those other deterministic code standard enforcers. Linters, formatters, and static analysis tools still have a place in your build pipeline. They catch the basics that your agents botch.\n\nBig companies who have tried to wrangle the coding styles of hundreds or thousands of engineers have a leg up on folks just thinking about this now. “Big companies have well-articulated style guides and best practices and processes to build code and deploy software,” said Logan Kilpatrick, Senior Product Manager at DeepMind/Google. “All of that is perfect ripe context to give to the model to make it helpful for you. Without a lot of that context, you are just taking a shot in the dark.”",
+    "readingTime": 9,
+    "keywords": [
+      "feedback loop",
+      "gold standard",
+      "engineering team",
+      "standard file",
+      "agentic coding",
+      "code base",
+      "code that’s",
+      "sample code",
+      "code looks",
+      "code review"
+    ],
+    "qualityScore": 1,
+    "link": "https://stackoverflow.blog/2026/03/26/coding-guidelines-for-ai-agents-and-people-too/",
+    "thumbnail_url": "https://cdn.stackoverflow.co/images/jo7n4k8s/production/7743f41e5318616af0c6940a0cbcaa8534a4f7a0-12000x6300.jpg?w=1200&h=630&auto=format",
+    "created_at": "2026-03-28T06:45:33.866Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "musk-pitched-zuckerberg-on-his-unsolicited-bid-for-openais-ip-newly-unsealed-court-documents-show",
+    "title": "Musk pitched Zuckerberg on his unsolicited bid for OpenAI's IP, newly unsealed court documents show",
+    "description": "Elon Musk asked Mark Zuckerberg if he would consider joining him in bidding for OpenAI's IP, according to newly released court documents.",
+    "fullText": "New documents were released in Elon Musk's lawsuit against OpenAI.\n The unredacted documents show text messages between Musk and Meta CEO Mark Zuckerberg.\n Musk sought Zuckerberg's support to bid on OpenAI in February 2025, according to unsealed messages.",
+    "readingTime": 1,
+    "keywords": [
+      "documents",
+      "messages",
+      "openai",
+      "musk"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/elon-musk-pitched-mark-zuckerberg-on-bid-for-openai-ip-2026-3",
+    "thumbnail_url": "https://i.insider.com/69c6db31f573a637a756700e?width=1200&format=jpeg",
+    "created_at": "2026-03-28T06:45:32.115Z",
+    "topic": "finance"
+  },
+  {
     "slug": "whisper-ai-local-mac-setup",
     "title": "Whisper AI Local Mac Setup",
     "description": "Learn how to set up Whisper AI local transcription on Mac - from Python install to model tuning - plus a faster alternative that skips the setup entirely.",
@@ -1708,108 +1811,5 @@
     "thumbnail_url": "https://i.insider.com/69c2eadb5b58f1f0f9336bfd?width=1200&format=jpeg",
     "created_at": "2026-03-25T12:42:17.150Z",
     "topic": "finance"
-  },
-  {
-    "slug": "im-an-engineer-who-hasnt-touched-code-in-months-im-excited-about-ai-but-sometimes-i-worry-about-my-future",
-    "title": "I'm an engineer who hasn't touched code in months. I'm excited about AI, but sometimes I worry about my future.",
-    "description": "Rohan Gore, an engineer at a market research firm, says he still feels useful, but has concerns about the future of the job.",
-    "fullText": "Rohan Gore, an AI engineer, said he hasn't coded since December, and has mixed feelings about it.\n Gore, 38, said that he enjoys how he now has more time to focus on software architecture and design.\n However, he has concerns about what AI advancements mean for the future of his career.",
-    "readingTime": 1,
-    "keywords": [
-      "gore"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/ai-engineer-says-hasnt-touched-code-since-december-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c2f37a5b58f1f0f9336c42?width=1200&format=jpeg",
-    "created_at": "2026-03-25T12:42:17.022Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "this-startup-raised-34-million-to-make-micro-dramas-starring-ai-actors-and-let-fans-interact-with-them",
-    "title": "This startup raised $34 million to make micro dramas starring AI actors — and let fans interact with them",
-    "description": "StoReel describes how it uses AI and a user-generated platform to make micro dramas at a fraction of the cost paid by established players.",
-    "fullText": "Beijing-based StoReel raised $34 million to build out its AI micro drama app.\n StoReel has creators make micro dramas using AI, which it says can produce better stories at a lower cost.\n Read the pitch deck it used to raise its funding round.",
-    "readingTime": 1,
-    "keywords": [
-      "micro",
-      "storeel"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/pitch-deck-storeel-raised-millions-build-ai-micro-dramas-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c19272e98a37a4841f2c56?width=1200&format=jpeg",
-    "created_at": "2026-03-25T12:42:17.008Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "baltimore-sues-elon-musks-ai-company-over-groks-fake-nude-images",
-    "title": "Baltimore sues Elon Musk’s AI company over Grok’s fake nude images",
-    "description": "Lawsuit argues XAI failed to disclose risks, limitations and exposure to harm that come with using chatbot\nThe mayor and city council of Baltimore, Maryland, filed a lawsuit against Elon Musk’s xAI company on Tuesday, alleging that its Grok chatbot violated consumer protections by generating nonconsensual sexualized images.\nBaltimore’s lawsuit argues that xAI deceptively marketed Grok as a general-purpose AI assistant and X as a mainstream social media site, failing to disclose the risks, limitations and exposure to harm that come with using the platform and chatbot. The suit, filed in the circuit court for Baltimore city, argues that the court has jurisdiction over xAI given that the company advertises and operates in Baltimore.\n Continue reading...",
-    "fullText": "Lawsuit argues XAI failed to disclose risks, limitations and exposure to harm that come with using chatbot\n\nThe mayor and city council of Baltimore, Maryland, filed a lawsuit against Elon Musk’s xAI company on Tuesday, alleging that its Grok chatbot violated consumer protections by generating nonconsensual sexualized images.\n\nBaltimore’s lawsuit argues that xAI deceptively marketed Grok as a general-purpose AI assistant and X as a mainstream social media site, failing to disclose the risks, limitations and exposure to harm that come with using the platform and chatbot. The suit, filed in the circuit court for Baltimore city, argues that the court has jurisdiction over xAI given that the company advertises and operates in Baltimore.\n\n“Grok has flooded the feeds of Baltimore’s X users with NCII (non-consensual intimate imagery) and CSAM (child sexual abuse material),” the city’s complaint states. “Grok further exposed Baltimore residents to the risk that any photograph they uploaded – of themselves or of their children – could be ingested by Grok and transformed into sexually degrading deepfakes without their knowledge or consent”.\n\nxAI did not immediately return a request for comment.\n\nxAI has faced multiple lawsuits and international investigations over its Grok AI product in recent months, following a period when the chatbot generated millions of AI-altered sexualized images earlier this year. Many of these sexualized images were created using photos of women without their consent, according to researchers at the Center for Countering Digital Hate, which also estimated that Grok produced about 23,000 sexualized images of children over an 11-day period in December and January.\n\n“We’re talking about tech companies enabling the sexual exploitation of children. Our city will not stand by and allow this to continue; it’s a threat to privacy, dignity, and public safety, and those responsible must be held accountable,” the Baltimore mayor, Brandon Scott, said in a statement.\n\nMusk has denied any knowledge of Grok producing child sexual abuse material, stating in January that he was “not aware of any naked underage images generated by Grok. Literally zero.” The company added restrictions to Grok’s image generation capabilities in earlier January following backlash and threats of regulatory action from multiple countries.\n\nBaltimore’s case is unique in that it is alleging violations of city ordinance and consumer protection, as opposed to other suits brought by individual users claiming personal and reputational harms.\n\n“The city is setting a powerful example for municipalities nationwide in confronting a novel and rapidly advancing technology – and an emerging area of law – where accountability has not yet caught up with innovation,” Adam Levitt, an attorney representing Balti\n\nIn another case against xAI filed earlier this month, three Tennessee teenage girls alleged that Grok used photos of them to create and distribute child sexual abuse material. The class-action lawsuit was the first filed by minors following Grok’s nonconsensual image generation scandal, and alleged that a third-party app used xAI’s technology to generate fully nude images of the girls which were then shared online.",
-    "readingTime": 3,
-    "keywords": [
-      "risks limitations",
-      "abuse material",
-      "child sexual",
-      "lawsuit argues",
-      "sexualized images",
-      "city",
-      "chatbot",
-      "filed",
-      "grok",
-      "baltimore’s"
-    ],
-    "qualityScore": 0.7,
-    "link": "https://www.theguardian.com/technology/2026/mar/24/elon-musk-grok-ai-lawsuit-baltimore",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/d395ff03b8fee7107ea8746951d996238e3244d1/226_0_2248_1799/master/2248.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=24f37488090a452d5d7de941051a7f53",
-    "created_at": "2026-03-25T12:42:12.554Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "anthropic-and-pentagon-face-off-in-court-over-ban-on-companys-ai-model",
-    "title": "Anthropic and Pentagon face off in court over ban on company’s AI model",
-    "description": "After Anthropic refused to let its AI to be used in autonomous weapons systems, Trump ordered US agencies to quit using...",
-    "fullText": "After Anthropic refused to let its AI to be used in autonomous weapons systems, Trump ordered US agencies to quit using it\n\nAnthropic faced against the Department of Defense in a federal court on Tuesday afternoon, as the artificial intelligence company seeks a temporary pause on the government’s decision to bar the US military and any contractors from using its technology. The two sides have been locked in an escalating feud over Anthropic’s refusal to allow its Claude AI chatbot to be used for domestic mass surveillance and fully autonomous lethal weapons. Donald Trump has ordered all US government agencies to stop using Anthropic’s tools, which the company is also contesting.\n\nRepresentatives for the AI firm and the government appeared in a northern California district court, where Judge Rita Lin presided over the hearing for a temporary injunction. The hearing is one of the first steps in Anthropic’s lawsuit against the defense department, which it filed earlier this month after Pete Hegseth, the secretary of defense, declared the company a supply chain risk – a designation that Anthropic alleges will cause irreparable harm and cost hundreds of millions or \n\nAnthropic’s suit and Lin’s decision will have widespread ramifications for both the company and the US government, which has come to extensively rely on Claude over the past year for a variety of uses, including in its military operations against Iran. The standoff between the defense department and Anthropic, especially the former’s move to categorize a US company as a supply chain risk for the first time ever, has also created significant tension in Silicon Valley’s close relationship with the Trump administration.\n\nLin opened the hearing with her thoughts on the case, calling it a “fascinating public policy debate” while saying that her role was to narrowly decide whether the government’s actions were illegal. Lin also said she had questions about the government’s actions, which appeared to go beyond a decision simply not to work with Anthropic and veer into punitive measures.\n\n“It looks like an attempt to cripple Anthropic,” Lin said.\n\nLawyers for the government argued that Hegseth’s social media post last month declaring that no contractors could do business with the government was not a legal action and no entity would face noncompliance issues if they ignored it. The government’s argument seemed to conflict with Hegseth’s post on X that any contractor that does business with the military is prohibited from working with Anthropic.\n\n“You’re standing here saying, ‘We said it, but we didn’t really mean it,’” Lin pressed the government’s lawyer on their claim. Lin later asked why Hegseth would post the claim if it had no legal effect.\n\n“I don’t know,” the government’s lawyer replied.\n\nAnthropic declined to comment on the lawsuit. The defense department has previously stated that as a matter of policy it does not comment on litigation.\n\nAnthropic alleges that the government violated the company’s first amendment rights by designating it a supply chain risk, arguing that the decision was an attempt at punishing the company for displeasing the president and for not complying with the defense department’s request to loosen safety guardrails on Claude.\n\n“These actions are unprecedented and unlawful. The constitution does not allow the government to wield its enormous power to punish a company for its protected speech,” Anthropic stated in its California suit.\n\nAnthropic has argued that its AI model is not reliable enough to be used for the purposes of mass domestic surveillance or fully automated lethal weapons, while its CEO, Dario Amodei, has expressed concerns about AI being used in authoritarian ways. US defense officials and Trump have meanwhile framed the company’s actions as a politically biased betrayal of the country, with Trump calling it a “A RADICAL LEFT, WOKE COMPANY” in a post on his social media platform, Truth Social.\n\nDespite the defense department striking deals in recent weeks with rival firms OpenAI and Elon Musk’s xAI to allow them to operate in a classified environment, disentangling federal agencies from their use of Claude is an enormous undertaking that would take months of disruption to complete. The company’s technology is deeply intertwined with government operations, including in the military, where it is reportedly being used to select and analyze targets of missile strikes in Iran.",
-    "readingTime": 4,
-    "keywords": [
-      "anthropic alleges",
-      "lethal weapons",
-      "supply chain",
-      "chain risk",
-      "social media",
-      "government’s lawyer",
-      "defense department",
-      "government’s actions",
-      "decision",
-      "military"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/us-news/2026/mar/24/anthropic-pentagon-lawsuit",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/af4915a6ba1caec426b216d6719dab95157d0ad3/432_0_4320_3456/master/4320.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=7fb86e58a08effb9da383adb0cb247f6",
-    "created_at": "2026-03-25T12:42:12.469Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "openai-shutters-ai-video-generator-sora-in-abrupt-announcement",
-    "title": "OpenAI shutters AI video generator Sora in abrupt announcement",
-    "description": "Tech firm ‘says goodbye’ to Sora, made publicly available in 2024, just six months after its launch of a stand-alone app\nIn an abrupt announcement on Tuesday, OpenAI said it was “saying goodbye” to its AI video generator Sora. The move comes just six months after the company’s splashy launch of a stand-alone app where people could make and share hyper-realistic AI videos in a scrolling social feed.\n“To everyone who created with Sora, shared it, and built community around it: thank you,” the company wrote in a post on X. “What you made with Sora mattered, and we know this news is disappointing.”\n Continue reading...",
-    "fullText": "Tech firm ‘says goodbye’ to Sora, made publicly available in 2024, just six months after its launch of a stand-alone app\n\nIn an abrupt announcement on Tuesday, OpenAI said it was “saying goodbye” to its AI video generator Sora. The move comes just six months after the company’s splashy launch of a stand-alone app where people could make and share hyper-realistic AI videos in a scrolling social feed.\n\n“To everyone who created with Sora, shared it, and built community around it: thank you,” the company wrote in a post on X. “What you made with Sora mattered, and we know this news is disappointing.”\n\nOpenAI first made Sora publicly available in late 2024, but it wasn’t until the company launched Sora 2 and its stand-alone app last September that the video generator reached mainstream attention. Just days after release, it quickly took the No 1 spot at the top of Apple’s app store. People created all sorts of absurd short videos, such as Diana, Princess of Wales doing parkour and dogs driving cars. But the video generator also received criticism for violent and racist videos, as well as the use of copyrighted characters, deepfakes and misinformation.\n\nOpenAI gave no indication it was working to wind down Sora. In a blogpost on Monday titled “Creating with Sora safely”, the company outlined ways it’s been working to make the app safer for teens and with stricter guardrails against harmful content, such as sexual material, terrorist propaganda and self-harm promotion.\n\nThe shuttering of the video generator comes just three months after OpenAI and Disney signed a three-year deal that would allow Sora users to create videos from more than 200 licensed Disney characters, including those from Marvel, Pixar and Star Wars. A spokesperson from the Walt Disney Company told the Guardian in a written statement that the studio would now be ending its partnership with OpenAI.\n\n“As the nascent AI field advances rapidly, we respect OpenAI’s decision to exit the video generation business and to shift its priorities elsewhere,” the spokesperson said.\n\n“We appreciate the constructive collaboration between our teams and what we learned from it, and we will continue to engage with AI platforms to find new ways to meet fans where they are while responsibly embracing new technologies that respect IP and the rights of creators.”\n\nOpenAI said it would soon share more about its timeline for shutting down Sora, along with information on how people can save videos they’ve made.",
-    "readingTime": 3,
-    "keywords": [
-      "stand-alone app",
-      "videos",
-      "generator",
-      "sora",
-      "goodbye",
-      "publicly",
-      "launch",
-      "created",
-      "characters",
-      "ways"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.theguardian.com/technology/2026/mar/24/openai-ai-video-sora",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/3d9cc6f1553853f0e0f1c48699fd6ae57e012bf4/610_0_3979_3185/master/3979.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=8e04d987c50a2555afc4d173ea8b455c",
-    "created_at": "2026-03-25T12:42:12.466Z",
-    "topic": "tech"
   }
 ]
