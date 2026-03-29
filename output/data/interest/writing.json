@@ -1,5 +1,29 @@
 [
   {
+    "slug": "uedu-student-writing-mental-health-signals-with-40-psycholinguistic-features",
+    "title": "UEdu – Student writing mental health signals with 40 psycholinguistic features",
+    "description": "UEDU: Mental health distress signal detection in student writing using psycholinguistic NLP. 40 features, XGBoost, Glass Box explainable engine. 100% local, no cloud AI needed. - harold-wang-dev/uedu",
+    "fullText": "Open-source NLP toolkit for detecting mental health distress signals in student writing using psycholinguistic features. 100% local, privacy-first, no cloud AI needed.\n\nUnderstand. Evaluate. Describe. Uplift.\n\nUEDU is an open-source Python library for mental health signal detection in student writing. It extracts 40 psycholinguistic features (emotion, cognition, social dynamics, linguistic patterns) and uses a pre-trained XGBoost classifier to identify distress signals -- with a deterministic, explainable \"Glass Box\" report engine grounded in MHFA ALGEE and BC ERASE clinical protocols.\n\nAll processing runs locally. Zero data leaves the machine. Designed for educators, school counselors, and mental health researchers worldwide. Originally developed and tested in British Columbia, Canada (FOIPPA-compliant).\n\nKeywords: mental health NLP, student wellbeing, psycholinguistic analysis, suicide detection, text classification, XGBoost, explainable AI, school counseling, SHAP, feature engineering, distress detection, education technology\n\nTeachers read hundreds of student assignments. Some contain distress signals -- hopelessness, self-harm language, social withdrawal -- buried in ordinary schoolwork. These signals are easy to miss at scale, and existing tools either require cloud processing (violating student privacy laws) or lack clinical grounding.\n\nUEDU solves this: a fully local, deterministic pipeline that flags concerning writing patterns and gives teachers actionable, protocol-backed guidance.\n\nPre-trained models (M5.pkl, M6.pkl) are included. No dataset download required for inference.\n\nEvery step is deterministic. Same input always produces the same output. No network calls.\n\nPrerequisites: Python 3.10+, pip\n\nspaCy is optional. Pass use_spacy=False to skip POS-based temporal features (faster, slightly less accurate).\n\nAll features are deterministic word-ratio calculations. No randomness, no model inference.\n\nTrained and evaluated on 231,938 Reddit posts (5-fold cross-validation):\n\nM5 is the recommended model for local deployment (40 features, no TF-IDF vocabulary dependency).\n\nWe audited the model on 24,728 ASAP student essays across ELL status, race/ethnicity, and gender:\n\nThe model does not penalize students for being ESL learners. See src/fairness/metrics.py for the full audit methodology.\n\nTraining data is not included due to privacy and licensing. Download separately if you want to retrain:\n\nYou do not need any dataset to run inference. The pre-trained M5 and M6 models are included.\n\nUEDU was developed by Harold W., a Grade 11 student in British Columbia, Canada, as a Health Sciences research project for the Greater Vancouver Regional Science Fair (GVRSF 2026).\n\nThe goal is to give educators a transparent, privacy-respecting tool for early identification of student mental health concerns, so that no student's silent distress goes unnoticed.\n\nMIT License. See LICENSE for details.",
+    "readingTime": 2,
+    "keywords": [
+      "british columbia",
+      "columbia canada",
+      "mental health",
+      "distress signals",
+      "psycholinguistic features",
+      "student",
+      "deterministic",
+      "model",
+      "uedu",
+      "detection"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/harold-wang-dev/uedu",
+    "thumbnail_url": "https://opengraph.githubassets.com/db824c536b78da8a56ab6cddad3ac65bfa0e69e7312806f60255091462a7e3de/harold-wang-dev/uedu",
+    "created_at": "2026-03-29T18:27:19.725Z",
+    "topic": "tech"
+  },
+  {
     "slug": "soon-publishers-wont-stand-a-chance-literary-world-in-struggle-to-detect-aiwritten-books",
     "title": "‘Soon publishers won’t stand a chance’: literary world in struggle to detect AI-written books",
     "description": "US release of horror novel Shy Girl cancelled and UK book discontinued after suspected AI use, as publishers feel ‘cold shiver’\nRecently, the literary agent Kate Nash started noticing that the submission letters she was receiving from authors were becoming more thorough – albeit also more formulaic.\n“I took it as a rise in diligence,” she said. “I thought it was a good thing.”\n Continue reading...",
@@ -2104,29 +2128,5 @@
     "thumbnail_url": "https://alprielse.xyz/posts/using-cursor-for-importing-data-into-notion.png",
     "created_at": "2025-12-28T06:18:09.800Z",
     "topic": "tech"
-  },
-  {
-    "slug": "i-wrote-a-book-while-working-fulltime-these-3-productivity-habits-helped-me-do-it-without-sacrificing-sleep",
-    "title": "I wrote a book while working full-time. These 3 productivity habits helped me do it without sacrificing sleep.",
-    "description": "Joshua Nelken-Zitser, a senior reporter at Business Insider,  balanced his job with writing his first book. Consistency and celebrating small wins were key.",
-    "fullText": "When I got my book deal with HarperCollins UK, I was thrilled that a childhood dream of becoming an author was coming true.\n\nThen, reality hit. I had less than a year to research and write an 80,000-word book.\n\nI had never taken on anything this big before, and certainly not alongside a full-time job. The prospect of juggling a 9-to-5 as a journalist with such a time-consuming passion project felt terrifying.\n\nBut by being intentional with my time and relying on a few key productivity habits, I've ended up with a book I'm proud of, all without losing sleep.\n\nI asked a couple of author friends how they balanced their day job with writing a book. One said he wrote in the twilight hours; the other woke up at the crack of dawn.\n\nI also looked for clues from people I interviewed at work, like 21-year-old Nathaneo Johnson, who ran a startup while studying at Yale and told me he often put in 18-hour days.\n\nIt became clear they found time for their passion projects by eating into their sleep. But sacrificing precious shut-eye was not something I was prepared to do.\n\nWhile some people are able to get by on less than the recommended seven to nine hours of sleep, I'm not wired that way. When I'm sleep-deprived, I am not my best self, nor my second or third best. I tend to get grouchy, lose focus more easily, and become more prone to getting sick.\n\nIf sleep was non-negotiable, I knew that I needed to carve out time elsewhere.\n\nMy free hours after finishing work and at weekends seemed like the most obvious place to claw back some time to write my book. Normally, those slots would be filled with episodes of \"Below Deck,\" reading fiction, or meals with friends.\n\nI worked out that freeing up roughly two hours on workdays and a sensible eight hours on weekends, by cutting down on my favourite activities for almost a year, would be manageable. Although it doesn't sound like much, the hours add up.\n\nOver a month, it would give me more than 100 hours to work with.\nAcross the eleven months between signing my deal and my deadline, that would come to almost 1,000 potential hours — the equivalent of 45 straight days of work without sleep.\n\nI didn't know how many hours it would take to finish my book, but the math showed that the workload would be feasible if I chipped away at it steadily, rather than cramming the writing into an impossible final stretch.\n\nIn the end, I doubt I racked up anywhere close to 1,000 hours (I took days off to relax, socialize, and vacation), yet I still managed to finish my first draft several weeks ahead of schedule.\n\nWhile writing a book is a creative process, I approached my schedule with scientific precision.\n\nI built a basic Google Sheet template to track my progress and created a formula that took into account my total word count target and the number of days I had left. This gave me a total number of words I needed to write each day to stay on track. I updated it after every writing session.\n\nWatching the total word count climb and the daily target shrink gamified the process, which was both motivating and reassuring. It also helped me judge when I was ahead of schedule and could therefore say \"yes\" to social plans.\n\nI saw how my incremental efforts were adding up. Consistency, I learned early on, was the only way to tackle such a project.\n\nI didn't follow my schedule perfectly: there were impromptu reporting trips, days I was too exhausted to work, and social plans I didn't want to turn down. But being consistent on average gave me enough wiggle room that these interruptions didn't derail my entire schedule.\n\nThroughout the process, I tried not to become a recluse. I didn't want to lose friends or my sanity along the way, so I made sure to have at least one thing each week to look forward to, whether it was hanging out with family or simply taking a long walk and enjoying a chai latte with friends.\n\nMarking milestones mattered, too. At a third, halfway, and two-thirds of the book, my husband and I either went out for dinner or popped open a bottle of Prosecco. And when I finally handed in my manuscript, we went on vacation.\n\nCelebrating the small wins gave me concrete, near-term rewards to work toward, which kept me motivated and protected my mental health. I locked in time for the gym, where I'd watch reality TV on the elliptical, to make sure that I was staying happy and healthy.\n\nI tried to adopt a \"work smart, not hard\" mindset, occasionally using online tools to make my life easier. Instead of wasting time formatting or tidying my chaotic notes, I'd prompt ChatGPT to turn them into clear, bullet-point summaries. I also used AI transcription software to write up interviews.\n\nSimple shortcuts like these saved me from tedious admin and freed up time for the stuff that actually mattered, like research and writing.\n\nI didn't get everything right. Some days I was well ahead of schedule, but pushed myself to work anyway, out of guilt for feeling lazy. A couple of times that brought me close to burnout and forced me to take a few days off from writing to recuperate. I should have listened to my body and paced myself.\n\nI also recognize that I had some advantages: I don't have kids or other caregiving responsibilities, my husband kindly took on more than his fair share of household chores, and my workplace allowed me a short period of unpaid leave to focus on my book.\n\nStill, being intentional with my time made juggling a full-time job and a book far more manageable than I could have ever imagined.\n\nI learned that I didn't need to sacrifice sleep to live out a lifelong dream, as long as I used my waking hours wisely.\n\nNow, with all that work behind me. I can simply look forward to Trauma Bonds being published in January 2027.",
-    "readingTime": 6,
-    "keywords": [
-      "social plans",
-      "look forward",
-      "full-time job",
-      "hours",
-      "book",
-      "didn't",
-      "sleep",
-      "schedule",
-      "friends",
-      "ahead"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/wrote-book-working-full-time-productivity-habits-helped-sacrificing-sleep-2025-12",
-    "thumbnail_url": "https://i.insider.com/6942833064858d02d216ef32?width=1200&format=jpeg",
-    "created_at": "2025-12-27T12:21:15.441Z",
-    "topic": "finance"
   }
 ]
