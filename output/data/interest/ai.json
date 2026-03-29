@@ -1,5 +1,48 @@
 [
   {
+    "slug": "anthropics-mythos-leak-3k-files-in-a-public-cms-and-what-the-docs-revealed",
+    "title": "Anthropic's Mythos leak: 3k files in a public CMS, and what the docs revealed",
+    "description": "3,000 files. No password. A model that “far outpaces defenders.” And an IPO in six months.",
+    "fullText": "Member-only storyAnthropic Accidentally Told the World Its AI Can Break the Internet3,000 files. No password. A model that “far outpaces defenders.” And an IPO in six months.Delanoe Pirard18 min read1 hour agoSharePress enter or click to view image in full sizeTL;DRA misconfigured CMS exposed ~3,000 internal Anthropic assets, revealing the existence of Claude Mythos (Capybara tier), described as a “step change” over Opus 4.6. (Fortune, 03/26)Mythos is “far ahead of any other AI model in cyber capabilities.” Cybersecurity stocks dropped 4.5% to 9% in a single session. (CNBC, 03/27)The RSP v3.0, which removed Anthropic’s pause commitment, had been published 30 days before the leak. (Anthropic RSP v3.0)ASL-4, the safety level that should cover a model of this power, has not been defined yet.Anthropic is targeting an IPO at $60B+ in Q4 2026. The timing of the leak, accidental or not, amounts to free worldwide marketing. (The Tech Portal, 03/27)I. The Locksmith Who Left His Door OpenCybersecurity stocks lost between 4.5% and 9% on a Friday morning. CrowdStrike, Palo Alto, Zscaler, SentinelOne, Okta, Tenable. All down. Because someone at Anthropic forgot to check a box.",
+    "readingTime": 1,
+    "keywords": [
+      "model",
+      "stocks",
+      "leak",
+      "anthropic",
+      "mythos"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://medium.com/ai-advances/anthropic-claude-mythos-leak-analysis-b77c1b304eb8",
+    "thumbnail_url": "https://miro.medium.com/v2/resize:fit:1200/1*tRUEPwLi2xpVgAH_t1d6PA.png",
+    "created_at": "2026-03-29T01:22:17.744Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "anamnesis-opensource-4d-strategic-memory-engine-for-ai-agents",
+    "title": "Anamnesis – Open-source 4D strategic memory engine for AI agents",
+    "description": "4D Strategic Memory Engine for Autonomous AI Agents — store wisdom, not just facts - gayawellness/anamnesis",
+    "fullText": "Anamnesis gives AI agents persistent, strategically-weighted memory across sessions. Instead of flat fact storage, it stores why decisions were made, under what conditions they change, and how important they are relative to everything else.\n\nAI agents lose all context when a session ends. Anamnesis solves this — but only if your agent knows to call Anamnesis on startup. Without proper wiring, a new session will:\n\nQuality in = quality out. The reasoning field is what makes reflect useful.\n\nUse the CLI generator to produce a ready-to-paste boot protocol:\n\nPaste the output into your agent's config file. The boot sequence ensures every session starts by calling reflect for strategic context and recall for recent handoff notes.\n\nSessions must retain outcomes before closing. The boot protocol includes this instruction, but enforce it in your workflow:\n\nAdd to your project's .mcp.json:\n\nThe MCP tool descriptions include behavioral nudges that instruct Claude Code to call reflect first in every session.\n\nThis happens when a session starts without context. It sees the weight system, notices the ~4.0 ceiling on auto-calculated weights, and assumes it's a bug. It's not — the ceiling is intentional:\n\nFix: Ensure your agent's config includes the boot sequence (Step 2 above).\n\nReflect quality depends on reasoning quality in retained memories. If you store facts without reasoning, reflect has nothing to synthesize from.\n\nFix: Always include reasoning when calling retain. Explain why the memory matters, not just what it is.\n\nThe MCP tool descriptions include instructions to call reflect first, but some agents may still need explicit instructions in their config file.\n\nFix: Use generate-boot-prompt to create a config block and paste it at the very top of your agent's instruction file (before any other content).\n\nIsolated memory spaces. Each agent or project gets its own bank. Banks have:\n\nRecall searches across four dimensions simultaneously:\n\nResults are fused using Reciprocal Rank Fusion (RRF).\n\nWeights are intentionally calibrated. Do not modify the scoring logic.\n\nInitial weights are conservative. Reweight cycles raise them based on:\n\nMemories are automatically decomposed into subject-predicate-object triples. Entities are resolved and linked, creating a knowledge graph that the relational dimension searches during recall.\n\nEvery recalled memory includes a dimension_scores breakdown showing how much each retrieval dimension contributed to the final ranking:\n\nThe final score is the sum of all four dimension scores, each scaled by the bank's configured weight_factors (default: semantic 30%, temporal 20%, relational 20%, strategic 30%).\n\nAll semantic scores nearly identical (e.g., all 0.003–0.004): Score normalization is likely broken. In a healthy system, the top semantic match should score near 0.30 (the semantic weight factor) while poor matches score near 0. Run diagnose-scoring to verify:\n\nSemantic scores are always zero: Embeddings are not being generated. Check:\n\nStrategic dimension dominates (>50% of total score for every result): Check that your bank's weight_factors sum to approximately 1.0 and that no single factor exceeds 0.5.\n\nIf memories were stored while the embedding provider was down, they won't appear in semantic search. Repair them:\n\nThe health endpoint (GET /api/v1/health) reports memories_missing_embeddings count so you can monitor this.",
+    "readingTime": 3,
+    "keywords": [
+      "mcp tool",
+      "tool descriptions",
+      "boot protocol",
+      "boot sequence",
+      "score near",
+      "agent's config",
+      "config file",
+      "semantic scores",
+      "the mcp",
+      "reflect"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/gayawellness/anamnesis",
+    "thumbnail_url": "https://opengraph.githubassets.com/657b37f7ed52f4b060d57c15e8916ebcc0e4788194cd948dc8863e4d18d29123/gayawellness/anamnesis",
+    "created_at": "2026-03-29T01:22:14.186Z",
+    "topic": "health"
+  },
+  {
     "slug": "an-agent-that-detects-youtube-brainrot-and-turns-off-my-kids-tv",
     "title": "An agent that detects YouTube brainrot and turns off my kid's TV",
     "description": "LLM-powered YouTube brainrot detector. Monitors your TV, warns over Sonos, and turns it off if your kid doesn't stop watching garbage. - fugue-labs/brainrot-detection",
@@ -1794,38 +1837,5 @@
     "thumbnail_url": "https://i.insider.com/69c3e9b6e98a37a4841f36bf?width=1200&format=jpeg",
     "created_at": "2026-03-25T18:42:30.683Z",
     "topic": "finance"
-  },
-  {
-    "slug": "farewell-sora-you-were-too-beautiful-and-too-stupid-for-this-world",
-    "title": "Farewell, Sora. You were too beautiful and too stupid for this world.",
-    "description": "OpenAI is shutting down Sora, where I had a lot of stupid fun for a few days.",
-    "fullText": "Goodbye, Sora!\n I loved you at first — it was so much fun making silly videos of my friends.\n After a few days, I got bored and moved on. Apparently so did everyone else.\n\n What factors led to Sora's shutdown?\n\n Why was Sora popular initially?\n\n How does compute limitation impact AI apps?\n\n How did Sora differ from other AI apps?\n\n What challenges do AI video apps face?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "apps",
-      "sora"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/sora-openai-chatgpt-sam-altman-ai-shutting-down-farewell-why-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c40a42e98a37a4841f386e?width=1200&format=jpeg",
-    "created_at": "2026-03-25T18:42:30.572Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "getting-ready-for-agentic-ai",
-    "title": "Getting Ready for Agentic AI",
-    "description": "Pinterest CEO Bill Ready is trying to prove that social media can succeed without relying on outrage-driven engagement, instead using AI to promote positivity and real-world utility. In this HBR Executive Live conversation, he argues that the key challenge with AI isn’t the technology itself, but how companies choose to deploy it, making the choice either to maximize attention or to improve users’ lives. He also shares how Pinterest is using AI to enhance personalization, support safer experiences, and reimagine shopping as discovery rather than just transaction. Ready frames AI as a tool to unlock human creativity and agency, emphasizing that businesses that align technology with real human needs will be best positioned to win.",
-    "fullText": "Executive LiveGetting Ready for Agentic AIAn HBR Executive Live conversation with Pinterest CEO Bill Ready. by Adi IgnatiusMarch 25, 2026Summary.   Leer en españolLer em portuguêsPostPostShareSavePrintrun on outrage to succeed? That’s a question on the mind of Bill Ready, CEO of Pinterest, who is on a mission to reorient the platform away from the attention-maximizing algorithms that have fueled toxicity across the industry, and toward a model rooted in positivity, utility, and user well-being.",
-    "readingTime": 1,
-    "keywords": [
-      "bill ready",
-      "executive",
-      "pinterest"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://hbr.org/2026/03/bill-ready-hbre-live",
-    "thumbnail_url": "/resources/images/article_assets/2016/09/whiteout.png",
-    "created_at": "2026-03-25T18:42:29.760Z",
-    "topic": "business"
   }
 ]
