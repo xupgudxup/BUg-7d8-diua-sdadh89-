@@ -1,5 +1,29 @@
 [
   {
+    "slug": "googles-turboquant-aicompression-algorithm-can-reduce-llm-memory-usage-by-6x",
+    "title": "Google's TurboQuant AI-compression algorithm can reduce LLM memory usage by 6x",
+    "description": "TurboQuant makes AI models more efficient but doesn't reduce output quality like other methods.",
+    "fullText": "Even if you don’t know much about the inner workings of generative AI models, you probably know they need a lot of memory. Hence, it is currently almost impossible to buy a measly stick of RAM without getting fleeced. Google Research recently revealed TurboQuant, a compression algorithm that reduces the memory footprint of large language models (LLMs) while also boosting speed and maintaining accuracy.\n\nTurboQuant is aimed at reducing the size of the key-value cache, which Google likens to a “digital cheat sheet” that stores important information so it doesn’t have to be recomputed. This cheat sheet is necessary because, as we say all the time, LLMs don’t actually know anything; they can do a good impression of knowing things through the use of vectors, which map the semantic meaning of tokenized text. When two vectors are similar, that means they have conceptual similarity.\n\nHigh-dimensional vectors, which can have hundreds or thousands of embeddings, may describe complex information like the pixels in an image or a large data set. They also occupy a lot of memory and inflate the size of the key-value cache, bottlenecking performance. To make models smaller and more efficient, developers employ quantization techniques to run them at lower precision. The drawback is that the outputs get worse—the quality of token estimation goes down. With TurboQuant, Google’s early results show an 8x performance increase and 6x reduction in memory usage in some tests without a loss of quality.\n\nApplying TurboQuant to an AI model is a two-step process. To achieve high-quality compression, Google has devised a system called PolarQuant. Usually, vectors in AI models are encoded using standard XYZ coordinates, but PolarQuant converts vectors into polar coordinates in a Cartesian system. On this circular grid, the vectors are reduced to two pieces of information: a radius (core data strength) and a direction (the data’s meaning).\n\nGoogle offers an interesting real-world analogy to explain this process. The vector coordinates are like directions, so the traditional encoding might be “Go 3 blocks East, 4 blocks North.” But using Cartesian coordinates, it’s simply “Go 5 blocks at 37-degrees.” This takes up less space and saves the system from performing expensive data normalization steps.\n\nPolarQuant is doing most of the compression, but the second step cleans up the rough spots. While PolarQuant is effective, it can create residual errors. Google proposes smoothing that out with a technique called Quantized Johnson-Lindenstrauss (QJL). This applies a 1-bit error-correction layer to the model, reducing each vector to a single bit (+1 or -1) while preserving the essential vector data that describes relationships. The result is a more accurate attention score—that’s the fundamental process by which neural networks decide what data is important. If you’re interested in more detail, the pre-print paper is available for download.\n\nSo does all this math work? Google says it tested the new algorithmic compression across a suite of long-context benchmarks using both Gemma and Mistral open models. TurboQuant apparently had perfect downstream results in all tests while reducing memory usage in the key-value cache by 6x. The algorithm can quantize the cache to just 3 bits with no additional training, so it can be applied to existing models. Computing the attention score with 4-bit TurboQuant is also 8x faster compared to 32-bit unquantized keys on Nvidia H100 accelerators.\n\nIf implemented, TurboQuant could make AI models less expensive to run and less hungry for memory. However, the companies creating this technology could also use the newly freed-up memory to run more complex models. It’ll probably be a mix of both, but mobile AI could see more benefit. With the hardware limitations of a smartphone, compression techniques like TurboQuant could improve the quality of outputs without sending your data to the cloud.",
+    "readingTime": 4,
+    "keywords": [
+      "cheat sheet",
+      "key-value cache",
+      "memory usage",
+      "models",
+      "vectors",
+      "compression",
+      "coordinates",
+      "without",
+      "reducing",
+      "quality"
+    ],
+    "qualityScore": 1,
+    "link": "https://arstechnica.com/ai/2026/03/google-says-new-turboquant-compression-can-lower-ai-memory-usage-without-sacrificing-quality/",
+    "thumbnail_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/03/TurboQuant-1152x648.png",
+    "created_at": "2026-03-29T06:53:02.184Z",
+    "topic": "tech"
+  },
+  {
     "slug": "memory-stocks-have-tanked-but-bofa-says-the-sharp-selloff-is-overdone",
     "title": "Memory stocks have tanked, but BofA says the sharp sell-off is overdone",
     "description": "Memory stocks like Micron sold off after Google unveiled its new compression tech, but Bank of America says investor fears are overblown.",
@@ -2053,30 +2077,6 @@
     "link": "https://lifehacker.com/tech/google-chrome-now-has-split-view-and-two-more-productivity-upgrades?utm_medium=RSS",
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KHXYV6R728C1DZJRKCD7493Y/hero-image.fill.size_1200x675.png",
     "created_at": "2026-02-20T18:32:32.402Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "google-made-an-iphone-camera-app-that-might-be-even-better-than-apples",
-    "title": "Google Made an iPhone Camera App That Might Be Even Better Than Apple’s",
-    "description": "Snapseed now comes with a fully fledged camera app inside it.",
-    "fullText": "Google acquired the excellent photo editor Snapseed back in 2012—not long after Apple had crowned it one of its apps of the year—and despite having plenty to offer and being completely free to use, it remains one of Google's lesser-known apps. That might be about to change. Snapseed's latest update for iOS, version 3.15.0, comes with a full camera app inside—and there's a case to be made that it's better than Apple's default Camera app. It certainly offers \n\nOnce you've installed or updated Snapseed to the latest version, you'll see the new camera icon up in the top right corner. While you can start your session by opening up an existing image as always, you can also opt to capture a new one by tapping here:\n\nIf you want an easier way to launch the camera, you can add it to the Lock Screen: Press and hold on your iPhone's display when it's locked, tap \"Customize,\" then pick a shortcut spot and choose \"Camera\" under \"Snapseed.\" There's also a Control Center shortcut you can make use of, if you prefer.\n\nOnce you've swiped through the introductory spiel and given Snapseed access to your iPhone's camera, you'll need to pick one of the classic camera film presets to get started, though you can adjust the look of your shots afterwards. There are 11 different film simulations available—emulating film from Kodak, Fuji, Agfa, Polaroid, and Technicolor—and each one gives you slightly different variations in terms of color, contrast, texture, and tone. You can tap the film selector at the bottom of the camera interface (designed to look like a rewind button) to change at any time.\n\nYour saved looks and edits are also included in the film selector, and can be used as preset filters for the images you're capturing. In the main image editor, after you've applied whatever adjustments you want to a photo, you can tap Looks > Add look to save it and access it through the camera.\n\nUp in the top left corner of the camera interface, you'll find a Pro toggle switch, which gives you some controls the default iPhone camera does not. You get three new settings on screen, for ISO, shutter speed, and focus, and you can change any of them by selecting a setting and using the dial underneath. You've also got controls for flash (left) and zoom (right). Besides the big shutter button, you have a camera swap button (lower right), a button for going back to your photo library (lower left), and a camera capture screen theme button (upper right). Tap on this to pick a different color scheme for the screen.\n\nYou're not stuck with the look of any of the photos you shoot through Snapseed: All of the changes applied by your film preset, from exposure to curves, can be changed later on. Select your picture from the main library screen, then use the Faves and Tools tabs to make changes.\n\nMost filters and effects are applied by adjusting a slider underneath your image. The layers button (two squares) at the top gives you access to the current editing stack, and there's also an undo button to the left. When you're happy with what you've made, you're able to save over your existing image or make a copy.\n\nIt's an interesting new addition to the selection of superb third-party camera apps available for the iPhone, and yet another alternative to the Apple default. Meanwhile, Android users are within their rights to feel left out by all this: Snapseed for Android hasn't been updated since May 2024, and lacks both the camera feature and the most recent editing interface revamp that are now available on iPhones.",
-    "readingTime": 4,
-    "keywords": [
-      "film selector",
-      "camera app",
-      "camera interface",
-      "button",
-      "you've",
-      "you're",
-      "apps",
-      "it's",
-      "default",
-      "you'll"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/google-made-an-iphone-camera-app-that-might-be-even-better-than-apples?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KHXGWR48HM73430XWWNK6NXF/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-02-20T18:32:32.315Z",
     "topic": "tech"
   }
 ]
