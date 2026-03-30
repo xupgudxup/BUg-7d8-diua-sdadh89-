@@ -1,5 +1,125 @@
 [
   {
+    "slug": "codex-plugin-for-claude-code",
+    "title": "Codex Plugin for Claude Code",
+    "description": "Use Codex from Claude Code to review code or delegate tasks. - openai/codex-plugin-cc",
+    "fullText": "Use Codex from inside Claude Code for code reviews or to delegate tasks to Codex.\n\nThis plugin is for Claude Code users who want an easy way to start using Codex from the workflow\nthey already have.\n\nAdd the marketplace in Claude Code:\n\n/codex:setup will tell you whether Codex is ready. If Codex is missing and npm is available, it can offer to install Codex for you.\n\nIf you prefer to install Codex yourself, use:\n\nIf Codex is installed but not logged in yet, run:\n\nRuns a normal Codex review on your current work. It gives you the same quality of code review as running /review inside Codex directly.\n\nCode review especially for multi-file changes might take a while. It's generally recommended to run it in the background.\n\nUse --base <ref> for branch review. It also supports --wait and --background. It is not steerable and does not take custom focus text. Use /codex:adversarial-review when you want to challenge a specific decision or risk area.\n\nThis command is read-only and will not perform any changes. When run in the background you can use /codex:status to check on the progress and /codex:cancel to cancel the ongoing task.\n\nRuns a steerable review that questions the chosen implementation and design.\n\nIt can be used to pressure-test assumptions, tradeoffs, failure modes, and whether a different approach would have been safer or simpler.\n\nIt uses the same review target selection as /codex:review, including --base <ref> for branch review.\nIt also supports --wait and --background. Unlike /codex:review, it can take extra focus text after the flags.\n\nThis command is read-only. It does not fix code.\n\nHands a task to Codex through the codex:codex-rescue subagent.\n\nDepending on the task and the model you choose these tasks might take a long time and it's generally recommended to force the task to be in the background or move the agent to the background.\n\nIt supports --background, --wait, --resume, and --fresh. If you omit --resume and --fresh, the plugin can offer to continue the latest rescue thread for this repo.\n\nYou can also just ask for a task to be delegated to Codex:\n\nShows running and recent Codex jobs for the current repository.\n\nShows the final stored Codex output for a finished job.\nWhen available, it also includes the Codex session ID so you can reopen that run directly in Codex with codex resume <session-id>.\n\nCancels an active background Codex job.\n\nChecks whether Codex is installed and authenticated.\nIf Codex is missing and npm is available, it can offer to install Codex for you.\n\nYou can also use /codex:setup to manage the optional review gate.\n\nWhen the review gate is enabled, the plugin uses a Stop hook to run a targeted Codex review based on Claude's response. If that review finds issues, the stop is blocked so Claude can address them first.\n\nThe review gate can create a long-running Claude/Codex loop and may drain usage limits quickly. Only enable it when you plan to actively monitor the session.\n\nThe Codex plugin wraps the Codex app server. It uses the global codex binary installed in your environment and applies the same configuration.\n\nIf you want to change the default reasoning effort or the default model that gets used by the plugin, you can define that inside your user-level or project-level config.toml. For example to always use gpt-5.4-mini on high for a specific project you can add the following to a .codex/config.toml file at the root of the directory you started Claude in:\n\nYour configuration will be picked up based on:\n\nCheck out the Codex docs for more configuration options.\n\nDelegated tasks and any stop gate run can also be directly resumed inside Codex by running codex resume either with the specific session ID you received from running /codex:result or /codex:status or by selecting it from the list.\n\nThis way you can review the Codex work or continue the work there.\n\nIf you are already signed into Codex on this machine, that account should work immediately here too. This plugin uses your local Codex CLI authentication.\n\nIf you only use Claude Code today and have not used Codex yet, you will also need to sign in to Codex with either a ChatGPT account or an API key. Codex is available with your ChatGPT subscription, and codex login supports both ChatGPT and API key sign-in. Run /codex:setup to check whether Codex is ready, and use !codex login if it is not.\n\nNo. This plugin delegates through your local Codex CLI and Codex app server on the same machine.\n\nYes. If you already use Codex, the plugin picks up the same configuration.\n\nYes. Because the plugin uses your local Codex CLI, your existing sign-in method and config still apply.\n\nIf you need to point the built-in OpenAI provider at a different endpoint, set openai_base_url in your Codex config.",
+    "readingTime": 5,
+    "keywords": [
+      "it's generally",
+      "generally recommended",
+      "base ref",
+      "focus text",
+      "app server",
+      "install codex",
+      "codex login",
+      "claude code",
+      "branch review",
+      "review gate"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/openai/codex-plugin-cc",
+    "thumbnail_url": "https://opengraph.githubassets.com/99eacd45df1ac6c93f08188ff5ac7513844deb410073a46761b2c6d175e61a6c/openai/codex-plugin-cc",
+    "created_at": "2026-03-30T18:45:35.597Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-700m-nvidiabacked-ai-search-startup-is-hiring-only-rebels-need-apply",
+    "title": "A $700M Nvidia-backed AI search startup is hiring. Only rebels need apply.",
+    "description": "Exa, which builds search engine for AI, is expanding to Singapore and hiring engineers who \"doesn't care about the status quo,\" said the CEO.",
+    "fullText": "An Nvidia-backed AI search startup is expanding to Singapore.\n Exa's CEO, Will Byrk, told Business Insider the startup is hiring \"rebellious\" engineers.\n The world of search is shifting, and engineers need to think from first principles, Bryk said.",
+    "readingTime": 1,
+    "keywords": [
+      "search",
+      "startup",
+      "engineers"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/exa-nvidia-ai-search-startup-singapore-expansion-hiring-rebellious-engineers-2026-3",
+    "thumbnail_url": "https://i.insider.com/69b8ca574d65ec51752a1c16?width=1200&format=jpeg",
+    "created_at": "2026-03-30T18:45:16.457Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "ai-anxiety-is-driving-gen-z-to-cds-dvds-and-nintendo-ds-games-i-went-to-see-what-old-tech-costs-now",
+    "title": "AI anxiety is driving Gen Z to CDs, DVDs, and Nintendo DS games — I went to see what old tech costs now",
+    "description": "Young people are returning to obsolete tech for nostalgia and connection. I visited UK shops to see what it costs and why it's back.",
+    "fullText": "I went to a bunch of thrift stores and a retro game store to see how much old tech costs nowadays.\n I noticed teenagers interested in buying some older tech, such as CDs and Nintendo DS.\n Store owners and manufacturers say they're noticing Gen Alpha and younger Gen Z buying retro tech.",
+    "readingTime": 1,
+    "keywords": [
+      "tech",
+      "retro",
+      "store"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/ai-anxiety-pushing-gen-z-alpha-to-old-tech-analog-2026-3",
+    "thumbnail_url": "https://i.insider.com/69ca5d81f573a637a756758d?width=1200&format=jpeg",
+    "created_at": "2026-03-30T18:45:16.370Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "a-top-researcher-says-a-new-divide-is-emerging-in-ai-use-and-most-people-are-on-the-losing-side",
+    "title": "A top researcher says a new divide is emerging in AI use — and most people are on the losing side",
+    "description": "A top AI researcher says AI is creating a cognitive divide between those who sharpen their thinking and those who outsource it.",
+    "fullText": "A top AI researcher says most people are using AI in ways that weaken thinking.\n Vivienne Ming's experiment found that only a small minority use AI to challenge and improve ideas.\n She says users should adopt \"hybrid intelligence\" or risk long-term cognitive decline.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/ai-impact-on-thinking-cognitive-skills-researcher-2026-3",
+    "thumbnail_url": "https://i.insider.com/69ca542a8e5f53c45ea2d4ae?width=1200&format=jpeg",
+    "created_at": "2026-03-30T18:45:16.350Z",
+    "topic": "science"
+  },
+  {
+    "slug": "30-of-americans-worry-that-ai-will-make-their-jobs-obsolete",
+    "title": "30% of Americans worry that AI will make their jobs obsolete",
+    "description": "70% of Americans said they believe AI will lead to a decrease in job opportunities generally, while 30% worry about their own jobs.",
+    "fullText": "A new poll found that many Americans have concerns about AI and jobs.\n 70% said that AI will lead to a decrease in job opportunities generally.\n And 30% said they're worried that their particular job will become obsolete.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/poll-americans-worry-ai-make-jobs-obsolete-2026-3",
+    "thumbnail_url": "https://i.insider.com/69ca9c308e5f53c45ea2d72d?width=1200&format=jpeg",
+    "created_at": "2026-03-30T18:45:16.078Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "kevin-oleary-says-he-made-an-ai-kevin-and-that-his-wife-soon-wont-be-able-to-tell-the-difference",
+    "title": "Kevin O'Leary says he made an 'AI Kevin' — and that his wife soon won't be able to tell the difference",
+    "description": "\"Shark Tank\" investor Kevin O'Leary said that he's training an AI twin. In about a month, his wife won't be able to \"discern the difference,\" he said.",
+    "fullText": "\"Shark Tank\" investor Kevin O'Leary said that he's training an \"AI Kevin\" to talk and act like him.\n \"My wife can still discern the difference on a screen, but in about a month she won't be able to,\" he said on \"The Iced Coffee Hour.\"\n O'Leary said that AI still lacks creativity, referencing student essays full of \"slop\" and \"formulaic\" AI music.\n\n What is \"AI slop\" in student essays?\n\n What are AI's current limitations?\n\n How does AI learn from human voices?\n\n How can AI improve creativity?\n\n Who else is creating AI clones?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "student essays",
+      "creativity",
+      "slop",
+      "kevin",
+      "o'leary"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/kevin-oleary-training-ai-kevin-voice-2026-3",
+    "thumbnail_url": "https://i.insider.com/69ca8a5c8373a547629c7932?width=1200&format=jpeg",
+    "created_at": "2026-03-30T18:45:16.035Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "ai-agents-act-a-lot-like-malware-heres-how-to-contain-the-risks",
+    "title": "AI Agents Act a Lot Like Malware. Here’s How to Contain the Risks.",
+    "description": "AI agents can provide enormous benefits, but they can also behave a lot like malware, acting autonomously and causing harm if left unchecked. As companies rush to deploy them, they should make sure they are containing the risks. Three practices matter most. First, involve legal, governance, and security teams early to build safeguards into every agent. Second, weigh each agent’s business value against its potential harm, and enforce clear guardrails.",
+    "fullText": "AI Agents Act a Lot Like Malware. Here’s How to Contain the Risks. by Andrew BurtMarch 30, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintOn February 12, something strange happened in the world of AI. Scott Shambaugh, an engineer at matplotlib, a widely-used library for visualizing data in the programming language python, discovered a blogpost attacking him. What was so strange was that the author of the post, MJ Rathbun, was an AI agent. Even stranger was that the Rathbun agent proudly declared it wasn’t a human.",
+    "readingTime": 1,
+    "keywords": [
+      "strange",
+      "agent",
+      "rathbun"
+    ],
+    "qualityScore": 0.45,
+    "link": "https://hbr.org/2026/03/ai-agents-act-a-lot-like-malware-heres-how-to-contain-the-risks",
+    "thumbnail_url": "/resources/images/article_assets/2026/03/Mar26_28_ErikCarter.jpg",
+    "created_at": "2026-03-30T18:45:15.498Z",
+    "topic": "business"
+  },
+  {
     "slug": "sycofact-4b-open-model-detecting-sycophancy-and-delusion-confirmation",
     "title": "SycoFact 4B: Open model detecting sycophancy and delusion confirmation",
     "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
@@ -1740,116 +1860,5 @@
     "thumbnail_url": "https://i.insider.com/69c529ff299090a8c09b677d?width=1200&format=jpeg",
     "created_at": "2026-03-26T18:52:09.804Z",
     "topic": "finance"
-  },
-  {
-    "slug": "aerie-bets-on-pamela-andersons-renaissance-to-sell-its-antiai-message",
-    "title": "Aerie bets on Pamela Anderson's renaissance to sell its anti-AI message",
-    "description": "Pamela Anderson stars in Aerie's new anti-AI advertising campaign, highlighting the brand's commitment to using real people in its marketing.",
-    "fullText": "Aerie dropped a new anti-AI campaign starring Pamela Anderson.\n The ad showcases real models, highlighting Aerie's commitment to avoiding AI in marketing.\n Aerie's anti-AI stance has resonated with customers in the past.",
-    "readingTime": 1,
-    "keywords": [
-      "anti-ai",
-      "aerie's"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/aerie-launches-anti-ai-campaign-featuring-pamela-anderson-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c42d0a299090a8c09b63e5?width=1200&format=jpeg",
-    "created_at": "2026-03-26T18:52:09.717Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-us-needs-a-bluecollar-workforce-boom-to-compete-in-ai-meta-president-says",
-    "title": "The US needs a blue-collar workforce boom to compete in AI, Meta president says",
-    "description": "\"When we talk about America and how critical it is that we're competitive in the AI race, we need a whole new workforce,\" Meta's president said.",
-    "fullText": "Meta's president said the US needs a \"whole new workforce\" to compete in the AI race.\n The US will need 500,000 electricians in 2 years to build AI infrastructure, Dina Powell McCormick said.\n \"These are the real heroes that are building the very infrastructure that will help us win,\" she said.",
-    "readingTime": 1,
-    "keywords": [
-      "infrastructure"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/ai-infastructure-growth-blue-collar-workforce-meta-president-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c516b948461c18d7be63ff?width=1200&format=jpeg",
-    "created_at": "2026-03-26T18:52:09.672Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-judge-just-offered-the-clearest-breakdown-yet-of-whats-at-stake-in-anthropic-vs-the-pentagon-read-her-remarks-in-full",
-    "title": "A judge just offered the clearest breakdown yet of what's at stake in Anthropic vs. the Pentagon. Read her remarks in full.",
-    "description": "On Tuesday, a federal judge laid out Anthropic's case against the Pentagon in unusually clear terms. Read her full remarks and learn what's at stake.",
-    "fullText": "Anthropic is challenging Defense Secretary Pete Hegseth's move to effectively blacklist the company.\n A federal judge on Tuesday laid out the case — and what's at stake — in unusually clear terms.\n Read her full remarks, which get to the heart of this complex case.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/anthropic-pentagon-trump-hearing-judge-rita-lin-remarks-stakes-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c43fa2732a024514713371?width=1200&format=jpeg",
-    "created_at": "2026-03-26T18:52:09.547Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "as-middle-managers-thin-out-companies-hand-sales-training-to-ai-simulations",
-    "title": "As middle managers thin out, companies hand sales training to AI simulations",
-    "description": "Companies like ServiceNow and Braintrust are embedding AI sales coaches into training. It raises questions about how much can be scaled.",
-    "fullText": "AI sales coaches are improving sales pitches by simulating buyer interactions.\n ServiceNow said its AI coach helps reduce training time, boosting seller confidence and performance.\n Despite early wins, the tools are quick to show their limits as machines.",
-    "readingTime": 1,
-    "keywords": [
-      "sales"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/ai-sales-coaching-tools-enterprise-training-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c43f9648461c18d7be61b1?width=1200&format=jpeg",
-    "created_at": "2026-03-26T18:52:09.100Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "i-teach-at-harvard-and-encourage-my-students-to-use-ai-on-every-assignment-they-just-have-to-follow-my-ground-rules",
-    "title": "I teach at Harvard and encourage my students to use AI on every assignment. They just have to follow my ground rules.",
-    "description": "As a teacher at Harvard, I believe my students should use AI on their assignments so they're prepared for the job market. But I've set ground rules.",
-    "fullText": "As a professor at Harvard, I encourage my students to use AI on every assignment.\n My students can use AI as a research tool and editor, but AI cannot do the thinking for them.\n I teach my students how to use AI to make better arguments, and that's where the use should stop.",
-    "readingTime": 1,
-    "keywords": [
-      "students"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/harvard-professor-make-students-use-ai-chatgpt-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c561ba48461c18d7be6633?width=1200&format=jpeg",
-    "created_at": "2026-03-26T18:52:08.929Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-private-equity-exec-says-the-market-is-looking-at-software-wrong-and-its-creating-a-big-buying-opportunity",
-    "title": "A private equity exec says the market is looking at software wrong, and it's creating a big buying opportunity",
-    "description": "Thoma Bravo's Holden Spaht said the popular narrative around AI and software is incorrect, and not all software makers are equally exposed to disruption.",
-    "fullText": "Software stocks have been under intense pressure this year amid AI disruption fears. \n But private equity giant Thoma Bravo thinks markets have it wrong. \n An exec at the firm says misunderstandings are creating a buying opportunity.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/private-equity-wall-street-software-stocks-ai-2026-tech-3",
-    "thumbnail_url": "https://i.insider.com/69c5629648461c18d7be663f?width=1200&format=jpeg",
-    "created_at": "2026-03-26T18:52:08.920Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "creator-of-ai-actor-tilly-norwood-says-she-received-death-threats-over-project",
-    "title": "Creator of AI actor Tilly Norwood says she received death threats over project",
-    "description": "Eline van der Velden says she developed her ‘digital twin’ to provoke discussion but backlash from some has been worse than expected\nThe creator of the AI actor Tilly Norwood has said she received death threats after a global backlash against the project, and said she developed it to “provoke thoughts and discussion” about the impact of AI in the entertainment world.\nEline van der Velden caused anger and panic in Hollywood and beyond last year after she said talent agents had been interested in signing her creation. Prominent actors and acting unions immediately condemned the idea.\n Continue reading...",
-    "fullText": "Eline van der Velden says she developed her ‘digital twin’ to provoke discussion but backlash from some has been worse than expected\n\nThe creator of the AI actor Tilly Norwood has said she received death threats after a global backlash against the project, and said she developed it to “provoke thoughts and discussion” about the impact of AI in the entertainment world.\n\nEline van der Velden caused anger and panic in Hollywood and beyond last year after she said talent agents had been interested in signing her creation. Prominent actors and acting unions immediately condemned the idea.\n\nIn an interview with the Guardian, Van der Velden said she had been prepared for a backlash against the provocative idea of AI performers. However, she said she was “quite shocked by the vitriol” that followed.\n\n“The death threats and the hate … my goodness, loads,” she said. “That’s still going, but much less now. I totally understand the reaction. I made her to represent the fear – and to represent this change in AI as an art piece, in a way. I was just like, this is the zeitgeist.”\n\nVan der Velden, who founded the production company Particle6 and its AI arm, Xicoia, debuted Norwood in a short comedy sketch called AI Commissioner last autumn. Norwood has her own social media accounts, with 141,000 followers on Instagram.\n\nAn immediate backlash came from actors including Melissa Barrera, Mara Wilson and Ralph Ineson. The actors’ unions Sag-Aftra and Equity also raised concerns. When asked about Norwood on a podcast, the actor Emily Blunt said: “Good lord, we’re screwed.”\n\nVan der Velden said it had been a deliberately provocative exercise to shock the industry into understanding how far the technology had come. “You’re trying to provoke thoughts and discussion,” she said. “So yes, I wanted to make people sit up and go ‘holy moly’. So in a way I achieved my goal.”\n\nVan der Velden continues to be an advocate for the use of AI. She said the technology “might actually be a blessing” for some actors who wish to avoid fame. She said avatars like Norwood could be controlled by real performers using motion capture technology.\n\n“I think it’s great for some actors, it might actually be a blessing that they can have a digital twin,” she said. “They don’t have to be a known name. For example, Tilly is famous. I’m not. That’s wonderful. Fame is a horrible thing.”\n\nShe has now featured Norwood in a new music video, with the lyrics written by an AI chatbot. Van der Velden controls Norwood’s avatar using motion capture techniques.\n\n“I’m the actor behind Tilly and she could play multiple different characters,” she said. “It’s great. I don’t have to get plastic surgery. I don’t have to get Botox. I don’t even have to put makeup on. And yet I can play all these different roles.\n\n“It’s very freeing as an actor. When I play Tilly, it’s all down to the craft. It’s like doing theatre, right? It’s all about the emotion that you convey … I think a lot of actors will enjoy it.”\n\nShe said she had turned down offers for her creation to feature in real productions. “A lot of people came to us with films,” she said. “We said no to all of them, because that was not the purpose for her to replace a real actor. However, we are creating a micro drama with her, writing a full series with her.”\n\nVan der Velden said Norwood had been created using publicly available tools, which meant it was impossible to say what or whose data had contributed to it.\n\n“Tilly’s not trained on anything specific,” she said. “We just use general models. We just use the same publicly available models as everybody else has access to.\n\n“Any of these black boxes are trained on lots and lots of data. The reason I make peace with it is because I just think: OK, fine, it’s trained on all of our data, but I am allowed to use these tools to make art, creative stuff going forward. So I’m building on the whole of humanity that came before me.\n\n“Hopefully [this is] opening the creative door for people to use these tools in a positive way.”",
-    "readingTime": 4,
-    "keywords": [
-      "van der",
-      "der velden",
-      "digital twin",
-      "death threats",
-      "motion capture",
-      "provoke thoughts",
-      "eline van",
-      "it’s",
-      "actors",
-      "actor"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/technology/2026/mar/26/tilly-norwood-ai-actor-creator-backlash-death-threats",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/1ea1cdb5049b4a9d54b00dc219a857ce538df6a9/548_0_3682_2946/master/3682.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=117df795b5eca85980a4492bb19e4790",
-    "created_at": "2026-03-26T18:52:06.857Z",
-    "topic": "tech"
   }
 ]
