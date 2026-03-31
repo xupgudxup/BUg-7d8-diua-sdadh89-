@@ -1,5 +1,29 @@
 [
   {
+    "slug": "adding-custom-webhooks-to-my-samsung-smart-ring",
+    "title": "Adding custom webhooks to my Samsung smart ring",
+    "description": "Open-source SDK for Samsung Galaxy Ring gesture detection over BLE - TheVellichor/SamsungOpenRing",
+    "fullText": "This is an independent hobby project by a tinkerer who wanted more from his Galaxy Ring. Samsung's double-pinch gesture is limited to two hardcoded actions (camera shutter and alarm dismiss). This project unlocks that gesture for whatever you want — open your parking gate, control your smart home, trigger automations, or anything else a webhook can reach. It is built for personal use and educational exploration of BLE protocols. Not affiliated with Samsung. No warranty. Use at your own risk.\n\nOpen-source SDK and companion app for the Samsung Galaxy Ring. Enables custom gesture-triggered actions without Samsung's official SDK.\n\nSamsungOpenRing connects to your Galaxy Ring over BLE as a second GATT client (alongside Samsung's official app) and lets you:\n\nThe Samsung Galaxy Ring's BLE protocol was reverse-engineered from the companion app and live traffic captures. SamsungOpenRing sends the same ENABLE_GESTURE command that Samsung's camera app sends, allowing the ring to report pinch gestures directly to our app.\n\nNo root required. No modifications to Samsung's app. No ADB setup for basic functionality.\n\nSee RFC-SGR-001 for the full protocol specification.\n\nSamsungOpenRing does not keep gestures enabled 24/7. The trigger system ensures gesture detection is only active when a trigger condition is met (e.g., connected to car Bluetooth). When no trigger is active, the ring operates normally with no additional battery drain.\n\nBLE connection as a second client adds negligible phone battery usage (~1-2% per day when active).\n\nThe Galaxy Ring uses a proprietary BLE protocol built on Samsung's Accessory Protocol (SAP). Key details:\n\nFull protocol specification: RFC-SGR-001\n\nThis project is not affiliated with, endorsed by, or sponsored by Samsung Electronics. \"Samsung\" and \"Galaxy Ring\" are trademarks of Samsung Electronics Co., Ltd.\n\nThis software interacts with the Galaxy Ring using the same BLE commands that Samsung's official companion app uses. However, use at your own risk. The authors take no responsibility for any impact on your ring's functionality, battery life, or warranty.",
+    "readingTime": 2,
+    "keywords": [
+      "samsung electronics",
+      "ble protocol",
+      "protocol specification",
+      "samsung galaxy",
+      "companion app",
+      "galaxy ring",
+      "trigger",
+      "project",
+      "gesture",
+      "active"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/TheVellichor/SamsungOpenRing",
+    "thumbnail_url": "https://opengraph.githubassets.com/d79559da0c0d7c650329cda02a47e1e2aab50b86185f2e449847020b96e710e0/TheVellichor/SamsungOpenRing",
+    "created_at": "2026-03-31T01:20:16.380Z",
+    "topic": "tech"
+  },
+  {
     "slug": "fund-that-bet-big-on-samsung-pushes-for-adrs-to-raise-valuation",
     "title": "Fund That Bet Big on Samsung Pushes for ADRs to Raise Valuation",
     "description": "A fund manager that has made Samsung Electronics Co. its biggest bet wants the South Korean company to list its shares in the US, a move it says would raise the chipmaker’s valuation.",

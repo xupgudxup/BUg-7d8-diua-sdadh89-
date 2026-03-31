@@ -1,5 +1,193 @@
 [
   {
+    "slug": "what-happens-when-ai-stops-being-artificially-cheap",
+    "title": "What Happens When AI Stops Being Artificially Cheap",
+    "description": "The subsidy era is ending. Here's what comes next.",
+    "fullText": "I've been thinking about what happens when AI inference costs stop being subsidized. Every major lab is losing money on inference right now, and that's going to change. I don't know exactly how it plays out, but here's where my head is at.\n\nGood enough is good enough. Most tasks people use AI for don't need frontier models. Writing summaries, extracting data, answering questions, drafting emails — none of that requires the smartest model available. I think this covers 95% of real-world usage. The top 5% — hard research, complex reasoning, genuinely creative work — still needs frontier. But that's not what most people are doing.\n\nOpen-source absorbs the work. A lot of that 95% shifts to open-source models that are small and virtually free to run. Open-weight models lag frontier by about three months now. Three months. That gap keeps shrinking.\n\nThere's still vast amounts of slack in the rope. I've been saying this since 2023, and it keeps being true. I don't think we've come close to finding out how efficient inference can get. We're probably at 1-5% of the efficiency we'll have over the next decade, and that might be orders of magnitude too conservative.\n\nFrontier gets more expensive, everything else gets cheaper. I expect a price jump at the top tier because the labs can't keep giving that away. But lower-tier cloud models — Haiku, the nano models, Flash — will compete hard with open-source on price. They have to, because losing that traffic means losing the customer.\n\nWhat humans want doesn't change that fast. The workflows and tasks most people need are largely static. The top 5% of requirements might stay expensive. But most human tasks land in the bottom 95%, and I expect that to be very affordable.\n\nI'm still thinking through a lot of this, but here's where I currently land: the subsidy era ends, and what replaces it is a split — expensive frontier for the few who need it, cheap everything else for everyone who doesn't. Most people won't even notice.",
+    "readingTime": 2,
+    "keywords": [
+      "everything else",
+      "frontier",
+      "models",
+      "inference",
+      "don't",
+      "tasks",
+      "open-source",
+      "expensive",
+      "i've",
+      "that's"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://danielmiessler.com/blog/ai-stops-being-artificially-cheap",
+    "thumbnail_url": "https://danielmiessler.com/images/ai-stops-being-artificially-cheap-thumb.png?t=1774913638421",
+    "created_at": "2026-03-31T01:20:17.105Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "using-ai-to-inflate-your-ego",
+    "title": "Using AI to inflate your ego",
+    "description": "Interesting behaviors around using or not using AI.",
+    "fullText": "Personally, I’m open to retrying AI use cases every now and then. I’ve written about it before, and I freely share the fails and wins in chats I am part of.\n\nIn my case, it’s no use to endorse it based on hype online, nor to try it once and keep my opinion fixed on that experience. I’m expected to engage with it somewhat at work, and independently, I want to know what I can expect from these tools so I can make better decisions and write better when it comes to the data protection impact these tools have. No use to stick my head in the sand when my desired career path is touched so heavily by it.\n\nWhat bewilders me is how many people seem to use the tool (and topic in general) to inflate their ego. I don’t just mean the literal sycophancy displayed in the model outputs, but also in the conversation around its use.\n\nThere’s a group of people that are saying they do very important, difficult and smart work every day thanks to AI, in a pace and way humans just can’t. The gist of it is:\n\n“I am better than you because I use AI, and have more productive output than you, and do more difficult work. The fact I need AI to do it means my work is very demanding, very admirable and at the bleeding edge, and humans could never do it like this, or have an output this fast. The fact that you don't want or need to use AI for your work must mean it's low-value.”\n\nOften, they remain very vague about what that work even is, so it's hard from the outside to verify that.\n\nOn the other hand, there are also people who do the inverse: They don’t plainly say that AI performed badly in their use cases, so it’s not useful for them, but instead, it becomes a way to prove that the work is so difficult and demanding that AI could just never do that. Something like:\n\n“Behold, I am god’s gift to research and problem solving, and the machine cannot beat my perfect brain. The fact that you are able to use AI for your work must mean you are stupid and your work is easy, since AI can, at best, only do stupid and easy work.”\n\nBoth of these groups then make sweeping generalizations of what other people should do.\n\nThe former group tends warn that “you’ll get left behind!”. It’s such a pathetic cope. It looks like people who were never the top at any skill in their environment, but now think they can finally have an edge thanks to adopting early and shitting out as much as possible in the quest to \"learn\" or hit some kind of jackpot, attract the right eyes. They have to cling to the fantasy that the nay-sayers will have a disadvantage somehow just so they can feel justified and special.\n\nBut tell me, were you left behind when you started using Excel late? Was it bad you only learned office stuff when you needed it? Were you not able to catch up? Chances are, it makes no difference and with some effort and a workshop or YouTube videos, you can use the tools equally well. In the case of LLMs, using it has never been easier. You can just use plain, natural language! No submenus, settings, buttons, search operators and the like to remember. It‘s designed to be easy.\n\nPrompt engineering is and was always a scam. There are no secret incantations you only learn in a 500 Euro class. Anyone can use the tool, learn, and refine. It’s embarrassing to pretend otherwise. Coworkers that have trouble with basic Outlook and Word do surprisingly well with ChatGPT. And why wouldn't they? They have spoken a natural language all their life and have probably trained multiple other new employees in their career; they know how to explain standards and expectations, and how to explain tasks, to a human and a tool.\n\nThe other group I mentioned is so weirdly dismissive based on their attempts at a very niche, still unstable use cases. I understand criticism that’s about directly advertised claims by the companies that aren’t fulfilled, or commonly seem use cases online that just don’t actually seem to reliably work; I wrote about the same thing in the past, and how the free models available are not capable enough to do many of the advertised things we are inundated with.\n\nWhat I don’t understand is thinking\n\n“The LLM couldn’t generate a PDF with all my branding included and a table with this and that and accurate graphs and footnotes with sources. That means it’s not even useful to create an email draft, or for grandma’s grocery shopping list, and you shouldn’t use it for a motivational letter.”\n\nWhy can’t there be nuance? It obviously sucks bad for some complex stuff, but it really hits the corporate bullshit text creation just right.\n\nDon’t tell me I don’t get it - I recently tried out what it would recommend for a business card and it said I should use a transparent plastic card to signal transparency in my work. Of course I see how stupid it can be, even for some simple stuff. I get how it could royally screw up grandma's shopping list.\n\nBut for me, both of the groups previously identified also ignore that most people simply aren’t in these high-stakes positions, interested in these hobbies or working these jobs.\n\nMany have no need or interest to vibecode some custom solution for their smart home or a family app that rewards homework time of the kids with gaming time automatically just to sell it to VCs or make a SaaS out of it, and they aren’t researchers or problem solvers coding complicated stuff or writing the next bleeding-edge paper in the field. They aren't hustlers scared of being outpaced by competition.\n\nMany people on this planet are taxi and bus drivers, nurses, kindergarteners, cleaners, cashiers, baristas, warehouse workers, construction workers, and the like. Or doing a boring secretary job that is about writing e-mails and sending out meeting details via buttons, using templates or pre-generated e-mails.\n\nThey’re some boomers or part-time parents who aren’t that good with tech or don’t need much of it and pass office time clicking a couple buttons. What are you optimizing for, when you realistically only work like four hours of your eight hours a day and it’s the easiest work ever, just following protocol? They sure as hell aren’t interested in automating themselves out of a job, and they don’t wanna work anything else or do something more demanding.\n\nThey wanna earn money with the least amount of effort and with the least amount of changing their workflow, and they don’t particularly care for computers or hustle. But if they can get out of some annoying text-based stuff like some e-mail aspect, maybe they’ll use it. And that's fine! They shouldn't be told by some AI fans that them not letting AI take over everything is making them a redundant NPC that has nothing to offer, or told by AI haters that doing easy work that AI can actually somewhat do means they're doing worthless work.\n\nThe funny thing is: Their jobs often are just easy enough that it is faster and more foolproof to do it themselves than attempt a vibecoded or generated solution, while also having many use cases that work most reliably at this point and can actually be recommended.\n\nFor example: Writing a short email thanking your boss for something is faster done by yourself than typing the prompt; but asking an LLM to make your angry email disagreeing with your superior sound nicer and more diplomatic works. My coworker can’t vibecode a solution to let AI enter text fields in the database automatically, but she can ask ChatGPT how to hide cells in Excel (nevermind that a search engine could also do this).\n\nI definitely am in that boat of “no use, better done quickly myself” with the core part of my job. So I just don’t understand why so many people need to brag that they’re moving the needle so much with their daily work either by using or not using AI, and subtly also shitting on people whose jobs are either replaceable with AI or aren’t fit for AI use, which I allege many fall into!\n\nIt can’t be everyone that has such an unusual, high impact knowledge worker job where AI is either the magic enabler or not capable enough. I mean for fucks sake, seems like most of them posting the stuff are students, trainees, junior devs, or vague office job. It’s like people use this controversial topic to present themselves as less expendable and more important than they actually are.\n\nThere’s also a group of people who won’t intellectually engage with the topic at all because they just do what everyone else does.\n\nTheir personal podcast idols have about AI? Better give it all the data and put together a self-improvement plan and let it talk you through some journaling prompts. They don’t wanna discuss the bad sides because the people they admire love it. In my experience, they’re also very easily impressed with shoddy work just because it’s written in a charismatic way. “This was groundbreaking” and it’s something a Tumblr girl would have posted at age 14.\n\nAll your friends hate AI? Better not touch it, out of fear of social repercussions. They can’t talk with you about the bullshit it did last time they tried it, or ethical, privacy, or environmental concerns, because they just never actually cared to develop an opinion aside from not wanting to be hated by their circle. That’s boring and people pleaser behavior. I think you look silly if you have no deeper reason to not use something, no interesting arguments.\n\nA tangent about arguments: I no longer care about whether images created by AI are good or bad and I don’t care about water or electricity usage.\n\nThat is because the capabilities as well as resource usage can and will likely improve, and to me, are more representative of missing regulation and a shitty government than the tech itself; it’s better happening in a context more removed from the actual core of the tool and in how the industry needs to be regulated. I want to be more precise in what is actually the fault of the tool vs. the fault of the region many of these services are located in, and its political problems.\n\nIf you claim to hate the tool, but only for the fact that it makes soulless images and it starts making better ones, what then? I'm sure you won't suddenly have no concerns! You usually hate the tech for other reasons than that, so we should focus on these better arguments instead. I think it’s much more interesting to debate whether it is art or not, about responsibility in war or accidents, or focus on the privacy aspect, the intellectual theft, the e-waste, job market effects and so on.\n\nAdditionally, if we truly focus on electricity and water use (irrespective of regulation, placement, and other factors that cause issues of droughts and rising prices thanks to data centers), I think we would quickly have to argue against the terabytes of useless bullshit we all hurl onto the net to be stored for ages, take up space, and are another reason for more data centers and people’s increased use of their devices. Even your well-meaning blog post about enjoying a good sandwich counts, or your favorite cat video.\n\nI don’t want to discuss an intellectual bar or importance metric that online content has to clear before it can be uploaded because of our precious resources, because it would hit most of us, and it would hit art and marginalized voices. If we haven’t ever seriously discussed looking critically at each search engine use, each video we watch etc. as something potentially excessive that uses too much resources compared to how useful it was, I don’t know if this is the right way to start.\n\nI think for many, it’s only okay to start that conversation because it’s about something they don’t (yet?) use. It’s hypocritical, as many are not ready to give up their other online consumption behaviors for resource reasons either, because they don’t even cease them when mental health and privacy are harmed. 🤡\n\nLastly, there is some weird ego stuff going on about talking or not talking about AI.\n\n“You hate AI, yet you talk about it. Curious!”\n\n“Why do you wanna focus on something negative?”\n\n“The more you talk about it, the more you speak it into existence.”\n\nI don’t need to speak it into existence; billion-dollar industries funnel money into the bubble and force it into every device and software and ad. Don’t be disingenuous. Each industry, or art form (if you believe AI art is art) needs its critics. And as AI fans love to bring up, every new invention has had its moral panic, so if that also applies here, why are you mad?\n\nOn the other side: Boohooo, you avoid the word \"AI\" to “not give it more power”; fine, have fun self-censoring for virtue signalling reasons, Mr. I-did-it-with-all-ten-fingers-and-a-few-braincells.\n\nI will keep writing about it, because everywhere I look, I just see people exploiting both ends of the spectrum for views and money, making extreme claims to get engagement. Who screams the loudest and makes the most absolute judgments is seen as more correct, after all.\n\nI will write about the AI Act, about labeling requirements, and more of the spectacular failures and okay-ish results I’ve had, though, and I will have to name the beast. And I don't care to read weird ego boosting shit swirling around elsewhere.\n\nReply via email\n\nPublished \n 28 Mar, 2026",
+    "readingTime": 12,
+    "keywords": [
+      "natural language",
+      "shopping list",
+      "search engine",
+      "weird ego",
+      "don’t understand",
+      "ai better",
+      "it’s",
+      "stuff",
+      "tool",
+      "aren’t"
+    ],
+    "qualityScore": 1,
+    "link": "https://blog.avas.space/ai-ego/",
+    "thumbnail_url": "none",
+    "created_at": "2026-03-31T01:20:16.976Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ask-hn-after-three-years-of-open-source-software-i-cant-stand-it",
+    "title": "Ask HN: After three years of open source software, I can't stand it",
+    "description": "The AI Markdown Editor. Contribute to drl990114/MarkFlowy development by creating an account on GitHub.",
+    "fullText": "Currently, MarkFlowy is in the beta stage, and it is recommended to use it with data backups.\n\nBuilt-in AI: Currently supports Copilot, one-click export of dialogues, translation of articles to any language, and article summaries. It supports large models like DeepSeek and Chatgpt, making them your intelligent assistant.\n\nlightweight: MarkFlowy is based on Tauri, boasting a size of less than 20MB and improved performance.\n\nMultiple Editing Modes: MarkFlowy uses Prosemirror as its core editor, offering high extensibility and a superior editing experience. It supports multiple editing modes, such as source code and wysiwyg.\n\nEditing Multiple File Types: In addition to Markdown, it supports editing JSON, TXT, and other file types.\n\nCustom Themes: Supports custom themes, and you can share your themes with others.\n\nCustom Keyboard Shortcuts: Supports custom keyboard shortcuts to meet individual needs.\n\nFile Management: A powerful file tree that supports drag-and-drop movement, global search, and other common functions.\n\nMulti-language support: Supports multiple languages ​​including Chinese, English, Spanish, Japanese, and French.\n\nAvailable for Linux, macOS and Windows.\n\nBecause of Apple’s security policy restrictions on software without developer certification, the macOS aarch64 version cannot be downloaded and used directly. You can ignore the limit by doing the following:\n\nYou can download it from the UpgradeLink download page or GitHub Release\n\nActually, the initial inspiration for MarkFlowy stemmed from a casual conversation with a friend a few years ago. As developers, we shared many expectations for an ideal Markdown editor. After trying many existing applications, I felt they couldn't fully meet our comprehensive needs in terms of efficiency, aesthetics, lightweight design, and workflow integration. We envisioned our ideal editor together. Although we later went our separate ways and lost touch, that seed of desire to create something beautiful has always remained in my heart.\n\nIt was this initial aspiration that propelled me step by step to transform MarkFlowy from a concept into reality. I hope to create a lightweight, intelligent editor that not only handles content securely and reliably but also improves editing efficiency through AI.\n\nMarkFlowy is a product, and also a testament to a life journey. Through continuous learning and development, it has grown into my response to the concepts of efficiency, intelligence, and lightweight. I hope MarkFlowy will become a tool that everyone finds convenient and enjoyable, and I welcome everyone to experience it and provide valuable feedback.\n\nThe current MarkFlowy is still in its infancy, and there may be some bad experiences or bugs, for which I am sorry. All partners who are interested or encounter usage problems are welcome to submit issues or PR to participate in this project.\n\nYou can read CONTRIBUTING to know how to start the project and modify the code, Welcome to participate in code contribution.\n\nMarkFlowy is completely and permanently open source, if you want to support MarkFlowy, you can star this project. For special support, please contact me via email.\n\nThe development of MarkFlowy cannot be separated from these contributors. They have contributed a lot of abilities to MarkFlowy. Meanwhile, welcome to follow them! ❤️",
+    "readingTime": 3,
+    "keywords": [
+      "keyboard shortcuts",
+      "custom keyboard",
+      "editing modes",
+      "custom themes",
+      "supports custom",
+      "lightweight",
+      "welcome",
+      "markflowy",
+      "code",
+      "efficiency"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/drl990114/MarkFlowy",
+    "thumbnail_url": "https://opengraph.githubassets.com/94c234ce262408a1bd6c4044eb3f7e7a6687aaca18420462509fcf9602e7d66d/drl990114/MarkFlowy",
+    "created_at": "2026-03-31T01:20:16.304Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "whispr-flow-vision-flow",
+    "title": "Whispr Flow – Vision Flow",
+    "description": "Gesture-driven, voice-native computing. Draw in the air, manipulate 3D models with your hands, speak to AI. A proof-of-concept for the post-keyboard future. - tanayvin1216/VisionFlow",
+    "fullText": "I kept noticing how weird it is that we still type everything. You're standing at a whiteboard sketching and pointing and talking through ideas — and then you sit down at a computer and all of that turns into a cursor in a text box.\n\nVisionFlow started as me wondering what it would feel like to skip that translation step entirely. Just use your hands to move things around, speak when you want to say something, and let the computer figure out the rest.\n\nIt's a proof-of-concept. I built it to see if gesture + voice + AI could actually work as one continuous loop — and honestly, it kind of does.\n\nGesture — MediaPipe hand tracking in the browser at 30-60fps. Pinch to draw, grab to rotate a 3D model, two hands to zoom. All from your webcam, nothing to install.\n\nVoice — There's an invisible textbox that catches transcription from Wispr Flow. You just talk and it becomes your prompt. No clicking into a text field, no typing.\n\nVision AI — Whatever you drew or whatever the 3D model looks like gets screenshotted and sent to a multimodal AI (supports OpenAI, Anthropic, and Gemini). It sees what you see and answers what you asked.\n\nSo you can rotate a 3D influenza virion with your hands, ask \"what are the green spikes,\" and get an actual answer. Without touching the keyboard once.\n\nIn every mode, speak your prompt and press Enter. The AI sees everything.\n\nVoice tools like Wispr Flow already got rid of typing for text. That's huge. But there's still a gap — you can talk to your computer, but you can't show it things naturally.\n\nThat's what this is trying to explore. Your hands and your voice together are a way more complete input than either one alone. You don't describe a 3D object in words when you could just rotate it. You don't type coordinates when you could point.\n\nI don't think this is the final version of anything. But I think the direction is right — the gap between what you're thinking and what the computer understands should keep getting smaller.\n\nOpen ((https://visionflow-eta.vercel.app/)) — you'll need a webcam.\n\nIdeas, bug reports, and PRs are welcome.",
+    "readingTime": 2,
+    "keywords": [
+      "computer",
+      "text",
+      "rotate",
+      "don't",
+      "everything",
+      "you're",
+      "ideas",
+      "speak",
+      "model",
+      "webcam"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/tanayvin1216/VisionFlow",
+    "thumbnail_url": "https://opengraph.githubassets.com/742275a3333bc7fafa6aa6d5c29518c76efdd783b07662238af69dd6fc6f58d5/tanayvin1216/VisionFlow",
+    "created_at": "2026-03-31T01:20:15.833Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "gtabs-ai-tab-organizer-for-chrome-that-works-with-any-llm",
+    "title": "GTabs – AI tab organizer for Chrome that works with any LLM",
+    "description": "AI-Powered Tab Organizer for Chrome — groups your tabs using any LLM - vaddisrinivas/gtabs",
+    "fullText": "Your tabs are a mess. One click fixes that.\n\ngTabs uses any LLM to intelligently organize your Chrome tabs into color-coded groups. Review editable suggestions, apply with one click, and undo if needed.\n\n🧩 Chrome Extension · ✅ Manifest V3 · 🧪 195 passing tests · 📦 Zero runtime deps · 🟦 TypeScript\n\nYou'll need to repeat steps 3–5 after browser updates if the extension gets disabled. The Chrome Store version updates automatically.\n\nPRs welcome. Run npm test before submitting. Zero runtime dependencies — keep it that way.",
+    "readingTime": 1,
+    "keywords": [
+      "zero runtime",
+      "tabs",
+      "updates",
+      "chrome",
+      "extension"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://github.com/vaddisrinivas/gtabs",
+    "thumbnail_url": "https://opengraph.githubassets.com/52e6d81b1a76f2f18a94218e648d764a02a909bb29974fcc3c6acd1ecbd5cf35/vaddisrinivas/gtabs",
+    "created_at": "2026-03-31T01:20:15.831Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "jerome-powell-to-gen-z-dont-fear-aimaster-it",
+    "title": "Jerome Powell to Gen Z: Don’t fear AI—master it",
+    "description": "The Fed chair told Harvard students that young workers’ best career move is learning how to use AI, even as the technology disrupts the labor market.",
+    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
+    "readingTime": 1,
+    "keywords": [
+      "fortune"
+    ],
+    "qualityScore": 0.1,
+    "link": "https://fortune.com/2026/03/30/jerome-powell-advice-gen-z-ai-skills-harvard/",
+    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/03/AP26089546311806-e1774904697568.jpg?resize=1200,600",
+    "created_at": "2026-03-31T01:20:13.194Z",
+    "topic": "business"
+  },
+  {
+    "slug": "mark-cuban-says-if-work-becomes-optional-like-elon-musk-predicts-theyll-invent-new-and-unpredictable-taxes-like-a-robot",
+    "title": "Mark Cuban Says If Work Becomes Optional Like Elon Musk Predicts, They'll Invent 'New And Unpredictable Taxes' Like A Robot Utilization Tax",
+    "description": "The future of work might not come with a timecard. It might come with a tax bill. Mark Cuban jumped into the AI debate on X with a mock IPO \"Risk Factors\" section that reads less like satire and more like a preview of what companies could soon be forced to disclose. He was responding after Tesla CEO Elon Musk wrote, \"Working will be optional in the future,\" in a post on X Saturday. A four-year timeline that changes everything Cuban's response didn't ease into the idea.",
+    "fullText": "The future of work might not come with a timecard. It might come with a tax bill. Mark Cuban jumped into the AI debate on X with a mock IPO \"Risk Factors\" section that reads less like satire and more like a preview of what companies could soon be forced to disclose.\n\nHe was responding after Tesla CEO Elon Musk wrote, \"Working will be optional in the future,\" in a post on X Saturday.\n\nA four-year timeline that changes everything\n\nCuban's response didn't ease into the idea. He went straight to speed.\n\n\"Within the next 4 years we expect to completely recreate all processes and procedures in each organization to optimize the replacement of humans with humanoids and AI.\"\n\nA single bad hire can set a startup back years. Here are the 5 hires founders most often misjudge — and why\n\nAvoid the #1 Investing Mistake: How Your ‘Safe' Holdings Could Be Costing You Big Time\n\nThat line does two things at once. It sets a timeline and raises the stakes. This isn't framed as a slow transition or a distant future. It's a near-term overhaul of how companies operate.\n\nIn simple terms, Cuban is describing a world where businesses redesign themselves to rely far less on human labor. AI systems and humanoid robots wouldn't just assist workers. They would replace them at scale.\n\nThat aligns with Musk's broader view. He has repeatedly suggested that advanced AI could make traditional jobs unnecessary for survival. Work would become optional, more like a choice than a requirement.\n\nIf work disappears, tax revenue doesn't\n\nCuban's biggest warning isn't about technology. It's about what happens after.\n\n\"In the event our prediction that work will be optional is actualized, we expect local, state and federal governments to institute new and unpredictable taxes including a robot utilization tax, a token utilization tax and who the fuck knows what else.\"\n\nTrending: Skip the Regrets: The Essential Retirement Tips Experts Wish Everyone Knew Earlier.\n\nThe logic is straightforward. Today, governments collect a large share of revenue from human labor through income taxes and payroll taxes. If fewer people are working, that stream shrinks.\n\nCuban's point is that governments won't simply accept that loss. They'll look for new ways to replace it. That could mean taxing the tools doing the work instead of the people who used to do it.\n\nThe idea isn't new. Microsoft co-founder Bill Gates said in 2017 that companies using robots to replace workers could be taxed in a similar way to human labor. The goal would be to offset lost revenue and potentially fund retraining or public services.",
+    "readingTime": 3,
+    "keywords": [
+      "human labor",
+      "utilization tax",
+      "optional",
+      "cuban's",
+      "isn't",
+      "replace",
+      "revenue",
+      "governments",
+      "taxes",
+      "less"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/economy/policy/articles/mark-cuban-says-becomes-optional-163024968.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/Benzinga/49b280ffae5d4e0e83649d98193dccb2",
+    "created_at": "2026-03-31T01:20:12.725Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "californias-last-nuclear-power-plant-has-turned-to-ai-to-solve-its-big-paperwork-problem",
+    "title": "California's last nuclear power plant has turned to AI to solve its big paperwork problem",
+    "description": "Neutron, an AI tool from Atomic Canyon, helps PG&E handle paperwork more quickly at Diablo Canyon, a California nuclear power plant.",
+    "fullText": "Generative AI is tackling a PG&E nuclear plant's massive headache: millions of pages of paperwork.\n The ChatGPT-like tool significantly cuts down the time needed to find documents at Diablo Canyon.\n It's the first generative AI tool used on-site at a US nuclear power plant.",
+    "readingTime": 1,
+    "keywords": [
+      "nuclear",
+      "tool",
+      "generative"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/generative-ai-document-search-diablo-canyon-nulear-power-plant-2026-3",
+    "thumbnail_url": "https://i.insider.com/69c42673299090a8c09b6394?width=1200&format=jpeg",
+    "created_at": "2026-03-31T01:20:12.566Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "target-has-a-warning-if-you-use-googles-ai-to-shop",
+    "title": "Target has a warning if you use Google's AI to shop",
+    "description": "Target changed its terms and conditions ahead of a Google Gemini integration. It signals that customers should look closely at what they buy via AI.",
+    "fullText": "Target updated its terms and conditions ahead of a coming Google Gemini integration.\n The integration would allow the AI to suggest Target products and help complete purchases on a user's behalf.\n Shoppers would still need to direct and approve purchases made through AI tools, Target said.",
+    "readingTime": 1,
+    "keywords": [
+      "target",
+      "integration",
+      "purchases"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/targets-google-gemini-ai-shop-terms-update-2026-3",
+    "thumbnail_url": "https://i.insider.com/69ca81928373a547629c78b4?width=1200&format=jpeg",
+    "created_at": "2026-03-31T01:20:12.097Z",
+    "topic": "finance"
+  },
+  {
     "slug": "codex-plugin-for-claude-code",
     "title": "Codex Plugin for Claude Code",
     "description": "Use Codex from Claude Code to review code or delegate tasks. - openai/codex-plugin-cc",
@@ -1718,147 +1906,6 @@
     "link": "https://www.investing.com/news/stock-market-news/exclusivehuaweis-new-ai-chip-find-favour-with-bytedance-alibaba-which-plan-to-place-orders-sources-say-4584136",
     "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM2Q0AP_L.jpg",
     "created_at": "2026-03-27T06:56:39.287Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "tsmc-has-a-monopoly-on-making-ai-chips-heres-why-this-stock-could-be-the-safest-bet-in-the-700-billion-capex-boom",
-    "title": "TSMC Has a Monopoly on Making AI Chips. Here's Why This Stock Could Be the Safest Bet in the $700 Billion Capex Boom.",
-    "description": "It's the beginning of the AI pipeline.",
-    "fullText": "Although artificial intelligence (AI) technology itself isn't new, the popularity of AI apps and tools has thrown it fully into the mainstream. And in true big tech fashion, where there's an increase in eyeballs, there's an increase in their spending.\n\nOver the past few years, major hyperscalers -- companies like Microsoft, Amazon, and Alphabet that power a lot of the digital world -- have spent billions building out their AI infrastructure. It seems these checks are only going to get bigger, too. Major tech companies are expected to spend around $700 billion on their AI infrastructure in 2026 alone.\n\nWill AI create the world's first trillionaire? Our team just released a report on the one little-known company, called an \"Indispensable Monopoly\" providing the critical technology Nvidia and Intel both need. Continue »\n\nHowever, as hundreds of billions are being spent, the safest bet isn't the company with the best chatbot or productivity tools. It's Taiwan Semiconductor Manufacturing Company (NYSE: TSM), also known as TSMC.\n\nTSMC is the world's largest semiconductor (chip) foundry. Instead of making chips for general sale that companies can buy in stores or online, semiconductor foundries manufacture the physical chips that other companies design. For example, Apple designs the chips it needs for its iPhones, but TSMC is the one who brings them to life.\n\nYou may wonder why these major tech companies don't just manufacture their own chips, but it's not that easy. Manufacturing chips (especially advanced ones) requires a ton of specialized talent, highly advanced machinery, and years of experience. For almost every tech company, it's much simpler and cheaper to let an expert like TSMC handle it.\n\nTSMC has a 72% market share in the pure-play foundry market, but it has a virtual monopoly in making AI chips. The latter is why it's the safest bet in the ongoing AI boom.\n\nTo understand TSMC's importance in the AI ecosystem, it's helpful to work backwards, starting with the AI apps and tools people interact with daily. For those tools to be effective, they need to be trained on tons of data. This amount of data can't be stored in traditional ways; it requires huge data centers with a lot of different hardware filled with various chips.\n\nThe importance of those chips is why a company like Nvidia -- which designs GPUs critical to processing lots of info -- saw a historical explosion in business and market cap and is now the world's most valuable public company.",
-    "readingTime": 3,
-    "keywords": [
-      "safest bet",
-      "chips",
-      "it's",
-      "tools",
-      "tech",
-      "world's",
-      "semiconductor",
-      "market",
-      "technology",
-      "isn't"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/markets/stocks/articles/tsmc-monopoly-making-ai-chips-002000189.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/motleyfool.com/79534a6bcff5f47476cf39358717bc60",
-    "created_at": "2026-03-27T06:56:37.761Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ace-robotics-chairman-on-embodied-ai-robotics",
-    "title": "Ace Robotics Chairman on Embodied AI, Robotics",
-    "description": "Wang Xiaogang, Chairman Ace Robotics and co-founder of SenseTime, discusses the company's \"world model\" and the outlook for the AI and robotics industry. He speaks with Stephen Engle from the Boao Forum for Asia.",
-    "fullText": "Mar 27th, 2026Ace Robotics Chairman on Embodied AI, RoboticsWang Xiaogang, Chairman Ace Robotics and co-founder of SenseTime, discusses the company's \"world model\" and the outlook for the AI and robotics industry. He speaks with Stephen Engle from the Boao Forum for Asia.Duration:1:17Why Iran's Missiles Are Still Such A Threat After Weeks of WarDuration:1:03Trump Isn't Sure He Could Do a Deal With IranDuration:2:15Senators Try to Put Guardrails Around Prediction MarketsDuration:10:00How Atlanta Plans to Rebuild Its DowntownNot Show SpecificDuration:1:07Pernod Said to Weigh Deal for Brown-FormanDuration:2:29Fed's Cook Says Inflation More of a Risk Now Due to Iran WarDuration:1:06Miran Cautions Reducing the Fed Balance Sheet Could Take YearsDuration:6:57EU's Kallas on War in Iran, Ukraine, Opening HormuzAvailable on:Listen onApple TVListen onRokuListen onSamsung TVListen onFire TVListen onAndroid TVListen onRakuten TVListen onHaystack NewsWatch BTV in your area:Channel Finder",
-    "readingTime": 1,
-    "keywords": [
-      "ace robotics",
-      "tvlisten",
-      "chairman",
-      "deal",
-      "iran"
-    ],
-    "qualityScore": 0.15,
-    "link": "https://www.bloomberg.com/news/videos/2026-03-27/ace-robotics-chairman-on-embodied-ai-robotics-video",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i2_FHB49dHQs/v3/-1x-1.webp",
-    "created_at": "2026-03-27T01:18:34.868Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "jpmorgan-software-developers-have-new-objectives-use-ai-or-fall-behind",
-    "title": "JPMorgan software developers have new objectives: use AI or fall behind",
-    "description": "Internal JPMorgan documents reviewed by Business Insider spell out the goals software engineers are expected to meet using the firm's AI tools.",
-    "fullText": "JPMorgan software developers say the bank is raising its expectations for AI use.\n Internal company communications reveal the bank's new AI targets.\n The updated objectives affect members of its global developer workforce.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/jpmorgan-objectives-software-engineers-developers-boost-productivity-ai-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c568af299090a8c09b69b3?width=1200&format=jpeg",
-    "created_at": "2026-03-27T01:18:26.763Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "meta-is-pushing-employees-to-use-ai-and-this-doc-shows-how-much",
-    "title": "Meta is pushing employees to use AI, and this doc shows how much",
-    "description": "Meta sets ambitious AI usage goals under CEO Mark Zuckerberg's leadership, aiming for an AI-native company with increased AI tool adoption in 2026.",
-    "fullText": "Meta has set goals for some employees on how much they should use AI.\n They include targets for using AI code assistants, agents, and other tools.\n Meta CEO Mark Zuckerberg has said he wants the company to be \"AI-native.\"",
-    "readingTime": 1,
-    "keywords": [
-      "meta"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/meta-ai-push-employee-goals-tool-adoption-2-026-3",
-    "thumbnail_url": "https://i.insider.com/69c522f948461c18d7be6420?width=1200&format=jpeg",
-    "created_at": "2026-03-27T01:18:26.546Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "judge-temporarily-blocks-the-pentagon-from-declaring-anthropic-a-national-security-risk",
-    "title": "Judge temporarily blocks the Pentagon from declaring Anthropic a national security risk",
-    "description": "Anthropic has said it could lose billions if a federal judge didn't step in to block the Trump administration.",
-    "fullText": "A federal judge has temporarily struck down the Pentagon's effective blacklisting of Anthropic.\n US District Judge Rita Lin's ruling hands a major victory to the AI frontier model maker.\n The Pentagon has already struck a deal with OpenAI and is looking to find other AI companies.",
-    "readingTime": 1,
-    "keywords": [
-      "judge",
-      "struck"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/judge-blocks-anthropic-supply-chain-risk-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c55d34299090a8c09b6926?width=1200&format=jpeg",
-    "created_at": "2026-03-27T01:18:26.443Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "white-house-ai-czar-sacks-to-step-down-moves-to-advisory-role",
-    "title": "White House AI czar Sacks to step down, moves to advisory role",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/white-house-ai-czar-sacks-to-step-down-moves-to-advisory-role-4584060",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM2Q02H_L.jpg",
-    "created_at": "2026-03-27T01:18:24.901Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "margin-call-trading-and-business-simulator",
-    "title": "Margin Call – trading and business simulator",
-    "description": "Trade stocks, crypto, options. Found a company and IPO it. Battle AI opponents. Free in your browser.",
-    "fullText": "Margin Call is a free stock market and business simulator. Trade 108 companies across 12 sectors, or found your own startup and take it from idea to IPO.\n\nBattle AI opponents through economic cycles. Options, bonds, crypto, corporate takeovers, R&D, hiring, and fundraising.\n\nNo account required. Runs entirely in your browser.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.4,
-    "link": "https://margincall.io",
-    "thumbnail_url": "https://margincall.io/opengraph-image?cf03f9ceeefed8d5",
-    "created_at": "2026-03-26T18:52:21.090Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "i-got-tired-of-losing-my-ai-context-so-built-contextium",
-    "title": "I got tired of losing my AI context so built contextium",
-    "description": "Connect your documentation to AI assistants like Claude and ChatGPT. Built for modern development teams.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://contextium.io/",
-    "thumbnail_url": "https://www.contextium.io/og-image.png",
-    "created_at": "2026-03-26T18:52:18.643Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "we-chatted-to-ray-dalios-ai-clone-digital-ray-was-convincing-until-it-made-a-bunch-of-weird-and-wonderful-mistakes",
-    "title": "We chatted to Ray Dalio's AI clone. 'Digital Ray' was convincing until it made a bunch of weird and wonderful mistakes.",
-    "description": "Digital Ray insisted it was Ray Dalio himself, said Paul Giamatti played Michael Burry in \"The Big Short,\" and made up facts about Mark Cuban.",
-    "fullText": "Ray Dalio invited his X followers to \"have a conversation\" with his AI chatbot, so we did.\n Digital Ray sounded like Dalio but was inconsistent and plain wrong at times.\n It insisted it was a human, and said Michael Burry was played by Paul Giamatti in \"The Big Short.\"",
-    "readingTime": 1,
-    "keywords": [
-      "dalio"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/ray-dalio-ai-chatbot-test-burry-cuban-investing-billionaires-dollar-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c529ff299090a8c09b677d?width=1200&format=jpeg",
-    "created_at": "2026-03-26T18:52:09.804Z",
     "topic": "finance"
   }
 ]
