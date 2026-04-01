@@ -1,5 +1,29 @@
 [
   {
+    "slug": "google-researchers-just-put-a-new-expiration-date-on-bitcoin",
+    "title": "Google researchers just put a new expiration date on Bitcoin",
+    "description": "Bitcoin needs to fix this in the next three years.",
+    "fullText": "A team of Google researchers just set a new date for post-quantum cryptography migration: 2029. Among other things, this means that Bitcoin, as well as many other cryptocurrencies, needs to adopt new cryptographic techniques that are resilient to quantum attacks within three years.\n\nGoogle announced the new timeline in a blog post. \"Quantum computers will pose a significant threat to current cryptographic standards, and specifically to encryption and digital signatures,\" the post said.\n\nIn terms of actual science, two important papers were published on Monday. One is signed by Google researchers, the other by a startup called Oratomic (with ex-Googlers and Caltech folks on board). The papers are a dense read for anyone who's not an expert in cryptography, but can be simplified to this: They describe new ways to break some very important cryptographic systems using quantum computers, with far fewer resources (10x) than previously thought.\n\nThis is relevant for Bitcoin because it makes it far more likely that someone can build a quantum computer capable of deriving a Bitcoin private key from a Bitcoin public key. In fact, so much more likely that Google decided not to show the actual quantum circuits they used to do this, instead showing a mathematical proof that this is possible.\n\nJustin Drake, one of the researchers that co-signed the Google paper, has a good overview. \"A superconducting quantum computer, the type Google is building, could crack keys in minutes,\" he wrote.\n\nImportant point: As Adam Back, an important Bitcoin expert, pointed out, Bitcoin (the network) does not use encryption. What Google has found doesn't mean someone can intercept transactions on the Bitcoin network; instead, they could crack someone's private key, and when you have someone's private key, you have their coins.\n\nIn fact, it's a bit more complex than that. The two papers above reference Shor's algorithm, a quantum algorithm developed by Peter Shor back in 1994, that makes it a lot faster to break certain types of encryption with quantum computers. Shor's algorithm could be used to derive a Bitcoin private key from a public key, but only in certain cases. This includes some old Bitcoin addresses, including those used by Bitcoin's elusive creator Satoshi Nakamoto himself; this is notable, as these addresses hold over one million bitcoins, meaning that the potential prize for someone cracking them is in the tens of billions of dollars (not to mention the havoc it would cause on the network as everyone scrambled to figure what's next).\n\nNewer addresses can also be cracked, but not until they're broadcasted within a transaction, meaning there's a short (typically 10-minute long) window in which someone could use Shor's algorithm to get that private key. No known quantum computer that could do this exists right now, even considering the optimizations found by Google and Oratomic researchers. But it's not unfathomable that someone builds it in the future.\n\nBitcoin is traditionally slow to make any changes. Adam Back, in particular, advised in 2025 that \"some quantum readiness\" should be added in the next five years, though he said he's not expecting it to be used \"in a few decades.\"\n\nIn contrast, the new papers demonstrate that the quantum threat for Bitcoin is much closer than that, and that serious action should probably be taken now.\n\nWhat can be done? Google's paper suggest ways in which blockchains (including Bitcoin) could mitigate the issue. This includes simple steps such as moving coins from old addresses to new ones if possible, but also updating protocols to include post-quantum cryptography. This process is not easy for large, established cryptocurrency networks, and it may take years to even agree on a best solution (an internal strife over block size on Bitcoin's network took about two years to resolve), let alone implement it.\n\nOther cryptocurrencies, such as Ethereum, are also vulnerable to these issues. The Ethereum Foundation, a non-profit that stewards Ethereum's long-term growth, recently published a post-quantum roadmap, aiming to solve these issues before it's too late.\n\nMashable and Yahoo may earn commission from links in this article.",
+    "readingTime": 4,
+    "keywords": [
+      "shor's algorithm",
+      "google researchers",
+      "post-quantum cryptography",
+      "quantum computers",
+      "quantum computer",
+      "bitcoin",
+      "someone",
+      "papers",
+      "network",
+      "addresses"
+    ],
+    "qualityScore": 1,
+    "link": "https://tech.yahoo.com/science/articles/google-researchers-just-put-expiration-132301278.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/O3qcpaONjMNgPg.JOL5Zhg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/mashable_articles_863/a4f0e1b6c59e0f39c2f6552b417f2ae4",
+    "created_at": "2026-04-01T18:45:17.115Z",
+    "topic": "tech"
+  },
+  {
     "slug": "bitcoin-rises-to-687k-as-trump-spurs-iran-deescalation-hopes",
     "title": "Bitcoin rises to $68.7k as Trump spurs Iran de-escalation hopes",
     "description": null,
@@ -1972,30 +1996,6 @@
     "link": "https://finance.yahoo.com/news/bitcoin-whales-etfs-baling-market-115027199.html",
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/EtNJ2hrvnN_qCxf79XCZHg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/fortune_175/f4ac780f4f4b57621155d6a31cecca73",
     "created_at": "2026-02-06T18:34:31.756Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "how-bitcoins-plunge-has-battered-the-cryptos-biggest-institutional-whale-in-3-charts",
-    "title": "How bitcoin's plunge has battered the crypto's biggest institutional whale, in 3 charts",
-    "description": "Strategy, Michael Saylor's iconic bitcoin treasury, has seen its stock plunge and its cost basis for its bitcoin trove soar amid the token's bear market.",
-    "fullText": "For a while there, it looked like Michael Saylor's bitcoin-hoarding business software firm had cracked some secret code.\n\nInvestors piled into the stock, forked over more money during the firm's many debt and equity raises over the years, and generally were amenable to Saylor's pitch that piling up ever more bitcoin was a winning strategy.\n\nThat could be a tougher pill to swallow amid the deepening crypto winter of the last few months.\n\nMichael Saylor's iconic bitcoin treasury has tumbled amid the dramatic plunge in the token's price, and the volatility since the October peak is being reflected in earnings.\n\nStrategy reported a $12.4 billion net loss for the fourth quarter of 2025, with its fortunes slipping as bitcoin sank deeper into its bear market.\n\nThe price of bitcoin jumped 7% on Friday after an intense bout of selling earlier in the week, but the token is still down around 46% from its recent peak and is trading below $70,000. That's a key psychological threshold the token recently dipped below for the first time since 2024. Meanwhile, Strategy stock also jumped on Friday as the risk-off rout took a breather and the hardest hit assets rallied, but it's down sharply from recent highs.\n\nStrategy has come under closer scrutiny from investors in recent months amid fears that the firm could be forced to sell some of its bitcoin as prices keep dropping. Late last year, Strategy's CEO, Phong Le, said the firm could sell bitcoin as a \"last resort\" if mNAV, a measure of Strategy's stock price relative to the value of its bitcoin holdings, dropped below one. The ratio stands at around 1.13, according to the latest information on Strategy's website.\n\nStrategy isn't necessarily under financial stress, Nic Puckrin, a digital asset analyst at Coin Bureau, told Business Insider. The crypto treasury has billions in cash reserves, and Strategy has several options to get more cash if needed, though sentiment among its investors is \"obviously rock bottom.\"\n\n\"The crypto sell-off is hitting Strategy hard. There's no denying it,\" Puckrin said.\n\nHere are three charts that show how bitcoin's bear market has affected Strategy.\n\nShares of Strategy are deep in bear-market territory. The stock is down about 70% from its all-time high in July of last year.\n\nAs bitcoin has plunged, Strategy's cost basis—or the average price paid per token—has climbed. Strategy's average cost per bitcoin was $76,052 at the end of the fourth quarter. That's around $9,000 above bitcoin's current price.\n\nThe firm has amassed a trove of 713,502 bitcoin, or around 3% of the crypto's total supply.\n\nStrategy recorded an operating loss of $17.4 billion in the fourth quarter. Prior to that, it recorded operating income of $3.9 billion in the third quarter and $14 billion in the second quarter.\n\nStrategy did not immediately respond to a request for comment from Business Insider.\n\nSaylor, who has touted the value of bitcoin for years, has continued to affirm his confidence in the crypto amid even its sell-off. In recent posts on X, he's told his followers to \"HODL,\" a mispelling of HOLD and sometimes an acronym for \"hold on for dear life,\" and described volatility in bitcoin as \"Satoshi's gift to the faithful.\"\n\nOthers have been far less optimistic amid the crash this week. Michael Burry, the famed investor from \"The Big Short,\" predicted a series of \"sickening scenarios\" in the event that bitcoin's crash continues.\n\nMeanwhile, other forecasters this week have said the sell-off could have much further to go if past bear-market declines are any indicator. Stifel said the plunge could take bitcoin as low as $38,000.",
-    "readingTime": 3,
-    "keywords": [
-      "business insider",
-      "bear market",
-      "fourth quarter",
-      "michael saylor's",
-      "bitcoin",
-      "amid",
-      "firm",
-      "stock",
-      "crypto",
-      "strategy"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/mstr-stock-price-bitcoin-crash-michael-saylor-strategy-losses-2026-2",
-    "thumbnail_url": "https://i.insider.com/6985ef52e1ba468a96ab89aa?width=1200&format=jpeg",
-    "created_at": "2026-02-06T18:34:26.886Z",
     "topic": "finance"
   }
 ]
