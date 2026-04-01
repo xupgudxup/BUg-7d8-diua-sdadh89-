@@ -1,5 +1,29 @@
 [
   {
+    "slug": "dont-open-that-whatsapp-message-microsoft-warns",
+    "title": "Don't open that WhatsApp message, Microsoft warns",
+    "description": ": How to avoid social engineering attacks? Employee training tops the list",
+    "fullText": "Be careful what you click on. Miscreants are abusing WhatsApp messages in a multi-stage attack that delivers malicious Microsoft Installer (MSI) packages, allowing criminals to control victims' machines and access all of their data.\n\nThe campaign began in late February, we're told, and the attack chain starts with a WhatsApp message that delivers malicious Visual Basic Script (VBS) files. We're not sure exactly how the social engineering part of the scam works - we've asked Redmond for additional details and will update this story if we receive any.\n\nThe Register also reached out to Meta-owned WhatsApp for comment and did not hear back.\n\nBut somehow the attacker tricks the message recipient into executing the malicious file on their system. They likely do this using a compromised WhatsApp session so that the message appears to come from one of the victim's existing contacts. Or they blast users with a lure that contains a sense of urgency, prompting the recipient to open the file in a rush.\n\nOnce it's executed, the malicious script creates hidden folders in C:\\ProgramData and drops renamed versions of legitimate Windows utilities - for example, curl.exe renamed as netapi.dll and bitsadmin.exe as sc.exe.\n\nUsing legitimate Windows tools for evil purposes allows attackers to blend in with normal network activity - defenders call this \"living off the land\" - but the miscreants did make a mistake in renaming these binaries.\n\n\"Notably, these renamed binaries retain their original PE (Portable Executable) metadata, including the OriginalFileName field which still identifies them as curl.exe and bitsadmin.exe,\" Microsoft's researchers wrote in a Tuesday blog. \"This means Microsoft Defender and other security solutions can leverage this metadata discrepancy as a detection signal, flagging instances where a file's name does not match its embedded OriginalFileName.\"\n\nThe crims use the renamed binaries to download secondary VBS payloads (auxs.vbs, 2009.vbs) from trusted cloud services including AWS, Tencent Cloud, and Backblaze B2. Again, this makes it more difficult to distinguish between normal enterprise activity and malicious downloads.\n\nThen the malware alters the User Account Control (UAC) settings, attempting to launch cmd.exe with elevated privileges until it either succeeds, meaning the malware will survive a system reboot, or the process is forcibly terminated.\n\nFinally, the attackers deploy malicious MSI installers, and Microsoft says that these include Setup.msi, WinRAR.msi, LinkPoint.msi, and AnyDesk.msi. Once again, the baddies use real tools like AnyDesk - not custom malware - to hide in plain sight.\n\nHowever, none of the final payloads are signed, and this should be another indication to defenders that they are dealing with malware, not legit enterprise software.\n\nThese installers give the attackers remote access to victims' systems so they can steal data, deploy more malware - such as ransomware - on compromised systems, or use the infected machines as part of a larger network from which to launch other attacks.\n\nWhile Microsoft's blog includes several recommendations directing people to use their security products to avoid this type of compromise, one vendor-neutral tip that we especially like involves educating users on how to spot social engineering campaigns.\n\n\"Train employees to recognize suspicious WhatsApp attachments and unexpected messages, reinforcing that even familiar platforms can be exploited for malware delivery,\" Redmond advises. ®",
+    "readingTime": 3,
+    "keywords": [
+      "legitimate windows",
+      "social engineering",
+      "delivers malicious",
+      "renamed binaries",
+      "malware",
+      "message",
+      "attackers",
+      "miscreants",
+      "messages",
+      "attack"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/2026/03/31/whatsapp_message_bad_msi_packages/",
+    "thumbnail_url": "https://regmedia.co.uk/2021/09/01/shutterstock_whatsapp.jpg",
+    "created_at": "2026-04-01T01:27:19.051Z",
+    "topic": "tech"
+  },
+  {
     "slug": "2-magnificent-7-stocks-see-stunning-plunges",
     "title": "2 'Magnificent 7' stocks see stunning plunges",
     "description": "The \"Magnificent Seven\" stock beatdown has been particularly painful for Microsoft and Meta.",
@@ -2147,18 +2171,5 @@
     "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/DF6258E98ADD6B094FC771AB3D6E92CBB9BEBB9E75A1AD15D46DFD95BE7A3829/subgraphmysterio/resizefit_w1200;quality_90;format_webp/https:%2F%2Fs.yimg.com%2Fos%2Fen%2FBenzinga%2F88c54d397981b6884f0cecb1a1c01081",
     "created_at": "2026-01-29T01:07:04.474Z",
     "topic": "tech"
-  },
-  {
-    "slug": "davos-debate-is-ai-taking-jobsor-transforming-them",
-    "title": "Davos Debate: Is AI Taking Jobs—or Transforming Them?",
-    "description": "At the World Economic Forum in Davos, HBR editor-at-large Adi Ignatius moderated a lively panel in which Verizon CEO Dan Schulman and Microsoft president Brad Smith clashed over AI’s future impact on work and business. Schulman warned that widespread layoffs are inevitable as AI rapidly automates both entry-level and professional roles, while Smith argued that AI can serve as a powerful tool to help employees continuously upskill and stay competitive. The exchange highlights a central leadership challenge: how to harness AI’s productivity and protect your people.",
-    "fullText": "Davos Debate: Is AI Taking Jobs—or Transforming Them? by Adi IgnatiusJanuary 27, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintWelcome to the HBR Executive Agenda for January 22, 2026.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://hbr.org/2026/01/davos-debate-is-ai-taking-jobs-or-transforming-them",
-    "thumbnail_url": "/resources/images/article_assets/2025/12/01_22_Agenda__Davos.jpg",
-    "created_at": "2026-01-27T18:24:22.007Z",
-    "topic": "business"
   }
 ]
