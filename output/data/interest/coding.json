@@ -1,5 +1,45 @@
 [
   {
+    "slug": "you-dont-need-to-pay-200month",
+    "title": "You Don't Need to Pay $200/Month",
+    "description": "I ran 20 real-world TypeScript coding tasks against 16 LLMs. The most expensive model scored 98.8%. An open-weights model scored 94.8%.",
+    "fullText": "This weekend I ran the same 20 coding tasks against 16 different LLMs. The most expensive model scored 98.8%. An open-weights model I can self-host scored 94.8%.\n\nThe gap is 4%. We should talk about what that means.\n\nSWE-bench is the gold standard for evaluating coding AI. It takes real issues from open-source Python repos, gives them to a model, and checks if the patch passes the tests. Impressive in principle. But there are problems.\n\nA paper called \"The SWE-Bench Illusion\" found evidence that models may be memorising solutions rather than reasoning about them. An OpenAI audit found flawed tests in 59.4% of the problems they checked. And most critically for me: it's all Python. I don't write Python. My entire stack is TypeScript.\n\nSWE-bench tells me which model is best at fixing bugs in Django. It tells me nothing about which model can write a Hono route with Zod validation, fix a race condition in a Mongoose query, or generate a Docker Swarm service spec – which is what I actually do every day to continue the development of Magic Pages backend infrastructure.\n\nMagic Pages is a managed Ghost hosting platform – 1,300+ sites, Docker Swarm infrastructure, TypeScript everywhere. When I evaluate coding AI, I need to know: can it do my work?\n\nI built a harness with 20 tasks across 7 categories, all modelled on our actual development patterns:\n\nEach task has a synthetic codebase (to avoid training data contamination), a prompt describing the work, and a hidden test suite that evaluates the result. The model never sees the tests – it works from the spec alone, just like a developer would.\n\nThe tasks I provide aren't random open-source issues. The auth bypass task is based on a real issue we had in the postMessage authentication between a Ghost site and our customer portal. The webhook idempotency task comes from a real production incident where Paddle sent a webhook twice and we created a site twice due to that. The Swarm spec generator mirrors how we actually deploy Ghost instances.\n\nIf you want to create your own benchmark, I have uploaded the harness to Github:\n\nHere's what these 20 tasks across 16 models looks like:\n\nThe top 13 models all score above 92%. All of them get 100% on bug fixes. All of them write working Ghost API clients, DNS validators, Docker Compose configs.\n\nThe model I care most about is #7: Qwen3-Coder-Next. Not because it's the best, but because it's the best one I can run locally – and that question became urgent when my Claude Code subscription started hitting rate limits mid-session. But more on that in a moment.\n\nThe entire gap between #1 and #7 comes down to one task: a Hono CRUD endpoint. Opus wires up the auth middleware correctly first try. Qwen3-Coder-Next imports it but doesn't call it.\n\nI gave Qwen its own broken code back along with the test output. It fixed the middleware issue in a single iteration. The error was unambiguous – expected 401, got 500 – and it understood immediately what had gone wrong.\n\nIn real development, my coding assistants are always instructed to run linting and tests before they're done. The self-correction loop isn't a workaround – it's just how agentic coding works.\n\nOn single-shot tasks, Opus leads. On iterative agentic workflows – the way any serious engineering workflow actually runs – the top 13 models are functionally equivalent on my stack. The gaps close when you add a test-and-fix loop. Which you should have anyway.\n\nWhat does vary is speed and cost.\n\nClaude Opus 4.6 averaged 62 seconds per task. I ran the benchmark using my Claude Code Max plan, which costs $200/month.\n\nGLM-5.1 averaged 258 seconds – their API is clearly under significant load right now. GLM models are tested via z.ai's coding plan at $30/month. Strong results, but the latency is painful. So is the fact that everything is sent to Chinese data centres running inference for me.\n\nQwen3-Coder-Next averaged 53 seconds per task and is fully open-weights under Apache 2.0. There's no API subscription required – and it's small enough to selfhost it in a meaningful way.\n\nOne notable mention: Devstral Small from Mistral, the EU-based AI company. Fast, compact, and 92.5%. Worth watching. Interestingly, its larger sibling Devstral 2 finishes last at 82.7% – a reminder that bigger doesn't always mean better on a specific stack.\n\nThis whole rabbit hole started with my Claude Code subscription (the $200/month one) hitting its usage limits mid-session. Not once – regularly. I'd be in the middle of a complex refactoring task, and the model would throttle with API Error: Rate Limit Reached. What the hell? My actual limits were far from being used:\n\nAt $200/month, getting these arbitrary rate limit errors is frustrating. And a quick glance at Reddit revealed that I am not the only one.\n\nIt made me ask a question I have asked myself several times before: do I actually need a proprietary API for this? And this time, the answer turns out to be quite different.\n\nAfter a weekend of research and benchmarking, I landed on Qwen3-Coder-Next. It's a mixture-of-experts architecture – 80B total parameters, but only 3B active per token. That's what makes it fast and memory-efficient. At Q4 quantisation it fits in roughly 30GB of VRAM. With context overhead, 64GB total is enough to run it properly.\n\nRunning locally means no usage limits, no per-token billing, no latency to a remote server, and – for a company that builds software for other businesses – your code never leaves the building. The hardware cost is offset by Austrian business tax treatment for capital investments, bringing the real cost down to a few months of the subscription that started this whole investigation.\n\nThe honest answer: it depends on what you mean by \"need.\"\n\nIf you need the absolute best single-shot performance, Claude Opus 4.6 is still #1. The difference is real, even if it's small. For complex architectural decisions or getting things right without any feedback loop, Opus has a genuine edge – at least among fully open-weights models you can actually run yourself.\n\nBut \"the absolute best\" is frequently the enemy of \"good enough.\" Every model in my list can fix real production bugs, write typed API clients with proper error handling, generate valid Docker infrastructure, plan feature implementations, and build React components with data fetching. The gaps disappear with proper feedback loops.\n\nThe question isn't whether open-weights models can code. They can. The question is whether that last 4% of first-attempt accuracy is worth the vendor dependency, the ongoing subscription cost, and the privacy tradeoff of sending your codebase to a third-party API.\n\nFor Magic Pages – a company with a specific, well-understood TypeScript stack – the answer is increasingly no.\n\nWhen a model scores 94.8% on your actual tasks, self-corrects in one iteration, runs at 30GB VRAM, generates 100+ tokens per second locally, and keeps your code private: the argument for $200/month and a 4% edge gets very, very thin.\n\nI'm not saying proprietary models are dead. I'm saying the edge is slim and getting slimmer. For specific, well-defined stacks – the kind most small companies have – open-weights models are already good enough. And \"good enough\" on your own hardware, with your data staying local, at zero marginal cost, is a genuinely different proposition from six months ago.",
+    "readingTime": 7,
+    "keywords": [
+      "api clients",
+      "averaged seconds",
+      "rate limit",
+      "limits mid-session",
+      "usage limits",
+      "fully open-weights",
+      "tasks across",
+      "seconds per",
+      "top models",
+      "per task"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.jannis.io/do-we-still-need-proprietary-coding-llms/",
+    "thumbnail_url": "https://www.jannis.io/content/images/size/w1200/2026/03/og-you-dont-need-to-pay-200-month.webp",
+    "created_at": "2026-04-01T07:08:13.689Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "anthropic-accidentally-exposed-part-of-claude-codes-internal-source-code",
+    "title": "Anthropic accidentally exposed part of Claude Code's internal source code",
+    "description": "Anthropic leaked part of the internal source code for Claude Code, its popular coding assistant. The company said it was due to human error.",
+    "fullText": "Anthropic accidentally leaked some source code for Claude Code, its AI-powered coding assistant.\n The company said the leak did not include sensitive customer data or credentials.\n Anthropic recently experienced a surge in downloads following its split from the Pentagon.",
+    "readingTime": 1,
+    "keywords": [
+      "anthropic",
+      "code"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/anthropic-leak-reveals-claude-code-internal-source-code-2026-3",
+    "thumbnail_url": "https://i.insider.com/69cc73c96a864f6fcd7bc2c6?width=1200&format=jpeg",
+    "created_at": "2026-04-01T07:08:12.175Z",
+    "topic": "finance"
+  },
+  {
     "slug": "apple-is-blocking-vibe-coding-apps-from-the-app-store-we-mocked-them-for-it",
     "title": "Apple is blocking vibe coding apps from the App Store. We mocked them for it",
     "description": "Apple is blocking vibe coding apps from the App Store while adding AI coding to Xcode. Here's what happened and why we launched Bloom on Android.",
@@ -2021,44 +2061,5 @@
     "thumbnail_url": "https://i.insider.com/6998acb2156648bc16a89ce7?width=1200&format=jpeg",
     "created_at": "2026-02-21T01:06:35.211Z",
     "topic": "finance"
-  },
-  {
-    "slug": "vibe-coding-on-smart-glasses-is-a-thing-now",
-    "title": "Vibe Coding on Smart Glasses Is a Thing Now",
-    "description": "Two 2026 buzzwords for the price of one.",
-    "fullText": "If there are two tech things you’re going to read a lot about in the coming year, it’s vibe coding and smart glasses, and lucky for you, you now get to read about both simultaneously. Thanks to a software engineer, Jake Ledner, the buzziest AI agent, OpenClaw, has now found a new friend in Meta’s flagship smart glasses, the Meta Ray-Ban Display. Instead of buying things on Amazon for you, though, OpenClaw is here to help you vibe code while you take a little stroll through Wall Street.\n\nI’m building apps directly from my glasses 🤯\nOpenClaw + Meta Ray-Ban Display pic.twitter.com/0WtBJ85gAK\n\n— Jake Ledner (@jake_ledner) February 19, 2026\n\nIn a demonstration on X, Ledner shows how he connected OpenClaw, which is running on a Mac Studio in his apartment, to the Meta Ray-Ban Display, using OpenAI’s Codex tool to build apps with voice inputs. Because of the in-lens screen on the Meta Ray-Ban Display, Ledner can actually see the progress of the vibe coding session. For demo purposes, Ledner uses the setup to vibe code parts of a health-tracking app called “TrackGPT,” which sounds like exactly what you’d do with smart glasses that churn out apps for you.\n\nLedner even brings the whole thing a step further. Using his voice, he asks OpenClaw to code the feature but also to actually push the whole thing to a live app—a task it appears to complete in the demo. Welcome to the future of coding, I guess? As long as you’re okay with cranking out app slop.\n\nWhile Ledner’s demo is pretty impressive from a technical standpoint, it’s not the only example of experimentation in cramming OpenClaw and Meta’s smart glasses together. Just last week, I covered how one software engineer hacked the Ray-Ban Meta AI glasses to buy things on Amazon by just looking at an object and asking the AI agent to add it to his cart. Again, the whole thing is interesting, but it probably isn’t something you should try for yourself right now.\n\nHowever useful OpenClaw may be, it’s also a pretty huge security risk. For a more technical breakdown of the risks OpenClaw poses, you can read this Medium post from author Vishal Rajput, but the long and short of it is that OpenClaw—in order to do useful stuff—requires access to some of the most sensitive data, including passwords, browser history, and cookies, as well as files and folders on your machine. The security risks are so great that one cybersecurity firm, Palo Alto Networks, went as far as to say that OpenClaw constitutes a “lethal trifecta” of security risks.\n\nIn any case, people seem to be down to experiment with AI agents on smart glasses, regardless, so I would buckle up for even more mashing of OpenClaw and smart glasses in the future—for better and most likely worse.",
-    "readingTime": 3,
-    "keywords": [
-      "ray-ban display",
-      "meta ray-ban",
-      "software engineer",
-      "security risks",
-      "vibe coding",
-      "vibe code",
-      "smart glasses",
-      "jake ledner",
-      "it’s",
-      "openclaw"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://gizmodo.com/oh-god-vibe-coding-on-smart-glasses-is-a-thing-now-2000724466",
-    "thumbnail_url": "https://gizmodo.com/app/uploads/2025/10/Meta-Ray-Ban-Display-review-17-1200x675.jpg",
-    "created_at": "2026-02-20T18:32:32.233Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "picoml-a-toy-programming-language-which-is-a-subset-of-ocaml",
-    "title": "Pico-ML: A toy programming language which is a subset of OCaml",
-    "description": "A toy programming language which is a subset of OCaml. - Quramy/pico-ml",
-    "fullText": "Quramy\n\n /\n\n pico-ml\n\n Public\n\n A toy programming language which is a subset of OCaml.\n\n quramy.github.io/pico-ml/\n\n License\n\n MIT license\n\n 53\n stars\n\n 1\n fork\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n Quramy/pico-ml",
-    "readingTime": 1,
-    "keywords": [
-      "license"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://github.com/Quramy/pico-ml",
-    "thumbnail_url": "https://opengraph.githubassets.com/25d11557858bb1db18bde1436215606c0fa0a98707a72ade1bd40eba397d4a57/Quramy/pico-ml",
-    "created_at": "2026-02-20T18:32:31.995Z",
-    "topic": "tech"
   }
 ]
