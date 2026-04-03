@@ -1,5 +1,29 @@
 [
   {
+    "slug": "gitleash-time-focused-controls-for-git",
+    "title": "git-leash - time focused controls for Git",
+    "description": "A git commit hook to block commits in certain repos based on configurable time windows. \"Helps you stay focused on what you should be doing at certain times of day\". Especially if you'...",
+    "fullText": "Helps you stay focused on what you're supposed to be doing.\n\nA git pre-commit hook that blocks commits during configured focus windows. Overridable when you genuinely need to ship. Stealth-installable so it doesn't pollute your repo.\n\nMake sure ~/.local/bin is in your PATH.\n\nleash install automatically adds .leash and .leash-slip to .git/info/exclude — no .gitignore modifications, nothing tracked, pure stealth.\n\nPlace at ~/.leash (global) or .leash in your repo root (project-local overrides global).\n\nRun leash example for a fully commented config.\n\nNamed blocks that define when commits are restricted. Multiple schedules stack — if any match, the commit is blocked.\n\nWithout filters, a schedule blocks all repos. Add filters to be selective.\n\nallow= (allowlist) — only matching repos can commit during this window, everything else is blocked. This is the one you probably want for \"let me commit to work repos during work hours\":\n\nblock= (denylist) — only matching repos are blocked, everything else is fine:\n\nPick one per schedule. If both allow= and block= are present, allow= wins and block= is ignored (leash will warn you about this). Set suppress_warnings=true in [messages] to silence the warning if you know what you're doing.\n\nMultiple lines of the same type stack as OR — any match counts.\n\nOptional reminder shown in the block message. Can be set per-schedule or globally as a fallback:\n\nSet the global task from the CLI:\n\nWhen you genuinely need to commit during a focus window:\n\nleash install writes a pre-commit hook that calls back to the leash script. On each git commit:\n\nThe hook remembers where leash was installed from, but also checks PATH as a fallback. If leash can't be found at all, it warns but allows the commit — it won't silently break your workflow.\n\nThe whole point is that this doesn't leave traces in your repo:\n\nIf there's an existing pre-commit hook, it gets backed up to pre-commit.leash-backup and chained — leash runs first, then your original hook.\n\nBash 4+ and coreutils. That's it.",
+    "readingTime": 2,
+    "keywords": [
+      "everything else",
+      "matching repos",
+      "pre-commit hook",
+      "leash install",
+      "block",
+      "blocks",
+      "blocked",
+      "allow",
+      "you're",
+      "doing"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/SiteRelEnby/git-leash",
+    "thumbnail_url": "https://opengraph.githubassets.com/98567a362cf60a6857bc461a60afa7fa781fca80e73ab8bdeb2efa5a0afc668f/SiteRelEnby/git-leash",
+    "created_at": "2026-04-03T01:19:32.216Z",
+    "topic": "tech"
+  },
+  {
     "slug": "six-things-to-know-when-switching-from-windows-to-macos",
     "title": "Six Things to Know When Switching From Windows to macOS",
     "description": "Get up and running on your new Apple system.",
