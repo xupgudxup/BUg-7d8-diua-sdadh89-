@@ -1,5 +1,29 @@
 [
   {
+    "slug": "autonomous-taskaware-context-tuning-for-ai-coding-agents",
+    "title": "Autonomous, task-aware context tuning for AI coding agents",
+    "description": "Entroly helps AI coding tools like Cursor, Copilot, and Claude Code use the right context from your entire codebase—improving output quality while reducing token usage. - juyterman1000/entroly",
+    "fullText": "The Context Engineering Engine for AI Coding Agents\n\n Your AI sees 5% of your codebase. Entroly shows it everything — 78% fewer tokens.\n\npip install entroly  —  Works with Cursor, Claude Code, Copilot, Windsurf, OpenClaw\n\nInstall  • \n Demo  • \n Integrations  • \n OpenClaw  • \n CLI  • \n Discuss\n\nRun it yourself: pip install entroly && entroly demo\n\nOpen the interactive HTML demo for the full animated experience, or generate your own with python docs/generate_demo.py.\n\nEvery AI coding tool — Cursor, Copilot, Claude Code, Cody — stuffs tokens into the context window until it's full, then cuts. Your AI sees 5-10 files and the rest of your codebase is invisible.\n\nEntroly fixes this. It compresses your entire codebase into the context window at variable resolution, removes duplicates and boilerplate, and learns which context produces better AI responses over time.\n\nYou install it once. It runs invisibly. Your AI gives better answers and you spend less on tokens.\n\n\"The LLM is the CPU, the context window is RAM.\"\n\nToday, every AI coding tool fills that RAM manually — you craft system prompts, configure RAG, curate docs. Entroly automates the entire process.\n\nThese layers are complementary. Doc tools give you better docs. Memory gives you persistence. RAG retrieves relevant chunks. Entroly is the optimization layer that makes sure all of it actually fits in your context window without wasting tokens.\n\nEntroly works standalone, or on top of any doc tool, memory system, RAG pipeline, or context source.\n\nThat's it. entroly go auto-detects your project, configures your IDE, picks the optimal quality preset, starts the proxy and dashboard — all in one command.\n\nThen point your AI tool's API base URL to http://localhost:9377/v1.\n\nMulti-arch: linux/amd64 and linux/arm64 (Apple Silicon, AWS Graviton).\n\nOr with Docker Compose: docker compose up -d\n\nOpenClaw users get the deepest integration. Entroly plugs in as a Context Engine that optimizes every agent type automatically:\n\nWhen OpenClaw spawns multiple agents, Entroly's multi-agent budget allocator splits your token budget optimally across all of them. No agent starves. No tokens wasted.\n\nMost AI tools use embedding-based retrieval (RAG). Entroly takes a fundamentally different approach:\n\nEntroly is built for real-world reliability, not demos.\n\nIf you run into any issue, email autobotbugfix@gmail.com with:\n\nHomebrew Python requires a virtual environment:\n\nEntroly falls back to the Python engine automatically. For the Rust speedup:\n\nIf no pre-built wheel exists for your platform, install the Rust toolchain first.\n\nEntroly integrates with hippocampus-sharp-memory for persistent cross-session memory and Ebbiforge for TF embeddings and RL weight learning. Both are optional.\n\nControl the speed vs. quality tradeoff:\n\nHybrid Rust + Python. All math runs in Rust via PyO3 (50-100x faster). MCP protocol and orchestration run in Python.\n\nEntropic Context Compression (ECC) — 3-level hierarchical codebase representation. L1: skeleton map of all files (5% budget). L2: dependency cluster expansion (25%). L3: submodular diversified full fragments (70%).\n\nIOS (Information-Optimal Selection) — Combines Submodular Diversity Selection with Multi-Resolution Knapsack in one greedy pass. (1-1/e) optimality guarantee.\n\nKKT-REINFORCE — The dual variable from the forward budget constraint serves as a per-item REINFORCE baseline. Forward and backward use the same probability.\n\nPRISM — Natural gradient preconditioning via exact Jacobi eigendecomposition of the 4x4 gradient covariance.\n\nPSM (Persona Spectral Manifold) — RBF kernel mean embedding in RKHS for automatic query archetype discovery. Each archetype learns specialized selection weights via Pitman-Yor process.\n\nADGT — Duality gap as a self-regulating temperature signal. No decay constant needed.\n\nPCNT — PRISM spectral condition number as a weight-uncertainty-aware temperature modulator.\n\nNKBE (Nash-KKT Budgetary Equilibrium) — Game-theoretic multi-agent token allocation. Arrow-Debreu KKT bisection finds the dual price, Nash bargaining ensures fairness, REINFORCE gradient learns from outcomes.\n\nISA Cognitive Bus — Information-Surprise-Adaptive event routing for agent swarms. Poisson rate models compute KL divergence surprise. Welford accumulators detect anomalous spikes in real-time.\n\nShannon (1948), Charikar (2002), Ebbinghaus (1885), Nemhauser-Wolsey-Fisher (1978), Sviridenko (2004), Boyd & Vandenberghe (Convex Optimization), Williams (1992), Muandet-Fukumizu-Sriperumbudur (2017), LLMLingua (EMNLP 2023), RepoFormer (ICML 2024), FILM-7B (NeurIPS 2024), CodeSage (ICLR 2024).",
+    "readingTime": 4,
+    "keywords": [
+      "claude code",
+      "coding tool",
+      "pip install",
+      "install entroly",
+      "context window",
+      "your ai",
+      "tokens",
+      "codebase",
+      "budget",
+      "demo"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/juyterman1000/entroly/",
+    "thumbnail_url": "https://opengraph.githubassets.com/4510804321f35f241c75c8b63f1d0195b60e5b50da98d841803417fc1fa59a96/juyterman1000/entroly",
+    "created_at": "2026-04-03T06:57:15.173Z",
+    "topic": "tech"
+  },
+  {
     "slug": "inside-kpmgs-push-to-turn-tax-experts-into-handson-software-builders",
     "title": "Inside KPMG's push to turn tax experts into hands-on software builders",
     "description": "In a six-week pilot program, KPMG US tax staffers used vibe coding to create software tools the firm said it now uses with clients.",
@@ -2039,21 +2063,6 @@
     "link": "https://github.com/odysa/mini-claw-code",
     "thumbnail_url": "https://opengraph.githubassets.com/1908684ebec27b9eea9a65c94f2753ee211d2eefa6260b58bbed17b4529654a8/odysa/mini-claw-code",
     "created_at": "2026-02-22T06:35:08.675Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "quill-a-systemwide-tech-dictionary-for-the-ai-coding-era",
-    "title": "Quill – A system-wide tech dictionary for the AI coding era",
-    "description": "Learn what AI writes for you. A system-wide tech dictionary for macOS — select any term, press a shortcut, get an instant explanation at your level. - uptakeagency/quill",
-    "fullText": "uptakeagency\n\n /\n\n quill\n\n Public\n\n Learn what AI writes for you. A system-wide tech dictionary for macOS — select any term, press a shortcut, get an instant explanation at your level.\n\n License\n\n MIT license\n\n 0\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n uptakeagency/quill",
-    "readingTime": 1,
-    "keywords": [
-      "license"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://github.com/uptakeagency/quill",
-    "thumbnail_url": "https://opengraph.githubassets.com/a583f40305ae1e7f907452739ae864ce013e2d1098ad6c2d2624177cc2cc4f3c/uptakeagency/quill",
-    "created_at": "2026-02-22T01:11:31.810Z",
     "topic": "tech"
   }
 ]
