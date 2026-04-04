@@ -1,5 +1,42 @@
 [
   {
+    "slug": "libgoc-golike-cspstyle-http-clientserver-library-for-c",
+    "title": "Libgoc – Go-like CSP-style HTTP client/server library for C",
+    "description": "A Go-style CSP concurrency runtime for C: threadpools, stackful coroutines, channels, select, async I/O, and garbage collection in one coherent API. - divs1210/libgoc",
+    "fullText": "A CSP-style HTTP/1.1 library for libgoc — a route-based server that dispatches requests into fibers, and a channel-based client for making outbound HTTP calls, both built on goc_io TCP and picohttpparser with no additional runtime dependencies.\n\ngoc_http.h is a separate header; include it alongside goc.h:\n\nTwo HTTP servers bounce a counter back and forth over HTTP.\n\nBoth the server and client are built on goc_io TCP and share libgoc's\nuv_loop_t. Neither requires any additional runtime dependency beyond libuv.\n\nServer: goc_http_server_listen binds a GC-managed uv_tcp_t and calls\ngoc_io_tcp_server_make to obtain an accept channel. An accept-loop fiber\nreads one uv_tcp_t* per accepted connection and spawns a per-connection\nfiber. The connection fiber reads a complete HTTP/1.1 request via\ngoc_io_read_start, parses it with phr_parse_request (picohttpparser),\nmatches a route, runs middleware, calls the handler, and writes the response\nvia goc_io_write (which dispatches the uv_write to the event loop thread\nthrough a uv_async bridge). No extra threads or mutexes are required beyond\nwhat goc_io already uses.\n\nClient: outbound requests return a channel that delivers a\ngoc_http_response_t* when the response arrives. A single http_client_fiber\non the default pool drives the entire request: DNS lookup via\ngoc_io_getaddrinfo, TCP connect via goc_io_tcp_connect, write via\ngoc_io_write, and read/parse via goc_io_read_start. All I/O completes\nthrough goc_take in the fiber. The event loop is never blocked; other fibers\ncontinue to run while the request is in flight.\n\nThe raw connection handle is never exposed to user code. All access goes\nthrough goc_http_ctx_t helpers; the context is valid only until\ngoc_http_server_respond() (or goc_http_server_respond_error()) delivers its result.\n\nServer-side functions (goc_http_server_respond, goc_http_server_header, etc.) operate\nwithin the per-connection fiber and do not need any cross-thread dispatch.\nClient-side functions (goc_http_get, goc_http_post, etc.) launch a fiber\non the default pool that drives the entire request through goc_io channel\noperations and are safe to call from any fiber.\n\ngoc_http_ctx_t must not be passed across independent requests or stored\nbeyond the lifetime of the handler fiber.\n\nRoutes are matched in registration order. The first matching route wins.\nA route pattern is a path prefix string; exact matching and simple wildcards\n(*) are supported.\n\nUnmatched requests receive an automatic 404 Not Found.\n\nAccess request data through goc_http_ctx_t fields and the helpers below.\nAll returned strings are GC-managed and valid for the lifetime of the context.\n\nExactly one of these must be called before the handler fiber returns.\nCalling more than one, or returning without calling either, is undefined behaviour.\n\nEach function returns a channel that delivers goc_box_int(rc) (rc == 0 on\nsuccess, negative libuv error code on failure) once the response has been\nflushed by libuv. goc_take it to wait for the flush before doing further\nwork that depends on the client having received the response.\n\nMiddleware runs inside the per-request fiber, in registration order, before\nthe route handler is called. Because it runs in a fiber, it can do anything\na handler can — channel operations, goc_io, timeouts — without blocking the\nevent loop.\n\nReturning GOC_HTTP_ERR from any middleware short-circuits the chain and\nsends a 500 to the client; the handler is not called.\n\nAll client functions return a channel that delivers a goc_http_response_t*\nwhen the response arrives. goc_take the channel to receive the result.\nMust be called from fiber context.\n\ngoc_http_request_opts_t carries optional headers and a timeout. Pass\ngoc_http_request_opts() for defaults (no extra headers, no timeout).\n\nBecause the functions return channels, multiple requests can be issued in\nparallel and awaited with goc_alts or goc_take_all:",
+    "readingTime": 3,
+    "keywords": [
+      "goc_io tcp",
+      "additional runtime",
+      "default pool",
+      "event loop",
+      "delivers goc_http_response_t",
+      "response arrives",
+      "via goc_io_read_start",
+      "via goc_io_write",
+      "functions return",
+      "channel operations"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/divs1210/libgoc/blob/main/HTTP.md",
+    "thumbnail_url": "https://opengraph.githubassets.com/767e1b86fe5b801c7d046816cee2a127bd31d6235703ab47618167c78833569a/divs1210/libgoc",
+    "created_at": "2026-04-04T01:14:01.205Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "the-best-mens-dress-shoes",
+    "title": "The best men's dress shoes",
+    "description": "The best dress shoes for men combine classic style with all-day comfort, making them easier to wear for work and formal occasions.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/guides/style/best-mens-dress-shoes",
+    "thumbnail_url": "https://i.insider.com/68487fc7f748d8c055f369fa?width=1200&format=jpeg",
+    "created_at": "2026-04-04T01:13:49.733Z",
+    "topic": "finance"
+  },
+  {
     "slug": "the-best-briefcases-for-men",
     "title": "The best briefcases for men",
     "description": "The best briefcases for men combine polished style with practical storage, making it easy to carry your work essentials every day.",
@@ -2055,44 +2092,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/Y0XMvlOZjBYlc.IidvGEJg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/new_york_giants_wire_usa_today_sports_articles_591/d10639ba2338c23ee6b033b9f99ccd01",
     "created_at": "2026-02-22T12:26:42.185Z",
     "topic": "sports"
-  },
-  {
-    "slug": "i-did-y-combinator-in-2016-and-2025-the-first-time-felt-more-familystyle",
-    "title": "I did Y Combinator in 2016 and 2025. The first time felt more 'family-style.'",
-    "description": "Quang Hoang did Y Combinator twice: In 2016 for Birdly and in 2025 for Vybe. He said that his first experience was more \"family-style.\"",
-    "fullText": "This as-told-to essay is based on a conversation with Quang Hoang, the 37-year-old cofounder and CEO of Vybe, who lives in San Francisco. It's been edited for length and clarity.\n\nWe started 10 years ago. We were out of college and wanted to solve a problem that we experienced ourselves. When you're a student, you don't have that many problems.\n\nWhen we were interns, we had a lot of expense reports, but we would lose receipts and lose money. When you're a student, you don't have much money. One of the first problems we wanted to solve was: Let's build a mobile app to save your receipts, a bit like Expensify.\n\nSlack released its first API at the time. Now, we could create a bot. That was our pitch to YC: This is a new thing called a Slack bot. During the interview, they installed the Slack bot, and it pinged everyone in the YC Slack. Everyone started to use it. We got in.\n\nIt was 2016. At the time, it was in Mountain View. Sam Altman was still a partner. We had some office hours with him.\n\nThe core principle remained the same, but everything felt way less streamlined and processed than it is today. For example, the dinners were way more family-style. There weren't any visible employees. Some of the partners were cooking sometimes. Paul Graham was there.\n\nWe still were 100 people total in the batch, which is probably 3x less than it is today. Everything was in-person. We came from France and rented a house. It was a big difference to be in Mountain View when you've never lived in the US, than when you already live in San Francisco, and you do YC for the second time.\n\nThe former company was bought two years ago by Coda, which was acquired by Grammarly. Then, I discovered vibe coding. I decided that Notion, Airtable, Coda, and Retool are going to be the incumbents, and that a new category of vibe-coding platforms are going to emerge.\n\nOne of the partners at YC is also a friend, Nicolas Dessaigne. He said, \"You should apply to YC.\" It was a big opportunity cost to leave the company that acquired me, and having something like YC is a bit reassuring.\n\nThe fundamentals are still the same. You still have to talk to users, code, and grow. You still have to grow every single week at a steady percentage growth. It was 5-10% at the time; today it's more like 10, 12, 15%.\n\nYou have more and more young founders. It's not something that happened in the past 10 years; it probably happened in the past two years. I was one of the old folks. It was also my second company. Many are first-time founders.\n\nI think it was already the case that you want young founders that don't know limits and don't have anything that would prevent them from thinking really big. With AI, it's the same thing.\n\nA constant debate that you have less when you're a first-time founder is: Should I ship this, or should I double-check it? As a younger, first-time founder, you might have less experience with technical depth because you might not have worked with bigger companies before. You say: Let's ship this.\n\nThe batch sizes don't feel that different. The interaction you have with your batch is through weekly dinners, group office hours, individual office hours, and Demo Day. You also have some workshops here and there. If you are 300 or 400 people in the batch, it doesn't change that much if you're in subgroups.\n\nSometimes there are events, like when Sam Altman comes to talk, or the CEO of Perplexity or Cursor, where you need to have the whole batch. But, it's conference style anyway. You have 400 people in a room, sure, but if it's 150 or 400, it's the same.\n\nThe themes changed a lot, obviously. It was a lot of mobile apps and cloud. Today, it's a lot of AI. The brand of YC helps a lot. The brand is probably 10x better today than it was 10 years ago.\n\nDemo Day was way more important at the time than it is today. It feels more like an anchor date. It gives urgency to investors: if you don't invest in the hot startups now, they will meet with thousands of investors two weeks from now, and you might just lose your opportunity.\n\nGood investors all invest before Demo Day. It's just an anchor date to create a timeline for the investor and the startup.\n\nIf you ask me: Are you happy that you went back to YC? The answer is super straightforward. It's 100% yes.",
-    "readingTime": 4,
-    "keywords": [
-      "slack bot",
-      "anchor date",
-      "first-time founder",
-      "you're student",
-      "don't",
-      "batch",
-      "less",
-      "it's",
-      "hours",
-      "founders"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/quang-hoang-y-combinator-evolution-2026-2",
-    "thumbnail_url": "https://i.insider.com/69975078f8731049f3af6a52?width=1200&format=jpeg",
-    "created_at": "2026-02-22T12:26:19.841Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-chatstyle-site-for-hacker-news-trends",
-    "title": "A chat-style site for Hacker News trends",
-    "description": "Contribute to 1997roylee/yc-chat development by creating an account on GitHub.",
-    "fullText": "1997roylee\n\n /\n\n yc-chat\n\n Public\n\n yc-chat-seven.vercel.app\n\n License\n\n MIT license\n\n 0\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n 1997roylee/yc-chat",
-    "readingTime": 1,
-    "keywords": [
-      "license"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://github.com/1997roylee/yc-chat",
-    "thumbnail_url": "https://opengraph.githubassets.com/29a929f29c51be53fdfae3433c76507e25787f732e6a41a15b3e39d28ea1a70b/1997roylee/yc-chat",
-    "created_at": "2026-02-22T06:35:07.161Z",
-    "topic": "tech"
   }
 ]

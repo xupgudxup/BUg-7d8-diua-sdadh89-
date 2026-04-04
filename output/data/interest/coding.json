@@ -1,5 +1,45 @@
 [
   {
+    "slug": "ai-coding-tools-in-a-sandbox-why-your-file-system-needs-protection",
+    "title": "AI Coding Tools in a Sandbox: Why Your File System Needs Protection",
+    "description": "AI coding tools like Claude Code or Copilot have full access to your file system. bx protects everything except the current project directory with a single command.",
+    "fullText": "If you work with AI-powered coding tools today — be it Claude Code, Copilot, or Cursor — you quickly get used to the productivity boost. What’s easy to overlook: these tools have full access to your entire file system. Every command the AI executes runs with the same permissions as you.\n\nThat might be fine for a hobby project. But if you’re handling client data, have license keys on disk, SSH keys for production servers, or simply private photos in your home directory — at some point, you start feeling uneasy.\n\nOf course, there are ways to protect yourself:\n\nDocker containers offer good isolation, but they’re cumbersome for typical macOS development workflows. You need to mount volumes, configure IDE integration, and the workflow never feels quite native.\n\nClaude’s built-in restrictions — the tool politely asks before modifying files. But “asking” isn’t protection. A hallucinated file path, a misinterpreted command, and suddenly the AI reads something it shouldn’t have seen. The trust is based on the model’s behavior, not on a technical barrier.\n\nVSCode Workspace Trust protects against automatic code execution, but not against file system access from a terminal or an extension.\n\nNone of these solutions really convinced me.\n\nmacOS ships with sandbox-exec, a kernel-level sandbox that Apple itself uses for App Store apps. The idea: a tool that launches any application so it can only see the current project directory — and nothing else.\n\nThe result is bx. A CLI tool you put in front of your actual command:\n\nThat’s it. Claude Code starts with full access to ~/work/my-project — but ~/Documents, ~/Desktop, ~/.ssh, other projects, and everything else in the home directory is invisible.\n\nThe ironic part: bx was built entirely with the tool it’s designed to protect against. In two intensive days, Claude Code wrote the bulk of the code — from sandbox profile generation to CLI argument parsing to app discovery via macOS Spotlight.\n\nIt worked surprisingly well. Claude knew the (undocumented!) Apple Sandbox Profile Language and correctly handled its quirks — for instance, the fact that deny rules in SBPL always take precedence over allow rules, regardless of order. This means you can’t simply lock down the entire home directory and then add exceptions. bx solves this by scanning the home directory and selectively blocking only sibling directories.\n\nbx isn’t limited to one tool. It supports VSCode, Xcode, Terminal, and arbitrary commands out of the box. Any app can be added via a TOML configuration file:\n\nThe tool finds apps automatically via their macOS bundle ID — no hardcoded paths needed. And if you regularly work with the same projects, you can configure default directories per app:\n\nA simple bx code then opens VSCode with exactly those directories — sandboxed.\n\nWhat makes bx especially practical: you can hide files even within an allowed project directory. A .bxignore file in the project works like .gitignore:\n\nThis keeps environment variables and certificates invisible, even when the project directory itself is fully accessible.\n\nWith bx --dry you can preview exactly what will be protected — without launching anything. It gives you a clear picture of the actual isolation.\n\nWhat many people underestimate: modern AI coding tools are far more than chat interfaces. Claude Code, for example, can execute shell commands, create and delete files, and access external services via MCP servers (Model Context Protocol) — databases, APIs, cloud infrastructure. On top of that, there are skills and hooks that can trigger actions automatically.\n\nAll of this happens in the user’s context, with their full permissions. bx’s sandbox operates at the kernel level: whether it’s an rm command, an MCP tool, or an automated hook trying to access ~/Documents — the operating system blocks the access before it even happens. This is fundamentally different from a software-level restriction that could be bypassed.\n\nImportant to note: within the allowed project directory, everything is permitted — that’s intentional, otherwise you couldn’t work. If you have sensitive files there, you can selectively exclude them via .bxignore.\n\nbx is not a high-security vault. sandbox-exec is an undocumented Apple API that could change with any macOS update. There’s no network protection — API calls, git push, and npm install all work normally. And sandbox rules are generated once at launch; directories created afterwards are not automatically protected.\n\nBut as a pragmatic security layer for everyday development, it works remarkably well. It’s the difference between “the AI can theoretically read everything” and “the AI can only see this one project.”\n\nThat said, to be clear: bx was built with the best of intentions and to the best of my knowledge, but it comes with no guarantees. It’s not a replacement for a professional security solution, and it doesn’t absolve anyone from thinking for themselves. If you’re working with truly critical data, don’t rely blindly on any single tool — no matter how well it works. bx is an additional layer of protection, not a substitute for common sense.\n\nbx can be installed via Homebrew or npm:\n\nThe code is open source on GitHub: github.com/holtwick/bx-mac\n\nI’d love to hear your feedback, feature requests, and of course stars. And if you have interesting use cases — let me know!\n\nThis blog post was written by Claude (Anthropic’s AI) and reviewed and approved by me. Fitting, given the topic, I’d say.",
+    "readingTime": 5,
+    "keywords": [
+      "undocumented apple",
+      "coding tools",
+      "sandbox profile",
+      "allowed project",
+      "file system",
+      "project directory",
+      "claude code",
+      "access",
+      "macos",
+      "command"
+    ],
+    "qualityScore": 1,
+    "link": "https://holtwick.de/en/blog/bx-sandbox",
+    "thumbnail_url": "https://holtwick.de/ogimage.png",
+    "created_at": "2026-04-04T01:14:04.003Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "metas-ai-push-is-reshaping-how-work-gets-done-inside-the-company",
+    "title": "Meta's AI push is reshaping how work gets done inside the company",
+    "description": "Inside Meta's AI overhaul: faster coding, rising productivity, and fears that automation could shrink its workforce.",
+    "fullText": "A version of this story originally appeared in the BI Tech Memo newsletter.\n\n How does AI impact Meta's employee roles?\n\n How might AI affect Meta's headcount?\n\n Why is Meta focusing on AI productivity?\n\n What are AI-native pods in Reality Labs?\n\n What challenges come with AI in tech firms?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "meta's",
+      "tech"
+    ],
+    "qualityScore": 0.3,
+    "link": "https://www.businessinsider.com/meta-ai-powered-productivity-revolution-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d0102ee762ed6cfe44a2d6?width=1200&format=jpeg",
+    "created_at": "2026-04-04T01:13:49.984Z",
+    "topic": "finance"
+  },
+  {
     "slug": "autonomous-taskaware-context-tuning-for-ai-coding-agents",
     "title": "Autonomous, task-aware context tuning for AI coding agents",
     "description": "Entroly helps AI coding tools like Cursor, Copilot, and Claude Code use the right context from your entire codebase—improving output quality while reducing token usage. - juyterman1000/entroly",
@@ -2025,44 +2065,5 @@
     "thumbnail_url": "/resources/images/article_assets/2026/02/Feb26_23_unsplash.jpg",
     "created_at": "2026-02-23T18:49:03.698Z",
     "topic": "business"
-  },
-  {
-    "slug": "linux-70-makes-preparations-for-rust-195",
-    "title": "Linux 7.0 Makes Preparations For Rust 1.95",
-    "description": "Last week was the main feature pull of Rust programming language updates for the Linux 7.0 kernel merge window",
-    "fullText": "Linux 7.0 Makes Preparations For Rust 1.95\n\nLast week was the main feature pull of Rust programming language updates for the Linux 7.0 kernel merge window. Most notable with that pull was Rust officially concluding its \"experimental\" in now treating Rust for Linux kernel/driver programming as stable and here to stay. Sent out today was a round of Rust fixes for Linux 7.0 that includes preparations for the upcoming Rust 1.95 release.\r\nRust 1.95 is being branched from master on 27 February and aiming for its stable release on 16 April. Rust 1.95 stabilizes if let guards, changing some ports to tier 2 status, and various other changes.\r\nFor Linux 7.0 they are now passing the \"-Zunstable-options\" flag that will be required by the Rust 1.95 release. The -Zunstable-options allows for the use of other new, unstable command line options.\r\nFor the kernel's irq module, there is a missing bound detected by the in-development Rust 1.95 code to be addressed. With the pin-init crate was also a Clippy warning that changed behavior with the upcoming Rust 1.95 release.\r\nMeanwhile this round of Rust fixes for Linux 7.0 also fixes an objtool warning when using the older Rust 1.84 release plus a fix to the list module to address missing \"unsafe\" blocks and placeholder safety comments to macros.\r\nMore details on these Rust fixes sent out today for Linux 7.0 to focus on future Rust 1.95 compatibility can be found via this pull request.\n\n 14 Comments",
-    "readingTime": 2,
-    "keywords": [
-      "upcoming rust",
-      "rust release",
-      "rust fixes",
-      "linux",
-      "preparations",
-      "programming",
-      "round",
-      "module",
-      "missing",
-      "warning"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.phoronix.com/news/Linux-7.0-Rust-1.95-Prep",
-    "thumbnail_url": "https://www.phoronix.net/image.php?id=2021&image=rust_linux_v2",
-    "created_at": "2026-02-22T12:26:17.512Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "mini-claw-code-write-your-own-mini-coding-agent",
-    "title": "Mini Claw Code – Write your own mini coding agent",
-    "description": "Build your own mini coding agent in Rust. Contribute to odysa/mini-claw-code development by creating an account on GitHub.",
-    "fullText": "odysa\n\n /\n\n mini-claw-code\n\n Public\n\n Build your own mini coding agent in Rust.\n\n odysa.github.io/mini-claw-code/\n\n License\n\n MIT license\n\n 3\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n odysa/mini-claw-code",
-    "readingTime": 1,
-    "keywords": [
-      "license"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://github.com/odysa/mini-claw-code",
-    "thumbnail_url": "https://opengraph.githubassets.com/1908684ebec27b9eea9a65c94f2753ee211d2eefa6260b58bbed17b4529654a8/odysa/mini-claw-code",
-    "created_at": "2026-02-22T06:35:08.675Z",
-    "topic": "tech"
   }
 ]
