@@ -1,5 +1,120 @@
 [
   {
+    "slug": "spath-and-splan",
+    "title": "Spath and Splan",
+    "description": "Introducing spath and splan — semantic addressing and batched code operations for AI coding agents. Eliminating filesystem operations to improve narrative hygiene.",
+    "fullText": "The history of storing code in a filesystem goes back to pre-Unix days. It's a great way for a human to organize code. It provides discreet scopes and hierarchy that's explorable visually. And programming languages often align their scopes and hierarchy with it. But the filesystem is not required for reasoning in a programming language. And the adjacent structure that it provides means we have to build automations (LSP, IDE, grep, etc) on top of it that keeps us thinking about the code, more than the implementation details of how it's stored.\n\nThroughout history, moving that automation layer further away from the filesystem was sought after. Smalltalk, Intentional Programming, etc. were all attempts to move into the semantic space, and away from operational concerns of the activity of programming. This required the human to change how they think about programming, and that proved to be a bridge too far for most.\n\nBut AI is different. An AI agent is prepared to be an expert in any tool you provide the onboarding for. It can and will operate at any layer of abstraction to complete the task. But we are still forcing it to interact with the filesystem. To re-enact this human ritual of programming as an activity.\n\nIn What is AX? we talked about a philosophy of building tools for AI, but we haven't yet talked about how to move toward those goals. One way is improving narrative hygiene. Let's unpack what that means and the ideas that it is rooted in.\n\nNarrative hygiene is the practice of identifying an ideal narrative for a given intention, and optimizing toward it. This simple idea is rooted in some observations about how AI agents are trained. Narrative is the native language of the LLM.\n\nIdeal Narrative is the minimal viable story in which the desired outcome is achieved. If we apply this lens to a session with an AI coding agent we will quickly see detours and backtracking and meandering, and filesystem operations.\n\nSpath is a semantic addressing format that enables AI agents to address a programming language symbol. Building spath-based tools for AI coding agents, both eliminates filesystem operations and improves the narrative hygiene. Tokens down, quality up, improved AI cognitive quality.\n\nWe hit our three AX goals by moving the abstraction layer that the AI agent operates at.\n\nThis abstraction is a clear AX win that extends beyond anything we build at Sumato AI. We are open sourcing the spath grammar to enable other tool builders to target this abstraction. The benefit of the spath grammar being in the public training data further increases the value of this abstraction for everyone.\n\nSpath is designed to be a general symbol address schema that can be constrained into dialects for any programming language. Some examples of possible spath dialects:\n\nYou may notice the filename user.go in the Go example spath. In Go, a file is a kind of scope. Addressing symbols in a Go package doesn't require a file qualified spath, but supporting the full Go spec requires operational control within this scope. Spath is flexible enough to support this for whatever languages require it.\n\nWe are also presenting an spath dialect for Go. It has been used extensively at Sumato AI and we are quite happy with it. We have found using a minimal dialect works well generally. But a dialect with finer grained addressing on one domain of the language might be useful for specialized work. For this and other reasons, we expect many dialects to emerge for a given language or set of languages. Dialects may even map outside of the programming language space.\n\n(Claude felt strongly about splan and wrote this section)\n\nSpath gives the agent a way to say what it's talking about. Splan gives it a way to say what it wants to do.\n\nSplan is a grammar for expressing batched code operations with content. Where spath is the noun, splan is the sentence. An agent using splan expresses a complete intention — target, operation, content — in a single, legible plan:\n\nThere is no filesystem in this narrative. No file paths, no line numbers, no offsets. The agent states what it wants changed, where it lives semantically, and what the new content should be. The tooling resolves the rest.\n\nPlans are transactional — all operations succeed or none are applied. This is a property that the filesystem doesn't give you for free, and one that agents benefit from enormously. A failed operation doesn't leave the codebase in a half-mutated state that the agent then has to reason its way out of. That recovery narrative is some of the most expensive waste in a coding session.\n\nSplan is intentionally minimal. It defines the envelope — commands, arguments, content blocks — without prescribing what commands exist or what the content means. Language-specific bindings define the vocabulary. This is the same philosophy as spath: an abstract grammar that dialects constrain for their ecosystem.\n\nSpath, Spath Go, and Splan are a huge step toward better narrative hygiene for coding agents. But they are just the beginning. We have many things we're excited to share in the coming months, and we are very interested to hear how folks use spath and splan. Drop us a line.",
+    "readingTime": 5,
+    "keywords": [
+      "narrative hygiene",
+      "ideal narrative",
+      "coding agents",
+      "programming language",
+      "filesystem operations",
+      "spath grammar",
+      "splan",
+      "abstraction",
+      "dialects",
+      "content"
+    ],
+    "qualityScore": 1,
+    "link": "https://sumato.ai/posts/2026-04-04-spath-and-splan.html",
+    "thumbnail_url": "https://sumato.ai/img/sumato-ai-logo-med.png",
+    "created_at": "2026-04-04T06:47:17.864Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "musk-asks-spacex-ipo-banks-to-buy-grok-ai-subscriptions-nyt-reports",
+    "title": "Musk asks SpaceX IPO banks to buy Grok AI subscriptions, NYT reports",
+    "description": "April 3 (Reuters) - Elon Musk is requiring banks and other advisers working on SpaceX’s planned IPO to buy subscriptions to Grok, his artificial intelligence chatbot, the New York Times reported on",
+    "fullText": "April 3 (Reuters) - Elon Musk is requiring banks and other advisers working on SpaceX’s ‌planned IPO to buy subscriptions to ‌Grok, his artificial intelligence chatbot, the New York Times ​reported on Friday, citing people familiar with the matter.\n\nSome banks have agreed to spend tens of millions of dollars a year on the ‌chatbot and have ⁠begun integrating it into their IT systems, the report said.\n\nMorgan Stanley, Goldman ⁠Sachs, JPMorgan Chase, Bank of America and Citigroup are serving as active bookrunners, or the ​lead banks ​managing the deal, Reuters ​reported earlier this ‌week.\n\nMusk and SpaceX did not respond to Reuters' requests for comment. The five banks did not immediately respond to Reuters' queries.\n\nThe company aims to raise a record $75 billion, which would dwarf previous mega-IPOs ​such as ‌Saudi Aramco in 2019 and Alibaba in ​2014.",
+    "readingTime": 1,
+    "keywords": [
+      "banks",
+      "chatbot",
+      "respond",
+      "reuters",
+      "musk"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://finance.yahoo.com/markets/stocks/articles/musk-asks-spacex-ipo-banks-181543226.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/e0f944aad23ec2eb106aed3323b60e1b",
+    "created_at": "2026-04-04T06:47:15.697Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "anthropic-says-claude-subscriptions-will-no-longer-support-openclaw-because-it-puts-an-outsized-strain-on-systems",
+    "title": "Anthropic says Claude subscriptions will no longer support OpenClaw because it puts an 'outsized strain' on systems",
+    "description": "Anthropic said third-party tools like OpenClaw put an \"outsized strain on our systems.\" OpenClaw's founder said cutting support would be \"a loss.\"",
+    "fullText": "Claude users have been using their subscription to deploy AI agents with OpenClaw.\n Anthropic said that such usage is placing an \"outsized strain on our systems.\"\n OpenClaw's creator told Business Insider that \"it'd be a loss\" to cut users off.",
+    "readingTime": 1,
+    "keywords": [
+      "users"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/anthropic-cuts-off-openclaw-support-claude-subscriptions-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d070e2c02a678bd7e47fbb?width=1024&format=jpeg",
+    "created_at": "2026-04-04T06:47:15.597Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "meta-paused-its-work-with-ai-training-startup-mercor-after-a-data-breach",
+    "title": "Meta paused its work with AI training startup Mercor after a data breach",
+    "description": "Mercor confirmed to Business Insider on Friday that the company had experienced a security breach.",
+    "fullText": "Meta has paused its work with Mercor and is investigating after a data breach, a person familiar said.\n Mercor confirmed to Business Insider that it was recently affected by a security incident.\n Mercor works with major companies by providing training data for AI models.",
+    "readingTime": 1,
+    "keywords": [
+      "mercor"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/meta-pauses-work-mercor-ai-training-investigating-data-breach-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d058146a864f6fcd7bd5f6?width=1200&format=jpeg",
+    "created_at": "2026-04-04T06:47:15.594Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "openai-sees-a-new-round-of-executive-shakeups",
+    "title": "OpenAI sees a new round of executive shake-ups",
+    "description": "OpenAI COO, Brad Lightcap, will be moving into a new role in special projects, while two senior executives are stepping back for heath reasons.",
+    "fullText": "OpenAI's leadership is reshuffling.\n COO Brad Lightcap is taking a new role to expand OpenAI's enterprise software sales.\n Executives Fidji Simo and Kate Rouch are stepping back due to health issues.\n\n What are OpenAI's \"special projects\"?\n\n What health conditions affect tech leaders?\n\n What challenges do companies face pre-IPO?\n\n How does executive turnover affect OpenAI?\n\n How do IPOs impact tech companies?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "openai's",
+      "health",
+      "affect",
+      "tech"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/openai-executive-shake-up-coo-cmo-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d06e39c02a678bd7e47fb2?width=1200&format=jpeg",
+    "created_at": "2026-04-04T06:47:15.593Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "remembrallmcp-code-dependency-graph-for-agents-and-memory",
+    "title": "RemembrallMCP – code dependency graph for agents and memory",
+    "description": "Persistent memory and code dependency graph for AI agents. MCP server with hybrid search, blast radius analysis, and 8-language support. Rust + Postgres + pgvector. - cdnsteve/remembrallmcp",
+    "fullText": "Persistent knowledge memory and code intelligence for AI agents. Rust core, Postgres + pgvector, MCP protocol.\n\nThe problem: AI coding agents are stateless. Every session starts from zero - no memory of past decisions, no understanding of how the codebase fits together, no way to know what breaks when you change something.\n\nThe solution: RemembrallMCP gives agents two things most memory tools don't:\n\n1. Persistent Memory - Decisions, patterns, and organizational knowledge that survive between sessions. Hybrid semantic + full-text search finds relevant context instantly.\n\n2. Code Dependency Graph - A live map of your codebase built with tree-sitter. Functions, classes, imports, and call relationships across 8 languages. Ask \"what breaks if I change this?\" and get an answer in milliseconds - before the agent touches anything.\n\nWithout RemembrallMCP, agents explore your codebase from scratch every session. Claude Code spawns Explore agents, Codex reads dozens of files, Cursor greps through directories - all burning tokens and time just to understand what calls what. A single \"find all callers of this function\" task can cost thousands of tokens across multiple tool calls.\n\nWith RemembrallMCP, that same query is a single remembrall_impact call that returns in <1ms with zero exploration tokens. The dependency graph is already built and waiting.\n\nThe savings scale with codebase size. On a small project, an agent can grep and read its way through. On a 500-file monorepo, that exploration becomes the bottleneck - agents hit context limits, spawn multiple sub-agents, or miss cross-module dependencies entirely. RemembrallMCP's graph queries stay under 10ms regardless of project size because the structure is pre-indexed in Postgres, not discovered at runtime.\n\nThis is the difference between an agent that explores your codebase every time and one that already understands it.\n\nTested on pallets/click v8.1.7 (594 symbols, 1,589 relationships). Five identical coding tasks run with and without RemembrallMCP. Full report.\n\nThe savings compound on larger codebases. Click is ~90 files - on a 500+ file monorepo, agents without RemembrallMCP need proportionally more exploration calls, while graph queries stay under 10ms regardless of size.\n\nRun the benchmarks yourself: see benchmarks/ for the harness and task definitions.\n\nThat's it. Postgres with pgvector, the schema, and the embedding model are all set up automatically. The database and model cache persist across restarts.\n\nAdd to your project's .mcp.json (works with Claude Code, Cursor, and any MCP-compatible client).\n\nIf using a prebuilt binary or built from \n\nRestart your MCP client. All 9 tools will be available automatically.\n\nScores measured against real open-source projects (Click, Gson, Axios, bat, Cobra, Sidekiq, Hono, Exposed) using automated ground truth tests.\n\nA new RemembrallMCP instance has no knowledge. Use the ingestion tools to bootstrap from existing project history.\n\nFetches merged PRs via gh, digests titles and bodies into memories, and tags them by project. PRs with less than 50 characters of body are skipped. Deduplication by content fingerprint prevents re-ingestion on repeat runs.\n\nWalks the directory tree, finds all .md files, splits them by H2 section headers, and stores each section as a searchable memory. Skips node_modules, .git, target, and similar directories. Good for README, ARCHITECTURE, ADRs, and any written docs.\n\nRun both once per project. After ingestion, remembrall_recall has immediate context.\n\nConfig file: ~/.remembrall/config.toml (created by remembrall init)\n\nEnvironment variables override config file values:",
+    "readingTime": 3,
+    "keywords": [
+      "dependency graph",
+      "file monorepo",
+      "graph queries",
+      "config file",
+      "agents",
+      "codebase",
+      "project",
+      "knowledge",
+      "postgres",
+      "tools"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/cdnsteve/remembrallmcp",
+    "thumbnail_url": "https://opengraph.githubassets.com/87bb114d15f7dbeed4e32ba6b760305384a3bd835ad78957ae5a532730a3c820/cdnsteve/remembrallmcp",
+    "created_at": "2026-04-04T06:47:15.284Z",
+    "topic": "tech"
+  },
+  {
     "slug": "ai-coding-tools-in-a-sandbox-why-your-file-system-needs-protection",
     "title": "AI Coding Tools in a Sandbox: Why Your File System Needs Protection",
     "description": "AI coding tools like Claude Code or Copilot have full access to your file system. bx protects everything except the current project directory with a single command.",
@@ -1758,116 +1873,5 @@
     "thumbnail_url": "https://i.insider.com/69cacfcef573a637a7567a29?width=1200&format=jpeg",
     "created_at": "2026-04-01T12:54:10.647Z",
     "topic": "finance"
-  },
-  {
-    "slug": "cutia-an-ainative-opensource-video-editor-and-free-alternative-to-capcut",
-    "title": "Cutia: An AI-native, open-source video editor and free alternative to CapCut",
-    "description": "Cutia is an AI-native, open-source video editor in your browser — a free, privacy-first alternative to CapCut. AI-powered editing, multi-track timeline, MP4/WebM export with no uploads.",
-    "fullText": "An AI-native, open-source video editor and free alternative to CapCut. No uploads, no tracking — your media stays on your device.\n\nA focused set of tools designed for clarity and speed. No feature bloat — just what matters.\n\nAI is built into every step of your workflow. Generate images, transcribe audio, create captions, and let the AI agent edit videos for you.\n\nYour files never leave your device. All processing happens locally in your browser — no uploads, no servers.\n\nNo installation needed. Open your browser on any platform and start editing right away.\n\nFully open source and community-driven. Inspect the code, contribute, or fork it for your needs.\n\nProfessional timeline with support for video, audio, text, and sticker tracks. Drag, trim, and split with ease.\n\nExport your projects in MP4 or WebM format with adjustable quality settings.\n\nQuick answers about Cutia and how it works.\n\nNo sign-up required. Open the editor and start creating — your first project is just a click away.",
-    "readingTime": 1,
-    "keywords": [
-      "uploads",
-      "device",
-      "audio",
-      "browser",
-      "away"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://cutia.msgbyte.com/en",
-    "thumbnail_url": "https://cutia.msgbyte.com/icon.svg",
-    "created_at": "2026-04-01T07:08:12.360Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "anthropic-accidentally-exposed-part-of-claude-codes-internal-source-code",
-    "title": "Anthropic accidentally exposed part of Claude Code's internal source code",
-    "description": "Anthropic leaked part of the internal source code for Claude Code, its popular coding assistant. The company said it was due to human error.",
-    "fullText": "Anthropic accidentally leaked some source code for Claude Code, its AI-powered coding assistant.\n The company said the leak did not include sensitive customer data or credentials.\n Anthropic recently experienced a surge in downloads following its split from the Pentagon.",
-    "readingTime": 1,
-    "keywords": [
-      "anthropic",
-      "code"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/anthropic-leak-reveals-claude-code-internal-source-code-2026-3",
-    "thumbnail_url": "https://i.insider.com/69cc73c96a864f6fcd7bc2c6?width=1200&format=jpeg",
-    "created_at": "2026-04-01T07:08:12.175Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "inside-the-openai-project-where-freelancers-train-chatgpt-on-everything-from-farming-to-commercial-flying",
-    "title": "Inside the OpenAI project where freelancers train ChatGPT on everything from farming to commercial flying",
-    "description": "Handshake AI contractors from niche industries were directed to create tasks that reflect real work, like animal husbandry.",
-    "fullText": "OpenAI's ChatGPT is being trained to understand niche fields such as animal husbandry and aviation.\n Contractors from various jobs were directed to develop tasks that reflect real work.\n \"We all were aware that we were basically training AI to replace us,\" one contractor said.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/chatgpt-openai-training-niche-occupations-specialized-llm-handshake-data-labeling-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cb6b51f573a637a7567c47?width=1200&format=jpeg",
-    "created_at": "2026-04-01T07:08:12.167Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-startup-founder-explains-why-she-built-9-ai-employees-i-am-a-breathless-openclaw-bro",
-    "title": "A startup founder explains why she built 9 AI employees: 'I am a breathless OpenClaw bro'",
-    "description": "A startup founder said she built nine AI agents with OpenClaw to handle sales, scheduling, and family logistics —replacing hours of paid work.",
-    "fullText": "A startup founder says she has gone from skeptic to OpenClaw believer.\n Claire Vo built 9 AI agents with OpenClaw to handle work admin and family logistics.\n Still, Vo said she is aware of the risks, like the agent deleting files from her computer.",
-    "readingTime": 1,
-    "keywords": [
-      "openclaw"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/openclaw-ai-employee-startup-tech-automation-agents-personalized-work-home-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cca7f16a864f6fcd7bc2ff?width=1200&format=jpeg",
-    "created_at": "2026-04-01T07:08:12.068Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "art-schools-are-being-torn-apart-by-ai",
-    "title": "Art schools are being torn apart by AI",
-    "description": "Despite backlash from some students.",
-    "fullText": "Institutions are teaching creatives to utilize AI, even if some students and faculty hate the technology.\n\nWhen my baby brother, a 3D modelling and animation student, talks to me about his projects and studies, the pride I usually feel is becoming increasingly tainted by a growing sense of dread. As a creative professional and former design student myself, I understand all too well how fierce the competition for postgraduate jobs will be, but his future is being threatened by something that barely even existed during my own time in higher education: generative AI.\n\nCollege students are feeling that fear as well. Earlier this year, in a small protest at CalArts, posters that requested the help of AI artists for a thesis were reportedly altered with anti-AI messages and anti-AI flyers were placed around campus. A film student at the University of Alaska Fairbanks destroyed another student’s allegedly AI-generated display piece by physically eating it out of protest.\n\nRight now, almost any creative task you can think of can be assisted or even entirely completed using generative AI tools. The technology has rapidly become more capable in just a few years. Text-to-image models like Midjourney and Google’s Nano Banana can spit out images in a wide variety of styles based on short descriptions. Music generators like Suno and Udio are allowing users to infiltrate streaming platforms with AI songs that sound kind of like popular human artists. AI video models like Veo 3, Bytedance’s Seedance, and OpenAI’s Sora (before it was killed off last week) are spooking actors, animators, and VFX artists alike. It’s difficult to predict which creative processes will get in the AI crosshairs next.\n\nMeanwhile, reckless AI evangelists and grifters across social media platforms make wild claims about how much design and media can be automated without any professional skills every time a new model is released, despite the glaring copyright concerns that often surround such models. At the same time, AI providers like Adobe, OpenAI, and Google insist their tools are designed to aid creatives rather than replace them or reduce demand for their labor.\n\nThe message to creators is clear from all sides: embrace AI, or risk getting left behind. And sometimes that message is coming from the very art schools that exist to nurture creative skills. The Massachusetts College of Art and Design (MassArt), California Institute of the Arts (CalArts), London’s Royal College of Art (RCA), and many other creative-focused higher education institutions now encourage students across a range of disciplines to explore the current generative AI landscape.\n\n“At CalArts, we aim to incorporate critical engagement with generative AI into our courses and programming to ensure our students can play an active role in shaping future technologies instead of simply reacting to them,” CalArts communications lead Robin Wander told The Verge.\n\nThat doesn’t mean AI tool guides are replacing existing curricula, or that students are necessarily expected to use the technology in their own work. They are expected to know how they can use AI, however. That includes its technical limitations, and often, the ethical and legal implications behind it. Many institutions have implemented AI usage policies for students and faculty in the last few years, which largely push the same message: it’s better to learn and understand these emerging technologies than risk being replaced by them out of complacency.\n\nAnd while these institutions are grappling with the ethics of AI, they’re also recognizing the threat of the technology’s spread and dominance over creative industries.\n\n“We recognize the complicated landscape of AI tools, many of which mine and share/sell user data, are trained on biased datasets, and have significant impacts on the environment,” reads one such statement published by the Pratt Institute. “At the same time, we also recognize that fluency with AI tools is a growing competency sought by employers and an area of professional development across many industries.”\n\nThe approach at CalArts is much the same. The school aims to provide the latest tools to its students alongside opportunities “to work directly” with the organizations like Adobe and Google developing them, according to Wander, while also encouraging “critical discourse on the cultural, creative, ethical, and environmental implications of using AI.”\n\nThe goal for art educators is to ensure creative professionals remain essential to their respective industries by helping them to either master AI tools or continually evolve to surpass them. For Ry Fryar, assistant professor of art at York College of Pennsylvania, attaining that goal means teaching students how AI tools can be used to complement their existing creative processes instead of eroding them. In many cases this comes in the form of ideation — using AI tools to visualize concepts and designs in the planning stages, but not for the final results.\n\n“The focus is on creativity itself, because without that, the results are common, therefore dull and fundamentally inexpert,” Fryer said to The Observer. “We work with students on how to guide AI tools at a professional level, stay aligned with developing good practices, and understand current copyright law, ethics, and other standards for responsible AI use.”\n\nSome courses require more direct involvement with AI tools, such as those provided by the Chanel Center for Artists and Technology — a new CalArts initiative that describes artificial intelligence and machine learning as key focus areas. At Arizona State University (ASU), a class called “The Agentic Self” will be led by musician will.i.am (aka William Adams) in Spring 2026, teaching students at the university’s Games, Arts, Media, and Engineering school how to build their own agentic AI system that can somehow serve as “a digital extension of their creative identity, curiosity, and goals.”\n\nAccording to will.i.am, the course “represents a solution to AI replacing human jobs.” ASU says the partnership will build on the musician’s Focus Your Ideas (FYI) AI tool — a creative ecosystem that allows users to share projects with collaborators, generate text and images, and ask the platform’s chatbot for design advice.\n\n“We are always looking for ways to innovate how we teach to better prepare our students to meet the moment,” ASU President Michael Crow said in the announcement. “Our graduates must be ready for the powerful shift in jobs toward AI.”\n\nSome students and educators haven’t taken kindly to generative AI tools becoming a part of creative courses, mirroring the negative sentiments that are also being widely expressed by professionals in the industry. There are concerns surrounding how generative AI models are trained — in many cases, by scraping protected works without the creators’ consent or providing compensation — and how automating design work may result in fewer job opportunities as companies try to cut their staffing costs.\n\nI doubt many students passionate enough to study a skilled creative craft (and pay the often lofty education costs to do so) are thrilled about becoming overqualified prompt engineers. One study conducted by the Ringling College of Art and Design in late 2023 found that 70 percent of its students felt “somewhat” or “extremely” negative toward AI, and most outwardly stated they didn’t want it in the curriculum.\n\nStill, creative institutions are pushing ahead regardless. Wander says that schools have a responsibility to help students explore and critique these tools directly because technology will always be a part of the creative industries.\n\n“This is the best way to equip creative communities with the skills and knowledge to influence how these tools evolve or and how they are used in creative work,” said Wander. “As with any emerging technology, there are a range of perspectives among students and faculty about AI in the creative industries. Some are deeply skeptical. Some are early adopters.”",
-    "readingTime": 7,
-    "keywords": [
-      "higher education",
-      "creative processes",
-      "creative industries",
-      "students",
-      "tools",
-      "design",
-      "generative",
-      "institutions",
-      "professional",
-      "models"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theverge.com/tech/903954/art-schools-generative-ai-education-creative-jobs",
-    "thumbnail_url": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/268425_How_art_schools_are_teaching_AI__CVirginia.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
-    "created_at": "2026-04-01T07:08:11.755Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "i-built-an-ai-talent-platform-that-matches-people-by-capability-not-cvs",
-    "title": "I built an AI talent platform that matches people by capability, not CVS",
-    "description": "LinkedIn is great if you already have the CV. TalentBlender is for everyone else — and everyone alongside them. A bricklayer and an Oxford engineer on the same team. That's TalentBlender.",
-    "fullText": "LinkedIn is great if you already have the CV.\n TalentBlender is for everyone else — and everyone alongside them.\n\nJoin 173 members already on the platform.\n\nNot sure where to start? See how others use it →\n\nThe first 100 people to join TalentBlender earn a permanent FOUNDER badge,\n free Beta access, and preferential pricing — forever.\n\nSome of the most capable people in the world don't have a polished LinkedIn profile.\n They have 20 years of hard-won practical intelligence, raw talent that no algorithm\n has ever surfaced, and ideas that have never had the right platform.\n\nOne of the world's greatest physicists started out as a plumber from the Bronx.\n The system nearly missed him. How many like him are out there right now?\n\nTalentBlender exists to find them — and put them on the same team as everyone else.\n\nTrades, technology, sciences, arts, health, education, hospitality, services —\n all on one platform. The mix is the magic.\n\nCreate a profile. List your skills, rate and availability. No CV, no credentials required.\n\nDescribe your project in plain English. AI finds the right talent — across all sectors.\n\nConnect, collaborate, create. A bricklayer and an Oxford engineer on the same team. That's the point.\n\nDon't know exactly what you need? Describe your project and let AI figure out the team.\n\n\"I need to renovate a listed building — I need someone who understands both the structural and heritage side...\"\n\nKnow what you're looking for? Browse talent by sector, filter by skill, location and availability.\n\nEight sectors. Hundreds of roles. The people who build, fix, create, care and teach.\n\nTalentBlender is a work in progress — and we want you to shape it.\n Missing a role? Have an idea? Think something's broken?\n Pin a note on the Brainboard.\n\nJoin free. No CV required. No gatekeepers.\n\nBuilt in Eastbourne by Seraphina Anderson",
-    "readingTime": 2,
-    "keywords": [
-      "everyone else",
-      "no cv",
-      "platform",
-      "team",
-      "create",
-      "linkedin",
-      "free",
-      "don't",
-      "profile",
-      "availability"
-    ],
-    "qualityScore": 0.95,
-    "link": "https://talentblender.com",
-    "thumbnail_url": "https://www.talentblender.com/static/social-preview.png",
-    "created_at": "2026-04-01T01:27:20.825Z",
-    "topic": "tech"
   }
 ]

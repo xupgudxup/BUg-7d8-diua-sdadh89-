@@ -1,5 +1,29 @@
 [
   {
+    "slug": "spath-and-splan",
+    "title": "Spath and Splan",
+    "description": "Introducing spath and splan — semantic addressing and batched code operations for AI coding agents. Eliminating filesystem operations to improve narrative hygiene.",
+    "fullText": "The history of storing code in a filesystem goes back to pre-Unix days. It's a great way for a human to organize code. It provides discreet scopes and hierarchy that's explorable visually. And programming languages often align their scopes and hierarchy with it. But the filesystem is not required for reasoning in a programming language. And the adjacent structure that it provides means we have to build automations (LSP, IDE, grep, etc) on top of it that keeps us thinking about the code, more than the implementation details of how it's stored.\n\nThroughout history, moving that automation layer further away from the filesystem was sought after. Smalltalk, Intentional Programming, etc. were all attempts to move into the semantic space, and away from operational concerns of the activity of programming. This required the human to change how they think about programming, and that proved to be a bridge too far for most.\n\nBut AI is different. An AI agent is prepared to be an expert in any tool you provide the onboarding for. It can and will operate at any layer of abstraction to complete the task. But we are still forcing it to interact with the filesystem. To re-enact this human ritual of programming as an activity.\n\nIn What is AX? we talked about a philosophy of building tools for AI, but we haven't yet talked about how to move toward those goals. One way is improving narrative hygiene. Let's unpack what that means and the ideas that it is rooted in.\n\nNarrative hygiene is the practice of identifying an ideal narrative for a given intention, and optimizing toward it. This simple idea is rooted in some observations about how AI agents are trained. Narrative is the native language of the LLM.\n\nIdeal Narrative is the minimal viable story in which the desired outcome is achieved. If we apply this lens to a session with an AI coding agent we will quickly see detours and backtracking and meandering, and filesystem operations.\n\nSpath is a semantic addressing format that enables AI agents to address a programming language symbol. Building spath-based tools for AI coding agents, both eliminates filesystem operations and improves the narrative hygiene. Tokens down, quality up, improved AI cognitive quality.\n\nWe hit our three AX goals by moving the abstraction layer that the AI agent operates at.\n\nThis abstraction is a clear AX win that extends beyond anything we build at Sumato AI. We are open sourcing the spath grammar to enable other tool builders to target this abstraction. The benefit of the spath grammar being in the public training data further increases the value of this abstraction for everyone.\n\nSpath is designed to be a general symbol address schema that can be constrained into dialects for any programming language. Some examples of possible spath dialects:\n\nYou may notice the filename user.go in the Go example spath. In Go, a file is a kind of scope. Addressing symbols in a Go package doesn't require a file qualified spath, but supporting the full Go spec requires operational control within this scope. Spath is flexible enough to support this for whatever languages require it.\n\nWe are also presenting an spath dialect for Go. It has been used extensively at Sumato AI and we are quite happy with it. We have found using a minimal dialect works well generally. But a dialect with finer grained addressing on one domain of the language might be useful for specialized work. For this and other reasons, we expect many dialects to emerge for a given language or set of languages. Dialects may even map outside of the programming language space.\n\n(Claude felt strongly about splan and wrote this section)\n\nSpath gives the agent a way to say what it's talking about. Splan gives it a way to say what it wants to do.\n\nSplan is a grammar for expressing batched code operations with content. Where spath is the noun, splan is the sentence. An agent using splan expresses a complete intention — target, operation, content — in a single, legible plan:\n\nThere is no filesystem in this narrative. No file paths, no line numbers, no offsets. The agent states what it wants changed, where it lives semantically, and what the new content should be. The tooling resolves the rest.\n\nPlans are transactional — all operations succeed or none are applied. This is a property that the filesystem doesn't give you for free, and one that agents benefit from enormously. A failed operation doesn't leave the codebase in a half-mutated state that the agent then has to reason its way out of. That recovery narrative is some of the most expensive waste in a coding session.\n\nSplan is intentionally minimal. It defines the envelope — commands, arguments, content blocks — without prescribing what commands exist or what the content means. Language-specific bindings define the vocabulary. This is the same philosophy as spath: an abstract grammar that dialects constrain for their ecosystem.\n\nSpath, Spath Go, and Splan are a huge step toward better narrative hygiene for coding agents. But they are just the beginning. We have many things we're excited to share in the coming months, and we are very interested to hear how folks use spath and splan. Drop us a line.",
+    "readingTime": 5,
+    "keywords": [
+      "narrative hygiene",
+      "ideal narrative",
+      "coding agents",
+      "programming language",
+      "filesystem operations",
+      "spath grammar",
+      "splan",
+      "abstraction",
+      "dialects",
+      "content"
+    ],
+    "qualityScore": 1,
+    "link": "https://sumato.ai/posts/2026-04-04-spath-and-splan.html",
+    "thumbnail_url": "https://sumato.ai/img/sumato-ai-logo-med.png",
+    "created_at": "2026-04-04T06:47:17.864Z",
+    "topic": "tech"
+  },
+  {
     "slug": "ai-coding-tools-in-a-sandbox-why-your-file-system-needs-protection",
     "title": "AI Coding Tools in a Sandbox: Why Your File System Needs Protection",
     "description": "AI coding tools like Claude Code or Copilot have full access to your file system. bx protects everything except the current project directory with a single command.",
@@ -2050,20 +2074,5 @@
     "thumbnail_url": "https://i.insider.com/699cbbf5efb52c8bd0deb52c?width=1200&format=jpeg",
     "created_at": "2026-02-24T01:09:35.032Z",
     "topic": "finance"
-  },
-  {
-    "slug": "the-upside-of-opening-up-dei-programs-to-everyone",
-    "title": "The Upside of Opening Up DEI Programs to Everyone",
-    "description": "In the wake of the Supreme Court’s seismic 2023 decision ending affirmative action in higher education—and more than 100 lawsuits challenging organizational DEI efforts—many U.S. companies reexamined their programming, opening up to all employees programs that had previously been restricted to members of specific demographic groups. Does this strategy destroy the purpose of these programs themselves? Research suggests there are multiple hidden upsides, including: 1) encouraging effective allyship; 2) putting pressure on non-allies; and 3) reducing backlash.",
-    "fullText": "The Upside of Opening Up DEI Programs to Everyone by Kenji Yoshino and David GlasgowFebruary 23, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintOver the past few years in the U.S., more than a hundred federal lawsuits have been filed challenging diversity, equity, and inclusion (DEI) programs in companies, firms, universities, and the public sector.",
-    "readingTime": 1,
-    "keywords": [
-      "dei programs"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://hbr.org/2026/02/the-upside-of-opening-up-dei-programs-to-everyone",
-    "thumbnail_url": "/resources/images/article_assets/2026/02/Feb26_23_unsplash.jpg",
-    "created_at": "2026-02-23T18:49:03.698Z",
-    "topic": "business"
   }
 ]
