@@ -1,5 +1,29 @@
 [
   {
+    "slug": "exmicrosoft-engineer-blames-azure-problems-on-talent-exodus",
+    "title": "Ex-Microsoft engineer blames Azure problems on talent exodus",
+    "description": ": The cloud service's woes reflect a crisis made worse by AI – under-investment in people",
+    "fullText": "In 2024, federal cybersecurity evaluators reportedly dismissed Microsoft 365 Government Community Cloud High (GCC High) as garbage, although they used a more colorful term. To understand why, it helps to consider the history of the underlying Azure infrastructure.\n\nAxel Rietschin, who worked as an engineer on Azure Core Compute for a year and as a Windows Base Kernel engineer for eight years before that, has now written a less dismissive but more damning history of his experience with the Microsoft cloud service.\n\nIn a series of six essays (so far), he recounts how Microsoft rushed Azure to market in 2008 to compete with Amazon Web Services and squandered opportunities for stability while failing to support staff.\n\n\"Azure never operated as smoothly or independently as promised,\" Rietschin wrote. \"What Microsoft presented to the world, and to its most demanding customers, was a sophisticated system perpetually on life support.\n\n\"This foundational fragility, rooted in rushed decisions and wishful thinking about how fast the platform could grow and stabilize, led to small but ongoing disruptions. Over time, those disruptions built up.\"\n\nRietschin argues that Microsoft's rushed launch of Azure, the \"post-launch talent exodus,\" the lack of software quality and testing discipline, the lack of architectural vision, and persistently poor execution have left the cloud service fighting fires ever since.\n\nThe flames are only occasionally visible on the outside – for instance, in ProPublica's report detailing the government's dissatisfaction with Azure services, and in OpenAI's $11.9 billion compute deal with CoreWeave on March 10, 2025, which Rietschin points to as a vote of no confidence in Azure.\n\n\"One can reasonably infer that Microsoft struggled to meet OpenAI's demanding requirements on time and at scale,\" he wrote, and pointed to the layoff of around 15,000 people Microsoft carried out during the May-July 2025 period.\n\nRietschin recounts a variety of problems in his tale of Azure, but believes a lot of these could be avoided by focusing on people instead of cutting them.\n\nHe told The Register in an email that Microsoft executives should \"focus on bringing back senior technical leaders to improve dev training at all levels. Investing in people through mentoring and coaching by long-term Microsoft software engineers would have the broadest long-term impact. I think their most significant challenge was knowledge dilution caused by high attrition.\"\n\nRecent enthusiasm for AI has convinced many companies that they can make do with fewer people, Microsoft among them. Yet AI adoption has only underscored the consequences of running code without enough people paying attention.\n\nMartin Alderson, co-founder of catchmetrics.io, has been writing about the consequences of the AI frenzy and warning about the \"coming compute crunch.\"\n\nAlderson told The Register, \"It's clear that AI is not only sucking up huge amounts of compute for training and inference, but there are major second-order effects. With coding agents being able to output tens of thousands of lines of code, we're also seeing a massive spike in demand for compute on CI/CD workflows to test and deploy this code – which often now itself runs a coding agent to do quality and security reviews. And this new code needs to be deployed somewhere – with big increases in demand for application and database servers to serve it.\"\n\nHe pointed to the website Claude's Code, which shows a 4x increase in commits authored by Anthropic's AI agent in the past three months. \"My strong guess is that private ones will be even higher, given the amount of vibe coded stuff that people probably don't want to share with the world on quality grounds,\" he said.\n\nThis surge of commits and the related demand on computing infrastructure appears to be overwhelming Microsoft's GitHub, which by unofficial accounts has seen its uptime dip below 90 percent. When GitHub addressed these issues last month, it cited a transition to Azure as a possible solution.\n\n\"As of today, 12.5 percent of all GitHub traffic is served from our Azure Central US region, and we are on track to serving 50 percent of all GitHub traffic by July,\" said GitHub CTO Vlad Fedorov in a blog post. \"Longer term, this enables simplification of our infrastructure architecture and more global resiliency by adopting managed services.\"\n\nAmong those discussing such matters online, some speculate (without evidence) that Azure itself may be contributing to the instability.\n\nRietschin said he's not sure whether GitHub's woes can be tied to Azure.\n\n\"I don't know,\" he said. \"What is known (from public announcements) is that GitHub servers were moving or moved to Azure, so it's a possibility, but it's unclear if that move was completed yet or not.\"\n\nMicrosoft did not immediately respond to a request for comment.\n\nIt's not obvious, Rietschin said, how the rush toward AI will end. But he continues to see value in human software developers.\n\n\"LLMs are very good at reproducing patterns, so they help mostly when recreating variations of software that has been seen many times in the training set and where significant portions of the code can therefore be inferred,\" he said. \"They also help find bugs, not by 'understanding' but by observing deviations from their probabilistic expectations, again based on learned patterns. There is much sensationalism. I don't have much optimism in the so-called replacement of software engineers by AI.\"\n\nIndeed, it appears that the tech industry's under-investment in people – its willingness to discard them – is being made worse by over-investment in AI. With more and more code being created, committed, and run on cloud services, we need more and more people checking the work and keeping the infrastructure up and running. ®",
+    "readingTime": 5,
+    "keywords": [
+      "github traffic",
+      "cloud service",
+      "software engineers",
+      "infrastructure",
+      "azure",
+      "microsoft",
+      "rushed",
+      "quality",
+      "training",
+      "demand"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/2026/04/04/azure_talent_exodus/",
+    "thumbnail_url": "https://regmedia.co.uk/2026/04/03/talent_exodus_leaving.jpg",
+    "created_at": "2026-04-04T12:32:10.182Z",
+    "topic": "tech"
+  },
+  {
     "slug": "microsoft-released-3-new-ai-models-ramping-up-competition-with-its-close-partner-openai",
     "title": "Microsoft released 3 new AI models, ramping up competition with its close partner, OpenAI",
     "description": "Microsoft AI has made its in-house models for transcription, speech recognition, and image generation available on Foundry.",
@@ -2114,30 +2138,6 @@
     "link": "https://lifehacker.com/tech/microsoft-phishing-email-scam?utm_medium=RSS",
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KG31CJ9A2VSJSXBVSF3ZPD81/hero-image.fill.size_1200x675.jpg",
     "created_at": "2026-01-29T18:30:43.969Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "microsofts-ai-spend-is-starting-to-spook-investors",
-    "title": "Microsoft's AI Spend Is Starting to Spook Investors",
-    "description": "Microsoft showed record spending but slowing cloud growth and a big reliance on OpenAI",
-    "fullText": "In its second-quarter earnings report on Wednesday, tech giant Microsoft reported $37.5 billion in capital expenditures, exceeding market estimates by more than a billion. The spending was up 66% from a year earlier, and roughly two-thirds of it was primarily spent on GPUs and CPUs, Microsoft executives said in an investor call.\n\nA few months ago, a report like this would have sent (and did send) Microsoft stock soaring. But on Wednesday, it had the opposite effect, and the stock went down 7%.\n\nAs worries over an AI bubble simmer, the market is more desperate than ever to see tangible revenue returns that can reignite belief in the great financial promises of the technology, rather than just another huge spending commitment.\n\nBut accompanying Microsoft’s record spending was slowing cloud growth.\n\nRevenue from Microsoft’s cloud services grew by 39% this quarter, down from 40% growth in the first quarter. During the investor call, Microsoft CFO Amy Hood attributed this discrepancy between capital expenditure and cloud growth at least partially to Microsoft allocating GPUs and cloud capacity to internal teams as well. Customer demand for cloud is still outpacing supply, Hood said.\n\nBut even if the slowing cloud growth can be explained away, what also got investors anxious was Microsoft’s reliance on AI giant OpenAI. 45% of Microsoft’s remaining cloud commitments are solely from OpenAI.\n\nAlthough OpenAI used to be the silver bullet for finance, growing uncertainty over the startup’s road to profitability and the risks associated with its ability to pay for towering, ambitious dealmaking has made some start to view any dependence on the AI darling as a potential burden.\n\nOpenAI has signed trillions of dollars worth of deals this past year, despite its $20 billion annualized revenue. Lately, the market has started questioning these overcommitments, as concerns over a potential AI bubble mount.\n\nIf it continues to take too long for AI investments to start translating to actual gains or if somehow it turns out OpenAI cannot pay for its piling commitments, it could lead to a sharp market correction and spell trouble for the U.S. economy, which it seems is currently held up by AI investment.",
-    "readingTime": 2,
-    "keywords": [
-      "slowing cloud",
-      "cloud growth",
-      "market",
-      "revenue",
-      "giant",
-      "capital",
-      "investor",
-      "stock",
-      "bubble",
-      "quarter"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://gizmodo.com/microsofts-ai-spend-is-starting-to-spook-investors-2000715208",
-    "thumbnail_url": "https://gizmodo.com/app/uploads/2026/01/shutterstock_2163957793-1200x675.jpg",
-    "created_at": "2026-01-29T12:32:32.544Z",
     "topic": "tech"
   }
 ]
