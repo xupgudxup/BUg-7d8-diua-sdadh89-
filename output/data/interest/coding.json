@@ -1,5 +1,29 @@
 [
   {
+    "slug": "what-is-this-and-why-is-it-here",
+    "title": "What is this and Why is it here?",
+    "description": "As I worked on my programming style guide, channeling my inner code reader, recalling what it is like to dive into an unfamiliar codebase—to look for clues in its components and effectively extract knowledge from them—a particular formulation came to mind: what is this and why is it here?. I realized that looking for answers to those questions, and supplying them myself, makes up a large part of my work on software projects. These questions apply to artifacts of all sizes, from humble functions to entire projects, from a pull request description to the user story that it (hopefully) originated from. Behold yet another hyperbolic definition of the software development process: to answer what is this and why is it here, over and over.",
+    "fullText": "As I worked on my programming style guide, channeling my inner code reader, recalling what it is like to dive into an unfamiliar codebase—to look for clues in its components and effectively extract knowledge from them—a particular formulation came to mind: what is this and why is it here?. I realized that looking for answers to those questions, and supplying them myself, makes up a large part of my work on software projects. These questions apply to artifacts of all sizes, from humble functions to entire projects, from a pull request description to the user story that it (hopefully) originated from. Behold yet another hyperbolic definition of the software development process: to answer what is this and why is it here, over and over.\n\nThe what and why formula is just a specific instance of one of Ousterhout’s principles: code should be obvious. The harder it is to find answers—the further they are from the piece of code in question—the likelier that something’s missing or something needs to be removed. Maybe that module needs a top-level docstring to explain its purpose, or a link to relevant documentation; maybe this new function could be replaced or absorbed by a preexisting one; maybe engineers didn’t ask enough questions to the product folks to clarify the intent of this user story; maybe we don’t need this feature at all.\n\nWhen an artifact doesn’t readily provide the what and the why, the engineer needs to make an extra effort to go somewhere else looking for answers1. When those inquiries yield results, it’s the engineer’s job to incorporate that newly found knowledge into the project, perhaps reorganizing the code while at it, to (again using Ousterhout’s parlance) emphasize what matters, making the questions easier to answer next time around.\n\nWhy is it here is not just about existence, it’s also about place. One way to emphasize what matters is to make it prominent, and the most prominent things are those that come first, so I’ve been making efforts, when I write code, to make it readable top-to-bottom, placing important things—those that provide the what and the why—at the top, pushing details below, assuming that most readers shouldn’t need to go past the first few lines of a module to find what they are looking for.\n\nNow that we can allegedly wish any software into existence, imagine we had the right tooling to encourage programmers, perhaps even to force them, to constantly think about and provide answers to the what and why questions.\n\nImagine an editor plugin to seamlessly switch between reader and writer modes on a file2; a fmt tool that would push public declarations to the top and implementation details to the bottom; a programming language that required a why: clause to allow a new module to be defined or a private function to be exported3; a pesky LLM linter to reject modules that don’t justify their purpose plausibly enough; a code review application that emphasized interfaces over implementations.\n\nWould that be literate programming?\n\nThis is more or less the definition of obscurity, a source of complexity.\n\nA reader mode yielding something similar to the help() invocation in a Python shell or a live markdown export of the docstrings of a file.\n\nIt would be called the Why Programming Language, whylang; file extension .why if not just .y. This why: clause would add friction to interface expansion, nudging programmers into building deeper modules.",
+    "readingTime": 3,
+    "keywords": [
+      "programming language",
+      "code",
+      "reader",
+      "looking",
+      "software",
+      "needs",
+      "module",
+      "file",
+      "knowledge",
+      "projects"
+    ],
+    "qualityScore": 1,
+    "link": "https://olano.dev/blog/why/",
+    "thumbnail_url": "https://olano.dev/assets/img/why.png",
+    "created_at": "2026-04-05T12:34:21.129Z",
+    "topic": "tech"
+  },
+  {
     "slug": "everyone-now-has-the-keys-to-the-side-hustle-kingdom-now-comes-the-great-leveler-creativity",
     "title": "Everyone now has the keys to the side hustle kingdom. Now comes the great leveler: Creativity.",
     "description": "Vibe coding could be the nontechnical person's golden ticket to the side hustle life. Now all you need is an idea people will pay for.",
@@ -2045,23 +2069,6 @@
     "link": "https://www.businessinsider.com/anthropic-ai-software-claude-microsoft-powerpoint-excel-slack-2026-2",
     "thumbnail_url": "https://i.insider.com/699cefcbefb52c8bd0deb9e2?width=1200&format=jpeg",
     "created_at": "2026-02-24T18:46:23.822Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "package-managers-la-carte-a-formal-model-of-dependency-resolution",
-    "title": "Package Managers à la Carte: a formal model of dependency resolution",
-    "description": "Package managers are legion. Every programming language and operating system has its own solution, each with subtly different semantics for dependency resolution. This fragmentation prevents multilingual projects from expressing precise dependencies across language ecosystems; it leaves external system and hardware dependencies implicit and unversioned; it obscures security vulnerabilities that lie in the full dependency graph. We present the \\textit{Package Calculus}, a formalism for dependency resolution that unifies the core semantics of diverse package managers. Through a series of formal reductions, we show how this core is expressive enough to model the diversity that real-world package managers employ in their dependency expression languages.",
-    "fullText": "arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.\n\nBoth individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.\n\nHave an idea for a project that will add value for arXiv's community? Learn more about arXivLabs.",
-    "readingTime": 1,
-    "keywords": [
-      "arxivlabs",
-      "arxiv",
-      "community"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://arxiv.org/abs/2602.18602",
-    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
-    "created_at": "2026-02-24T12:39:29.851Z",
     "topic": "tech"
   }
 ]
