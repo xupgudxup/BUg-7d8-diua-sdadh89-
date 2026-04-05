@@ -1,5 +1,29 @@
 [
   {
+    "slug": "cuneicode-exact-rational-arithmetic-quantum-computing-stdlib",
+    "title": "Cuneicode - Exact rational arithmetic. Quantum computing stdlib.",
+    "description": "Contribute to enkimecca/cuneicode development by creating an account on GitHub.",
+    "fullText": "𒀭 Cuneicode v2.0\nExact rational arithmetic. Quantum computing stdlib. Mesopotamian-themed syntax.\nWrite Once, Inscribe Forever.\n529 tests · 42 modules · 21 namespaces · 210 builtins · 25K LOC · 0 failures\nWhat makes Cuneicode different\nEvery number is an exact rational — 0.1 + 0.2 == 0.3 is structurally guaranteed, not a convention.\n<code>inscribe 0.1 + 0.2 == 0.3 -- true\ninscribe 1/3 + 1/3 + 1/3 == 1 -- true\n\n-- Quantum gates compose without drift\ninscribe slab_eq(slab_mul(Quantum.H, Quantum.H), slab_identity(2)) -- true\n\n-- Linear regression is exact\ninscribe DataSci.linreg([1,2,3,4,5], [2,4,6,8,10]).slope -- 2\n\n-- FinTech-safe currency arithmetic\nmark price = Decimal.new(\"19.99\", 2)\ninscribe Decimal.to_currency(price, \"$\") -- $19.99\n\n-- Python interop\ninscribe Python.eval(\"2 ** 10\") -- 1024\n</code>\nInstall\n\nQuick start\n\n21 namespaces\n\nNamespace\nDescription\n\nSacred\nMathematical constants (PI, TAU, E, PHI)\n\nQuantum\nQuantum gates, circuits, VQE, QASM\n\nCryptoVerify\nModular arithmetic, EC curves, Shamir, Schnorr ZK\n\nDataSci\nDataFrame, tensors, linear regression, statistics\n\nDecimal\nFixed-point currency-safe arithmetic\n\nTemporal\nInstant, Period, DateRange\n\nCapability\nSandbox permissions and security\n\nWeb\nHTTP server, routing, templates, CORS, sessions\n\nSys\nCRC32, bit fields, struct pack/unpack\n\nFs / AsyncIO\nFile system + async reads\n\nNet\nHTTP client\n\nPython\neval, exec, call, import\n\nCrypto\nSHA-256/512, HMAC, UUID\n\nAuto\nGlob, tasks, shell, watch\n\nEmbed\nSandbox, inject, eval\n\nJson / Re / Time\nParse, regex, datetime\n\nOs / Path / Process\nSystem info, paths, exec\n\nMathExt\nGamma, erf, factorial\n\nType system\n<code>mark x: num = 42 -- basic type\nmark y: num | str = \"hello\" -- union type\nmark z: num where z > 0 = 42 -- refinement type\n</code>\nEditor support\n\nVS Code: syntax highlighting, LSP, run/format/typecheck commands\nJupyter: kernel with persistent state and tab completion\n\nQuality\n\n529 tests across 5 suites, 0 failures\nProperty-based testing (10 core invariants)\nSeeded fuzzer for crash detection\nFlame-graph profiler\nLinter with 6 rules\nCapability-based security model\nGitHub Actions CI (3 OS × 3 Node versions)\n\nLicense\nMIT — Sinchan Cybersecurity",
+    "readingTime": 2,
+    "keywords": [
+      "quantum gates",
+      "linear regression",
+      "exact rational",
+      "mark num",
+      "arithmetic",
+      "syntax",
+      "tests",
+      "namespaces",
+      "failures",
+      "eval"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/enkimecca/cuneicode",
+    "thumbnail_url": "https://opengraph.githubassets.com/c494da1f54549e17f724151a0801ca7fe6eb39f6d835217f9c9d18d4dac33e30/enkimecca/cuneicode",
+    "created_at": "2026-04-05T01:23:20.004Z",
+    "topic": "tech"
+  },
+  {
     "slug": "ibm-quantum-processor-achieves-highest-fidelity-calculations-for-the-longest-period-of-time-on-record",
     "title": "IBM quantum processor achieves highest fidelity calculations for the longest period of time on record",
     "description": "Scientists have developed a novel approach to error correction that resulted in the highest-ever fidelity of entangled, logical qubits on a superconducting quantum processor.",
