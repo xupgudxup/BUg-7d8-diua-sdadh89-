@@ -1,5 +1,29 @@
 [
   {
+    "slug": "void-video-object-and-interaction-deletion",
+    "title": "Void: Video Object and Interaction Deletion",
+    "description": "Contribute to Netflix/void-model development by creating an account on GitHub.",
+    "fullText": "Saman Motamed1,2,\nWilliam Harvey1,\nBenjamin Klein1,\nLuc Van Gool2,\nZhuoning Yuan1,\nTa-Ying Cheng1\n\n1Netflix    2INSAIT, Sofia University \"St. Kliment Ohridski\"\n\nVOID removes objects from videos along with all interactions they induce on the scene — not just secondary effects like shadows and reflections, but physical interactions like objects falling when a person is removed. It is built on top of CogVideoX and fine-tuned for video inpainting with interaction-aware mask conditioning.\n\nExample: If a person holding a guitar is removed, VOID also removes the person's effect on the guitar — causing it to fall naturally.\n\nVOID uses two transformer checkpoints, trained sequentially. You can run inference with Pass 1 alone or chain both passes for higher temporal consistency.\n\nPlace checkpoints anywhere and pass the path via --config.video_model.transformer_path (Pass 1) or --model_checkpoint (Pass 2).\n\nThe fastest way to try VOID is the included notebook — it handles setup, downloads the models, runs inference on a sample video, and displays the result:\n\nNote: Requires a GPU with 40GB+ VRAM (e.g., A100).\n\nFor more control over the pipeline (custom videos, Pass 2 refinement, mask generation), see the full setup and instructions below.\n\nStage 1 of the mask pipeline uses Gemini via the Google AI API. Set your API key:\n\nAlso install SAM2 separately (required for mask generation):\n\nDownload the pretrained base inpainting model from HuggingFace:\n\nThe inference and training scripts expect it at ./CogVideoX-Fun-V1.5-5b-InP relative to the repo root by default.\n\nIf ffmpeg is not available on your system, you can use the binary bundled with imageio-ffmpeg:\n\nAfter cloning the repo and downloading all assets, your directory should look like this:\n\nEach video sequence lives in its own folder under a root data directory:\n\nThe prompt.json contains a single \"bg\" key describing the scene after the object has been removed — i.e. what you want the background to look like. Do not describe the object being removed; describe what remains.\n\nA few examples from the included samples:\n\nThe quadmask encodes four semantic regions per pixel:\n\nThe VLM-MASK-REASONER/ pipeline generates quadmasks from raw videos using SAM2 segmentation and a VLM (Gemini) for reasoning about interaction-affected regions.\n\nLoad a JSON config listing your videos and instructions, then click on the objects to remove. Saves a *_points.json with the selected points.\n\nAfter saving the points config, run all remaining stages automatically:\n\nThis runs the following stages in order:\n\nThe final quadmask_0.mp4 in each video's output_dir is ready to use for inference.\n\nVOID inference runs in two passes. Pass 1 is sufficient for most videos; Pass 2 adds a warped-noise refinement step for better temporal consistency on longer clips.\n\nTo run multiple sequences at once, pass a comma-separated list:\n\nThe output is saved as <save_path>/<sequence_name>.mp4, along with a *_tuple.mp4 side-by-side comparison.\n\nUses optical flow-warped latents from the Pass 1 output to initialize a second inference pass, improving temporal consistency.\n\nBatch: Edit the video list and paths in inference/pass_2_refine.sh, then run:\n\nIf the auto-generated quadmask does not accurately capture the object or its interaction region, use the included GUI editor to refine it before running inference.\n\nOpen a sequence folder containing input_video.mp4 (or rgb_full.mp4) and quadmask_0.mp4. The editor shows the original video and the editable mask side by side.\n\nKeyboard shortcuts: ← / → navigate frames, Ctrl+Z / Ctrl+Y undo/redo.\n\nSave overwrites quadmask_0.mp4 in place. Rerun inference from Pass 1 after saving.\n\nDue to licensing constraints on the underlying datasets, we release the data generation code instead of the pre-built training data. The code produces paired counterfactual videos (with/without object, plus quad-masks) from two sources:\n\nGenerates counterfactual videos from the HUMOTO motion capture dataset using Blender. A human (Remy/Sophie character) interacts with objects; removing the human causes objects to fall via physics simulation.\n\nExpected directory structure after setup:\n\nA pre-configured physics_config.json is included specifying which objects are static vs. dynamic per sequence. See data_generation/README.md for full details.\n\nGenerates counterfactual videos using Kubric with Google Scanned Objects. Objects are launched at a target; removing them alters the target's physics trajectory. No external dataset download required — assets are fetched from Google Cloud Storage.\n\nBoth pipelines output the same format expected by the training scripts:\n\nPoint the training scripts at your generated data by updating datasets/void_train_data.json.\n\nTraining proceeds in two stages. Pass 1 is trained first, then Pass 2 fine-tunes from that checkpoint.\n\nDoes not require warped noise. Trains the model to remove objects and their interactions from scratch.\n\nContinues training from a Pass 1 checkpoint with optical flow-warped latent initialization, improving temporal consistency on longer videos. Requires warped noise for training data to be present.\n\nSet TRANSFORMER_PATH to your Pass 1 checkpoint before running:\n\nAdditional arguments specific to this stage:\n\nTraining was run on 8× A100 80GB GPUs using DeepSpeed ZeRO stage 2.\n\nWe are excited to see the community build on VOID!\n\nBelow we showcase selected demos, tools, and extensions.\n\nIf you’ve built something using VOID, feel free to submit a PR to add it here.\n\nThis implementation builds on code and models from aigc-apps/VideoX-Fun, Gen-Omnimatte, Go-with-the-Flow, Kubric and HUMOTO. We thank the authors for sharing the codes and pretrained inpainting models for CogVideoX, Gen-Omnimatte, and the optical flow warping utilities.\n\nIf you find our work useful, please consider citing:\n\n🔗 https://arxiv.org/abs/2604.02296",
+    "readingTime": 5,
+    "keywords": [
+      "generates counterfactual",
+      "warped noise",
+      "optical flow-warped",
+      "temporal consistency",
+      "improving temporal",
+      "mask generation",
+      "training scripts",
+      "counterfactual videos",
+      "inference",
+      "removed"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/netflix/void-model",
+    "thumbnail_url": "https://opengraph.githubassets.com/d27fc4e7b99cd2b10a1fea3f1b502eab4fda4c8db1fee236cff0c8060dc63749/Netflix/void-model",
+    "created_at": "2026-04-05T06:54:50.733Z",
+    "topic": "tech"
+  },
+  {
     "slug": "pacquiao-team-claims-mayweather-violated-deal-after-advance",
     "title": "Pacquiao team claims Mayweather violated deal after advance",
     "description": "Organising the rematch between Floyd Mayweather and Manny Pacquiao has not been straightforward. After years of build-up, the sequel to their record-breaking first bout was officially scheduled for September 19, this time streaming on Netflix.",
@@ -2140,18 +2164,5 @@
     "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1179/11799911/4636271-zeldamovie.jpg",
     "created_at": "2026-01-16T18:18:57.568Z",
     "topic": "entertainment"
-  },
-  {
-    "slug": "paramount-not-giving-up-on-buying-warner-bros-launches-lawsuit",
-    "title": "Paramount Not Giving Up On Buying Warner Bros., Launches Lawsuit",
-    "description": "Despite multiple rejections of its bids, Paramount remains intent on buying Warner Bros. Discovery and has now launched a lawsuit against the company over the matter. What's more, Paramount said it will seek to nominate its own team of directors at the WBD 2026 Annual Meeting this year, which could trigger a so-called proxy fight for the company's future.\nParamount boss David Ellison said in a memo to WBD shareholders that it filed suit in court today, January 12, calling on the court to direct WBD to release the specifics of Netflix's bid for WBD. The WBD shareholders need this information so they can \"make an informed decision as to whether to tender their shares into our offer,\" Paramount said.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.gamespot.com/articles/paramount-not-giving-up-on-buying-warner-bros-launches-lawsuit/1100-6537335/?ftag=CAD-01-10abi2f",
-    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1179/11799911/4633993-paramount.jpg",
-    "created_at": "2026-01-13T00:54:03.277Z",
-    "topic": "gaming"
   }
 ]
