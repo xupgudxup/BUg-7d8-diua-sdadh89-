@@ -1,5 +1,257 @@
 [
   {
+    "slug": "oregon-predicted-to-land-no-1-player-in-alabama-for-3rd-straight-year",
+    "title": "Oregon predicted to land No. 1 player in Alabama for 3rd straight year",
+    "description": "The Oregon Ducks have picked up a prediction to land a commitment from 4-star CB Ai'King Hall, the No. 1 player in Alabama.",
+    "fullText": "Ever since coming to Oregon, Dan Lanning has set up some impressive recruiting pipelines with the Ducks. However, none may be more impressive than the pipeline that he has created from Alabama to Eugene.\n\nTwo recruiting classes ago, the Ducks picked up a commitment from 5-star CB Na'eem Offord, the No. 1-ranked player in Alabama. Last cycle, Oregon signed 5-star DL Anthony 'Tank' Jones, again, the top-ranked player in Alabama. Now, Oregon is once again predicted to land the No. 1 player in Alabama in the 2027 class — 4-star cornerback Ai'King Hall.\n\nOn3's Chad Simmons placed a prediction over the weekend for Hall to commit to the Ducks following his visit to Eugene this weekend to check out the Ducks' spring practices. Hall is rated by the 247Sports Composite as the No. 69 overall player in the class, and the No. 9 CB in the nation.\n\nThis recruiting news pairs well with the commitment that Oregon received late last week, when 4-star EDGE Rashad Streets went live on the Pat McAfee Show and committed to the Ducks. Oregon currently has the No. 15 class in the 2027 cycle, but is in a great position for a lot of top-ranked players and could very well land a top-five class for a fourth straight year when all is said and done.\n\nContact/Follow @Ducks_Wire on X (formerly Twitter) and like our page on Facebook to follow ongoing coverage of Oregon Ducks news, notes, and opinions.\n\nThis article originally appeared on Ducks Wire: Oregon Ducks predicted to land commitment from 4-star CB Ai'King Hall",
+    "readingTime": 2,
+    "keywords": [
+      "ai'king hall",
+      "star",
+      "player",
+      "class",
+      "recruiting",
+      "commitment",
+      "land",
+      "ducks",
+      "oregon",
+      "impressive"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://sports.yahoo.com/articles/oregon-predicted-land-no-1-123103794.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/hb_jXNRleFftTGqQY06G5g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/ducks_wire_usa_today_articles_200/c3fc3b32f20363189e00e0e91f952e8a",
+    "created_at": "2026-04-06T12:46:43.903Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "give-your-agents-jobs-not-processes",
+    "title": "Give Your Agents Jobs, Not Processes",
+    "description": "When building AI agents, starting small by hardcoding today's process constrains a system that can reason about goals into a brittle script. Define the job, not the steps.",
+    "fullText": "Every experienced software builder carries the same instinct: start small. Ship the thinnest possible slice, prove value, then broaden from there. Lean startup, agile, MVP, iterative delivery. It’s so deeply embedded in product thinking that it feels like a law of nature.\n\nWhen building AI agents, that instinct can backfire if “start small” means “hardcode today’s process.” If you focus on replicating how the work gets done now, step by step, you constrain a system that can reason about goals into a brittle script. The result is an agent that breaks on edge cases and never shows what it could have done with more freedom.\n\nWhen you hire a senior person into a role, you don’t hand them a script of every action to take in every situation. You describe the role, give them access to the systems they need, set clear boundaries on their authority, and trust them to figure out the best approach. The more capable the hire, the more counterproductive it is to micromanage their every step. You wouldn’t tell a senior engineer which IDE to use or what order to write their functions in. You’d tell them what the system needs to do, point them at the codebase and the deployment pipeline, and make sure they understand what requires a code review.\n\nMany teams building AI agents are doing the equivalent of handing that senior hire a keystroke-by-keystroke script, and getting exactly the results you’d expect.\n\nFor most of the history of software, building a tool to support a workflow meant decomposing that workflow into discrete operations and implementing each one. Software didn’t reason; it executed. If you wanted the system to handle a new situation, you wrote new code. Starting narrow meant picking one path through the workflow, building it end to end, getting feedback, and expanding. This is good product discipline, and it still applies to many things. But it carries an implicit assumption: every capability has to be constructed.\n\nLLMs break that assumption. For the first time, the technology can reason about a goal, choose among available tools, and adapt its approach based on what it encounters. You’re no longer assembling every behavior from scratch; you’re shaping a system that arrives with broad capability already present. And yet many teams still approach AI agents the way they’d approach any workflow tool: decompose the process, implement each step, start narrow, iterate.\n\nAnthropic draws a useful distinction between “workflows” (LLMs orchestrated through predefined code paths) and “agents” (systems where LLMs dynamically direct their own processes and tool usage). When you encode an existing process into a workflow, you’re encoding the limitations that process was designed around. The process was built for software that couldn’t reason or adapt. Those constraints shaped every part of it: the handoffs, the approval gates, the workarounds for systems that don’t talk to each other. Carrying all of that forward into an agent is like hiring that senior engineer and then requiring them to write code the way your 2005 intern did, because that’s what’s documented.\n\nAnd when you constrain an agent to execute the existing process, the best you’ll ever get is an incremental improvement on the current way of working. The agent does the steps faster, but it never shows you a better way to accomplish the goal, because you never gave it the latitude to find one.\n\nThe Jobs to Be Done framework maps onto AI agent design with unusual precision. JTBD says: don’t ask what features the product needs, ask what job the user is hiring it to do. The job is stable even when the process changes. “Move qualified deals through the pipeline to close” is a job. “Query the CRM, filter by stage, check last activity date, draft a follow-up” is a process. The job persists; the process is an artifact of the tools and constraints that existed when someone first figured out how to get it done.\n\nWhen you give an agent a job instead of a process, two things happen. First, the agent can reason about how to accomplish the goal, which means it can handle situations the original process never anticipated. A scripted agent fails silently on edge cases; a job-oriented agent can adapt. Second, you’re forced to articulate what success actually means. A process is self-describing: did the agent follow the steps? A job requires you to define the outcome. Is the deal actually qualified, or just at the right stage? Has the prospect been contacted recently by another rep? Does the proposed next step match where the buyer actually is in their decision? These are harder questions than “did step 3 execute,” but they’re the questions that determine whether the work was actually done well.\n\nJTBD turns out to be a natural way to specify agents. Jobs are stable. Processes are contingent. A good agent spec should look more like an intention with success criteria and constraints than a flowchart.\n\nThe biggest practical obstacle to the job-oriented approach is trust. If you haven’t scripted each step, how do you know the agent isn’t doing something you didn’t intend?\n\nThis concern is real, but it’s aimed at the wrong thing. Scripted processes feel safe because they’re legible: you can read the instructions and predict what will happen. But legibility is not the same thing as safety. A scripted agent that encounters a state the process didn’t anticipate will either halt with an error that can’t describe the actual problem, or continue executing steps that no longer make sense in context. The failure is silent precisely because the agent is doing exactly what you told it to.\n\nThe resolution requires separating two things that feel like the same thing but aren’t: scope and authority. Scope is what the agent can think about and attempt. Authority is what the agent can actually do in external systems.\n\nRestricting scope makes the agent less capable. Restricting authority makes the agent safer.\n\nConflating them means you’re making the agent dumber when you’re trying to make it more trustworthy. There is a legitimate tradeoff in debuggability: a scripted process gives you step-by-step traceability that a reasoning agent doesn’t. But well-designed tools produce structured call traces that function as checkpoints, and there’s more to say about evaluation for agent systems in a follow-up.\n\nThe practical pattern that’s emerging in production is to let the agent reason freely about how to accomplish a job while forcing every action through a governance layer that enforces organizational constraints deterministically. The agent’s intelligence creates value in the planning and reasoning. The boundaries create safety at the point of execution.\n\nIn practice, this breaks down into two layers.\n\nTools encode requirements. The tools you give the agent are your authority boundary, and they should enforce security, process, and policy constraints directly. If your organization requires that prospects aren’t contacted more than once per quarter, that constraint lives in the tool, not in the prompt. The tool either accepts the request or rejects it with a reason. This is deterministic enforcement: your compliance story doesn’t depend on whether the LLM interpreted a natural-language instruction correctly on this particular inference. This is also where concerns about hallucination find their architectural answer. An agent might hallucinate a bad plan, but it can’t hallucinate its way past a tool that requires valid parameters and checks policy before executing. The reasoning layer can be imperfect without producing dangerous actions, because the execution layer doesn’t trust it. Well-designed tools also enable collaboration by managing handoffs between people and agents, protecting shared resources like contact lists or approval queues, and producing structured outputs that downstream systems and teammates can act on.\n\nSkills encode goals and quality. Skills are reusable context modules: domain-specific operating instructions that extend the system prompt for a given scenario, providing the agent with specific goals, expertise, and quality standards. A skill for deal management would include the goal (“move this deal to a decision by identifying and addressing the buyer’s remaining concerns”), the domain knowledge (what signals indicate a deal is stalling, how outreach should differ between a technical evaluator and an executive sponsor, when to escalate to a human), and the quality bar (what “good enough” looks like versus what requires judgment from a person). Skills enable progressive disclosure: as the agent encounters different types of work, the relevant skill activates with context and expectations rather than front-loading everything into a monolithic prompt. They should also explain the reasoning behind the policies enforced by tools, so the agent makes better decisions about when and how to use them.\n\nThis separation matters because you can update policy and expertise independently. When a compliance rule changes, you change the tool. When the team learns that a certain approach produces better results, you update the skill. Neither change requires rearchitecting the other.\n\nMapping back to the senior hire: tools are the systems and permissions you provision on their first day. Skills are the onboarding docs, the team norms, the goals they’re working toward. You wouldn’t put access controls in an onboarding document, and you wouldn’t put quality standards in an IAM policy. The same logic applies here.\n\nThe instinct to start narrow comes from a world where you were constructing capability from scratch. In that world, narrowing scope was how you managed complexity and risk. With AI agents, broad capability is the starting condition. The builder’s job isn’t to assemble the capability piece by piece. It’s to design the tools that constrain authority, the skills that define goals and encode quality, and the governance layer that makes the whole thing auditable and trustworthy. That’s the product.",
+    "readingTime": 8,
+    "keywords": [
+      "edge cases",
+      "governance layer",
+      "senior engineer",
+      "broad capability",
+      "quality standards",
+      "well-designed tools",
+      "senior hire",
+      "existing process",
+      "scripted agent",
+      "agents"
+    ],
+    "qualityScore": 1,
+    "link": "https://geoffstearns.com/blog/give-your-agents-jobs-not-processes/",
+    "thumbnail_url": "https://geoffstearns.com/blog/give-your-agents-jobs-not-processes/og-image.jpg",
+    "created_at": "2026-04-06T12:46:07.113Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "the-job-search-guide-ai-edition-with-eliza-cabrera",
+    "title": "The Job Search Guide- AI Edition with Eliza Cabrera",
+    "description": "Three years ago  I created an audioblog on youtube and accompanying written blog  to help folks organize their job searches and find a new ideal role.   The world has come a long way since then, and though most of the core tenets I wrote about hold true, regardless of your discipline, we are now ver",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://technicalintegrity.com/technical-integrity-blog/revisiting-the-ultimate-job-search-guide-the-ai-edition",
+    "thumbnail_url": "http://static1.squarespace.com/static/5e8ba7736335fd212af3d52d/678962fac5f1ee712e72bd04/69cde098768a5a5f36ea9859/1775211249580/Screenshot+2026-04-03+at+4.54.11%E2%80%AFPM.png?format=1500w",
+    "created_at": "2026-04-06T12:46:06.484Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "i-turned-arcagi3-into-a-daily-browser-game",
+    "title": "I turned ARC-AGI-3 into a daily browser game",
+    "description": "A daily puzzle game with no rules and no instructions. Built on ARC-AGI-3, the benchmark AI can't solve (yet).",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://arcaptcha.io/",
+    "thumbnail_url": "https://arcaptcha.io/sm_image.png",
+    "created_at": "2026-04-06T12:46:05.953Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "this-ceo-left-bloomberg-to-track-gpus-she-explains-why-prices-are-going-nuts",
+    "title": "This CEO left Bloomberg to track GPUs. She explains why prices are 'going nuts.'",
+    "description": "GPU prices are rising fast as AI demand outpaces supply, with even older chips holding value and cloud giants charging steep premiums.",
+    "fullText": "Carmen Li, CEO of Silicon Data, reports rising GPU prices on strong AI demand.\n Silicon Data's indexes show a significant Nvidia GPU rental price increase over the past few months.\n Cloud giants charge big premiums for GPU rentals.",
+    "readingTime": 1,
+    "keywords": [
+      "silicon"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/ai-demand-boosts-gpu-prices-silicon-data-ceo-carmen-li-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d0474ac02a678bd7e47f90?width=1200&format=jpeg",
+    "created_at": "2026-04-06T12:46:01.815Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "meta-salaries-revealed-how-much-the-social-media-giant-pays-engineers-ai-researchers-and-more",
+    "title": "Meta salaries revealed: How much the social media giant pays engineers, AI researchers, and more",
+    "description": "See how much Meta paid in 2025, with software engineers earning as much as $450,000. Salary data shows pay ranges across over 5,000 roles.",
+    "fullText": "Business Insider analyzed work-visa salary data for over 5,000 roles at Meta in 2025.\n Meta paid as much as $450,000 for top software engineering roles in 2025.\n About half of Meta's H-1B hires are for software engineering roles.",
+    "readingTime": 1,
+    "keywords": [
+      "software engineering",
+      "engineering roles",
+      "meta"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/meta-salaries-revealed-how-much-engineers-researchers-made-in-2025-2026-4",
+    "thumbnail_url": "https://i.insider.com/69cc4916c02a678bd7e46c1b?width=1200&format=jpeg",
+    "created_at": "2026-04-06T12:46:01.781Z",
+    "topic": "science"
+  },
+  {
+    "slug": "a-new-scorecard-shows-which-software-companies-will-win-or-lose-in-ai",
+    "title": "A new scorecard shows which software companies will win or lose in AI",
+    "description": "AlixPartners' AI Disruption Score reveals SaaS facing a structural reset, impacting private equity as AI commoditizes software sectors.",
+    "fullText": "AlixPartners analyzes software companies' AI risk with a new AI Disruption Score.\n The software industry faces a $40 billion debt wall in 2028 that must be refinanced as AI bites.\n SaaS revenues could fall amid AI competition, AlixPartners warns.",
+    "readingTime": 1,
+    "keywords": [
+      "alixpartners",
+      "software"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/alixpartners-scorecard-shows-which-software-companies-win-lose-ai-2026-4",
+    "thumbnail_url": "https://i.insider.com/69cfdbe0e762ed6cfe44a0cf?width=1200&format=jpeg",
+    "created_at": "2026-04-06T12:46:01.639Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "the-next-big-job-in-tech-may-be-the-product-engineer",
+    "title": "The next big job in tech may be the 'product engineer'",
+    "description": "As engineers ramp up their efficiency using AI, product managers now have to manage more. A new hybrid role has arrived: the product engineer.",
+    "fullText": "As engineers ramp up their efficiency, product managers now have to manage a lot more products.\n That means companies are looking to hire more of them.\n Companies are also now making engineers product manage — a new role called the \"product engineer.\"",
+    "readingTime": 1,
+    "keywords": [
+      "product",
+      "engineers",
+      "manage"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/ai-jobs-product-engineers-managers-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d2f201e762ed6cfe44a732?width=1200&format=jpeg",
+    "created_at": "2026-04-06T12:46:01.621Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "jensen-huang-to-sam-altman-the-guest-list-turning-a-stanford-ai-class-into-a-tech-summit",
+    "title": "Jensen Huang to Sam Altman: The guest list turning a Stanford AI class into a tech summit",
+    "description": "A Stanford course on AI infrastructure has 500 students and features speakers from some of the biggest companies in tech.",
+    "fullText": "Stanford University is hosting a 10-week course on AI infrastructure this spring.\n The packed guest speaker list includes Satya Nadella, Jensen Huang, Sam Altman, and other big names.\n The 500-person class had a waitlist.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/stanford-ai-class-speakers-jensen-huang-sam-altman-satya-nadella-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d2dec56a864f6fcd7bd8ab?width=1200&format=jpeg",
+    "created_at": "2026-04-06T12:46:01.619Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "the-new-investing-edge-might-be-hiding-in-firms-own-data",
+    "title": "The new investing edge might be hiding in firms' own data",
+    "description": "Asset managers like BlackRock and Balyasny believe AI could help harness their own internal data for market-beating insights.",
+    "fullText": "Large language models have hoovered up publicly available data across the web.\n For artificial intelligence to have knowledge no other firm has, the data it trains on must be private.\n Asset managers like BlackRock and Balyasny have found an edge by turning their AI agents inwards.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/blackrock-balyasny-tapping-ai-search-internal-data-alpha-2026-4",
+    "thumbnail_url": "https://i.insider.com/69cffed7c02a678bd7e47d6d?width=1200&format=jpeg",
+    "created_at": "2026-04-06T12:46:01.619Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "i-run-a-marketing-business-that-lost-work-and-had-to-cut-staff-due-to-ai-im-still-more-excited-by-ai-than-worried",
+    "title": "I run a marketing business that lost work and had to cut staff due to AI. I'm still more excited by AI than worried.",
+    "description": "A marketing CEO of 17 years says AI boosted productivity but cut demand, forced layoffs, and changed pricing.",
+    "fullText": "Alex Cohen has run his small marketing agency for 17 years.\n Cohen cites AI for staff cuts and says client demand has dropped since its rise.\n He started an AI integration service for in-house teams to help pivot his business into the AI era.",
+    "readingTime": 1,
+    "keywords": [
+      "cohen"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/marketing-agency-ceo-cut-staff-after-ai-worried-excited-2026-4",
+    "thumbnail_url": "https://i.insider.com/69cfed596a864f6fcd7bd322?width=720&format=jpeg",
+    "created_at": "2026-04-06T12:46:01.436Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "your-ai-best-friend-might-be-making-you-worse-at-being-wrong",
+    "title": "Your AI best friend might be making you worse at being wrong",
+    "description": "\"When AI systems are optimized to please, they erode the very feedback loops through which we learn to navigate the social world,\" a Harvard fellow said.",
+    "fullText": "AI chatbots are too agreeable and may be reshaping how we handle conflict, a Harvard fellow said.\n Anat Perry said AI validation may make people less likely to apologize or self-reflect.\n AI researchers have raised concerns that AI systems may reinforce flawed thinking.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/why-ai-may-be-making-us-worse-at-handling-conflict-2026-4",
+    "thumbnail_url": "https://i.insider.com/69ce6687e762ed6cfe4498f4?width=1200&format=jpeg",
+    "created_at": "2026-04-06T12:46:01.418Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "has-an-ai-agent-interviewed-you-for-a-job-take-our-survey",
+    "title": "Has an AI agent interviewed you for a job? Take our survey.",
+    "description": "Some employers are tapping the tech to act as a human recruiter. If you've been in the hot seat, Business Insider would like to hear from you.",
+    "fullText": "Some employers are inviting applicants to participate in early-stage interviews led by AI agents.\n The strategy is often used by employers with high-volume hiring needs and startups looking to scale.\n Have you been interviewed for a job by an AI agent? Take our survey below.\n\n How do AI-led interviews benefit companies?\n\n How does AI handle bias in interviews?\n\n How does AI interviewing impact job seekers?\n\n What are the drawbacks of AI-led interviews?\n\n What skills are essential for AI interviews?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "ai-led interviews",
+      "employers"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/has-an-ai-agent-interviewed-you-survey-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d01b89e762ed6cfe44a349?width=1200&format=jpeg",
+    "created_at": "2026-04-06T12:46:01.417Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "a-chinese-robotics-startup-with-a-tesla-optimus-rival-is-seeking-a-new-chief-scientist-with-an-18-million-salary",
+    "title": "A Chinese robotics startup with a Tesla Optimus rival is seeking a new chief scientist with an $18 million salary",
+    "description": "The race for AI and robotics talent is heating up and getting expensive.",
+    "fullText": "The race for AI and robotics talent is getting expensive.\n Chinese humanoid-robot startup UBTech is hiring a chief AI scientist with a maximum salary of $18 million.\n This comes as China seeks to build on its robotics dominance.",
+    "readingTime": 1,
+    "keywords": [
+      "robotics"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/chinese-robotics-startup-tesla-rival-18-million-salary-chief-scientist-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d3756de762ed6cfe44a7f4?width=1200&format=jpeg",
+    "created_at": "2026-04-06T12:46:01.096Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "openai-calls-for-robot-taxes-a-public-wealth-fund-and-a-4day-workweek-to-tackle-ai-disruption",
+    "title": "OpenAI calls for robot taxes, a public wealth fund, and a 4-day workweek to tackle AI disruption",
+    "description": "In a series of policy recommendations, OpenAI said the rapid advance of AI would require far-reaching economic and political reforms.",
+    "fullText": "OpenAI has released a list of policy ideas to combat AI disruption. \n They include a public wealth fund and experimenting with a four-day workweek.\n Fears are growing about a wave of AI-powered job losses as the technology continues to advance.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/openai-superintelligence-ai-upheaval-tax-shorter-workweek-public-wealth-fund-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d39181c02a678bd7e48372?width=1200&format=jpeg",
+    "created_at": "2026-04-06T12:46:01.095Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "to-succeed-with-ai-youve-got-to-nail-the-basics",
+    "title": "To Succeed with AI, You’ve Got to Nail the Basics",
+    "description": "Instead of worrying about whether they’re adopting AI fast enough, most companies would be better served by making sure they’re getting the basics right. Specifically, they should focus on applying five timeless, mutually reinforcing principles of quality management: customer centricity, a focus on process, commitment to acting on facts, a philosophy of continuous improvement, and a recognition that quality happens through people. These sound deceptively simple, but simple things are often hard. Getting these right requires leaders—at all levels—to buck the go-fast spirit of this moment and think deeply about their organizations with an eye toward the long term.",
+    "fullText": "To Succeed with AI, You’ve Got to Nail the Basics by Thomas C. RedmanApril 6, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintSmart people and companies fall into a common trap when it comes to AI: the false belief that adding a layer of AI on top of their current processes will hide rather than reveal a multitude of past sins. While they know full well that “garbage in means garbage out,” they imagine themselves immune to slop, hallucinations, and customer dissatisfaction. They believe that their data is better than average, despite little investment, or that putting a human in the loop will deal with any problems that pop up down the line.",
+    "readingTime": 1,
+    "keywords": [
+      "garbage"
+    ],
+    "qualityScore": 0.45,
+    "link": "https://hbr.org/2026/04/to-succeed-with-ai-youve-got-to-nail-the-basics",
+    "thumbnail_url": "/resources/images/article_assets/2026/04/Apr26_04_7238882.jpg",
+    "created_at": "2026-04-06T12:46:00.331Z",
+    "topic": "business"
+  },
+  {
     "slug": "it-has-never-been-about-code",
     "title": "It has never been about code",
     "description": "AI asking fundamental questions",
@@ -1589,293 +1841,6 @@
     "link": "https://www.businessinsider.com/tech-layoffs-q1-march-data-ai-impact-2026-4",
     "thumbnail_url": "https://i.insider.com/69ce80236a864f6fcd7bcb81?width=1200&format=jpeg",
     "created_at": "2026-04-02T18:41:45.191Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "strategy-summit-2026-whos-going-to-succeed-with-ai",
-    "title": "Strategy Summit 2026: Who’s Going to Succeed with AI?",
-    "description": "A conversation with MIT research scientist Andrew McAfee about how to move your strategy forward despite the many unknowns.",
-    "fullText": "April 02, 2026\n\n Artificial intelligence is advancing quickly, but its real impact on productivity, jobs, and competitive advantage is still uncertain. In this four-part special series, we’ll share conversations from the recent HBR Strategy Summit to help you get ahead. In this episode, Andrew McAfee, principal research scientist at MIT and cofounder and codirector of the MIT Initiative on the Digital Economy at the MIT Sloan School of Management, will explain why we’re in a moment where “nobody knows anything” about how AI will ultimately reshape business—and what leaders should do anyway. Plus, he argues cutting entry-level hiring because of AI could be a major long-term mistake. HBR editor at large Adi Ignatius contributes audience questions.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.55,
-    "link": "https://hbr.org/podcast/2026/04/strategy-summit-2026-whos-going-to-succeed-with-ai",
-    "thumbnail_url": "https://hbr.org/resources/images/article_assets/2025/02/wide-ideacast_25.png",
-    "created_at": "2026-04-02T18:41:44.419Z",
-    "topic": "business"
-  },
-  {
-    "slug": "boards-are-falling-short-on-cybersecurity",
-    "title": "Boards Are Falling Short on Cybersecurity",
-    "description": "Despite boards placing greater emphasis on cyber risk, their ability to mitigate it is improving slowly and marginally. There are three prominent factors driving this problem: 1) there’s a lack of cybersecurity expertise; 2) board-level conversations about AI ignore security; and 3) boards mistake regulatory compliance for security. There are concrete steps boards can take to address each factor. First, rather than increasing the number of directors with cybersecurity expertise, boards should concentrate their cybersecurity responsibilities on selecting and overseeing effective cybersecurity executives. Second, boards must treat AI as both a strategic opportunity as well as a cybersecurity and governance risk.",
-    "fullText": "Boards Are Falling Short on Cybersecurity by Jeffrey Proudfoot and Stuart MadnickApril 2, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintAt this point, most boards are convinced of the necessity for cybersecurity investments. They get that a serious cyber event is a costly, brand-damaging situation that can devastate operations, dismantle consumer confidence, and even conjure up existential concerns. However, as boards become more focused on cybersecurity, are they paradoxically getting worse at governing it? Year-over-year the cybersecurity situation keeps getting worse. For example, the 2024 FBI crime report, published last spring, revealed that cybercrime losses increased 33% compared to the previous year.",
-    "readingTime": 1,
-    "keywords": [
-      "cybersecurity",
-      "situation",
-      "boards"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://hbr.org/2026/04/boards-are-falling-short-on-cybersecurity",
-    "thumbnail_url": "/resources/images/article_assets/2026/04/Apr26_02_4777128.jpg",
-    "created_at": "2026-04-02T18:41:44.327Z",
-    "topic": "business"
-  },
-  {
-    "slug": "writers-must-accept-artificial-intelligence-but-we-are-as-valuable-as-ever",
-    "title": "Writers must accept artificial intelligence – but we are as valuable as ever",
-    "description": "Mastery of banal style is losing its usefulness – but language is more powerful than ever. It’s up to the writer to do what machines can’t",
-    "fullText": "Mastery of banal style is losing its usefulness – but language is more powerful than ever. It’s up to the writer to do what machines can’t\n\nI recently heard an exchange at a playground that should worry the executives at AI companies more than any analyst’s prediction of a bubble. A boy and a girl, maybe 10 years old, were fighting. “That’s AI! That’s AI!” the girl was shouting. What she meant was that the boy was indulging a new and particular breed of nonsense: language that sounds meaningful but has no connection to reality. The children have figured the new world out quickly, as they do.\n\nArtificial intelligence is here to stay, neither as an apocalypse nor as the solution to all life’s problems, but as a disruptive tool. The recent scandal over Shy Girl, the novel by Mia Ballard, was doubly revealing. Hachette cancelled its publication amid claims it was reliant on AI generation (Ballard has said that an acquaintance who edited the self-published version used AI, not her). But the book was originally self-published. Apparently readers and editors didn’t mind until the use of AI was pointed out to them.\n\nThe fact that machines can generate meaning in the first place is an existential curiosity. But for writers, and for young writers in particular, AI has a more practical significance. A recent survey found that 86% of college students use AI regularly, which means that 14% are lying to survey-takers. The ordinary business of quotidian language – writing student essays, emails, memos, all the granular sentence-by-sentence work that once trained writers in their craft – is dissolving. Mastery of style, the laborious gift of the skilled writer, is being automated.\n\nHow are writers to live with meaning-generators? How should writers use AI? My perspective is slightly different from others mainly because I began using AI before ChatGPT. My first algorithmically generated story appeared in Wired in 2017. I published the first AI-generated novel reviewed in the New York Times, Death of an Author, in 2023. Currently, a generative text box I designed, “An Infinite Prayer for Peace,” is showing at the Bildmuseet Gallery in Sweden. It uses AI to articulate a different prayer every minute. It is a new kind of linguistic act, possible only through transformer-based artificial intelligence.\n\nThere seem to be two options facing writers. The first is not to use AI at all, or to pretend not to use it. The other is to automate their writing practice. The first is retrograde and fearful. The second forgets that art is a human practice, made by people for people. As becomes obvious when you actually try to use AI to make art, this is a false binary. Already a few paths through the slop are emerging.\n\nThe inventors of the Transformer, the T in ChatGPT, and the architecture by which all generative AI works, believed, against the grain of research at the time, that language was the key to abstraction. Language, rather than images or mathematics. They were more right than they ever could have imagined. At the core of the new magic is language. Language now is power. The revenge of the humanities is now fully on. The new cliche among tech lords is the need for taste in the artificially intelligent future. How do you think you develop taste? By reading. By writing. By being trained in reading and writing.\n\nResearchers in Italy discovered they could use poetry to jailbreak the large language models into giving them instruction in how to build a nuclear bomb. This is more than a metaphor. Revel in it.\n\nWhat LLMs do well, particularly ones shaped by human learning feedback, is generate convincing expressions of dead language. The more formulaic the task, the better they are. Software coding is their primary ability. But literary students, asked to write formulaic essays, asked to produce answers in a code, naturally use AI to compose them.\n\nGenerative models are fundamentally cliche machines. If you ask AI to write a film script, it will produce an average film script masterfully. If you ask it to write an essay, it will produce an average essay masterfully.\n\nOnce upon a time, mastery of the banal was adequate for writers. It was enough to prove that you were capable of writing. But that skill has no purpose anymore – it can be automated. Skill will be found in the purpose of the work. What can you alone make happen with language?\n\nChess is a good model for anyone trying to figure out how to use artificial intelligence. AI transformed chess well before it changed any other field. It has completely altered the nature of the game, the nature of training and analysis, the entire conditions under which the game is played. Every grandmaster alive today has trained with AI.\n\nBut Gukesh Dommaraju, the current world champion, took an unusual path: his coach, the grandmaster Vishnu Prasanna, encouraged him to avoid AI until he was fully formed as a player. He sharpened his skills, he grew his creativity, he steered his talent away from bad habits, and then, and only then, did he turn to the engines. It worked.\n\nThe key is to control the machine, rather than having the machine controlling you.\n\nWhy should fear be the only reaction to artificial intelligence? This technology, it is becoming clear on the ground, is not good at replacing people. I wrote Death of an Author through prompts, but the process was no easier than simply writing. Controlled language requires control over language, whether you’re using AI or a fountain pen. It took me years to create a truly regenerative work, what no human could do, a poem that reproduces itself every minute.\n\nThe surrealists, on encountering the linguistic destabilization of various theories of the unconscious in the early 20th century, no longer asked if they were masters of language. They did not compare themselves with Shakespeare or Keats. They invented games. They splurged on expression. They decided to use art to alter the nature of human experience. They made art for life.\n\nThere is real joy here. There is green grass.\n\nFor artists and writers of the past 50 years, constant adaptation to new modes of generation and dissemination has been the cost of freedom. It’s exhausting. On the other hand, the struggle faced at this moment is much the same as it has always been. Cliche is the historical norm. The world has always been full of letters that start “Dear Occupant” or “You are one of our most valued customers”. Machines may as well have been doing most of the writing. If you feel like being a writer is like swimming upstream, you’re right. Everybody has been swimming upstream forever.\n\nAs TS Eliot wrote nearly a century ago: “There is only the fight to recover what has been lost and found, and lost and found, again and again, and now, under conditions that seem unpropitious.” Language naturally deadens. Either grow new language on the rot, or shock the old language back to life. The task of writing in the age of AI is the same as it has always been: to see through the various manias and cults, to unpack the mechanisms that make the world turn, to ring the bells that still can ring.\n\nCommon sense might also help. “Render unto man the things which are man’s and unto the computer the things which are the computer’s,” Norbert Wiener, the father of cybernetics, wrote. “This would seem the intelligent policy to adopt when we employ men and computers together in common undertakings. It is a policy as far removed from that of the gadget worshiper as it is from the man who sees only blasphemy and degradation of man in the use of any mechanical adjuvants whatever to thoughts.”\n\nIt is worth remembering that most art has always been slop. When I did my PhD on early modern drama, my supervisor made me read every tragedy written in English until 1640. The process was grueling but instructive. Almost all of them, the fruits of the definitive art form of the greatest period in English literature, were garbage. Go and watch what was on TV in the 80s, if you want a more contemporary example.\n\nThere is good news for humanists in the arrival of AI. According to the New York Fed, unemployment for computer science graduates sits at 6.1%, while for art history majors, the number is 3%. Merely practical education will be of limited value in the AI future. To make yourself merely technically useful to a company or an industry is to make yourself vulnerable to replacement by automation at any moment. Thinking, creating, understanding – these cannot be replaced, certainly not by artificial intelligence. Trust me. I’ve tried.\n\nThe kids I overheard on the playground knew the difference between language that sounds meaningful and language that is meaningful. Do you? Does the literary community? Two roads diverge into a sloppy wood: one goes through what machines can do, the other goes through what only people can do. To write now is to wage war against cliche as usual, just this time with the AI and against it.\n\nStephen Marche lives in Toronto and is the author of The Next Civil War and On Writing and Failure",
-    "readingTime": 8,
-    "keywords": [
-      "film script",
-      "swimming upstream",
-      "sounds meaningful",
-      "artificial intelligence",
-      "language",
-      "writers",
-      "machines",
-      "human",
-      "cliche",
-      "mastery"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/commentisfree/2026/apr/02/artificial-intelligence-writers-powerful-language",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/31d232256f6427246d45c3837bdcc5fd7370a0f8/475_0_4750_3800/master/4750.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctb3BpbmlvbnMucG5n&enable=upscale&s=f7d87f47ea639493630536c0a5651481",
-    "created_at": "2026-04-02T12:47:06.264Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "how-i-made-my-homelab-fix-itself-using-komodo-and-openclaw",
-    "title": "How I Made My Homelab Fix Itself Using Komodo and OpenClaw",
-    "description": "Built an agentic KM CLI for Komodo so AI agents can debug, fix, and self-heal my homelab without me touching a thing.",
-    "fullText": "The most annoying thing about homelabbing is the upkeep. Keeping things running, handling breaking updates, fixing stuff as it breaks instead of letting everything slowly decay.\nIt’s kinda embarrassing telling people how cool your Homelab is, only for things to break constantly.\n\nLuckily AI agents have gotten good enough that you can use them for the upkeep of your homelab.\n\nUntil now though, you still had to sit down at your computer, start an agent, copy the logs, show it the error, and unless it’s running on the server itself, apply the fix manually.\n\nYou could install the agent directly on the server and let it manage things, but what if you have multiple servers? Like a whole homelab network?\n\nDo you install an agent on every server? And what happens when services depend on each other?\n\nHere comes Komodo.\nKomodo is an open-source GitOps platform that lets you manage your Docker Compose stacks through a clean UI with full API access to logs, container status, and even a bash shell on the server.\n\nIt’s a central hub for all your servers.\nWhat makes it special is that any change you make to your stacks, resources, or Procedures in Komodo can be committed back to git, so things never drift from the repo.\nEverything around your compose stacks is described as code under the Resources folder: servers, procedures.\nThat means your agent can also adjust how Komodo itself works on the fly.\n\nKomodo has a powerful API, but the official CLI doesn’t expose all of it.\nSo I built my own version, the “agentic” edition.\nIt adds support for:\n\nIt also adjusts the exec and ssh commands so agents can run commands on the host or inside a container non-interactively. (ssh for interactive sessions, exec for non-interactive commands.)\n\nRunning the KM CLI within a GitOps repo lets your agent debug running homelab services, fix issues, plan and push updates, or even tackle that migration we’ve all been putting off for months.\n\nYou can also create a service user so you have an idea what the agent did on komodo.\n\nAnd if you don’t want your agent running arbitrary commands on your servers, you can disable that at the container or server level in the Komodo “periphery” config. Just install periphery and edit the config to disable terminal access for the host or all containers.\n\nKomodo solves the stack access and management problem, but you still have to sit down, open your computer, and prompt the agent to fix things.\n\nWhat if you could just message your agent and say “Jellyfin is down, fix it”?\nThat’s the idea behind async personal assistants like OpenClaw and the newer Hermes. Fix things as you notice them, wherever you are.\n\nJust clone the git repo, install the agentic KM CLI skill, and your agent can debug and fix any issue across your homelab, even a multi-server network.\n\nHomelabbing becomes genuinely fun. You say what you want and it appears. You can see what changed, revert it easily thanks to git, and even set up backups to guard against catastrophic failures, though most models are smart enough to not do the classic rm -rf mistake anymore. Still nice to have.\n\nSo how does this look in reality? What can I use this for? Well, I quickly found a use for this.\n\nI self-host my own language tool server and it breaks often. So why not let OpenClaw figure out a solution for it?\n\nAfter telling it to investigate and actually solve the issue, it deployed a new modified docker stack that added a memory limit to the container\n\nI legit did this while i was cooking in the kitchen, didn’t need to do anything manually.\n\nI also used it to see if any of my servers had LiteLLM\ninstalled after the CVE was made public.\n\nDeploying new services and fixing containers on demand is great. But what if things never broke in the first place? What if your agent fixed issues as they happened, not as you noticed them?\nAKA what if things just Self healed?\n\nit’s actually doable now. All you need is Komodo’s alert system calling a webhook connected to your OpenClaw or Hermes agent. The agent sees the logs and makes whatever changes are needed to bring the service back up. If it’s a server-level issue, you could even hook into your hoster’s API and trigger a force restart.\nIt doesn’t even have to be fully autonomous. You could build a way for the agent to reach you and ask you for approval.\n\nIt’s proactive. The agent already has the fix and you are the one to allow it or not. You are actually the manager now.\n\nHonestly, thinking about it feels a bit wild. We’re on our way to self-healing, self-aware systems that can change themselves to stay up no matter what. Give your agent enough access and resources, and it could restore a backup on another server and bring the service back up without you ever noticing. This is an exciting time for sure.",
-    "readingTime": 5,
-    "keywords": [
-      "compose stacks",
-      "service back",
-      "agent",
-      "server",
-      "it’s",
-      "homelab",
-      "servers",
-      "install",
-      "access",
-      "container"
-    ],
-    "qualityScore": 1,
-    "link": "https://fariszr.com/homelab-fixes-itself-komodo-openclaw/",
-    "thumbnail_url": "https://fariszr.com/homelab-fixes-itself-komodo-openclaw/thumbnail.jpeg",
-    "created_at": "2026-04-02T12:47:06.113Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "openais-coo-says-if-youre-bullish-on-ai-you-can-be-bullish-on-legacy-software-too",
-    "title": "OpenAI's COO says if you're bullish on AI, you can be bullish on legacy software too",
-    "description": "Brad Lightcap said that the software sell-off may have been unwarranted because software companies are working hard to incorporate AI.",
-    "fullText": "Brad Lightcap said legacy software companies are working swiftly to adopt AI\n He added that these tech companies are moving as quickly as startups.\n His comments follow a brutal February sell-off of software stocks — or the \"software apocalypse.\"",
-    "readingTime": 1,
-    "keywords": [
-      "software"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/openai-coo-brad-lightcap-bullish-ai-legacy-software-apolcalypse-4",
-    "thumbnail_url": "https://i.insider.com/69ce03e7e762ed6cfe4497f4?width=1200&format=jpeg",
-    "created_at": "2026-04-02T12:47:04.683Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "after-a-y-combinator-rejection-this-founder-raised-15-million-for-his-ai-search-startup-read-the-pitch-deck",
-    "title": "After a Y Combinator rejection, this founder raised $15 million for his AI search startup. Read the pitch deck.",
-    "description": "Daydream, led by Thenuka Karunaratne and Shravan Rajinikanth, raises $15M to enhance AI-driven SEO services with human oversight.",
-    "fullText": "Daydream, an SEO agency blending AI agents with human expertise, has raised $15 million.\n CEO Thenuka Karunaratne says AI search optimization is \"about 90%\" the same as traditional SEO.\n After a rough start, he reframed fundraising as a learning experience rather than a win-or-lose.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/daydream-raises-15-m-ai-human-seo-expertise-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cad28cf573a637a7567a53?width=1200&format=jpeg",
-    "created_at": "2026-04-02T12:47:04.563Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "heres-whos-suing-openai-from-elon-musk-to-george-r-r-martin-and-what-it-could-cost-sam-altman",
-    "title": "Here's who's suing OpenAI, from Elon Musk to George R. R. Martin — and what it could cost Sam Altman",
-    "description": "Move fast, break things, get sued. Here are the biggest lawsuits bedeviling Sam Altman and ChatGPT.",
-    "fullText": "OpenAI and its CEO, Sam Altman, face a growing number of lawsuits.\n Elon Musk, George R.R. Martin, and the parents of a boy who committed suicide are among those seeking damages.\n Business Insider breaks down the top legal challenges facing the maker of ChatGPT.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/openai-lawsuits-sam-altman-chatgpt-legal-challenges",
-    "thumbnail_url": "https://i.insider.com/69cc2c51e762ed6cfe448ff0?width=1194&format=jpeg",
-    "created_at": "2026-04-02T12:47:04.555Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "anthropic-is-learning-that-there-are-no-takebacks-on-the-internet",
-    "title": "Anthropic is learning that there are no take-backs on the internet",
-    "description": "Anthropic had an uh-oh with Claude Code's internal source code. Here's what happened.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/anthropic-claude-code-data-leak-developers-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cd6cd2e762ed6cfe449596?width=1200&format=jpeg",
-    "created_at": "2026-04-02T12:47:04.031Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "college-students-say-they-are-changing-their-majors-because-of-ai",
-    "title": "College students say they are changing their majors because of AI",
-    "description": "Those in technical or vocational programs were most likely to change their majors, according to a new survey from Gallup and Lumina Foundation.",
-    "fullText": "A Gallup survey found 16% of students have changed majors because of AI's impact on the job market.\n Nearly half of students polled have given at least a fair amount of thought to switching their field of study.\n Students are changing both to and from technical majors, reflecting uncertainty about the career path.",
-    "readingTime": 1,
-    "keywords": [
-      "students",
-      "majors"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/college-students-changing-majors-because-of-ai-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cd52d76a864f6fcd7bc642?width=1200&format=jpeg",
-    "created_at": "2026-04-02T12:47:04.031Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "i-handed-over-my-dating-life-to-ai-i-dont-think-shell-see-me-again",
-    "title": "I handed over my dating life to AI. I don’t think she’ll see me again",
-    "description": "In week five of Rhik Samadder’s diary, our resident AI skeptic decided to let AI take the lead on a date. If uncanny valley was a conversational style, it’s this\nI’m single. Is it because I am emotionally avoidant, waiting on a unicorn, or under 6ft tall? Perhaps a spicy meatball of all three?\nOr could it be that I haven’t used the magic of AI yet?",
-    "fullText": "In week five of Rhik Samadder’s diary, our resident AI skeptic decided to let AI take the lead on a date. If uncanny valley was a conversational style, it’s this\n\nI’m single. Is it because I am emotionally avoidant, waiting on a unicorn, or under 6ft tall? Perhaps a spicy meatball of all three?\n\nOr could it be that I haven’t used the magic of AI yet?\n\nAs part of my six-weeks-long experiment in which I hand my life over to AI, I decide to use it to help me with my love life. I start by asking it to write my dating profile. So far, my experiment has only led me to experiment on myself, but this time, this will involve another innocent person.\n\nThe AI goes to work. “Creative type with nerd firmware and a fondness for novelty: new spots, odd museums, spontaneous plans, niche obsessions. Bring curiosity: I’ll bring the plot twists.”\n\nI squint at it. I sound like a Wes Anderson film.\n\nI scroll through profiles and notice a woman we’ll call A (34 F, SE London). Her profile is mostly pictures of British shorthair cats; she’s also into cat modeling. I’m indifferent to felines, but A is very attractive.\n\nI don’t want to mislead her, so I tell her about my experiment: I’m using AI to help me write my messages. If she fancies meeting, it will choose the date, and I’ll rely on it for conversation prompts.\n\nUnbelievably, she’s fine with this. People more or less do it all the time, she says. At least I’m being upfront.\n\nWe arrange a daytime cinema trip. What should I wear? I ask the chatbot. My date has an English degree, so it advises me to wear a turtleneck, dark jeans and boots or minimal trainers. OK.\n\n“Morning! Still on for Marty Supreme?” I text on the day. “Are you more of a trailers-lover or a trailers-hater?” She ignores that, but says she’s coming. She’s a bit rushed, she writes, and didn’t have time to do her nails, but her hair’s looking nice. “Noted. Hair gets the attention today – nails are strictly off-camera. See you 11.20 by the tickets,” I reply.\n\nIf uncanny valley was a conversational style, it’s this.\n\n“What was your favourite scene and character?” I ask her immediately afterward, as instructed. She doesn’t answer that, but does suggest lunch. I’ve copy-pasted some AI lines into my Notes app, and refer to them as we walk.\n\nIt’s fine to compliment her hair, as she brought it up, the AI advises. I check with her anyway, and proceed.\n\n“That hair has pure A24 energy,” I smile.\n\n“What does that mean?” she frowns.\n\n“She’s asking what that means” I type, turning away. The AI feeds me a quick fix. “Ah – sorry, film brain,” I smile, turning back. “A24 is a studio that makes stylish, indie films. I just meant your hair has that cool, distinctive ‘cinematic main character’ vibe – like it belongs in a film.”\n\nMy date points out that I used the word ‘film’ three times in a row.\n\nOver lunch, she tells me about the part of London where she lives. When she goes to the bathroom, I feed ChatGPT the data. It sends me an informed but breezy line to try.\n\n“I heard Baird – the early TV guy – lived in your ’hood for a bit. Feels like the sort of fact a pub quiz would punish you for not knowing,” I smile. She frowns.\n\n“Early TV guy? Do you mean the inventor of the television?”\n\nShe’s hit upon a quirk of these AI lines – sometimes they’re weirdly formal, but sometimes the opposite. People can be like that, too. But I’m usually better at conversation than this. “Yes,” I say – as myself.\n\n“When you say AI things, your legs look shorter,” A laughs. She means I’m being stiff, unspontaneous. She levels with me: if someone had sent the messages I have, and she didn’t know about the experiment, she wouldn’t have come today. The messages sound emotionally intelligent, she concedes, yet something’s off about them.\n\nI think about how the AI advised me to bring her a cat sticker or keyring (because she likes cats). One of its prompts was: “Tell me a cat modeling story, I’m genuinely interested!” I didn’t use it; because I don’t think it’s right to say you’re genuinely interested in something, if you aren’t.\n\nThe artificial confidence of these lines make them worse than someone who’s honestly nervous, A reflects. “You sound like a therapist who’s been struck off.”\n\nWe’re finally having a good time, ripping my AI-assisted personality apart.\n\n“Good luck with the piece,” A concludes, as we finish our tuna melts. “And so you know, I much prefer you to … that other guy.”\n\nAI is great at choosing date ideas. Relying on it for conversation, though, comes at a price of not trusting yourself – your own curiosity, ability to listen, and what you have to offer.\n\nI should say something balanced here, about how AI has its place. But what I really think is that every day we stray further from God’s light, and are doomed.\n\nRhik Samadder is a columnist, playwright and performer who co-runs the Tuscan Table, a creative writing retreat in Italy",
-    "readingTime": 5,
-    "keywords": [
-      "uncanny valley",
-      "conversational style",
-      "genuinely interested",
-      "cat modeling",
-      "style it’s",
-      "the ai",
-      "she’s",
-      "date",
-      "experiment",
-      "film"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/lifeandstyle/2026/feb/25/i-handed-over-my-dating-life-to-ai-i-dont-think-shell-see-me-again",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/56ba0aae7f26fa119b68a96785237497762e3ed8/0_0_3000_2400/master/3000.png?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=6a32995f150bd038cf1a7d9cd173485e",
-    "created_at": "2026-04-02T12:47:00.834Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "claudes-code-anthropic-leaks-source-code-for-ai-software-engineering-tool",
-    "title": "Claude’s code: Anthropic leaks source code for AI software engineering tool",
-    "description": "Nearly 2,000 internal files were briefly leaked after ‘human error’, raising fresh security questions at the AI company\nAnthropic accidentally released part of the internal source code for its AI-powered coding assistant, Claude Code, due to “human error”, the company said on Tuesday.\nAn internal-use file mistakenly included in a software update pointed to an archive containing nearly 2,000 files and 500,000 lines of code, which were quickly copied to developer platform GitHub. A post on X sharing a link to the leaked code had more than 29m views early on Wednesday, and a rewritten version of the source code quickly became GitHub’s fastest-ever downloaded repository. Anthropic issued copyright takedown requests to try to contain the code’s spread. Within the code, users spotted blueprints for a Tamagotchi-esque coding assistant and an always-on AI agent, per the Verge.",
-    "fullText": "Nearly 2,000 internal files were briefly leaked after ‘human error’, raising fresh security questions at the AI company\n\nAnthropic accidentally released part of the internal source code for its AI-powered coding assistant, Claude Code, due to “human error”, the company said on Tuesday.\n\nAn internal-use file mistakenly included in a software update pointed to an archive containing nearly 2,000 files and 500,000 lines of code, which were quickly copied to developer platform GitHub. A post on X sharing a link to the leaked code had more than 29m views early on Wednesday, and a rewritten version of the source code quickly became GitHub’s fastest-ever downloaded repository. Anthropic issued copyright takedown requests to try to contain the code’s spread. Within the code, users spotted blueprints for a Tamagotchi-esque coding assistant and an always-on AI agent, per the Verge.\n\n“Earlier today, a Claude Code release included some internal source code. No sensitive customer data or credentials were involved or exposed,” an Anthropic spokesperson said. “This was a release packaging issue caused by human error, not a security breach.”\n\nThe exposed code was related to the tool’s internal architecture but did not contain confidential data from Claude, the underlying AI model by Anthropic.\n\nClaude Code’s source code was partially known, as the tool had been reverse-engineered by independent developers. An earlier version of the assistant had its source code exposed in February 2025.\n\nClaude Code has emerged as a key product for Anthropic, as the company’s paid subscriber base continues to grow. TechCrunch reported last week that paid subscriptions have more than doubled this year, per an Anthropic spokesperson. Anthropic’s Claude chatbot also received a popularity boost amid the CEO Dario Amodei’s tussle with the Pentagon; Claude climbed to the top spot of Apple’s chart of top free apps in the US just more than a month ago. Amodei had refused to back down on red lines around the use of his company’s technology for mass surveillance and fully autonomous weapons.\n\nThis is the second time that Anthropic has had a data leak in recent weeks. Fortune previously reported on a separate breach and noted that the company was storing thousands of internal files on publicly accessible systems. That included a draft of a blog post that referred to an upcoming model known as “Mythos” and “Capybara”.\n\nSome experts worry the leaks suggest internal security vulnerabilities within Anthropic. That could be particularly troubling for a company focused on AI safety.\n\nThe leaks could also help competitors, like OpenAI and Google, better understand how Claude Code’s AI system works. The Wall Street Journal reported that the most recent leak included commercially sensitive information, such as tools and instructions for getting its AI models to work as coding agents.\n\nThe latest breach comes weeks after the US government designated Anthropic as a supply chain risk; Anthropic is fighting those allegations in court. Last week, a US district judge granted a temporary injunction to block the designation.",
-    "readingTime": 3,
-    "keywords": [
-      "claude code’s",
-      "human error",
-      "coding assistant",
-      "internal files",
-      "claude code",
-      "security",
-      "anthropic",
-      "exposed",
-      "breach",
-      "nearly"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/technology/2026/apr/01/anthropic-claudes-code-leaks-ai",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/7e648c2e20ef89a062acd8faaa32fb4544525ee9/417_0_4167_3336/master/4167.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d9d7f08cb01384bbeb9dad43ef6ab772",
-    "created_at": "2026-04-02T12:47:00.650Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "pupils-in-england-are-losing-their-thinking-skills-because-of-ai-survey-suggests",
-    "title": "Pupils in England are losing their thinking skills because of AI, survey suggests",
-    "description": "Two-thirds of secondary school teachers report a decline in core abilities such as writing and problem-solving\nPupils using artificial intelligence are losing their capacity for critical thinking, according to a survey of secondary school teachers in England.\nTwo-thirds said they had observed the decline among children who they also said no longer felt the need to spell because of voice-to-text technology.\n Continue reading...",
-    "fullText": "Two-thirds of secondary school teachers report a decline in core abilities such as writing and problem-solving\n\nPupils using artificial intelligence are losing their capacity for critical thinking, according to a survey of secondary school teachers in England.\n\nTwo-thirds said they had observed the decline among children who they also said no longer felt the need to spell because of voice-to-text technology.\n\n“Students are losing core skills – thinking, creativity, writing, even how to have a conversation,” one teacher told the National Education Union poll.\n\n“AI is destroying what ‘learning’ – problem-solving, critical thinking and collaborative effort – is,” said another. A third anonymous contributor added: “Children no longer feel the need to spell as voice-to-text replaces knowledge.”\n\nThe government has called for a digital revolution involving AI in schools, and in January announced plans to develop AI tutoring tools to provide one-to-one learning support for up to 450,000 disadvantaged pupils.\n\nBridget Phillipson, the education secretary, said at the time: “AI tutoring tools have the potential to transform access to tailored support for young people, taking tutoring from a privilege of the lucky few, to every child who needs it – so all children can achieve and thrive.”\n\nOf the 9,000 state school teachers polled by the NEU, which is holding its conference in Brighton, 49% said they opposed the government’s plan for AI tutors, with just 14% in agreement.\n\nThey worry that it will be used to cut costs and undermine the value of teaching skills. “Students who need tutors often need more than academic support. AI will not give them that,” said one respondent.\n\n“Students will not be motivated by an AI tutor,” said another, while a third said: “Disadvantaged students need human interaction for tutoring rather than AI so that social skills can be enhanced and social isolation reduced.”\n\nAlthough teachers are sceptical about pupils using AI and complain about it aiding cheating in exams and homework, some admit they increasingly rely on it to do their jobs.\n\nAs many as 76% use AI for day-to-day work, a significant increase from 53% last year. In the main, it is being used to create resources (61%), plan lessons (41%) and do admin (38%). Just 7% are using AI tools for marking.\n\nHowever, 49% of schools lack any policies governing the use of AI either by staff or students and 66% have no policy specifically for students.\n\n“Staff are not trained to use it properly, but are using it and it’s producing sub-standard slop,” was one comment in the new poll. Another said: “If used correctly, AI can be a valuable educational tool; regulation and guidance is needed, and training and policies should be in place in every school for staff and students.”\n\nThe NEU’s general secretary, Daniel Kebede, said: “Students must be able to think for themselves. This is at the heart of learning, but our survey shows a reliance on AI is having an effect on students’ ability to think critically.\n\n“The profession is far from convinced that AI tutors are a magic bullet for closing opportunity gaps for disadvantaged students. The government is taking a risk in rolling out AI tutoring before its impacts are properly understood.”\n\nA government spokesperson said: “Our mission is to break the link between background and success, and the introduction of AI tutoring tools can help make that a reality – expanding the tailored support that is often only available to a privileged few to every child who needs it.\n\n“No technology should replace the foundations of core knowledge and disciplinary thinking that prepares pupils for later life. But we also have to prepare children for a digitally enabled world. That’s why our schools white paper sets out a clear plan to ensure AI is used safely, critically and responsibly – so every young person can achieve and thrive.”",
-    "readingTime": 4,
-    "keywords": [
-      "secondary school",
-      "school teachers",
-      "tutoring tools",
-      "disadvantaged students",
-      "pupils",
-      "children",
-      "core",
-      "skills",
-      "learning",
-      "another"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/technology/2026/apr/02/pupils-england-losing-thinking-skills-because-of-ai-survey",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/3d9e586c4268a9114440e204c74a16614e1c119d/1221_0_6139_4912/master/6139.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=6a995fd788476ed0c5f442c1ce8b066b",
-    "created_at": "2026-04-02T12:47:00.508Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "private-equity-sales-slump-as-ai-war-bring-new-stress-fractures",
-    "title": "Private Equity Sales Slump as AI, War Bring New Stress Fractures",
-    "description": "Private equity sales have fallen by more than a third this year, as developments in artificial intelligence and war in Iran heap pressure on a subdued exit market.",
-    "fullText": "MarketsDealsBy Claire Ruckin, Swetha Gopinath, and Pablo Mayo CerqueiroSavePrivate equity sales have fallen by more than a third this year, as developments in artificial intelligence and war in Iran heap pressure on a subdued exit market.Buyout firms were sellers in deals valued at about $103 billion in the first quarter, data compiled by Bloomberg show. Though still above historical averages, the figure is roughly 36% lower than the same period a year ago and stands out in an M&A market flush with megadeals.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.35,
-    "link": "https://www.bloomberg.com/news/articles/2026-04-02/private-equity-sales-slump-as-ai-war-bring-new-stress-fractures",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ii6GrW4ap9gQ/v1/1200x800.jpg",
-    "created_at": "2026-04-02T07:01:06.978Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "inspectmind-ai-yc-w24-is-hiring",
-    "title": "InspectMind AI (YC W24) Is Hiring",
-    "description": "InspectMind AI • San Francisco • Full-time\\\n$120K – $220K + Equity\nThe Mission\nEvery building is designed using drawings that often contain hundreds of mistakes.\nThese mistakes lead to costly delays, rework, and sometimes unsafe structures.\nWe’re building the AI Plan Checker — a system that reviews full construction plan sets (drawings, specs, calculations) in PDFs and finds issues before anything gets built.\nOur goal is simple: every construction project in the world gets checked by AI before permitting and construction. Faster approvals.",
-    "fullText": "InspectMind AI • San Francisco • Full-time\n\n$120K – $220K + Equity\n\nEvery building is designed using drawings that often contain hundreds of mistakes.\n\nThese mistakes lead to costly delays, rework, and sometimes unsafe structures.\n\nWe’re building the AI Plan Checker — a system that reviews full construction plan sets (drawings, specs, calculations) in PDFs and finds issues before anything gets built.\n\nOur goal is simple: every construction project in the world gets checked by AI before permitting and construction. Faster approvals. Fewer mistakes. Safer buildings.\n\n• 100%+ month-over-month growth\n\n• Hundreds of paying customers\n\n• Thousands of projects processed\n\n• Engineers finding hundreds of real issues per project\n\n• Fully self-serve product\n\nThis is already being used in real workflows. So far, InspectMind AI has been used to check drawings across projects in data centers, universities and K–12 schools, hospitals and clinics, large multifamily and senior housing, energy infrastructure (battery storage, utility terminals), commercial spaces, and more, supporting architects, engineers, contractors, owners and developers across the US, Canada, Europe, South America, and Asia.\n\nOur AI can already find a lot of issues.\n\nNow we’re focused on what matters most:\n\n• Turning thousands of raw issues into clear, high-signal insights\n\n• Reducing false positives and noise\n\n• Making results trustworthy and actionable\n\n• Driving repeat usage and team adoption\n\nThis is a hard technical problem across computer vision, AI agents design, and system design.\n\n• Build core product features end-to-end (frontend, backend, AI)\n\n• Improve accuracy and signal-to-noise of results\n\n• Work directly with users (engineers, architects, contractors, developers)\n\n• Own major parts of the product from idea to production\n\n• Ship fast and see immediate real-world impact\n\n• 2–5+ years of experience shipping production code\n\n• Our product is built entirely by AI. You need to use coding agents like Claude Code and Codex effectively to ship quickly while maintaining code quality and security.\n\n• High velocity and strong ownership\n\n• Strong intrinsic motivation to learn and grow\n\n• Good product instincts and user empathy\n\n• Excited by ambiguity and hard problems\n\nYour work will directly impact real buildings and real safety. If we succeed, every construction project globally will run through systems you helped build.\n\n• Ex-Google, Airbnb, Berkeley, CMU\n\n• Former founders and early engineers\n\n• YC W24, AI Grant, top VCs\n\nSmall team, high ownership, fast execution.\n\nHow We Work\n\n• Fast-moving, product-focused\n\n• Direct access to users\n\n• No bureaucracy\n\n• Intro call\n\n• Technical interviews\n\n• Trial project\n\n• Offer\n\nIf you want to build something that matters and push AI into the real world, we’d love to talk.",
-    "readingTime": 3,
-    "keywords": [
-      "construction project",
-      "product",
-      "engineers",
-      "drawings",
-      "mistakes",
-      "across",
-      "we’re",
-      "system",
-      "buildings",
-      "projects"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.ycombinator.com/companies/inspectmind-ai/jobs/jQNra64-software-engineer-build-the-world-s-best-ai-plan-checker",
-    "thumbnail_url": "https://bookface-images.s3.amazonaws.com/logos/41d8ae61b3b53822edeceeb79c8bc0a60d7bb9d5.png?1703138449",
-    "created_at": "2026-04-02T06:59:56.160Z",
-    "topic": "jobs"
-  },
-  {
-    "slug": "bain-capitals-gross-says-to-start-with-business-goals-and-then-apply-ai",
-    "title": "Bain Capital’s Gross Says to Start with Business Goals and Then Apply AI",
-    "description": "Artificial intelligence is being misapplied by executives who treat it as a technology rollout rather than a fundamental rethink of how businesses operate, Bain Capital Managing Partner David Gross said in a Bloomberg TV interview.",
-    "fullText": "TechnologyAIBy Veena Ali-Khan and Dani BurgerSaveArtificial intelligence is being misapplied by executives who treat it as a technology rollout rather than a fundamental rethink of how businesses operate, Bain Capital Managing Partner David Gross said in a Bloomberg TV interview.“We are extremely excited about it,” Gross said. “We’re also daunted by it just given the rapid pace of change.”",
-    "readingTime": 1,
-    "keywords": [
-      "gross"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.bloomberg.com/news/articles/2026-04-01/bain-s-gross-says-ceos-get-ai-wrong-focus-on-tech-over-strategy",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/igyNwRDG4P0Y/v1/1200x800.jpg",
-    "created_at": "2026-04-02T01:17:18.455Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ai-boom-energy-risks-shape-ma-morgan-stanleys-miles-says",
-    "title": "AI Boom, Energy Risks Shape M&A, Morgan Stanley’s Miles Says",
-    "description": "Companies are pushing ahead with acquisitions despite geopolitical uncertainty, volatile energy markets and the uneven effects from the rise of artificial intelligence, Morgan Stanley’s Tom Miles said in a Bloomberg TV interview.",
-    "fullText": "TechnologyBy Veena Ali-Khan and David CarnevaliSaveCompanies are pushing ahead with acquisitions despite geopolitical uncertainty, volatile energy markets and the uneven effects from the rise of artificial intelligence, Morgan Stanley’s Tom Miles said in a Bloomberg TV interview.“Companies are setting their long-term strategies, M&A is definitely a part of that,”said Miles, the bank’s global co-head of M&A.",
-    "readingTime": 1,
-    "keywords": [
-      "miles"
-    ],
-    "qualityScore": 0,
-    "link": "https://www.bloomberg.com/news/articles/2026-04-01/ai-boom-energy-risks-shape-m-a-landscape-morgan-stanley-says",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iZktLRBHVozo/v1/1200x800.jpg",
-    "created_at": "2026-04-02T01:17:13.852Z",
     "topic": "finance"
   }
 ]
