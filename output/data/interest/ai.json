@@ -1,5 +1,83 @@
 [
   {
+    "slug": "it-has-never-been-about-code",
+    "title": "It has never been about code",
+    "description": "AI asking fundamental questions",
+    "fullText": "It started many years ago with a dream – a dream about a universal automaton. Many people were involved in its invention: Ada Lovelace, Charles Babbage, Alan Turing, Conrad Zuse, and many more. John von Neumann came relatively late to the party, but he described a hardware design in 1945 that became famous as the “Von Neumann architecture”. Even if the technology evolved a lot and computers became much more powerful since 1945, more than 80 years later, the design of most modern computers is still a refined version of the original Von Neumann architecture.\n\nBut this is not where the dream stopped. We now had this wonderful general-purpose automaton, a computer that was able to execute arbitrary tasks. As long as a task could be represented by a series of operations reading and manipulating data, a computer based on a Von Neumann architecture was able to execute it. New dreams emerged. Many, many ideas that people would love to let such a computer execute.\n\nThe only problem was to make a computer execute an idea. This was a tedious task. While a computer was able to execute the task time and again once it had understood it, it was everything but easy to make a computer understand the task. In the beginning, it was necessary to translate the idea directly into digital machine code. Machine code was just a series of numbers, using numbering systems that most people were not used to like binary, octal or hexadecimal numbers. Writing machine code basically required to think like a computer.\n\nAs it was very slow, tedious and error-prone work to translate an idea into machine code, assembler language was developed. Assembler language is an abstraction on top of machine code, replacing the series of numbers with mnemonics that are easier to read and grasp for a human. Assembler language usually additionally provided some extra convenience for its users, like using labels for subroutine calls or jump targets instead of memory addresses, which improved the understandability of the code even more – at least compared to raw machine code.\n\nTranslating an idea into assembler language was still a tedious and comparatively slow task. In the end, assembler language was just a relatively small abstraction on top of machine code. While it made things better to grasp for the programmers, it still required thinking like a computer. This led to the invention of 3GL – 3rd Generation Languages like Fortran, ALGOL, COBOL or Lisp in the late 1950s. A 3GL was an abstraction that helped people to describe their intention in a way that was closer to humans.\n\nInstead of having to describe the solution in terms of machine instructions (or mnemonics for them), it was now possible to describe it in ways that were a lot easier to comprehend for a human. Instead of having to write something like\n\nit was now possible to write something like\n\nBesides being more concise, it made understanding and reasoning about the code written much easier.\n\nSince then, we have seen a lot of attempts to build higher-level abstractions like, e.g., 4GL, MDA, Low-code development and no-code development. However, none of them was ever able to replace 3GL as the predominant way of telling a Von Neumann machine what we wanted it to do for us. Thus, even if many new 3GL emerged since the late 1950s, offering refined concepts and advanced ways of expressing our intentions, 3GL still is it. By far the biggest share of computer programming still happens in 3GL.\n\nA whole industry evolved around programming in 3GL and what we need to do to turn our ideas into 3GL code. The whole concept of software engineering revolves around the question of how to turn ideas into 3GL code best. We have seen a lot of debate about all this, starting from capturing the ideas and not ending in how to present the idea in code best – plus everything accompanying it, including tooling, best practices and all that. Many competing ideas, many books, posts, trainings, case studies, and more. We all know it just too well because this is what we deal with every single day.\n\nMost of these discussions are good, and there certainly is value in finding better ways to turn ideas into code. However, if we take a step back, we realize that in software development we basically still do the same thing we already did roughly 70 years ago, just in a refined way. 1\n\nEnter AI – here meaning AI agents leveraging LLMs to write software.\n\nThe use of AI in software development, predominantly for writing code but also in many other activities that are needed to turn an idea into code, raised many discussions. I also still have many questions regarding the use of AI in software development, especially regarding its long-term effects, and wrote about some of my questions in prior blog posts.\n\nHowever, when I stepped back further, I realized that AI-based software development also asks us questions. The two most important questions I have understood so far over all the AI clamor by the proponents and opponents of AI are:\n\nLet us look at those two fundamental questions one by one.\n\nThe first question is about the way we tell a computer how to execute our ideas. Even if we refined many details over the years, basically we have been doing it in the same way for almost 70 years meanwhile. Sure, we created software engineering for scaling software production, we developed huge software development processes like, e.g., the V-model, we moved on to agile software development (even if most companies failed to actually become agile – but that is a different story).\n\nNevertheless, in the end we still take ideas, break them down in parts, refine the parts until they are in a form that we can write them down in a 3GL, and then translate the code written in a 3GL into an executable program using a compiler or a runtime interpreter. As our systems are usually too big to understand and run reliably without some overarching structure and guiding principles, we tend to create our code by adhering to some architectural guidelines. But this is basically it: Idea to 3GL. 3GL to executable program. Some guiding principles for ensuring desirable solution properties.\n\nThe question AI raises is if this is the best way to get from idea to solution. From a builder’s perspective, who wants a computer to execute their ideas, it has never been about code. It was about making the computer execute the idea. The more straightforward, the better. Everything that stands between an idea and its execution is an impediment from a builder’s perspective. This also means that traditional software development was extremely annoying for a builder: so much effort, so many discussions, so much time, until the machine finally executes the idea. Sigh! 2\n\nIf we look at software development from a builder’s perspective, AI raises the question if there are better ways to tell a computer what we want from it than breaking down ideas and massaging them until we can describe them in a 3GL and then translating them into executable machine code.\n\nPersonally, I think this is a very interesting question. We did not find a better abstraction than 3GL with all its intricacies in 70 years to tell a computer what we want from it – at least not one that was able to oust 3GL way as predominant paradigm. Thus, the question is:\n\nWhy didn’t we manage to move to a higher abstraction level in software development since the late 1950s?\n\nOverall, it remains an intriguing question. I am not sure if agentic AI is the answer. There are so many unanswered questions yet. Even AI aficionados often only point towards expected “exponential improvements”, i.e., their belief in some future improvements that hopefully will answer all those questions. However, currently it is just that: a belief. Only the future will tell if agentic AI – or whatever will come after that – will be able to deliver a closed abstraction at a higher level. 3\n\nThe second question leads in a different direction. AI also raises the question if it always needs to be software. In the end, software is a tool. We use tools to complete jobs. If the job is to add numbers, we may use our hands (as long as the numbers are small enough), objects like, e.g., stones of different sizes, an abacus, an electric calculator, an electronic calculator, software, and more. All those things are tools that help us to get our job “add numbers” done. 4\n\nDepending on the job, its properties, and the given context, one tool may be suited better for the job than another. If the numbers are quite small, the fingers may be sufficient. If we lack electrical power, an abacus may be the best tool for adding bigger numbers. Software may be the best tool for adding arbitrarily large numbers. And so on. It is not that a given tool is always the best for a job. Each tool has its trade-offs.\n\nAlso, software has its trade-offs. On the upside, we have:\n\nAll these are great properties. On the downside, we have:\n\nHowever, as software was the most powerful and versatile tool of the recent past, we developed a kind of fixation: We considered software to be the only possible tool for almost any task. But now AI comes along and raises the question:\n\nDoes it always have to be software?\n\nComputers cannot only run software. They can also run AI agents based on LLMs. Such agents are another tool. They are not software. An AI agent has different properties that deviate a lot from software. If we revisit the software properties from above, we get the following list for AI agents:\n\nAs we can see, the properties of AI agents and software are quite different. Software excels at repeating tasks in a predictable and reliable way. It is not good at responding to ambiguity or something that is not explicitly part of its programming. AI agents are basically the opposite. Both can be used for a wide range of tasks, and neither is creative in the original meaning of the word. Still, AI agents appear a lot more creative than software due to their ability to respond to almost every input.\n\nAll this means we have two different tools available now, we can use to execute tasks using a computer. The one tool is software; the other tool is AI (or more accurately: AI agents based on LLMs). This gives us new options we did not have before. We can choose between the two tools to get a given job done. And depending on the task at hand, software or an AI agent may be the better choice:\n\nIt is not a general “better” or “worse”. It depends on the task.\n\nIf we want to transfer money from account A to account B, we want repeatable and reliable execution. The task should always be executed in exactly the same way. Hence, software it is (at least, I do not want an AI agent handling by money transfers).\n\nIf we want to support people during their shopping with a virtual fashion assistant, we want a useful response in most situations, even if we did not anticipate the question or the question was asked in an ambiguous way. It is also okay if the answer is wrong sometimes, if it does not happen too often. In this case, AI is it.\n\nOur long-term practice that everything running on a computer was software led to the widespread misconception that AI is software, too. We often only asked if AI was able to implement the same properties as software and condemned AI because it was not. In this reasoning, we completely missed that AI is not software. AI is a tool on its own, and it extends the option space we have for solving problems.\n\nWhenever we have a problem now, we want to solve using a computer, we need to ask ourselves:\n\nWhich tool is the best one for the task? Software or AI? 5\n\nPersonally, I think this tool distinction will have far-reaching consequences once it is better understood. E.g., software engineers and AI engineers will probably become distinct professions, as the skills they need and the tooling they will use to create their solutions will be very different. We will probably think about requirements differently, too, as it does not make too much sense to describe requirements for AI the same way we currently (should) describe requirements for software. And so on.\n\nAI broke into software development a bit ago, as part of software development itself but also as part of the solutions built. By doing that, AI reignited an old discussion and sparked a new one. The two questions underlying these discussions are:\n\nI do not have the perfect answer to those questions. I even have my doubts that AI will be the tool that brings a higher abstraction level into software development. As long as we still need “humans in the loop”, it is not. It could only be if nobody needs to look into what AI does with the specifications we write at the higher abstraction level. At the moment, we are not yet there.\n\nNevertheless, I think both questions are very interesting and need some serious thought and discussion. Maybe then we will find good answers for both of them together …\n\nIn IT, we tend to become nervous if we do something we already did a few years ago. The underlying assumption is that our domain is so innovative that still doing something we did a few years ago is a sign of failure to innovate. There are two essential flaws in this widespread way of thinking. First, innovation just for the sake of innovation does not serve any useful purpose. If something proved to be a very effective and efficient way of doing something, it does not necessarily need to be replaced by something new just because it exists for a while already. Second, we are by far not as innovative as we think we are. Very often, we innovate sideshows while we fail to address the issues that would really improve our domain. Additionally, many alleged innovations are often just old wine in new skins, i.e., a repackaging of old practices. Therefore, to be clear: it is not necessarily a problem if we have been doing something for 70 years already. However, if we do something for that long without any major advancement, it is at least worth a closer look. ↩︎\n\nI know that there are many good reasons why reasonable software development takes its time and effort. I have written about it myself often enough. However, taking a different perspective can help to see different things – things that we miss if we only stick to our own perspective. ↩︎\n\nA closed abstraction is an abstraction where a human does not need to look “under the hood” of the abstraction but instead can work completely at the level of the abstraction. Non-closed abstractions were a big problem of 4GL, MDA, and alike. Often, developers had to look into the code generated by the 4GL/MDA/… tool and modify or augment it, which was very painful for the developers. Also, with agentic AI, we still need “humans in the loop” to make sure the generated code actually does what it is intended to do. I.e., also agentic AI does not provide a closed abstraction yet. ↩︎\n\nA big shoutout to Stephan Schmidt for his in hindsight obvious but still amazing distinction between tools and jobs that make discussions about AI application and suitability a lot more expedient. He also came up with the example of adding numbers using different tools. ↩︎\n\nNote that using AI agents to create software is a different topic. This question is about using AI as part of the solution. ↩︎",
+    "readingTime": 14,
+    "keywords": [
+      "neumann architecture",
+      "guiding principles",
+      "executable program",
+      "assembler language",
+      "builder’s perspective",
+      "add numbers",
+      "closed abstraction",
+      "agents based",
+      "higher abstraction",
+      "machine code"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.ufried.com/blog/never_been_about_code/",
+    "thumbnail_url": "https://ufried.com//images/logo.png",
+    "created_at": "2026-04-06T07:17:14.579Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "estimates-of-the-expected-utility-gain-of-ai-safety-research",
+    "title": "Estimates of the expected utility gain of AI Safety Research",
+    "description": "When thinking about AI risk, I often wonder how materially impactful each hour of my time is, and I think that this may be useful for other people to…",
+    "fullText": "When thinking about AI risk, I often wonder how materially impactful each hour of my time is, and I think that this may be useful for other people to know as well, so I spent a couple of hours making a couple of estimates. I basically expect that a tonne of people have put a bunch more time into this than me, but this is nice to have as a rough sketch to point people to.\n\nI'm going to make 3 estimates: an underestimate, my best-guess estimate and (what I think is) an overestimate.\n\nI am going to commit statistical murder and assume this means that everyone on the planet lives ~42.7 years from this point onwards.\n\nSince the population is growing, we should take that into account:\n\nGiven these parameters, we can figure out the total expected years of life we care about for each scenario:\n\nCurrent population: 60 years x 8.3 B\n\nAdditional population (linear approximation):  =\n\nAdditional population life span: 73.8 years + ~1/3yrs added/year = 110 years\n\nI think it might be best to skip out on the overestimate. For the underestimate, we'll go with ~20 years of research to produce a 1% chance of a 1% decrease in the final risk for the entire field. Extinction occurs 30 years from now. For the median estimate, we'll go with 5 years of research to reduce a risk of extinction, which happens 10 years from now, and we will go with a 50% chance of a 5% reduction in risk.\n\nExpected years of life available to be saved:\n\nExpected years of life actually saved:\n\nNumber of AI Safety researchers:\n\nExpected impact per researcher:\n\nWe've said the researchers have 20/5 years to make an impact, which gives us:\n\nGoing back to the ~40 years of life expected for the modern median human, this gives an underestimate of 1 year of work to save one life, or a median estimate of 5 mins/life. This is a pretty broad range funnily enough.\n\n1 year of work to save one life is just a tad worse than the 1.2 lives/year saved donating £3000/year as advertised by Effective Altruism UK. If we take that value as given and assume 1 life = £2500, this means that on the median estimate, you should be earning £2500 x 10^6 / 40 = £62.5 million/ year. If only the world was more sensible.\n\nAll population data comes from https://www.worldometers.info",
+    "readingTime": 3,
+    "keywords": [
+      "additional population",
+      "median estimate",
+      "life",
+      "risk",
+      "underestimate",
+      "saved",
+      "couple",
+      "estimates",
+      "overestimate",
+      "assume"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.lesswrong.com/posts/gXYeWoAfSrdGogchp/estimates-of-the-expected-utility-gain-of-ai-safety-research",
+    "thumbnail_url": "https://res.cloudinary.com/lesswrong-2-0/image/upload/v1654295382/new_mississippi_river_fjdmww.jpg",
+    "created_at": "2026-04-06T07:17:14.239Z",
+    "topic": "science"
+  },
+  {
+    "slug": "anthropics-head-of-growth-says-the-company-culture-is-so-open-that-people-just-argue-with-dario-on-slack",
+    "title": "Anthropic's head of growth says the company culture is so open that people 'just argue with Dario' on Slack",
+    "description": "Anthropic's head of growth, Amol Avasare, said the AI lab has such an open culture that employees can give feedback to top leadership.",
+    "fullText": "Anthropic fosters an open culture where employees can challenge the CEO, says its head of growth.\n Amol Avasare shared how employees use Slack channels like personal notebooks.\n Other tech leaders like Elon Musk also promote bypassing traditional hierarchies.",
+    "readingTime": 1,
+    "keywords": [
+      "employees"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/anthropic-open-culture-employees-argue-ceo-dario-amodei-slack-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d32777c02a678bd7e482ab?width=1200&format=jpeg",
+    "created_at": "2026-04-06T07:17:12.207Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "mark-cuban-said-ceos-face-a-nowin-ai-dilemma-that-could-tank-their-stock-either-way",
+    "title": "Mark Cuban said CEOs face a no-win AI dilemma that could tank their stock either way",
+    "description": "The billionaire said that they can either tear their companies down and rebuild with AI or do nothing. Either way, shareholders won't be happy.",
+    "fullText": "Mark Cuban said CEOs of public companies face a major AI dilemma as they compete with AI-native startups.\n He said that they can either tear their companies down and rebuild with AI or do nothing.\n Either way, investors won't be happy.",
+    "readingTime": 1,
+    "keywords": [
+      "either"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/mark-cuban-ceos-face-ai-dilemma-tank-their-stock-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d31513c02a678bd7e4828e?width=1200&format=jpeg",
+    "created_at": "2026-04-06T07:17:12.199Z",
+    "topic": "finance"
+  },
+  {
     "slug": "make-humans-analog-again",
     "title": "Make Humans Analog Again",
     "description": "AI isn’t replacing humans - it’s pushing us to be more human. Here’s how agents can unlock creativity, movement, and better ways of working.",
@@ -1798,75 +1876,6 @@
     "link": "https://www.bloomberg.com/news/articles/2026-04-01/ai-boom-energy-risks-shape-m-a-landscape-morgan-stanley-says",
     "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iZktLRBHVozo/v1/1200x800.jpg",
     "created_at": "2026-04-02T01:17:13.852Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "openai-is-falling-out-of-favor-with-secondary-buyers",
-    "title": "OpenAI Is Falling Out of Favor With Secondary Buyers",
-    "description": "OpenAI shares have fallen out of favor on the secondary market — in some cases becoming almost impossible to unload — as investors pivot quickly to Anthropic, its biggest competitor.",
-    "fullText": "TechnologyAIBy Hema ParmarSaveOpenAI shares have fallen out of favor on the secondary market — in some cases becoming almost impossible to unload — as investors pivot quickly to Anthropic, its biggest competitor. Even as OpenAI raced in recent months to raise tens of billions of dollars, Next Round Capital founder Ken Smythe said his secondary marketplace was seeing a drop in demand for shares of the artificial-intelligence giant. About a half-dozen institutional investors — including hedge funds and venture capital firms that hold large stakes — approached his company in recent weeks looking to sell about $600 million of OpenAI shares.",
-    "readingTime": 1,
-    "keywords": [
-      "shares",
-      "secondary",
-      "investors",
-      "openai",
-      "capital"
-    ],
-    "qualityScore": 0.15,
-    "link": "https://www.bloomberg.com/news/articles/2026-04-01/openai-demand-sinks-on-secondary-market-as-anthropic-runs-hot",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iZEmAhnQYzoM/v8/1200x800.jpg",
-    "created_at": "2026-04-02T01:17:12.054Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "leveraged-sk-hynix-etf-tops-global-inflows-over-tesla-microsoft",
-    "title": "Leveraged SK Hynix ETF Tops Global Inflows Over Tesla, Microsoft",
-    "description": "A leveraged fund targeting SK Hynix Inc. has drawn the most inflows among its peers this year, highlighting persistent bets on the South Korean AI chipmaker’s fortunes following a steep selloff.",
-    "fullText": "MarketsBy Sangmi ChaSaveA leveraged fund targeting SK Hynix Inc. has drawn the most inflows among its peers this year, highlighting persistent bets on the South Korean AI chipmaker’s fortunes following a steep selloff.The Hong Kong‑listed CSOP SK Hynix Daily 2x Leveraged ETF, a single-stock exchange-traded fund that seeks to deliver two times the shares’ daily performance, has attracted nearly $1.6 billion in fresh demand in 2026, surpassing products tied to US tech heavyweights such as Tesla Inc. and Microsoft Corp.",
-    "readingTime": 1,
-    "keywords": [
-      "leveraged",
-      "fund",
-      "daily",
-      "hynix"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.bloomberg.com/news/articles/2026-04-01/leveraged-sk-hynix-etf-tops-global-inflows-over-tesla-microsoft",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iR8r9d1cfyco/v0/1200x800.jpg",
-    "created_at": "2026-04-02T01:17:10.428Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "legal-ai-startup-legora-hits-a-major-revenue-milestone",
-    "title": "Legal AI startup Legora hits a major revenue milestone",
-    "description": "Legora's revenue is climbing as law firms spend serious money to retool how layers work.",
-    "fullText": "Legal AI startup Legora says it's reached $100 million in annual recurring revenue.\n The metric helps explain why investors just priced the startup at $5.55 billion in a new financing.\n Law firms are pouring money into AI tools that promise to reshape how lawyers work.",
-    "readingTime": 1,
-    "keywords": [
-      "startup"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/legal-ai-startup-legora-hits-100-million-arr-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cd62086a864f6fcd7bc6fa?width=1200&format=jpeg",
-    "created_at": "2026-04-02T01:17:05.647Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "claude-code-leak-puts-anthropic-on-the-other-side-of-the-copyright-battle",
-    "title": "Claude Code leak puts Anthropic on the other side of the copyright battle",
-    "description": "Anthropic sent a copyright takedown after a segment of the code for Claude Code was leaked online. Anthropic has faced its own copyright issues.",
-    "fullText": "Anthropic accidentally leaked the source code for its Claude Code AI agent this week.\n The leaked source code went viral, garnering millions of views and GitHub adaptations.\n Anthropic sent a copyright takedown request to control the spread.",
-    "readingTime": 1,
-    "keywords": [
-      "anthropic",
-      "leaked",
-      "code"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/anthropic-copyright-infringement-claude-code-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cd8659e762ed6cfe44969a?width=1200&format=jpeg",
-    "created_at": "2026-04-02T01:17:05.277Z",
     "topic": "finance"
   }
 ]
