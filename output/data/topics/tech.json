@@ -1,5 +1,92 @@
 [
   {
+    "slug": "the-legal-and-policy-fallout-from-data-center-strikes-in-the-middle-east-war",
+    "title": "The Legal and Policy Fallout from Data Center Strikes in the Middle East War",
+    "description": "When private sector technology is utilized by state or military actors, it inevitably becomes a target in geopolitical conflicts, writes Mahmoud Abuwasel.",
+    "fullText": "On March 1, drone strikes hit three Amazon Web Services (AWS) facilities in the United Arab Emirates and Bahrain. Iran’s Islamic Revolutionary Guard Corps (IRGC) explicitly claimed responsibility for the attacks, citing the data centers' role in supporting US military and intelligence networks. The consequences for global business, and for the legal frameworks intended to govern this kind of event, are only beginning to surface.\n\nThe strikes critically impaired two out of three cloud availability zones in the UAE region (ME-CENTRAL-1) and one availability zone in the Bahrain region (ME-SOUTH-1). Because multiple zones went down simultaneously, standard redundancy models failed. AWS confirmed structural damage, power disruption, fire, and water damage from suppression systems. Outages were reported by Abu Dhabi Commercial Bank, Emirates NBD, First Abu Dhabi Bank, payments platforms Hubpay and Alaan, data cloud company Snowflake, and the massive ride-hailing platform Careem. Recovery, AWS warned, will be prolonged.\n\nThis is the first publicly confirmed military attack on a hyperscale cloud provider. Iranian state media asserted the AWS facilities were legitimate targets because the US military is using AI systems hosted on AWS—such as Anthropic’s Claude—for intelligence analysis and war simulations. Google, Microsoft, and Oracle operate data centers in the same region. While Iran also claimed to have targeted Microsoft facilities, Microsoft officially denied any hits or outages. Nevertheless, these hyperscalers are now sitting in an active war zone.\n\nBusiness exposure runs far wider than most affected companies realize. Many had no meaningful Middle East presence. Their cloud workloads were simply routed through the region, invisible to them until now. Counterintuitively, Amazon's stock rallied approximately 3% following the attack. Financial analysts note that this physical vulnerability will likely force enterprises to abandon single-region deployments, effectively driving up cloud revenues as companies are forced to pay for multi-region disaster recovery and premium resilience services.\n\nThis crisis represents the latest evolution of a historical pattern: when novel private sector technology is utilized in part by state or military actors, it inevitably becomes a legitimate target in geopolitical conflicts. The attacks raise new questions about the security of the UAE's growing AI infrastructure ambitions, including the Stargate UAE campus — a 5-gigawatt AI facility in Abu Dhabi being built under a US-UAE partnership announced during President Donald Trump's May 2025 Middle East tour.. Governments are now being forced to urgently reclassify commercial data centers as critical national security infrastructure, right alongside power plants and oil fields.\n\nThe targeting of international communications infrastructure during wartime has deep historical roots. The global digital economy relies heavily on a vast network of submarine cables, which carry approximately 95 percent of international data traffic. These cables frequently fall victim to geopolitical tensions, such as the 2024 severing of three cables in the Red Sea amid conflicts near Yemen, or similar disruptions near Taiwan in 2023 and 2025 and the Norwegian Arctic in 2021.\n\nNavigating liability for such disruptions requires a nuanced understanding of international law. In maritime domains, instruments like the United Nations Convention on the Law of the Sea (UNCLOS) complicate enforcement by restricting jurisdiction primarily to flag states. While the Enrica Lexie arbitration—which stemmed from the killing of two Indian fishermen by Italian military marines aboard an oil tanker—opened a narrow window, suggesting that intentional acts causing damage are not protected as a mere \"incident of navigation,” practical enforcement against states remains elusive.\n\nWhen a sovereign state deliberately destroys private infrastructure during wartime, the historical legal precedent is even bleaker. To understand the legal complexities surrounding the AWS strikes, it is instructive to examine the Cuba Submarine Telegraph Company, Ltd. (Great Britain) v. United States arbitration of 1923.\n\nDuring the Spanish-American War of 1898, US naval forces deliberately severed submarine telegraph cables operated by a British company to disrupt Spanish military communications. The company sought compensation for its destroyed property. The tribunal ruled in favor of the United States, establishing a pivotal principle: during armed conflicts, actions taken by a state as legitimate acts of war override private property rights without an obligation to compensate affected entities. Because the private telegraph company was contractually required by Spanish concessions to transmit official government correspondence, its operations were deeply intertwined with enemy military interests.\n\nToday, hyperscale data centers host civilian commercial applications alongside sensitive government services, dual-use infrastructure, and defense workloads. Under the century-old Cuba Submarine precedent, any claims by the private sector against state belligerents for damages from the 2026 strikes are highly unlikely to succeed. The cloud has become the modern telegraph cable.\n\nIf operating in the Gulf Cooperation Council (GCC) carries such immense physical risk, why do hyperscalers and enterprises concentrate so much critical infrastructure there? The answer lies in the proliferation of sovereign data localization mandates.\n\nIncreasingly, governments require that certain government services and sensitive public sector data be physically hosted within their borders to ensure digital sovereignty. Consequently, data center providers have limited geographic options if they wish to operate in these lucrative markets; they must build physical facilities locally.\n\nThis mandate travels aggressively down the supply chain. Other government tenderers, including defense contractors, civil accounting firms, logistics providers, and IT vendors, must also host their data locally to be eligible to bid for government contracts. By intertwining civilian enterprise data with sovereign government workloads in localized server farms, policymakers and tech platforms inadvertently elevate these facilities to high-value military targets.\n\nWith claims against state belligerents practically impossible, who bears the financial cost of unfulfilled service-level agreements, lost data, and destroyed infrastructure? Technology service providers typically reach for force majeure clauses, arguing that acts of war are unforeseeable events that absolve them from liability and from refunding clients.\n\nHowever, regional civil law frameworks place strict boundaries on the use of force majeure during active conflicts. A landmark triad of Dubai Court judgments; Primary, Appeal, and Cassation, issued in 2017 offers definitive guidance on how regional courts allocate risk. Adjudicating a private aviation dispute over a canceled charter flight caused by the sudden closure of Saudi airspace during the 2015 Yemen War, the courts ruled decisively against the service provider.\n\nThe courts clarified that providing a contracted service is an \"obligation to achieve a result,\" not merely an \"obligation to exercise care.\" Because the operator failed to deliver the result, they were in breach. Crucially, the courts dismantled the force majeure defense based on foreseeability: entering a contract during an active regional war means that military disruptions are expected operational risks.\n\nThe Dubai Court of Cassation anchored its decision on the absolute doctrine of impossibility and automatic rescission. When sovereign military intervention renders execution impossible, the contract is dissolved, and the burden of risk falls entirely on the \"debtor of the obligation,” the service provider.\n\nApplied to the 2026 Iran War, this jurisprudence is a stark warning. If a cloud facility is disabled by a strike, regional courts are likely to view the event as a foreseeable risk of operating in a conflict zone. Without bespoke, explicitly drafted military disruption clauses that shift the financial risk onto the client, tech providers will be legally required to absorb upstream sunk costs and refund their clients entirely.\n\nFaced with severe liabilities and virtually no recourse against state attackers, private companies must rapidly pivot their operational and defensive strategies.\n\nFirst, standard commercial property and business interruption insurance policies frequently exclude acts of war. Companies must aggressively scrutinize their insurance coverage and secure specialized war risk policies to ensure they are protected from geopolitical violence, though such policies are complex and heavily contested by underwriters.\n\nSecond, the technical and legal reality of data migration presents a severe bottleneck. Moving workloads out of a structurally damaged facility where physical servers are destroyed and power is cut is practically impossible. If a company's disaster recovery backups are localized within the same targeted region due to compliance laws, that data may be permanently lost. Furthermore, cross-border emergency migrations may violate the very laws that forced the localization in the first place.\n\nFinally, these strikes necessitate an overhaul of data center risk assessment protocols. Procurement teams traditionally evaluate a location's risk profile based on power grid stability, tax incentives, and natural disasters. Moving forward, the location and risk profile of a data center must heavily prioritize geopolitical threat vectors, the defensive posture of the host nation, and the dual-use nature of co-tenants within the facility.\n\nThe unprecedented attacks on AWS facilities in the GCC represent a watershed moment for technology policy, yet they follow a clear historical continuum. As demonstrated over 100 years ago with submarine telegraph cables, novel private sector technology is inevitably attacked when it is utilized for partial military use.\n\nThis evolution will not stop at the Earth’s surface. We can expect the same dynamic to be reflected in private space apparatus. The US Federal Communications Commission (FCC) recently approved 7,500 Starlink satellites, while China has applied for 200,000 satellites with the International Telecommunication Union (ITU). As drone and missile technology becomes more closely operated in low Earth orbit, these vast commercial constellations will face the exact same dual-use vulnerabilities as terrestrial data centers.\n\nThe militarization of civilian technology is expanding. Whether at the bottom of the sea, in the deserts of the Middle East, or in the vacuum of space, policymakers and the private sector must prepare for a future where commercial infrastructure is a permanent fixture on the battlefield.",
+    "readingTime": 8,
+    "keywords": [
+      "aws facilities",
+      "disaster recovery",
+      "practically impossible",
+      "service provider",
+      "submarine telegraph",
+      "risk profile",
+      "regional courts",
+      "telegraph cables",
+      "sector technology",
+      "middle east"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.techpolicy.press/the-legal-and-policy-fallout-from-data-center-strikes-in-the-middle-east-war/",
+    "thumbnail_url": "https://cdn.sanity.io/images/3tzzh18d/production/228b35b336a2ba24b37a0194337844b805e8738d-1200x675.png",
+    "created_at": "2026-04-06T18:42:28.170Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "goldman-says-ai-disruption-will-have-a-scarring-effect-and-lead-to-a-yearslong-pay-cut-for-displaced-workers",
+    "title": "Goldman says AI disruption will have a 'scarring effect' and lead to a yearslong pay cut for displaced workers",
+    "description": "Historically, workers displaced by new tech have made less and been more at risk for unemployment for years to come, Goldman Sachs said.",
+    "fullText": "Workers displaced by AI could see a decade of lower wages, per a new Goldman analysis.\n Historically, tech-displaced workers take an average 3% pay cut when returning to work, the bank said.\n Workers pushed out by technology also face a higher unemployment risk in the years following a job loss.",
+    "readingTime": 1,
+    "keywords": [
+      "workers"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/ai-job-cuts-layoffs-finding-new-job-pay-cut-goldman-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d3b493e762ed6cfe44a8ae?width=1200&format=jpeg",
+    "created_at": "2026-04-06T18:42:07.304Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "goldman-sachs-blunt-warning-to-laidoff-tech-workers-it-will-take-time-and-earnings-loss-to-find-a-new-job",
+    "title": "Goldman Sachs' blunt warning to laid-off tech workers: It will take time and earnings loss to find a new job",
+    "description": "Goldman Sachs not holding any punches on the tech worker outlook.",
+    "fullText": "Goldman Sachs is out with a blunt take for tech workers being displaced by AI: Expect a lengthy search to secure a job that will probably pay less than your previous gig.\n\n\"Workers displaced from technology-disrupted occupations face more difficult short-run transitions back into employment,\" Goldman Sachs strategist Pierfrancesco Mei wrote in a new note on Monday. \"They take approximately one month longer to find a new job and suffer real earnings losses of more than 3% upon reemployment, compared with negligible losses for workers displaced from more stable occupations.\"\n\nWhat salary impact do tech workers face after AI displacement?\n\nWhich major tech companies have implemented AI-related layoffs recently?\n\nHow many US tech jobs were eliminated in early 2026?\n\nHow long do displaced tech workers take to find jobs?\n\nHe added, \"A key mechanism behind these worse outcomes is occupational downgrading. Workers displaced by technology are more likely to move into more routine occupations requiring fewer analytical and interpersonal skills, likely because the same technological shifts that eliminated their positions also eroded the value of their existing skills.\"\n\nThe growing impact of AI is already evident in massive layoffs at Block (XYZ), Amazon (AMZN), Oracle (ORCL), and Meta (META) this year.\n\nBlock's AI-related layoffs were particularly painful, as the workforce was cut by a whopping 40%.\n\n\"I would encourage everybody, including my fellow CFOs, to just be curious and using the tools,\" Block CFO Amrita Ahuja told Yahoo Finance about the decision. \"You often don't get the 'aha moment' until you realize you've automated a piece of your work — something that might have taken days before can now take hours or less.\"\n\nOracle's layoffs were nothing to sneeze at either.\n\nWith billionaire founder Larry Ellison still pulling the strings, it reportedly laid off up to 30,000 workers across the US, Mexico, and other countries on April 1.\n\nOver 52,000 US tech employees were laid off within the first three months of 2026, according to an analysis done by Challenger, Gray and Christmas. A good portion of these layoffs were tied to AI adoption.\n\nThe tech industry announced 18,720 job cuts in March, an increase of 40% year over year. It's the highest year-to-date total for the sector since 2023, when 102,391 job cuts were recorded.\n\nMore tech layoffs are likely to come in 2026, Challenger, Gray and Christmas warned.\n\n\"Companies are shifting budgets toward AI investments at the expense of jobs,\" said Andy Challenger, chief revenue officer for Challenger, Gray & Christmas. \"The actual replacing of roles can be seen in technology companies, where AI can replace coding functions. Other industries are testing the limits of this new technology, and while it can’t replace jobs completely, it is costing jobs.\"",
+    "readingTime": 3,
+    "keywords": [
+      "challenger gray",
+      "ai-related layoffs",
+      "job cuts",
+      "workers displaced",
+      "tech workers",
+      "goldman sachs",
+      "challenger gray and christmas",
+      "jobs",
+      "occupations",
+      "technology"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/news/goldman-sachs-blunt-warning-to-laid-off-tech-workers-it-will-take-time-and-earnings-loss-to-find-a-new-job-143808064.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/ATD_Ru8YPvqYJdb91erEGA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-uploaded-images/2026-04/a1a26330-31bd-11f1-977b-2d04ae54a87b",
+    "created_at": "2026-04-06T18:42:07.005Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "samsung-is-discontinuing-its-texting-app-tells-impacted-users-to-switch-to-google-messages",
+    "title": "Samsung is discontinuing its texting app, tells impacted users to switch to Google Messages",
+    "description": "Samsung is saying goodbye its namesake texting app.  According to an end of service announcement published on the tech giant's U.S. support website, Samsung Messages will be discontinued in July.  Impacted owners of Samsung smartphones and other gadgets are being asked to switch to Google Messages in the meantime, “to maintain a consistent messaging experience on Android.",
+    "fullText": "NEW YORK (AP) — Samsung is saying goodbye its namesake texting app.\n\nAccording to an end of service announcement published on the tech giant's U.S. support website, Samsung Messages will be discontinued in July. Impacted owners of Samsung smartphones and other gadgets are being asked to switch to Google Messages in the meantime, “to maintain a consistent messaging experience on Android.”\n\nAll Samsung Galaxy phones run on Google's Android operating system. To switch to Google Messages, Samsung's website gives users instructions to Some people may also receive an in-app notification to guide them through the process.\n\nSamsung says switching to Google Messages will give users access to updates like the latest artificial intelligence features from Google's Gemini — which includes an experimental feature called “Remix” to generate images during conversations and AI-powered reply suggestions — and the ability to share higher quality photos between Android and Apple iOS devices through RCS-enabled messages.\n\nUsers of older Android operating systems (dating back to Android 11 or older) will not be impacted by the end of Samsung Messages, the company noted. To check what Android OS you have on a Samsung device, open the settings app, click on “software information” and scroll to “Android version.”\n\nMeanwhile, owners of Samsung's latest Galaxy 26 lineup and other newer phones cannot download the Samsung Messages app from the Galaxy Store today.\n\nAll devices will no longer be able to download Samsung Messages after it's officially discontinued in July, the company noted. Samsung said users can check their app for the exact date for when service will go offline.\n\nBeyond the U.S., Samsung did not immediately respond to a request for further information about whether its guidance for Samsung Messages was the same globally.",
+    "readingTime": 2,
+    "keywords": [
+      "android operating",
+      "samsung messages",
+      "google messages",
+      "service",
+      "website",
+      "discontinued",
+      "owners",
+      "switch",
+      "phones",
+      "latest"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://tech.yahoo.com/phones/articles/samsung-discontinuing-texting-app-tells-145934899.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/5OZntevCHImBF_HSIU4wWQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/ap.org/482cccbd89a30caa8cf068e5b8dde6bf",
+    "created_at": "2026-04-06T18:42:06.819Z",
+    "topic": "tech"
+  },
+  {
     "slug": "the-next-big-job-in-tech-may-be-the-product-engineer",
     "title": "The next big job in tech may be the 'product engineer'",
     "description": "As engineers ramp up their efficiency using AI, product managers now have to manage more. A new hybrid role has arrived: the product engineer.",
@@ -1763,74 +1850,6 @@
     "link": "https://www.businessinsider.com/harvey-ceo-winston-weinberg-200-funding-round-2026-3",
     "thumbnail_url": "https://i.insider.com/69c41f5d299090a8c09b633c?width=1200&format=jpeg",
     "created_at": "2026-03-26T12:50:35.142Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "trump-xi-to-meet-in-beijing-on-may-1415-the-china-show-3262026",
-    "title": "Trump, Xi to Meet in Beijing on May 14–15 | The China Show 3/26/2026",
-    "description": "“Bloomberg: The China Show” is your definitive source for news and analysis on the world's second-biggest economy. From politics and policy to tech and trends, Annabelle Droulers and Yvonne Man give global investors unique insight, delivering in-depth discussions with the newsmakers who matter.",
-    "fullText": "Mar 26th, 2026Trump, Xi to Meet in Beijing on May 14–15 | The China Show 3/26/2026“Bloomberg: The China Show” is your definitive source for news and analysis on the world's second-biggest economy. From politics and policy to tech and trends, Annabelle Droulers and Yvonne Man give global investors unique insight, delivering in-depth discussions with the newsmakers who matter.Available on:Listen onApple TVListen onRokuListen onSamsung TVListen onFire TVListen onAndroid TVListen onRakuten TVListen onHaystack NewsWatch BTV in your area:Channel Finder",
-    "readingTime": 1,
-    "keywords": [
-      "tvlisten",
-      "china"
-    ],
-    "qualityScore": 0.15,
-    "link": "https://www.bloomberg.com/news/videos/2026-03-26/the-china-show-3-26-2026-video",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iVR_qexEEgFQ/v3/-1x-1.webp",
-    "created_at": "2026-03-26T06:57:19.727Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "coolits-employees-to-get-cash-payouts-with-475b-sale-to-ecolab",
-    "title": "CoolIT's employees to get cash payouts with $4.75B sale to Ecolab",
-    "description": "Cooling technology supplier’s sale to Minnesota-based company is one of the largest exits ever in tech sector in Canada",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.theglobeandmail.com/canada/article-coolit-cooling-tech-employees-cash-payout-sale-ecolab/",
-    "thumbnail_url": "https://www.theglobeandmail.com/resizer/v2/47N4OENIFBDNPFHA3QGK2N4UFM.JPG?auth=019be5f8c2f5dc6cd0961406ecddeb220b530c7aa9eac08398ddac6aeb9fce48&width=1200&height=800&quality=80&smart=true",
-    "created_at": "2026-03-26T06:57:02.418Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ncaa-tournament-notes-keaton-wagler-vs-kingston-flemings-on-tap-and-big-ten-gauntlet-breeds-success",
-    "title": "NCAA Tournament notes: Keaton Wagler vs. Kingston Flemings on tap — and Big Ten gauntlet breeds success",
-    "description": "HOUSTON — On the day Illinois’ Keaton Wagler scored a Mackey Arena-record 46 points at Purdue in January, Kingston Flemings was having a pretty good showing too. The Houston standout put up 42 points in a loss at Texas Tech. Both continued on from their best performances of the season to become among the six freshmen to be named to Associated Press All-America teams — Wagler the second team, ...",
-    "fullText": "HOUSTON — On the day Illinois’ Keaton Wagler scored a Mackey Arena-record 46 points at Purdue in January, Kingston Flemings was having a pretty good showing too.\n\nThe Houston standout put up 42 points in a loss at Texas Tech. Both continued on from their best performances of the season to become among the six freshmen to be named to Associated Press All-America teams — Wagler the second team, Flemings the third team. Both are projected to be picked in the top 10 in the NBA draft.\n\nNow, two of the country’s top freshmen guards will meet Thursday night at Toyota Center in the Sweet 16 when No. 2 seed Houston plays No. 3 seed Illinois (10:05 p.m. ET, TBS).\n\nWagler said he has played Flemings before, when he was in the fifth grade at a tournament in Houston, and thinks it will be fun to see him again.\n\n“To see how much he has grown as a player, it’s really cool to see,” Wagler said. “He’s a really good player, so we’ll have our hands full with him. It will be awesome to match up against him.”\n\nFlemings enters the game as the young Houston star between a pair of senior guards, Emanuel Sharp and Milos Uzan. He is averaging 16.2 points, 5.2 assists, four rebounds and 1.6 steals per game in leading the Cougars to a 30-6 record.\n\nHe’s one problem of many for the Illini defense.\n\n“Someone who is very creative on the ball, has a lot in his toolbox in terms of scoring and sharing the ball,” Illinois’ Andrej Stojaković said. “Really a three-level scorer and playing with lot of confidence right now, as he has all year. But you’ve also got guys around him that can make shots. Uzan and Sharp are great shooters, and you’ve got (Chris) Cenac and (Joseph) Tugler who are very good in the paint.”\n\nHouston and Illinois played in the NCAA Tournament second round in 2022, and the Cougars smothered the Illini 68-53.\n\nThat Illini group, led by All-American center Kofi Cockburn, couldn’t get past Houston’s defense, which forced 17 turnovers and held them to 6 for 25 3-point shooting.\n\nWhen reflecting on that game Wednesday, coach Brad Underwood said he thinks that team was more one-dimensional than the current Illinois team.\n\n“I like our balance,” he said. “I think we’ve got multiple guys who can play. … We’ve seen teams that have trapped us and blitzed us before, so it’s not a first time, and we’ll see. Guys have got to make plays. Guys have got to make shots. And then you’ve got to do all the little things on the other end as well.”\n\nIllinois knows the challenge ahead in a Houston defense that is ranked the fourth-best in the country, according to KenPom’s adjusted defensive efficiency ratings.\n\nThe Illini are ready for a physical game but believe their schedule has prepared them for what they will face.\n\n“They’re lengthy,” Wagler said. “They play super hard. They’re physical. Our biggest thing is we have to play at our own pace. We can’t let them speed us up. We can’t turn the ball over. When they’re playing in rotations and trapping, we’ve got to get on the offensive glass.”\n\nThree of the Big Ten’s six Sweet 16 teams are playing this week in the South Region, with Iowa and Nebraska meeting in the first game followed by the Illinois-Houston matchup.\n\nIowa coach Ben McCollum said the first- and second-round showing for the conference speaks to its amount of skilled players and experienced coaches. He and the other coaches also said playing in the Big Ten helped prepare their teams for the NCAA Tournament.\n\n“The night-in night-out grind prepared us,” McCollum said. “I do think sometimes it can hurt you too, meaning you get exposed a lot and if you get exposed too much eventually it can break you. Fortunately we’ve got a really tough team and so it didn’t break us when we got exposed quite often. It just sharpened us up a little bit and got us ready for the postseason.”\n\nMcCollum is still fairly new to the Division I NCAA Tournament after making 12 appearances — and winning four national championships — in the Division II Tournament with Northwest Missouri State.\n\nHe led Drake to the D-I second round in his only season there last year and now has Iowa into the Sweet 16 in his first season in Iowa City.\n\nThat played into his lack of worry about Iowa’s turnaround from its Sunday upset of defending national champion and top-seeded Florida, at least from a physical and travel standpoint.\n\n“This level is so bougie,” McCollum said. “We get back and then I get a text that says, ‘Be here at this time. The plane will be there. You will drive right up to the plane, you will get on the plane, everything will be done for you, the food will be there, all you have to do is bring your computer and scout.’ Then we get to the hotel. Everything’s perfectly set up.\n\n“I’ve been at Division II for so long. I played junior college. You make your bus trips and you are ready to play. If you’re not ready to play for the Sweet 16, then you probably shouldn’t be here.”\n\nUnderwood and his players downplayed their concerns about playing Houston in its home city.\n\n“We’ve won on the road all year,” Underwood said. “It’s no different than going into West Lafayette or East Lansing or wherever. You’ve got to play the game. We’re going to have to play well. We’re going to have to be on point, and we’ll just treat it the same way. It’s something I can’t control, so surely I wouldn’t spend one second thinking about something I can’t control.”",
-    "readingTime": 5,
-    "keywords": [
-      "second round",
-      "game",
-      "team",
-      "we’ve",
-      "teams",
-      "sweet",
-      "it’s",
-      "you’ve",
-      "guys",
-      "ready"
-    ],
-    "qualityScore": 1,
-    "link": "https://sports.yahoo.com/articles/ncaa-tournament-notes-keaton-wagler-005700119.html",
-    "thumbnail_url": "https://s.yimg.com/cv/apiv2/sports/share/PD_010626-Social_Share_GENRIC_YAHOO_SPORTS-1200x630.jpg",
-    "created_at": "2026-03-26T01:19:35.457Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "is-spacex-worth-175-trillion-key-questions-for-musks-big-ipo",
-    "title": "Is SpaceX Worth $1.75 Trillion? Key Questions for Musk’s Big IPO",
-    "description": "In the seven and a half years since Apple Inc.’s market capitalization broke through the $1 trillion mark, investors have become accustomed to seeing big tech companies command 13-digit valuations in public markets.",
-    "fullText": "MarketsExplainerBy Anthony HughesSaveIn the seven and a half years since Apple Inc.’s market capitalization broke through the $1 trillion mark, investors have become accustomed to seeing big tech companies command 13-digit valuations in public markets.There are more on the way. SpaceX, the space exploration company controlled by Tesla Inc. founder and world’s richest man Elon Musk, has signaled it is planning a mega-initial public offering in the coming months. Artificial intelligence rivals OpenAI and Anthropic also might go public this year, and their private valuations already have soared into the hundreds of billions of dollars.",
-    "readingTime": 1,
-    "keywords": [
-      "valuations"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.bloomberg.com/news/articles/2026-03-25/is-spacex-worth-1-75-trillion-key-questions-for-musk-s-big-ipo",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iHO1IAEZjmog/v1/1200x800.jpg",
-    "created_at": "2026-03-26T01:19:11.744Z",
     "topic": "finance"
   }
 ]

@@ -1,5 +1,195 @@
 [
   {
+    "slug": "vibefocus-an-open-source-portfolio-manager-for-too-many-vibecoded-projects",
+    "title": "VibeFocus – An open source portfolio manager for too many vibe-coded projects",
+    "description": "Personal mission control for solo founders. See your portfolio at a glance, understand stalling, commit to weekly focus, with an AI advisor that knows your code.",
+    "fullText": "Everything you need to manage, analyze, and focus across your entire project portfolio.\n\nDrag-and-drop cards between lifecycle states with collapsible category swimlanes and visual drop indicators.\n\nAutomated codebase analysis via Claude Agent SDK detects tech stacks, TODOs, health signals, and estimates completion.\n\nReal-time git stats, GitHub stars and issues, one-click log sync, and uncommitted changes indicators on every card.\n\nAuto-detected PRDs, architecture docs, changelogs, and more feed into AI context for better project advice.\n\nFind any project instantly with search, filter by state, category, or priority, and sort by any column.\n\nChat history with auto-compaction, 15+ contextual prompts, project-scoped or portfolio-wide conversations.\n\nWeekly commit trends, focus distribution charts, and contribution patterns show where effort actually goes.\n\nAutomatic detection of cooling and dormant projects. Never let a promising project silently die again.\n\nSave any AI response as a project insight. Build institutional knowledge about each project over time.\n\nSee all projects with target dates on a visual timeline. Know what needs to ship and when.\n\nOrganize projects into buckets: Open Source, Commercial, Personal, Client Work, Experiments, and more.\n\nMonitor your coding streaks and contribution patterns. Build consistency across your portfolio.",
+    "readingTime": 1,
+    "keywords": [
+      "contribution patterns",
+      "project",
+      "projects",
+      "focus",
+      "across",
+      "portfolio",
+      "category",
+      "visual",
+      "indicators"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://vibefocus.ai",
+    "thumbnail_url": "/social-screenshot.png",
+    "created_at": "2026-04-06T18:42:28.060Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "orca-moving-beyond-promptbased-agents",
+    "title": "Orca – moving beyond prompt-based agents",
+    "description": "Agents should execute whenever possible — runtime for composable AI agent skills - gfernandf/agent-skills",
+    "fullText": "Agents should execute whenever possible.\n\nA deterministic, binding-driven execution engine for composable AI agent skills.\n\nAgent Skills Runtime lets you define agent capabilities as abstract contracts, wire them to any backend (Python, OpenAPI, MCP, OpenRPC), and execute multi-step workflows as declarative DAGs — with built-in safety gates, cognitive state tracking, and full observability.\n\nNo API keys required. 122 capabilities ship with deterministic Python baselines.\nInstall, run your first skill in under 3 minutes.\n\nAgent Skills lets agents execute structured workflows over tools, instead of guessing what to do via prompts.\n\nAgent Skills Runtime is a reference implementation of ORCA — an emerging standard for structured agent execution.\n\nORCA (Open Cognitive Runtime Architecture) defines a Cognitive Execution Layer where agents do not act through prompts, but through composable, contract-driven processes.\n\nUnlike traditional agent frameworks that rely on implicit reasoning inside LLMs, ORCA externalizes cognition into:\n\nThis shifts agent systems from:\n\nSee the full ORCA specification:\n\n👉 ORCA.md\n\nNote: The diagram below uses Mermaid. It renders natively on GitHub. If viewing on PyPI or another platform, see the architecture diagram on GitHub.\n\nThe PyPI package includes the execution engine and CLI. You'll also need the companion agent-skill-registry (capability contracts, skills, vocabulary):\n\nWhat make bootstrap does: clones the registry into ../agent-skill-registry/, then runs pip install -e \".[all,dev]\". If you prefer manual setup, see docs/INSTALLATION.md.\n\nEvery capability ships with a deterministic Python baseline. Set OPENAI_API_KEY to upgrade to LLM-powered execution — zero code changes.\n\nThe binding resolver picks the best available backend automatically:\n\nThis means your CI stays green without API keys, and production gets LLM quality — from the same skill YAML.\n\nSee docs/INSTALLATION.md for full setup instructions, optional extras, and environment variable reference.\n\nAdapters are also available for CrewAI, AutoGen, and Semantic Kernel — see the sdk/ directory.\n\nExpose all 122 capabilities as MCP tools over stdio (or SSE) — any MCP-compatible host (Claude Desktop, VS Code Copilot, etc.) can discover and call them:\n\nRequires the mcp extra: pip install -e \".[mcp]\"\n\nGenerate provider-native tool arrays for Anthropic, OpenAI, and Gemini — no HTTP server, no adapters, just the format each SDK expects:\n\nEach execute_* helper maps the underscore tool name back to the dotted capability ID and returns a JSON string.\n\nStart here: If you're writing Python, use the embedded SDK — zero setup, lowest latency. Switch to HTTP only when you need network access or non-Python clients.\n\nIf you use Agent Skills in your research, please cite:\n\nGitHub also provides a \"Cite this repository\" button powered by CITATION.cff.\n\nSee docs/SKILL_AUTHORING.md for the full workflow guide.\n\nFull documentation is served with MkDocs: make serve → http://localhost:8000\n\nContributions welcome! See CONTRIBUTING.md for guidelines.",
+    "readingTime": 3,
+    "keywords": [
+      "api keys",
+      "deterministic python",
+      "skills runtime",
+      "pip install",
+      "execution engine",
+      "agent skills",
+      "execute",
+      "agents",
+      "capabilities",
+      "capability"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/gfernandf/agent-skills",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1173630767/d18ff06a-dc4e-4068-8d3c-204b43b1a03b",
+    "created_at": "2026-04-06T18:42:13.573Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "agent-retro-postsession-retrospectives-for-coding-agents",
+    "title": "Agent Retro: post-session retrospectives for coding agents",
+    "description": "Session retrospective skill for AI coding agents — analyze conversations, identify friction, improve your workflow - giannimassi/agent-retro",
+    "fullText": "Compatibility: Claude Code only (for now). This skill reads Claude Code's JSONL session transcripts. Support for other agents (Gemini CLI, Codex, Cursor, etc.) is on the roadmap.\n\nA session retrospective skill for AI coding agents. Run /agent-retro at the end of a session to analyze what happened, identify friction, and get concrete suggestions for improving your skills, rules, and workflows.\n\nFollows the Agent Skills open standard.\n\n/agent-retro reads your session transcript from disk and produces a structured analysis:\n\nThe output is a markdown retro file plus an interactive walkthrough where you approve or defer each proposed action.\n\nEvery agent framework has inline reflection (retry loops, critic agents). None of them do post-session systemic reflection — looking across an entire conversation to find patterns of failure and proposing configuration changes to prevent them next time.\n\nThis is the equivalent of an agile sprint retrospective, but for a single AI session, producing machine-editable artifacts rather than sticky notes on a board. See references/design.md for the full design rationale and comparison with Reflexion, LangGraph, CrewAI, and others.\n\nRecommended (works with any Agent Skills-compatible tool):\n\nOr clone manually into your skills directory:\n\nThe Python extraction script can be used independently:\n\nThe extraction script (scripts/extract.py) minimizes token usage:\n\nSee examples/sample-retro.md for a retro from a real session.\n\nThis skill currently only works with Claude Code. The analysis steps (friction detection, root cause tracing, action proposals) are agent-agnostic — only the transcript reading is Claude-specific.\n\nContributions welcome — if you know where another agent stores its session data, open an issue.",
+    "readingTime": 2,
+    "keywords": [
+      "claude code",
+      "extraction script",
+      "session",
+      "agents",
+      "reads",
+      "retrospective",
+      "agent-retro",
+      "friction",
+      "transcript",
+      "analysis"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://github.com/giannimassi/agent-retro",
+    "thumbnail_url": "https://opengraph.githubassets.com/6097a4e5bcbea90340b6dcf902c5e9892979d4b88082fb0f42874307747bdc9a/giannimassi/agent-retro",
+    "created_at": "2026-04-06T18:42:13.289Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "londoners-are-sick-of-viral-videos-telling-lies-about-their-city",
+    "title": "Londoners are sick of viral videos telling lies about their city",
+    "description": "Plus: Victoria Park battle over All Points East, the Hackney school war that wasn't, the AI-generated parking appeal mess, and wild swimming in the River Thames.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.londoncentric.media/p/london-crime-viral-videos-crime",
+    "thumbnail_url": "https://substackcdn.com/image/fetch/$s_!L8kl!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb4dd1ebd-7641-497c-b513-c3f165499872_1116x952.jpeg",
+    "created_at": "2026-04-06T18:42:12.776Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-local-lan-radio-station-that-gives-you-ambient-audio-awareness-of-your-agents",
+    "title": "A local LAN radio station that gives you ambient audio awareness of your agents",
+    "description": "A radio station for your AI coding session. Ambient music plays continuously. Voice announcements, ambient tones, and a web dashboard. Hear your build, don't watch it.",
+    "fullText": "Short sound effects layered under music. A chime when work starts, a resolved chord when it ships, brief dissonance on failure. No words.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://radioagent.live/",
+    "thumbnail_url": "https://radioagent.live/assets/og.jpg",
+    "created_at": "2026-04-06T18:42:12.718Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "goldman-says-ai-disruption-will-have-a-scarring-effect-and-lead-to-a-yearslong-pay-cut-for-displaced-workers",
+    "title": "Goldman says AI disruption will have a 'scarring effect' and lead to a yearslong pay cut for displaced workers",
+    "description": "Historically, workers displaced by new tech have made less and been more at risk for unemployment for years to come, Goldman Sachs said.",
+    "fullText": "Workers displaced by AI could see a decade of lower wages, per a new Goldman analysis.\n Historically, tech-displaced workers take an average 3% pay cut when returning to work, the bank said.\n Workers pushed out by technology also face a higher unemployment risk in the years following a job loss.",
+    "readingTime": 1,
+    "keywords": [
+      "workers"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/ai-job-cuts-layoffs-finding-new-job-pay-cut-goldman-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d3b493e762ed6cfe44a8ae?width=1200&format=jpeg",
+    "created_at": "2026-04-06T18:42:07.304Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "openais-ambitions-are-easy-to-see-so-are-the-doubts-about-its-ceo",
+    "title": "OpenAI's ambitions are easy to see. So are the doubts about its CEO.",
+    "description": "Sam Altman is one of the most powerful people in the world. Are we OK with that?",
+    "fullText": "A new New Yorker piece dives deep into OpenAI CEO Sam Altman's history and finds lots of people who don't trust him.\n That would be a concern for anyone running any company.\n In the case of OpenAI, it's a much bigger deal because OpenAI's tech could reshape the world.",
+    "readingTime": 1,
+    "keywords": [
+      "openai"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/openai-sam-altman-new-yorker-profile-character-information-cfo-policy-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d3ce056a864f6fcd7bda7b?width=1200&format=jpeg",
+    "created_at": "2026-04-06T18:42:07.078Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "how-ai-helps-scale-qualitative-customer-research",
+    "title": "How AI Helps Scale Qualitative Customer Research",
+    "description": "AI-powered interviewers are enabling companies to conduct rich, adaptive conversations with thousands of participants quickly and inexpensively. These systems uncover not just what customers think but why they think it, capturing emotional nuance, real-world behavior, and candid responses—especially on sensitive topics or among hard-to-reach groups. They also compress research timelines from weeks or months to days, making continuous, real-time insight generation feasible. While not a full replacement for human researchers, AI moderation expands where and how qualitative insights can be used, allowing them to inform many more business decisions than before.",
+    "fullText": "How AI Helps Scale Qualitative Customer Research by Jeremy Korst, Stefano Puntoni and Olivier ToubiaApril 6, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintTo make good decisions, companies need information about customer preferences and behavior. The market-research function is thus crucial to market success, but it has an age-old problem: The process of collecting data from consumers is typically hard, slow, and costly. The good news is that generative AI promises to improve this state of affairs.",
+    "readingTime": 1,
+    "keywords": [
+      "customer"
+    ],
+    "qualityScore": 0.35,
+    "link": "https://hbr.org/2026/04/how-ai-helps-scale-qualitative-customer-research",
+    "thumbnail_url": "/resources/images/article_assets/2026/04/Feb26_28_1243075077.jpg",
+    "created_at": "2026-04-06T18:42:06.616Z",
+    "topic": "science"
+  },
+  {
+    "slug": "anthropic-is-forcing-users-to-pay-extra-to-run-openclaw-with-claude",
+    "title": "Anthropic Is Forcing Users to Pay Extra to Run OpenClaw With Claude",
+    "description": "If you want to use Claude for OpenClaw, you'll have to pay up.",
+    "fullText": "Bad news, OpenClaw fans: Anthropic wants you to pay more to use its AI models. This wasn't something Anthropic necessarily announced, either; rather, the company started sending emails to affected users, letting them know they could no longer use their Claude Code subscription limits with third-party \"harnesses,\" including—and most notabl—OpenClaw. Anthropic confirmed users could still connect to OpenClaw with their Claude account, but they'd have to pay more money in order to do so—including a \"pay-as-you-go\" option tacked onto the cost of the subscription.\n\nAccording to Anthropic, this policy change isn't without logic or reason. As highlighted by TechCrunch, Boris Cherny, head of Claude Code, explained on X that the company's subscriptions \"weren't built for the usage patterns of these third-party tools,\" and that Anthropic is prioritizing customers who are using the company's first-party products and API.\n\nOpenClaw has had quite a ride. The tool, which was previously called Moltbot, and first called Clawdbot, is designed to be an agentic AI assistant you run locally on your devices. For many, that means running OpenClaw on a Mac mini designed for this one purpose. Unlike ChatGPT or Gemini, which has their own proprietary interfaces, you communicate with OpenClaw through any chat app of your choice. You can text OpenClaw in WhatsApp, Apple Messages, Microsoft Teams, whatever you want, to organize your email inbox, write code for a project, plan out your goals for the month, whatever it is you want your agent to do.\n\nBut OpenClaw doesn't just...run. You need to power it with an AI model. In this case, users are relying on Anthropic's Claude—and, if they had a Claude Code subscription, they were simply tapping into that plan they already paid for. As you might expect, running agentic tasks through OpenClaw is extremely intensive, which pushed Anthropic to rethink how it was charging users.\n\nInterestingly, OpenClaw's founder, Peter Steinberger, joined OpenAI back in February—one of Anthropic's chief rivals. Steinberger said on X that he and OpenClaw board member Dave Morin \"tried to talk sense into Anthropic, [but] best we managed was delaying this for a week.\"",
+    "readingTime": 2,
+    "keywords": [
+      "code subscription",
+      "claude code",
+      "users",
+      "openclaw",
+      "anthropic",
+      "third-party",
+      "company's",
+      "designed",
+      "agentic",
+      "whatever"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://lifehacker.com/tech/openclaw-now-costs-more-than-ever?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KNHWX2DVRN8V7N4EKNFQ81S9/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-04-06T18:42:05.910Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "the-ai-sectors-crass-bid-for-media-domination",
+    "title": "The AI Sector’s Crass Bid for Media Domination",
+    "description": "David...",
+    "fullText": "When you’re a galactically rich tech mogul upset with adverse press coverage, you just buy yourself more flattering media outlets.\n\n“Freedom of the press,” A.J. Liebling famously wrote, “is guaranteed only to those who own one.” This pithy observation from one of Liebling’s 1960 “Wayward Press” columns in The New Yorker sums up a great deal about how journalism is transacted under the pressures of American capitalism. But the gist of it has to hit different if you have several hundred million dollars sitting around and a reputation that could use a bit of burnishing.\n\nOpenAI, the company behind ChatGPT, announced last week that it was buying Technology Business Programming Network (TBPN), a daily Internet talk show known for its puffball interviews with Silicon Valley execs and hopeful tech entrepreneurs, hosted by two former start-up founders, Jordi Hays and John Coogan. OpenAI shelled out something in the “low hundreds of millions” for the show, according to the Financial Times—a figure likely in the same range as the $250 million that Jeff Bezos spent buying The Washington Post in 2013. The then-venerable-if-troubled paper had a weekday circulation around 450,000 at the time. TBPN, only about a year-and-a-half old, reaches somewhere on the order of 70,000 viewers per show, mostly on X and Youtube. It does, however, have a huge gong, which the six-foot-eight Coogan, the taller of the two hosts, will bang upon to mark any good news guests bring with them to the show. (Hays, for his part, has a soundboard.)\n\nGiven that OpenAI just took in $110 billion in new funding (GONG!), valuing the company at some $840 billion, a couple hundred million dollars is more or less a rounding error. But what does an AI lab hope to get from ownership of a tech podcast? The company insists that it’s going to respect TBPN’s “editorial independence,” such as it is, but it’s pretty clear OpenAI isn’t altogether happy with the media coverage it’s been getting lately. The general run of OpenAI coverage these days tends to focus on things like the numerous lawsuits the company faces from the families of former ChatGPT users allegedly driven to suicide by its sociopathic prompts, as well as the company’s cravenly speedy move to sign a lucrative contract with the Pentagon in late February after its rival Anthropic lost a similar deal for taking a small stand against autonomous killer drones and mass domestic surveillance.\n\nIn an official statement, OpenAI’s Fidji Simo said that the deal was all about “creat[ing] a space for a real, constructive conversation about the changes AI creates.” This appears to be a jargon-laden way of saying the company intends to lead conversations that don’t include any actual journalists, who are known even in Silicon Valley for sometimes asking the sorts of questions that tech CEOs would rather not answer in public. Of course, TBPN should be well suited for its new role as a wholly owned media entity given that the show is “already so dedicated to cheerleading for the rich and powerful people in tech as to have been indistinguishable from marketing,” as Patrick Redford of Defector acidly put it.\n\nOpenAI isn’t the first tech company to adopt a strategy of “going direct”—a maneuver that by and large bypasses, well, the media in favor of blogs and podcasts under corporate control. No one has embraced “going direct” more insistently than the venture capitalists at Andreessen Horowitz, and their story helps illustrate both the promise and the pitfalls of this particular path.\n\nThe firm, known widely as a16z, spent the first few years after its founding in 2009 assiduously courting the press with the help of a dedicated and skillful press-whisperer named Margit Wennmachers. She managed, among other things, to get The New Yorker to devote considerable real estate to a laudatory story about cofounder Marc Andreessen, labeled “Tomorrow’s Advance Man,” in 2015. But the company began to sour on what it now derisively labels the “legacy media” not long after, when reporters started raising critical questions about one of a16z’s portfolio companies, Zenefits, and about the much-hyped venture fund itself. So instead of “trying to get reporters to write the right things,” as Andreessen put it in a recent interview, the firm started hiring journalists to run its own media operation, devoting so much energy to the project that some people began referring to a16z as a media company that just happened to do some venture capital investing on the side.\n\nIn 2021, a16z tried to take its “new media” strategy to the next level by launching Future.com, a sleek web publication that Wennmachers suggested would become “the go-to place for understanding and building the future.” (Hence, presumably, the name.) Soon, she said at the launch, tech entrepreneurs would be asking themselves “should I try to get this into The New York Times, or should I get it into Future?”\n\nThe site sputtered out in less than a year and a half. Apparently the teeming millions of techbros weren’t lining up to read relentlessly positive takes on such topics as “How to Know Your Users as You Grow” and “What Synthetic Embryos Can and Can’t Do.” As Bloomberg’s Brad Stone noted, “it doesn’t always end well when you hire people to tell the world how great you are. Future.com, from my periodic glances, is a snooze fest.”\n\nThe Future.com debacle didn’t really alter a16z’s big plans for media domination. The company just shifted direction, and returned to pushing its podcasts and blog posts on its own site. As always, Andreessen Horowitz continues talking a big game—selling its “new media” team hard to startup founders as “the best turnkey media operation in venture.… We offer an extensive menu of services for our portfolio companies, up and down the New Media stack, that add up to one experience: ‘shipping a great story.’” (I think you may see what Stone was getting at with that “snooze fest” remark.)\n\nSpeaking of snooze fests, some worry that an OpenAI-owned version of TBPN might lose whatever spark its fans now think it has. (Frankly, I don’t see much of a spark there now, though I am very much not part of the show’s target demo.) But I think the show may face an even bigger challenge in the form of one Elon Musk. TBPN, you may recall, gets most of its current audience on X, and Musk, who owns X, is not what you’d call a big fan of OpenAI or its CEO Sam Altman. Indeed, Musk, one of the original investors in the company, is suing Altman and other OpenAI bigwigs for $134 billion for allegedly lying to him about keeping the company a nonprofit; OpenAI is countersuing him for harassment. Musk, a deeply vindictive man, is widely reported to have sometimes used his control of X’s algorithm to throttle the traffic of media outlets and even individual accounts on the site that he dislikes. If he decides to do the same to the OpenAI-owned TBPN, it will likely trigger a singularly petty clash of press-owning titans. On the plus side, I guess, the ensuing drama would prove far more interesting than anything you’d hear on a TBPN podcast.",
+    "readingTime": 6,
+    "keywords": [
+      "openai isn’t",
+      "snooze fest",
+      "tech entrepreneurs",
+      "media outlets",
+      "media operation",
+      "the new yorker",
+      "silicon valley",
+      "andreessen horowitz",
+      "venture",
+      "deal"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.thenation.com/article/society/ai-techonology-business-and-programming-network-podcasts/",
+    "thumbnail_url": "https://www.thenation.com/wp-content/uploads/2026/04/AIMedia.jpg",
+    "created_at": "2026-04-06T18:42:04.549Z",
+    "topic": "politic"
+  },
+  {
     "slug": "oregon-predicted-to-land-no-1-player-in-alabama-for-3rd-straight-year",
     "title": "Oregon predicted to land No. 1 player in Alabama for 3rd straight year",
     "description": "The Oregon Ducks have picked up a prediction to land a commitment from 4-star CB Ai'King Hall, the No. 1 player in Alabama.",
@@ -1645,202 +1835,6 @@
     "link": "https://www.businessinsider.com/get-ready-for-wave-of-tbpn-clones-post-openai-deal-2026-4",
     "thumbnail_url": "https://i.insider.com/69ced458c02a678bd7e478a9?width=1200&format=jpeg",
     "created_at": "2026-04-03T01:19:26.416Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "i-tried-chatgpt-in-carplay-and-it-immediately-hallucinated",
-    "title": "I Tried ChatGPT in CarPlay, and It Immediately Hallucinated",
-    "description": "Voice mode is now available in CarPlay, but I can't exactly recommend it.",
-    "fullText": "Back in February, we learned that Apple had plans to integrate AI assistants into CarPlay. The news came along with the first beta for iOS 26.4, though Apple didn't actually include a way for testers to try out the integration in the software. Instead, the company confirmed the news in its CarPlay Developers Guide, stating that \"CarPlay voice-based conversational app\" support would require iOS 26.4 at a minimum.\n\nWell, Apple launched iOS 26.4 last week, and while the update delivered a number of new features, none of them were AI chatbot integrations with CarPlay. The company even dropped the first beta for iOS 26.5 without including a mention of the upcoming feature. I'll admit, the idea of using ChatGPT, Claude, or Gemini with CarPlay totally fell off my radar, instead replaced by thoughts of when Apple's big AI Siri upgrade would actually launch. But OpenAI didn't forget about it.\n\nIn a surprise move, OpenAI is now rolling out ChatGPT support in CarPlay. The company announced the news in a Thursday post on X, with the following tagline: \"The voice mode you know, now available on-the-go.\" OpenAI confirmed in the post that the feature works with iPhones running the latest version of iOS (iOS 26.4)—and in cars that support CarPlay, of course.\n\nI happen to have a car with CarPlay, so I had to give the feature a try. My iPhone is already running iOS 26.4, so that wasn't an issue, but I did need to update the ChatGPT app to its latest version. Before I did, I couldn't see the app in CarPlay. Following an update, ChatGPT appeared on the last app page in my CarPlay window.\n\nI tried it out, and it works just about as you'd expect: When you launch ChatGPT in CarPlay, it opens directly in voice mode. (You are driving, after all.) There are only two buttons on the screen: \"End,\" which ends the session, or \"Mute,\" which mutes the session, presumably so you can talk to other people in the car (or swear at other drivers?) without ChatGPT listening in.\n\nHaving launched the app, you can simply talk to ChatGPT, and it can respond. It really is a driving-friendly version of familiar voice mode.\n\nI don't really have many more takeaways here, other than this: In my very short time testing the feature, the AI began hallucinating almost immediately. I asked if it knew what I was doing, and it said it didn't. When I pressed that I thought it'd be able to guess given the context, it admitted it did know I was using CarPlay, so I was probably driving. I asked how long this had been a feature, and it mistakenly thought I was asking about CarPlay, so it said 2014. When I corrected it, and asked how long ChatGPT integration had been a feature in CarPlay, it said late 2023.\n\n\"Late 2023?\" I asked. \"Yeah, exactly!\" responded ChatGPT. \"So it’s still pretty recent, but it’s been expanding a lot since then, especially with updates from OpenAI and Apple. So, yeah, you’re kind of right at the beginning of that wave!\" I asked if it knew what year it was right now. ChatGPT conceded that it was 2026, which meant it had been \"a few years since that initial rollout,\" and thanked me for pointing that out.\n\n\"Okay,\" I said. \"But I was under the impression that this feature is brand new, like it literally just came out today.\" This marked the first time in this conversation that ChatGPT had to \"think,\" signaled by a subtle tune that played in the background. When it got back to me, it confirmed the feature launched with iOS 26.4. \"That’s the first time third-party chat apps like ChatGPT became available in CarPlay, so it’s super new!\" When I asked why it said 2023 originally, it said that was a mistake. When I pushed it to tell me what source it was pulling that information from, it said it \"must have been recalling an earlier timeline by accident.\"\n\nThis is not a new problem. All generative AI hallucinates, not just ChatGPT, and it's something to expect when using the technology. But I can't help but think that CarPlay only makes the problem worse: You can't easily fact-check the AI yourself when you're out on the road; all you can do is ask it to fact-check itself. Sure, it might correct the mistake, like it did when I challenged it, but it may just hallucinate the correction, too. If you rely on this tool to answer your questions while on the road, you might just get fed some misinformation that you file away as truth.\n\nDisclosure: Lifehacker’s parent company, Ziff Davis, filed a lawsuit against OpenAI in April, alleging it infringed Ziff Davis copyrights in training and operating its AI systems.",
-    "readingTime": 5,
-    "keywords": [
-      "voice mode",
-      "latest version",
-      "carplay the",
-      "ziff davis",
-      "feature",
-      "chatgpt",
-      "didn't",
-      "launched",
-      "it’s",
-      "back"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/i-tried-chatgpt-in-carplay-and-it-hallucinated-immediately?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KN7YEK9377EAN328XWYNH67D/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-04-03T01:19:25.416Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "carson-block-is-hedging-ai-meltdown-by-betting-against-credit-etfs",
-    "title": "Carson Block Is Hedging AI Meltdown By Betting Against Credit ETFs",
-    "description": "Block bets against HYG, LQD on AI job loss fears",
-    "fullText": "Welcome to ETF IQ, a weekly newsletter dedicated to the $19 trillion global ETF industry. I’m Bloomberg News reporter and anchor Katie Greifeld.Famed short seller Carson Block is casting a wary eye at credit ETFs.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.bloomberg.com/news/newsletters/2026-04-02/carson-block-is-hedging-ai-meltdown-by-betting-against-lqd-hyg",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iXeD_CItrFgU/v8/1200x800.jpg",
-    "created_at": "2026-04-02T18:42:05.299Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "we-replaced-rag-with-a-virtual-filesystem-for-our-ai-documentation-assistant",
-    "title": "We replaced RAG with a virtual filesystem for our AI documentation assistant",
-    "description": "We replaced expensive sandboxes with ChromaFs, a virtual filesystem over Chroma, to give our docs AI assistant the ability to explore documentation like a developer would.",
-    "fullText": "Our assistant could only retrieve chunks of text that matched a query. If the answer lived across multiple pages, or the user needed exact syntax that didn't land in a top-K result, it was stuck. We wanted it to explore docs the way you'd explore a codebase.\n\nAgents are converging on filesystems as their primary interface because grep, cat, ls, and find are all an agent needs. If each doc page is a file and each section is a directory, the agent can search for exact strings, read full pages, and traverse the structure on its own. We just needed a filesystem that mirrored the live docs site.\n\nThe obvious way to do this is to just give the agent a real filesystem. Most harnesses solve this by spinning up an isolated sandbox and cloning the repo. We already use sandboxes for asynchronous background agents where latency is an afterthought, but for a frontend assistant where a user is staring at a loading spinner, the approach falls apart. Our p90 session creation time (including GitHub clone and other setup) was ~46 seconds.\n\nBeyond latency, dedicated micro-VMs for reading static documentation introduced a serious infrastructure bill:\n\nAt 850,000 conversations a month, even a minimal setup (1 vCPU, 2 GiB RAM, 5-minute session lifetime) would put us north of $70,000 a year based on Daytona's per-second sandbox pricing ($0.0504/h per vCPU, $0.0162/h per GiB RAM). Longer session times double that. (This is based on a purely naive approach, a true production workflow would probably have warm pools and container sharing, but the point still stands)\n\nWe needed the filesystem workflow to be instant and cheap, which meant rethinking the filesystem itself.\n\nThe agent doesn't need a real filesystem; it just needs the illusion of one. Our documentation was already indexed, chunked, and stored in a Chroma database to power our search, so we built ChromaFs: a virtual filesystem that intercepts UNIX commands and translates them into queries against that same database. Session creation dropped from ~46 seconds to ~100 milliseconds, and since ChromaFs reuses infrastructure we already pay for, the marginal per-conversation compute cost is zero.\n\nChromaFs is built on just-bash by Vercel Labs (shoutout Malte!), a TypeScript reimplementation of bash that supports grep, cat, ls, find, and cd. just-bash exposes a pluggable IFileSystem interface, so it handles all the parsing, piping, and flag logic while ChromaFs translates every underlying filesystem call into a Chroma query.\n\nChromaFs needs to know what files exist before the agent runs a single command. We store the entire file tree as a gzipped JSON document (__path_tree__) inside the Chroma collection:\n\nOn init, the server fetches and decompresses this document into two in-memory structures: a Set<string> of file paths and a Map<string, string[]> mapping directories to children.\n\nOnce built, ls, cd, and find resolve in local memory with no network calls. The tree is cached, so subsequent sessions for the same site skip the Chroma fetch entirely.\n\nNotice the isPublic and groups fields in the path tree. Before building the file tree, ChromaFs prunes slugs using the current user's session token and applies a matching filter to all subsequent Chroma queries. If a user lacks access to a file, that file is excluded from the tree entirely, so the agent can't access or even reference a path that was pruned.\n\nIn a real sandbox, this level of per-user access control would require managing Linux user groups, chmod permissions, or maintaining isolated container images per customer tier. In ChromaFs it's a few lines of filtering before buildFileTree runs.\n\nPages in Chroma are split into chunks for embedding, so when the agent runs cat /auth/oauth.mdx, ChromaFs fetches all chunks with a matching page slug, sorts by chunk_index, and joins them into the full page. Results are cached so repeated reads during grep workflows never hit the database twice.\n\nNot every file needs to exist in Chroma. We register lazy file pointers that resolve on access for large OpenAPI specs stored in customers' S3 buckets. The agent sees v2.json in ls /api-specs/, but the content only fetches when it runs cat.\n\nEvery write operation throws an EROFS (Read-Only File System) error. The agent explores freely but can never mutate documentation, which makes the system stateless with no session cleanup and no risk of one agent corrupting another's view.\n\ncat and ls are straightforward to virtualize, but grep -r would be far too slow if it naively scanned every file over the network. We intercept just-bash’s grep, parse the flags with yargs-parser, and translate them into a Chroma query ($contains for fixed strings, $regex for patterns).\n\nChroma acts as a coarse filter that identifies which files might contain the hit, and we bulkPrefetch those matching chunks into a Redis cache. From there, we rewrite the grep command to target only the matched files and hand it back to just-bash for fine filter in-memory execution, which means large recursive queries complete in milliseconds.\n\nChromaFs powers the documentation assistant for hundreds of thousands of users across 30,000+ conversations a day. By replacing sandboxes with a virtual filesystem over our existing Chroma database, we got instant session creation, zero marginal compute cost, and built-in RBAC without any new infrastructure.\n\nTry it on any Mintlify docs site, or at mintlify.com/docs.\n\nMintlify tripled in size and institutional knowledge was dying in Slack threads. So we built a KB agent that lives in Slack, reads conversations, and turns them into version-controlled documentation without anyone leaving the tools they already use.\n\nA use-case-driven guide to automating documentation maintenance with Mintlify, featuring workflows code snippets for eight real-world automation patterns.",
-    "readingTime": 5,
-    "keywords": [
-      "chroma query",
-      "chroma database",
-      "docs site",
-      "session creation",
-      "virtual filesystem",
-      "grep cat",
-      "file tree",
-      "agent",
-      "documentation",
-      "chunks"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.mintlify.com/blog/how-we-built-a-virtual-filesystem-for-our-assistant",
-    "thumbnail_url": "https://www.mintlify.com/images/featured/how-we-built-a-virtual-filesystem-for-our-assistant.png",
-    "created_at": "2026-04-02T18:41:59.187Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "most-products-have-no-idea-what-their-ai-agents-did-yesterday",
-    "title": "Most products have no idea what their AI agents did yesterday",
-    "description": "Add activity logs and audit trails to your app with one SDK. Track user actions, AI agent actions, and custom events with full attribution, timestamps, and immutable records. SOC 2 and HIPAA compliant.",
-    "fullText": "One function call for everything else.\n\nA paragraph rewrite becomes one record, not 200\n\nbatches keystrokes into meaningful records.\n\nCommenting is something we wanted in our app, Velt made it possible\n\nA paragraph rewrite becomes one record, not 200\n\nbatches keystrokes into meaningful records.\n\nCommenting is something we wanted in our app, Velt made it possible\n\nSame record format. Human or AI.\n\nFind what your users are talking about\n\nAI agent writes a comment, flags an issue, suggests an edit. Same structured record as a human action. Same schema. Same attribution.\n\nAI agent writes a comment, flags an issue, suggests an edit. Same structured record as a human action. Same schema. Same attribution.\n\nCommenting is something we wanted in our app, Velt made it possible\n\nCommenting is something we wanted in our app, Velt made it possible\n\nWho approved what. When. With what context. Immutable records for SOC 2, HIPAA, and regulated workflows.\n\nAI agent acts. Human reviews. Both get the same structured record. The evidence chain enterprises need before trusting AI in production.\n\nA timeline of everything that happened in a document. Comments, edits, status changes, agent actions. Scoped to permissions.\n\nVelt gave great 1 on 1 support, added features fast, and offered highly customizable components.\n\nVelt gave great 1 on 1 support, added features fast, and offered highly customizable components.\n\nExplore activity across your org, drill into a single document, or filter by feature for focused views.\n\nExplore activity across your org, drill into a single document, or filter by feature for focused views.\n\ngetAllActivities() for org-wide or per-document. Filter by feature, user, agent, or time. Real-time or REST.\n\nOn by default. Records can't be changed or deleted. SOC 2, HIPAA, EU AI Act ready. Turn off when you need flexibility.\n\nCreate, query, and manage records from your backend. The SDK captures. The API gives you control.\n\nVelt gave great 1 on 1 support, added features fast, and offered highly customizable components.\n\nVelt gave great 1 on 1 support, added features fast, and offered highly customizable components.\n\nOne feature. Ten systems under it.\nEvery one of these ships out of the box with Velt.\n\nOne feature. Ten systems under it.\nEvery one of these ships out of the box with Velt.\n\nEvent schema for comments, edits, reactions, agent actions, and custom events\n\nUser attribution across sessions, devices, and API keys\n\nAgent attribution that distinguishes AI from human in the same schema\n\nDebouncing that turns rapid edits into meaningful records\n\nReal-time subscriptions so feeds update without polling\n\nFiltering by org, document, feature, user, agent, time\n\nImmutability that actually prevents tampering\n\nPermission scoping so users only see what they should\n\nREST API for backend access and exports\n\nCompliance formatting for SOC 2, HIPAA, and audits",
-    "readingTime": 3,
-    "keywords": [
-      "explore activity",
-      "app velt",
-      "records commenting",
-      "paragraph rewrite",
-      "batches keystrokes",
-      "focused views",
-      "comments edits",
-      "activity across",
-      "org drill",
-      "features fast"
-    ],
-    "qualityScore": 1,
-    "link": "https://velt.dev/activity-logs",
-    "thumbnail_url": "https://framerusercontent.com/assets/tyxeUDUJRj3NpFiVYuR1A0IuMVY.png",
-    "created_at": "2026-04-02T18:41:58.858Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "eslint-rules-that-teach-llms-to-write-better-code",
-    "title": "ESLint rules that teach LLMs to write better code",
-    "description": "ESLint rules that catch the patterns LLM agents get wrong — and teach them to self-correct through structured error messages. - pertrai1/eslint-plugin-llm-core",
-    "fullText": "ESLint rules that catch the patterns LLM agents get wrong — and teach them to self-correct through structured error messages.\n\nLLMs generate code that works but drifts: arrow functions everywhere, magic numbers, deep nesting, string-interpolated logs, oversized files. These aren't style nitpicks — they compound into codebases that are harder to debug, review, and maintain.\n\nThis plugin catches those patterns at lint time and provides error messages designed for LLM comprehension: what's wrong, why it matters, and a concrete fix. The result is AI-generated code that reads like it was written by a senior engineer.\n\nThis plugin is designed around three principles that make it effective for LLM-assisted development:\n\nEvery rule produces the exact same error message for the same mistake, every time. There is no randomness, no varying phrasing, no context-dependent rewording. This consistency means LLMs receive unambiguous signals about what to fix and how.\n\nEvery error message follows a structured teaching format:\n\nThis structure gives LLMs everything they need in one pass — the violation, the reasoning, and a concrete transformation. In practice, this reduces the back-and-forth iterations needed to resolve violations compared to standard ESLint messages.\n\nBoth the recommended and all configs set every rule to error, not warn. Warnings are easy to ignore — for both humans and LLMs. Errors force the issue to be resolved before the code is accepted. Combined with the no-inline-disable rule (which prevents // eslint-disable escape hatches), this creates a feedback loop where the LLM must fix violations rather than suppress them.\n\nThat's it. All recommended rules are now active.\n\n💼 Configurations enabled in.\n\n🌐 Set in the all configuration.\n\n✅ Set in the recommended configuration.\n\n💡 Manually fixable by editor suggestions.\n\nThese ESLint core rules address common LLM patterns and pair well with this plugin:\n\nAdd these to your config alongside llm-core:\n\nSee CLAUDE.md for architecture details and how to add new rules.\n\nThis plugin evolves as I learn more about how LLM agents behave in real codebases. The current ruleset is based on observed patterns — code that compiles and runs but drifts from production standards.\n\nIf you're using this plugin with LLM agents, I'd love to hear what's working and what isn't. Open an issue with:\n\nThe goal is a tight, high-signal ruleset — not comprehensive coverage. Every rule should earn its place.",
-    "readingTime": 2,
-    "keywords": [
-      "llm agents",
-      "error message",
-      "error messages",
-      "plugin",
-      "rules",
-      "patterns",
-      "code",
-      "rule",
-      "recommended",
-      "structured"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/pertrai1/eslint-plugin-llm-core",
-    "thumbnail_url": "https://opengraph.githubassets.com/72187d5e3d3805d9a16598de90e8031180eadd3f954e6c1dff1f186a654e8a70/pertrai1/eslint-plugin-llm-core",
-    "created_at": "2026-04-02T18:41:56.815Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "suits-against-tempus-ai-test-legal-lines-for-mining-genetic-data",
-    "title": "Suits Against Tempus AI Test Legal Lines for Mining Genetic Data",
-    "description": "The legal pressure on Tempus—which uses its massive trove of genetic information to train AI algorithms used in patient care—comes amid growing national concern over the commoditization of DNA data.",
-    "fullText": "NewsHealth Care LawFollowSuits Against Tempus AI Test Legal Lines for Mining Genetic DataThe legal pressure on Tempus—which uses its massive trove of genetic information to train AI algorithms used in patient care—comes amid growing national concern over the commoditization of DNA data.5 minute readApril 02, 2026 at 08:37 AMByMichael Gennaro",
-    "readingTime": 1,
-    "keywords": [
-      "legal",
-      "genetic"
-    ],
-    "qualityScore": 0,
-    "link": "https://www.law.com/corpcounsel/2026/04/02/suits-against-tempus-ai-test-legal-lines-for-mining-genetic-data/",
-    "thumbnail_url": "https://images.law.com/brightspot/38/f1/3fe235f74819ab7287c91c8efa78/biotechnology-2-jpeg767x505.jpg",
-    "created_at": "2026-04-02T18:41:56.538Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "i-have-always-seen-myself-as-progressive-but-with-ai-its-time-to-hit-the-brakes-peter-lewis",
-    "title": "I have always seen myself as ‘progressive’ – but with AI it’s time to hit the brakes | Peter Lewis",
-    "description": "At a time when the populist right is on the rise, progressives are shooting blanks while history rushes headlong into an automated future\nCanberra rolled out the red carpet this week to one of the AI overlords whose technology is driving the world down the path of creative destruction. Anthropic’s CEO Dario Amodei, the putative “good” tech oligarch, was spinning his version of a machine-driven future with the elan of a man who has untangled the mysteries of the universe – or at least built a predictive text model that can scrape the output of humanity and spit out compelling summaries of our collective consciousness.\nHe regaled the prime minister, assorted elected officials and the tech sector’s glitterati with his pitch for good AI that would transform the economy, before becoming the first to sign up to the government’s new datacentre principles, conveniently released just a week earlier. It was compelling shill and, to be fair, Amodei is not the worst of the gods. He created Anthropic after leaving Open AI when the company dispensed with its not-for-profit, “safety first” mission.",
-    "fullText": "At a time when the populist right is on the rise, progressives are shooting blanks while history rushes headlong into an automated future\n\nCanberra rolled out the red carpet this week to one of the AI overlords whose technology is driving the world down the path of creative destruction. Anthropic’s CEO Dario Amodei, the putative “good” tech oligarch, was spinning his version of a machine-driven future with the elan of a man who has untangled the mysteries of the universe – or at least built a predictive text model that can scrape the output of humanity and spit out compelling summaries of our collective consciousness.\n\nHe regaled the prime minister, assorted elected officials and the tech sector’s glitterati with his pitch for good AI that would transform the economy, before becoming the first to It was compelling shill and, to be fair, Amodei is not the worst of the gods. He created Anthropic after leaving Open AI when the company dispensed with its not-for-profit, “safety first” mission. He regularly shares thoughtful essays on the path of technology and has been open about his fears for the impact of his own products. He broke with the Trump administration over the limits to how his technology would be used to spy on citizens and enable autonomous weapons, turning himself into an enemy of the state.\n\nBut as Toby Walsh, a scientia professor of artificial intelligence at the University of New South Wales, reminds me: there is no “good AI” because AI is both good and bad. It can unlock new connections and knowledge by synthesising huge amounts of information, but it depends on the extraction of huge amounts of energy to create tools that replace human workers with machines. Like other models, Anthropic has been trained on the stolen work of creators. Indeed the company settled a $US1.5bn claim by authors in the US. Amodei has blithely predicted his technology will see up to half of all white-collar entry level jobs destroyed, yet carries on regardless.\n\nIt’s been instructive to watch the reception Amodei has received from our government, which has proclaimed itself to be all in on AI and its siren song of a fast track to productivity, albeit based on industry-sponsored modelling. This despite the concerns of its core union constituents, the righteous outrage of artists and the well founded concerns of parents. As the government wrestles with these contradictions, the idea of a “progressive AI” appears manna from heaven. The memorandum of understanding struck with Anthropic ticks all the right boxes from “tracking frontier AI progress and promoting safety” to “supporting a vibrant domestic ecosystem”.\n\nBut watching from the cheap seats, I can’t help asking myself: is this really a progressive vision of progress?\n\nI have always seen myself as progressive. My dad was a river gauger and honorary union leader, my first political memory is of the Dismissal, I came of age at the ascension of Bob Hawke and found my way into journalism and then the back rooms of progressive politics where I have spent the last three decades. I’ve had the privilege of working across most parts of the movement, unions, political parties, climate change, First Nations and disability. I’ve struggled to find a cause that didn’t excite my passion for progress.\n\nBut while I wore the T-shirts, “progressive” was not a term that I spent the intellectual energy to define. I was more driven by the conviction that with enough momentum the world was moving to a fairer, more just future. This reflects Hegel’s path to mutual recognition that would see society settle in a state of balance; as Martin Luther King Jr famously observed: “The arc of the moral universe is long, but it bends towards justice.” So long as we keep moving, we would get there.\n\nI believed social democratic government would be the driver of these advances, responding to the pressure of mass movements for positive change to laws, regulation and funding that would reflect this heightened consciousness. Progressive governments would redistribute wealth, fund the safety net, tax people based on their capacity to pay. Where the private sector could not be trusted to deliver essential services, the government would act in our interest. Where the nation required moral leadership, government would reflect our unique values.\n\nThree things have happened in recent years that make me question what I always regarded as self-evident. First, progressive cultural movements got stuck in their own bubbles, at the same time progressive economics got seduced by the right; and then technology shoved its vision of progress down our throats. It is these waves of progress that are driving the populist movements that threaten to upturn liberal democracy both globally and here at home.\n\nThe rise of One Nation has been turbo-charged by a backlash against so-called identity politics. Their “Super Progressive Movie” shows that they see the cultural agenda of the left as its achilles heel. Progressives have long accepted as an act of faith that racism and sexism were sins and that systemic injustice should be resisted as part of our collective expression of humanity. But as the breadth of causes has expanded, these movements have been portrayed by their opponents as exclusionary and moralistic, and seen as undermining the collective at the expense of the individual.\n\nThe broader consequence of a politics dominated by individual identity is that the notion of class has been erased. As union density declined in the last quarter of the 20th century, working-class battlers became disenfranchised from the progressive movements which they had built. Working people established a political party, won power, drove an Australian social contract that shared the nation’s economic resources and provided stable industry. Embedded in this settlement was a trade-off between growing and distributing the pie, but with industry protection and centralised industrial system it seemed possible for Australian workers to have their cake and eat it too.\n\nThe conclusion of the cold war summoned Francis Fukuyama’s The End of History, where the world would be united in a system of global trade and cooperation underpinned by an international rules-based order. In Australia, Paul Keating attempted to channel these global winds of change, signing up to the global currency markets, the removal of tariffs and the privatisation of government services. And despite the pain of the early 1990s recession and the human cost of whole industries being obliterated, the greater national wealth delivered on Robert Reich’s promise in The Work of Nations where knowledge work would grow better and smarter jobs. Economic progress was still progressive.\n\nBut the new millennium has seen the concentration of that wealth, both between nations and within them, that globalisation unleashed has accelerated, while trust in the system has collapsed. The University of Sydney’s Terry Flew identifies 2007 as an inflection point, the bailout of banks that were deemed too big to fail in the wake of the financial crisis they engineered proved the global financial system ran on power rather than justice. The rise of corporate tech behemoths has resulted in an intensification of these trends, with the global embrace of a technology built on the idea of centralised power.\n\nWhile the internet seemed like a free resource that would drive a more liberal world, the business models built around the extraction of our attention has taken us on a journey from hope to despair. From “Yes we can” to “Drain the swamp”.\n\nOut of this broken model has emerged a new accelerant to the concentration of wealth and power. It is in this context I feel myself questioning my instinctive progressivism. A business model based on user surveillance and manipulation, structured to replace human thought with machine outputs, powered by reckless commitment to move fast and break things is not the path to mutual recognition Hegel imagined, nor the march to justice MLK invoked.\n\nThe risk for the government is that if AI does what the sticker says then it will displace so many jobs and some entire industries; it will fill our public spaces with cultural slop; it will be used to undermine faith in democracy and expose not just children but anyone looking for companionship to harm. And if this happens and a populist party seizes on this as further proof that the system has stopped working for ordinary people, the government will have no one to blame but itself.\n\nWhile our leaders are itching to flick the switch on datacentres, the doyens of progressive America, Bernie Sanders and Alexandria Ocasio-Cortez, are calling for a moratorium. In a very public education process, Sanders has spent the past few months interviewing everyone from the Nobel prize winner Geoffrey Hinton to a robotic version of Anthropic’s Claude, doing the hard thinking that too many others have dodged. He is not just canvassing the clear and present dangers but also asking the more fundamental questions about where this is taking us. Why are we being told we need to move so fast? Why is a technology that is so rapacious and exploitative so inevitable? Is this really the road we want to be on?\n\nBecause here’s the truth: progress has always been conditional. The direction of change, the velocity of change, the distribution of the costs and benefits of change all determine its final impact. If I am still progressive, it’s like the Luddites were progressives, actively challenging the inevitability of technology’s exploitative trajectory, breaking machines and threatening the power structures that accelerated their ascent. Rather than non-binding MOUs with tech lords, the only viable course I see right now is to do everything we can to slow the train down by building the guardrails and establishing the red lines that are our only tools in pushing back. At least that would be progress.",
-    "readingTime": 9,
-    "keywords": [
-      "huge amounts",
-      "mutual recognition",
-      "replace human",
-      "technology",
-      "movements",
-      "system",
-      "path",
-      "tech",
-      "wealth",
-      "progressive"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/commentisfree/2026/apr/02/australia-ai-artificial-intelligence-productivity-progress",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/f95bc5b7d151d817828539dbab00be428329f7aa/271_0_4287_3428/master/4287.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctb3BpbmlvbnMucG5n&enable=upscale&s=c614d80677291da8d6dfc49f4f6a9120",
-    "created_at": "2026-04-02T18:41:48.222Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "openais-cfo-says-the-company-is-passing-on-opportunities-because-it-does-not-have-enough-compute",
-    "title": "OpenAI's CFO says the company is passing on opportunities because it does not have enough compute",
-    "description": "\"We're making some very tough trades at the moment and things we're not pursuing because we don't have enough compute,\" OpenAI's CFO Sarah Friar said.",
-    "fullText": "OpenAI's CFO says the company is skipping opportunities due to limited compute in 2026.\n Friar says OpenAI is making \"tough trades\" as AI demand outpaces available capacity.\n OpenAI has pulled back from projects like Sora as it shifts resources to core AI products.",
-    "readingTime": 1,
-    "keywords": [
-      "openai"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/openai-cfo-says-compute-crunch-is-forcing-tough-trade-offs-2026-4",
-    "thumbnail_url": "https://i.insider.com/69ce33bce762ed6cfe449857?width=1200&format=jpeg",
-    "created_at": "2026-04-02T18:41:45.614Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "sam-altman-says-he-miscalibrated-the-mood-of-distrust-toward-ai-and-the-government-in-the-pentagon-deal",
-    "title": "Sam Altman says he 'miscalibrated' the mood of distrust toward AI and the government in the Pentagon deal",
-    "description": "Sam Altman shares what he learned from the fallout of OpenAI's deal with the Pentagon and defends working with the government.",
-    "fullText": "Altman talked to Laurie Segall, CEO of Mostly Human, about his takeaways from the Pentagon deal.\n Altman said he had \"miscalibrated\" the mood of distrust toward AI and the government.\n Altman said that \"it's very important that the governments are more powerful\" than AI companies.",
-    "readingTime": 1,
-    "keywords": [
-      "altman"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/sam-altman-says-he-miscalibrated-distrust-toward-ai-pentagon-deal-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cdae61c02a678bd7e472d4?width=800&format=jpeg",
-    "created_at": "2026-04-02T18:41:45.545Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "tech-layoffs-are-at-their-worst-since-2023-and-ai-is-a-big-reason",
-    "title": "Tech layoffs are at their worst since 2023, and AI is a big reason",
-    "description": "Challenger, Gray & Christmas said tech layoffs are rising due to artificial intelligence — and are likely to keep happening.",
-    "fullText": "Challenger, Gray & Christmas said tech layoffs are rising and are likely to keep happening.\n The outplacement firm said that in tech, AI is replacing jobs.\n Elsewhere, Challenger said AI \"is costing jobs\" even if it can't yet fully replace workers.",
-    "readingTime": 1,
-    "keywords": [
-      "tech",
-      "jobs",
-      "challenger"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/tech-layoffs-q1-march-data-ai-impact-2026-4",
-    "thumbnail_url": "https://i.insider.com/69ce80236a864f6fcd7bcb81?width=1200&format=jpeg",
-    "created_at": "2026-04-02T18:41:45.191Z",
     "topic": "finance"
   }
 ]

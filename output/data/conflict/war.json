@@ -1,5 +1,82 @@
 [
   {
+    "slug": "the-legal-and-policy-fallout-from-data-center-strikes-in-the-middle-east-war",
+    "title": "The Legal and Policy Fallout from Data Center Strikes in the Middle East War",
+    "description": "When private sector technology is utilized by state or military actors, it inevitably becomes a target in geopolitical conflicts, writes Mahmoud Abuwasel.",
+    "fullText": "On March 1, drone strikes hit three Amazon Web Services (AWS) facilities in the United Arab Emirates and Bahrain. Iran’s Islamic Revolutionary Guard Corps (IRGC) explicitly claimed responsibility for the attacks, citing the data centers' role in supporting US military and intelligence networks. The consequences for global business, and for the legal frameworks intended to govern this kind of event, are only beginning to surface.\n\nThe strikes critically impaired two out of three cloud availability zones in the UAE region (ME-CENTRAL-1) and one availability zone in the Bahrain region (ME-SOUTH-1). Because multiple zones went down simultaneously, standard redundancy models failed. AWS confirmed structural damage, power disruption, fire, and water damage from suppression systems. Outages were reported by Abu Dhabi Commercial Bank, Emirates NBD, First Abu Dhabi Bank, payments platforms Hubpay and Alaan, data cloud company Snowflake, and the massive ride-hailing platform Careem. Recovery, AWS warned, will be prolonged.\n\nThis is the first publicly confirmed military attack on a hyperscale cloud provider. Iranian state media asserted the AWS facilities were legitimate targets because the US military is using AI systems hosted on AWS—such as Anthropic’s Claude—for intelligence analysis and war simulations. Google, Microsoft, and Oracle operate data centers in the same region. While Iran also claimed to have targeted Microsoft facilities, Microsoft officially denied any hits or outages. Nevertheless, these hyperscalers are now sitting in an active war zone.\n\nBusiness exposure runs far wider than most affected companies realize. Many had no meaningful Middle East presence. Their cloud workloads were simply routed through the region, invisible to them until now. Counterintuitively, Amazon's stock rallied approximately 3% following the attack. Financial analysts note that this physical vulnerability will likely force enterprises to abandon single-region deployments, effectively driving up cloud revenues as companies are forced to pay for multi-region disaster recovery and premium resilience services.\n\nThis crisis represents the latest evolution of a historical pattern: when novel private sector technology is utilized in part by state or military actors, it inevitably becomes a legitimate target in geopolitical conflicts. The attacks raise new questions about the security of the UAE's growing AI infrastructure ambitions, including the Stargate UAE campus — a 5-gigawatt AI facility in Abu Dhabi being built under a US-UAE partnership announced during President Donald Trump's May 2025 Middle East tour.. Governments are now being forced to urgently reclassify commercial data centers as critical national security infrastructure, right alongside power plants and oil fields.\n\nThe targeting of international communications infrastructure during wartime has deep historical roots. The global digital economy relies heavily on a vast network of submarine cables, which carry approximately 95 percent of international data traffic. These cables frequently fall victim to geopolitical tensions, such as the 2024 severing of three cables in the Red Sea amid conflicts near Yemen, or similar disruptions near Taiwan in 2023 and 2025 and the Norwegian Arctic in 2021.\n\nNavigating liability for such disruptions requires a nuanced understanding of international law. In maritime domains, instruments like the United Nations Convention on the Law of the Sea (UNCLOS) complicate enforcement by restricting jurisdiction primarily to flag states. While the Enrica Lexie arbitration—which stemmed from the killing of two Indian fishermen by Italian military marines aboard an oil tanker—opened a narrow window, suggesting that intentional acts causing damage are not protected as a mere \"incident of navigation,” practical enforcement against states remains elusive.\n\nWhen a sovereign state deliberately destroys private infrastructure during wartime, the historical legal precedent is even bleaker. To understand the legal complexities surrounding the AWS strikes, it is instructive to examine the Cuba Submarine Telegraph Company, Ltd. (Great Britain) v. United States arbitration of 1923.\n\nDuring the Spanish-American War of 1898, US naval forces deliberately severed submarine telegraph cables operated by a British company to disrupt Spanish military communications. The company sought compensation for its destroyed property. The tribunal ruled in favor of the United States, establishing a pivotal principle: during armed conflicts, actions taken by a state as legitimate acts of war override private property rights without an obligation to compensate affected entities. Because the private telegraph company was contractually required by Spanish concessions to transmit official government correspondence, its operations were deeply intertwined with enemy military interests.\n\nToday, hyperscale data centers host civilian commercial applications alongside sensitive government services, dual-use infrastructure, and defense workloads. Under the century-old Cuba Submarine precedent, any claims by the private sector against state belligerents for damages from the 2026 strikes are highly unlikely to succeed. The cloud has become the modern telegraph cable.\n\nIf operating in the Gulf Cooperation Council (GCC) carries such immense physical risk, why do hyperscalers and enterprises concentrate so much critical infrastructure there? The answer lies in the proliferation of sovereign data localization mandates.\n\nIncreasingly, governments require that certain government services and sensitive public sector data be physically hosted within their borders to ensure digital sovereignty. Consequently, data center providers have limited geographic options if they wish to operate in these lucrative markets; they must build physical facilities locally.\n\nThis mandate travels aggressively down the supply chain. Other government tenderers, including defense contractors, civil accounting firms, logistics providers, and IT vendors, must also host their data locally to be eligible to bid for government contracts. By intertwining civilian enterprise data with sovereign government workloads in localized server farms, policymakers and tech platforms inadvertently elevate these facilities to high-value military targets.\n\nWith claims against state belligerents practically impossible, who bears the financial cost of unfulfilled service-level agreements, lost data, and destroyed infrastructure? Technology service providers typically reach for force majeure clauses, arguing that acts of war are unforeseeable events that absolve them from liability and from refunding clients.\n\nHowever, regional civil law frameworks place strict boundaries on the use of force majeure during active conflicts. A landmark triad of Dubai Court judgments; Primary, Appeal, and Cassation, issued in 2017 offers definitive guidance on how regional courts allocate risk. Adjudicating a private aviation dispute over a canceled charter flight caused by the sudden closure of Saudi airspace during the 2015 Yemen War, the courts ruled decisively against the service provider.\n\nThe courts clarified that providing a contracted service is an \"obligation to achieve a result,\" not merely an \"obligation to exercise care.\" Because the operator failed to deliver the result, they were in breach. Crucially, the courts dismantled the force majeure defense based on foreseeability: entering a contract during an active regional war means that military disruptions are expected operational risks.\n\nThe Dubai Court of Cassation anchored its decision on the absolute doctrine of impossibility and automatic rescission. When sovereign military intervention renders execution impossible, the contract is dissolved, and the burden of risk falls entirely on the \"debtor of the obligation,” the service provider.\n\nApplied to the 2026 Iran War, this jurisprudence is a stark warning. If a cloud facility is disabled by a strike, regional courts are likely to view the event as a foreseeable risk of operating in a conflict zone. Without bespoke, explicitly drafted military disruption clauses that shift the financial risk onto the client, tech providers will be legally required to absorb upstream sunk costs and refund their clients entirely.\n\nFaced with severe liabilities and virtually no recourse against state attackers, private companies must rapidly pivot their operational and defensive strategies.\n\nFirst, standard commercial property and business interruption insurance policies frequently exclude acts of war. Companies must aggressively scrutinize their insurance coverage and secure specialized war risk policies to ensure they are protected from geopolitical violence, though such policies are complex and heavily contested by underwriters.\n\nSecond, the technical and legal reality of data migration presents a severe bottleneck. Moving workloads out of a structurally damaged facility where physical servers are destroyed and power is cut is practically impossible. If a company's disaster recovery backups are localized within the same targeted region due to compliance laws, that data may be permanently lost. Furthermore, cross-border emergency migrations may violate the very laws that forced the localization in the first place.\n\nFinally, these strikes necessitate an overhaul of data center risk assessment protocols. Procurement teams traditionally evaluate a location's risk profile based on power grid stability, tax incentives, and natural disasters. Moving forward, the location and risk profile of a data center must heavily prioritize geopolitical threat vectors, the defensive posture of the host nation, and the dual-use nature of co-tenants within the facility.\n\nThe unprecedented attacks on AWS facilities in the GCC represent a watershed moment for technology policy, yet they follow a clear historical continuum. As demonstrated over 100 years ago with submarine telegraph cables, novel private sector technology is inevitably attacked when it is utilized for partial military use.\n\nThis evolution will not stop at the Earth’s surface. We can expect the same dynamic to be reflected in private space apparatus. The US Federal Communications Commission (FCC) recently approved 7,500 Starlink satellites, while China has applied for 200,000 satellites with the International Telecommunication Union (ITU). As drone and missile technology becomes more closely operated in low Earth orbit, these vast commercial constellations will face the exact same dual-use vulnerabilities as terrestrial data centers.\n\nThe militarization of civilian technology is expanding. Whether at the bottom of the sea, in the deserts of the Middle East, or in the vacuum of space, policymakers and the private sector must prepare for a future where commercial infrastructure is a permanent fixture on the battlefield.",
+    "readingTime": 8,
+    "keywords": [
+      "aws facilities",
+      "disaster recovery",
+      "practically impossible",
+      "service provider",
+      "submarine telegraph",
+      "risk profile",
+      "regional courts",
+      "telegraph cables",
+      "sector technology",
+      "middle east"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.techpolicy.press/the-legal-and-policy-fallout-from-data-center-strikes-in-the-middle-east-war/",
+    "thumbnail_url": "https://cdn.sanity.io/images/3tzzh18d/production/228b35b336a2ba24b37a0194337844b805e8738d-1200x675.png",
+    "created_at": "2026-04-06T18:42:28.170Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "londoners-are-sick-of-viral-videos-telling-lies-about-their-city",
+    "title": "Londoners are sick of viral videos telling lies about their city",
+    "description": "Plus: Victoria Park battle over All Points East, the Hackney school war that wasn't, the AI-generated parking appeal mess, and wild swimming in the River Thames.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.londoncentric.media/p/london-crime-viral-videos-crime",
+    "thumbnail_url": "https://substackcdn.com/image/fetch/$s_!L8kl!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb4dd1ebd-7641-497c-b513-c3f165499872_1116x952.jpeg",
+    "created_at": "2026-04-06T18:42:12.776Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "chinas-xi-urges-faster-development-of-new-energy-system-as-middle-east-war-continues",
+    "title": "China's Xi urges faster development of new energy system as Middle East war continues",
+    "description": "Chinese President Xi Jinping has called for accelerated planning and construction of a new energy system to safeguard the country's energy",
+    "fullText": "BEIJING, April 6 (Reuters) - Chinese President Xi Jinping has called for accelerated planning and construction of a new energy system to safeguard the country's ‌energy security, weeks into the Iran war that has triggered global energy shocks.\n\nThe leader of ‌the world's second-largest economy also emphasised hydropower development and ecological protection, while urging the safe and orderly expansion of nuclear power, ​according to state broadcaster CCTV on Monday.\n\n\"The Party Central Committee has gained a profound grasp of global energy development trends and made major decisions by advancing the new energy security strategy in depth,\" he said, referring to the ruling Communist Party's centre of authority.\n\nXi did not directly mention the war in his remarks ‌cited by CCTV.\n\nThe United States and ⁠Iran have been weighing a Pakistani-brokered plan that could end their five‑week-old conflict, even as Tehran pushed back against pressure to swiftly reopen the Strait of Hormuz.\n\nROLE ⁠OF COAL AND GREENER ENERGY\n\nAnalysts have pointed out that China is relatively better-positioned to absorb the higher oil prices. Coal accounts for more than half of its energy mix, while it has ample oil stockpiles and imports ​via ​the Strait of Hormuz represent only around 5% of ​total energy consumption.\n\n\"The path we took in ‌being the first to develop wind and solar power has now proven to be forward-looking. At the same time, coal-fired power remains the foundation of our energy system and must continue to play its supporting role,\" Xi said.\n\nChina operates more than half of the world's coal-fired power capacity, making it the top carbon emitter, which Western-led climate initiatives have long contended with. The country continues to position coal power ‌as a reliability backbone and flexible backup system, even as ​it accelerates renewables.\n\nAlthough he underscored the role of coal in ​China's energy mix, the president said the ​country—the world's largest consumer of coal—must stay committed to clean, low-carbon development.\n\n\"A greener, ‌more diversified and resilient new energy system will ​provide a strong guarantee for ​China's energy security and economic development,\" CCTV said.\n\nLast July, China began construction of what will be the world's largest hydropower dam on the eastern rim of the Tibetan Plateau.\n\nConstruction on a ​solar thermal power plant by ‌China General Nuclear Power Group at an altitude of 4,550 metres in Tibet has also ​begun on Monday, according to state Xinhua News Agency.",
+    "readingTime": 2,
+    "keywords": [
+      "china's energy",
+      "world's largest",
+      "energy security",
+      "energy mix",
+      "energy system",
+      "development",
+      "coal",
+      "cctv",
+      "role",
+      "president"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.yahoo.com/news/articles/chinas-xi-urges-faster-development-131159094.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/d58fe4eaa79091715efcad4079acfa12",
+    "created_at": "2026-04-06T18:42:08.557Z",
+    "topic": "news"
+  },
+  {
+    "slug": "jpmorgan-says-us-gas-prices-could-soon-jump-above-5-a-gallon-if-the-iran-war-drags-on",
+    "title": "JPMorgan says US gas prices could soon jump above $5 a gallon if the Iran war drags on",
+    "description": "The average gas price jumped above $4 per gallon for the first time since 2022 amid the war in Iran. JPMorgan warns that $5 is in sight for US drivers.",
+    "fullText": "US gas prices could hit $5 a gallon by the middle of this month if the Iran war continues, JPMorgan says.\n The average US gas price jumped above $4 per gallon for the first time since 2022 this month.\n Outside the US, Asia and Australia face outright fuel shortages, JPMorgan and Goldman Sachs say.",
+    "readingTime": 1,
+    "keywords": [
+      "gallon",
+      "jpmorgan"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/gas-prices-us-iran-war-oil-fuel-markets-jpmorgan-goldman-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d3af14e762ed6cfe44a88b?width=1200&format=jpeg",
+    "created_at": "2026-04-06T18:42:07.201Z",
+    "topic": "finance"
+  },
+  {
     "slug": "was-trump-oblivious-to-the-realities-of-netanyahus-promised-easy-war-on-iran",
     "title": "Was Trump oblivious to the realities of Netanyahu's promised 'easy' war on Iran?",
     "description": "Senior US officials consider the PM’s pitch to have been overblown, creating potentially far-reaching consequences for Israel",
@@ -1656,80 +1733,5 @@
     "thumbnail_url": "https://s.yimg.com/os/en/the_hill_articles_341/e5eebb7674062d91a376114a7dc5c36f",
     "created_at": "2026-04-02T12:47:01.165Z",
     "topic": "news"
-  },
-  {
-    "slug": "analysisus-defense-stocks-see-no-iran-war-lift-after-early-surge",
-    "title": "Analysis-US defense stocks see no Iran war lift after early surge",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/analysisus-defense-stocks-see-no-iran-war-lift-after-early-surge-4595559",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM310QM_L.jpg",
-    "created_at": "2026-04-02T12:46:59.044Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "trump-threatens-to-escalate-war-in-iran-even-as-end-is-close",
-    "title": "Trump Threatens to Escalate War in Iran Even As End Is \"Close”",
-    "description": "President Donald Trump says the war in Iran is “very close” to completion, even as the US plans to continue attacks within the next two to three weeks.",
-    "fullText": "Apr 2nd, 2026Trump Threatens to Escalate War in Iran Even As End Is \"Close”President Donald Trump says the war in Iran is “very close” to completion, even as the US plans to continue attacks within the next two to three weeks.Duration:18:30In Full: Trump's Speech on Iran WarDuration:4:59Iran’s President Issues Open Letter to the American PublicDaybreak: EuropeDuration:4:08France, Japan Align Positions on Iran Ceasefire, Opening of Hormuz StraitDuration:3:06Trump’s Oil Claims on Hormuz 'Nonsense': Energy AnalystDuration:7:33NATO Operating in a World of Shock, Not Crisis, Admiral SaysDuration:9:05Iran Has Plenty of Ways to Cause Energy Mayhem, Analyst SaysDuration:5:33Novo VP Weighs In on Approval of Lilly’s Obesity PillThe CloseDuration:1:04SpaceX Said to File Confidentially for Biggest-Ever IPOTechnologyAvailable on:Listen onApple TVListen onRokuListen onSamsung TVListen onFire TVListen onAndroid TVListen onRakuten TVListen onHaystack NewsWatch BTV in your area:Channel Finder",
-    "readingTime": 1,
-    "keywords": [
-      "tvlisten",
-      "iran",
-      "hormuz",
-      "energy",
-      "trump"
-    ],
-    "qualityScore": 0.15,
-    "link": "https://www.bloomberg.com/news/videos/2026-04-02/trump-threatens-to-escalate-war-in-iran-video",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iyxWaGYDhrrA/v3/-1x-1.webp",
-    "created_at": "2026-04-02T07:01:10.109Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "iran-has-plenty-of-ways-to-cause-energy-mayhem-analyst",
-    "title": "Iran Has Plenty of Ways To Cause Energy Mayhem: Analyst",
-    "description": "Bilal Saab, Senior Managing Director at TRENDS US and an associate fellow at Chatham House, warns that Iran has a \"plethora of options to cause mayhem\" in global energy markets. Saab, who served as a senior advisor to the Pentagon, also discusses his takeaways from President Donald Trump's primetime address on the Iran war.",
-    "fullText": "Apr 2nd, 2026Iran Has Plenty of Ways To Cause Energy Mayhem: AnalystBilal Saab, Senior Managing Director at TRENDS US and an associate fellow at Chatham House, warns that Iran has a \"plethora of options to cause mayhem\" in global energy markets. Saab, who served as a senior advisor to the Pentagon, also discusses his takeaways from President Donald Trump's primetime address on the Iran war. Duration:18:30In Full: Trump's Speech on Iran WarDuration:4:59Iran’s President Issues Open Letter to the American PublicDaybreak: EuropeDuration:4:08France, Japan Align Positions on Iran Ceasefire, Opening of Hormuz StraitDuration:3:06Trump’s Oil Claims on Hormuz 'Nonsense': Energy AnalystDuration:7:33NATO Operating in a World of Shock, Not Crisis, Admiral SaysDuration:9:05Iran Has Plenty of Ways to Cause Energy Mayhem, Analyst SaysDuration:5:33Novo VP Weighs In on Approval of Lilly’s Obesity PillThe CloseDuration:1:04SpaceX Said to File Confidentially for Biggest-Ever IPOTechnologyAvailable on:Listen onApple TVListen onRokuListen onSamsung TVListen onFire TVListen onAndroid TVListen onRakuten TVListen onHaystack NewsWatch BTV in your area:Channel Finder",
-    "readingTime": 1,
-    "keywords": [
-      "cause energy",
-      "energy mayhem",
-      "iran",
-      "tvlisten",
-      "plenty",
-      "ways",
-      "saab",
-      "senior",
-      "hormuz",
-      "president"
-    ],
-    "qualityScore": 0.25,
-    "link": "https://www.bloomberg.com/news/videos/2026-04-02/iran-has-plenty-of-ways-to-cause-energy-mayhem-analyst-video",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iFaHr23M0jeQ/v3/-1x-1.webp",
-    "created_at": "2026-04-02T07:01:07.275Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "canadas-energy-trade-push-as-iran-war-disrupts",
-    "title": "Canada’s Energy Trade Push as Iran War Disrupts",
-    "description": "Rising oil prices and supply risks are testing global markets as the Iran war threatens flows through the Strait of Hormuz. Canada says its LNG, oil and nuclear projects could help fill gaps for Asia. Trade Minister Maninder Sidhu spoke with Haslinda Amin from Seoul.",
-    "fullText": "Apr 2nd, 2026Canada’s Energy Trade Push as Iran War DisruptsRising oil prices and supply risks are testing global markets as the Iran war threatens flows through the Strait of Hormuz. Canada says its LNG, oil and nuclear projects could help fill gaps for Asia. Trade Minister Maninder Sidhu spoke with Haslinda Amin from Seoul.Duration:18:30In Full: Trump's Speech on Iran WarDuration:4:59Iran’s President Issues Open Letter to the American PublicDaybreak: EuropeDuration:4:08France, Japan Align Positions on Iran Ceasefire, Opening of Hormuz StraitDuration:3:06Trump’s Oil Claims on Hormuz 'Nonsense': Energy AnalystDuration:7:33NATO Operating in a World of Shock, Not Crisis, Admiral SaysDuration:9:05Iran Has Plenty of Ways to Cause Energy Mayhem, Analyst SaysDuration:5:33Novo VP Weighs In on Approval of Lilly’s Obesity PillThe CloseDuration:1:04SpaceX Said to File Confidentially for Biggest-Ever IPOTechnologyAvailable on:Listen onApple TVListen onRokuListen onSamsung TVListen onFire TVListen onAndroid TVListen onRakuten TVListen onHaystack NewsWatch BTV in your area:Channel Finder",
-    "readingTime": 1,
-    "keywords": [
-      "iran war",
-      "tvlisten",
-      "energy",
-      "hormuz",
-      "trade"
-    ],
-    "qualityScore": 0.25,
-    "link": "https://www.bloomberg.com/news/videos/2026-04-02/canada-s-energy-trade-push-as-iran-war-disrupts-video",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iiR5ck40q6AA/v3/-1x-1.webp",
-    "created_at": "2026-04-02T07:01:07.172Z",
-    "topic": "finance"
   }
 ]
