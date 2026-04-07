@@ -1,5 +1,151 @@
 [
   {
+    "slug": "memory-poisoning-in-ai-coding-agents",
+    "title": "Memory poisoning in AI coding agents",
+    "description": "CLI security scanner built for the agentic era. Detects CI/CD misconfigs, agent permission risks, MCP tool injection, hardcoded secrets, and DMCA-flagged AI dependencies. - asamassekou10/ship-safe",
+    "fullText": "AI-powered application security platform for developers.\n\n19 security agents. 80+ attack classes. One command.\n\nShip Safe v7.0.0 is an AI-powered security platform that runs 19 specialized agents in parallel against your codebase, scanning for secrets, injection vulnerabilities, auth bypass, SSRF, supply chain attacks, memory poisoning, Supabase RLS misconfigs, Docker/Terraform/Kubernetes misconfigs, CI/CD pipeline poisoning, LLM/agentic AI security, MCP server misuse, RAG poisoning, PII compliance, vibe coding patterns, exception handling, AI agent config security, and more. Full OWASP Agentic AI Top 10 mapping (ASI01–ASI10) enriches every finding. Live OSV.dev advisory feed surfaces actively exploited CVEs within hours of disclosure. OWASP 2025 scoring with EPSS exploit probability. LLM-powered deep analysis verifies exploitability of critical findings. Secrets verification probes provider APIs to check if leaked keys are still active. Compliance mapping to SOC 2, ISO 27001, and NIST AI RMF. Built-in threat intelligence feed with offline-first IOC matching. CI integration with GitHub PR comments, threshold gating, and SARIF output.\n\nv7.0.0 highlights: New Memory Poisoning Agent — the first scanner purpose-built for instruction injection in AI agent memory files (.claude/memory/, .cursorrules, .cursor/rules/, .windsurfrules, and more). Live advisories command (ship-safe advisories .) queries OSV.dev in real time — no API key, no stale data. Deep watch mode (--deep) runs the full 19-agent orchestrator on every file change and persists results to .ship-safe/watch.json. OWASP Agentic AI Top 10 metadata (ASI01–ASI10) attached to every relevant finding. Trojanized package behavioral detection catches env-var harvesting, DNS exfiltration, and WebSocket C2 patterns inside node_modules. Expanded agent config discovery covers Gemini CLI, Cody, and Augment Code. Gemma 4 (--provider gemma4) supported as the default local model via Ollama structured output — zero JSON parse failures.\n\nOne command that runs everything and generates a full report:\n\nPost-processors: ScoringEngine (8-category weighted scoring with OWASP Agentic AI Top 10 enrichment), VerifierAgent (secrets liveness verification), DeepAnalyzer (LLM-powered taint analysis)\n\nShip Safe detects security issues in both major Claude Code forks from the March 2026 source leak.\n\nopenclaude (@gitlawb/openclaude) is a CLI tool that routes Claude Code's toolset through any OpenAI-compatible provider. Its only persistent file artifact is .openclaude-profile.json. Ship Safe flags:\n\nclaw-code (ultraworkers/claw-code) is a clean-room Rust + Python rewrite of Claude Code's agent harness. Its config lives in .claw.json, .claw/settings.json, and .claw/settings.local.json. Ship Safe flags:\n\nDrop-in CI action that blocks PRs introducing agent config vulnerabilities:\n\nScans openclaw.json, .cursorrules, CLAUDE.md, Claude Code hooks, and MCP configs. Checks against the bundled threat intelligence database for known ClawHavoc IOCs.\n\nNo API key required. Malware advisories (MAL-*) are sorted to the top. Results include EPSS exploit probability and remediation guidance.\n\nInstall ship-safe as real-time Claude Code hooks — secrets are blocked before they ever touch disk:\n\nOnce installed, two hooks activate automatically on every Claude Code session:\n\nHook scripts are copied to ~/.ship-safe/hooks/ at install time — a stable, user-owned location that survives npx cache rotations.\n\nUse Ship Safe directly inside Claude Code — no CLI needed:\n\nClaude interprets the results, explains findings in plain language, and can fix issues directly in your codebase.\n\nShip Safe caches file hashes and findings in .ship-safe/context.json. On subsequent runs, only changed files are re-scanned — unchanged files reuse cached results.\n\nThe cache is stored in .ship-safe/ which is automatically excluded from scans.\n\nWhen using AI classification (--no-ai to disable), results are cached in .ship-safe/llm-cache.json with a 7-day TTL. Repeated scans reuse cached classifications — reducing API costs significantly.\n\nShip Safe respects your .gitignore for build output, caches, and vendor directories — but always scans security-sensitive files even if gitignored:\n\nWhy? Files like .env are gitignored because they contain secrets — which is exactly what a security scanner should catch.\n\nShip Safe supports any AI provider for deep analysis and classification:\n\nAuto-detected from environment variables. Use --provider <name> to override. No API key required for scanning — AI is optional.\n\nStarts at 100. Each finding deducts points by severity and category, weighted by confidence level (high: 100%, medium: 60%, low: 30%) to reduce noise from heuristic patterns.\n\n8 Categories (with weight caps):\n\nWeights aligned with OWASP Top 10 2025 risk rankings.\n\nGrades: A (90-100), B (75-89), C (60-74), D (40-59), F (0-39)\n\nExit codes: 0 for A/B (>= 75), 1 for C/D/F — use in CI to fail builds.\n\nCreate .ship-safe.policy.json to enforce team-wide security standards:\n\nThe dedicated ci command is optimized for pipelines — compact output, exit codes, threshold-based gating:\n\nExport formats: --json, --sarif, --csv, --md, --html, --pdf\n\nInline: Add # ship-safe-ignore comment on a line:\n\nFile-level: Create .ship-safeignore (gitignore syntax):\n\nDrop-in security configs for Next.js, Supabase, and Firebase.\n\nCopy-paste security patterns: rate limiting, JWT, CORS, input validation.\n\nLLM security: prompt injection detection, cost protection, system prompt hardening.\n\nManual security audits: launch-day checklist, framework-specific guides.\n\nShow the world your project is secure. After running npx ship-safe audit . or npx ship-safe vibe-check . --badge, add one of these to your README:\n\nShip Safe practices what it preaches. Our own supply chain is hardened against the 2026 Trivy/CanisterWorm attack chain:\n\nVerify provenance on any Ship Safe release:\n\nSee CONTRIBUTING.md for guidelines.\n\nShip Safe is MIT-licensed and free forever. If it saves you time or helps you ship more securely, consider sponsoring — it helps keep the project maintained and growing.\n\nMIT - Use it, share it, secure your stuff.\n\nShip fast. Ship safe. — shipsafecli.com",
+    "readingTime": 5,
+    "keywords": [
+      "ship safe",
+      "epss exploit",
+      "owasp agentic",
+      "code hooks",
+      "safe flags",
+      "exploit probability",
+      "threat intelligence",
+      "category weighted",
+      "exit codes",
+      "supply chain"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/asamassekou10/ship-safe",
+    "thumbnail_url": "https://opengraph.githubassets.com/b925534aa331159ff17671bb0344c895e857a69f3c93b258334f19f8ba56859b/asamassekou10/ship-safe",
+    "created_at": "2026-04-07T01:21:08.470Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "physical-engineering-ai-tools-for-mech-engineers",
+    "title": "Physical Engineering AI – tools for mech engineers",
+    "description": "🔧 A curated list of AI tools for hardware engineering — CAD, simulation, manufacturing, and beyond. The awesome list that software forgot to make. - 010zx00x1/Awesome-Physical-Engineering-AI",
+    "fullText": "🔧 A curated list of AI tools for engineers who work with the physical world — CAD, FEA, CFD, manufacturing, and beyond.\n\nSubmit a Tool · Report Broken Link · Suggest Category\n\nTools that use AI to create, edit, or understand CAD models from text, sketches, or scans.\n\nAI-driven tools that generate or optimize geometry for weight, strength, cost, or thermal performance.\n\nAI that accelerates or replaces traditional FEA/CFD solvers.\n\nAI tools for catching manufacturability issues before they become expensive.\n\nAI tools that automate CNC programming, optimize toolpaths, and capture machinist knowledge.\n\nAI-powered visual inspection, defect detection, and quality control for manufacturing.\n\nRoboflow Universe hosts thousands of free manufacturing-specific datasets (PPE detection, defect classification, assembly verification) ready to train on.\n\nAI for virtual representations of physical systems, condition monitoring, and failure prediction.\n\nLibraries for unit-aware calculations, automated reporting, and engineering math.\n\nAI for finding, comparing, and optimizing material choices.\n\nModel Context Protocol servers that give AI agents engineering superpowers.\n\nMCP servers let you control CAD software from Claude, Cursor, or any MCP-compatible AI client using natural language.\n\nAI tools for mechanism design, control systems, and robotic systems.\n\nAI tools for optimizing additive manufacturing workflows.\n\nAI for managing engineering data, capturing design intent, and preventing knowledge loss.\n\nThe base tools that engineering AI is being built on top of.\n\nAcademic work pushing the boundaries of AI in physical engineering.\n\nThe scientific Python stack every engineering AI tool is built on.\n\nNumPy · SciPy · SymPy · Matplotlib · pandas\n\nPyVista · trimesh · meshio · pygmsh · Open3D\n\nPyFoam · pyNastran · OpenAeroStruct · OpenMDAO\n\nOpenCV · Ultralytics YOLO · Roboflow Supervision · Roboflow Inference · Detectron2\n\nContributions welcome! Please read CONTRIBUTING.md first.\n\nWhat belongs here: AI tools that help design, simulate, manufacture, or validate physical products. Open-source libraries for engineering AI. MCP servers with engineering capabilities. Research papers advancing AI for physical engineering.\n\nWhat doesn't belong: Pure software dev tools. Generic AI/ML frameworks without engineering application. Abandoned projects (no activity 12+ months).\n\nIf this list helped you, star it ⭐ and share it with an engineer.",
+    "readingTime": 2,
+    "keywords": [
+      "mcp servers",
+      "physical engineering",
+      "tools",
+      "manufacturing",
+      "systems",
+      "design",
+      "list",
+      "tool",
+      "optimize",
+      "knowledge"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/010zx00x1/Awesome-Physical-Engineering-AI",
+    "thumbnail_url": "https://opengraph.githubassets.com/e96efafb042a7af1a084b2631142c8dda5b50435824cfb4664065afc2a7db443/010zx00x1/Awesome-Physical-Engineering-AI",
+    "created_at": "2026-04-07T01:21:06.646Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "openai-urges-california-delaware-to-investigate-musks-anticompetitive-behavior",
+    "title": "OpenAI urges California, Delaware to investigate Musk's 'anti-competitive behavior’",
+    "description": "OpenAI urged the California and Delaware attorneys general to consider investigating Elon Musk and his associates' \"improper ‌and anti-competitive behavior\", ahead of a trial between the ‌two sides set to begin this month.  Musk sued OpenAI, its CEO Sam Altman ​and others in 2024, accusing them of violating OpenAI's founding mission as it restructures to a for-profit entity.  Musk was a cofounder of OpenAI in 2015 but left in 2018 and launched rival ‌xAI with its competitor ⁠chatbot Grok.",
+    "fullText": "April 6 (Reuters) - OpenAI (OPAI.PVT) urged the California and Delaware attorneys general to consider investigating Elon Musk and his associates' \"improper ‌and anti-competitive behavior\", ahead of a trial between the ‌two sides set to begin this month.\n\nMusk sued OpenAI, its CEO Sam Altman ​and others in 2024, accusing them of violating OpenAI's founding mission as it restructures to a for-profit entity. Musk was a cofounder of OpenAI in 2015 but left in 2018 and launched rival ‌xAI with its competitor ⁠chatbot Grok.\n\nIn a court filing in August, OpenAI had said Musk tried to enlist rival Mark ⁠Zuckerberg for the bid that his consortium made for OpenAI early last year, but the CEO of Meta Platforms did not come ​on board.\n\nOn ​Monday, the ChatGPT maker sent ​a letter to California Attorney ‌General Rob Bonta and Delaware Attorney General Kathy Jennings, saying the lawsuit sought damages of more than $100 billion from its nonprofit foundation, which it said would effectively cripple the organization.\n\nA judge in Oakland, California, ruled in January that a jury will hear ‌the trial, expected to start in ​April.\n\nOpenAI's chief strategy officer Jason Kwon ​said in the letter ​sent on Monday that the lawsuit could undermine ‌the company's efforts to ensure that ​artificial general intelligence, ​or AGI, benefits all of humanity.\n\nMusk's filings in the litigation \"suggest that your offices did not thoroughly investigate OpenAI's plan ​to recapitalize and ‌merely relied on promises about what OpenAI will do in ​the future,\" Kwon said.",
+    "readingTime": 2,
+    "keywords": [
+      "trial",
+      "rival",
+      "letter",
+      "attorney",
+      "lawsuit",
+      "openai",
+      "musk",
+      "california",
+      "openai's",
+      "april"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://finance.yahoo.com/sectors/technology/articles/openai-urges-california-delaware-investigate-215410715.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/reuters-finance.com/a90ecffd30bfebc6484e1275a4a53a1f",
+    "created_at": "2026-04-07T01:20:47.269Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "startup-ceo-says-hes-proud-his-4person-team-racked-up-a-113000-monthly-ai-bill",
+    "title": "Startup CEO says he's proud his 4-person team racked up a $113,000 monthly AI bill",
+    "description": "Swan AI's CEO says his 4-person startup spent $113,000 on AI in one month. He's \"never been more proud.\"",
+    "fullText": "A startup CEO says a $113,000 AI bill is a sign his business is working.\n Amos Bar-Joseph told Business Insider that he's always spent more on AI than on his workforce.\n Not everyone is convinced: Some investors warn that AI costs are rising faster than revenue.",
+    "readingTime": 1,
+    "keywords": [
+      "business"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/startup-ceo-monthly-ai-bill-anthropic-swan-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d3fbdee762ed6cfe44aa9d?width=1200&format=jpeg",
+    "created_at": "2026-04-07T01:20:44.090Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "fireworks-ai-ceo-explains-why-ais-infrastructure-cant-keep-up-with-rampant-demand",
+    "title": "Fireworks AI CEO explains why AI's infrastructure can't keep up with rampant demand",
+    "description": "Lin Qiao, CEO of Fireworks AI, discusses AI's rapid demand growth, with the platform processing 15 trillion tokens daily.",
+    "fullText": "Lin Qiao said Fireworks AI processes 15 trillion tokens daily in 2026.\n Fireworks AI's CEO cited exponential token growth driven by AI's expanding use.\n AI infrastructure is struggling to keep up as demand for AI services continues to surge.",
+    "readingTime": 1,
+    "keywords": [
+      "fireworks",
+      "ai's"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/fireworks-ai-surge-ceo-lin-qiao-2026-4",
+    "thumbnail_url": "https://i.insider.com/69cedd58c02a678bd7e47918?width=1200&format=jpeg",
+    "created_at": "2026-04-07T01:20:43.716Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "medvi-the-aipowered-telehealth-company-is-fueled-by-ads-from-doctors-who-dont-appear-to-exist",
+    "title": "Medvi, the AI-powered telehealth company, is fueled by ads from doctors who don't appear to exist",
+    "description": "Medvi's marketing has included seemingly fake doctors and prompted lawsuits.",
+    "fullText": "The New York Times reported that telehealth startup Medvi has over $1 billion in projected sales.\n Founder Matthew Gallagher used AI to build the website and has contracted with medical providers.\n Its marketing has included seemingly fake doctors and prompted lawsuits.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/medvi-ai-weight-loss-millions-ai-advertising-legal-compliance-challenges-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d0328ae762ed6cfe44a3fb?width=1200&format=jpeg",
+    "created_at": "2026-04-07T01:20:43.605Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "a-top-us-shipbuilder-is-exploring-how-ai-and-robots-can-do-some-of-the-hardest-jobs-on-the-production-floor",
+    "title": "A top US shipbuilder is exploring how AI and robots can do some of the hardest jobs on the production floor",
+    "description": "HII and GrayMatter Robotics announced plans to integrate physical AI into shipbuilding processes.",
+    "fullText": "Top US Navy shipbuilder HII is exploring what AI and robots can do for shipbuilding.\n The next year will see HII and GrayMatter Robotics test the integration of systems into shipyards.\n Automation in shipbuilding processes is an industry priority to boost production and timelines.",
+    "readingTime": 1,
+    "keywords": [
+      "shipbuilding"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/a-top-us-shipbuilder-is-exploring-physical-ai-in-shipbuilding-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d42b16e762ed6cfe44ac74?width=1200&format=jpeg",
+    "created_at": "2026-04-07T01:20:43.604Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "what-is-artificial-intelligence-anyway",
+    "title": "What Is Artificial Intelligence Anyway?",
+    "description": "Ben...",
+    "fullText": "When you’re a galactically rich tech mogul upset with adverse press coverage, you just buy yourself more flattering media outlets.\n\nWoods and Trump’s famous friendship is built on a shared knack for accumulation, vacuousness, and power worship. It’s as American as apple pie.\n\n“It takes money to kill bad guys,” Defense Secretary Pete Hegseth said as he sought $200 billion in funding for the Iran war in March. But the cost far exceeds money.\n\nBut this also begs the question: why is this facially unconstitutional case before the court in the first place?\n\nIn her new book, Bridges found that healthcare provided through private markets leaves more room for discrimination and unequal care to take root than in a public program like Med...\n\nQ&A\n\n /\n\n Regina Mahone\n\nThe IOC’s new anti-trans testing regime revives some of the most discredited and discriminatory policies in the history of the games.",
+    "readingTime": 1,
+    "keywords": [
+      "money"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.thenation.com/article/society/artificial-intelligence-ai-paradox/",
+    "thumbnail_url": "https://www.thenation.com/wp-content/uploads/2026/03/Tarnoff-Dignum-getty.jpg",
+    "created_at": "2026-04-07T01:20:41.949Z",
+    "topic": "tech"
+  },
+  {
     "slug": "vibefocus-an-open-source-portfolio-manager-for-too-many-vibecoded-projects",
     "title": "VibeFocus – An open source portfolio manager for too many vibe-coded projects",
     "description": "Personal mission control for solo founders. See your portfolio at a glance, understand stalling, commit to weekly focus, with an AI advisor that knows your code.",
@@ -1705,136 +1851,5 @@
     "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/b8ec/live/12ceec60-2dd9-11f1-934f-036468834728.png",
     "created_at": "2026-04-03T06:57:06.531Z",
     "topic": "sports"
-  },
-  {
-    "slug": "gen1-scaling-embodied-foundation-models-to-mastery",
-    "title": "GEN-1: Scaling Embodied Foundation Models to Mastery",
-    "description": "We've created GEN-1, our latest milestone in scaling robot learning. The first general-purpose AI model that crosses a new performance threshold: mastery of simple physical tasks.",
-    "fullText": "@article{generalist2026gen1,\n\nauthor = {Generalist AI Team},\n\ntitle = {GEN-1: Scaling Embodied Foundation Models to Mastery},\n\njournal = {Generalist AI Blog},\n\nyear = {2026},\n\nnote = {https://generalistai.com/blog/apr-02-2026-GEN-1},\n\n}",
-    "readingTime": 1,
-    "keywords": [
-      "generalist"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://generalistai.com/blog/apr-02-2026-GEN-1",
-    "thumbnail_url": "https://generalistai.com/blog/apr-02-2026-GEN-1/assets/generalist-gen1-og.png",
-    "created_at": "2026-04-03T01:19:32.406Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "opensource-runtime-security-toolkit-for-autonomous-ai-agents-covering-owasp-top",
-    "title": "Open-source runtime security toolkit for autonomous AI agents covering OWASP Top",
-    "description": "Discover how the Microsoft Agent Governance Toolkit brings policy, identity, and reliability to autonomous AI agent systems.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/",
-    "thumbnail_url": "https://opensource.microsoft.com/blog/wp-content/uploads/2024/06/CLO19_Ubisoft_Azure_055.png",
-    "created_at": "2026-04-03T01:19:31.704Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "lm-gate-auth-and-accesscontrol-gateway-for-selfhosted-llm-back-ends",
-    "title": "LM Gate – Auth and access-control gateway for self-hosted LLM back ends",
-    "description": "A high performance authentication and access-control gateway for LLM API backends - hkdb/lmgate",
-    "fullText": "A high performance authentication and access-control gateway for LLM API backends such as Ollama. LM Gate sits in front of your upstream model server and adds identity, authorization, rate limiting, and observability — without modifying the upstream service.\n\nMost of the self-hosted LLM frameworks are designed to be run on localhost with no authentication or rate limiting. However, the machine a user directly interacts with often lacks the GPU power their use cases demand. The result is a quiet but growing crisis: infrastructure built for the desktop, quietly bleeding onto the open internet.\n\nA joint investigation between SentinelOne SentinelLABS and Censys revealed 175,000 unique Ollama hosts across 130 countries operating without authentication, forming an \"unmanaged, publicly accessible layer of AI compute infrastructure.\" - source\n\nThe implications are serious. Security should be the default, not an afterthought requiring installation of multiple 3rd party components and expert configuration.\n\nThe current makeshift band-aid — adopted only by the more security-conscious and DevOps savvy — is to put self-hosted LLM frameworks behind an NGINX reverse proxy with basic auth. This is still not enough. In practice, credentials are often embedded directly in the URL — readable in plaintext by packet sniffers regardless of whether TLS is in use.\n\nLM Gate is an attempt to change that — a single component to plug into your existing infrastructure to handle security, logging, and metrics needs, or deploy as a prepackaged single container bundled with Ollama.\n\nNote: Omnigate images are for Linux only. macOS users should see the Apple Silicon Guide for the recommended setup using native Ollama with the standalone Docker image or binary. AMD APU users (including Ryzen AI 9 series) should use the AMD variant, as ROCm supports RDNA integrated graphics.\n\nClick on any of the environments above to get the step-by-step instructions for your environment or see docs/INSTALL.md for step-by-step instructions for all environments in a single doc.\n\nLM Gate uses a single config.yaml file. Every setting can also be overridden with a LMGATE_-prefixed environment variable.\n\nUsers and admins should technically never need to touch the config.yaml directly as there's UI in the settings page to edit runtime configurations. Any custom config at launch time should be configured with environment variables.\n\nSee docs/CONFIGS.md for the full configuration reference.\n\nLM Gate can gate OAuth2/oidc logins by a specific user group. This works out of the box for most OAuth2 providers except for Microsoft and Google. In the case that Microsoft and Google group gating is required, an intermediary auth layer must be setup to facilitate. See docs/MGGROUPS.md for details.\n\nSee docs/FAIL2BAN.md for fail2ban integration instructions.\n\nAll logging, metrics, and token extraction run in background goroutines — zero I/O on the hot path. The audit middleware fires a goroutine that sends to a buffered channel and returns immediately; if the channel is full, the entry is dropped rather than blocking. Security events print a [SECURITY]-prefixed line to stdout for fail2ban, then enqueue the DB write asynchronously through the same channel.\n\nData is stored in a single SQLite database (WAL mode). The admin dashboard is a SvelteKit SPA compiled to static assets and embedded into the Go binary at build time.\n\nLM Gate is designed to scale deployments behind popular load balancers and tested with NGINX.\n\nIf you have questions, identified a bug, or have a feature request, submit an issue here.\n\nIf you are a company looking for paid support of this product, contact 3DF via this contact form.\n\nWhile LM Gate is designed to be an enterprise-ready solution, it is currently still early-stage software and pending refinement and 3rd party audits.\n\nLM Gate was developed with extensive use of Claude AI models.\n\nIf you like this project, please give the repo a star or feel free to buy us a coffee:\n\nApache 2.0 - See LICENSE for details.",
-    "readingTime": 4,
-    "keywords": [
-      "self-hosted llm",
-      "llm frameworks",
-      "rate limiting",
-      "step-by-step instructions",
-      "lm gate",
-      "authentication",
-      "designed",
-      "directly",
-      "infrastructure",
-      "security"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/hkdb/lmgate",
-    "thumbnail_url": "https://opengraph.githubassets.com/45826973b2a0145ed7d7e558e88cf463c9792a702c7e54d4051f723678e8a909/hkdb/lmgate",
-    "created_at": "2026-04-03T01:19:31.294Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "how-ai-could-destroy-or-save-humanity-according-to-ai-experts",
-    "title": "How AI could destroy — or save — humanity, according to AI experts",
-    "description": "Five AI experts debate whether artificial intelligence will erase jobs, reshape power, and unlock breakthroughs in medicine and education.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/former-ai-insiders-share-hard-truths-about-living-with-technology-2026-4",
-    "thumbnail_url": "https://i.insider.com/69ceba0b6a864f6fcd7bcdab?width=1200&format=jpeg",
-    "created_at": "2026-04-03T01:19:26.700Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "openai-just-bought-tech-talk-show-tbpn-this-is-not-an-april-fools-joke",
-    "title": "OpenAI just bought tech talk show TBPN: 'This is not an April Fools joke'",
-    "description": "OpenAI wants a bigger voice in the AI discourse. TBPN is a two-man talk show that's gone viral in Silicon Valley.",
-    "fullText": "OpenAI bought TBPN, the tech talk show that's become a must-watch for Silicon Valley.\n The move is part of a new OpenAI communications strategy. Financial terms were not disclosed.\n The TBPN hosts said the show has never considered itself a journalistic outlet.",
-    "readingTime": 1,
-    "keywords": [
-      "openai",
-      "tbpn"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/openai-acquires-tbpn-tech-talk-show-in-media-push-2026-4",
-    "thumbnail_url": "https://i.insider.com/69ceb4cac02a678bd7e4770c?width=1200&format=jpeg",
-    "created_at": "2026-04-03T01:19:26.697Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-openaitbpn-deal-is-a-shocker-that-makes-sense",
-    "title": "The OpenAI/TBPN deal is a shocker that makes sense",
-    "description": "A head scratcher that isn't. And a vote for the value of live-streaming.",
-    "fullText": "TBPN is a tech/business talk show with a small audience that takes up a lot of mindshare in media and tech circles.\n OpenAI is an $850 billion company that promises to change the world.\n Mashing the two together isn't an obvious choice. But there is some logic to it.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/why-openai-bought-tbpn-2026-4",
-    "thumbnail_url": "https://i.insider.com/69ced2c8c02a678bd7e4788c?width=1200&format=jpeg",
-    "created_at": "2026-04-03T01:19:26.509Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "heres-what-smart-people-are-saying-about-openais-headturning-tbpn-acquisition",
-    "title": "Here's what smart people are saying about OpenAI's head-turning TBPN acquisition",
-    "description": "OpenAI shocked many in Silicon Valley by buying tech talk show TBPN. Here's what smart people across the tech and media worlds are saying.",
-    "fullText": "OpenAI shocked many in Silicon Valley by buying tech talk show TBPN.\n Cohost John Coogan confirmed on his show that the deal was \"not an April Fool's joke.\"\n Here's what smart people across the tech and media worlds are saying about the deal.",
-    "readingTime": 1,
-    "keywords": [
-      "tech",
-      "deal"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/openai-tbpn-deal-what-people-are-saying-silicon-valley-altman-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cecc4dc02a678bd7e4782a?width=1200&format=jpeg",
-    "created_at": "2026-04-03T01:19:26.498Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "get-ready-for-a-wave-of-tbpn-clones-after-its-blockbuster-openai-deal",
-    "title": "Get ready for a wave of TBPN clones after its blockbuster OpenAI deal",
-    "description": "TBPN has inspired a set of new digital talk shows covering tech, advertising, and politics. More are on the way.",
-    "fullText": "OpenAI acquired the buzzy media startup TBPN on Thursday.\n TBPN inspired a set of new digital talk shows covering tech, advertising, and politics.\n OpenAI's deal could spark more livestream copycats.\n\n What inspired TBPN's show format?\n\n What challenges face livestream copycats?\n\n What makes a livestream talk show successful?\n\n How might OpenAI's deal influence media?\n\n How has TBPN influenced tech media?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "openai's deal",
-      "livestream copycats",
-      "media",
-      "inspired",
-      "talk",
-      "tech",
-      "tbpn"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/get-ready-for-wave-of-tbpn-clones-post-openai-deal-2026-4",
-    "thumbnail_url": "https://i.insider.com/69ced458c02a678bd7e478a9?width=1200&format=jpeg",
-    "created_at": "2026-04-03T01:19:26.416Z",
-    "topic": "finance"
   }
 ]
