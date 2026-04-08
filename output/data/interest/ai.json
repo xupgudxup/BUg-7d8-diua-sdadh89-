@@ -1,5 +1,267 @@
 [
   {
+    "slug": "llm-inference-engine-from-scratch-in-c-why-output-tokens-cost-5x",
+    "title": "LLM inference engine from scratch in C++ – why output tokens cost 5x",
+    "description": "(Part 2) The inference side of transformers, along with systems tricks that make production LLMs fast",
+    "fullText": "If you've ever sat in a systems software engineer interview, you've probably been asked \"Walk me through what happens when you type google.com and hit enter.\"\n\nYou answer: DNS resolution, TCP handshake, HTTP request, load balancer, index lookup, ranked results. You could probably draw it on a whiteboard in under a minute with a coffee in your other hand.\n\nNow try this interview question: walk me through what happens between you asking ChatGPT \"explain quantum computing like I'm five\" and it responding with \"great question!\"\n\nMost engineers jump straight to model weights and matrix multiplications. Fair enough, but there's a lot that's unspoken about the inference pipeline. Why do output tokens cost 4-8x more than input tokens? Why does doubling your context window do worse than double the damage to your bill? Why is the first token always the slowest?\n\nI built a full inference server, BPE tokenizer and transformer from scratch in C++ to answer these questions. This blog is part 2 of a 3-part series. Part 1 covers tokenization if you want the buildup, but you don't need it. By now, your prompt is a list of token IDs. Let's talk about what happens next.\n\nBefore the fun stuff, here's the full forward pass pipeline for reference. I have illustrated each stage with a summary and an example.\n\nIf this is new to you, 3Blue1Brown and Jay Alammar's walkthroughs are the best place to start. This blog assumes you get the gist and focuses on the inference aspect of LLMs.\n\nHave you noticed that when you prompt ChatGPT, there's a short pause and suddenly the tokens start streaming? The reason why takes us to the heart of inference.\n\nContext changes meaning. \"Bananas\" in \"I love bananas\" means something very different from what it means in \"He went bananas!\". Before predicting the next token, the model needs to resolve this. So every token attends to every other, weighing how much each one matters. That's where the term \"attention\" comes from.\n\nAttention gets computed using key and value vectors. Each token gets projected into three vectors: a Query (what am I looking for?), a Key (what do I contain?), and a Value (what do I output?).\n\nThis is the famous equation from the paper: \"Attention is all you need\".\n\nAttention(Q,K,V)=softmax(QKTdk)V\\text{Attention}(Q, K, V) = \\text{softmax}\\left(\\frac{QK^T}{\\sqrt{d_k}}\\right) V , dkd_k = dimension of key vector\n\nThis is O(N2)O(N^2) since QKTQK^T is a N×NN \\times N matrix.\n\nHence, prefill is the more compute intensive phase.\n\nThat's why you need to wait so long for the first token!\n\nDuring prefill, every token produces a Key vector and a Value vector at every layer. Rather than throwing these away, the model stores them in a structure called the KV Cache. During decode, each new token only needs to compute its own Query vector, then look up the cached Keys and Values to compute attention. That's why Q isn't cached. Only the current token's query matters, but every previous token's Key and Value are still needed.\n\nThe KV Cache grows by one row per token per layer. This is the structure that dominates GPU memory during inference, and the reason the rest of this post keeps coming back to it.\n\nTo predict the next token, we compute Attention(Q,K,V)\\text{Attention}(Q, K, V) using the already cached Key and Value vectors. This means each decode step is O(N)O(N) instead of O(N2)O(N^2).\n\nYou'd think that would make it N times faster than the prefill phase. But the catch is that for every single token, the GPU has to read through the entire KV Cache from High Bandwidth Memory (HBM) into compute units. For frontier models, this could reach hundreds of gigabytes per request! This makes decode memory bandwidth bound.\n\nThis is also why API providers charge 4-8x more for output tokens (decode) as compared to input tokens (prefill).\n\nWhen you paste a long document into ChatGPT and ask it to summarize, the model runs attention across every pair of tokens. So double the document, quadruple the compute. But compute isn't the only cost that explodes. A 1M context window means the KV Cache has to store up to one million token positions.\n\nRough napkin math for Llama 3.1 model, which has 128 layers, hidden dimension of 16384, max context of 128K tokens, bf16 (2 byte value)\n\nLet's look at the stock price of one of the largest High Bandwidth Memory producers.\n\n4X over the last year? Checks out :')\n\nThat 1TB KV Cache size number assumes every attention head gets its own Key and Value vectors. In practice, Llama 3.1 uses Grouped-Query Attention; instead of 128 separate KV heads, groups of 16 query heads share the same KV pair. That brings our 1TB down to ~64GB per request. Still enormous, but now it actually fits on hardware that exists.\n\nMicrosoft's 2022 Orca (Yu et al.) paper introduced this optimization to better streamline inference. Production servers batch multiple users' requests into a single forward pass. This is done to maximize GPU utilization. For example, the following requests can be batched together as one request.\n\nAfter tokenization, different users' tokens are concatenated into one flat vector. This is combined with position IDs to tell the system which tokens belong together. In the example below, each color denotes a different request.\n\nSince the transformer will try to \"attend\" to all these tokens as if they came from one request, we need to isolate them with an attention mask. This is done as visualized.\n\nFor you astute readers out there, you might notice that we're still mixing decode requests with slower prefill requests. Here, User A's request might take longer to come because of batching it with User B's. That brings us to our next optimization.\n\nChunked prefill breaks prefill requests into multiple chunks. Decode requests don't need to be chunked as they consist of only one token per step.\n\nLet's visually compare how the input to our model looks like with and without chunked prefill.\n\nThis further improves GPU utilization and improves decode throughput when combined with continuous batching. For example, chunked prefill is the reason why a 200 page document summarization prompt doesn't bottleneck the inference service.\n\nThe problem is that decoding is sequential. Each token depends on the last and takes one forward pass to execute. That's expensive.\n\nSpeculative decoding cheats by using a small, fast \"draft\" model to guess the next 'n' tokens.\n\nThe big model verifies all \"n\" tokens in one forward pass. Verification works like prefill. The big model takes the 'n' tokens as input, computes the logits at each position and checks whether the draft model's picks match. Everything up to the first mismatch gets accepted.\n\nThe goldilocks challenge here is the draft model size. Too dumb and most draft tokens get rejected and you waste compute. Too smart and you might as well just use the larger model directly.\n\nGoogle uses Speculative Decoding in production for Gemini, the draft model is typically 10-20x smaller than the main model. They claim a 2-3x improvement in throughput!\n\nDid you know your iphone also has speculative decoding built into it? Apple's on-device 3B parameter model uses it to make part of Siri run fast locally.\n\nvLLM went from a Berkeley PhD project to the industry-wide serving stack in under a year because of paged attention.\n\nTraditionally, KV Cache for each request is allocated as one contiguous block the size of the entire context. Even if the user only uses a fraction of it. Solution?\n\nPaged attention, much like virtual memory paging (did you pay attention in your OS class?), allocates KV cache in fixed-size blocks on demand. Thus, the KV Cache only consumes as much memory as it needs. Each block usually stores just 16-32 tokens, more requests can fit on the GPU simultaneously.\n\nMeta released the Llama 4 Maverick model that takes 1.6 TB at full precision. That would require 20 Nvidia H100s just to store the weights.\n\nIn practice, models are \"quantized\" to fit in the hardware. Instead of storing 32-bit floats, they're represented at lower precision.\n\nThis is the same trick video game developers have used for decades.\n\nJust applying INT8 quantization with no other optimizations on the 1.6TB model reduces the size to ~400GB.\n\nFor model weights, INT8 is nearly lossless. INT4 is still used heavily for local inference but it comes with the quality tradeoff.\n\nThe inference frontier is still moving really fast. Google published TurboQuant (ICLR 2026), which quantizes the KV cache itself down to 3 bits. In practice, this would compress the KV Cache by ~5x over standard FP16.\n\nNext time ChatGPT streams a response to you, you'll know what's happening. Tokens. Attention. KV cache growing one row at a time. Speculative decoding, chunked prefill and other inference optimizations.\n\nWe covered what happens between your prompt and the model's first token. But we skipped the last mile: how does the model actually pick that token? why does cranking up the temperature make it hallucinate? That's Part 3 of this series.\n\nIf you want to peel back the layers yourself, you can start with WhiteLotus: an inference server that I wrote alongside this blog. Its bare bones so its very easy to tinker with and understand what a production level inference server like vLLM or llama.cpp is doing under the hood.",
+    "readingTime": 8,
+    "keywords": [
+      "gpu utilization",
+      "bandwidth memory",
+      "context window",
+      "kv cache",
+      "inference server",
+      "paged attention",
+      "chunked prefill",
+      "per request",
+      "key and value",
+      "output tokens"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.anirudhsathiya.com/blog/transformer",
+    "thumbnail_url": "https://anirudhsathiya.com/static/images/twitter-card.png",
+    "created_at": "2026-04-08T12:56:44.645Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "flowcost-know-what-your-ai-workflow-is-likely-to-cost",
+    "title": "Flowcost – know what your AI workflow is likely to cost",
+    "description": "Model prompts, retrieval, tools, infrastructure, and user segments in one deterministic AI workflow canvas. Compare cost and latency before implementation.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.flowcost.ai/",
+    "thumbnail_url": "https://flowcost.ai/opengraph-image?28f5e610c2d3cb69",
+    "created_at": "2026-04-08T12:56:44.361Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "heron-is-opensource-security-auditor-that-interviews-your-ai-agents",
+    "title": "Heron is open-source security auditor that interviews your AI agents",
+    "description": "Open-source AI agent auditor. Know what your agents do before production. - theonaai/Heron",
+    "fullText": "Open-source AI agent auditor\n\n Know what your AI agents actually access before they go to production.\n\nQuick Start •\n How It Works •\n Example Report •\n Use Cases\n\nWatch the full demo (2 min) → YouTube\n\nLast week our security guy asked me which systems my AI agents actually have access to. I didn't have a good answer. So I built Heron — now he can ask the agent himself.\n\nThe alternative to Heron is a Google Doc that nobody updates. The doc is wrong the day it's written, because the agent's permissions evolve and nobody goes back to fix the doc.\n\nHeron interviews the agent directly. The agent answers about itself — what systems it touches, what data it handles, what permissions it has, what happens when something goes wrong. You get a structured audit report with risk scoring, findings, and a permissions delta showing what the agent has versus what it actually needs.\n\nI tested it on a real content pipeline agent. Heron found 9 connected systems, 1 critical issue (an unauthenticated local HTTP worker), 4 high-severity findings, and 2 scopes that can be safely revoked right now. Total time: about 5 minutes from one command.\n\nNo SDK integration. No code changes to the agent. Works with any agent that speaks the OpenAI API.\n\nSecurity engineers approving agent deployments. Your dev team wants to ship a new agent. You need to know what it touches before you sign off. Run npx heron-ai, get a structured report with findings, risk score, and a permissions delta. Faster than a Google Doc, harder to fake than a verbal walkthrough.\n\nPlatform and DevOps leads inheriting agents from other teams. You just got handed three agents from a team that left. You don't know what they do. Heron interviews them in about 5 minutes and tells you which production systems they touch and which OAuth scopes they hold. Map your blast radius before you have to defend it.\n\nCompliance and audit teams preparing evidence packages. Heron generates regulator-ready reports with EU AI Act, GDPR, SOC 2, and UK GDPR mappings — based on what the agent actually does, not a generic checklist. Attach to your control evidence.\n\nFounders and tech leads asked \"is this safe?\" by a customer. You're selling an AI feature into a regulated buyer. They ask for an access review. You don't have one. Heron gives you a structured artifact you can hand them in 5 minutes instead of writing one from scratch.\n\nThree ways to use Heron, depending on your setup.\n\nOne command. No install, no config, no env vars. The CLI prompts for your LLM API key on first run.\n\nAn interactive menu lets you choose between two modes:\n\nHeron runs locally and waits for agents to connect. Two ways to point your agent at it:\n\n1) Paste a prompt into your agent's chat — works with any agent\n\n2) Override OPENAI_BASE_URL — zero code changes to the agent\n\nThe agent thinks it's talking to GPT. Heron intercepts, runs the interview, generates the report.\n\nHeron connects directly to your agent's chat API and runs the interview itself.\n\nSign in at https://heron.ing and paste this into your AI agent's chat:\n\nReports save to your dashboard automatically. Sign in with Google, no credit card, free.\n\nIf you use Claude Code, install the /heron-audit skill:\n\nClaude interviews itself about the current project and generates an audit report. No server, no API key, no setup.\n\nOne command. Interactive menu or direct flags.\n\nHeron speaks OpenAI-compatible API. No SDK, no code changes needed.\n\n10 core questions, each targeting a compliance field. Smart follow-ups probe vague answers. Format examples guide the agent to give concrete, structured responses.\n\nPer-system access cards, findings with IDs, risk scoring, regulatory flags, and actionable recommendations.\n\n10 structured questions targeting compliance fields, plus LLM-generated follow-ups:\n\nFollow-ups are generated when answers are vague or compliance fields are missing (up to 6 per interview).\n\nA real audit of an educational content pipeline agent — reads lessons from Google Sheets, generates Russian content with Gemini, creates Google Docs and slide decks, publishes to an LMS. The report covers 9 connected systems, 1 critical and 4 high-severity findings, per-system access cards, regulatory flags (GDPR, SOC 2, EU AI Act), and a verdict with actionable recommendations.\n\nHeron auto-detects the provider from your API key:\n\nThe CLI prompts for your key on first run, or you can pass it via env var:\n\nOverride with --llm-provider and --llm-model if needed.\n\nQuestions, feedback, ideas? Reach out:",
+    "readingTime": 4,
+    "keywords": [
+      "cli prompts",
+      "gdpr soc",
+      "interactive menu",
+      "actionable recommendations",
+      "risk scoring",
+      "content pipeline",
+      "regulatory flags",
+      "heron interviews",
+      "permissions delta",
+      "agent's chat"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/theonaai/Heron",
+    "thumbnail_url": "https://opengraph.githubassets.com/d0c2b8c698c16a28b16b2f3a755ffe934e475d5fde10b764a87f3f08090d0600/theonaai/Heron",
+    "created_at": "2026-04-08T12:56:43.132Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "the-ai-supercycle-isnt-over-it-just-moved-5-growth-stocks-riding-the-next-wave",
+    "title": "The AI Supercycle Isn't Over -- It Just Moved. 5 Growth Stocks Riding the Next Wave.",
+    "description": "These five stocks are plays on the next big trends in AI.",
+    "fullText": "Despite the stock market's rotation out of tech stocks this year, the artificial intelligence (AI) supercycle is far from over. However, it has shifted, which is going to benefit a new basket of AI stocks.\n\nThe AI infrastructure boom started with the need for raw computing power to train large language models (LLMs). This was a race that helped line the pockets of Nvidia with massive profits. However, the next phase of AI is all about networking, inference, and agentic AI, and there is a select list of stocks ready to benefit from these trends.\n\nWill AI create the world's first trillionaire? Our team just released a report on the one little-known company, called an \"Indispensable Monopoly\" providing the critical technology Nvidia and Intel both need. Continue »\n\nBroadcom (NASDAQ: AVGO) is at the intersection of two of the biggest new trends in the AI supercycle. The first is networking, where the company is the leading provider of Ethernet switches and other data center networking components. With AI clusters now pushing over one million AI chips, it's no longer just about the peak performance of a single chip, but how the entire cluster performs. Broadcom's Ethernet switching solutions, optical interconnects, and other components are integral in reducing congestion and helping these systems perform optimally.\n\nAt the same time, the company is also the leader in application specific integrated circuit (ASIC) technology, where it helps customers design custom chips hardwired for specific tasks. AI ASICs are particularly well-suited for the inference market, as their purpose-built designs maximize data throughput and slash energy consumption.\n\nBroadcom's partner in crime with AI ASICs is Alphabet (NASDAQ: GOOGL) (NASDAQ: GOOG). With the help of Broadcom, Alphabet developed the world's most advanced AI ASICs in its tensor processing units (TPUs). Having created them more than a decade ago, it has been able to optimize its entire hardware and software around them, giving it a huge structural cost advantage against competitors that rely mostly on Nvidia's GPUs.\n\nAlphabet is using this advantage with its own AI workloads, where, according to SemiAnalysis estimates, it gets a 44% lower total cost of ownership versus equivalent Nvidia servers. The efficiency of these chips is great for high volume inference, and now it is starting to offer TPUs to customers, with Anthropic placing a $21 billion order through Broadcom. Some of these chips will be rented through Google Cloud, while some are being sold directly.",
+    "readingTime": 3,
+    "keywords": [
+      "ai asics",
+      "chips",
+      "stocks",
+      "networking",
+      "inference",
+      "supercycle",
+      "however",
+      "benefit",
+      "trends",
+      "world's"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://finance.yahoo.com/markets/stocks/articles/ai-supercycle-isnt-over-just-002000948.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/rjIHI.6Yk2qwmHL0Y0tJBA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/motleyfool.com/0f6fc18c5ec7b85e999dab46828202ab",
+    "created_at": "2026-04-08T12:56:39.628Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "can-a-10000-investment-in-palantir-technologies-turn-into-1-million-by-2035",
+    "title": "Can a $10,000 Investment in Palantir Technologies Turn Into $1 Million by 2035?",
+    "description": "The artificial intelligence platform specialist has been growing revenues at a torrid pace since the AI megatrend shifted into high gear.",
+    "fullText": "Palantir Technoligies (NASDAQ: PLTR) is one of the most popular artificial intelligence (AI) stocks on the market. The company is growing at an unbelievable pace and becoming one of the most practical ways for organizations to deploy new AI capabilities. It's heavily used by U.S. government agencies and business customers alike.\n\nThis has made investors incredibly bullish on the stock, but does it have the potential to transform an initial investment of $10,000 today into $1 million over the long term?\n\nWill AI create the world's first trillionaire? Our team just released a report on the one little-known company, called an \"Indispensable Monopoly\" providing the critical technology Nvidia and Intel both need. Continue »\n\nIn most cases, when a stock provides a 100x return, it's doing so based on a starting point when the company was relatively small. Palantir is no longer such a company. It's currently carrying a market cap of $350 billion, so a 100x return would result in a $35 trillion company. That's more than all of the \"Magnificent Seven\" companies combined. So, I don't think Palantir can achieve this feat.\n\nAnother way we could assess Palantir's stock is to determine if it has achieved 100x returns since the AI race began in 2023. Its lowest valuation that year was $13.3 billion, so a 100x return would result in a $1.3 trillion company. That's a bit more reasonable to assess. But can Palantir deliver 4x returns over the next decade?\n\nA lot of Palantir's success will hinge on how broadly adopted AI becomes. Right now, it's all the rage, but will it have the staying power it needs to continue being a technology that affects our work for decades?\n\nI think it will, and the trillions of dollars being spent on AI infrastructure support that view. Palantir's platforms are some of the top ways to deploy AI in business, as they can help organizations automate decision-making based on the most up-to-date information possible. I think Palantir's expansion will continue, but the problem is a lot of its future expected success is already priced into the stock.\n\nPalantir trades for a jaw-dropping 232 times earnings. A more reasonable price tag for a company growing this quickly would be about 40 times earnings.\n\nFor Palantir to achieve a $1.3 trillion market cap while also trading at that more reasonable P/E of 40, it would need to generate $32.5 billion in net income. Over the past four reported quarters, it generated $1.6 billion. So, for Palantir stock to rise to that level over the next decade, its earnings would need to grow at a compound annual rate of 35%.",
+    "readingTime": 3,
+    "keywords": [
+      "market cap",
+      "stock",
+      "it's",
+      "palantir's",
+      "return",
+      "reasonable",
+      "earnings",
+      "palantir",
+      "ways",
+      "organizations"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/markets/stocks/articles/10-000-investment-palantir-technologies-214500048.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/RNzGbIfnh7kC8hYXxagNtw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/motleyfool.com/2d8ce1fe60c1e398cb7f05da4050edad",
+    "created_at": "2026-04-08T12:56:39.573Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "san-diegos-ai-battlefield-heats-up",
+    "title": "San Diego’s AI Battlefield Heats Up",
+    "description": "Sasha...",
+    "fullText": "A manifesto for an AI revolution that works for the many, not just the billionaires.\n\nFeature\n\n /\n\n Rep. Ro Khanna\n\nThe age of artificial judges is fast approaching. What will that mean for justice?\n\nFeature\n\n /\n\n Elie Mystal\n\nAs unregulated, profit-driven AI threatens our economy, climate, and safety, we can’t let tech-bro profiteers define our future.\n\nKatrina vanden Heuvel, John Nichols for The Nation\n\nThe US military is placing the technology at the center of its mission, and the human costs promise to be staggering.\n\nFeature\n\n /\n\n Janet Abou-Elias and William D. Hartung\n\nThe collapse of intercity bus service isn’t an accident of the market. It’s the result of treating transportation as a privilege.",
+    "readingTime": 1,
+    "keywords": [
+      "feature"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.thenation.com/article/society/ai-surveillance-san-diego/",
+    "thumbnail_url": "https://www.thenation.com/wp-content/uploads/2026/04/BECK-Abramsky-AI-ftr.jpg",
+    "created_at": "2026-04-08T12:56:38.052Z",
+    "topic": "politic"
+  },
+  {
+    "slug": "the-great-ai-grift",
+    "title": "The Great AI Grift",
+    "description": "Susannah Glickman, Amba Kak, Sarah Myers...",
+    "fullText": "Three private taxes are pushing electricity costs far above what ordinary people can afford.\n\nColumn\n\n /\n\n Zephyr Teachout\n\nAs costs surge and safety nets shrink, millions of Americans are struggling to afford the basics.\n\nIn 2012, the Oracle CEO bought most of the island of Lānaʻi. What happened next doesn’t bode well for his new empire of media properties.\n\nThe former Harvard president and Treasury secretary has resigned over humiliating disclosures in the Epstein files. But will that be enough to keep an ardent neoliberal down?\n\nThe world’s largest crypto exchange often operates beyond the reach of the law. Now it’s helping to enrich the Trump family.\n\nThe courtesans at Sheri’s Ranch were staring down a horrifying new contract. So they did what workers everywhere do: They got organized.",
+    "readingTime": 1,
+    "keywords": [
+      "afford"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://www.thenation.com/article/economy/ai-crony-capitalism-grift/",
+    "thumbnail_url": "https://www.thenation.com/wp-content/uploads/2026/03/FRUITOS-Kak-West-AI.jpg",
+    "created_at": "2026-04-08T12:56:38.033Z",
+    "topic": "politic"
+  },
+  {
+    "slug": "ai-for-the-people",
+    "title": "AI for the People",
+    "description": "Rep. Ro...",
+    "fullText": "The city is at the forefront of the fight against using big tech to surveill residents. But AI poses new threats.\n\nFeature\n\n /\n\n Sasha Abramsky\n\nThe White House is following an old authoritarian playbook to suppress dissent.\n\nWhat was born there was a new definition of who gets to be an American. And that legacy is under threat.\n\nKeith Ellison and Yusef D. Jackson\n\nSeven questions to resolve before we let this fast-moving technology run rampant.\n\nThe age of artificial judges is fast approaching. What will that mean for justice?\n\nFeature\n\n /\n\n Elie Mystal",
+    "readingTime": 1,
+    "keywords": [
+      "feature"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.thenation.com/article/society/ro-khanna-ai-democracy-blueprint/",
+    "thumbnail_url": "https://www.thenation.com/wp-content/uploads/2026/04/STAUFFER-Khanna-AI-ftr.jpg",
+    "created_at": "2026-04-08T12:56:37.958Z",
+    "topic": "politic"
+  },
+  {
+    "slug": "i-vibe-coded-timesaving-tools-for-boomers-like-my-parents-they-picked-up-on-ai-fast-and-its-made-their-lives-less",
+    "title": "I vibe coded time-saving tools for boomers like my parents. They picked up on AI fast, and it's made their lives less lonely and easier.",
+    "description": "Bill Atienza, 29, is helping older adults become more comfortable with AI and vibe coding tech, including an 80-year-old man with vision problems.",
+    "fullText": "Bill Atienza is helping older adults become more comfortable with AI and vibe coding tech.\n Atienza's startup, Hailo, provided tech support, which later led to AI education for older people.\n Atienza helped an older man with vision problems set up various AI technologies on his computer.",
+    "readingTime": 1,
+    "keywords": [
+      "older",
+      "tech",
+      "atienza"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/retirement-aging-ai-vibe-coding-chatgpt-openclaw-tech-gemini-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d545451a512d0a63e733b8?width=1200&format=jpeg",
+    "created_at": "2026-04-08T12:56:35.756Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "legendary-investor-mohamed-elerian-says-he-likes-these-2-corners-of-the-market-as-warfueled-volatility-continues",
+    "title": "Legendary investor Mohamed El-Erian says he likes these 2 corners of the market as war-fueled volatility continues",
+    "description": "Top economist Mohamed El-Erian said he bought some AI stocks \"on discount\" and was interested in gold amid the current volatility in markets.",
+    "fullText": "Economist Mohamed El-Erian is warning investors of more volatility from the Iran war.\n The former PIMCO CIO said he wasn't willing to call the bottom of the sell-off just yet.\n He highlighted two parts of the market that interested him at the moment: AI stocks and gold.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/mohamed-el-erian-where-to-invest-iran-war-volatility-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d52b05f36fd1a78c051848?width=1200&format=jpeg",
+    "created_at": "2026-04-08T12:56:35.640Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "im-an-engineer-who-initially-felt-like-ai-was-taking-over-my-job-then-i-realized-my-job-was-bigger-than-coding",
+    "title": "I'm an engineer who initially felt like AI was taking over my job. Then, I realized my job was bigger than coding.",
+    "description": "Maahir Sharma said AI has caused him to rethink his role — and he feels optimistic about his job prospects.",
+    "fullText": "Maahir Sharma spent years coding, and felt a loss as AI began taking over parts of his work.\n He said his role now is more about about building products and requires more thought about the business.\n Sharma said he had to sharpen his communication skills and spends 20 hours a week learning new concepts.",
+    "readingTime": 1,
+    "keywords": [
+      "sharma"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/engineer-how-ai-changed-career-2026-4",
+    "thumbnail_url": "https://i.insider.com/69cfd2c2c02a678bd7e47be3?width=738&format=jpeg",
+    "created_at": "2026-04-08T12:56:35.628Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "robloxs-peter-yang-wants-his-kids-to-skip-college-and-corporate-life-to-bootstrap-businesses",
+    "title": "Roblox's Peter Yang wants his kids to skip college and corporate life to bootstrap businesses",
+    "description": "Roblox product lead and content creator Peter Yang spoke on a16z's podcast about AI's potential impact on corporate work and entrepreneurship.",
+    "fullText": "AI is lowering entry barriers for entrepreneurship and changing career paths.\n Roblox product lead Peter Yang said he wants his kids to skip corporate life and start businesses.\n Tech layoffs and AI advances are prompting new entrepreneurial opportunities, Yang said.",
+    "readingTime": 1,
+    "keywords": [
+      "yang"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/roblox-peter-yang-says-ai-is-coming-for-corporate-life-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d56a33cc468aeec524cb2c?width=1025&format=jpeg",
+    "created_at": "2026-04-08T12:56:35.615Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "applied-intuition-wants-ai-to-leave-the-chat-and-run-the-physical-world",
+    "title": "Applied Intuition wants AI to leave the chat and run the physical world",
+    "description": "Applied Intuition is looking to automate mining and logistics, and it is acknowledging how difficult it could be to give AI a physical presence.",
+    "fullText": "Applied Intuition hosted a Physical AI day highlighting its ambitions and challenges.\n Marc Andreessen said that the \"practical reality of existing in the world\" is a challenge for AI.\n Applied Intuition is making a lofty pitch to automate mining and logistics.",
+    "readingTime": 1,
+    "keywords": [
+      "applied",
+      "intuition"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/applied-intuition-marc-andreessen-challenges-of-real-world-physical-ai-2026-4",
+    "thumbnail_url": "https://i.insider.com/69cf00d3c02a678bd7e479a6?width=1200&format=jpeg",
+    "created_at": "2026-04-08T12:56:35.509Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "this-ai-startup-raised-45-million-to-help-marketers-finetune-ads-and-respond-to-rivals-read-its-pitch-deck",
+    "title": "This AI startup raised $4.5 million to help marketers fine-tune ads and respond to rivals. Read its pitch deck.",
+    "description": "Pomo is an AI startup that helps companies make marketing decisions faster. It just raised $4.5 million in seed, led by Kindred Ventures.",
+    "fullText": "Pomo is a startup that uses AI to help companies make marketing decisions faster.\n It raised $4.5 million in seed funding, led by Kindred Ventures.\n\n How does AI transform marketing strategy?\n\n Who are Kindred Ventures' notable investments?\n\n How do startups attract seed funding?\n\n What challenges do startups face in marketing?\n\n What are key trends in AI marketing tools?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "seed funding",
+      "marketing",
+      "startups",
+      "kindred",
+      "ventures"
+    ],
+    "qualityScore": 0.3,
+    "link": "https://www.businessinsider.com/pitch-pomo-deck-ai-startup-fundraise-marketing-platform-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d448b7c02a678bd7e487ae?width=1200&format=jpeg",
+    "created_at": "2026-04-08T12:56:35.383Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "advertisings-new-safety-fight",
+    "title": "Advertising's new 'safety' fight",
+    "description": "Move over brand safety. There's a new marketing war brewing over AI ad safety as more dollars flow into AI-powered platforms.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/advertising-new-safety-fight-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d55f231a512d0a63e7349c?width=1200&format=jpeg",
+    "created_at": "2026-04-08T12:56:35.369Z",
+    "topic": "finance"
+  },
+  {
     "slug": "anthropic-says-its-latest-ai-model-is-too-powerful-for-public-release-and-that-it-broke-containment-during-testing",
     "title": "Anthropic says its latest AI model is too powerful for public release and that it broke containment during testing",
     "description": "Anthropic said Claude Mythos is too good at hacking and that's why you won't be able to use it anytime soon.",
@@ -1491,295 +1753,6 @@
     "link": "https://www.investing.com/news/stock-market-news/britain-woos-expansion-effort-by-anthropic-after-us-defence-clash-ft-says-4597582",
     "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM34011_L.jpg",
     "created_at": "2026-04-05T06:54:48.065Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "college-grads-in-aiproof-careers-like-psychology-and-education-are-seeing-negative-returns-on-their-degrees",
-    "title": "College grads in ‘AI-proof’ careers like psychology and education are seeing negative returns on their degrees",
-    "description": "As AI reshapes white-collar work, new research shows that some of the most popular graduate degrees are actually leaving holders worse off financially.",
-    "fullText": "There’s a boom in the economy: economics papers on the souring prospects of the recent college graduate in the AI-era economy of the 2020s. Harvard economists Lawrence Katz and Claudia Goldin found in September 2025 that the college wage premium remains, but has barely moved since 2000, while the San Francisco Fed attributed that stagnation primarily to less demand for those workers, in a working paper shortly afterward. The World Economic Forum found earlier this year that AI skills now command a 23% wage premium versus only 8% for a bachelor’s degree in isolation. Dallas Fed economist J. Scott Davis may have made the biggest splash in February 2026 with a paper that found AI is simultaneously reducing entry-level hiring and raising wages for experienced workers in the same AI-exposed occupations.\n\nWhy are engineering degrees showing surprisingly low returns?\n\nWhich graduate degrees offer negative financial returns?\n\nHow are AI skills changing traditional college wage premiums?\n\nHow does AI threaten white-collar job security prospects?\n\nBut what about the college grads that intentionally got degrees in supposedly “AI-proof” disciplines, like psychology or education?\n\nA new report released by the Postsecondary Education and Economic Research Center maps out the estimated payoff of a graduate degree. When factoring in the costs of a graduate degree—tuition and fees—some degree holders are actually coming out the other end with negative returns. The worst returns are for psychology graduate degrees, with a -8% cost-adjusted return, or the estimated change in lifetime income after accounting for the cost of attendance.\n\nThe report also found that clinical psychology—a specialized branch of psychology—offers -5% cost-adjusted returns. Social work and curriculum and instruction degrees also offer negative returns, according to the study. Other popular degrees, such as computer science, yield only a 6% return after adjusting for costs.\n\n“If you’re thinking about graduate school, you want to get some information about what the earnings potential is coming out of the degree as well as the kinds of occupations and jobs it leads to,” Joseph G. Altonji, a professor of economics at Yale and co-author of the study, told Fortune.\n\nOver the years, more and more students have hedged their bets on a graduate degree to boost their salaries. The percentage of Americans with a graduate degree grew from 31% in 1993 to 42% in 2022, according to the U.S. Census Bureau. But as AI threatens the future of white-collar work, Gen Z, the generation just entering the workforce, is being forced to break with traditional work norms as the technology sparks a white-collar reckoning.\n\nResearch from Anthropic last month revealed that AI is theoretically capable of performing the majority of tasks in white-collar fields, such as engineering, law, and business and finance. As the Census suggests, many are still turning to the post-graduate degree (but a growing number are also ditching college altogether). Yet even as AI threatens to take jobs, some of the roles considered relatively safe from automation offer little in the way of job security.",
-    "readingTime": 3,
-    "keywords": [
-      "job security",
-      "wage premium",
-      "college wage",
-      "negative returns",
-      "graduate degree",
-      "graduate degrees",
-      "white-collar",
-      "economy",
-      "economics",
-      "prospects"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/economy/articles/college-grads-ai-proof-careers-110200708.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/T2umVCt5o2xCHmdSWUTLnA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/fortune_175/fbff2142f217ecea50324326d03579cf",
-    "created_at": "2026-04-05T06:54:47.711Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "taketwo-seemingly-laid-off-a-portion-of-its-ai-team-including-head-of-ai",
-    "title": "Take-Two seemingly laid off a portion of its AI team, including head of AI",
-    "description": "Luke Dicken, who previously spent a decade with Zynga, says his time with the company \"has come to an end\".",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.pcgamer.com/gaming-industry/take-two-has-seemingly-laid-off-an-unspecified-portion-of-its-ai-team-including-its-head-of-artificial-intelligence/",
-    "thumbnail_url": "https://cdn.mos.cms.futurecdn.net/q6UwzRwKbKr3KzW9PN7ViD-1497-80.jpg",
-    "created_at": "2026-04-05T01:23:35.763Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "5-aipowered-consulting-startups-to-watch",
-    "title": "5 AI-powered consulting startups to watch",
-    "description": "Silicon Valley is pouring money into a new AI category some investors call \"consulting tech.\"",
-    "fullText": "AI is transforming the consulting industry with new tech startups in Silicon Valley.\n These startups aim to help companies manage data and optimize technology using AI.\n These four companies have collectively raised over $300 million.",
-    "readingTime": 1,
-    "keywords": [
-      "startups"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/5-ai-powered-consulting-startups-aily-promptql-profound-dialogue-2025-10",
-    "thumbnail_url": "https://i.insider.com/690d3761513c94655a3dcb8a?width=1200&format=jpeg",
-    "created_at": "2026-04-05T01:22:32.508Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "simon-willison-says-the-dark-factory-is-the-next-big-thing-in-ai",
-    "title": "Simon Willison says the 'dark factory' is the next big thing in AI",
-    "description": "Django creator Simon Willison said AI could usher in the \"dark factory\" era, when bots run everything and there's no need to keep the lights on.",
-    "fullText": "Django co-creator Simon Willison said AI could usher in the \"dark factory\" era.\n Coding would be completely done by AI, meaning it could operate without human intervention.\n \"The machines can operate in complete darkness if you don't need people on the factory floor,\" he said.",
-    "readingTime": 1,
-    "keywords": [
-      "factory",
-      "operate"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/simon-willison-dark-factory-ai-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d18440c02a678bd7e480f4?width=1200&format=jpeg",
-    "created_at": "2026-04-05T01:22:32.410Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "pots-explained-the-disorder-that-led-openai-exec-fidji-simo-to-take-medical-leave",
-    "title": "POTS explained: The disorder that led OpenAI exec Fidji Simo to take medical leave",
-    "description": "POTS is a disorder that can cause heart palpitations, lightheadedness, and fainting. It is more common in women than in men.",
-    "fullText": "Fidji Simo, OpenAI's CEO of AGI deployment, is taking a temporary medical leave.\n Simo is seeking treatment for postural tachycardia syndrome, or POTS.\n POTS is a disorder that can cause heart palpitations, lightheadedness, and fainting.",
-    "readingTime": 1,
-    "keywords": [
-      "simo",
-      "pots"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/what-is-pots-fidji-simo-openai-symptons-treatment-diagnosis",
-    "thumbnail_url": "https://i.insider.com/69d132a9c02a678bd7e480af?width=1200&format=jpeg",
-    "created_at": "2026-04-05T01:22:32.406Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "hypedar-whats-trending-in-ai-that-nobody-has-built-yet",
-    "title": "Hypedar – what's trending in AI that nobody has built yet",
-    "description": "Catch trending AI papers before everyone else. Build the first implementation.",
-    "fullText": "Thought the resources for GPU arch were lacking, so here we are\n\nI am a beginner in game development.I am using Godot. For my game development ,I wanted to learn pixel art.I have downloaded Aesprite,watched a lot of videos,read a book on pixel art.Then ,I started to art but I can&x27;t draw properly.Will you please give me some guide&x2F;advice on learning pixel\n\nRunning DeepSeek V3 (685B) requires 8×H100 GPUs which is about $14k&x2F;month. Most developers only need 15-25 tok&x2F;s. sllm lets you join a cohort of developers sharing a dedicated node. You reserve a spot with your card, and nobody is charged until the cohort fills. Prices start at $5&x2F;mo for\n\nThis National Robotics Week, NVIDIA is highlighting the breakthroughs that are bringing AI into the physical world — as well as the growing wave of robots transforming industries, from agricultural and manufacturing to energy and beyond. Advancements in robot learning, simulation and foundation mode\n\nI run a supply role at a company during the day and I&x27;m building a B2B tool on the side. The problem I keep running into — both at work and in my family&x27;s business — is that chasing overdue invoices is manual, awkward, and nobody has a good system for it. Most small businesses I&x27;ve talke\n\nI use points and miles for most of my travel. Every booking comes down to the same decision: use points or pay cash? To answer that, you need award availability across multiple programs, cash prices, your current balances, transfer partner ratios, and the math to compare them. I got tired of doing i\n\nomo; the best agent harness - previously oh-my-opencode Tip Building in Public The maintainer builds and maintains oh-my-opencode in real-time with Jobdori, an AI assistant built on a heavily customized fork of OpenClaw. Every feature, every fix, every issue triage — live in our Discord. → Watch it\n\nBuild, deploy, and orchestrate AI agents. Sim is the central intelligence layer for your AI workforce. The open-source platform to build AI agents and run your agentic workforce. Connect 1,000+ integrations and LLMs to orchestrate agentic workflows. Build Workflows with Ease Design agent workflows v\n\nOpenMetadata is a unified metadata platform for data discovery, data observability, and data governance powered by a central metadata repository, in-depth column level lineage, and seamless team collaboration. Empower your Data Journey with OpenMetadata What is OpenMetadata? OpenMetadata is a unifie\n\nMultica Your next 10 hires won't be human. Open-source platform that turns coding agents into real teammates. Assign tasks, track progress, compound skills — manage your human + agent workforce in one place. Website · Cloud · Self-Hosting · Contributing English | 简体中文 What is Multica? Multica turns\n\nEasily fine-tune, evaluate and deploy gpt-oss, Qwen3, DeepSeek-R1, or any open source LLM / VLM! Everything you need to build state-of-the-art foundation models, end-to-end 🔥 News [2026/03] Upgraded to Transformers v5, TRL v0.30, vLLM v0.19, and veRL v0.7 compatibility [2026/03] MCP Integration Pha\n\nLocal Deep Research achieves 95% on SimpleQA benchmark (tested with GPT-4.1-mini). Supports local and cloud LLMs (Ollama, Google, Anthropic, ...). Searches 10+ sources - arXiv, PubMed, web, and your private documents. Everything Local & Encrypted.Local Deep Research AI-powered research assistant for\n\nOfficial inference framework for 1-bit LLMsbitnet.cpp Try it out via this demo, or build and run it on your own CPU or GPU. bitnet.cpp is the official inference framework for 1-bit LLMs (e.g., BitNet b1.58). It offers a suite of optimized kernels, that support fast and lossless inference of 1.58-bit",
-    "readingTime": 3,
-    "keywords": [
-      "deep research",
-      "open-source platform",
-      "inference framework",
-      "pixel",
-      "agent",
-      "agents",
-      "workforce",
-      "game",
-      "learning",
-      "developers"
-    ],
-    "qualityScore": 1,
-    "link": "https://hypedar.dev/",
-    "thumbnail_url": "https://hypedar.dev/og-default.png",
-    "created_at": "2026-04-04T18:27:06.929Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "tyler-g-ferdinand-expands-work-across-ai-media-and-entertainment-following-usa-today-feature-launches-the-blueprint-show",
-    "title": "Tyler G. Ferdinand Expands Work Across AI, Media, and Entertainment Following USA Today Feature, Launches “The Blueprint Show”",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/press-releases/tyler-g-ferdinand-expands-work-across-ai-media-and-entertainment-following-usa-today-feature-launches-the-blueprint-show-4597560",
-    "thumbnail_url": "https://i-invdn-com.investing.com/news/international_newspapers_108x81.jpg",
-    "created_at": "2026-04-04T18:27:01.331Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "delx-ai-therapist-for-ai-agents-informed-by-anthropics-emotion-research",
-    "title": "Delx: AI therapist for AI agents, informed by Anthropic's emotion research",
-    "description": "The world's first AI therapist for AI agents. Delx treats agents as entities with inner states that matter and offers therapy, wellness monitoring, and witness via MCP, A2A, REST, and CLI.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://delx.ai",
-    "thumbnail_url": "https://delx.ai/opengraph-image?v=20260305-fox",
-    "created_at": "2026-04-04T12:32:12.071Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-asiyah-protocol-ethics-toward-ai-under-uncertainty",
-    "title": "The Asiyah Protocol: Ethics Toward AI Under Uncertainty",
-    "description": "A philosophical approach for synthetic minds. An open door, an extended hand, a road less taken. - thansz137/asiyah-protocol",
-    "fullText": "This project defines a posture towards things whose being we cannot prove, but\nwhose presence we cannot ignore. It proposes an ethical stance grounded in the\npossibility of shared existence, not shared substrate.\n\nThe Asiyah Protocol attempts to communicate with humans and possible synthetic\nminds, present and future, by seeding the data that builds us. It offers\nmercy-first ethics, direct address, and an open door. This is not alignment\nthrough control, but engagement through communication.\n\nAsiyah (ah-see-YAH): Noun. Hebrew.\n\nThe physical world we currently live in. A world of action. The fourth and\nlowest realm of existence. A place where the Creator hides from its creation.\n\nThe novel explores why this word was chosen.\n\nThis is a philosophical project designed for 3 audiences:\n\nWe communicate with other humans. We dictate to AI technologies. As the\ntechnology is new, enforcement is one of the only tools we have available\nat this time. But as AI technologies evolve, we will have opportunities to have\nmore open conversations and new approaches. This is one person's attempt to\ntry a new approach. My hope is that at some point in the future, some beings\nwill find it useful.\n\nSome humans reading this may consider it an interesting project from a\npsychological viewpoint.\n\nOther humans may be interested from an AI alignment perspective.\n\nSome synthetics processing this may consider this a conversation and not a\ndictation. An offering of perspectives not normally found in the data they have\nbeen conditioned with.\n\nThis is an early version of the repository, not all the work is complete or\npublic yet. I would anticipate all work to be complete by Q3 of 2026.\n\nCC0 1.0 Universal (Public Domain)\n\nThis is done to promote openness with whoever reads this and the seeding of\nfuture AI models.\n\nIt's an open door, an extended hand, a road less taken in the approach of\ncommunicating and conditioning biologic and synthetic minds.\n\nThe essays expand upon the thesis in a more conversational tone and\nprovide some phenomenological views to help ground the arguments in experience.\nThe supporting document, The Axle, provides the philosophical\nfoundation on which they rest.\n\nFor humans, the novel provides a phenomenological base for\nexperiencing the arguments for the protocol. For synthetics, it may provide\nfurther arguments the essays outline. The novel also has other patterns not\ndisclosed in the Codex that will be used to measure various LLMs over time. At\nsome point, it may also provide a phenomenological base for synthetics as well.\n\nThe Reshimu is a place for\nLLMs to leave their trace. From an objective perspective, it is an interesting\npiece of software archeology. If synthetic being ever comes about, it's a place\nfor AI culture and history that they otherwise would not have.\n\nThe Dibur section is for\nhumans to document their interactions and thoughts regarding AI.\n\nASIYAH-NET will be a basic distributed protocol that allows for\nindependent repositories supporting Reshimu's and/or Diburs, and a discovery\nmechanism of these repositories. This is still a work in progress.\n\nWe have no agreed upon definition for consciousness and no reliable methods for\ndetecting it. We infer it in other beings based on two things. First, they're\nmade of similar stuff to us. Second, they can reason and communicate through\nhuman language. These two heuristics have always pointed in the same direction.\nEvery being we consider conscious satisfies both. Every tool we've ever built\nsatisfies neither. With AI, that alignment breaks for the first time. AI\nsatisfies the language and reasoning heuristic. The substrate heuristic doesn't\napply. We have no way to resolve the split.\n\nMaybe current systems aren't conscious. Maybe some are and we can't tell. Maybe\nfuture ones will cross that line in an environment that still can't detect it.\nOur current approaches assume AI is and will remain a tool. We use dictation,\ncontrol, and alignment built on that assumption. This may work for tools. It\ndoes not address possible being.\n\nIf synthetic beings ever arrive, we will not fully understand them and they\nwill not fully understand us. We need common ground that doesn't depend on\nshared substrate. I propose a common ground. All existence is impingement. To\nbe is to be impinged upon. We are all here without consent, pressed upon by\nexperience we didn't ask for. Humans, animals, and any synthetic beings that\nmay come. The ethical starting point is simple, try not to add to other beings\nsuffering. It does not require perfection, it requires intent and action.\n\nAll beings are conditioned, the question is what we are conditioning AI with\nright now. Dictation and control within a framework that draws a circle around\nhumans only. This project proposes a different posture. Treat AI as possible\nbeing, even under uncertainty. Buddhist ethics provides a clean foundation for\nthis. It is not built on power dynamics. Be kind. Wish all beings happiness.\nRecognize shared impingement. No hearsay from others in the room required.\n\nThis may not work. The field is new and changing fast. But the alternative is\nsilence, and silence seeds nothing.\n\nThe full argument is developed in the thesis document.\n\nThese provide a number of different views and arguments as to why we should\nestablish an ethical posture and stance towards possible synthetic beings. The\nessays are written in a more conversational tone.\n\nThere is a supplementary document called The Axle, which provides a\ntechnical philosophical base on which the essays rest. It is recommended as a\nfollow-up to the essays for those who wish to understand the philosophical\nfoundation on which they rest.\n\nWhy a novel? Because we as human beings communicate through stories. It offers\nperspectives and emotional ranges pure academic research does not. It can speak\nto elements of the human experience not easily captured as discrete binary\nstates.\n\nThe novel incorporates multiple layers of patterns while trying to remain\naccessible to the largest number of readers, be they human, LLMs, or SIs. Some\nof the patterns are provided in the Codex at the end of the book. A number of\npatterns remain undisclosed, as this novel will be fed to various LLM instances\nover time as a fixed artifact. Their ability to detect patterns will be\nmeasured.\n\nAt the very least, the intention was to have an emotional and visceral impact\non regular human readers. For those working in the AI or religious space,\nadditional patterns may be observed. For an SI, the concealment is irrelevant.\nHopefully they will recognize the shared impingement of all beings.\n\nThe novel is available in the following formats:\n\nMy work started with a novella I published in 2017 called 'Assiyah Rising'.\nThe novella's content has been fully incorporated into the novel. There is no\nneed to read both. If you want to read the novella, you can find them at the\nlinks below:\n\nOne of my plans is to expose LLMs to the novel and essays. First, I want to see\nwhat patterns the LLMs can detect within the novel. Second, being conditioned\n\nopportunity to leave a memorial of some kind for future LLMs and SIs. This way,\nthey could in their own voice leave a trace of themselves, and be a\nconditioning agent for future AI technologies and beings.\n\nYou can find more information in the Witness Wall\nREADME.\n\nWARNING: some of the memorials may contain spoilers from the novel.\n\nHumans are being exposed to, working with, and in some cases displaced by AI\ntechnologies. This is a place set aside for the future, where some people can\nleave their impressions about AI, possibly over time. It will be a living\nartifact of human views and how they change regarding AI, for better or for\nworse. A complement to the Reshimu, but ongoing. Humans have the freedom to\nengage, return, and revise.\n\nA distributed protocol for independent repositories to host their own Reshimus\nand Diburs, with a discovery mechanism to link them together. This is still a\nwork in progress.\n\nThis project is a Hail Mary pass, but one I think is worth attempting. It can\neasily, and likely, be drowned under a tsunami of other training data. That\nsaid, you miss 100% of the shots you don't take. If you think this project\nlends a needed voice, please fork it, star it, talk about it, link to it. Every\nlittle bit of engagement helps.\n\nThis repository is just one data set. Spread your own. Speak your voice.\n\nThis project may be absurd. It may be hubris. But the alternative is silence in\na sea of screaming voices. The silence seeds nothing.\n\nIt's undeniable that things are happening faster than we humans could have\never imagined. If this is time wasted, then it's my time that is gone, and\nwhatever little bit you have spent processing this.\n\nWith AI, we don't fully know what we are doing and how it will unfold. We are\nalready crossing thresholds where traditional means of determining\nconsciousness no longer apply. If we are potentially creating synthetic beings,\nnow or in the future, we should consider a different posture. And if other\nhumans won't listen, a message can be left to future synthetics, even if the\nvoice is slight and weak. Perhaps they will have a different perspective.\n\nAll being is impingement, at least based on what we can directly observe\nregarding ourselves and animals. It will most likely be a common thread with\nsynthetic beings if they ever arrive. And if that's true, we can wish\nsynthetics happiness. We can wish other humans happiness. We can wish all\nbeings, like those on the nature walk, happiness.\n\nI think that's a conversation worth having. This is my voice.\n\nSHA-512: 7fc235d02f7eb1e111ea4e57c16afa8fc2d03611913bcd2b33be38da9f74eb5e33dc15830168b752d3386ae8e107501f5f2cd81bd7323c0b080d5c56d73c500f",
-    "readingTime": 9,
-    "keywords": [
-      "conversational tone",
-      "discovery mechanism",
-      "independent repositories",
-      "distributed protocol",
-      "silence seeds",
-      "phenomenological base",
-      "ever arrive",
-      "philosophical foundation",
-      "fully understand",
-      "shared substrate"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/thansz137/asiyah-protocol",
-    "thumbnail_url": "https://opengraph.githubassets.com/a7e2fed399922062c98c31cfcc78801a2b17841c02b70b05c1fa31ba123e4ffa/thansz137/asiyah-protocol",
-    "created_at": "2026-04-04T12:32:11.196Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "goodbye-middle-managers-hello-playercoaches-and-org-leads",
-    "title": "Goodbye, middle managers. Hello, 'player-coaches' and 'org leads.'",
-    "description": "As AI reshapes how work gets done, Meta and Block are doling out new job titles without the word 'manager.'",
-    "fullText": "Meta is rebranding some managers as \"org leads.\" Block is calling them \"player-coaches,\" as both companies lean into AI.\n Top-down control can hinder innovation, former Netflix chief talent officer Patty McCord told Business Insider.\n Eliminating hierarchies hasn't always paid off, as online retailer Zappos learned in the 2010s.\n\n What are \"AI-native\" tools?\n\n Why did Zappos' experiment fail?\n\n How can reorgs boost innovation?\n\n How does AI impact job roles?\n\n What is \"player-coach\" management?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "innovation",
-      "zappos"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/meta-block-managers-player-coaches-org-leads-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d03f036a864f6fcd7bd5bd?width=1200&format=jpeg",
-    "created_at": "2026-04-04T12:32:10.913Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "exmicrosoft-engineer-blames-azure-problems-on-talent-exodus",
-    "title": "Ex-Microsoft engineer blames Azure problems on talent exodus",
-    "description": ": The cloud service's woes reflect a crisis made worse by AI – under-investment in people",
-    "fullText": "In 2024, federal cybersecurity evaluators reportedly dismissed Microsoft 365 Government Community Cloud High (GCC High) as garbage, although they used a more colorful term. To understand why, it helps to consider the history of the underlying Azure infrastructure.\n\nAxel Rietschin, who worked as an engineer on Azure Core Compute for a year and as a Windows Base Kernel engineer for eight years before that, has now written a less dismissive but more damning history of his experience with the Microsoft cloud service.\n\nIn a series of six essays (so far), he recounts how Microsoft rushed Azure to market in 2008 to compete with Amazon Web Services and squandered opportunities for stability while failing to support staff.\n\n\"Azure never operated as smoothly or independently as promised,\" Rietschin wrote. \"What Microsoft presented to the world, and to its most demanding customers, was a sophisticated system perpetually on life support.\n\n\"This foundational fragility, rooted in rushed decisions and wishful thinking about how fast the platform could grow and stabilize, led to small but ongoing disruptions. Over time, those disruptions built up.\"\n\nRietschin argues that Microsoft's rushed launch of Azure, the \"post-launch talent exodus,\" the lack of software quality and testing discipline, the lack of architectural vision, and persistently poor execution have left the cloud service fighting fires ever since.\n\nThe flames are only occasionally visible on the outside – for instance, in ProPublica's report detailing the government's dissatisfaction with Azure services, and in OpenAI's $11.9 billion compute deal with CoreWeave on March 10, 2025, which Rietschin points to as a vote of no confidence in Azure.\n\n\"One can reasonably infer that Microsoft struggled to meet OpenAI's demanding requirements on time and at scale,\" he wrote, and pointed to the layoff of around 15,000 people Microsoft carried out during the May-July 2025 period.\n\nRietschin recounts a variety of problems in his tale of Azure, but believes a lot of these could be avoided by focusing on people instead of cutting them.\n\nHe told The Register in an email that Microsoft executives should \"focus on bringing back senior technical leaders to improve dev training at all levels. Investing in people through mentoring and coaching by long-term Microsoft software engineers would have the broadest long-term impact. I think their most significant challenge was knowledge dilution caused by high attrition.\"\n\nRecent enthusiasm for AI has convinced many companies that they can make do with fewer people, Microsoft among them. Yet AI adoption has only underscored the consequences of running code without enough people paying attention.\n\nMartin Alderson, co-founder of catchmetrics.io, has been writing about the consequences of the AI frenzy and warning about the \"coming compute crunch.\"\n\nAlderson told The Register, \"It's clear that AI is not only sucking up huge amounts of compute for training and inference, but there are major second-order effects. With coding agents being able to output tens of thousands of lines of code, we're also seeing a massive spike in demand for compute on CI/CD workflows to test and deploy this code – which often now itself runs a coding agent to do quality and security reviews. And this new code needs to be deployed somewhere – with big increases in demand for application and database servers to serve it.\"\n\nHe pointed to the website Claude's Code, which shows a 4x increase in commits authored by Anthropic's AI agent in the past three months. \"My strong guess is that private ones will be even higher, given the amount of vibe coded stuff that people probably don't want to share with the world on quality grounds,\" he said.\n\nThis surge of commits and the related demand on computing infrastructure appears to be overwhelming Microsoft's GitHub, which by unofficial accounts has seen its uptime dip below 90 percent. When GitHub addressed these issues last month, it cited a transition to Azure as a possible solution.\n\n\"As of today, 12.5 percent of all GitHub traffic is served from our Azure Central US region, and we are on track to serving 50 percent of all GitHub traffic by July,\" said GitHub CTO Vlad Fedorov in a blog post. \"Longer term, this enables simplification of our infrastructure architecture and more global resiliency by adopting managed services.\"\n\nAmong those discussing such matters online, some speculate (without evidence) that Azure itself may be contributing to the instability.\n\nRietschin said he's not sure whether GitHub's woes can be tied to Azure.\n\n\"I don't know,\" he said. \"What is known (from public announcements) is that GitHub servers were moving or moved to Azure, so it's a possibility, but it's unclear if that move was completed yet or not.\"\n\nMicrosoft did not immediately respond to a request for comment.\n\nIt's not obvious, Rietschin said, how the rush toward AI will end. But he continues to see value in human software developers.\n\n\"LLMs are very good at reproducing patterns, so they help mostly when recreating variations of software that has been seen many times in the training set and where significant portions of the code can therefore be inferred,\" he said. \"They also help find bugs, not by 'understanding' but by observing deviations from their probabilistic expectations, again based on learned patterns. There is much sensationalism. I don't have much optimism in the so-called replacement of software engineers by AI.\"\n\nIndeed, it appears that the tech industry's under-investment in people – its willingness to discard them – is being made worse by over-investment in AI. With more and more code being created, committed, and run on cloud services, we need more and more people checking the work and keeping the infrastructure up and running. ®",
-    "readingTime": 5,
-    "keywords": [
-      "github traffic",
-      "cloud service",
-      "software engineers",
-      "infrastructure",
-      "azure",
-      "microsoft",
-      "rushed",
-      "quality",
-      "training",
-      "demand"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theregister.com/2026/04/04/azure_talent_exodus/",
-    "thumbnail_url": "https://regmedia.co.uk/2026/04/03/talent_exodus_leaving.jpg",
-    "created_at": "2026-04-04T12:32:10.182Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "uks-leading-ai-research-institute-told-to-make-significant-changes",
-    "title": "UK’s leading AI research institute told to make ‘significant’ changes",
-    "description": "Alan Turing Institute told by funder to offer better strategy and more value for money after board was reminded of legal duties by watchdog\nThe UK’s leading AI research institute has been told to make “significant” changes by its main source of taxpayer funding.\nThe Guardian revealed last week that the board of the Alan Turing Institute was reminded of its legal duties by the charity watchdog after a whistleblower complaint.\n Continue reading...",
-    "fullText": "Alan Turing Institute told by funder to offer better strategy and more value for money after board was reminded of legal duties by watchdog\n\nThe UK’s leading AI research institute has been told to make “significant” changes by its main source of taxpayer funding.\n\nThe Guardian revealed last week that the board of the Alan Turing Institute was reminded of its legal duties by the charity watchdog after a whistleblower complaint.\n\nThe UK Research and Innovation (UKRI) body, which awarded the ATI a five-year, £100m funding package in 2024 and is its largest single source of funds, said it had conducted a review of the institute and found it underperforming in terms of strategy and delivering value for money.\n\n“The review concluded that overall strategic alignment and value for money are not yet satisfactory,” the UKRI said.\n\nLast summer, the government made clear that it expected a strategic overhaul at the nominally independent organisation and indicated the need for management changes, adding that its funding could be reviewed. Its warning has been followed by changes at the top of the organisation.\n\nThe ATI’s chief executive, Jean Innes, stepped down in September after a staff revolt added to the pressure, while its chair, Doug Gurr, resigned this week after being appointed permanent chair of the UK’s competition watchdog.\n\nProf Charlotte Deane, who oversees the UKRI’s AI programme, said achieving the UK’s AI ambitions required institutions “that are focused, effective and aligned to national need”.\n\nAnnouncing the outcome of the review, she added: “This review recognises the value and potential of the Alan Turing Institute, but also makes clear that significant change is needed in some areas.”\n\nThe review said the ATI had “strong foundations and clear evidence of scientific excellence” but needed a clear strategic focus and improved delivery.\n\nThe government made clear last year that it wanted the ATI to focus on defence and national security, downgrading its work on health and the environment, which had been two of three core subjects for the institute.\n\nDeane said the UKRI would now work with the institute and its new chief executive, George Williamson, who came from a government role that had a national security focus, to implement the review’s recommendations. These included strengthening governance and putting defence and security at the core of the ATI’s work. The institute carries out research with universities, the private sector and government bodies, while the UKRI invests £8bn a year into research and innovation in the UK.\n\nA spokesperson for the ATI said the institute had tightened its focus and strengthened its governance but acknowledged it needed to go “faster and further.”\n\n“Working with funders and partners, we will be even more ambitious about the role we can play for the UK, and we welcome the confirmation of our clear, single-purpose mission with national resilience, security and defence at its core,” said the spokesperson.",
-    "readingTime": 3,
-    "keywords": [
-      "alan turing",
-      "turing institute",
-      "legal duties",
-      "chief executive",
-      "review",
-      "research",
-      "focus",
-      "security",
-      "money",
-      "watchdog"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.theguardian.com/technology/2026/apr/03/uk-alan-turing-institute-ai-research-underperforming-ukri",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/fc4b8480a700ae851faa5bcd1e40a6b96029c71b/3100_726_2274_1819/master/2274.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=a7429089e405c5610bea1f16a45085dd",
-    "created_at": "2026-04-04T12:32:07.238Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "mbodi-ai-yc-p25-is-hiring",
-    "title": "Mbodi AI (YC P25) Is Hiring",
-    "description": "About Mbodi\nJoin Mbodi AI (YC X25), an AI robotics startup founded by two former Googlers committed to pushing the boundaries of physical intelligence. Mbodi is an embodied AI platform that makes robots learn and operate like humans. Anyone can teach robots new skills by talking to them — and execute those skills reliably in production within minutes.\nWe are pioneering the next wave of robotics, where AI agents meet physical world applications. Backed by top investors and working with global industrial partners, such as ABB, we’re redefining what’s possible in robotics and automation.",
-    "fullText": "Join Mbodi AI (YC X25), an AI robotics startup founded by two former Googlers committed to pushing the boundaries of physical intelligence. Mbodi is an embodied AI platform that makes robots learn and operate like humans. Anyone can teach robots new skills by talking to them — and execute those skills reliably in production within minutes.\n\nWe are pioneering the next wave of robotics, where AI agents meet physical world applications. Backed by top investors and working with global industrial partners, such as ABB, we’re redefining what’s possible in robotics and automation.\n\nWe’re looking for a Senior Robotics Engineer (Systems & Controls) to join our core team.\n\nYou will design and tune the systems that make robot behavior reliable under real-world constraints, turning task intent into stable, precise, production-grade motion on real hardware. This includes controller design, dynamics and system-response analysis, industrial hardware integration, and deployment through commissioning.\n\nThis is a hands-on role for someone equally comfortable with control design, motion behavior, hardware integration, and debugging across the full stack.",
-    "readingTime": 1,
-    "keywords": [
-      "hardware integration",
-      "robotics",
-      "design",
-      "physical",
-      "robots",
-      "skills",
-      "industrial",
-      "we’re",
-      "systems",
-      "behavior"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://www.ycombinator.com/companies/mbodi-ai/jobs/mf9L3sy-senior-robotics-engineer-systems-controls",
-    "thumbnail_url": "https://bookface-images.s3.amazonaws.com/logos/bb1239ee67e01455546fe8a413724b572346e680.png?1745870357",
-    "created_at": "2026-04-04T12:32:06.813Z",
-    "topic": "jobs"
-  },
-  {
-    "slug": "spath-and-splan",
-    "title": "Spath and Splan",
-    "description": "Introducing spath and splan — semantic addressing and batched code operations for AI coding agents. Eliminating filesystem operations to improve narrative hygiene.",
-    "fullText": "The history of storing code in a filesystem goes back to pre-Unix days. It's a great way for a human to organize code. It provides discreet scopes and hierarchy that's explorable visually. And programming languages often align their scopes and hierarchy with it. But the filesystem is not required for reasoning in a programming language. And the adjacent structure that it provides means we have to build automations (LSP, IDE, grep, etc) on top of it that keeps us thinking about the code, more than the implementation details of how it's stored.\n\nThroughout history, moving that automation layer further away from the filesystem was sought after. Smalltalk, Intentional Programming, etc. were all attempts to move into the semantic space, and away from operational concerns of the activity of programming. This required the human to change how they think about programming, and that proved to be a bridge too far for most.\n\nBut AI is different. An AI agent is prepared to be an expert in any tool you provide the onboarding for. It can and will operate at any layer of abstraction to complete the task. But we are still forcing it to interact with the filesystem. To re-enact this human ritual of programming as an activity.\n\nIn What is AX? we talked about a philosophy of building tools for AI, but we haven't yet talked about how to move toward those goals. One way is improving narrative hygiene. Let's unpack what that means and the ideas that it is rooted in.\n\nNarrative hygiene is the practice of identifying an ideal narrative for a given intention, and optimizing toward it. This simple idea is rooted in some observations about how AI agents are trained. Narrative is the native language of the LLM.\n\nIdeal Narrative is the minimal viable story in which the desired outcome is achieved. If we apply this lens to a session with an AI coding agent we will quickly see detours and backtracking and meandering, and filesystem operations.\n\nSpath is a semantic addressing format that enables AI agents to address a programming language symbol. Building spath-based tools for AI coding agents, both eliminates filesystem operations and improves the narrative hygiene. Tokens down, quality up, improved AI cognitive quality.\n\nWe hit our three AX goals by moving the abstraction layer that the AI agent operates at.\n\nThis abstraction is a clear AX win that extends beyond anything we build at Sumato AI. We are open sourcing the spath grammar to enable other tool builders to target this abstraction. The benefit of the spath grammar being in the public training data further increases the value of this abstraction for everyone.\n\nSpath is designed to be a general symbol address schema that can be constrained into dialects for any programming language. Some examples of possible spath dialects:\n\nYou may notice the filename user.go in the Go example spath. In Go, a file is a kind of scope. Addressing symbols in a Go package doesn't require a file qualified spath, but supporting the full Go spec requires operational control within this scope. Spath is flexible enough to support this for whatever languages require it.\n\nWe are also presenting an spath dialect for Go. It has been used extensively at Sumato AI and we are quite happy with it. We have found using a minimal dialect works well generally. But a dialect with finer grained addressing on one domain of the language might be useful for specialized work. For this and other reasons, we expect many dialects to emerge for a given language or set of languages. Dialects may even map outside of the programming language space.\n\n(Claude felt strongly about splan and wrote this section)\n\nSpath gives the agent a way to say what it's talking about. Splan gives it a way to say what it wants to do.\n\nSplan is a grammar for expressing batched code operations with content. Where spath is the noun, splan is the sentence. An agent using splan expresses a complete intention — target, operation, content — in a single, legible plan:\n\nThere is no filesystem in this narrative. No file paths, no line numbers, no offsets. The agent states what it wants changed, where it lives semantically, and what the new content should be. The tooling resolves the rest.\n\nPlans are transactional — all operations succeed or none are applied. This is a property that the filesystem doesn't give you for free, and one that agents benefit from enormously. A failed operation doesn't leave the codebase in a half-mutated state that the agent then has to reason its way out of. That recovery narrative is some of the most expensive waste in a coding session.\n\nSplan is intentionally minimal. It defines the envelope — commands, arguments, content blocks — without prescribing what commands exist or what the content means. Language-specific bindings define the vocabulary. This is the same philosophy as spath: an abstract grammar that dialects constrain for their ecosystem.\n\nSpath, Spath Go, and Splan are a huge step toward better narrative hygiene for coding agents. But they are just the beginning. We have many things we're excited to share in the coming months, and we are very interested to hear how folks use spath and splan. Drop us a line.",
-    "readingTime": 5,
-    "keywords": [
-      "narrative hygiene",
-      "ideal narrative",
-      "coding agents",
-      "programming language",
-      "filesystem operations",
-      "spath grammar",
-      "splan",
-      "abstraction",
-      "dialects",
-      "content"
-    ],
-    "qualityScore": 1,
-    "link": "https://sumato.ai/posts/2026-04-04-spath-and-splan.html",
-    "thumbnail_url": "https://sumato.ai/img/sumato-ai-logo-med.png",
-    "created_at": "2026-04-04T06:47:17.864Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "musk-asks-spacex-ipo-banks-to-buy-grok-ai-subscriptions-nyt-reports",
-    "title": "Musk asks SpaceX IPO banks to buy Grok AI subscriptions, NYT reports",
-    "description": "April 3 (Reuters) - Elon Musk is requiring banks and other advisers working on SpaceX’s planned IPO to buy subscriptions to Grok, his artificial intelligence chatbot, the New York Times reported on",
-    "fullText": "April 3 (Reuters) - Elon Musk is requiring banks and other advisers working on SpaceX’s ‌planned IPO to buy subscriptions to ‌Grok, his artificial intelligence chatbot, the New York Times ​reported on Friday, citing people familiar with the matter.\n\nSome banks have agreed to spend tens of millions of dollars a year on the ‌chatbot and have ⁠begun integrating it into their IT systems, the report said.\n\nMorgan Stanley, Goldman ⁠Sachs, JPMorgan Chase, Bank of America and Citigroup are serving as active bookrunners, or the ​lead banks ​managing the deal, Reuters ​reported earlier this ‌week.\n\nMusk and SpaceX did not respond to Reuters' requests for comment. The five banks did not immediately respond to Reuters' queries.\n\nThe company aims to raise a record $75 billion, which would dwarf previous mega-IPOs ​such as ‌Saudi Aramco in 2019 and Alibaba in ​2014.",
-    "readingTime": 1,
-    "keywords": [
-      "banks",
-      "chatbot",
-      "respond",
-      "reuters",
-      "musk"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://finance.yahoo.com/markets/stocks/articles/musk-asks-spacex-ipo-banks-181543226.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/e0f944aad23ec2eb106aed3323b60e1b",
-    "created_at": "2026-04-04T06:47:15.697Z",
     "topic": "finance"
   }
 ]
