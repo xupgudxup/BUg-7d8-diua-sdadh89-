@@ -1,5 +1,293 @@
 [
   {
+    "slug": "axon-why-use-many-token-when-few-token-do-trick",
+    "title": "Axon: Why use many token when few token do trick",
+    "description": "AI eXchange Optimized Notation spec and tooling. Contribute to colwill/axon development by creating an account on GitHub.",
+    "fullText": "A pure Rust rule-based NLP engine that translates natural language into AXON notation, compiled to WebAssembly, runs entirely in the browser. Handles both general knowledge and programming tasks in one unified notation.\n\nVSCode package: https://marketplace.visualstudio.com/items?itemName=colwill.axon-notation\n\nLaunch VS Code Quick Open (Ctrl+P), paste the following command, and press enter.\n\nInstall command in vscode: ext install colwill.axon-notation\n\nCompiles the Rust library to WebAssembly and outputs the package to web/pkg/.\n\nBuilds the WASM artifact then serves the web/ directory at http://localhost:3000.\n\nRuns 700+ test cases including general NLP and programming query translation.\n\nThe engine runs a unified pipeline:\n\nStage 0 — Programming detection (code_translator.rs):\n\nStages 1–5 — General NLP (translator.rs):",
+    "readingTime": 1,
+    "keywords": [
+      "engine",
+      "notation",
+      "webassembly",
+      "unified",
+      "vscode",
+      "package",
+      "command",
+      "install",
+      "programming",
+      "rust"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://github.com/colwill/axon",
+    "thumbnail_url": "https://opengraph.githubassets.com/94fa9fb664ab5fc298452ae2d36e607256125ac303d1df43ab6ce1219f50a1b9/colwill/axon",
+    "created_at": "2026-04-09T18:49:25.403Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "instant-10-a-backend-for-aicoded-apps",
+    "title": "Instant 1.0, a backend for AI-coded apps",
+    "description": null,
+    "fullText": "<code><span class=\"token keyword\" style=\"color:#286983\">import</span><span class=\"token plain\"> </span><span class=\"token imports punctuation\" style=\"color:#797593\">{</span><span class=\"token imports\"> init</span><span class=\"token imports punctuation\" style=\"color:#797593\">,</span><span class=\"token imports\"> id </span><span class=\"token imports punctuation\" style=\"color:#797593\">}</span><span class=\"token plain\"> </span><span class=\"token keyword\" style=\"color:#286983\">from</span><span class=\"token plain\"> </span><span class=\"token string\" style=\"color:#ea9d34\">'@instantdb/react'</span><span class=\"token punctuation\" style=\"color:#797593\">;</span><span class=\"token plain\"></span>\n<!-- -->\n<span class=\"token plain\"></span><span class=\"token keyword\" style=\"color:#286983\">const</span><span class=\"token plain\"> db </span><span class=\"token operator\" style=\"color:#286983\">=</span><span class=\"token plain\"> </span><span class=\"token function\" style=\"color:#d7827e\">init</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token plain\"> appId</span><span class=\"token operator\" style=\"color:#286983\">:</span><span class=\"token plain\"> </span><span class=\"token string\" style=\"color:#ea9d34\">'YOUR_APP_ID'</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">}</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">;</span><span class=\"token plain\"></span>\n<!-- -->\n<span class=\"token plain\"></span><span class=\"token keyword\" style=\"color:#286983\">function</span><span class=\"token plain\"> </span><span class=\"token function\" style=\"color:#d7827e\">App</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token plain\"></span>\n<span class=\"token plain\"> </span><span class=\"token keyword\" style=\"color:#286983\">const</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token plain\"> data </span><span class=\"token punctuation\" style=\"color:#797593\">}</span><span class=\"token plain\"> </span><span class=\"token operator\" style=\"color:#286983\">=</span><span class=\"token plain\"> db</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token method function property-access\" style=\"color:#d7827e\">useQuery</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token plain\"> todos</span><span class=\"token operator\" style=\"color:#286983\">:</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token punctuation\" style=\"color:#797593\">}</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">}</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">;</span><span class=\"token plain\"></span>\n<!-- -->\n<span class=\"token plain\"> </span><span class=\"token keyword\" style=\"color:#286983\">const</span><span class=\"token plain\"> </span><span class=\"token function-variable function\" style=\"color:#d7827e\">addTodo</span><span class=\"token plain\"> </span><span class=\"token operator\" style=\"color:#286983\">=</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token plain\">text</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token plain\"> </span><span class=\"token arrow operator\" style=\"color:#286983\">=></span><span class=\"token plain\"></span>\n<span class=\"token plain\"> db</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token method function property-access\" style=\"color:#d7827e\">transact</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token plain\"></span>\n<span class=\"token plain\"> db</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token property-access\">tx</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token property-access\">todos</span><span class=\"token punctuation\" style=\"color:#797593\">[</span><span class=\"token function\" style=\"color:#d7827e\">id</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">]</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token method function property-access\" style=\"color:#d7827e\">update</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token plain\"> text</span><span class=\"token punctuation\" style=\"color:#797593\">,</span><span class=\"token plain\"> done</span><span class=\"token operator\" style=\"color:#286983\">:</span><span class=\"token plain\"> </span><span class=\"token boolean\" style=\"color:#d7827e\">false</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">}</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">,</span><span class=\"token plain\"></span>\n<span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">;</span><span class=\"token plain\"></span>\n<!-- -->\n<span class=\"token plain\"> </span><span class=\"token keyword\" style=\"color:#286983\">const</span><span class=\"token plain\"> </span><span class=\"token function-variable function\" style=\"color:#d7827e\">toggleTodo</span><span class=\"token plain\"> </span><span class=\"token operator\" style=\"color:#286983\">=</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token plain\">todo</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token plain\"> </span><span class=\"token arrow operator\" style=\"color:#286983\">=></span><span class=\"token plain\"></span>\n<span class=\"token plain\"> db</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token method function property-access\" style=\"color:#d7827e\">transact</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token plain\"></span>\n<span class=\"token plain\"> db</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token property-access\">tx</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token property-access\">todos</span><span class=\"token punctuation\" style=\"color:#797593\">[</span><span class=\"token plain\">todo</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token property-access\">id</span><span class=\"token punctuation\" style=\"color:#797593\">]</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token method function property-access\" style=\"color:#d7827e\">update</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token plain\"> done</span><span class=\"token operator\" style=\"color:#286983\">:</span><span class=\"token plain\"> </span><span class=\"token operator\" style=\"color:#286983\">!</span><span class=\"token plain\">todo</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token property-access\">done</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">}</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">,</span><span class=\"token plain\"></span>\n<span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">;</span><span class=\"token plain\"></span>\n<!-- -->\n<span class=\"token plain\"> </span><span class=\"token keyword\" style=\"color:#286983\">return</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token plain\"></span>\n<span class=\"token plain\"> </span><span class=\"token tag punctuation\" style=\"color:#797593\"><</span><span class=\"token tag class-name\" style=\"color:#56949f\">TodoUI</span><span class=\"token tag\" style=\"color:#56949f\"></span>\n<span class=\"token tag\" style=\"color:#56949f\"> </span><span class=\"token tag attr-name\" style=\"color:#907aa9\">todos</span><span class=\"token tag script language-javascript script-punctuation punctuation\" style=\"color:#797593\">=</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">{</span><span class=\"token tag script language-javascript\" style=\"color:#56949f\">data</span><span class=\"token tag script language-javascript operator\" style=\"color:#286983\">?.</span><span class=\"token tag script language-javascript\" style=\"color:#56949f\">todos </span><span class=\"token tag script language-javascript operator\" style=\"color:#286983\">??</span><span class=\"token tag script language-javascript\" style=\"color:#56949f\"> </span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">[</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">]</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">}</span><span class=\"token tag\" style=\"color:#56949f\"></span>\n<span class=\"token tag\" style=\"color:#56949f\"> </span><span class=\"token tag attr-name\" style=\"color:#907aa9\">onAdd</span><span class=\"token tag script language-javascript script-punctuation punctuation\" style=\"color:#797593\">=</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">{</span><span class=\"token tag script language-javascript\" style=\"color:#56949f\">addTodo</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">}</span><span class=\"token tag\" style=\"color:#56949f\"></span>\n<span class=\"token tag\" style=\"color:#56949f\"> </span><span class=\"token tag attr-name\" style=\"color:#907aa9\">onToggle</span><span class=\"token tag script language-javascript script-punctuation punctuation\" style=\"color:#797593\">=</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">{</span><span class=\"token tag script language-javascript\" style=\"color:#56949f\">toggleTodo</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">}</span><span class=\"token tag\" style=\"color:#56949f\"></span>\n<span class=\"token tag\" style=\"color:#56949f\"> </span><span class=\"token tag punctuation\" style=\"color:#797593\">/></span><span class=\"token plain\"></span>\n<span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">;</span><span class=\"token plain\"></span>\n<span class=\"token plain\"></span><span class=\"token punctuation\" style=\"color:#797593\">}</span>\n</code>",
+    "readingTime": 4,
+    "keywords": [
+      "property-access style=\"color:#d7827e\">transact</span><span",
+      "property-access style=\"color:#d7827e\">update</span><span",
+      "keyword style=\"color:#286983\">const</span><span",
+      "method function",
+      "function-variable function",
+      "operator style=\"color:#286983\">=</span><span",
+      "operator style=\"color:#286983\">:</span><span",
+      "arrow operator",
+      "operator style=\"color:#286983\">=></span><span",
+      "script language-javascript"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.instantdb.com/essays/architecture",
+    "thumbnail_url": "https://www.instantdb.com/img/essays/architecture.jpg",
+    "created_at": "2026-04-09T18:49:25.052Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "paperorchestra-agent-skill-pack-for-automated-paper-writing",
+    "title": "PaperOrchestra: Agent \"skill pack\" for automated paper writing",
+    "description": "Synthesizing unstructured research materials into manuscripts is an essential yet under-explored challenge in AI-driven scientific discovery. Existing autonomous writers are rigidly coupled to specific experimental pipelines, and produce superficial literature reviews. We introduce PaperOrchestra, a multi-agent framework for automated AI research paper writing. It flexibly transforms unconstrained pre-writing materials into submission-ready LaTeX manuscripts, including comprehensive literature synthesis and generated visuals, such as plots and conceptual diagrams. To evaluate performance, we present PaperWritingBench, the first standardized benchmark of reverse-engineered raw materials from 200 top-tier AI conference papers, alongside a comprehensive suite of automated evaluators.",
+    "fullText": "arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.\n\nBoth individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.\n\nHave an idea for a project that will add value for arXiv's community? Learn more about arXivLabs.",
+    "readingTime": 1,
+    "keywords": [
+      "arxivlabs",
+      "arxiv",
+      "community"
+    ],
+    "qualityScore": 0.4,
+    "link": "https://arxiv.org/abs/2604.05018",
+    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "created_at": "2026-04-09T18:49:24.934Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "5-solo-business-owners-share-how-they-are-using-ai-to-create-custom-tools",
+    "title": "5 solo business owners share how they are using AI to create custom tools",
+    "description": "5 solo business owners share how they are using AI and vibe coding",
+    "fullText": "Solopreneurs are finding ways to use AI tools to manage their businesses.\n Vibe coding tools like Base44 are used by founders to create their own apps.\n There are some good reasons why founders should consider sticking with SaaS tools.",
+    "readingTime": 1,
+    "keywords": [
+      "tools",
+      "founders"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/solopreneurs-vibe-code-tools-that-help-grow-business-4-2026",
+    "thumbnail_url": "https://i.insider.com/69cd46d2e762ed6cfe449408?width=1200&format=jpeg",
+    "created_at": "2026-04-09T18:49:10.289Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "investors-are-getting-the-spacex-ipo-wrong-and-the-real-value-is-in-its-sovereign-ai-hedge-fund-manager-gene-munster",
+    "title": "Investors are getting the SpaceX IPO wrong, and the real value is in its 'sovereign AI,' hedge fund manager Gene Munster says",
+    "description": "A longtime tech investor argues that SpaceX could achieve a level of AI capability unmatched by other major companies working on the technology.",
+    "fullText": "Tech investor Gene Munster thinks Wall Street is getting a key detail about the SpaceX IPO wrong.\n He recently wrote that he thinks the value is in the company's \"sovereign AI.\" \n In his view, this gives it a clear advantage over all other tech sector leaders.",
+    "readingTime": 1,
+    "keywords": [
+      "tech"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/spacex-ipo-gene-munster-elon-musk-terafab-ai-satellites-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d6be5df36fd1a78c05215d?width=1200&format=jpeg",
+    "created_at": "2026-04-09T18:49:09.978Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "andy-jassy-is-so-bullish-on-amazons-chips-that-he-took-a-rare-shot-at-nvidia",
+    "title": "Andy Jassy is so bullish on Amazon's chips that he took a rare shot at Nvidia",
+    "description": "The AI chip race is heating up, with Andy Jassy taking a shot at Nvidia in his annual letter to shareholders.",
+    "fullText": "Andy Jassy shared his annual letter to Amazon shareholders — and AI was a big topic.\n The Amazon CEO said its chip business is \"on fire.\"\n He also took a rare shot at Nvidia.\n\n How is Amazon's chip business evolving?\n\n How does Tranium compare to Nvidia chips?\n\n How might Amazon's chip strategy impact Nvidia?\n\n What are the implications of Amazon's AI push?\n\n What challenges does Amazon face in AI chips?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "amazon's chip",
+      "chip business",
+      "chips",
+      "amazon",
+      "nvidia"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/andy-jassy-amazon-shareholder-letter-nvidia-chip-dominance-new-shift-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d7a71196ef6a4c9d1212f5?width=1200&format=jpeg",
+    "created_at": "2026-04-09T18:49:09.819Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "former-google-x-exec-warns-the-ai-era-will-break-the-old-rules",
+    "title": "Former Google X exec warns the AI era will break the old rules",
+    "description": "Mo Gawdat argues the biggest AI danger isn't intelligence itself, but what humans do with it.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/mo-gawdat-ai-predictions-risk-fall-capitalism-job-loss",
+    "thumbnail_url": "https://i.insider.com/69d7d8c405c9b303c4e769e2?width=1200&format=jpeg",
+    "created_at": "2026-04-09T18:49:09.690Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "shortseller-andrew-left-thinks-amazon-just-showed-that-its-the-biggest-threat-to-nvidias-chip-dominance",
+    "title": "Short-seller Andrew Left thinks Amazon just showed that it's the biggest threat to Nvidia's chip dominance",
+    "description": "Amazon's AI expansion could undercut Nvidia's chip dominance, says Andrew Left, as he sets a $300 target for Amazon stock.",
+    "fullText": "Andrew Left thinks Amazon represents a major threat to Nvidia's AI chip dominance.\n Left unveiled a $300 price target for Amazon stock after Andrew Jassy's latest letter to investors.\n The short-seller, who said he's long Amazon, sees a trillion-dollar business forming within Amazon.",
+    "readingTime": 1,
+    "keywords": [
+      "amazon",
+      "andrew"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/amazon-ai-chips-aws-andy-jassy-letter-nvidia-amzn-nvda-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d7d83705c9b303c4e769de?width=1200&format=jpeg",
+    "created_at": "2026-04-09T18:49:09.668Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "wall-street-analysts-are-gushing-over-metas-muse-spark-ai-model",
+    "title": "Wall Street analysts are gushing over Meta's Muse Spark AI model",
+    "description": "Meta released a new AI model, prompting a wave of fresh bullishness from Wall Street's top equity research desks.",
+    "fullText": "Meta introduced a new AI model, Muse Spark, sending the Facebook parent company's stock higher.\n The release was followed by an onslaught of bullish notes from Wall Street analysts.\n The notes highlighted investor sentiment, competitive position, and comparisons to Google.",
+    "readingTime": 1,
+    "keywords": [
+      "notes"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/meta-stock-ai-model-tech-wall-street-analysts-bull-buy-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d7cb5bf976785dcb18fd6a?width=1200&format=jpeg",
+    "created_at": "2026-04-09T18:49:09.556Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "an-ibm-exec-built-an-ai-agent-to-prep-for-meetings-and-said-it-saved-hours-every-week",
+    "title": "An IBM exec built an AI agent to prep for meetings — and said it saved hours every week",
+    "description": "IBM's Dave McCann developed an AI agent called \"Digital Dave\" to spend less time preparing for meetings and more time with clients.",
+    "fullText": "IBM's Dave McCann is using an AI agent to prepare for client meetings.\n He said \"Digital Dave\" helps him save five hours a week by eliminating 30-minute prep calls.\n Companies from tiny startups to the biggest firms are building AI agents to take on routine work.",
+    "readingTime": 1,
+    "keywords": [
+      "dave"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/ai-agent-saving-ibm-consulting-leader-hours-every-week-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d7e7e0f976785dcb18fe72?width=1200&format=jpeg",
+    "created_at": "2026-04-09T18:49:09.533Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "openai-shelves-stargate-uk-in-blow-to-britains-ai-ambitions",
+    "title": "OpenAI shelves Stargate UK in blow to Britain’s AI ambitions",
+    "description": "Artificial intelligence company cites high energy costs and regulation for putting landmark project on...",
+    "fullText": "Artificial intelligence company cites high energy costs and regulation for putting landmark project on hold\n\nOpenAI has put on hold plans for a landmark UK investment citing high energy costs and regulation, in a blow to the government which has put AI at the centre of its growth strategy.\n\nStargate UK was a part of the UK-US AI deal announced last September, in which US companies appeared to commit £31bn to the UK’s tech sector, part of a larger series of investments intended to “mainline AI” into the British economy.\n\nIt came as the Labour government seeks to make AI and datacentres the engine of its growth plans, alongside closer ties with Europe and regional growth.\n\n“This is a wake-up call for the government to manage energy costs in the UK and foundation infrastructure,” said Victoria Collins MP, the Liberal Democrat spokesperson for science, innovation and technology. “We cannot be dependent on US tech companies to build our own sovereign capabilities – whether that’s energy cost, supply or even data and phone signal.”\n\nThe Labour MP Clive Lewis said: “When a government has no economic strategy worthy of the name and no real industrial vision, it becomes vulnerable. The Silicon Valley companies that flew into London knew exactly what they were dealing with: a prime minister and a technology secretary desperate to project momentum, willing to dress up press releases as policy.”\n\nA Guardian investigation last month revealed many of the deals to “mainline AI into the veins” of the British economy were “phantom investments”, and a supercomputer scheduled to go live in 2026 was last month still a scaffolding yard in Essex. That supercomputer was to be built by Nscale, a UK firm that had never built a datacentre before but said it was aiming to deliver the project in 2027. Nscale was also to build key datacentres for Stargate UK.\n\nThe Stargate project was to support Britain in building out “sovereign compute” – infrastructure that would allow the government and other UK institutions to run AI models on datacentres in the country. That is, in theory, crucial to the security of British data.\n\nNow, OpenAI has apparently put it on pause, saying it would wait for “the right conditions” to enable “long-term infrastructure investment”.\n\nBen Spencer, shadow science minister, said: “When global firms cite high energy costs and regulatory uncertainty as reasons to walk away, it tells you everything about the direction of travel. For too long, Labour have prioritised courting big tech headlines while neglecting our domestic startups, but also the fundamentals that actually attract investment at home.”\n\nAn OpenAI spokesperson said: “We see huge potential for the UK’s AI future, and we support the government’s ambition to be an AI leader. We continue to explore Stargate UK.”\n\nOpenAI’s exact commitments under the Stargate project were always vague. The crux of the investment was that the company would “explore the offtake” of 8,000 high-powered Nvidia chips at Stargate datacentres constructed by its partner, Nscale.\n\nContacted by the Guardian several weeks ago, the company said it had no updates on whether it was going ahead with that plan.\n\nTom Hegarty, the head of communications at the tech equity organisation Foxglove, said OpenAI’s chief executive, Sam Altman, was racking up a “record of U-turns any government minister could be proud of”, after the recent closure of OpenAI’s video-generation app Sora and Altman’s previous claim that AGI (artificial general intelligence) would be achieved by 2025.\n\n“But that hasn’t stopped ministers from jumping fully aboard the AI hype train,” said Hegarty. “In January 2025, then-tech secretary, Peter Kyle, said a new supercomputer in Essex would be ‘the largest UK sovereign AI datacentre’ by the end of 2026 and ‘a fresh start for our economy and for working people’. Instead, a year later the ‘supercomputer’ was still a scaffolding yard.”\n\nA government spokesperson said: “Our AI sector has attracted more than £100bn in private investment since the government took office, with the sector growing 23 times faster than the wider economy last year. That is delivering the jobs and opportunities hard-working people deserve.\n\n“Our focus is on continuing to create the right conditions for investment in the UK’s AI and datacentre infrastructure. We are continuing to work with OpenAI and other leading AI companies to strengthen UK compute capacity.”\n\nHigh energy costs, rising further because of the US-Israel war on Iran, are expected to delay or derail AI datacentre projects worldwide. The UK’s industrial electricity prices were already the highest in Europe before the start of the war.\n\nAndy Lawrence, at the Uptime Institute, said OpenAI, Nscale, and the government all had reasons not to proceed with the project at this point, given rising energy prices and OpenAI’s tightening competition with rivals such as Anthropic.\n\n“The government was not able to make sufficient commitments to be a client. I think the overall demand for all of this wasn’t, and still isn’t apparent. The whole sense of urgency has dissipated,” Lawrence said.\n\nNscale has been approached for comment.",
+    "readingTime": 5,
+    "keywords": [
+      "british economy",
+      "scaffolding yard",
+      "stargate project",
+      "uk’s ai",
+      "energy",
+      "investment",
+      "tech",
+      "datacentres",
+      "infrastructure",
+      "supercomputer"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theguardian.com/technology/2026/apr/09/openai-pulls-out-of-landmark-31bn-uk-investment",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/c16ce335a8148cf4258e77c8ff12b6a94f5feb20/578_0_3333_2667/master/3333.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=0911a607a8e93fa385f93f5271c03997",
+    "created_at": "2026-04-09T18:49:09.145Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "anthropic-keeps-latest-ai-tool-out-of-publics-hands-for-fear-of-enabling-widespread-hacking",
+    "title": "Anthropic keeps latest AI tool out of public’s hands for fear of enabling widespread hacking",
+    "description": "AI company says purpose of its Claude Mythos model is to bolster defenses against hacking in common applications\nAnthropic on Tuesday said its yet-to-be-released artificial intelligence model called Claude Mythos has proven keenly adept at exposing software weaknesses.\nMythos has laid bare thousands of vulnerabilities in commonly used applications for which no patch or fix exists, prompting the San Francisco-based AI startup to form an alliance with cybersecurity specialists to bolster defenses against hacking and withhold wide distribution.\n Continue reading...",
+    "fullText": "AI company says purpose of its Claude Mythos model is to bolster defenses against hacking in common applications\n\nAnthropic on Tuesday said its yet-to-be-released artificial intelligence model called Claude Mythos has proven keenly adept at exposing software weaknesses.\n\nMythos has laid bare thousands of vulnerabilities in commonly used applications for which no patch or fix exists, prompting the San Francisco-based AI startup to form an alliance with cybersecurity specialists to bolster defenses against hacking and withhold wide distribution.\n\n“We have a new model that we’re explicitly not releasing to the public,” Mike Krieger of Anthropic Labs said at a HumanX AI conference in San Francisco.\n\nInstead, Anthropic is letting cybersecurity specialists and engineers in the open-source community work with Mythos to use the model as a defensive weapon “sort of arming them ahead of time”, Krieger explained.\n\nLeaps in AI model capabilities have come with concerns about hackers using such tools for figuring out passwords or cracking encryption meant to keep data safe.\n\nThe oldest of the vulnerabilities uncovered by Mythos dates back 27 years, and none were ostensibly noticed by their makers before being pinpointed by the AI model, according to Anthropic.\n\nMythos is the latest generation of Anthropic’s Claude family of AI, and a recent leak of some of its code prompted the startup to release a blog post warning it posed unprecedented cybersecurity risks.\n\n“AI models have reached a level of coding capability where they can surpass all but the most skilled humans at finding and exploiting software vulnerabilities,” Anthropic said in a blog post. “The fallout – for economies, public safety, and national security – could be severe.”\n\nSoftware vulnerabilities exposed by Mythos were often subtle and difficult to detect without AI, according to Anthropic. As an example, it said Mythos found a previously unnoticed flaw in video software that had been tested more than 5m times by its creators.\n\nAs a precaution, Anthropic has shared a version of Mythos with cybersecurity companies CrowdStrike and Palo Alto Networks, as well as with Amazon, Apple and Microsoft, in a project it dubbed “Glasswing”.\n\nNetworking giants Cisco and Broadcom are taking part in the project, along with the Linux Foundation, which promotes the free, open-source Linux computer operating system.\n\n“This work is too important and too urgent to do alone,” Anthony Grieco, Cisco’s chief security and trust officer, said in a joint release about Glasswing. “AI capabilities have crossed a threshold that fundamentally changes the urgency required to protect critical infrastructure from cyber threats, and there is no going back.”\n\nApproximately 40 organizations involved in the design, maintenance or operation of computer systems are said to have joined Glasswing. Project partners are to share their Mythos findings, according to Anthropic, which is providing about $100m worth of computing resources for the mission. Early work with AI models has shown they can help find and fix software and hardware vulnerabilities at a pace and scale not previously possible, according to Grieco.\n\n“The window between a vulnerability being discovered and being exploited by an adversary has collapsed – what once took months now happens in minutes with AI,” said Crowdstrike’s chief technology officer, Elia Zaitsev.\n\n“Claude Mythos Preview demonstrates what is now possible for defenders at scale, and adversaries will inevitably look to exploit the same capabilities,” he added.\n\nAnthropic said it has had discussions with the US government regarding Mythos despite a decree by the White House in February to terminate all contracts with the startup. That directive was put on hold by a federal court judge while a legal challenge by Anthropic works its way through the courts.",
+    "readingTime": 3,
+    "keywords": [
+      "bolster defenses",
+      "cybersecurity specialists",
+      "software vulnerabilities",
+      "claude mythos",
+      "model",
+      "anthropic",
+      "startup",
+      "capabilities",
+      "hacking",
+      "applications"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theguardian.com/technology/2026/apr/08/anthropic-ai-cybersecurity-software",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/f3f1e8079460e65e4b4286bcab8c27b70f568f18/518_0_3666_2933/master/3666.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=bb4d2936b881722d7a4ba127317b3a31",
+    "created_at": "2026-04-09T18:49:09.127Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "see-what-your-employees-are-prompting-llms-without-network-proxies",
+    "title": "See what your employees are prompting LLMs (without network proxies)",
+    "description": "Privent is the security layer agentic AI was built for. Embeds inside LangGraph, CrewAI, and n8n as a native node — reading full agent state, scoring risk with ACARS, and transforming data with APE before it reaches any external model.",
+    "fullText": "Your agents move data you can't see\n\nLangGraph, CrewAI, and n8n flows pull from internal systems, chain tool calls, and compose prompts autonomously. No gateway sees what crossed between steps. By the time one string leaves, the sensitive fragments are already merged.\n\nPrivent embeds inside the execution graph\n\nA native security node sits between your agent's tool calls and the external model. It reads the full runtime state: message history, tool outputs, accumulated context. Every data movement is visible and controlled before it leaves your infrastructure.\n\nSensitive data is transformed, not blocked\n\nACARS scores each payload across six signals. APE then tokenizes, substitutes, or re-routes accordingly. The model receives a coherent, safe version. Your pipelines run. Your data stays inside.",
+    "readingTime": 1,
+    "keywords": [
+      "tool",
+      "sensitive",
+      "inside",
+      "model"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://www.privent.ai/",
+    "thumbnail_url": "https://privent.ai/og/privent-logo.png",
+    "created_at": "2026-04-09T18:49:08.661Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-meta-employee-created-a-dashboard-so-coworkers-can-compete-to-be-the-companys-no-1-ai-token-userand-zuckerberg-doesnt",
+    "title": "A Meta employee created a dashboard so coworkers can compete to be the company’s No. 1 AI token user—and Zuckerberg doesn’t even rank in the top 250",
+    "description": "The company’s employees could compare themselves to their colleagues and earn achievement titles like “Model Connoisseur” and “Cache Wizard” on the “Claudeonomics” leaderboard.",
+    "fullText": "Ever wondered how productive your coworkers actually are? Meta employees don’t have to guess.\n\nA Meta employee independently created a leaderboard that tracked how many tokens—the basic units of data or words that AI models process—the company’s more than 85,000 employees used, The Information reported on Monday. Called “Claudeonomics,” after Anthropic’s AI model, the leaderboard showed the top 250 token users and awarded employees with titles, such as “Token Legend” and “Cache Wizard.”\n\nThe leaderboard encouraged “tokenmaxxing,” a growing phenomenon in Silicon Valley which emphasizes token usage as a measure of productivity. While every AI model measures tokens differently, OpenAI estimates that one token is equal to about four characters and a single one-to-two sentence prompt requires about 30 tokens. Token usage can imply if workers are optimizing their prompts, or the number of AI agents they are using.\n\nBut now, the fun is over: the internal AI-use leaderboard went down just two days after the news broke.\n\nThe dashboard now reads: “We’ve really enjoyed building this app on Nest for everyone. It was meant to be a fun way for people to look at tokens, but due to data from this dashboard being shared externally, we’ve made the decision to shutter Claudeonomics for now,” reported The Information, which also reported the company has a separate official dashboard for token usage geared toward software engineers, who generally use the most tokens.\n\n“The employee took down the dashboard at their discretion; Meta did not request this action,” Meta told Fortune in a statement.\n\nLast year, Meta’s Chief People Officer Janelle Gale told employees that “AI-driven impact” would be a “core expectation” in 2026, according to Business Insider. In January, the company overhauled its performance review system to incentivize the highest performers with upwards of a 200% bonus.\n\nSome employees have put AI agents to work for hours to maximize their token usage. Neither Meta CEO Mark Zuckerberg nor Meta CTO Andrew Bosworth are in the top 250 token users.\n\nIn a 30-day period, total employee usage on the dashboard exceeded 60 trillion tokens, and the highest-ranked individual user averaged 281 billion tokens. Using the least expensive version of Claude Opus 4.6, which costs $5 for every million tokens, that one user alone could have cost Meta more than $1.4 million.\n\nIncentivizing high token use is becoming the norm in Silicon Valley. OpenAI has an employee leaderboard, and the company’s top power user used 210 billion tokens over one week in March.",
+    "readingTime": 3,
+    "keywords": [
+      "token users",
+      "token usage",
+      "top token",
+      "the information",
+      "tokens",
+      "employees",
+      "leaderboard",
+      "dashboard",
+      "employee",
+      "meta"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/sectors/technology/articles/meta-just-killed-dashboard-let-084400197.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/9GCIV5q7q0iuK3yEK45bJg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/fortune_175/627873232a3bd28768b718efae02ebfd",
+    "created_at": "2026-04-09T18:49:06.843Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "2-monster-stocks-to-hold-for-the-next-10-years",
+    "title": "2 Monster Stocks to Hold for the Next 10 Years",
+    "description": "Bloom Energy and Vistra could be big winners as they try to meet AI's relentless power needs.",
+    "fullText": "When the discussion turns to \"monster stocks\" that have done extremely well from the proliferation of artificial intelligence (AI), many investors' first thoughts turn to chip companies like Nvidia. If they expand their notions of stocks expected to be AI beneficiaries, the thoughts might include memory storage companies (i.e., data centers). Further expansion might eventually lead to the realization that the companies that could deliver some of the biggest gains from AI over the next several years aren't even from the tech sector. Rather, the biggest beneficiaries might just be the energy companies uniquely positioned to serve the growing power needs of data centers.\n\nTwo energy companies experiencing AI tailwinds you might want to consider buying and holding for the long term are Bloom Energy (NYSE: BE) and Vistra (NYSE: VST).\n\nWill AI create the world's first trillionaire? Our team just released a report on the one little-known company, called an \"Indispensable Monopoly\" providing the critical technology Nvidia and Intel both need. Continue »\n\nBloom is carving out a role as an on-site infrastructure provider with its solid oxide fuel cells. These cells convert fuel into electricity in a highly efficient and relatively clean way that also provides consistent power, and Bloom's energy servers can be up and running in 90 days.\n\nBloom initiated a contract in July 2025 to provide its fuel cells onsite to power to select Oracle data centers. It also expanded an agreement with Equinix in 2025 to help power its data centers.\n\nAs it ramps up production, the company is unprofitable, but revenue is growing steadily. Bloom reported $2 billion in revenue in 2025, a roughly 37% increase from the previous year. It's also showing that the demand for its cells is persistent. At the end of 2025, Bloom finished with a product order backlog of $6 billion.\n\nFor this stock to work out for long-term investors, Bloom will need to show it can convert its backlog into revenue, then turn growing revenue into eventual profits. The forward price-to-earnings (P/E) ratio is a steep 94.3, and the beta is 3.1, meaning the stock price is more than three times as volatile as the broader market. That means this is an investment only the most aggressive long-term buyers should consider.\n\nInvestors who believe in Bloom's long-term potential could consider dollar-cost averaging (DCA) -- buying a set number of shares or investing a fixed dollar amount on a set schedule. That helps offset some of the worry about buying a large number of shares all at once and watching the price swing lower, as using DCA can help lower your average cost per share over time.",
+    "readingTime": 3,
+    "keywords": [
+      "fuel cells",
+      "centers",
+      "energy",
+      "revenue",
+      "investors",
+      "long-term",
+      "stocks",
+      "thoughts",
+      "beneficiaries",
+      "biggest"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/sectors/energy/articles/2-monster-stocks-hold-next-165000776.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/motleyfool.com/453227677a0c47f1cf6550c8fbdbcaf6",
+    "created_at": "2026-04-09T18:49:05.178Z",
+    "topic": "finance"
+  },
+  {
     "slug": "index-the-paid-api-directory-for-ai-agents-indexed-verified-searchable",
     "title": "Index: The paid API directory for AI agents: indexed, verified, searchable",
     "description": "Protocol-agnostic directory of paid APIs (L402, x402, MPP) for AI agents. Indexed, verified, and searchable.",
@@ -1544,233 +1832,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/hb_jXNRleFftTGqQY06G5g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/ducks_wire_usa_today_articles_200/c3fc3b32f20363189e00e0e91f952e8a",
     "created_at": "2026-04-06T12:46:43.903Z",
     "topic": "sports"
-  },
-  {
-    "slug": "give-your-agents-jobs-not-processes",
-    "title": "Give Your Agents Jobs, Not Processes",
-    "description": "When building AI agents, starting small by hardcoding today's process constrains a system that can reason about goals into a brittle script. Define the job, not the steps.",
-    "fullText": "Every experienced software builder carries the same instinct: start small. Ship the thinnest possible slice, prove value, then broaden from there. Lean startup, agile, MVP, iterative delivery. It’s so deeply embedded in product thinking that it feels like a law of nature.\n\nWhen building AI agents, that instinct can backfire if “start small” means “hardcode today’s process.” If you focus on replicating how the work gets done now, step by step, you constrain a system that can reason about goals into a brittle script. The result is an agent that breaks on edge cases and never shows what it could have done with more freedom.\n\nWhen you hire a senior person into a role, you don’t hand them a script of every action to take in every situation. You describe the role, give them access to the systems they need, set clear boundaries on their authority, and trust them to figure out the best approach. The more capable the hire, the more counterproductive it is to micromanage their every step. You wouldn’t tell a senior engineer which IDE to use or what order to write their functions in. You’d tell them what the system needs to do, point them at the codebase and the deployment pipeline, and make sure they understand what requires a code review.\n\nMany teams building AI agents are doing the equivalent of handing that senior hire a keystroke-by-keystroke script, and getting exactly the results you’d expect.\n\nFor most of the history of software, building a tool to support a workflow meant decomposing that workflow into discrete operations and implementing each one. Software didn’t reason; it executed. If you wanted the system to handle a new situation, you wrote new code. Starting narrow meant picking one path through the workflow, building it end to end, getting feedback, and expanding. This is good product discipline, and it still applies to many things. But it carries an implicit assumption: every capability has to be constructed.\n\nLLMs break that assumption. For the first time, the technology can reason about a goal, choose among available tools, and adapt its approach based on what it encounters. You’re no longer assembling every behavior from scratch; you’re shaping a system that arrives with broad capability already present. And yet many teams still approach AI agents the way they’d approach any workflow tool: decompose the process, implement each step, start narrow, iterate.\n\nAnthropic draws a useful distinction between “workflows” (LLMs orchestrated through predefined code paths) and “agents” (systems where LLMs dynamically direct their own processes and tool usage). When you encode an existing process into a workflow, you’re encoding the limitations that process was designed around. The process was built for software that couldn’t reason or adapt. Those constraints shaped every part of it: the handoffs, the approval gates, the workarounds for systems that don’t talk to each other. Carrying all of that forward into an agent is like hiring that senior engineer and then requiring them to write code the way your 2005 intern did, because that’s what’s documented.\n\nAnd when you constrain an agent to execute the existing process, the best you’ll ever get is an incremental improvement on the current way of working. The agent does the steps faster, but it never shows you a better way to accomplish the goal, because you never gave it the latitude to find one.\n\nThe Jobs to Be Done framework maps onto AI agent design with unusual precision. JTBD says: don’t ask what features the product needs, ask what job the user is hiring it to do. The job is stable even when the process changes. “Move qualified deals through the pipeline to close” is a job. “Query the CRM, filter by stage, check last activity date, draft a follow-up” is a process. The job persists; the process is an artifact of the tools and constraints that existed when someone first figured out how to get it done.\n\nWhen you give an agent a job instead of a process, two things happen. First, the agent can reason about how to accomplish the goal, which means it can handle situations the original process never anticipated. A scripted agent fails silently on edge cases; a job-oriented agent can adapt. Second, you’re forced to articulate what success actually means. A process is self-describing: did the agent follow the steps? A job requires you to define the outcome. Is the deal actually qualified, or just at the right stage? Has the prospect been contacted recently by another rep? Does the proposed next step match where the buyer actually is in their decision? These are harder questions than “did step 3 execute,” but they’re the questions that determine whether the work was actually done well.\n\nJTBD turns out to be a natural way to specify agents. Jobs are stable. Processes are contingent. A good agent spec should look more like an intention with success criteria and constraints than a flowchart.\n\nThe biggest practical obstacle to the job-oriented approach is trust. If you haven’t scripted each step, how do you know the agent isn’t doing something you didn’t intend?\n\nThis concern is real, but it’s aimed at the wrong thing. Scripted processes feel safe because they’re legible: you can read the instructions and predict what will happen. But legibility is not the same thing as safety. A scripted agent that encounters a state the process didn’t anticipate will either halt with an error that can’t describe the actual problem, or continue executing steps that no longer make sense in context. The failure is silent precisely because the agent is doing exactly what you told it to.\n\nThe resolution requires separating two things that feel like the same thing but aren’t: scope and authority. Scope is what the agent can think about and attempt. Authority is what the agent can actually do in external systems.\n\nRestricting scope makes the agent less capable. Restricting authority makes the agent safer.\n\nConflating them means you’re making the agent dumber when you’re trying to make it more trustworthy. There is a legitimate tradeoff in debuggability: a scripted process gives you step-by-step traceability that a reasoning agent doesn’t. But well-designed tools produce structured call traces that function as checkpoints, and there’s more to say about evaluation for agent systems in a follow-up.\n\nThe practical pattern that’s emerging in production is to let the agent reason freely about how to accomplish a job while forcing every action through a governance layer that enforces organizational constraints deterministically. The agent’s intelligence creates value in the planning and reasoning. The boundaries create safety at the point of execution.\n\nIn practice, this breaks down into two layers.\n\nTools encode requirements. The tools you give the agent are your authority boundary, and they should enforce security, process, and policy constraints directly. If your organization requires that prospects aren’t contacted more than once per quarter, that constraint lives in the tool, not in the prompt. The tool either accepts the request or rejects it with a reason. This is deterministic enforcement: your compliance story doesn’t depend on whether the LLM interpreted a natural-language instruction correctly on this particular inference. This is also where concerns about hallucination find their architectural answer. An agent might hallucinate a bad plan, but it can’t hallucinate its way past a tool that requires valid parameters and checks policy before executing. The reasoning layer can be imperfect without producing dangerous actions, because the execution layer doesn’t trust it. Well-designed tools also enable collaboration by managing handoffs between people and agents, protecting shared resources like contact lists or approval queues, and producing structured outputs that downstream systems and teammates can act on.\n\nSkills encode goals and quality. Skills are reusable context modules: domain-specific operating instructions that extend the system prompt for a given scenario, providing the agent with specific goals, expertise, and quality standards. A skill for deal management would include the goal (“move this deal to a decision by identifying and addressing the buyer’s remaining concerns”), the domain knowledge (what signals indicate a deal is stalling, how outreach should differ between a technical evaluator and an executive sponsor, when to escalate to a human), and the quality bar (what “good enough” looks like versus what requires judgment from a person). Skills enable progressive disclosure: as the agent encounters different types of work, the relevant skill activates with context and expectations rather than front-loading everything into a monolithic prompt. They should also explain the reasoning behind the policies enforced by tools, so the agent makes better decisions about when and how to use them.\n\nThis separation matters because you can update policy and expertise independently. When a compliance rule changes, you change the tool. When the team learns that a certain approach produces better results, you update the skill. Neither change requires rearchitecting the other.\n\nMapping back to the senior hire: tools are the systems and permissions you provision on their first day. Skills are the onboarding docs, the team norms, the goals they’re working toward. You wouldn’t put access controls in an onboarding document, and you wouldn’t put quality standards in an IAM policy. The same logic applies here.\n\nThe instinct to start narrow comes from a world where you were constructing capability from scratch. In that world, narrowing scope was how you managed complexity and risk. With AI agents, broad capability is the starting condition. The builder’s job isn’t to assemble the capability piece by piece. It’s to design the tools that constrain authority, the skills that define goals and encode quality, and the governance layer that makes the whole thing auditable and trustworthy. That’s the product.",
-    "readingTime": 8,
-    "keywords": [
-      "edge cases",
-      "governance layer",
-      "senior engineer",
-      "broad capability",
-      "quality standards",
-      "well-designed tools",
-      "senior hire",
-      "existing process",
-      "scripted agent",
-      "agents"
-    ],
-    "qualityScore": 1,
-    "link": "https://geoffstearns.com/blog/give-your-agents-jobs-not-processes/",
-    "thumbnail_url": "https://geoffstearns.com/blog/give-your-agents-jobs-not-processes/og-image.jpg",
-    "created_at": "2026-04-06T12:46:07.113Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-job-search-guide-ai-edition-with-eliza-cabrera",
-    "title": "The Job Search Guide- AI Edition with Eliza Cabrera",
-    "description": "Three years ago  I created an audioblog on youtube and accompanying written blog  to help folks organize their job searches and find a new ideal role.   The world has come a long way since then, and though most of the core tenets I wrote about hold true, regardless of your discipline, we are now ver",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://technicalintegrity.com/technical-integrity-blog/revisiting-the-ultimate-job-search-guide-the-ai-edition",
-    "thumbnail_url": "http://static1.squarespace.com/static/5e8ba7736335fd212af3d52d/678962fac5f1ee712e72bd04/69cde098768a5a5f36ea9859/1775211249580/Screenshot+2026-04-03+at+4.54.11%E2%80%AFPM.png?format=1500w",
-    "created_at": "2026-04-06T12:46:06.484Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "i-turned-arcagi3-into-a-daily-browser-game",
-    "title": "I turned ARC-AGI-3 into a daily browser game",
-    "description": "A daily puzzle game with no rules and no instructions. Built on ARC-AGI-3, the benchmark AI can't solve (yet).",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://arcaptcha.io/",
-    "thumbnail_url": "https://arcaptcha.io/sm_image.png",
-    "created_at": "2026-04-06T12:46:05.953Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "this-ceo-left-bloomberg-to-track-gpus-she-explains-why-prices-are-going-nuts",
-    "title": "This CEO left Bloomberg to track GPUs. She explains why prices are 'going nuts.'",
-    "description": "GPU prices are rising fast as AI demand outpaces supply, with even older chips holding value and cloud giants charging steep premiums.",
-    "fullText": "Carmen Li, CEO of Silicon Data, reports rising GPU prices on strong AI demand.\n Silicon Data's indexes show a significant Nvidia GPU rental price increase over the past few months.\n Cloud giants charge big premiums for GPU rentals.",
-    "readingTime": 1,
-    "keywords": [
-      "silicon"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/ai-demand-boosts-gpu-prices-silicon-data-ceo-carmen-li-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d0474ac02a678bd7e47f90?width=1200&format=jpeg",
-    "created_at": "2026-04-06T12:46:01.815Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "meta-salaries-revealed-how-much-the-social-media-giant-pays-engineers-ai-researchers-and-more",
-    "title": "Meta salaries revealed: How much the social media giant pays engineers, AI researchers, and more",
-    "description": "See how much Meta paid in 2025, with software engineers earning as much as $450,000. Salary data shows pay ranges across over 5,000 roles.",
-    "fullText": "Business Insider analyzed work-visa salary data for over 5,000 roles at Meta in 2025.\n Meta paid as much as $450,000 for top software engineering roles in 2025.\n About half of Meta's H-1B hires are for software engineering roles.",
-    "readingTime": 1,
-    "keywords": [
-      "software engineering",
-      "engineering roles",
-      "meta"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/meta-salaries-revealed-how-much-engineers-researchers-made-in-2025-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cc4916c02a678bd7e46c1b?width=1200&format=jpeg",
-    "created_at": "2026-04-06T12:46:01.781Z",
-    "topic": "science"
-  },
-  {
-    "slug": "a-new-scorecard-shows-which-software-companies-will-win-or-lose-in-ai",
-    "title": "A new scorecard shows which software companies will win or lose in AI",
-    "description": "AlixPartners' AI Disruption Score reveals SaaS facing a structural reset, impacting private equity as AI commoditizes software sectors.",
-    "fullText": "AlixPartners analyzes software companies' AI risk with a new AI Disruption Score.\n The software industry faces a $40 billion debt wall in 2028 that must be refinanced as AI bites.\n SaaS revenues could fall amid AI competition, AlixPartners warns.",
-    "readingTime": 1,
-    "keywords": [
-      "alixpartners",
-      "software"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/alixpartners-scorecard-shows-which-software-companies-win-lose-ai-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cfdbe0e762ed6cfe44a0cf?width=1200&format=jpeg",
-    "created_at": "2026-04-06T12:46:01.639Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-next-big-job-in-tech-may-be-the-product-engineer",
-    "title": "The next big job in tech may be the 'product engineer'",
-    "description": "As engineers ramp up their efficiency using AI, product managers now have to manage more. A new hybrid role has arrived: the product engineer.",
-    "fullText": "As engineers ramp up their efficiency, product managers now have to manage a lot more products.\n That means companies are looking to hire more of them.\n Companies are also now making engineers product manage — a new role called the \"product engineer.\"",
-    "readingTime": 1,
-    "keywords": [
-      "product",
-      "engineers",
-      "manage"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/ai-jobs-product-engineers-managers-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d2f201e762ed6cfe44a732?width=1200&format=jpeg",
-    "created_at": "2026-04-06T12:46:01.621Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "jensen-huang-to-sam-altman-the-guest-list-turning-a-stanford-ai-class-into-a-tech-summit",
-    "title": "Jensen Huang to Sam Altman: The guest list turning a Stanford AI class into a tech summit",
-    "description": "A Stanford course on AI infrastructure has 500 students and features speakers from some of the biggest companies in tech.",
-    "fullText": "Stanford University is hosting a 10-week course on AI infrastructure this spring.\n The packed guest speaker list includes Satya Nadella, Jensen Huang, Sam Altman, and other big names.\n The 500-person class had a waitlist.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/stanford-ai-class-speakers-jensen-huang-sam-altman-satya-nadella-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d2dec56a864f6fcd7bd8ab?width=1200&format=jpeg",
-    "created_at": "2026-04-06T12:46:01.619Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-new-investing-edge-might-be-hiding-in-firms-own-data",
-    "title": "The new investing edge might be hiding in firms' own data",
-    "description": "Asset managers like BlackRock and Balyasny believe AI could help harness their own internal data for market-beating insights.",
-    "fullText": "Large language models have hoovered up publicly available data across the web.\n For artificial intelligence to have knowledge no other firm has, the data it trains on must be private.\n Asset managers like BlackRock and Balyasny have found an edge by turning their AI agents inwards.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/blackrock-balyasny-tapping-ai-search-internal-data-alpha-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cffed7c02a678bd7e47d6d?width=1200&format=jpeg",
-    "created_at": "2026-04-06T12:46:01.619Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "i-run-a-marketing-business-that-lost-work-and-had-to-cut-staff-due-to-ai-im-still-more-excited-by-ai-than-worried",
-    "title": "I run a marketing business that lost work and had to cut staff due to AI. I'm still more excited by AI than worried.",
-    "description": "A marketing CEO of 17 years says AI boosted productivity but cut demand, forced layoffs, and changed pricing.",
-    "fullText": "Alex Cohen has run his small marketing agency for 17 years.\n Cohen cites AI for staff cuts and says client demand has dropped since its rise.\n He started an AI integration service for in-house teams to help pivot his business into the AI era.",
-    "readingTime": 1,
-    "keywords": [
-      "cohen"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/marketing-agency-ceo-cut-staff-after-ai-worried-excited-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cfed596a864f6fcd7bd322?width=720&format=jpeg",
-    "created_at": "2026-04-06T12:46:01.436Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "your-ai-best-friend-might-be-making-you-worse-at-being-wrong",
-    "title": "Your AI best friend might be making you worse at being wrong",
-    "description": "\"When AI systems are optimized to please, they erode the very feedback loops through which we learn to navigate the social world,\" a Harvard fellow said.",
-    "fullText": "AI chatbots are too agreeable and may be reshaping how we handle conflict, a Harvard fellow said.\n Anat Perry said AI validation may make people less likely to apologize or self-reflect.\n AI researchers have raised concerns that AI systems may reinforce flawed thinking.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/why-ai-may-be-making-us-worse-at-handling-conflict-2026-4",
-    "thumbnail_url": "https://i.insider.com/69ce6687e762ed6cfe4498f4?width=1200&format=jpeg",
-    "created_at": "2026-04-06T12:46:01.418Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "has-an-ai-agent-interviewed-you-for-a-job-take-our-survey",
-    "title": "Has an AI agent interviewed you for a job? Take our survey.",
-    "description": "Some employers are tapping the tech to act as a human recruiter. If you've been in the hot seat, Business Insider would like to hear from you.",
-    "fullText": "Some employers are inviting applicants to participate in early-stage interviews led by AI agents.\n The strategy is often used by employers with high-volume hiring needs and startups looking to scale.\n Have you been interviewed for a job by an AI agent? Take our survey below.\n\n How do AI-led interviews benefit companies?\n\n How does AI handle bias in interviews?\n\n How does AI interviewing impact job seekers?\n\n What are the drawbacks of AI-led interviews?\n\n What skills are essential for AI interviews?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "ai-led interviews",
-      "employers"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/has-an-ai-agent-interviewed-you-survey-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d01b89e762ed6cfe44a349?width=1200&format=jpeg",
-    "created_at": "2026-04-06T12:46:01.417Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-chinese-robotics-startup-with-a-tesla-optimus-rival-is-seeking-a-new-chief-scientist-with-an-18-million-salary",
-    "title": "A Chinese robotics startup with a Tesla Optimus rival is seeking a new chief scientist with an $18 million salary",
-    "description": "The race for AI and robotics talent is heating up and getting expensive.",
-    "fullText": "The race for AI and robotics talent is getting expensive.\n Chinese humanoid-robot startup UBTech is hiring a chief AI scientist with a maximum salary of $18 million.\n This comes as China seeks to build on its robotics dominance.",
-    "readingTime": 1,
-    "keywords": [
-      "robotics"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/chinese-robotics-startup-tesla-rival-18-million-salary-chief-scientist-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d3756de762ed6cfe44a7f4?width=1200&format=jpeg",
-    "created_at": "2026-04-06T12:46:01.096Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "openai-calls-for-robot-taxes-a-public-wealth-fund-and-a-4day-workweek-to-tackle-ai-disruption",
-    "title": "OpenAI calls for robot taxes, a public wealth fund, and a 4-day workweek to tackle AI disruption",
-    "description": "In a series of policy recommendations, OpenAI said the rapid advance of AI would require far-reaching economic and political reforms.",
-    "fullText": "OpenAI has released a list of policy ideas to combat AI disruption. \n They include a public wealth fund and experimenting with a four-day workweek.\n Fears are growing about a wave of AI-powered job losses as the technology continues to advance.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/openai-superintelligence-ai-upheaval-tax-shorter-workweek-public-wealth-fund-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d39181c02a678bd7e48372?width=1200&format=jpeg",
-    "created_at": "2026-04-06T12:46:01.095Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "to-succeed-with-ai-youve-got-to-nail-the-basics",
-    "title": "To Succeed with AI, You’ve Got to Nail the Basics",
-    "description": "Instead of worrying about whether they’re adopting AI fast enough, most companies would be better served by making sure they’re getting the basics right. Specifically, they should focus on applying five timeless, mutually reinforcing principles of quality management: customer centricity, a focus on process, commitment to acting on facts, a philosophy of continuous improvement, and a recognition that quality happens through people. These sound deceptively simple, but simple things are often hard. Getting these right requires leaders—at all levels—to buck the go-fast spirit of this moment and think deeply about their organizations with an eye toward the long term.",
-    "fullText": "To Succeed with AI, You’ve Got to Nail the Basics by Thomas C. RedmanApril 6, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintSmart people and companies fall into a common trap when it comes to AI: the false belief that adding a layer of AI on top of their current processes will hide rather than reveal a multitude of past sins. While they know full well that “garbage in means garbage out,” they imagine themselves immune to slop, hallucinations, and customer dissatisfaction. They believe that their data is better than average, despite little investment, or that putting a human in the loop will deal with any problems that pop up down the line.",
-    "readingTime": 1,
-    "keywords": [
-      "garbage"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://hbr.org/2026/04/to-succeed-with-ai-youve-got-to-nail-the-basics",
-    "thumbnail_url": "/resources/images/article_assets/2026/04/Apr26_04_7238882.jpg",
-    "created_at": "2026-04-06T12:46:00.331Z",
-    "topic": "business"
   }
 ]
