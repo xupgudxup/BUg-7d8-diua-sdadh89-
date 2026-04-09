@@ -1,5 +1,29 @@
 [
   {
+    "slug": "miropdf-v080-fullscreen-presentation-mode-and-friendly-keybinds",
+    "title": "Miro-pdf v0.8.0 – Fullscreen, presentation mode and friendly keybinds",
+    "description": "A native pdf viewer for Windows and Linux (Wayland/X11) with configurable keybindings. - vincent-uden/miro",
+    "fullText": "A native pdf viewer for Windows, macOS and Linux (Wayland/X11) with configurable keybindings.\n\nThe configuration file is located at ~/.config/miro-pdf/miro.conf (or .config/miro-pdf/miro.conf in the home directory of your operating system). An example configuration file is located at /assets/default.conf which contains all the default bindings for the program.\n\nEvery binding that is possible is bound at least once in the default configuration file.\n\nThe configuration file uses a simple text format with three types of commands and comments:\n\nAll available actions are bound in the example config file. If you need a more exact view of the syntax it is documented in the keybinds-rs crate.\n\nAll available actions are bound in the example config file.\n\nDefault settings apply only at application startup. They can later be toggled with key bindings.\n\nThe configuration parser provides detailed error messages with line numbers when parsing fails. Errors on one line don't prevent parsing of other lines\n\nHead over to releases and download the latest binary for your platform, then place it somewhere in your path.\n\nThis is pretty much the same as the following option, but doesn't require cloning the repo. See building from source for possible complications when compiling for Windows. I've had no problems compiling on Linux thus far.\n\nOn linux, the commands below would clone the repository, compile the project and copy the resulting binary to /usr/bin/.\n\nOn Windows, the same rough process should work, but often doesn't. I highly recommend downloading a precompiled binary for Windows. The problem lies in compiling the crate mupdf-sys which requires MSVC.\n\nThe Visual Studio project embedded in this crate requires Visual Studio 2019 which isn't available for downloading anymore, but can optionally be compiled using Visual Studio 2022. Even with this option, the build might just not work sometimes due to issues with the Windows 10/11 SDK kits which I have not managed to solve.\n\nHowever, I've managed to get compilation working in github actions which is what produces the release binaries which do function correctly on Windows systems.\n\nMupdf-rs requries headers for fontconfig. The packages are:\n\nBuilding on linux also requires some hidden dependencies that you probably already have.\n\nWhile I don't test the software for macOS since I don't own a mac. It should work although only supporting building from source or crates.io. No binary releases are made.",
+    "readingTime": 2,
+    "keywords": [
+      "config file",
+      "configuration file",
+      "binary",
+      "default",
+      "bound",
+      "actions",
+      "crate",
+      "don't",
+      "compiling",
+      "macos"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/vincent-uden/miro",
+    "thumbnail_url": "https://opengraph.githubassets.com/0a815fcd5b6380006f853376e036fb9720e21bc53f5418ce881c92283f26ff9c/vincent-uden/miro",
+    "created_at": "2026-04-09T12:59:31.305Z",
+    "topic": "tech"
+  },
+  {
     "slug": "google-offers-free-pc-upgrade-for-500-million-windows-users",
     "title": "Google Offers Free PC Upgrade For 500 Million Windows Users",
     "description": "All change for Windows — it's now decision time for 30% of all PC owners.",

@@ -1,5 +1,79 @@
 [
   {
+    "slug": "built-a-small-cli-for-image-generationediting-while-working-with-coding-agents",
+    "title": "Built a small CLI for image generation/editing while working with coding agents",
+    "description": "🍌 CLI tool for generating and editing images with Google Gemini (Nano Banana 2) directly from your terminal. - crapthings/nb-cli",
+    "fullText": "Nano Banana CLI Tool — Generate and edit images with the power of Google Gemini models directly from your terminal.\n\nnb-cli is a lightweight command-line interface for the Nano Banana (Gemini 3.1 Flash Image Preview) model. It allows you to create high-quality images from text prompts and perform sophisticated image editing by providing natural language instructions alongside an existing image.\n\nUse .jpg output filenames when you pass -o. If you omit the extension, nb-cli will save using the model's native output format automatically.\n\nTo use this CLI, you need a Google Gemini API Key.\n\nSet the key in your shell environment:\n\nCreate a brand new image from a text prompt.\n\nGenerate a 1:1 minimalist icon for a given prompt. This command automatically adds icon-specific keywords to your prompt.\n\nModify an existing image by describing the changes you want.\n\nWhen you're building a website or web app with tools like Codex or Claude Code, nb-cli is a fast way to generate hero images, landing page artwork, blog thumbnails, feature illustrations, and other visual assets without leaving the terminal.\n\nYou can then drop the generated image straight into your repo while your coding agent continues implementing the page.\n\nIf you use Codex skills, you can install the bundled nb-cli skill from this repo with:\n\nThis installs the nb-cli skill so your agent can use the CLI with the repo's prompt guidance and image-generation references.\n\nAfter installation, trigger it with requests such as:\n\nShout-out to grokfilm.app. The still-image technique references in the bundled skill were inspired by the film and photography technique vocabulary collected there.\n\nOrdered by the leading dimension (width) from largest to smallest:\n\nThis project follows the StandardJS coding style.\n\nThe project uses mocha and chai for unit testing.\n\nLicensed under the MIT License.",
+    "readingTime": 2,
+    "keywords": [
+      "nano banana",
+      "nb-cli skill",
+      "prompt",
+      "generate",
+      "images",
+      "terminal",
+      "create",
+      "text",
+      "existing",
+      "output"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://github.com/crapthings/nb-cli",
+    "thumbnail_url": "https://opengraph.githubassets.com/552e2e1152f4fbc2ca13d029b1604489427168d445430e2f835a306ff1e1f3ee/crapthings/nb-cli",
+    "created_at": "2026-04-09T12:59:30.427Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "vibetime-track-what-you-ship-in-ai-coding-sessions",
+    "title": "Vibetime – Track what you ship in AI coding sessions",
+    "description": "Track what you actually ship with AI. Contribute to iamnotstatic/vibetime development by creating an account on GitHub.",
+    "fullText": "Track what you actually ship with AI.\n\nVibetime wraps Claude Code, Codex, and Gemini and prints a session summary every time you're done. No config, no account, no daemon.\n\nAdds shell hooks that wrap claude, codex, and gemini. The tools work exactly the same — Vibetime tracks your git state while you code and prints the endcard when you're done.\n\nFish shell — vibe init writes bash/zsh syntax. Fish users should add hooks manually to ~/.config/fish/config.fish:\n\nEvery time you close a Claude Code, Codex, or Gemini session:\n\nSessions are scored by what happened in git:\n\nHow duration works — Vibetime polls your git state every 30 seconds. If no file changes, commits, or staging activity are detected for 30 minutes, the idle time is excluded from your session duration. Laptop sleep and background idle are automatically handled. Non-git projects use wall-clock time.\n\nRun vibe share to print your weekly card. Press h to open the HTML version — copy it, screenshot it, post it.\n\nStreaks track consecutive days you shipped. If you shipped yesterday but not yet today, your streak shows ⏳ — you still have time.\n\nVibetime wraps any AI CLI. To track a tool not listed above:\n\nSessions belong to the day they started — a session that runs past midnight appears under the previous day.\n\nvibe uninstall removes all shell hooks from your rc file. Your session data in ~/.vibe/ is preserved — delete it manually if you want a clean removal.\n\nVibetime has no telemetry, no network calls, and no account. Everything stays on your machine.\n\nIt reads git metadata only — commit counts, line counts, file counts. It never reads file contents, environment variables, API keys, or anything you type into the wrapped tool. The AI CLI's stdin/stdout are passed straight through via spawn with stdio: 'inherit'.\n\nAll data is stored locally in ~/.vibe/.",
+    "readingTime": 2,
+    "keywords": [
+      "claude code",
+      "code codex",
+      "vibetime wraps",
+      "you're done",
+      "shell hooks",
+      "session",
+      "file",
+      "track",
+      "gemini",
+      "counts"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://github.com/iamnotstatic/vibetime",
+    "thumbnail_url": "https://opengraph.githubassets.com/68af460d90f6a9fd70dedbf0e620425b84a85aca79c1dd7b433659ca8de67e8b/iamnotstatic/vibetime",
+    "created_at": "2026-04-09T12:59:30.351Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "repeat-y-combinator-founders-raise-22-million-to-fix-vibe-codings-pricing-problem-read-their-pitch-deck",
+    "title": "Repeat Y Combinator founders raise $2.2 million to fix vibe coding's pricing problem. Read their pitch deck.",
+    "description": "Y Combinator startup OpenBuilder raised $2.2 million in seed funding to challenge dominant vibe coding startups with fixed pricing.",
+    "fullText": "OpenBuilder is challenging dominant vibe coding startups with fixed pricing.\n The Y Combinator startup has raised $2.2 million in seed funding.\n Customers can pay for human support when they get stuck.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/openbuilder-pitch-deck-vibe-coding-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d557a3f36fd1a78c0519e1?width=1200&format=jpeg",
+    "created_at": "2026-04-09T12:58:51.836Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "this-couple-vibe-coded-a-bot-to-call-20000-gas-stations-theyre-building-a-price-tracker-from-scratch",
+    "title": "This couple vibe coded a bot to call 20,000 gas stations. They're building a price tracker from scratch.",
+    "description": "A UK-based couple's project loops in several colliding trends: vibe-coding, rising gas prices, and how people interact with bots in the real world.",
+    "fullText": "A couple built a US gas price tracker using Claude Code and AI agents that called 20,000 stations.\n It stacks gas prices with regional delicacies — like Dunkin' coffees and college football tickets.\n The calls show how people react to AI in the wild. Most answer, some hesitate, and a few swear.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/couple-vibe-coded-national-gas-price-tracker-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d67aa1f36fd1a78c051ea9?width=1200&format=jpeg",
+    "created_at": "2026-04-09T12:58:51.612Z",
+    "topic": "finance"
+  },
+  {
     "slug": "i-quit-my-software-engineering-job-to-help-seniors-with-tech-i-assist-them-with-things-like-recovering-photos-and-bank",
     "title": "I quit my software engineering job to help seniors with tech. I assist them with things like recovering photos and bank accounts.",
     "description": "Adrian Amora left software engineering to help seniors use technology, finding more purpose in human connection than coding.",
@@ -1966,92 +2040,5 @@
     "thumbnail_url": "https://opengraph.githubassets.com/1cb075c57cf9e3d0722590987bf65d9b88084bc49ac4fe0467eb7981c901a878/mubit-ai/codaph",
     "created_at": "2026-02-28T12:24:28.882Z",
     "topic": "tech"
-  },
-  {
-    "slug": "the-bespoke-flywheel",
-    "title": "The Bespoke Flywheel",
-    "description": "The era of The Bespoke Flywheel is here: agentic coding has pushed the cost of disposable, one-off software to zero. Stop settling for generic tools and start automating away niche friction to keep your focus entirely on high-signal thinking.",
-    "fullText": "Every researcher or engineer has encountered this: you need to do something ad-hoc and unsupported by existing tooling. Perhaps it's to create a custom slice of data analysis, to build a dashboard that monitors a specific failure pattern, or simply to make a nicer-looking UI that doesn't hurt your eyes so much when eyeballing eval samples. You look at the clock and the massive to-do list, think about the efforts needed, and decide that you cannot justify the investment. So you settle for a generic tool that gives you a blurry version of the truth.\n\nBut this is changing as we enter the era of The Bespoke Flywheel. Before we know it, the cost of building niche, disposable software will effectively hit zero.\n\nWe used to only build tools for the 80% case -- problems that happen frequent enough to justify the engineering overhead. This left the long tail of friction untouched. The frontier, however, by definition lives in that long tail. It is made of weird, non-standardized, one-off problems that off-the-shelf tools can't solve.\n\nWith agentic coding tools, the math has flipped. When you can describe a friction point and have a working solution in 2 minutes, the Tooling Tax vanishes. You stop working around the friction and start automating it out of existence.\n\nThis allows you to build Disposable Software: tools built for a single niche purpose, used for three hours (or even only 10 minutes) to find a specific signal, and then discarded.\n\nThe true power of this shift is best understood through a lens recently articulated by Hao Sheng:\n\n\"The bottleneck is how fast you can convert an idea into a high-signal datapoint — and then do it again.\"\n\nIn this framework, progress isn't limited by compute or idea supply. It's limited by the velocity of the feedback loop.\n\nWhen you combine agentic coding with this philosophy, you get The Bespoke Flywheel:\n\nFor the first time, your progress is no longer limited by your ability to quickly churn out throw-away code. It is limited only by your cognitive bandwidth: asking the right questions and interpreting the high-signal data coming back at you.\n\nWe used to spend 80% of our time building the machine and 20% of our time thinking. The Bespoke Flywheel flips that ratio and keeps you in a flow state longer.\n\nThis shift goes way beyond AI labs and tech companies; it's the new baseline for the personal frontier. We are moving from a world where we adapt our lives to generic software, to one where we architect the digital environment to fit us.\n\nThe Bespoke Flywheel becomes a way of living. Whether you are optimizing a personal health journey, mastering a niche hobby, or managing a complex househould, you no longer need to wait for an app developer to care about your specific friction. You build the bridge yourself.\n\nThe frontier is now personal. And it's yours to build.\n\nGenerative AI Usage Disclosure: Refined by Gemini 3 Thinking; banner generated by Nano Banana 2.",
-    "readingTime": 3,
-    "keywords": [
-      "bespoke flywheel",
-      "agentic coding",
-      "the bespoke flywheel",
-      "it's",
-      "tools",
-      "friction",
-      "limited",
-      "niche",
-      "frontier",
-      "longer"
-    ],
-    "qualityScore": 1,
-    "link": "https://linghao.io/posts/bespoke-flywheel",
-    "thumbnail_url": "https://r2.linghao.io/blog-assets/bespoke-flywheel.png",
-    "created_at": "2026-02-28T06:24:25.130Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "leveraging-ai-for-selflearning",
-    "title": "Leveraging AI for Self-Learning",
-    "description": "Thoughts, guides, and learnings on programming and systems",
-    "fullText": "While everyone has been going crazy over vibe-coding, I’ve been largely experimenting with AI for learning.\n\nThe question I generally have is whether or not we can use these tools to learn\nnew technical concepts, domains, or programming languages effectively.\n\nThe hardest part when programming, in my opinon, usually has very little to do\nwith the syntax and much more to do with the domain.\n\nHow does authentication\nwork? What is a database “transaction”? What is a language server? What happens\nin the linking process?\n\nOr, if you’re learning a new programming paradigm (e.g. Rust, FP, Lisp), you likely have some\nquestions about the idiomatic way to do things.\n\nI’ve been playing around with these tools for a good while attempting to do some\nof these things, with the focus on using them to actually improve my knowledge\nrather than mercilessly vibecoding.\n\nSo, can these tools help us learn effectively? To immediately ruin the clickbait, my honest answer is I’m still trying to work that out myself.\n\nBut I think sharing my thoughts here might be useful to some others.\n\nFirst I want to talk about my general approach to learning, applying it to AI,\nand then where I think things fall short - whether through the tools, or my own\nlearning strategy.\n\nAs a self-learner, I believe the strongest path you can choose to take is inquiry-based learning. This is especially true for areas like programming, computing-related concepts, etc.\n\nThe general idea is to learn by creating projects and asking lots of questions about what you’re doing. What happens if I change X variable to Y? Why does it give me an error? What does the error mean?\n\nAnd using this to form your own beliefs and understandings about a concept, and testing them (either by learning more, consulting experienced people on forums, etc.).\n\nThis is kind of similar to the Socratic method and other techniques to help improve your critical thinking.\n\nThe obvious next step here is trying to apply this concept to our LLM usage.\n\nSocrates and many other teachers over the course of modern and ancient history seem to agree on the fact that you need some amount of discomfort in order to learn effectively.\n\nTo be honest it really is as simple as the common phrase “learning from your mistakes”.\n\nIf you break a client’s website or run into a bug which drives you insane for 3 days, you’re probably never going to make that mistake again because, well, you don’t want to experience that mistake again.\n\nAlong these lines, if you’re tackling something new or complex (or both) it’s of course natural to feel a level of discomfort as it’s unknown, and you will likely make mistakes (and learn from them).\n\nSo with all of this said, this is where I want to talk about AI.\n\nI have taken this inquiry-based approach when learning new topics and using LLMs.\n\nThere is no “master” strategy here. I always feel I work best by trusting my instincts when it comes to what I should learn next or upskill with.\n\nBut here’s a few different approaches I took:\n\nThe least effective way to learn with LLMs, in my opinion, is to use only LLMs. I’m sure you could ask the chatbot to act like a teacher and teach you a lesson on topic X, but I think it’s not making the most of the chat format. We need diagrams, videos, and other methods of written explanation that do not fit the “voice” given to the current AI models.\n\nHowever, using them alongside other resources, or as a fellow code reviewer, assistant, or something along these lines, seems to have given me some remarkable results - at least output-wise.\n\nI’ve recently been coding Neovim plugins by reading the documentation the best I can, and using AI to help me if I get stuck on how a certain API works or what I’m doing wrong.\n\nI think the issue is though it makes me think two things:\n\nComing back to the point I made earlier, we need discomfort to learn. The “goldilocks” zone of not too much, not too little, but just right.\n\nRight now, I feel at least that AI makes things just a little bit too easy for me. So I have to ask myself: am I really still learning effectively? Am I destroying my critical thinking and offloading too much to these tools?\n\nI want to think that I’m not, considering that I have the mental capability to reflect on this experience and try and decide for myself. But it does make me think.\n\nThese tools are all about how we use them. You can generate slop short-form media, or you can try and use them to learn new concepts. It’s all about you. But having the discipline to use them in a “good” way is definitely hard.\n\nI do think we’re moving closer to the goldilocks zone, and I can really see these tools augmenting our learning process for the better.\n\nAt the same time, I don’t want to see traditional resources fade away, and I do think there’s room for both. Or, at least I hope there is.\n\nIf you have any thoughts on this I’d be glad to hear them.",
-    "readingTime": 5,
-    "keywords": [
-      "mistake again",
-      "goldilocks zone",
-      "learn effectively",
-      "learning",
-      "tools",
-      "programming",
-      "you’re",
-      "it’s",
-      "i’ve",
-      "concepts"
-    ],
-    "qualityScore": 1,
-    "link": "https://techne98.com/blog/can-we-use-ai-for-self-learning/",
-    "thumbnail_url": "https://techne98.com/og.png",
-    "created_at": "2026-02-28T06:24:24.972Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-american-universities-programming-israels-killer-drones",
-    "title": "The American Universities Programming Israel’s Killer Drones",
-    "description": "Julian...",
-    "fullText": "The Vietnam-era practice is yet another example of ICE agents thrilling to the brutality they have been encouraged to cultivate.\n\nWhether or not you have access to independent, scientifically sound public health guidance may depend on how your state voted for governor.\n\nAfter putting on their very best performances of solidarity every Black History Month, this year corporate marketers have seemed at a loss for words.\n\nWe are seeing yet another example of state-sanctioned violence against the reproductive futures of those deemed outside the national body.\n\nThe Brazilian star Vinicius Jr. has repeatedly been a victim of racist abuse from soccer fans. Now, it seems such vitriol can even come from players without much consequence.\n\nStudentNation\n\n /\n\n Takashi Williams\n\nWithin hours of losing the case, President Trump declared a new global tariff under a different statute.\n\nMichele Goodwin and Gregory Shaffer",
-    "readingTime": 1,
-    "keywords": [
-      "another"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.thenation.com/article/society/universities-israel-drones-weapons-manufacturing-military-contractors/",
-    "thumbnail_url": "https://www.thenation.com/wp-content/uploads/2026/02/Israel-Drones-University-of-Central-Florida.jpg",
-    "created_at": "2026-02-28T01:02:24.313Z",
-    "topic": "politic"
-  },
-  {
-    "slug": "the-guy-who-coined-vibe-coding-says-ai-is-making-programming-unrecognizable",
-    "title": "The guy who coined vibe coding says AI is making programming 'unrecognizable'",
-    "description": "OpenAI and Tesla alum Andrej Karpathy wrote that there was no more \"business as usual\" in software, thanks to AI.",
-    "fullText": "The AI coding timeline is accelerating, according to the guy who coined \"vibe coding.\"\n\nAndrej Karpathy has a long list of AI bona fides. He was a founding member of OpenAI, left to lead AI at Tesla, then returned to the ChatGPT-maker and eventually started his own lab. In early 2025, he introduced the term vibe coding into the zeitgeist.\n\nIn his latest X post, Karpathy described a speed-up in agentic coding, one that has taken place in just a few months. \"Coding agents basically didn't work before December and basically work since,\" he wrote.\n\nThese agents are \"extremely disruptive to the default programming workflow,\" Karpathy wrote.\n\nHe gave an example. Over the weekend, Karpathy said he used AI to make a video analysis dashboard for his home cameras. His AI agent completed it in 30 minutes, encountering errors and researching solutions. It was all hands-free, he wrote.\n\n\"Programming is becoming unrecognizable,\" Karpathy wrote. \"This is nowhere near 'business as usual' time in software.\"\n\nPosts like these are now Karpathy's specialty: long, multi-paragraph takes on the state of software engineering. In one recent post, the creator of Claude Code commented that Karpathy always had a \"very thoughtful and well reasoned take.\"\n\nIn the comments on this post, an AI developer asked about the state of software engineers. \"Are teams of hundreds of people going to be replaced by a few chosen prompters?\" they asked.\n\n\"Vibe coders are now able to get somewhere, but at the top tiers, deep technical expertise may be even more of a multiplier than before because of the added leverage,\" Karpathy responded.\n\nSome big names in AI aren't so thrilled with Karpathy's linguistic invention. OpenClaw creator Peter Steinberger called vibe coding \"a slur,\" arguing that it implied coding with AI was easy and didn't still involve real work.\n\nIn another comment, Karpathy referenced an old Tesla slogan: \"Every action is error.\" The goal is to arrange your agents so you can \"remove yourself as the bottleneck,\" he wrote.\n\nFor many, coding with AI can feel fantastical. Karpathy offered a quick reality check: the agents require \"high-level direction\" and (the frequently memed) \"taste.\"\n\n\"It's not magic, it's delegation,\" he wrote.",
-    "readingTime": 2,
-    "keywords": [
-      "vibe coding",
-      "agents",
-      "software",
-      "karpathy",
-      "tesla",
-      "didn't",
-      "programming",
-      "karpathy's",
-      "creator",
-      "it's"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/andrej-karpathy-programming-unrecognizable-ai-2026-2",
-    "thumbnail_url": "https://i.insider.com/69a056701fb3fcb426487d98?width=1200&format=jpeg",
-    "created_at": "2026-02-27T12:34:24.313Z",
-    "topic": "finance"
   }
 ]
