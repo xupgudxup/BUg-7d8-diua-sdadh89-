@@ -1,5 +1,42 @@
 [
   {
+    "slug": "edgesense-replacing-neural-nets-on-microcontrollers-with-symbolic-physics",
+    "title": "EdgeSense – replacing neural nets on microcontrollers with symbolic physics",
+    "description": "EdgeSense: A safe AI ecosystem for autonomous systems. Fuses AI-discovered control equations with MicroSafe-RL (CBF) to guarantee hardware survival and energy efficiency. - Kretski/EdgeSense",
+    "fullText": "Automatic Physical Law Discovery for Embedded Control Systems.\n\nDiscovers interpretable control equations from sensor data using Symbolic Regression,\nthen deploys them as C code on microcontrollers — no neural network required at runtime.\n\nEdgeSense takes raw sensor data and produces a human-readable equation that describes\nthe physical law governing the system. The output is a single C function, ready for\nSTM32 / Arduino / ESP32.\n\nInput: sensor CSV (error, gyro_y, thrust)\n\nOutput: C function deployable in under 1 KB flash\n\nFrom pool_record.csv (real USV motion data), symbolic regression discovered:\n\nThis is a PD controller — discovered automatically from data, without being told\nwhat form the equation should take.\n\nHall of fame (all candidates, ordered by complexity):\n\nComplexity 9 is the recommended deployment equation — lowest loss with minimal\noperations, no risk of NaN, directly compilable.\n\nZero heap allocation. No neural network at runtime. Runs in under 1 µs on STM32F401.\n\nSymbolic regression runs via scripts/train_on_real_data.py and outputs\noutputs/hall_of_fame.csv with all candidate equations ranked by complexity and loss.\n\nEdgeSense output feeds directly into MicroSafe-RL:\n\nMicroSafe-RL repository: github.com/Kretski/MicroSafe-RL\n\nNon-commercial use (research, education, personal projects):\nFree to use with attribution.\n\nCommercial use: Requires separate license.\nContact: kretski1@gmail.com github.com/Kretski\n\nThis repository is not MIT-licensed.",
+    "readingTime": 1,
+    "keywords": [
+      "physical law",
+      "neural network",
+      "sensor",
+      "equation",
+      "output",
+      "complexity",
+      "equations",
+      "runtime",
+      "edgesense",
+      "function"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://github.com/Kretski/EdgeSense",
+    "thumbnail_url": "https://opengraph.githubassets.com/6610aa3c114a6ebc24d44aabf98cf5994720ed1d66b569e3a126b3447a156c8b/Kretski/EdgeSense",
+    "created_at": "2026-04-10T01:22:18.965Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "oil-prices-extend-gains-as-hormuz-disruptions-persist-usiran-talks-eyed",
+    "title": "Oil prices extend gains as Hormuz disruptions persist; US-Iran talks eyed",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/commodities-news/oil-prices-extend-gains-as-hormuz-disruptions-persist-usiran-talks-eyed-4607015",
+    "thumbnail_url": "https://i-invdn-com.investing.com/news/LYNXNPEC0R0GY_M.jpg",
+    "created_at": "2026-04-10T01:22:14.744Z",
+    "topic": "finance"
+  },
+  {
     "slug": "inflation-is-expected-to-rise-and-iran-war-costs-could-linger-for-months-despite-the-ceasefire",
     "title": "Inflation is expected to rise — and Iran war costs could linger for months despite the ceasefire",
     "description": "The CPI report is set to show inflation rising as the Iran war drives up energy prices. Despite the shaky ceasefire, experts say costs could linger.",
@@ -1756,43 +1793,5 @@
     "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/inkkGvYdso10/v0/1200x800.jpg",
     "created_at": "2026-04-02T07:01:06.291Z",
     "topic": "sports"
-  },
-  {
-    "slug": "trumps-oil-claims-on-hormuz-nonsense-energy-analyst",
-    "title": "Trump’s Oil Claims on Hormuz 'Nonsense': Energy Analyst",
-    "description": "Rystad Energy’s Lin Ye warns that Asia is bearing the brunt of crude disruptions in the Strait of Hormuz, noting that refineries are highly reliant on Middle Eastern crude in order to service global demand. President Trump had said the US is self-sufficient and not reliant on Middle Eastern oil.",
-    "fullText": "Apr 2nd, 2026Trump’s Oil Claims on Hormuz 'Nonsense': Energy AnalystRystad Energy’s Lin Ye warns that Asia is bearing the brunt of crude disruptions in the Strait of Hormuz, noting that refineries are highly reliant on Middle Eastern crude in order to service global demand. President Trump had said the US is self-sufficient and not reliant on Middle Eastern oil.Duration:18:30In Full: Trump's Speech on Iran WarDuration:4:59Iran’s President Issues Open Letter to the American PublicDaybreak: EuropeDuration:4:08France, Japan Align Positions on Iran Ceasefire, Opening of Hormuz StraitDuration:3:06Trump’s Oil Claims on Hormuz 'Nonsense': Energy AnalystDuration:7:33NATO Operating in a World of Shock, Not Crisis, Admiral SaysDuration:9:05Iran Has Plenty of Ways to Cause Energy Mayhem, Analyst SaysDuration:5:33Novo VP Weighs In on Approval of Lilly’s Obesity PillThe CloseDuration:1:04SpaceX Said to File Confidentially for Biggest-Ever IPOTechnologyAvailable on:Listen onApple TVListen onRokuListen onSamsung TVListen onFire TVListen onAndroid TVListen onRakuten TVListen onHaystack NewsWatch BTV in your area:Channel Finder",
-    "readingTime": 1,
-    "keywords": [
-      "oil claims",
-      "nonsense energy",
-      "hormuz nonsense",
-      "middle eastern",
-      "tvlisten",
-      "crude",
-      "reliant",
-      "iran",
-      "president"
-    ],
-    "qualityScore": 0.25,
-    "link": "https://www.bloomberg.com/news/videos/2026-04-02/trump-s-oil-claims-on-hormuz-nonsense-energy-analyst-video",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ihnWcVrIHpqo/v3/-1x-1.webp",
-    "created_at": "2026-04-02T07:01:06.151Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "china-tells-private-refiners-to-keep-up-fuel-output-at-all-costs",
-    "title": "China Tells Private Refiners to Keep Up Fuel Output at All Costs",
-    "description": "Chinese officials have told private refiners to keep fuel production at 2025 levels — even if they have to incur economic losses as a month-long war in the Middle East upends the global crude oil trade.",
-    "fullText": "MarketsBy Bloomberg NewsSaveChinese officials have told private refiners to keep fuel production at 2025 levels — even if they have to incur economic losses as a month-long war in the Middle East upends the global crude oil trade.At meetings earlier this week, the National Development and Reform Commission told executives from the country’s private processors that securing domestic fuel supply was a priority, which means producing gasoline and diesel at volumes at least equal to last year — at any cost, people familiar with the discussions said.",
-    "readingTime": 1,
-    "keywords": [
-      "fuel"
-    ],
-    "qualityScore": 0.15,
-    "link": "https://www.bloomberg.com/news/articles/2026-04-02/china-tells-private-refiners-to-keep-up-fuel-output-at-all-costs",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ib2FI40YGXzo/v1/1200x675.jpg",
-    "created_at": "2026-04-02T07:01:03.759Z",
-    "topic": "finance"
   }
 ]

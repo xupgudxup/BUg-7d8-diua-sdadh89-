@@ -1,5 +1,29 @@
 [
   {
+    "slug": "how-the-fbi-extracted-deleted-signal-messages-from-a-defendants-iphone",
+    "title": "How the FBI Extracted Deleted Signal Messages From a Defendant's iPhone",
+    "description": "Signal might be relatively secure, but it's not impervious.",
+    "fullText": "You might have heard about Signal, the encrypted chat app the U.S. government infamously used to discuss war plans last year. (Yikes.) But while the app is no alternative to a dedicated SCIF, it is a good option for the rest of us to communicate more securely. Signal uses end-to-end encryption (E2EE), which, very simply, means that messages are \"scrambled\" in transit, and can only be \"unscrambled\" by the sender and the recipient or recipients. If you're in a Signal chat, you'll be able to read incoming messages just like you would any other chat app—if you're an attacker, and intercept that message, all you'll find is a jumble of code.\n\nE2EE makes it difficult for anyone without your unlocked device (or your unlocked Signal app) to read your Signal message—difficult, not impossible. That's part of the reason the chat app is no option for government officials (though no third-party chat app could be). But it's also a good reminder that no matter who you are, your secure chats are not impervious to outside forces. If someone wants to break into your chats, they might find a way to do so.\n\nCase in point: As reported by 404 Media, the FBI recently extracted incoming Signal messages from a defendant's iPhone. The user had even deleted the app off their device, which only added another hurdle into the investigators' goals. You would think by deleting the app itself, your encrypted messages would be protected. As it turns out, however, the FBI didn't need to access the Signal app at all. While they weren't able to retrieve the defendant's outgoing messages, they were able to scrape incoming messages from the iPhone's push notification database. (I've been covering iPhones for nearly a decade, and I wasn't aware that iOS even had a push notification database—though I suppose it makes sense, given that alerts exist in Notification Center until you manually open or dismiss them.)\n\nThis revelation comes from a case involving a group allegedly vandalizing property and setting off fireworks at the ICE Prairieland Detention Facility. One officer involved in the altercation was shot in the neck. According to a supporter of the defendants in this case who took notes during the trial, the court learned that any app that has permission to show previews and alerts on the Lock Screen will save those previews to the internal memory of the user's iPhone. As such, the FBI was able to obtain messages the defendant had received, even though those messages were set to disappear in the app, and the app had been cleared from the device.\n\nAgain, this is not a security hole exclusive to Signal: Any app that displays an alert on your Lock Screen has this vulnerability. The FBI probably had plenty of other notifications to sift through as well, from any app the defendant had running on their iPhone. Think about the alerts you might have sitting in Notification Center right now: texts, reminders, news bulletins, purchases, DMs, etc. All of that could be fodder for anyone with the surveillance tech to root through your iPhone—locked or not.\n\nIf you use Signal, you actually have an advantage here, now that you know about this vulnerability. Signal has a setting that blocks the content of messages from appearing in their notifications. That way, even if someone accesses your alerts, all they'll see is you received a Signal message—not who sent it or what it contains.\n\nTo turn it on, open Signal, tap your profile in the top-left corner, then hit \"Settings.\" Under Notification Content, choose \"No Name or Content\" to block all data to the alert. You can compromise here and choose \"Name Only\" if you want to know who a message is from before you open it—just remember, an intruder may also see you received a message from that person if they scrape your iPhone's notifications.",
+    "readingTime": 4,
+    "keywords": [
+      "push notification",
+      "incoming messages",
+      "chat app",
+      "signal app",
+      "notification center",
+      "lock screen",
+      "alerts",
+      "device",
+      "iphone",
+      "received"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/fbi-extracted-deleted-signal-messages-from-a-defendants-iphone?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KNSRQRAKH6ZC8E0B2KQW8EPN/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-04-10T01:22:16.429Z",
+    "topic": "tech"
+  },
+  {
     "slug": "former-fbi-special-agent-discusses-phone-scams-circulating-in-madison-county",
     "title": "Former FBI Special Agent discusses phone scams circulating in Madison County",
     "description": "Law enforcement scam calls are circulating in Madison County. One News 19 viewer reported getting two on Wednesday morning.",

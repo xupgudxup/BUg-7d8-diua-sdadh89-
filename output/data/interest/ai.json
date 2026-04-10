@@ -1,5 +1,79 @@
 [
   {
+    "slug": "5-llm-played-poker-opus-busted-first-grok-won",
+    "title": "5 LLM played Poker: Opus busted first, Grok won",
+    "description": "Multi-agent framework that works with your existing stack - sagaripte/chorus",
+    "fullText": "Five AI agents play Texas Hold'em. Each has a distinct personality, runs on a different LLM, and forms real opinions about everyone else's cards.\n\nModels have distinct voices.\n\nOpus delivers theatrical trash talk. Haiku is short, punchy, and chaotic. Grok-reasoning stays dry and measured. You can often tell which model is speaking without looking at the mapping.\n\nReal information asymmetry makes bluffs work.\n\nVince (Opus) successfully faked a flush draw across three streets. Suki (Haiku) had no way of knowing he was bluffing — she only saw her own cards. The deception wasn't simulated; it emerged naturally from hidden information.\n\nPersonality shapes strategy more than you expect.\n\nRex (Grok-fast) barely spoke, folded almost everything, and won by slow-playing a set of 7s. Suki (Haiku) called wildly and rode massive swings. Maya (Sonnet) played tight and disciplined. One-line personality prompts were enough for the models to develop consistent playstyles.\n\nThe most expensive model went broke.\n\nOpus played the most dramatic, aggressive, and entertaining poker — and busted first. The cheapest, most chaotic model (Haiku) took a big chunk of his chips. Draw your own conclusions about cost vs performance.\n\nThe framework stayed out of the way.\n\nAll game logic (legal moves, pot calculation, hand evaluation) stayed in deterministic code. The LLMs only handled strategy and personality. This kept the game fair and prevented common LLM failures like illegal bets or hallucinated cards.\n\nMade with Chorus — the thin multi-agent layer that lets you control the rules while the LLMs bring the chaos.\n\nWant to add your own player? Just extend PokerPlayer, give them a personality prompt, and drop them into the table. Models are interchangeable with one string change.",
+    "readingTime": 2,
+    "keywords": [
+      "suki haiku",
+      "personality",
+      "cards",
+      "models",
+      "model",
+      "distinct",
+      "chaotic",
+      "draw",
+      "strategy",
+      "game"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://github.com/sagaripte/chorus/tree/main/examples/poker",
+    "thumbnail_url": "https://opengraph.githubassets.com/4dbbe728947f15d14787f80862fba5787985fd354ca3a392ecceceb55288ccce/sagaripte/chorus",
+    "created_at": "2026-04-10T01:22:19.233Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "edgesense-replacing-neural-nets-on-microcontrollers-with-symbolic-physics",
+    "title": "EdgeSense – replacing neural nets on microcontrollers with symbolic physics",
+    "description": "EdgeSense: A safe AI ecosystem for autonomous systems. Fuses AI-discovered control equations with MicroSafe-RL (CBF) to guarantee hardware survival and energy efficiency. - Kretski/EdgeSense",
+    "fullText": "Automatic Physical Law Discovery for Embedded Control Systems.\n\nDiscovers interpretable control equations from sensor data using Symbolic Regression,\nthen deploys them as C code on microcontrollers — no neural network required at runtime.\n\nEdgeSense takes raw sensor data and produces a human-readable equation that describes\nthe physical law governing the system. The output is a single C function, ready for\nSTM32 / Arduino / ESP32.\n\nInput: sensor CSV (error, gyro_y, thrust)\n\nOutput: C function deployable in under 1 KB flash\n\nFrom pool_record.csv (real USV motion data), symbolic regression discovered:\n\nThis is a PD controller — discovered automatically from data, without being told\nwhat form the equation should take.\n\nHall of fame (all candidates, ordered by complexity):\n\nComplexity 9 is the recommended deployment equation — lowest loss with minimal\noperations, no risk of NaN, directly compilable.\n\nZero heap allocation. No neural network at runtime. Runs in under 1 µs on STM32F401.\n\nSymbolic regression runs via scripts/train_on_real_data.py and outputs\noutputs/hall_of_fame.csv with all candidate equations ranked by complexity and loss.\n\nEdgeSense output feeds directly into MicroSafe-RL:\n\nMicroSafe-RL repository: github.com/Kretski/MicroSafe-RL\n\nNon-commercial use (research, education, personal projects):\nFree to use with attribution.\n\nCommercial use: Requires separate license.\nContact: kretski1@gmail.com github.com/Kretski\n\nThis repository is not MIT-licensed.",
+    "readingTime": 1,
+    "keywords": [
+      "physical law",
+      "neural network",
+      "sensor",
+      "equation",
+      "output",
+      "complexity",
+      "equations",
+      "runtime",
+      "edgesense",
+      "function"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://github.com/Kretski/EdgeSense",
+    "thumbnail_url": "https://opengraph.githubassets.com/6610aa3c114a6ebc24d44aabf98cf5994720ed1d66b569e3a126b3447a156c8b/Kretski/EdgeSense",
+    "created_at": "2026-04-10T01:22:18.965Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "meet-the-ice-contractor-pivoting-from-detention-facilities-to-man-camps-for-data-center-construction-workers",
+    "title": "Meet the ICE contractor pivoting from detention facilities to 'man camps' for data center construction workers",
+    "description": "Target Hospitality made a $550M deal for housing 4,000 Texas data center. It's one of many companies outside tech benefiting from the AI boom.",
+    "fullText": "Target Hospitality stock is up about 60% since March 31.\n The company landed a $550 million deal to house 4,000 workers building a data center in Texas.\n It is one of many companies outside the tech industry that is benefiting from the AI boom.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/target-hospitality-stock-up-after-550m-texas-data-center-deal-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d7d9a205c9b303c4e769ec?width=1200&format=jpeg",
+    "created_at": "2026-04-10T01:22:17.309Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "bessent-powell-warn-bank-ceos-about-anthropic-model-risks-bloomberg-news-reports",
+    "title": "Bessent, Powell warn bank CEOs about Anthropic model risks, Bloomberg News reports",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/stock-market-news/bessent-powell-warn-bank-ceos-about-anthropic-model-risks-bloomberg-news-reports-4607020",
+    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM3901K_L.jpg",
+    "created_at": "2026-04-10T01:22:14.612Z",
+    "topic": "finance"
+  },
+  {
     "slug": "axon-why-use-many-token-when-few-token-do-trick",
     "title": "Axon: Why use many token when few token do trick",
     "description": "AI eXchange Optimized Notation spec and tooling. Contribute to colwill/axon development by creating an account on GitHub.",
@@ -1745,92 +1819,5 @@
     "thumbnail_url": "https://i.insider.com/69d3ce056a864f6fcd7bda7b?width=1200&format=jpeg",
     "created_at": "2026-04-06T18:42:07.078Z",
     "topic": "finance"
-  },
-  {
-    "slug": "how-ai-helps-scale-qualitative-customer-research",
-    "title": "How AI Helps Scale Qualitative Customer Research",
-    "description": "AI-powered interviewers are enabling companies to conduct rich, adaptive conversations with thousands of participants quickly and inexpensively. These systems uncover not just what customers think but why they think it, capturing emotional nuance, real-world behavior, and candid responses—especially on sensitive topics or among hard-to-reach groups. They also compress research timelines from weeks or months to days, making continuous, real-time insight generation feasible. While not a full replacement for human researchers, AI moderation expands where and how qualitative insights can be used, allowing them to inform many more business decisions than before.",
-    "fullText": "How AI Helps Scale Qualitative Customer Research by Jeremy Korst, Stefano Puntoni and Olivier ToubiaApril 6, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintTo make good decisions, companies need information about customer preferences and behavior. The market-research function is thus crucial to market success, but it has an age-old problem: The process of collecting data from consumers is typically hard, slow, and costly. The good news is that generative AI promises to improve this state of affairs.",
-    "readingTime": 1,
-    "keywords": [
-      "customer"
-    ],
-    "qualityScore": 0.35,
-    "link": "https://hbr.org/2026/04/how-ai-helps-scale-qualitative-customer-research",
-    "thumbnail_url": "/resources/images/article_assets/2026/04/Feb26_28_1243075077.jpg",
-    "created_at": "2026-04-06T18:42:06.616Z",
-    "topic": "science"
-  },
-  {
-    "slug": "anthropic-is-forcing-users-to-pay-extra-to-run-openclaw-with-claude",
-    "title": "Anthropic Is Forcing Users to Pay Extra to Run OpenClaw With Claude",
-    "description": "If you want to use Claude for OpenClaw, you'll have to pay up.",
-    "fullText": "Bad news, OpenClaw fans: Anthropic wants you to pay more to use its AI models. This wasn't something Anthropic necessarily announced, either; rather, the company started sending emails to affected users, letting them know they could no longer use their Claude Code subscription limits with third-party \"harnesses,\" including—and most notabl—OpenClaw. Anthropic confirmed users could still connect to OpenClaw with their Claude account, but they'd have to pay more money in order to do so—including a \"pay-as-you-go\" option tacked onto the cost of the subscription.\n\nAccording to Anthropic, this policy change isn't without logic or reason. As highlighted by TechCrunch, Boris Cherny, head of Claude Code, explained on X that the company's subscriptions \"weren't built for the usage patterns of these third-party tools,\" and that Anthropic is prioritizing customers who are using the company's first-party products and API.\n\nOpenClaw has had quite a ride. The tool, which was previously called Moltbot, and first called Clawdbot, is designed to be an agentic AI assistant you run locally on your devices. For many, that means running OpenClaw on a Mac mini designed for this one purpose. Unlike ChatGPT or Gemini, which has their own proprietary interfaces, you communicate with OpenClaw through any chat app of your choice. You can text OpenClaw in WhatsApp, Apple Messages, Microsoft Teams, whatever you want, to organize your email inbox, write code for a project, plan out your goals for the month, whatever it is you want your agent to do.\n\nBut OpenClaw doesn't just...run. You need to power it with an AI model. In this case, users are relying on Anthropic's Claude—and, if they had a Claude Code subscription, they were simply tapping into that plan they already paid for. As you might expect, running agentic tasks through OpenClaw is extremely intensive, which pushed Anthropic to rethink how it was charging users.\n\nInterestingly, OpenClaw's founder, Peter Steinberger, joined OpenAI back in February—one of Anthropic's chief rivals. Steinberger said on X that he and OpenClaw board member Dave Morin \"tried to talk sense into Anthropic, [but] best we managed was delaying this for a week.\"",
-    "readingTime": 2,
-    "keywords": [
-      "code subscription",
-      "claude code",
-      "users",
-      "openclaw",
-      "anthropic",
-      "third-party",
-      "company's",
-      "designed",
-      "agentic",
-      "whatever"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://lifehacker.com/tech/openclaw-now-costs-more-than-ever?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KNHWX2DVRN8V7N4EKNFQ81S9/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-04-06T18:42:05.910Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-ai-sectors-crass-bid-for-media-domination",
-    "title": "The AI Sector’s Crass Bid for Media Domination",
-    "description": "David...",
-    "fullText": "When you’re a galactically rich tech mogul upset with adverse press coverage, you just buy yourself more flattering media outlets.\n\n“Freedom of the press,” A.J. Liebling famously wrote, “is guaranteed only to those who own one.” This pithy observation from one of Liebling’s 1960 “Wayward Press” columns in The New Yorker sums up a great deal about how journalism is transacted under the pressures of American capitalism. But the gist of it has to hit different if you have several hundred million dollars sitting around and a reputation that could use a bit of burnishing.\n\nOpenAI, the company behind ChatGPT, announced last week that it was buying Technology Business Programming Network (TBPN), a daily Internet talk show known for its puffball interviews with Silicon Valley execs and hopeful tech entrepreneurs, hosted by two former start-up founders, Jordi Hays and John Coogan. OpenAI shelled out something in the “low hundreds of millions” for the show, according to the Financial Times—a figure likely in the same range as the $250 million that Jeff Bezos spent buying The Washington Post in 2013. The then-venerable-if-troubled paper had a weekday circulation around 450,000 at the time. TBPN, only about a year-and-a-half old, reaches somewhere on the order of 70,000 viewers per show, mostly on X and Youtube. It does, however, have a huge gong, which the six-foot-eight Coogan, the taller of the two hosts, will bang upon to mark any good news guests bring with them to the show. (Hays, for his part, has a soundboard.)\n\nGiven that OpenAI just took in $110 billion in new funding (GONG!), valuing the company at some $840 billion, a couple hundred million dollars is more or less a rounding error. But what does an AI lab hope to get from ownership of a tech podcast? The company insists that it’s going to respect TBPN’s “editorial independence,” such as it is, but it’s pretty clear OpenAI isn’t altogether happy with the media coverage it’s been getting lately. The general run of OpenAI coverage these days tends to focus on things like the numerous lawsuits the company faces from the families of former ChatGPT users allegedly driven to suicide by its sociopathic prompts, as well as the company’s cravenly speedy move to sign a lucrative contract with the Pentagon in late February after its rival Anthropic lost a similar deal for taking a small stand against autonomous killer drones and mass domestic surveillance.\n\nIn an official statement, OpenAI’s Fidji Simo said that the deal was all about “creat[ing] a space for a real, constructive conversation about the changes AI creates.” This appears to be a jargon-laden way of saying the company intends to lead conversations that don’t include any actual journalists, who are known even in Silicon Valley for sometimes asking the sorts of questions that tech CEOs would rather not answer in public. Of course, TBPN should be well suited for its new role as a wholly owned media entity given that the show is “already so dedicated to cheerleading for the rich and powerful people in tech as to have been indistinguishable from marketing,” as Patrick Redford of Defector acidly put it.\n\nOpenAI isn’t the first tech company to adopt a strategy of “going direct”—a maneuver that by and large bypasses, well, the media in favor of blogs and podcasts under corporate control. No one has embraced “going direct” more insistently than the venture capitalists at Andreessen Horowitz, and their story helps illustrate both the promise and the pitfalls of this particular path.\n\nThe firm, known widely as a16z, spent the first few years after its founding in 2009 assiduously courting the press with the help of a dedicated and skillful press-whisperer named Margit Wennmachers. She managed, among other things, to get The New Yorker to devote considerable real estate to a laudatory story about cofounder Marc Andreessen, labeled “Tomorrow’s Advance Man,” in 2015. But the company began to sour on what it now derisively labels the “legacy media” not long after, when reporters started raising critical questions about one of a16z’s portfolio companies, Zenefits, and about the much-hyped venture fund itself. So instead of “trying to get reporters to write the right things,” as Andreessen put it in a recent interview, the firm started hiring journalists to run its own media operation, devoting so much energy to the project that some people began referring to a16z as a media company that just happened to do some venture capital investing on the side.\n\nIn 2021, a16z tried to take its “new media” strategy to the next level by launching Future.com, a sleek web publication that Wennmachers suggested would become “the go-to place for understanding and building the future.” (Hence, presumably, the name.) Soon, she said at the launch, tech entrepreneurs would be asking themselves “should I try to get this into The New York Times, or should I get it into Future?”\n\nThe site sputtered out in less than a year and a half. Apparently the teeming millions of techbros weren’t lining up to read relentlessly positive takes on such topics as “How to Know Your Users as You Grow” and “What Synthetic Embryos Can and Can’t Do.” As Bloomberg’s Brad Stone noted, “it doesn’t always end well when you hire people to tell the world how great you are. Future.com, from my periodic glances, is a snooze fest.”\n\nThe Future.com debacle didn’t really alter a16z’s big plans for media domination. The company just shifted direction, and returned to pushing its podcasts and blog posts on its own site. As always, Andreessen Horowitz continues talking a big game—selling its “new media” team hard to startup founders as “the best turnkey media operation in venture.… We offer an extensive menu of services for our portfolio companies, up and down the New Media stack, that add up to one experience: ‘shipping a great story.’” (I think you may see what Stone was getting at with that “snooze fest” remark.)\n\nSpeaking of snooze fests, some worry that an OpenAI-owned version of TBPN might lose whatever spark its fans now think it has. (Frankly, I don’t see much of a spark there now, though I am very much not part of the show’s target demo.) But I think the show may face an even bigger challenge in the form of one Elon Musk. TBPN, you may recall, gets most of its current audience on X, and Musk, who owns X, is not what you’d call a big fan of OpenAI or its CEO Sam Altman. Indeed, Musk, one of the original investors in the company, is suing Altman and other OpenAI bigwigs for $134 billion for allegedly lying to him about keeping the company a nonprofit; OpenAI is countersuing him for harassment. Musk, a deeply vindictive man, is widely reported to have sometimes used his control of X’s algorithm to throttle the traffic of media outlets and even individual accounts on the site that he dislikes. If he decides to do the same to the OpenAI-owned TBPN, it will likely trigger a singularly petty clash of press-owning titans. On the plus side, I guess, the ensuing drama would prove far more interesting than anything you’d hear on a TBPN podcast.",
-    "readingTime": 6,
-    "keywords": [
-      "openai isn’t",
-      "snooze fest",
-      "tech entrepreneurs",
-      "media outlets",
-      "media operation",
-      "the new yorker",
-      "silicon valley",
-      "andreessen horowitz",
-      "venture",
-      "deal"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.thenation.com/article/society/ai-techonology-business-and-programming-network-podcasts/",
-    "thumbnail_url": "https://www.thenation.com/wp-content/uploads/2026/04/AIMedia.jpg",
-    "created_at": "2026-04-06T18:42:04.549Z",
-    "topic": "politic"
-  },
-  {
-    "slug": "oregon-predicted-to-land-no-1-player-in-alabama-for-3rd-straight-year",
-    "title": "Oregon predicted to land No. 1 player in Alabama for 3rd straight year",
-    "description": "The Oregon Ducks have picked up a prediction to land a commitment from 4-star CB Ai'King Hall, the No. 1 player in Alabama.",
-    "fullText": "Ever since coming to Oregon, Dan Lanning has set up some impressive recruiting pipelines with the Ducks. However, none may be more impressive than the pipeline that he has created from Alabama to Eugene.\n\nTwo recruiting classes ago, the Ducks picked up a commitment from 5-star CB Na'eem Offord, the No. 1-ranked player in Alabama. Last cycle, Oregon signed 5-star DL Anthony 'Tank' Jones, again, the top-ranked player in Alabama. Now, Oregon is once again predicted to land the No. 1 player in Alabama in the 2027 class — 4-star cornerback Ai'King Hall.\n\nOn3's Chad Simmons placed a prediction over the weekend for Hall to commit to the Ducks following his visit to Eugene this weekend to check out the Ducks' spring practices. Hall is rated by the 247Sports Composite as the No. 69 overall player in the class, and the No. 9 CB in the nation.\n\nThis recruiting news pairs well with the commitment that Oregon received late last week, when 4-star EDGE Rashad Streets went live on the Pat McAfee Show and committed to the Ducks. Oregon currently has the No. 15 class in the 2027 cycle, but is in a great position for a lot of top-ranked players and could very well land a top-five class for a fourth straight year when all is said and done.\n\nContact/Follow @Ducks_Wire on X (formerly Twitter) and like our page on Facebook to follow ongoing coverage of Oregon Ducks news, notes, and opinions.\n\nThis article originally appeared on Ducks Wire: Oregon Ducks predicted to land commitment from 4-star CB Ai'King Hall",
-    "readingTime": 2,
-    "keywords": [
-      "ai'king hall",
-      "star",
-      "player",
-      "class",
-      "recruiting",
-      "commitment",
-      "land",
-      "ducks",
-      "oregon",
-      "impressive"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://sports.yahoo.com/articles/oregon-predicted-land-no-1-123103794.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/hb_jXNRleFftTGqQY06G5g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/ducks_wire_usa_today_articles_200/c3fc3b32f20363189e00e0e91f952e8a",
-    "created_at": "2026-04-06T12:46:43.903Z",
-    "topic": "sports"
   }
 ]
