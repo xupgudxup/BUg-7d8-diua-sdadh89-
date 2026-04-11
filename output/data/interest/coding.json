@@ -1,5 +1,23 @@
 [
   {
+    "slug": "designing-a-programming-language-around-koreans-sov-grammar-instead-of",
+    "title": "Designing a Programming Language Around Korean's SOV Grammar Instead Of",
+    "description": "v0.7.1 (2026-04-09)\n설치\nirm https://raw.githubusercontent.com/wwoosshh/geul-lang/main/install.",
+    "fullText": "wwoosshh\n\n /\n\n geul-lang\n\n Public\n\n v0.7.1 — scanf+fgets 버퍼 수정 + 호출 스타일 정비\n\n Compare\n\n Choose a tag to compare\n\n Sorry, something went wrong.\n\n Filter\n\n Loading\n\n Sorry, something went wrong.\n\n Uh oh!\n\n There was an error while loading. Please reload this page.\n\n No results found\n\n v0.7.1 (2026-04-09)\n설치\n\n버그 수정\n\nscanf+fgets 혼용 문제: 정수입력() 후 입력하다 호출 시 줄바꿈 잔류로 빈 문자열을 읽던 문제 수정\n\n버퍼비우기() 내부 함수 추가 — scanf 계열 호출 후 자동으로 잔여 입력 소비\n\n검증\n\n자체호스팅 고정점 달성\n문자열→정수→실수→문자열 연속 입력 검증",
+    "readingTime": 1,
+    "keywords": [
+      "scanf+fgets",
+      "compare",
+      "sorry",
+      "loading"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://github.com/wwoosshh/geul-lang/releases/tag/v0.7.1",
+    "thumbnail_url": "https://opengraph.githubassets.com/2e41ef39d8e8f13b5adaf103a49766a76d718ea598145dffb1bdb956d0bdc365/wwoosshh/geul-lang/releases/tag/v0.7.1",
+    "created_at": "2026-04-11T12:33:51.098Z",
+    "topic": "tech"
+  },
+  {
     "slug": "ai-code-is-hollowing-out-open-source-and-maintainers-are-looking-the-other-way",
     "title": "AI Code Is Hollowing Out Open Source, and Maintainers Are Looking the Other Way",
     "description": "TL;DR: The advent of AI based, LLM coding applications like Anthropic’s Claude and ChatGPT have prompted maintainers to experiment with integrating LLM contributions into open source codebases.",
@@ -2025,30 +2043,6 @@
     "link": "https://github.com/zot/humble-master/blob/main/posts/POST-2.md",
     "thumbnail_url": "https://repository-images.githubusercontent.com/1167179016/be0206bc-3020-45df-a5c6-55afce1a4eb8",
     "created_at": "2026-03-04T18:34:18.456Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "codeoffline",
-    "title": "Code-Offline",
-    "description": "A 100% local, containerized AI coding agent powered by pi and llama.cpp. Run private LLMs on CPU or NVIDIA GPU without external API dependencies. - opensecurity/code-offline",
-    "fullText": "A localized, containerized development environment for running the pi coding agent backed by llama.cpp. This stack lets you run local models and the agent without needing external API dependencies, keeping your code and data private. It supports both CPU and NVIDIA GPU setups via a unified interface.\n\nSettings are managed via the .env file. Copy the example file to get started:\n\nYou can change the Hugging Face repo and model file in .env to try different models. By default, it downloads the highly-capable Qwen 3.5 models using the preferred UD-Q4_K_XL quantization for the best balance of speed and precision.\n\nThe environment is managed through a Makefile. The default mode is CPU. To use GPU acceleration, just append MODE=gpu to any command.\n\nBuild the images before starting:\n\nIf you need to pull fresh base images and rebuild without cache:\n\nStart the llama.cpp server in the background. It will automatically download the models specified in your .env file to the local models directory on its first run.\n\nYou can check the download progress or server status by tailing the logs:\n\nOnce the LLM backend is up and running, you can drop into the interactive agent terminal. This spins up a temporary container that attaches to your current TTY and cleans itself up when you exit.\n\nTo spin down the background services:\n\nTo nuke all containers, networks, and volumes (this will not delete your downloaded models or workspace code):\n\nVolumes are mapped to your host machine for persistence:",
-    "readingTime": 2,
-    "keywords": [
-      "env file",
-      "models",
-      "agent",
-      "environment",
-      "llama.cpp",
-      "without",
-      "code",
-      "managed",
-      "default",
-      "images"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://github.com/opensecurity/code-offline",
-    "thumbnail_url": "https://opengraph.githubassets.com/772c8739ba5b900a2706fe6ab522cd58222519c22b0ff4d68e48a1babac004e8/opensecurity/code-offline",
-    "created_at": "2026-03-04T01:08:01.661Z",
     "topic": "tech"
   }
 ]
