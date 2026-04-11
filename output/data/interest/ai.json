@@ -1,5 +1,68 @@
 [
   {
+    "slug": "hindsight-a-design-spec-for-selfimproving-llm-agents",
+    "title": "Hindsight – A design spec for self-improving LLM agents",
+    "description": "An experience-driven self-improvement framework for LLM agents — 基于经验的 LLM Agent 自我改进框架 - anitiue/Hindsight",
+    "fullText": "An Experience-Driven Self-Improvement Framework for LLM Agents\n\nStatus / 状态: Design proposal — looking for implementers\n当前状态: 设计阶段，寻求实现者\n\nHindsight is a design specification for giving LLM agents a missing capability: the ability to learn from their own mistakes across sessions, and eventually internalize those lessons into permanent behavior.\n\nToday's agents are amnesiacs. They make the same mistake on Tuesday that they made on Monday. They get corrected, apologize, and forget. Hindsight proposes a layered framework where:\n\nMost \"memory\" features in agent platforms today are RAG over previous conversations. That's not learning — that's recall.\n\nNo current agent platform — Coze, Hermes, LangChain, Dify, OpenClaw, or even Claude Code — provides this end-to-end. Hindsight is a proposal for what such a system should look like.\n\nThis is not \"self-evolving AI\" in the science-fiction sense. It is constraint learning + experience accumulation + selective compilation, applied as a coherent system. It is closer in spirit to Reflexion (Shinn et al., 2023) and Voyager (Wang et al., 2023) than to AGI fantasies.\n\nThis is a design specification, not a working implementation. The author is not a developer. The author is publishing this to find people who can build it.\n\nThe design is split into two layers in DESIGN.md:\n\nIt is less useful for one-off consumer chats, where the lesson library never accumulates enough signal.\n\nMIT. Take it, build it, ship it. Just credit the design.\n\nThis framework was conceived and designed by the author — a non-developer who identified a real gap in how LLM agents handle failure, and spent considerable time thinking through the full architecture: the lesson lifecycle, the pre-task retrieval mechanism, the blind-test evolution validation, the two-phase token-efficient loading, and the bipolar memory model (lessons + patterns). None of these came from AI assistants.\n\nClaude (Anthropic) and GPT (OpenAI) served as sounding boards: stress-testing the design, pointing out engineering blind spots, and helping translate the author's intuitions into technical language. The AI assistants contributed critique and articulation — the ideas themselves belong to the author.\n\nHindsight 是一份设计规范，目标是给 LLM Agent 补上一个关键能力：从自己的错误中学习，跨会话累积教训，最终把教训内化到永久行为中。\n\n今天的 Agent 都是健忘症患者。它们周一犯的错，周二会一字不差地再犯一遍。被纠正，道歉，然后遗忘。Hindsight 提出一个分层框架：\n\n目前 Agent 平台的\"记忆\"功能，本质上都是对历史对话做 RAG。这不是学习，这是回忆。\n\n目前没有任何 Agent 平台——扣子、Hermes、LangChain、Dify、OpenClaw、甚至 Claude Code——端到端提供这些能力。Hindsight 是对这套系统应该长什么样的一份提案。\n\n这不是科幻意义上的\"AI 自我进化\"。这是约束学习 + 经验累积 + 选择性编译的协同系统。在精神上，它更接近 Reflexion（Shinn 等，2023）和 Voyager（Wang 等，2023）这些研究，而不是 AGI 幻想。\n\n这是一份设计规范，不是工作中的实现。作者不是开发者。作者发布这份规范是为了找到能够实现它的人。\n\n不太适合一次性的消费级对话，因为教训库永远累积不到足够的信号量。\n\nMIT。拿去用、做出来、发布出去。只需要在归属里署名设计来源。\n\n这套框架由作者构思并设计——一位不会写代码的人，发现了 LLM Agent 处理错误的方式存在真实缺陷，并花了大量时间思考完整的架构：教训的生命周期、任务前检索机制、进化验证中的盲测设计、两阶段 token 节省加载、双极记忆模型（教训库 + 模式库）。这些核心想法没有一个来自 AI 助手。\n\nClaude（Anthropic）和 GPT（OpenAI）充当了\"挑毛病的同行\"：压测设计、指出工程盲点、帮助把作者的直觉翻译成技术语言。AI 助手提供的是批评和表达——想法本身属于作者。\n\n首先说明一下这个项目：这是我在日常使用 AI 的过程中冒出来的想法——我发现 agent 总是重复犯同样的错，就想着能不能让它真正从错误里学习、甚至自我改进代码？然后我试了一下，好像目前做不到？（而且我也不会做 XD）\n\n就想着把这个想法发出来，如果对 agent 的发展有帮助，那就太好了。我真的好希望能用上一个会自我迭代进化的 agent ：3\n\n两份说明文档是委托 Claude 帮我写的，包含中英文。我是第一次上传 GitHub，用 Markdown 格式也不知道是否正确，各位见谅。\n\n另外，我不会代码，只是有这个想法。如果涉及架构讨论……我是完全不懂的（我也不确定这个在 agent 领域究竟是有价值的方向，还是一个垃圾想法 XD）\n\n如果你也希望用上一个真正会学习的 agent，欢迎一起来想办法。\n\nSee DESIGN.md for the full technical specification.\n完整技术规范请见 DESIGN.md。",
+    "readingTime": 3,
+    "keywords": [
+      "llm agents",
+      "llm agent",
+      "design specification",
+      "hindsight",
+      "author",
+      "proposal",
+      "lessons",
+      "memory",
+      "that's",
+      "learning"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/anitiue/Hindsight",
+    "thumbnail_url": "https://opengraph.githubassets.com/05cb7b68c2d806c7c52bfb475daa0688c4b6a3fe0bdc2b03abca2bdf8dee4509/anitiue/Hindsight",
+    "created_at": "2026-04-11T06:49:19.404Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "relayfreellm-free-ai-gateway-with-autofailover-updates",
+    "title": "RelayFreeLLM — Free AI Gateway with Auto-Failover (Updates)",
+    "description": "A restful API designed to route user prompts to various AI model providers. - msmarkgu/RelayFreeLLM",
+    "fullText": "One endpoint. More free AI than any single provider. Less rate limit headaches.\n\nDon't want to pay $~$$$/month to use AI Models? RelayFreeLLM can help. It is an open-source gateway that combines free tier model providers like Gemini, Groq, Mistral, Cerebras, and Ollama into a single OpenAI-compatible API — so you get aggregately more free inference with automatic failover.\n\nNo code changes. No retry logic. No 429 errors breaking your app.\n\nFree AI APIs are useful — but using them directly can be painful:\n\nYou get a meta-model: a single endpoint that routes to the next available free provider, offers flexible context management, maintains session affinity, and fails over automatically to keep your app running.\n\nDepending on your providers, the result should look like:\n\nIn console should see something like:\n\nNote on Consistent Output: Regardless of which provider (Gemini, Groq, Mistral, etc.) handles your request, RelayFreeLLM ensures consistent output style through universal style guidance and response normalization. This means no jarring changes in tone or formatting when the system automatically fails over between providers.\n\nREST Client Example (using VS Code REST Client extension)\n\nSee more examples in ./tests/api.http.\n\nTell RelayFreeLLM what you need:\n\nWhen a provider hits a rate limit:\n\nDespite automatic switching between providers, RelayFreeLLM maintains consistent output style:\n\nIn multi-turn conversations, many providers (like Gemini and Anthropic) offer Context Caching optimizations. To benefit from this, RelayFreeLLM supports Session Affinity.\n\nAs conversations grow, they exceed free tier context limits. RelayFreeLLM's ContextManager uses advanced pruning to keep chats alive:\n\nExtractive Summarization: Unlike simple truncation, Reservoir mode preserves the \"essence\" of your history. It uses a TF-scoring algorithm (Term Frequency) to identify sentences with the most unique information, applies a position bias for topicality, and greedily selects the highest-scoring segments to fit within your token budget.\n\nList available models with status:\n\nTo ensure consistent user experience despite provider switching:\n\nThis means users get the same high-quality, consistent output whether their request was handled by Gemini, Groq, Mistral, or any other provider.\n\nFound a new free provider? Adding one takes about 50 lines:\n\nBuilt with FastAPI, Pydantic, httpx, and AI coding tools.\n\nBuilt for developers who want great AI without the bill.",
+    "readingTime": 2,
+    "keywords": [
+      "rest client",
+      "groq mistral",
+      "gemini groq",
+      "rate limit",
+      "session affinity",
+      "consistent output",
+      "output style",
+      "free tier",
+      "free provider",
+      "providers"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/msmarkgu/RelayFreeLLM",
+    "thumbnail_url": "https://opengraph.githubassets.com/0d5733177f8fe1c6fe02efb4b6755b180d460d889754b39670747e46b9591e2c/msmarkgu/RelayFreeLLM",
+    "created_at": "2026-04-11T06:49:18.912Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ramp-up-ai-skills",
+    "title": "Ramp Up AI Skills",
+    "description": "Deepali Vyas, veteran Fortune 500 exec.-whisperer, has hit it big on social media as \"The Elite Recruiter\" -- so much so that she kind of maxed out her welcome on LinkedIn. We discussed how to break t",
+    "fullText": "Your current browser isn't compatible with SoundCloud. \n\nPlease download one of our supported browsers.\nNeed help?\n\nChrome\n| Firefox |\nSafari\n|\nEdge\n\nSorry! Something went wrong\n\nIs your network connection unstable or browser outdated?\n\nI need help\n\nPopular searches",
+    "readingTime": 1,
+    "keywords": [
+      "browser"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://soundcloud.com/robenfarzad/deepali-vyas-the-elite",
+    "thumbnail_url": "https://i1.sndcdn.com/artworks-DgiVnDFjydX5ecwH-yxusdw-t500x500.png",
+    "created_at": "2026-04-11T06:49:10.139Z",
+    "topic": "tech"
+  },
+  {
     "slug": "bank-of-canada-major-lenders-met-on-anthropic-ai-cyber-risk",
     "title": "Bank of Canada, Major Lenders Met on Anthropic AI Cyber Risk",
     "description": "The Bank of Canada and the country’s major banks and financial firms met Friday to discuss cybersecurity risks raised by Anthropic PBC’s latest artificial intelligence model.",
@@ -1805,57 +1868,5 @@
     "thumbnail_url": "https://www.thenation.com/wp-content/uploads/2026/04/artificial-intelligence-apps-getty.jpg",
     "created_at": "2026-04-07T18:46:40.357Z",
     "topic": "politic"
-  },
-  {
-    "slug": "what-we-need-to-ask-ourselves-about-ai",
-    "title": "What We Need to Ask Ourselves About AI",
-    "description": "Sen. Bernie...",
-    "fullText": "Seven questions to resolve before we let this fast-moving technology run rampant.\n\nAI and robotics have enormous potential to improve human life. But they also pose profound dangers that we have not fully confronted. Left unchecked, these technologies could lead to:\n\n• The rise of an unaccountable global oligarchy. The richest people on Earth—Elon Musk, Larry Ellison, Jeff Bezos, Mark Zuckerberg—are not investing trillions in these technologies out of generosity. They want more wealth and power. Can democracy survive when a handful of multibillionaires wield unprecedented influence over the economic and political life of our nation?\n\n• Massive job loss. There are economists who warn that the spread of AI and robotics could cost millions of jobs. What happens to workers when there are no jobs for them? How will ordinary Americans survive without income? How will they pay for housing, healthcare, food, and other basic necessities?\n\n• Increased social isolation and mental illness. Young people are already turning to AI “companions” for emotional support. What happens to our humanity when people interact with machines more than they do with fellow human beings?\n\n• Total invasion of privacy. If every phone call, e-mail, text, search, financial transaction, and movement can be tracked by the owners of AI, is the concept of privacy made obsolete? Does this not inevitably lead to authoritarianism?\n\n• Higher likelihood of war. If robot soldiers replace human beings, will leaders be more willing to engage in catastrophic armed conflict? Will we see an arms race of robot soldiers?\n\n• Environmental degradation. AI data centers require enormous amounts of electricity and water. Will the construction of these data centers strain power grids and accelerate carbon emissions? Will ordinary consumers see major increases in their electric bills?\n\n• Undermining of human control of the planet. Some Big Tech CEOS think that AI may soon surpass human intelligence. What happens if we can’t regulate the things that we create? Could that create an existential threat to humanity itself?",
-    "readingTime": 2,
-    "keywords": [
-      "robot soldiers",
-      "human beings",
-      "robotics",
-      "enormous",
-      "life",
-      "technologies",
-      "lead",
-      "survive",
-      "jobs",
-      "ordinary"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.thenation.com/article/society/ai-dangers-robotics-oligarchy-privacy/",
-    "thumbnail_url": "https://www.thenation.com/wp-content/uploads/2026/04/ai-ss.jpg",
-    "created_at": "2026-04-07T18:46:40.320Z",
-    "topic": "politic"
-  },
-  {
-    "slug": "as-ai-breathes-down-our-necks-its-time-for-a-luddite-renaissance",
-    "title": "As AI Breathes Down Our Necks, It’s Time for a Luddite Renaissance",
-    "description": "John...",
-    "fullText": "The harrowing revelations about Chavez expose how much Latino history in the United States has been made to rest on one man.\n\nAmid the Trump administration’s assault on immigrant workers, thousands at the country’s largest meat processor organized across nationalities to launch a historic work stoppage.\n\nBig Tech’s complicity in Israel’s genocide in Gaza has pushed STEM students to organize for a more ethical tech industry.\n\nStudentNation\n\n /\n\n Khadeejah Khan\n\nThe senator delivered a powerful message on Iran at the No Kings Rally in Minnesota.\n\nThe founders of the United States feared monarchically inclined presidents who could wage wars of whim.\n\nReflections on this moment and ways to take action.",
-    "readingTime": 1,
-    "keywords": [
-      "united states"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.thenation.com/article/activism/ai-luddites-bernie-sanders/",
-    "thumbnail_url": "https://www.thenation.com/wp-content/uploads/2026/04/Nichols-Luddite-ftr.jpg",
-    "created_at": "2026-04-07T18:46:40.208Z",
-    "topic": "politic"
-  },
-  {
-    "slug": "greyline-we-built-a-counteragent-to-stop-ai-agents-from-looting-your-api",
-    "title": "Greyline: We Built a Counter-Agent to Stop AI Agents from Looting Your API",
-    "description": "The anti-intelligence lab.  We're building the Defense Department for the autonomous internet.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://themeridianlab.com/signals/your-api-has-no-idea",
-    "thumbnail_url": "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4433faf1-b000-4aa8-ad92-7fb588f1359c/id-preview-ffdbd053--c92da8d0-e4a3-42e4-a57b-4602129ad271.lovable.app-1773841794888.png",
-    "created_at": "2026-04-07T12:56:43.761Z",
-    "topic": "tech"
   }
 ]
