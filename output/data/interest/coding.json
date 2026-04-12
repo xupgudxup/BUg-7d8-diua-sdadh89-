@@ -1,5 +1,29 @@
 [
   {
+    "slug": "a-brief-history-of-cc-programming-languages",
+    "title": "A brief history of C/C++ programming languages",
+    "description": "Initially, we had languages like Fortran (1957), Pascal (1970), and C (1972). Fortran was designed for number crunching and scientific computing. Pascal was restrictive with respect to low-level access (it was deliberately \"safe\", as meant for teaching structured programming). So C won out as a language that allowed low-level/unsafe programming (pointer arithmetic, direct memory access) … Continue reading A brief history of C/C++ programming languages",
+    "fullText": "Initially, we had languages like Fortran (1957), Pascal (1970), and C (1972). Fortran was designed for number crunching and scientific computing. Pascal was restrictive with respect to low-level access (it was deliberately “safe”, as meant for teaching structured programming). So C won out as a language that allowed low-level/unsafe programming (pointer arithmetic, direct memory access) while remaining general-purpose enough for systems work like Unix. To be fair, Pascal had descendants that are still around, but C clearly dominated.\n\nObject-oriented programming became viewed as the future in the 1980s and 1990s. It turned into some kind of sect.\n\nBut C was not object-oriented.\n\nSo we got C++, which began as “C with Classes”. C++ had templates, enabling generic programming and compile-time metaprogramming. This part of the language makes C++ quite powerful, but somewhat difficult to master (with crazy error messages).\n\nBoth C and C++ became wildly successful, but writing portable applications remained difficult — you often had to target Windows or a specific Unix variant. This was a problem for a company like Sun Microsystems that sold Unix boxes and wanted to compete against the juggernaut that Microsoft was becoming.\n\nSo Java came along in 1995. It was positioned as a safe, portable alternative to C++: it eliminated raw pointer arithmetic, added mandatory garbage collection, array bounds checking everywhere, and ran on a virtual machine (JVM) with just-in-time compilation for performance.\n\nThe “write once, run anywhere” promise addressed C/C++ portability pain points directly. To this day, Java remains a strong solution for writing portable enterprise and server-side code.\n\nWe also got JavaScript in 1995. Despite the name, it has almost nothing in common with Java semantically. It is best viewed as separate from the C/C++ branch. Python is similarly quite different.\n\nMicrosoft would eventually come up with C# in 2000. It belongs to the same C-family syntax tradition as C++ and Java, but with support for ahead-of-time compilation in modern .NET. It also allows guarded pointer access within explicitly marked unsafe scopes. At this point, C# can be seen as “C++ with garbage collection” in spirit. It even competes against C++ in the game industry thanks to Unity.\n\nGoogle came up with Go. It is much like a simpler, modern C: garbage-collected, with built-in bounds checking on slices/arrays, and pointers allowed but without arbitrary arithmetic in safe code (the unsafe package exists for low-level needs).\n\nLater, Apple came up with Swift. It has C++-like performance and syntax goals but adds modern safety features (bounds checking by default, integer overflow panics in debug mode) and uses Automatic Reference Counting (ARC) for memory management. Swift replaced Objective-C but I still view it as a C++ successor.\n\nAt about the same time, we got Rust. Like Swift, it drops the generational garbage collection from Java, C# and Go. It relies instead on compile-time ownership and borrowing rules, with the tradeoff that you can leak memory with reference cycles. We also got Zig  which makes memory usage fully explicit.\n\nI think that it is fairer to describe Rust and Zig as descendants of C rather than C++. Both are much more powerful than C, of course… and the evolution of programming languages is complex. Still. They are C-like programming languages.\n\nTo this day, in much of the industry, the dominant programming languages for performance-critical, systems, enterprise, and infrastructure work remain C, C++, Java, and C#. By the Lindy effect (the longer something has survived, the longer it is likely to continue surviving), these languages, especially C, now over 50 years old, are still going to be around for a long time.\n\nDaniel Lemire, \"A brief history of C/C++ programming languages,\" in Daniel Lemire's blog, April 9, 2026, https://lemire.me/blog/2026/04/09/a-brief-history-of-c-c-programming-languages/.\r\n [BibTeX]\r\n Published by\n\n Daniel Lemire",
+    "readingTime": 4,
+    "keywords": [
+      "garbage collection",
+      "bounds checking",
+      "pointer arithmetic",
+      "programming languages",
+      "daniel lemire",
+      "memory",
+      "access",
+      "safe",
+      "portable",
+      "modern"
+    ],
+    "qualityScore": 1,
+    "link": "https://lemire.me/blog/2026/04/09/a-brief-history-of-c-c-programming-languages/",
+    "thumbnail_url": "https://lemire.me/blog/wp-content/uploads/2026/04/Capture-decran-le-2026-04-09-a-10.54.35-1024x704.png",
+    "created_at": "2026-04-12T07:03:17.205Z",
+    "topic": "tech"
+  },
+  {
     "slug": "designmd-a-clearer-handoff-for-coding-agents",
     "title": "Design.md – a clearer handoff for coding agents",
     "description": "Create UI in Shuffle and export design.md for agent workflows",
@@ -2018,29 +2042,5 @@
     "thumbnail_url": "https://i.insider.com/69a861651fb3fcb42648e6f0?width=1200&format=jpeg",
     "created_at": "2026-03-05T01:10:41.638Z",
     "topic": "tech"
-  },
-  {
-    "slug": "xai-founding-member-describes-grind-to-get-first-grok-model-out-no-drugs-not-even-caffeine-just-pure-adrenaline",
-    "title": "xAI founding member describes 'grind' to get first Grok model out: 'No drugs, not even caffeine, just pure adrenaline'",
-    "description": "Elon Musk's xAI is known for its intense work culture. Founding member Toby Pohlen described 'a day and a half of straight coding.'",
-    "fullText": "Elon Musk's companies are \"hardcore.\" It's even in his text messages.\n\nWhen xAI founding member Toby Pohlen left the company in February, he shared a list of things he was excited for. He said he wanted to write down everything he learned, figure out what's next — and sleep over 8 hours.\n\nOn Wednesday, Pohlen offered another peek into the company's internal grind on X. He framed it as a \"lesson\" about learning how to work at an \"extreme pace\" and why it matters.\n\nPohlen went back to 2023, when xAI released the first version of Grok, its large language model. At 1:30 a.m. on November 3, Musk texted the xAI group chat that they would need to go \"extremely hardcore\" for 36 hours, Pohlen wrote.\n\n\"What unfolded over the next day and a half was one of the best examples of engineering at pace that I've ever seen,\" he wrote.\n\nAt the time, xAI only had a \"somewhat fine-tuned base model and a half-baked UI,\" Pohlen wrote. They split up tasks and got to work, he said. By the following evening, the company announced Grok to the world.\n\nOver two days, the xAI team took the company from \"silence to relevance,\" he wrote.\n\n\"A day and a half of straight coding and shipping; no drugs, not even caffeine, just pure adrenaline,\" Pohlen wrote. \"Elon gave us a mission and we delivered.\"\n\nXAI's hardcore culture is well known among the industry. Memes about xAI employees sleeping in tents at the office abound on X. Employees describe 36-hour shifts and speed bets wagering a free Cybertruck.\n\nFor Pohlen, there's a lesson to be learned: Companies should \"grind with purpose.\"\n\n\"When the goal and the means of reaching it are crystal clear, a small, skilled, and highly motivated team can outcompete companies old and new, big and small,\" he wrote.\n\nSome critics have accused Silicon Valley's 996-ers of peacocking their hard work. Pohlen advises against this. \"Never grind to show off; never work late to be seen; never sacrifice without cause,\" he wrote.\n\n\"A hardcore engineering culture is one of the most effective ways of accelerating real progress,\" Pohlen wrote. \"Watch out for performative sacrifice and don't confuse pain with progress.\"",
-    "readingTime": 2,
-    "keywords": [
-      "hardcore",
-      "grind",
-      "pohlen",
-      "learned",
-      "hours",
-      "lesson",
-      "pace",
-      "grok",
-      "model",
-      "half"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/xai-founding-member-extremely-hardcore-grok-debut-2026-3",
-    "thumbnail_url": "https://i.insider.com/69a84ba2d3e2f1aef369f60e?width=1200&format=jpeg",
-    "created_at": "2026-03-04T18:34:25.046Z",
-    "topic": "finance"
   }
 ]

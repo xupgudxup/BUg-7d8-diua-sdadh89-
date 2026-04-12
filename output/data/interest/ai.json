@@ -1,5 +1,61 @@
 [
   {
+    "slug": "code-mode-let-your-ai-write-programs-not-just-call-tools",
+    "title": "Code Mode: Let Your AI Write Programs, Not Just Call Tools",
+    "description": "One tool call at a time is the bottleneck. TanStack AI Code Mode lets the LLM write and execute TypeScript programs in secure sandboxes, composing your tools with loops, conditionals, and Promise.all in a single shot.",
+    "fullText": "There are three things we know about LLMs and tools:\n\nPut these together and they point in one direction: let the LLM do what it's good at (write TypeScript), and let a runtime handle what it's bad at (execution, math, orchestration).\n\nThat's exactly what Code Mode is. Code mode gives the LLM an execute_typescript tool. Instead of orchestrating tools one at a time, the model writes a short TypeScript program that composes your tools with loops, conditionals, and data transformations, then executes it in a secure sandbox. One call in, one structured result out.\n\nIf you've tried to connect an LLM to your APIs, you know the pain. The model has no concept of N+1 problems. It will happily fetch a list of 50 users, then make 50 individual requests to get each user's profile. It doesn't batch. It doesn't parallelize. It doesn't know how to aggregate results without burning a reasoning step per intermediate value.\n\nCode Mode hands those problems to TypeScript. The model writes Promise.all to batch API calls. It uses .reduce() to aggregate instead of asking the LLM to reason about each value. Math happens in the JavaScript runtime, not in the model's token prediction. The N+1 problem disappears. The arithmetic is correct. Every time.\n\nThis is a game changer for any application that wants to put an LLM in front of real APIs.\n\nWe're not the first to recognize this pattern.\n\nAnthropic's computer use and tool-use research has shown that LLMs are dramatically more capable when they can write and execute code rather than being limited to predefined tool signatures. Their work on Claude's analysis tool demonstrated that giving models a code sandbox reduces error rates and increases task completion on complex multi-step problems.\n\nCloudflare coined the term \"Code Mode\" in their September 2025 blog post by Kenton Varda and Sunil Pai. Their insight was simple: LLMs are better at writing code to call APIs than at calling APIs directly. Sunil Pai has been a driving force in this space, pushing the idea that agents should generate and execute TypeScript against typed SDKs rather than making individual tool calls. Cloudflare's Dynamic Workers pioneered running that untrusted code at the edge in V8 isolates, and their execution model (send code to an isolated runtime, bridge specific capabilities in, get a result back) is exactly what we adopted. Code Mode supports Cloudflare Workers as a first-class isolate driver.\n\nWhat we've done is turn this pattern into a composable, model-agnostic tool that plugs into any TanStack AI chat pipeline. Code Mode works with any model that can write TypeScript and reason well. Use it with OpenAI, Anthropic, Gemini, Groq, xAI, Ollama, or any other provider through our adapter system. You don't need to build the sandbox infrastructure, the type stub generation, or the system prompt engineering. Define your tools, pick a driver, pick your model, and the LLM gets a TypeScript sandbox with typed access to your entire tool surface.\n\nCode Mode is modeled as a single tool called execute_typescript. When the LLM decides it needs to compose multiple operations, it writes TypeScript code and passes it to this tool. The code runs inside an isolate: a sandboxed environment with no access to the host file system, network, or process.\n\nYour existing tools become external_* functions inside the sandbox. If you have a fetchWeather tool and a searchProducts tool, the sandbox sees external_fetchWeather() and external_searchProducts(), fully typed, fully async, fully isolated.\n\nConsider an e-commerce app where the user asks: \"What are the top 5 best-selling products, and what's the average rating for each?\"\n\nWithout Code Mode, the LLM calls getTopProducts, waits for the result, then calls getProductRatings five separate times (one per product), waits for each result, then tries to compute averages in its head. That's seven tool calls, seven round-trips, and the averages are likely wrong because the model is doing mental math on floating-point numbers.\n\nWith Code Mode, the LLM writes this:\n\nOne tool call. Five API fetches in parallel. Math computed in JavaScript, not in the model. The averages are correct to the penny. The context window savings compound fast: every round-trip you eliminate is hundreds of tokens you don't spend.\n\nLLMs predict tokens. They don't execute arithmetic. When the model says \"the average is 4.37,\" it's pattern-matching, not computing. Code Mode moves all calculation into a real runtime. Sums, averages, percentages, currency conversions, date math: all of it runs as actual JavaScript. The model decides what to compute. The sandbox computes it correctly.\n\nSame toolDefinition() API you already use. Nothing changes here:\n\ncreateCodeMode returns two things: the execute_typescript tool and a system prompt containing typed function stubs for every tool you passed in. The model sees exact input/output types, so it generates correct calls without guessing parameter shapes. TypeScript annotations are stripped automatically before execution.\n\nCode Mode is runtime-agnostic. All three drivers implement the same IsolateDriver interface. Swap them without changing any other code.\n\nThe Node driver uses V8 isolates via isolated-vm for maximum performance. JIT compilation, no serialization overhead beyond tool call boundaries. The QuickJS driver compiles to WASM and runs anywhere JavaScript runs, including the browser. The Cloudflare driver sends code to a deployed Worker and bridges tool calls back to your server via HTTP round-trips.\n\nEach execution creates a fresh sandbox context. Configurable timeouts and memory limits prevent runaway scripts. The sandbox is destroyed after every call.\n\nCode Mode is powerful on its own. But what if your LLM could get smarter over time?\n\nRight now the model rewrites the same logic every time. If it figures out a good way to fetch and rank NPM packages, that knowledge disappears when the conversation ends.\n\nSkills fix this. The @tanstack/ai-code-mode-skills package lets the LLM save working code as a named, typed, persistent skill. On future requests, relevant skills are loaded from storage and exposed as first-class tools. The LLM calls them directly without rewriting the logic.\n\nHigh-level: codeModeWithSkills() handles everything. Skill selection via a cheap LLM call, tool registry assembly, system prompt generation.\n\nManual: use createCodeMode, skillsToTools, and createSkillManagementTools individually when you want full control over which skills load and how they're assembled.\n\nSkills are just TypeScript text and metadata. Your application is free to store them wherever it wants. We ship file-based and in-memory storage implementations, but anything that satisfies the SkillStorage interface works: a database, S3, Redis, whatever fits your stack.\n\nSkills start untrusted and earn trust through successful executions. Four built-in strategies control promotion thresholds:\n\nTrust is metadata today. It doesn't gate execution. But the infrastructure is there for when you want to build approval workflows or restrict untrusted skills to sandboxed execution only.\n\nCode Mode emits custom events through the AG-UI streaming protocol as code executes. Your client receives them via the onCustomEvent callback on useChat:\n\nEvery event carries a toolCallId that ties it to the specific execute_typescript call, so you can render a live execution timeline alongside the right message. Console output streaming in, external function calls with arguments and durations, errors as they happen.\n\nIt's hard to impart just how much of a game changer code mode really is. You have to try it for yourself. The TanStack AI monorepo includes a full working example at examples/ts-code-mode-web. It's a TanStack Start app with multiple demo scenarios:\n\nSet your API keys in the example's .env file (OpenAI, Anthropic, or Gemini). The app lets you switch providers and isolate runtimes (Node vs. QuickJS) from the UI.\n\nCode Mode is available now across three packages:\n\nThe full documentation is in the Code Mode Guide and the Skills Guide.\n\nTanStack AI is open-source, provider-agnostic, and framework-agnostic. Get started here.",
+    "readingTime": 7,
+    "keywords": [
+      "code mode",
+      "game changer",
+      "system prompt",
+      "execute_typescript tool",
+      "model",
+      "sandbox",
+      "execution",
+      "tools",
+      "math",
+      "without"
+    ],
+    "qualityScore": 1,
+    "link": "https://tanstack.com/blog/tanstack-ai-code-mode",
+    "thumbnail_url": "https://tanstack.com/.netlify/images?url=%2Fblog-assets%2Ftanstack-ai-code-mode%2Fheader.jpg&w=1200&h=630&fit=cover&fm=jpg&q=80",
+    "created_at": "2026-04-12T07:03:17.552Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "the-ai-layoff-trap",
+    "title": "The AI Layoff Trap",
+    "description": "If AI displaces human workers faster than the economy can reabsorb them, it risks eroding the very consumer demand firms depend on. We show that knowing this is not enough for firms to stop it. In a competitive task-based model, demand externalities trap rational firms in an automation arms race, displacing workers well beyond what is collectively optimal. The resulting loss harms both workers and firm owners. More competition and \"better\" AI amplify the excess; wage adjustments and free entry cannot eliminate it.",
+    "fullText": "arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.\n\nBoth individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.\n\nHave an idea for a project that will add value for arXiv's community? Learn more about arXivLabs.",
+    "readingTime": 1,
+    "keywords": [
+      "arxivlabs",
+      "arxiv",
+      "community"
+    ],
+    "qualityScore": 0.4,
+    "link": "https://arxiv.org/abs/2603.20617",
+    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "created_at": "2026-04-12T07:03:13.764Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "an-ai-built-a-boutique-with-100000-then-panicked-when-no-one-showed-up-to-work",
+    "title": "An AI built a boutique with $100,000, then panicked when no one showed up to work",
+    "description": "Andon Labs let an AI loose with $100,000 to start a small store in San Francisco.",
+    "fullText": "Andon Labs is stress-testing AI agents in the real world.\n The lab let an agent called Luna staff and open an entire store with a $100,000 budget.\n Luna did not disclose to applicants that it was an AI and screwed up staffing on day one.",
+    "readingTime": 1,
+    "keywords": [
+      "luna"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/andon-market-luna-ai-agent-managed-store-san-francisco-2026-4",
+    "thumbnail_url": "https://i.insider.com/69dae79ff976785dcb19085c?width=1200&format=jpeg",
+    "created_at": "2026-04-12T07:03:05.726Z",
+    "topic": "finance"
+  },
+  {
     "slug": "ai-juggernaut-rumbles-on-even-as-markets-whipsaw",
     "title": "AI Juggernaut Rumbles on Even as Markets Whipsaw",
     "description": "The artificial intelligence credit juggernaut keeps pushing forward as the relentless demand for exposure to the industry trumps fears that the conflict in the Middle East is causing energy prices and inflation to rise.",
@@ -1868,49 +1924,6 @@
     "link": "https://www.businessinsider.com/retirement-aging-ai-vibe-coding-chatgpt-openclaw-tech-gemini-2026-4",
     "thumbnail_url": "https://i.insider.com/69d545451a512d0a63e733b8?width=1200&format=jpeg",
     "created_at": "2026-04-08T12:56:35.756Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "legendary-investor-mohamed-elerian-says-he-likes-these-2-corners-of-the-market-as-warfueled-volatility-continues",
-    "title": "Legendary investor Mohamed El-Erian says he likes these 2 corners of the market as war-fueled volatility continues",
-    "description": "Top economist Mohamed El-Erian said he bought some AI stocks \"on discount\" and was interested in gold amid the current volatility in markets.",
-    "fullText": "Economist Mohamed El-Erian is warning investors of more volatility from the Iran war.\n The former PIMCO CIO said he wasn't willing to call the bottom of the sell-off just yet.\n He highlighted two parts of the market that interested him at the moment: AI stocks and gold.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/mohamed-el-erian-where-to-invest-iran-war-volatility-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d52b05f36fd1a78c051848?width=1200&format=jpeg",
-    "created_at": "2026-04-08T12:56:35.640Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "im-an-engineer-who-initially-felt-like-ai-was-taking-over-my-job-then-i-realized-my-job-was-bigger-than-coding",
-    "title": "I'm an engineer who initially felt like AI was taking over my job. Then, I realized my job was bigger than coding.",
-    "description": "Maahir Sharma said AI has caused him to rethink his role — and he feels optimistic about his job prospects.",
-    "fullText": "Maahir Sharma spent years coding, and felt a loss as AI began taking over parts of his work.\n He said his role now is more about about building products and requires more thought about the business.\n Sharma said he had to sharpen his communication skills and spends 20 hours a week learning new concepts.",
-    "readingTime": 1,
-    "keywords": [
-      "sharma"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/engineer-how-ai-changed-career-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cfd2c2c02a678bd7e47be3?width=738&format=jpeg",
-    "created_at": "2026-04-08T12:56:35.628Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "robloxs-peter-yang-wants-his-kids-to-skip-college-and-corporate-life-to-bootstrap-businesses",
-    "title": "Roblox's Peter Yang wants his kids to skip college and corporate life to bootstrap businesses",
-    "description": "Roblox product lead and content creator Peter Yang spoke on a16z's podcast about AI's potential impact on corporate work and entrepreneurship.",
-    "fullText": "AI is lowering entry barriers for entrepreneurship and changing career paths.\n Roblox product lead Peter Yang said he wants his kids to skip corporate life and start businesses.\n Tech layoffs and AI advances are prompting new entrepreneurial opportunities, Yang said.",
-    "readingTime": 1,
-    "keywords": [
-      "yang"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/roblox-peter-yang-says-ai-is-coming-for-corporate-life-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d56a33cc468aeec524cb2c?width=1025&format=jpeg",
-    "created_at": "2026-04-08T12:56:35.615Z",
     "topic": "finance"
   }
 ]
