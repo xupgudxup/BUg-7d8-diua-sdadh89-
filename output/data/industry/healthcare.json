@@ -1,5 +1,29 @@
 [
   {
+    "slug": "one-vendor-80-of-dutch-hospitals-ransomware",
+    "title": "One Vendor. 80% of Dutch Hospitals. Ransomware",
+    "description": "ChipSoft, the vendor behind patient records at 70-80% of Dutch hospitals, got hit by ransomware on April 7. Eleven hospitals disconnected. Patient data may have been stolen. Nobody knows who did it.",
+    "fullText": "TL;DR: ChipSoft, the software vendor whose HiX platform manages patient records at roughly 70–80% of Dutch hospitals, was hit by ransomware on April 7, 2026. Eleven hospitals disconnected their systems. ChipSoft disabled its Zorgportaal patient portal, HiX Mobile, and Zorgplatform connections. The company confirmed “possible unauthorized access” and says it “cannot rule out that patient data has been accessed or stolen.” No ransomware group has claimed responsibility. Z-CERT, the Dutch healthcare emergency response team, told hospitals to cut their VPN connections to ChipSoft and audit traffic logs. Names, national identification numbers, diagnoses, treatment histories, insurance details—all of it potentially exposed because an entire country’s healthcare sector bet everything on a single vendor.\n\nOn April 7, ChipSoft’s systems went dark. The company’s website vanished. Z-CERT received notification of a ransomware attack and immediately began coordinating with hospitals across the Netherlands [1].\n\nChipSoft builds HiX, the electronic health record platform that runs between 70% and 80% of Dutch hospital operations—depending on who’s counting [1][2]. That includes patient records, clinical documentation, scheduling, lab results, and provider-to-patient communication. When HiX goes down, hospitals don’t just lose a computer system. They lose the ability to look up what medications a patient is on, what allergies they have, what procedures they’re scheduled for.\n\nAs a precaution, ChipSoft shut down three external-facing services [3]:\n\nEleven hospitals disconnected from ChipSoft entirely. Nine of those relied heavily on HiX for comprehensive record-keeping—meaning they were flying blind, reverting to paper records and phone calls [1].\n\nThe hospitals that disconnected include [3][4]:\n\nOther hospitals reported no disruptions. Rijnstate Hospital in Arnhem said its systems were unaffected. Antoni van Leeuwenhoek Hospital in Amsterdam—a cancer treatment center—said “care for our patients continues as usual.” Franciscus Hospital in Rotterdam and Frisus MC also reported no impact [4].\n\nZ-CERT confirmed that “no critical care processes have come to a standstill,” but the disruptions forced hospitals to increase staffing at service desks and shift communication to telephone systems [3]. That’s the polite way of saying: doctors couldn’t pull up patient records on a screen, so they picked up the phone and called around.\n\nHere’s the part that should concern every person in the Netherlands who has been to a hospital in the last decade.\n\nChipSoft confirmed a “data incident” involving “possible unauthorized access” and said it “cannot rule out that patient data has been accessed or stolen” [2][3]. The records stored in HiX contain [2]:\n\nLUMC said it found “no indications their patient data leaked” [3]. But LUMC is an academic hospital with its own IT infrastructure and likely runs HiX in an isolated environment. Smaller hospitals that rely entirely on ChipSoft’s hosted services? Different story.\n\n“Cannot rule out” is corporate speak for “we don’t know yet.” And when you don’t know whether the medical records of 17 million Dutch citizens were stolen, that’s not a data incident. That’s a national security problem.\n\nThis is the part nobody wants to talk about.\n\nWhen one company controls 70–80% of a country’s hospital patient record systems, a single ransomware attack becomes a systemic risk to the entire healthcare sector. This isn’t a bug. It’s a design choice—decades of consolidation, procurement convenience, and cost-cutting that concentrated critical healthcare infrastructure into one company’s hands.\n\nThe Netherlands is a country of 17.8 million people. If ChipSoft’s systems were fully compromised, the attackers would potentially have access to most of the nation’s hospital patient records. That’s diagnoses, prescriptions, surgeries, mental health records, HIV status, pregnancy records—everything.\n\nZ-CERT director Wim Hafkamp put it plainly: “Digital outage is not an abstract IT problem. It concerns people” who need care [1].\n\nHe’s right. But the question isn’t why this happened. It’s why anyone thought this wouldn’t happen. Putting one vendor in charge of an entire country’s healthcare records is like putting all your eggs in one basket and then leaving the basket on the internet.\n\nZ-CERT issued a confidential memo advising hospitals to [2][3]:\n\nChipSoft has been restoring systems in stages and issuing new login credentials [3]. The company’s public website remained offline for over a day after the attack.\n\nNo ransomware group has claimed responsibility as of April 12 [1][3]. That silence is unusual—most ransomware operators claim their attacks quickly to begin extortion negotiations. Either this is a group that operates quietly, the negotiations are happening behind closed doors, or the attackers haven’t yet decided what to do with what they found.\n\nChipSoft joins a growing list of healthcare infrastructure attacks in 2026. In the US alone, 301 million patient records were exposed in HIPAA-reported breaches in 2025—nearly the entire population [5]. Change Healthcare’s attack in 2024 disrupted pharmacy operations across the country for weeks and affected 100 million people.\n\nThe pattern is consistent: attackers target healthcare because the data is extraordinarily valuable (medical records sell for 10–40x more than credit card numbers on dark web markets) and because hospitals will pay to get systems back online when patient care is at stake.\n\nThe Netherlands has strong data protection laws under GDPR. But GDPR didn’t stop this attack. Regulations can’t patch a server. They can’t prevent a phishing email from landing. They can only punish after the damage is done—and by then, your medical records are already on someone else’s hard drive.",
+    "readingTime": 5,
+    "keywords": [
+      "eleven hospitals",
+      "chipsoft’s systems",
+      "claimed responsibility",
+      "unauthorized access",
+      "cannot rule",
+      "healthcare sector",
+      "country’s healthcare",
+      "healthcare infrastructure",
+      "medical records",
+      "ransomware attack"
+    ],
+    "qualityScore": 1,
+    "link": "https://stateofsurveillance.org/news/chipsoft-ransomware-dutch-hospitals-80-percent-patient-records-2026/",
+    "thumbnail_url": "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1200&q=80",
+    "created_at": "2026-04-12T12:37:41.175Z",
+    "topic": "tech"
+  },
+  {
     "slug": "the-deadly-labyrinth-of-nigerian-healthcare",
     "title": "The Deadly Labyrinth of Nigerian Healthcare",
     "description": "Gazelle...",
@@ -2091,21 +2115,6 @@
     "link": "https://www.businessinsider.com/c-section-rates-us-hospitals-map-2025-12",
     "thumbnail_url": "https://i.insider.com/6941b23604eda4732f2d9f11?width=1200&format=jpeg",
     "created_at": "2025-12-19T12:22:22.297Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "sunway-healthcare-said-to-gauge-interest-for-malaysia-ipo-in-january",
-    "title": "Sunway Healthcare Said to Gauge Interest for Malaysia IPO in January",
-    "description": "Malaysia’s Sunway Healthcare Holdings Bhd. will start gauging investor interest as soon as January for an initial public offering that may raise around $700 million, according to people familiar with the matter.",
-    "fullText": "MarketsBy Dave SebastianSaveMalaysia’s Sunway Healthcare Holdings Bhd. will start gauging investor interest as soon as January for an initial public offering that may raise around $700 million, according to people familiar with the matter. The health-care arm of conglomerate Sunway Bhd. plans to list in Kuala Lumpur as early as March, the people said, asking not to be named as the discussions are private. Deliberations are ongoing, and the size and timing of the deal may change, they said.",
-    "readingTime": 1,
-    "keywords": [
-      "sunway"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.bloomberg.com/news/articles/2025-12-19/sunway-healthcare-said-to-gauge-interest-for-malaysia-ipo-in-january",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/irni7kDpTsao/v0/1200x800.jpg",
-    "created_at": "2025-12-19T06:18:47.688Z",
     "topic": "finance"
   }
 ]
