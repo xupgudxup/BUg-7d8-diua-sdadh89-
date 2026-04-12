@@ -1,5 +1,20 @@
 [
   {
+    "slug": "we-gave-my-grandma-an-iphone-when-she-was-80-i-learned-a-lot-about-her-from-what-she-started-watching-on-youtube",
+    "title": "We gave my grandma an iPhone when she was 80. I learned a lot about her from what she started watching on YouTube.",
+    "description": "After my grandmother became hooked on YouTube Shorts, I realized it was more than entertainment — it was a glimpse of the life she missed.",
+    "fullText": "My grandma got her first iPhone after a brief health scare and became hooked on YouTube videos.\n She slipped farther away from the family store, old friends, and the dinner table.\n Seeing her blush at silly romance videos made me realize that she wasn't wasting time.",
+    "readingTime": 1,
+    "keywords": [
+      "videos"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/grandmother-smartphone-youtube-shorts-identity-story-2026-4",
+    "thumbnail_url": "https://i.insider.com/69cc0bf2c02a678bd7e469da?width=1200&format=jpeg",
+    "created_at": "2026-04-12T18:33:01.854Z",
+    "topic": "finance"
+  },
+  {
     "slug": "apple-makes-key-shutdown-decision-customers-wont-like",
     "title": "Apple makes key shutdown decision customers won't like",
     "description": "Apple has an incredibly loyal customer base. Mac users tend to get iPhones and both generally stay within the Apple ecosystem, according to data from SQ Magazine. Apple’s iPhone customer retention rate hovers near 92%, well above most rivals. In 2025, Apple’s Net Promoter Score (NPS) is estimated ...",
@@ -2227,30 +2242,6 @@
     "link": "https://lifehacker.com/tech/your-iphone-might-not-be-fully-compatible-with-apples-new-airtag?utm_medium=RSS",
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KG063JGGM9JZFZ9GQB6XCW5B/hero-image.fill.size_1200x675.jpg",
     "created_at": "2026-01-28T00:59:02.848Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "drag-gestures-on-the-web",
-    "title": "Drag Gestures on the Web",
-    "description": "Drag gestures are far less common on the web than on mobile. I wanted to try how they feel on the web, so I built this iOS 26 inspired gesture with Motion as an exercise.",
-    "fullText": "Drag gestures are far less common on the web than on mobile. I wanted to try how they feel on the web, so I built this iOS 26 inspired gesture with Motion as an exercise.\n\nDrag items to the left or right to see the interaction.\n\nIn terms of structure, the component is fairly straightforward. We start with the outer container and add overflow-clip which clips everything but prevents scrolling. Inside we have a div with the content that handles the gesture.\n\nFor the gesture, we will be using the drag prop from Motion. We start by defining the x value using the useMotionValue hook, where x is how far the draggable row shifts horizontally.\n\nMotion updates x continuously while you drag. You don't need to calculate distances manually.\n\nWe then pass the x value to the style prop of the motion.div and use drag=\"x\" to make the row draggable on the x-axis only.\n\nDrag the ball and change the modes to see the difference\n\nIn addition to setting up the drag gesture itself, you can also define its behavior.\n\ndragConstraints allows you to define the boundaries of the draggable area. In this component, we limit the draggable area to the left and right of the row.\n\nDrag the ball and toggle constraints to see the difference\n\ndragElastic controls the resistance when dragging past the boundaries. Lower values like 0.05 add very little overshoot, while higher values allow more before snapping back.\n\nDrag the ball past the boundary to see the elastic effect\n\nSetting dragMomentum to false removes the fling effect. For swipe actions, you want the row to stop where you decide, not where velocity decides.\n\nFlick the ball quickly and release to see the momentum effect\n\nWhen the drag ends, the row needs to snap to either left, right or center depending on the direction.\n\nBased on the x value when drag ends, we can determine the snap point. If you don't drag far enough, the row will snap to the center. If you cross the threshold, the row will snap to the nearest side.\n\nPOSITION_THRESHOLD is the commit point. Anything below it closes, anything above it opens.\n\nSetting dragMomentum to false is what makes this feel consistent. The row always lands on your snap points instead of overshooting based on velocity.\n\nThe original iOS gesture doesn’t reveal all actions at once. The first action appears first, the second one only when you drag past a certain threshold. The two thresholds I used are 44px and 88px.\n\nTo do this, compare the motion value against the thresholds.\n\nWe could also have this calculation be in percentages, but I like to keep it in pixels so I can easily tweak the values. We then use the isVisible prop to animate the button.\n\nIn addition to the drag gesture, there are a couple other animations in this component, with the first one being the indicators.\n\nWe render them conditionally, animate opacity and scale and wrap it in an AnimatePresence to handle the exit animation. Depending on where the indicator renders, we add a corresponding origin so it animates in from the correct direction.\n\nThe trash button uses a clip-path overlay and renders different trash icons and background colors depending on the state.\n\nI made a collection of buttons like these a while back.\n\nIn case you have any questions reach me at jakub@kbo.sk, see more of my work on Twitter or \n\nI share stuff that I'm working on, new posts and resources here.",
-    "readingTime": 3,
-    "keywords": [
-      "drag gesture",
-      "snap",
-      "draggable",
-      "ball",
-      "component",
-      "prop",
-      "effect",
-      "depending",
-      "don't",
-      "difference"
-    ],
-    "qualityScore": 1,
-    "link": "https://jakub.kr/work/drag-gesture",
-    "thumbnail_url": "https://jakub.kr/api/og?pageTitle=Drag%20Gestures%20on%20the%20Web",
-    "created_at": "2026-01-28T00:59:02.571Z",
     "topic": "tech"
   }
 ]
