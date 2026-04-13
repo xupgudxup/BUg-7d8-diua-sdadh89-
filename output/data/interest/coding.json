@@ -1,5 +1,29 @@
 [
   {
+    "slug": "brunost-the-nynorsk-programming-language",
+    "title": "Brunost: The Nynorsk Programming Language",
+    "description": "I made a programming language. I'm sorry.",
+    "fullText": "Many countries have multiple languages. Wales has English and Welsh. The Irish got Gaelic, and Cornwall in England has Cornish. In Norway, we technically have three languages: Bokmål, Nynorsk, and Sami.\n\nOne can argue that we can technically speak Nynorsk as well, which is true, but there is no \"pure\" Nynorsk dialect. Nobody speaks \"pure\" Nynorsk, at least not unless going out of their way to do so. There are many dialects that come pretty close, but none are Nynorsk. This makes Nynorsk a purely written language, which I find fascinating.\n\nOne can make similar arguments about Bokmål and Sami, but people speak Sami. And I would argue that a lot more people speak \"pure Bokmål\" than Nynorsk.\n\nOr maybe I'm just pulling this out of my ass, and I don't know what I'm talking about.\n\nThe point is that I made a purely Nynorsk programming language: Brunost.\n\nBrunost is held in high regard in Norwegian culture as a smooth, sweet goat cheese that we use for waffles, sauces, and sandwiches. It is the most Norwegian of cheeses. If you want to have a good time, put some brunost on your waffles with strawberry jam and sour cream!\n\nThis is why Brunost is the perfect name for a Nynorsk programming language. Sweet and smooth, yet with depth that tickles the palate. Therefore, let me present \"Hello world\" written in perfect Brunost:\n\nDo you see its smoothness? Come on, give it a taste! And if you don't like it, then maybe you're the problem. Have you thought about that?\n\nBrunost is a delightful functional language. It is interpreted, and its types are almost as loose as your mum.\n\nThe Brunost interpreter is written in Zig, which is why it is blazingly fast-ish. Python and JavaScript are going down!\n\nWith Brunost, you'll get unmatched aesthetic performance with unmatched Nordic bravado.\n\nHeck, you can play with it online, in your browser, right now!\n\nOne of the most important aspects of Brunost is that it requires Nynorsk. Variable, parameters and function names must be in Nynorsk. The interpreter ships with a Nynorsk dictionary that is used during the interpretation, and if the developer tries to do anything but Nynorsk, they'll get a clear message:\n\nNynorsk is no longer a minor subject in school. Soon, it will become a requirement for the Norwegian IT industry!\n\nMany lesser languages value developer expression. Brunost knows that developers overuse jargon and should use plain (Nynorsk) language rather than fancy abbreviations.\n\nI know that you're about to explode from anticipation, so let's go over this magnificent syntax, shall we?\n\nYou can assign a variable like this:\n\nNow, the keyword fast here is saying that the variable fart cannot be changed - it is immutable.\n\nIf you try to change it like this:\n\nIf you want to change a variable, you must mark it with endreleg, which indicates that it is changeable:\n\nA language where you cannot create branches is not very useful, so we have the viss statement, which functions similarly to how if statements work in other languages:\n\nHere we see a classical if-else demonstration where we can use ellers to chain viss statements, or just to have a default branch.\n\nYou might also notice the English comment in that code snippet. I KNOW! It's horrid. Disgusting! It is revolting! But I did it for you, dear reader, because I'm no bigot and I love you despite you not understanding Nynorsk. After all, we all have flaws, and mine is caring too much.\n\nA functional programming language without functions wouldn't be very useful, and I think it is already clear that Brunost is super useful. So Brunost has functions as well!\n\nHere we have the function kalkulerFart, which is called within terminal.skriv.\n\nWithin kalkulerFart, we have the gjevTilbake statement (give back in English), which is essentially a return statement in other languages.\n\nYou might wonder what happens if we move kalkulerFart under the terminal.skriv call? Well, things break, of course! Why would you want to use something that hasn't been declared yet!? Silly.\n\nBrunost has strong opinions on the order of declaration. Developers are expected to know the order in which things exist.\n\nBeing able to iterate over things is important, and Brunost has got you covered!\n\nHere we have Brunost's version of a foreach loop called forKvart:\n\nWe got the common ones, don't worry. We got the numbers, strings, and whatnot. But why do we have to be so specific about it? Why the need to box everything into rigid types and structures? What are you? Some kind of rigid nerd?\n\nDon't worry about the types, man.\n\nSo far in the code snippets, you have seen the keyword bruk; this is how we do imports.\n\nSo far, we've seen terminal, a built-in module, but we have others, like matte and streng.\n\nYou can also create your own modules. Let's say we have two files, one called \"hovud.brunost\" and the other called \"logikk.brunost\".\n\nIn hovud.brunost, if you wanted to use something from logikk, then you would do:\n\nBut let's say that logikk is in a subfolder called \"kode\", then we would do it like this:\n\nEvery program can fail. Brunost can do a lot, but it cannot break physics (yet). But Brunost tries to help you deal with those failures with classical try-catch logic:\n\nSome might say that errors-as-returns is better than exceptions. Why? Just don't make errors. Easy as that.\n\nOne fun thing is that making a Wasm deployment of the interpreter was not that difficult, and you can use it online right now!\n\nMaking Zig play well with WebAssembly was easy enough, and most of the complexity was in handling terminal commands (or rather, input/output buffers, which do not play well with Wasm).\n\nI didn't put much effort into it, which is why the game of life implementation further down is really funky in the online version.\n\nThis section of the post only exists in a vain attempt to boost my SEO by mentioning Wasm. Let's hope it works.\n\nJoking aside for a second: I won't be making a whole ecosystem for this silly language. There are a few more things I want to have in place before I wrap up completely:\n\nEnough features that Brunost can serve a website.\n\nSome way to deal with non-Nynorsk words that are still allowed in Nynorsk.\n\nFile read/write in the standard library.\n\nAfter this, I will most likely just leave Brunost as a fun little thing that people can play around with.\n\nThis was just a fun little project to create something that didn't exist. I've had the idea of a fully Norwegian programming language for quite some time, mostly because I think the overall idea is dumb.\n\nOne thing I didn't anticipate is that I am barely able to write Brunost myself! I use a US keyboard layout, which means I simply can't, for the life of me, write Brunost code. Trying to get the { and } correct while also handling æ/ø/å is extremely horrid after years of using a US keyboard layout.\n\nNot only that, but it turns out that being locked to a dictionary is kinda limited. Earlier in the project, I had a BMI calculator example, but I had to remove it because BMI is not a word in Nynorsk...\n\nAll that said, if people want to have fun and continue building on Brunost, then I'm happy to look over and deal with pull requests. If someone wants to do some low-stakes programming-language development, Brunost might be a place to have some fun. If people have some fun/stupid ideas for how to \"elevate\" the language, then let me know!\n\nHere are some suggestions if you \"just want a project\":\n\nEditor & Web syntax highlighting, and general editor integrations\n\nIf that is the case, head over to the GitHub repo and pitch something, then we'll see if we can figure something out!\n\nAnd just in case the joke is lost on you: No, Brunost is not a language you should use in actual production. You could... but you shouldn't. And if you do, let me know so that I can scold you.\n\nThese are just some Brunost code snippets I've made, just to show that it is a real language that does real things. More examples can be found in the GitHub examples folder.",
+    "readingTime": 7,
+    "keywords": [
+      "keyboard layout",
+      "pure nynorsk",
+      "code snippets",
+      "don't worry",
+      "nynorsk programming",
+      "let's say",
+      "brunost code",
+      "programming language",
+      "languages",
+      "english"
+    ],
+    "qualityScore": 1,
+    "link": "https://lindbakk.com/blog/introducing-brunost",
+    "thumbnail_url": "https://lindbakk.com/images/introducing_brunost/800/header.png",
+    "created_at": "2026-04-13T19:00:59.401Z",
+    "topic": "tech"
+  },
+  {
     "slug": "if-youre-only-running-one-claude-code-session-youre-not-going-fast-enough",
     "title": "If You're Only Running One Claude Code Session, You're Not Going Fast Enough",
     "description": "The real skill in agentic coding isn't coding. It's managing. And when you get good at it, you don't just ship faster. You build better.",
@@ -2020,27 +2044,6 @@
     "link": "https://gardenhorizonscalculator.pro",
     "thumbnail_url": "https://gardenhorizonscalculator.pro/og.png",
     "created_at": "2026-03-06T06:35:00.807Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "vet-prevent-coding-agents-from-making-mistakes",
-    "title": "Vet – Prevent coding agents from making mistakes",
-    "description": "One line. That’s all it takes to set up and run Vet, a fast and local code review tool built by our team. It’s concise where other tools…",
-    "fullText": "One line. That’s all it takes to set up and run Vet, a fast and local code review tool built by our team. It’s concise where other tools are verbose, and it catches more relevant issues.\n\ncurl -fsSL https://raw.githubusercontent.com/imbue-ai/vet/main/install-skill.sh | bash\n\nWhen you’re using an agent to write code, you ask for a feature, the agent hits a wall, and silently swaps in fake data instead of telling you. You ask it to write tests, it tells you they pass, but it never ran them. You may not notice until later, or you may not notice at all. With the Vet skill your agent will run Vet after writing code, finding the issue for the agent to remedy.\n\nVet verifies your coding agent’s work by considering your conversation history to ensure the agent’s actions align with your requests.\n\nIt can review entire PRs, too. Vet’s reviews detect logic errors, unhandled edge cases, and deviations from stated goals with high precision.\n\nHere’s a short video introduction:\n\nSetting up Vet takes one line because it uses your existing API keys. It’s open source, works with local models, and has zero telemetry. Run from the CLI, CI, or as an agent skill.\n\nGet started on GitHub | Build with us on Discord",
-    "readingTime": 2,
-    "keywords": [
-      "agent",
-      "code",
-      "review",
-      "it’s",
-      "notice",
-      "skill",
-      "agent’s"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://imbue.com/product/vet/",
-    "thumbnail_url": "https://imbue.com/preview/2026-03-05-vet-social.png",
-    "created_at": "2026-03-05T19:07:47.711Z",
     "topic": "tech"
   }
 ]

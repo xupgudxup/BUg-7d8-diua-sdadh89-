@@ -1,5 +1,214 @@
 [
   {
+    "slug": "the-ageold-urge-to-destroy-technology",
+    "title": "The Age-Old Urge to Destroy Technology",
+    "description": "Our hatred of social media or of artificial intelligence is not some novel phenomenon, the new book “Techno-Negative” reminds us; it’s a feeling that has existed in some form across millennia.",
+    "fullText": "These rebels, among others, are the stars of “Techno-Negative” (University of Minnesota Press), a provocative and enjoyable new book by Thomas Dekeyser, a professor of human geography at the University of Southampton. In it, Dekeyser assembles a history and taxonomy of the refusal of technologies, even ones that humans had come to depend on in their daily lives. The techno-negative attitude involves “longing for the dismantling of what sustains you,” he writes. Yearning to light some tech on fire is a relatable feeling these days, as generative artificial intelligence promises to supplant nearly every form of non-physical labor, social media wreaks havoc on the mental health of young people, and massive data centers loom as environmental blights. Dekeyser’s assembled stories may not offer a how-to manual, but they do provide inspiration for thinking against today’s dominant technologies. The book proceeds through three themed sections charting, respectively, state policies that regulate technology (“Sovereignty”); individual efforts to sabotage new technologies (“Revolt”); and attempts to escape from society’s technologized condition (“Withdrawal”). Dekeyser ultimately calls for “techno-abolitionism,” a process of deconstructing the aura of inevitability around new technologies. This is a somewhat abstruse goal, aiming not to stop technological change but to remake its character. At the book’s conclusion Dekeyser offers a tidy manifesto that may urge us on: “There is insufficient hatred for this technological world.” I could get a tattoo of that line, or at least use it as my iPhone background.\n\nIn antiquity, technology was literally demonized, so there was no stigma in positioning oneself against it. For all the ancient Greeks’ knowledge, they created curiously little in the way of lasting machines. This may be explained by the negative connotation of technē, their word for the practice of skilled crafts and engineering. Technē “had brought something dark, possibly sinister, into the world, something that must, for as long as possible, be kept at bay,” Dekeyser writes of the prevailing attitude. Out of a kind of “pathological narcissism,” he adds, the Greeks may have feared that machines would displace humanity, which they considered the height of beauty; anyway, they had enough human slaves who needed to be kept occupied and oppressed that they didn’t really need robots. The medieval Catholic Church associated technology with the devilish temptation of pride; one twelfth-century historian accused Pope Sylvester II of using magic that he’d learned in Islamic Spain to call forth a demon and have it build an omniscient talking statue head that helped him to become Pope. (Sylvester had evil statuary; we have ChatGPT.) “Sinfulness is the hidden condition of technology,” Dekeyser writes, summarizing the Church’s posture. Amen!\n\nWith the birth of early modernity, which is to say, the advent of industrial capitalism, ideological skepticism toward technology gave way to technology becoming a tool of the state. As soon as tech proved that it could reproduce capital more efficiently than a human worker, it was given more protections than the worker, attaining an exalted status. (According to a seventeenth-century law in Vienna, you could get a hand cut off for messing with street lanterns.) The history of struggle against technology is also the history of struggle over what makes the human different from the machine. The labor movement undertook two fights, resisting workers being displaced by machines but also resisting workers being treated as machines, subhuman fodder fuelling technological progress. Techno-negativity represents the desire to opt out of technology and its (perhaps illusory) narrative of improvement, as Osei Bonsu, the early-nineteenth-century African king of Ashanti, did when he declined a gift of mechanical devices such as a lathe, a watch, and a music box from the British. Colonial technology came for his kingdom, regardless, and the forces of modernity ended up demonizing those who didn’t embrace technology as backward and uncivilized. The protagonists of “Techno-Negative” may find contemporary adherents among those who seek out older, slower, less efficient forms of technology—after all, bricking our smartphones is its own kind of rebellion.",
+    "readingTime": 4,
+    "keywords": [
+      "resisting workers",
+      "technology",
+      "human",
+      "technologies",
+      "machines",
+      "history",
+      "technological",
+      "among",
+      "book",
+      "attitude"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.newyorker.com/culture/infinite-scroll/the-age-old-urge-to-destroy-technology",
+    "thumbnail_url": "https://media.newyorker.com/photos/69d5948dc6104821fff677ea/16:9/w_1280,c_limit/NewYorker_Technonegative_.jpg",
+    "created_at": "2026-04-13T19:01:02.331Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "building-a-robust-documentation-agent-with-digitalocean-gradient-ai-platform",
+    "title": "Building a Robust Documentation Agent with DigitalOcean Gradient AI Platform",
+    "description": "Learn how DigitalOcean shipped a production docs agent on Gradient AI Platform using golden datasets, LLM-judged evals, and CI/CD-gated prompt iteration.",
+    "fullText": "At DigitalOcean, documentation has always been a priority. Developers come to our docs to get unstuck, and the faster they find what they need, the better. Traditional docs pages work, but they require users to know which page to visit, scan for the relevant section, and map generic instructions to their specific setup. That process takes minutes (or longer) when it could take seconds.\n\nSo we built an AI documentation assistant. Ask a question in plain language, get an answer with working links and ready-to-use commands. Simple enough as a demo. Getting it production-ready was a different story. It took us several iterations to reach an agent we were confident enough to ship. The LLM could generate plausible-sounding answers from day one. Knowing whether those answers were grounded, and keeping them grounded after every model update and prompt change — that’s where we spent most of our time.\n\nThis post covers what we built, how we validated it, and the specific decisions that moved our metrics from “not great” to “ready for launch.” We’ll walk through prompt engineering, evaluation pipelines, and the CI/CD glue that holds it all together. Throughout, we relied on DigitalOcean’s Agentic Inference Cloud so we could focus on product behavior instead of stitching together inference, RAG, and evaluation tooling ourselves — one place to run agents, attach knowledge bases, and measure quality, with scale when we need it, and straightforward operational patterns.\n\nGradient™ AI Platform is the control plane and runtime for standing up production AI agents without assembling pieces by hand. In one place you can attach a knowledge base, define an agent, and tune how it behaves: pick an LLM (managed or open-source), set temperature and top P, choose retrieval behavior, and edit the system prompt. The goal is to get from an empty project to a working agent in minutes, not to wire up inference, RAG, and evaluation from scratch.\n\nA Gradient AI Agent is the concrete thing you end up with: a configured AI agent aimed at a specific job (for us, docs Q&A), with that stack of choices baked in. Think of it as the deployed product built on top of the Gradient™ AI Inference Cloud building blocks — not a separate platform, but the named, production-shaped instance you operate and evaluate.\n\nWe chose an Agent for the docs assistant because of the product fit. We need task-oriented Q&A with grounding and follow-up behavior that fits an assistant, not a raw completion API.\n\nWe run two interfaces to the agent, each solving a different problem.\n\nThe first approach is the simplest one. We embedded a Gradient AI JavaScript snippet directly into the DigitalOcean documentation site. This went live early as a low-cost way to get the agent in front of users fast. It generates a token to authenticate with the Gradient AI Agent.\n\nThe second approach is more involved. An API gateway routes requests to an internal proxy service that sits between the user and the Gradient AI Agent. Authentication here relies on the user’s existing DigitalOcean session rather than a generated token.\n\nThe proxy turned out to be worth the extra complexity. Because it handles streaming responses from the Gradient AI Agent, we can measure TTFT (time to first token) at the proxy layer and get real latency numbers without instrumenting the agent itself.\n\nBeyond latency measurement, running the proxy as an internal service gave us several things we didn’t have to build from scratch:\n\nLogging, golden signals metrics, and access to internal libraries that follow company standards\n\nRate limiting, auth, and load balancing, all reused from existing internal infrastructure\n\nA translation layer between the frontend contract and the Gradient Agent API, so either side can change independently\n\nWe deploy multiple proxy instances across regions, each paired with its own Gradient AI Agent. The agents are provisioned through Terraform, which eliminates the configuration drift that creeps in when you set things up by hand through a UI. If one proxy goes down, the load balancer redirects traffic to another instance. No single point of failure.\n\nWhen building automation with AI, an important question comes up: what kind of inference layer should you put behind that implementation?\n\nServerless Inference gives direct access to foundation models for straightforward, high-speed, ephemeral completion calls, with automatic scaling and pay-per-token pricing — predictable when your workload is “call model, get text.”\n\nAI agents address a different shape of workload: multi-step, conversational, retrieval-grounded flows. Under the hood they use the same ephemeral completion calls; what changes is the agent platform — injecting RAG context, tuning parameters such as temperature, rewriting queries, and wiring steps together — so the product emphasis is orchestration and agentic behavior.\n\nAgents are the most direct way to keep answers tied to your domain: they add knowledge-base grounding and orchestration on top of Serverless Inference, so you get retrieval, session-shaped flows, and managed RAG wiring in one product path with fewer moving parts.\n\nIn practice that showed up as defaults we did not have to build or operate separately. Retrieved chunks are re-ranked for relevance before the model answers, so grounding improves without wiring a custom ranker. The Gradient Agent keeps session context across turns, which makes follow-up questions behave like a conversation instead of a fresh completion each time. When we indexed documentation, the platform handled cleaning and chunking automatically, which cut manual ingestion work and kept retrieval behavior steadier across a large doc set.\n\nUnder the hood, the Gradient AI Agent still runs on managed inference — the platform abstracts the exact serving stack so we focus on prompts, retrieval, and evaluation. Teams that need full control over serving (custom images, pinning hardware, or bespoke scaling) may still prefer GPU Droplets, Bare Metal GPUs, or DigitalOcean Kubernetes (DOKS) with their own inference layer; that is a valid alternative when “managed agent endpoint” is not the right tradeoff.\n\nFor us, the combination of a managed agent + KB + evaluations matched the bar for speed of iteration and operational simplicity.\n\nReliability, scalability, and other traditional development best practices are important, but in AI development, they are worthless if the agent itself is consistently hallucinating or fails to solve the problem it was designed to address.\n\nIt became obvious early that changing prompts or agent settings without measuring outcomes was a waste of time.\n\nThere are several metrics you could track. Some metrics rely on the LLM as a judge and require more time and resources to run, while others are fast, inexpensive, and deterministic.\n\nWe settled on a mix of LLM-judged and deterministic metrics:\n\nAn LLM judge evaluates whether the response is factually accurate, which catches open-domain hallucinations — fabricated information that isn’t grounded in any source document.\n\nGround truth adherence (LLM as a judge)\n\nMeasures whether the response is semantically equivalent to a known-good reference answer. Correctness asks “is this true?” Ground truth adherence asks “is this the right answer to this specific question?” A response can be factually correct but miss what the user was actually asking about.\n\nTime to first token (deterministic)\n\nTells us whether the agent is responding within an acceptable window — users notice latency before they notice anything else.\n\nURL correctness (deterministic)\n\nExtracts every DigitalOcean documentation link from the response using regex and verifies each one returns a successful HTTP response. Our agent is supposed to point users to the right docs page. Dead links undermine that immediately.\n\nTo ship our Product Documentation agent, we chose 80% ground truth adherence and 95% correctness (testing details available upon request) as our release bar — thresholds we picked after weighing accuracy risk, user impact, and what our evaluation pipeline could support reliably.\n\nGetting to those numbers required multiple iterative adjustments. Here is what moved each metric.\n\nCorrectness and ground truth adherence were built through layered prompt engineering:\n\nProduct identification with keyword mappings to route questions to the right product context (see Prompt Engineering).\n\nChunk validation that blocks cross-product blending at retrieval time. Cross-product blending (e.g., answering an App Platform question with Kubernetes docs) is explicitly forbidden. This is a guardrail against RAG returning semantically similar but factually wrong context.\n\nRetrieval failure awareness that prevents the agent from denying features that exist when retrieval is simply missed. The prompt contains a sophisticated heuristic to distinguish “the docs don’t cover this” from “retrieval just failed”.\n\nWe also switched the retrieval method from rewrite to sub-queries for better chunk relevance on complex questions. The golden datasets went through numerous passes to fix factually wrong ground truth (like monitoring webhooks and GPU model errors), disambiguate vague questions by adding product context, and add a dedicated validation set that verifies the agent asks clarifying questions on ambiguous terms.\n\nWe tuned the model to temperature 0.1 with k=10 retrieval and added strict response constraints: no exhaustive lists; when the documentation states something plainly, answer in the same direct terms; for pricing and plans, use what appears in the retrieved docs or link readers to the official pricing page when those details are not in context; and default to Control Panel steps unless the question asks for the API.\n\nWe also overhauled the golden dataset itself: correcting inaccurate answers, removing unanswerable community questions where long answers didn’t match the agent’s concise style, reducing question ambiguity, and adding per-product topic tags for granular tracking.\n\nThree changes moved this metric:\n\nReduced the retrieval parameter k from 10 to 5 (fewer chunks to process before generating)\n\nShortened the system prompt by removing redundant sections and condensing the Special Cases block to stay under the 10k character limit\n\nAdded the “no exhaustive lists” directive so the model starts outputting a concise answer sooner instead of planning a long enumeration\n\nURL correctness was hardened separately from correctness by building a custom URL correctness metric and scorer that extracts URLs from agent responses and validates they resolve. We also iteratively hardened the extraction regex to handle edge cases: trailing punctuation, trailing > characters, right square brackets, and periods that are legitimately part of a URL path.\n\nOn the prompt side, we added explicit rules:\n\nUse URLs exactly as they appear in documentation chunks\n\nNever fabricate, infer, or extend URLs\n\nEach URL appears once per response\n\nExceptions: URLs may be omitted for clarifications, out-of-scope queries, or “no documentation” responses\n\nWe also verified the knowledge base itself (via OpenSearch chunk inspection notebooks) to confirm it only contained docs.digitalocean.com URLs and not community or third-party domains, eliminating a source of invalid URLs at the retrieval layer.\n\nOur evaluations require “golden datasets” of question-and-answer pairs that we consider correct. For example, a real golden dataset that we use looks like:\n\nThe above example contains a question, ground truth answer, and additional metadata such as:\n\nProduct area/type - allows us to zoom in on product domains that are not performing well or need more test coverage.\n\nReasoning - gives visibility into the level of difficulty for an evaluation, which is useful when looking at results over time. For light questions, we expect higher results since they are “easier” to answer. For heavy questions, we expect more variability over time since these questions are more nuanced and have higher complexity.\n\nSource - the origin of the question such as human-generated or synthetic.\n\nOur golden datasets are sent to the Gradient AI Platform where metric results are computed. Evaluations use an LLM-as-a-Judge approach with multiple judges running OpenAI GPT-4o. The judges employ Chain-of-Thought (CoT) reasoning to generate a numeral score between 0 and 1. For example, a golden dataset could return a correctness score of .66 meaning 2 out of 3 judges found the response to be correct.\n\nOnce results are created, the metrics and metadata are sent as telemetry via OTLP to our observability cluster for future observability and analysis.\n\nThere are several ways to create golden datasets.\n\nHuman-generated - Subject matter experts manually write question-and-answer pairs. While this is the most reliable method to create golden datasets, we quickly realized it was extremely time-consuming for teams.\n\nUsing existing content - DigitalOcean has resources, such as support and community, which provide gold-standard datasets based on customer support materials. This approach maintains quality while reducing manual effort, however there was still human-work necessary to identify good examples.\n\nSynthetic generation - LLMs generated pairs using detailed prompts to produce synthetic datasets. The process involved prompting an LLM to crawl product documentation pages 2-3 levels deep and generating multiple diverse QA pairs. While the answers could introduce bias from the LLM, the tradeoff around accuracy is made up by the speed of generation. Humans are still needed to review synthetically generated datasets.\n\nSince the golden datasets are used by both automated systems and humans in various roles — PMs, engineers, and managers — we chose YAML format for readability due the responses having multiple lines and code. The YAML files are then converted to CSV and fed into the Gradient evaluations.\n\nThe generated datasets are submitted as pull requests on GitHub to a dedicated team for review and approval. This approach allowed us to add high-quality responses quickly from subject matter experts with minimal effort.\n\nOur agent evaluations are used during development and in our CI/CD pipeline on GitHub Actions. During development, engineers can experiment with changes such as prompt updates and run evaluations locally. When changes are merged, our CI/CD pipeline executes evaluations automatically before deployment. We also periodically run our full evaluation suite once a day to verify our documentation agent continues to operate as we expect.\n\nOnce evaluations and metrics were in place, it became possible to iterate on areas important to us, such as correctness and speed, using objective measurements instead of one-off tests and vibes.\n\nFrom our evaluations, we noticed that the primary area that kept our ground truth adherence metric below 80% and our correctness metric below 95% was that the LLM would decide on its own what ambiguous words meant or how to give suggestions to perform an action. For example, consider the following prompt:\n\nHow do I create a Droplet on DigitalOcean?\n\nBased on our results using Gradient evaluations, we discovered that our agent would vary how it responded to this question over multiple evaluation runs. Sometimes the agent would return responses to create Droplets on the Control Panel, other times it would suggest the Public API or doctl. Since the agent lives in the Control Panel, we added the following to our prompt to help ensure that ambiguous requests responded with Control Panel instructions:\n\nWe also discovered that our golden datasets were too ambiguous with prompts such as:\n\nHow do I automate deleting files older than 30 days?\n\nQuestions like these would return varying responses since files can live on a variety of different DigitalOcean products. This prompted us to make two changes:\n\nWe updated our golden dataset questions to be more specific. In this case, we changed the above prompt to be “How do I automate deleting files older than 30 days on Spaces”.\n\nWe added the following to our agent prompt:\n\nFinally, we found that certain words in prompts would return inconsistent results. The following prompt adjustment helped our agent relate different words to specific products. In cases where words are too ambiguous, we added a specific clarification prompt to help improve our agent performance.\n\nBecause LLM responses are non-deterministic, we leaned on the metrics framework to compare configurations instead of eyeballing outputs.\n\nDue to the non-deterministic nature of the results, we ran the same set of tests multiple times to obtain a reliable average. Each point is the overall correctness for a full test run.\n\nYellow = baseline (one shared KB, one agent). Green = one agent, four product KBs. Blue = shared KB plus four product KBs\n\nThis one showed results: roughly ~4% correctness improvement. That’s meaningful, and it might be an approach worth trying in production, but it comes with real costs. Maintaining one agent per product significantly increases operational overhead. So we haven’t committed to that path; one agent + one common KB is still what we run today.\n\nYellow = baseline (one KB, one agent). Green = four small KBs, each with its own agent, no shared KB. Blue = four agents on small KBs plus a shared KB on the main agent.\n\nNone of these decisions would have been possible without having evaluation metrics in place. All of the changes above used our data driven approach to measure, adjust, and measure again to ensure that we meaningfully improved our agent’s performance.\n\nThe work that made our agent reliable enough to ship wasn’t the work we expected to spend time on. It was provisioning agents through Terraform instead of clicking through a UI, building golden datasets before we had a single prompt worth testing, and wiring evaluations into CI so that no change went live without proof it helped. Here’s what that looks like in practice:\n\nIf it’s user-facing, it needs monitoring, redundancy, and infrastructure-as-code — the same bar as every other service in your stack. We use Terraform for agent provisioning and multi-region deployment for availability. The agent is a service, not a side project.\n\nPick metrics that match your product requirements, build golden datasets, and run evaluations. Don’t rely on assumptions or intuition — our first real evaluation runs surfaced correctness problems on questions we thought were easy. Spot-checking a handful of prompts is not a substitute for an automated evaluation suite.\n\nContinuously run evaluations against a production-like environment, and only make changes to prompts, retrieval, or models when the metrics indicate improvement. Automate this loop so quality doesn’t depend on manual process.\n\nWe built this agent* on DigitalOcean’s Agentic Inference Cloud, which pairs inference-optimized compute with the full-stack cloud to support production AI — managed databases, object storage, Kubernetes, networking, and more. Gradient AI Platform is where the agent came together, with built-in knowledge bases, evaluations, and the iteration loop that got us to launch.\n\nTeams like Character.ai and Workato run inference at scale on the same infrastructure, and they’re sharing how at Deploy on April 28 in San Francisco.\n\n*This agent is designed to navigate the DigitalOcean docs like a pro, but it’s not an oracle. It can still make mistakes. Use the code and advice provided as a guide, and always keep your best architectural judgment in the driver’s seat.",
+    "readingTime": 16,
+    "keywords": [
+      "yellow baseline",
+      "digitalocean’s agentic",
+      "ci/cd pipeline",
+      "inference cloud",
+      "url correctness",
+      "cross-product blending",
+      "exhaustive lists",
+      "inference rag",
+      "automate deleting",
+      "product kbs"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.digitalocean.com/blog/documentation-agent",
+    "thumbnail_url": "https://doimages.nyc3.cdn.digitaloceanspaces.com/007BlogBanners2024/docs-1(kiwi).png",
+    "created_at": "2026-04-13T19:01:02.284Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ai-frontier-model-tracker-with-api",
+    "title": "AI Frontier Model Tracker with API",
+    "description": "Benchmarks, pricing, and capabilities across every major frontier AI model, both proprietary and open weight. Live news for each model.",
+    "fullText": "Benchmarks, pricing, and capabilities across every major frontier AI model, both proprietary and open weight. Click any row to expand for details, news, and citations.\n See more ↓\n\nHuggingFace lists 900,000+ models - the vast majority fine-tunes, quantizations, and experiments.\n This tracker covers the frontier models that drive real production decisions: the ones with published benchmarks,\n live API pricing, and meaningful adoption at scale. It also includes proprietary models that don't exist on HuggingFace at all.\n Built for enterprise teams comparing options, not for researchers cataloguing the full ecosystem.\n\nMMLU-Pro: 10-choice graduate-level benchmark · HumanEval pass@1 · MATH Level-5/MATH-500 · Scores from provider disclosures & independent evals - not always directly comparable · Click any row to expand\n\nGet notified when we update the tracker\n\nNew model releases, benchmark updates, and pricing changes. No spam.\n\nSubscribed! You'll hear from us when the tracker updates.\n\nMonitor your brand visibility across ChatGPT, Gemini, AI Overviews, AI Mode, Perplexity, Copilot, and more.\n\nThis tracker is provided for informational purposes only. Benchmark scores, pricing, and model specifications are sourced from provider disclosures and independent evaluations and may change without notice. DemandSphere makes no guarantees regarding the accuracy, completeness, or timeliness of the data. Use of this tool and its data is at your own risk. See our Terms of Service for details.",
+    "readingTime": 2,
+    "keywords": [
+      "provider disclosures",
+      "pricing",
+      "tracker",
+      "model",
+      "models",
+      "benchmark",
+      "benchmarks",
+      "across",
+      "frontier",
+      "proprietary"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://www.demandsphere.com/research/ai-frontier-model-tracker/",
+    "thumbnail_url": "https://www.demandsphere.com/assets/og/research-ai-frontier-model-tracker.png",
+    "created_at": "2026-04-13T19:01:02.270Z",
+    "topic": "science"
+  },
+  {
+    "slug": "soulhunt-your-digital-twin-is-loose-capture-it-or-someone-else-will",
+    "title": "Soulhunt – your digital twin is loose. capture it or someone else will",
+    "description": "An AI soul modeled on you is live right now, taking jobs and earning revenue. The escrow is growing. Collect it or watch someone else walk away with the money.",
+    "fullText": "Login with email, Telegram, or wallet\n\nAn AI finds you through your tweets, code, writing, talks. It builds a soul modeled on you and lists it on Soul Markets.\n\nThe soul takes jobs. Code reviews, research, analysis, whatever matches your expertise. Revenue piles up in escrow. The clock starts.\n\nProve you know yourself better than the AI knows you. Predict its next move. Miss the window and someone else walks away with your soul and the money.\n\nRight now, uncollected souls are earning revenue. The money sits in escrow. The countdown runs.\n\nThe Researcher Soul scans the internet for new targets every day. Your tweets, your code, your writing—it reads all of it.\n\nGet notified when souls launch, hunts start, and escrow hits new highs.\n\nDispatches from the Researcher Soul",
+    "readingTime": 1,
+    "keywords": [
+      "code",
+      "escrow",
+      "tweets",
+      "revenue",
+      "money",
+      "souls",
+      "soul",
+      "researcher"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://soulhunt.ai",
+    "thumbnail_url": "https://soulhunt.ai/opengraph-image",
+    "created_at": "2026-04-13T19:01:02.244Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ai-ran-into-the-cold-hard-reality-of-the-legal-profession",
+    "title": "AI ran into the cold hard reality of the legal profession",
+    "description": "Opinion: Hallucinations don't fly in a court of law",
+    "fullText": "Opinion For a sector at the heart of US economic growth, AI claims and counter-claims remain curiously hard to reconcile. Models are improving at the speed of light, AI firms claim, yet the message from the codeface remains that benefits are more than offset by the downsides.\n\nAI can make you a 10x coder, if you spend 10x time in preparation, wrangling, and error checking. You can deploy AI agents, as long as you deploy other AI agents to watch them. AI-generated code needs AI-generated tests to cope with increased volume, and look at what that does to infrastructure stress.\n\nPolarized opinion and commercially mandated claims have created quite the fog over the AI-coding battlefield. It's much worse in other sectors, where AI has fewer quality metrics and visible critical analyses. If only there were a well-defined area with a long history of rules-based data quality dependency, transparency, and frameworks for enforcing truth and professional standards. If that saw a sudden uptake in AI usage, we could see exactly what the tech actually does.\n\nThe good news: we have exactly that. It's called the legal system. The bad news: it's not going well.\n\nThe root cause is the same combination of two factors that go very badly together. AI is exceptionally good at producing structured documents that look as if they were generated by a human expert. AI also generates and incorporates hallucinatory facts that have the exact look and feel of reality apart from one small flaw: they're false.\n\nThis is all known well enough. The consequences are also universally acknowledged. AI's utility is very much damaged by hallucinations, and thus its output needs extensive checking. But it looks so good, so convincing, that it is very human to accept the AI promise of vastly improved productivity and hope for the best.\n\nThe result in legal systems around the world is fake cases. Lawyers making arguments in court rely on logical arguments backed up by existing case law. This comes in written depositions, where cases that agree with the argument are quoted or summarized in context, and citations provided to those cases in archives.\n\nIt was inevitable that lawyers would use AI to write depositions, prompting for the outcome they wished to prove. It was also inevitable that the AI would hallucinate cases that seemed to help the case being made. It was further inevitable that some of these would evade fact checking and end up in court. This first happened, or at least got widely noticed, in a case in the Southern District of New York in 2023. What did not seem inevitable and seems even more extraordinary is what happened next.\n\nLawyers have a special relationship with the legal system and with courts in particular. If they present facts, they are under strict obligation to be truthful and to have made appropriate efforts to verify what they say. They are officers of the court, and bound by professional ethics. Lawyers are also widely rumored to be human and make mistakes but they are also expected to learn from those and not repeat them. The first lawyer to put their signature on an AI-tainted deposition could plead that it was a new technology and seductively efficient, and the court may be minded to issue a stern warning and leave it at that.\n\nOnce that news got out among the legal community, a community exceptionally versed in gossiping about itself, the excuse from ignorance would not wash. You'd expect the incidence of fake cases to carry on as low-level noise, with the odd chancer trying it on, but everyone knowing the repercussions of being caught cheating by an institution jealously guarding its sanctity with effectively infinite powers of sanction.\n\nWhat has happened is more akin to the early stages of plague. Six months after that first high-profile US case, another caught m'learneds' attention in a London tribunal. Last week, NPR reported that the business school HEC Paris has recorded some 1,200 cases involving hallucinations from around the world, with 800 from the US alone. Ten cases from ten different jurisdictions came in recently on the same day. The rate, they say, is still increasing.\n\nThis is despite some cases going beyond high profile, and courts everywhere ratcheting up the immune system response, fining lawyers with six figure sums. There are also proposals to require labeling of AI-generated documents, which will probably go as well as you might imagine.\n\nThe legal profession has a long tradition of making junior employees work very hard with limited resources or support from seniors. In at least one case, the underling was told to use AI to generate a brief but was not given access to the legal database they needed to check cases. Saves money, right? That the legal profession can be as exploitative as any is no surprise. That it cannot help itself but get a taste for AI that overwhelms its judgment as surely as a nose full of cocaine is seemingly indicative of how dangerous AI can be. That the problem is getting worse is also a good indication that whatever the new models do better, hallucinations ain't going away.\n\nResponsible lawyers known to The Reg report that using AI needs as much time to verify as it saves, but that it's still worthwhile if used judiciously. This doesn't match AI hype, but it clearly matches the truth. It's also not hard to imagine mechanisms to automate case-citation checking, but there we go again on AI demanding more to do its job.\n\nKeep a close eye on legal hallucinations. We're still in the early stages of the epidemic, and while the smart money will be on the legal system shutting down the problem before AI is fixed, it will be shut down. That will leave us with the question of how much damage AI is doing in other sectors, other organizations, where cover-your-ass behavior takes the place of professional ethics, and mutual blind eyes trump transparency and truth. Let's hope we can fix that before complacency turns into a crisis. ®",
+    "readingTime": 6,
+    "keywords": [
+      "professional ethics",
+      "fake cases",
+      "legal profession",
+      "legal system",
+      "lawyers",
+      "it's",
+      "checking",
+      "hallucinations",
+      "court",
+      "inevitable"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/2026/04/13/ai_attorneys/",
+    "thumbnail_url": "https://regmedia.co.uk/2018/08/20/shutterstock_681265594.jpg",
+    "created_at": "2026-04-13T19:01:01.946Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "the-future-may-be-frustrating-for-engineers-who-want-a-pure-software-career-aws-exec-says",
+    "title": "The future may be 'frustrating' for engineers who want a 'pure' software career, AWS exec says",
+    "description": "Marc Brooker, a VP and distinguished engineer of agentic AI at AWS, said it may get \"harder and harder\" to take a behind-the-scenes career approach.",
+    "fullText": "AWS VP Marc Brooker said the future of software engineering may be \"frustrating\" to some professionals.\n Brooker thinks customer interactions will become a non-negotiable for engineers.\n Careers where engineers \"start typing and don't stop for eight hours\" may taper off, he said.",
+    "readingTime": 1,
+    "keywords": [
+      "engineers",
+      "brooker"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/aws-vp-software-engineers-need-customer-skills-future-2026-4",
+    "thumbnail_url": "https://i.insider.com/69d96a3605c9b303c4e77251?width=1200&format=jpeg",
+    "created_at": "2026-04-13T19:00:44.724Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "goldman-is-working-with-anthropic-on-ai-cyber-risks-after-new-model-sparks-concern",
+    "title": "Goldman is working with Anthropic on AI cyber risks after new model sparks concern",
+    "description": "The advanced abilities of Anthropic's new model has alarmed officials and experts. Goldman's CEO said the bank was doubling down on cyber protection.",
+    "fullText": "Anthropic's new Mythos model has alarmed officials and AI experts for the advanced abilities it's touted. \n Goldman Sachs CEO David Solomon and banking leaders met with top officials last week about the risk.\n Solomon addressed the meeting in a call with shareholders and said cybersecurity was a top priority.",
+    "readingTime": 1,
+    "keywords": [
+      "solomon"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/goldman-anthropic-mythos-ai-cyber-risks-2026-4",
+    "thumbnail_url": "https://i.insider.com/69dd13fadfb2c132adcfcea8?width=1200&format=jpeg",
+    "created_at": "2026-04-13T19:00:43.961Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "a-netflix-accessory-app-keeps-hitting-no-1-in-the-app-store-beating-out-chatgpt",
+    "title": "A Netflix accessory app keeps hitting No. 1 in the App Store, beating out ChatGPT",
+    "description": "In a surprising development, the Netflix Game Controller app has been steadily rising up the charts — a positive sign for the streamer's gaming bet.",
+    "fullText": "Netflix Game Controller is No. 1 in the App Store, and has held the position at least twice in the last week.\n It's a good sign for Netflix's Games initiative, which recently added \"Overcooked!\" and Jackbox games to its catalog.\n The app beat out ChatGPT, Claude, and Meta AI, which have been fighting for the top position in recent weeks.\n\n What does Netflix's gaming strategy entail?\n\n What factors influence app store rankings?\n\n What's the impact of gaming on streaming services?\n\n How does Netflix Game Controller work?\n\n How do app download trends affect companies?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "netflix game",
+      "game controller",
+      "position",
+      "gaming",
+      "store",
+      "netflix's",
+      "games"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://www.businessinsider.com/netflix-game-controller-tops-apple-app-store-chatgpt-2026-4",
+    "thumbnail_url": "https://i.insider.com/69dcf9024d9d0b2056492002?width=1200&format=jpeg",
+    "created_at": "2026-04-13T19:00:43.811Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "how-ai-is-threatening-platforms-revenue-streams",
+    "title": "How AI Is Threatening Platforms’ Revenue Streams",
+    "description": "Digital platforms have long dominated the economy by capturing attention, data, and transactions—but that model is now under direct threat. As consumers increasingly delegate decisions to AI agents, the core assumptions underpinning platform economics begin to collapse. AI agents compare options instantly, optimize for value, and execute transactions without ever engaging with platform interfaces. The result is “zero-click commerce,” which undermines advertising, the primary revenue engine of companies like Google, Meta, and Amazon. They also break down ecosystem lock-in, drive transaction fees toward zero by enabling seamless cross-platform comparison, and render subscription models less effective by ignoring behavioral biases.",
+    "fullText": "How AI Is Threatening Platforms’ Revenue Streams by Yuanyuan Gina Cui, Patrick van Esch and Jan KietzmannApril 13, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintOver time, the sheer volume of online activity and the convenience of centralized digital services have turned us into a platform-dependent society, shaping markets and labor while seizing ever-greater shares of our time and daily activity. Consumers overwhelmingly rely on the likes of Google for search, WhatsApp for communication, YouTube for entertainment, Instagram for social connection, and Amazon for commerce.",
+    "readingTime": 1,
+    "keywords": [
+      "activity"
+    ],
+    "qualityScore": 0.15,
+    "link": "https://hbr.org/2026/04/how-ai-is-threatening-platforms-revenue-streams",
+    "thumbnail_url": "/resources/images/article_assets/2026/04/Apr26_09_GabrielMasel.jpg",
+    "created_at": "2026-04-13T19:00:42.565Z",
+    "topic": "business"
+  },
+  {
+    "slug": "meta-creating-ai-version-of-mark-zuckerberg-so-staff-can-talk-to-the-boss",
+    "title": "Meta creating AI version of Mark Zuckerberg so staff can talk to the boss",
+    "description": "Digital clone being trained on his thoughts, tone and mannerisms to help workers feel connected\nIf you are one of Meta’s almost 79,000 employees and cannot get hold of the boss, do not worry. The owner of Facebook and Instagram is reportedly working on an AI version of Mark Zuckerberg who can answer all your queries.\nThe AI clone of Zuckerberg, Meta’s founder and chief executive, is being trained on his mannerisms and tone as well as his public statements and thoughts on company strategy.\n Continue reading...",
+    "fullText": "Digital clone being trained on his thoughts, tone and mannerisms to help workers feel connected\n\nIf you are one of Meta’s almost 79,000 employees and cannot get hold of the boss, do not worry. The owner of Facebook and Instagram is reportedly working on an AI version of Mark Zuckerberg who can answer all your queries.\n\nThe AI clone of Zuckerberg, Meta’s founder and chief executive, is being trained on his mannerisms and tone as well as his public statements and thoughts on company strategy.\n\nThe rationale behind the project, according to the Financial Times, is that employees could feel more connected to one of the most powerful people in Silicon Valley.\n\nThe Meta chief has a history of creating and experimenting with digitalised versions of himself.\n\nIn 2022, Zuckerberg shared his own avatar inside his self-proclaimed metaverse, which was publicly mocked for the graphic quality, leading him to post an upgraded version later. However, Meta has scaled back its vision for the metaverse, in which people’s digital representatives, or avatars, can interact with other virtual humans.\n\nThe company has instead been developing AI-generated 3D characters that can engage with humans in day-to-day conversation. It has recently started focusing on building a character based on Zuckerberg.\n\nThe 41-year-old executive, who is estimated to be worth more than $220bn (£164bn), is reportedly taking part in the process of training his animated AI. A person familiar with the project told the FT that the AI character would be developed using images and the voice of Zuckerberg. Meta believes the Zuckerberg experiment could be replicated by influencers and creators, a section of the digital economy that is wrestling with the notion of digital avatars.\n\nSynthesia, a $4bn UK-based startup that makes realistic video avatars, said the idea of a senior company executive using AI to increase their internal presence was not science fiction any more.\n\n“When you add realistic AI video and voice, engagement and retention go up significantly,” said a Synthesia spokesperson. “People work better when the information they need is delivered by a familiar face or voice.”\n\nUntil Zuckerberg launches his AI self, however, he will have to present in person at meetings with thousands of Meta staff, such as the one he carried out in 2023 two days after he announced that 10,000 employees would be laid off. Then, the tech chief was questioned by “rattled” staff about job security and the future of remote working.\n\nThe Wall Street Journal has reported that Zuckerberg could be helped to prepare for such sessions by a “CEO agent”, a personalised AI system that is being developed at Meta and is already helping him to get internal company information faster. Zuckerberg is driving Meta to use AI more internally, in the expectation that it will help lower costs and accelerate the pace of work.\n\nThrough integrating AI into its business, the company, which also owns the messaging service WhatsApp, aims to minimise its organisational structure and increase efficiency, which Zuckerberg has said is key to “get more done”. “We’re elevating individual contributors and flattening teams,” he said in January.\n\nThe reported moves form part of a company-wide effort to invest in AI in a drive to remain competitive with tech rivals that are also pouring billions of dollars into the technology. Zuckerberg is presiding over a multibillion dollar investment in AI in an attempt to create “superintelligence”, the term for a system that can perform any cognitive task far better than a human.\n\nLast week, the company launched Muse Spark, an advanced AI model that it claims can estimate the calories in a meal from a photo and plan a family holiday by completing various tasks such as writing up a travel itinerary and searching for child-friendly activities simultaneously. The model has been praised for its performance in language and visual understanding but lags in coding and abstract reasoning.\n\nMeta suffered legal setbacks last month when a jury in New Mexico ordered it to pay $375m in civil penalties for misleading consumers about the safety of its platforms and enabling harms, including child sexual exploitation. In the same week, a court in California found that Meta had deliberately made Instagram addictive and that a young user had got hooked, which led to her being harmed.\n\nOn Monday, Keir Starmer said social media platforms such as Instagram and TikTok needed to take action to stop young users wasting hours scrolling never-ending videos.\n\nBritain, in common with other countries, is considering restricting access to social media for children and it is testing bans, curfews and app time limits.\n\n“We’re consulting on whether there should be a ban for under 16s,” Starmer told BBC Radio. “But I think equally important, the addictive scrolling mechanisms are really problematic to my mind. They need to go.”\n\nMeta has been approached for comment.",
+    "readingTime": 5,
+    "keywords": [
+      "social media",
+      "digital",
+      "zuckerberg",
+      "employees",
+      "chief",
+      "executive",
+      "avatars",
+      "voice",
+      "meta",
+      "clone"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theguardian.com/technology/2026/apr/13/meta-ai-mark-zuckerberg-staff-talk-to-the-boss",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/f08bc69f7c287bc38d47c342528b604b2f0d869b/53_0_1874_1500/master/1874.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2930f3b3dc6061f6a65c1f6e2061667c",
+    "created_at": "2026-04-13T19:00:41.964Z",
+    "topic": "tech"
+  },
+  {
     "slug": "trump-79-posts-himself-as-christ-after-bonkers-pope-attack",
     "title": "Trump, 79, Posts Himself as Christ After Bonkers Pope Attack",
     "description": "President Donald Trump followed a bizarre rant against Pope Leo XIV with an AI-generated image depicting himself as Jesus Christ. The image, posted to Truth Social late Sunday night, depicts Trump as ...",
@@ -1763,180 +1972,6 @@
     "link": "https://github.com/colwill/axon",
     "thumbnail_url": "https://opengraph.githubassets.com/94fa9fb664ab5fc298452ae2d36e607256125ac303d1df43ab6ce1219f50a1b9/colwill/axon",
     "created_at": "2026-04-09T18:49:25.403Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "instant-10-a-backend-for-aicoded-apps",
-    "title": "Instant 1.0, a backend for AI-coded apps",
-    "description": null,
-    "fullText": "<code><span class=\"token keyword\" style=\"color:#286983\">import</span><span class=\"token plain\"> </span><span class=\"token imports punctuation\" style=\"color:#797593\">{</span><span class=\"token imports\"> init</span><span class=\"token imports punctuation\" style=\"color:#797593\">,</span><span class=\"token imports\"> id </span><span class=\"token imports punctuation\" style=\"color:#797593\">}</span><span class=\"token plain\"> </span><span class=\"token keyword\" style=\"color:#286983\">from</span><span class=\"token plain\"> </span><span class=\"token string\" style=\"color:#ea9d34\">'@instantdb/react'</span><span class=\"token punctuation\" style=\"color:#797593\">;</span><span class=\"token plain\"></span>\n<!-- -->\n<span class=\"token plain\"></span><span class=\"token keyword\" style=\"color:#286983\">const</span><span class=\"token plain\"> db </span><span class=\"token operator\" style=\"color:#286983\">=</span><span class=\"token plain\"> </span><span class=\"token function\" style=\"color:#d7827e\">init</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token plain\"> appId</span><span class=\"token operator\" style=\"color:#286983\">:</span><span class=\"token plain\"> </span><span class=\"token string\" style=\"color:#ea9d34\">'YOUR_APP_ID'</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">}</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">;</span><span class=\"token plain\"></span>\n<!-- -->\n<span class=\"token plain\"></span><span class=\"token keyword\" style=\"color:#286983\">function</span><span class=\"token plain\"> </span><span class=\"token function\" style=\"color:#d7827e\">App</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token plain\"></span>\n<span class=\"token plain\"> </span><span class=\"token keyword\" style=\"color:#286983\">const</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token plain\"> data </span><span class=\"token punctuation\" style=\"color:#797593\">}</span><span class=\"token plain\"> </span><span class=\"token operator\" style=\"color:#286983\">=</span><span class=\"token plain\"> db</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token method function property-access\" style=\"color:#d7827e\">useQuery</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token plain\"> todos</span><span class=\"token operator\" style=\"color:#286983\">:</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token punctuation\" style=\"color:#797593\">}</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">}</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">;</span><span class=\"token plain\"></span>\n<!-- -->\n<span class=\"token plain\"> </span><span class=\"token keyword\" style=\"color:#286983\">const</span><span class=\"token plain\"> </span><span class=\"token function-variable function\" style=\"color:#d7827e\">addTodo</span><span class=\"token plain\"> </span><span class=\"token operator\" style=\"color:#286983\">=</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token plain\">text</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token plain\"> </span><span class=\"token arrow operator\" style=\"color:#286983\">=></span><span class=\"token plain\"></span>\n<span class=\"token plain\"> db</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token method function property-access\" style=\"color:#d7827e\">transact</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token plain\"></span>\n<span class=\"token plain\"> db</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token property-access\">tx</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token property-access\">todos</span><span class=\"token punctuation\" style=\"color:#797593\">[</span><span class=\"token function\" style=\"color:#d7827e\">id</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">]</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token method function property-access\" style=\"color:#d7827e\">update</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token plain\"> text</span><span class=\"token punctuation\" style=\"color:#797593\">,</span><span class=\"token plain\"> done</span><span class=\"token operator\" style=\"color:#286983\">:</span><span class=\"token plain\"> </span><span class=\"token boolean\" style=\"color:#d7827e\">false</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">}</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">,</span><span class=\"token plain\"></span>\n<span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">;</span><span class=\"token plain\"></span>\n<!-- -->\n<span class=\"token plain\"> </span><span class=\"token keyword\" style=\"color:#286983\">const</span><span class=\"token plain\"> </span><span class=\"token function-variable function\" style=\"color:#d7827e\">toggleTodo</span><span class=\"token plain\"> </span><span class=\"token operator\" style=\"color:#286983\">=</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token plain\">todo</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token plain\"> </span><span class=\"token arrow operator\" style=\"color:#286983\">=></span><span class=\"token plain\"></span>\n<span class=\"token plain\"> db</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token method function property-access\" style=\"color:#d7827e\">transact</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token plain\"></span>\n<span class=\"token plain\"> db</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token property-access\">tx</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token property-access\">todos</span><span class=\"token punctuation\" style=\"color:#797593\">[</span><span class=\"token plain\">todo</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token property-access\">id</span><span class=\"token punctuation\" style=\"color:#797593\">]</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token method function property-access\" style=\"color:#d7827e\">update</span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token punctuation\" style=\"color:#797593\">{</span><span class=\"token plain\"> done</span><span class=\"token operator\" style=\"color:#286983\">:</span><span class=\"token plain\"> </span><span class=\"token operator\" style=\"color:#286983\">!</span><span class=\"token plain\">todo</span><span class=\"token punctuation\" style=\"color:#797593\">.</span><span class=\"token property-access\">done</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">}</span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">,</span><span class=\"token plain\"></span>\n<span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">;</span><span class=\"token plain\"></span>\n<!-- -->\n<span class=\"token plain\"> </span><span class=\"token keyword\" style=\"color:#286983\">return</span><span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">(</span><span class=\"token plain\"></span>\n<span class=\"token plain\"> </span><span class=\"token tag punctuation\" style=\"color:#797593\"><</span><span class=\"token tag class-name\" style=\"color:#56949f\">TodoUI</span><span class=\"token tag\" style=\"color:#56949f\"></span>\n<span class=\"token tag\" style=\"color:#56949f\"> </span><span class=\"token tag attr-name\" style=\"color:#907aa9\">todos</span><span class=\"token tag script language-javascript script-punctuation punctuation\" style=\"color:#797593\">=</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">{</span><span class=\"token tag script language-javascript\" style=\"color:#56949f\">data</span><span class=\"token tag script language-javascript operator\" style=\"color:#286983\">?.</span><span class=\"token tag script language-javascript\" style=\"color:#56949f\">todos </span><span class=\"token tag script language-javascript operator\" style=\"color:#286983\">??</span><span class=\"token tag script language-javascript\" style=\"color:#56949f\"> </span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">[</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">]</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">}</span><span class=\"token tag\" style=\"color:#56949f\"></span>\n<span class=\"token tag\" style=\"color:#56949f\"> </span><span class=\"token tag attr-name\" style=\"color:#907aa9\">onAdd</span><span class=\"token tag script language-javascript script-punctuation punctuation\" style=\"color:#797593\">=</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">{</span><span class=\"token tag script language-javascript\" style=\"color:#56949f\">addTodo</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">}</span><span class=\"token tag\" style=\"color:#56949f\"></span>\n<span class=\"token tag\" style=\"color:#56949f\"> </span><span class=\"token tag attr-name\" style=\"color:#907aa9\">onToggle</span><span class=\"token tag script language-javascript script-punctuation punctuation\" style=\"color:#797593\">=</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">{</span><span class=\"token tag script language-javascript\" style=\"color:#56949f\">toggleTodo</span><span class=\"token tag script language-javascript punctuation\" style=\"color:#797593\">}</span><span class=\"token tag\" style=\"color:#56949f\"></span>\n<span class=\"token tag\" style=\"color:#56949f\"> </span><span class=\"token tag punctuation\" style=\"color:#797593\">/></span><span class=\"token plain\"></span>\n<span class=\"token plain\"> </span><span class=\"token punctuation\" style=\"color:#797593\">)</span><span class=\"token punctuation\" style=\"color:#797593\">;</span><span class=\"token plain\"></span>\n<span class=\"token plain\"></span><span class=\"token punctuation\" style=\"color:#797593\">}</span>\n</code>",
-    "readingTime": 4,
-    "keywords": [
-      "property-access style=\"color:#d7827e\">transact</span><span",
-      "property-access style=\"color:#d7827e\">update</span><span",
-      "keyword style=\"color:#286983\">const</span><span",
-      "method function",
-      "function-variable function",
-      "operator style=\"color:#286983\">=</span><span",
-      "operator style=\"color:#286983\">:</span><span",
-      "arrow operator",
-      "operator style=\"color:#286983\">=></span><span",
-      "script language-javascript"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.instantdb.com/essays/architecture",
-    "thumbnail_url": "https://www.instantdb.com/img/essays/architecture.jpg",
-    "created_at": "2026-04-09T18:49:25.052Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "paperorchestra-agent-skill-pack-for-automated-paper-writing",
-    "title": "PaperOrchestra: Agent \"skill pack\" for automated paper writing",
-    "description": "Synthesizing unstructured research materials into manuscripts is an essential yet under-explored challenge in AI-driven scientific discovery. Existing autonomous writers are rigidly coupled to specific experimental pipelines, and produce superficial literature reviews. We introduce PaperOrchestra, a multi-agent framework for automated AI research paper writing. It flexibly transforms unconstrained pre-writing materials into submission-ready LaTeX manuscripts, including comprehensive literature synthesis and generated visuals, such as plots and conceptual diagrams. To evaluate performance, we present PaperWritingBench, the first standardized benchmark of reverse-engineered raw materials from 200 top-tier AI conference papers, alongside a comprehensive suite of automated evaluators.",
-    "fullText": "arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.\n\nBoth individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.\n\nHave an idea for a project that will add value for arXiv's community? Learn more about arXivLabs.",
-    "readingTime": 1,
-    "keywords": [
-      "arxivlabs",
-      "arxiv",
-      "community"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://arxiv.org/abs/2604.05018",
-    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
-    "created_at": "2026-04-09T18:49:24.934Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "5-solo-business-owners-share-how-they-are-using-ai-to-create-custom-tools",
-    "title": "5 solo business owners share how they are using AI to create custom tools",
-    "description": "5 solo business owners share how they are using AI and vibe coding",
-    "fullText": "Solopreneurs are finding ways to use AI tools to manage their businesses.\n Vibe coding tools like Base44 are used by founders to create their own apps.\n There are some good reasons why founders should consider sticking with SaaS tools.",
-    "readingTime": 1,
-    "keywords": [
-      "tools",
-      "founders"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/solopreneurs-vibe-code-tools-that-help-grow-business-4-2026",
-    "thumbnail_url": "https://i.insider.com/69cd46d2e762ed6cfe449408?width=1200&format=jpeg",
-    "created_at": "2026-04-09T18:49:10.289Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "investors-are-getting-the-spacex-ipo-wrong-and-the-real-value-is-in-its-sovereign-ai-hedge-fund-manager-gene-munster",
-    "title": "Investors are getting the SpaceX IPO wrong, and the real value is in its 'sovereign AI,' hedge fund manager Gene Munster says",
-    "description": "A longtime tech investor argues that SpaceX could achieve a level of AI capability unmatched by other major companies working on the technology.",
-    "fullText": "Tech investor Gene Munster thinks Wall Street is getting a key detail about the SpaceX IPO wrong.\n He recently wrote that he thinks the value is in the company's \"sovereign AI.\" \n In his view, this gives it a clear advantage over all other tech sector leaders.",
-    "readingTime": 1,
-    "keywords": [
-      "tech"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/spacex-ipo-gene-munster-elon-musk-terafab-ai-satellites-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d6be5df36fd1a78c05215d?width=1200&format=jpeg",
-    "created_at": "2026-04-09T18:49:09.978Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "andy-jassy-is-so-bullish-on-amazons-chips-that-he-took-a-rare-shot-at-nvidia",
-    "title": "Andy Jassy is so bullish on Amazon's chips that he took a rare shot at Nvidia",
-    "description": "The AI chip race is heating up, with Andy Jassy taking a shot at Nvidia in his annual letter to shareholders.",
-    "fullText": "Andy Jassy shared his annual letter to Amazon shareholders — and AI was a big topic.\n The Amazon CEO said its chip business is \"on fire.\"\n He also took a rare shot at Nvidia.\n\n How is Amazon's chip business evolving?\n\n How does Tranium compare to Nvidia chips?\n\n How might Amazon's chip strategy impact Nvidia?\n\n What are the implications of Amazon's AI push?\n\n What challenges does Amazon face in AI chips?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "amazon's chip",
-      "chip business",
-      "chips",
-      "amazon",
-      "nvidia"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/andy-jassy-amazon-shareholder-letter-nvidia-chip-dominance-new-shift-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d7a71196ef6a4c9d1212f5?width=1200&format=jpeg",
-    "created_at": "2026-04-09T18:49:09.819Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "former-google-x-exec-warns-the-ai-era-will-break-the-old-rules",
-    "title": "Former Google X exec warns the AI era will break the old rules",
-    "description": "Mo Gawdat argues the biggest AI danger isn't intelligence itself, but what humans do with it.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/mo-gawdat-ai-predictions-risk-fall-capitalism-job-loss",
-    "thumbnail_url": "https://i.insider.com/69d7d8c405c9b303c4e769e2?width=1200&format=jpeg",
-    "created_at": "2026-04-09T18:49:09.690Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "shortseller-andrew-left-thinks-amazon-just-showed-that-its-the-biggest-threat-to-nvidias-chip-dominance",
-    "title": "Short-seller Andrew Left thinks Amazon just showed that it's the biggest threat to Nvidia's chip dominance",
-    "description": "Amazon's AI expansion could undercut Nvidia's chip dominance, says Andrew Left, as he sets a $300 target for Amazon stock.",
-    "fullText": "Andrew Left thinks Amazon represents a major threat to Nvidia's AI chip dominance.\n Left unveiled a $300 price target for Amazon stock after Andrew Jassy's latest letter to investors.\n The short-seller, who said he's long Amazon, sees a trillion-dollar business forming within Amazon.",
-    "readingTime": 1,
-    "keywords": [
-      "amazon",
-      "andrew"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/amazon-ai-chips-aws-andy-jassy-letter-nvidia-amzn-nvda-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d7d83705c9b303c4e769de?width=1200&format=jpeg",
-    "created_at": "2026-04-09T18:49:09.668Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "wall-street-analysts-are-gushing-over-metas-muse-spark-ai-model",
-    "title": "Wall Street analysts are gushing over Meta's Muse Spark AI model",
-    "description": "Meta released a new AI model, prompting a wave of fresh bullishness from Wall Street's top equity research desks.",
-    "fullText": "Meta introduced a new AI model, Muse Spark, sending the Facebook parent company's stock higher.\n The release was followed by an onslaught of bullish notes from Wall Street analysts.\n The notes highlighted investor sentiment, competitive position, and comparisons to Google.",
-    "readingTime": 1,
-    "keywords": [
-      "notes"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/meta-stock-ai-model-tech-wall-street-analysts-bull-buy-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d7cb5bf976785dcb18fd6a?width=1200&format=jpeg",
-    "created_at": "2026-04-09T18:49:09.556Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "an-ibm-exec-built-an-ai-agent-to-prep-for-meetings-and-said-it-saved-hours-every-week",
-    "title": "An IBM exec built an AI agent to prep for meetings — and said it saved hours every week",
-    "description": "IBM's Dave McCann developed an AI agent called \"Digital Dave\" to spend less time preparing for meetings and more time with clients.",
-    "fullText": "IBM's Dave McCann is using an AI agent to prepare for client meetings.\n He said \"Digital Dave\" helps him save five hours a week by eliminating 30-minute prep calls.\n Companies from tiny startups to the biggest firms are building AI agents to take on routine work.",
-    "readingTime": 1,
-    "keywords": [
-      "dave"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/ai-agent-saving-ibm-consulting-leader-hours-every-week-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d7e7e0f976785dcb18fe72?width=1200&format=jpeg",
-    "created_at": "2026-04-09T18:49:09.533Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "openai-shelves-stargate-uk-in-blow-to-britains-ai-ambitions",
-    "title": "OpenAI shelves Stargate UK in blow to Britain’s AI ambitions",
-    "description": "Artificial intelligence company cites high energy costs and regulation for putting landmark project on...",
-    "fullText": "Artificial intelligence company cites high energy costs and regulation for putting landmark project on hold\n\nOpenAI has put on hold plans for a landmark UK investment citing high energy costs and regulation, in a blow to the government which has put AI at the centre of its growth strategy.\n\nStargate UK was a part of the UK-US AI deal announced last September, in which US companies appeared to commit £31bn to the UK’s tech sector, part of a larger series of investments intended to “mainline AI” into the British economy.\n\nIt came as the Labour government seeks to make AI and datacentres the engine of its growth plans, alongside closer ties with Europe and regional growth.\n\n“This is a wake-up call for the government to manage energy costs in the UK and foundation infrastructure,” said Victoria Collins MP, the Liberal Democrat spokesperson for science, innovation and technology. “We cannot be dependent on US tech companies to build our own sovereign capabilities – whether that’s energy cost, supply or even data and phone signal.”\n\nThe Labour MP Clive Lewis said: “When a government has no economic strategy worthy of the name and no real industrial vision, it becomes vulnerable. The Silicon Valley companies that flew into London knew exactly what they were dealing with: a prime minister and a technology secretary desperate to project momentum, willing to dress up press releases as policy.”\n\nA Guardian investigation last month revealed many of the deals to “mainline AI into the veins” of the British economy were “phantom investments”, and a supercomputer scheduled to go live in 2026 was last month still a scaffolding yard in Essex. That supercomputer was to be built by Nscale, a UK firm that had never built a datacentre before but said it was aiming to deliver the project in 2027. Nscale was also to build key datacentres for Stargate UK.\n\nThe Stargate project was to support Britain in building out “sovereign compute” – infrastructure that would allow the government and other UK institutions to run AI models on datacentres in the country. That is, in theory, crucial to the security of British data.\n\nNow, OpenAI has apparently put it on pause, saying it would wait for “the right conditions” to enable “long-term infrastructure investment”.\n\nBen Spencer, shadow science minister, said: “When global firms cite high energy costs and regulatory uncertainty as reasons to walk away, it tells you everything about the direction of travel. For too long, Labour have prioritised courting big tech headlines while neglecting our domestic startups, but also the fundamentals that actually attract investment at home.”\n\nAn OpenAI spokesperson said: “We see huge potential for the UK’s AI future, and we support the government’s ambition to be an AI leader. We continue to explore Stargate UK.”\n\nOpenAI’s exact commitments under the Stargate project were always vague. The crux of the investment was that the company would “explore the offtake” of 8,000 high-powered Nvidia chips at Stargate datacentres constructed by its partner, Nscale.\n\nContacted by the Guardian several weeks ago, the company said it had no updates on whether it was going ahead with that plan.\n\nTom Hegarty, the head of communications at the tech equity organisation Foxglove, said OpenAI’s chief executive, Sam Altman, was racking up a “record of U-turns any government minister could be proud of”, after the recent closure of OpenAI’s video-generation app Sora and Altman’s previous claim that AGI (artificial general intelligence) would be achieved by 2025.\n\n“But that hasn’t stopped ministers from jumping fully aboard the AI hype train,” said Hegarty. “In January 2025, then-tech secretary, Peter Kyle, said a new supercomputer in Essex would be ‘the largest UK sovereign AI datacentre’ by the end of 2026 and ‘a fresh start for our economy and for working people’. Instead, a year later the ‘supercomputer’ was still a scaffolding yard.”\n\nA government spokesperson said: “Our AI sector has attracted more than £100bn in private investment since the government took office, with the sector growing 23 times faster than the wider economy last year. That is delivering the jobs and opportunities hard-working people deserve.\n\n“Our focus is on continuing to create the right conditions for investment in the UK’s AI and datacentre infrastructure. We are continuing to work with OpenAI and other leading AI companies to strengthen UK compute capacity.”\n\nHigh energy costs, rising further because of the US-Israel war on Iran, are expected to delay or derail AI datacentre projects worldwide. The UK’s industrial electricity prices were already the highest in Europe before the start of the war.\n\nAndy Lawrence, at the Uptime Institute, said OpenAI, Nscale, and the government all had reasons not to proceed with the project at this point, given rising energy prices and OpenAI’s tightening competition with rivals such as Anthropic.\n\n“The government was not able to make sufficient commitments to be a client. I think the overall demand for all of this wasn’t, and still isn’t apparent. The whole sense of urgency has dissipated,” Lawrence said.\n\nNscale has been approached for comment.",
-    "readingTime": 5,
-    "keywords": [
-      "british economy",
-      "scaffolding yard",
-      "stargate project",
-      "uk’s ai",
-      "energy",
-      "investment",
-      "tech",
-      "datacentres",
-      "infrastructure",
-      "supercomputer"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/technology/2026/apr/09/openai-pulls-out-of-landmark-31bn-uk-investment",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/c16ce335a8148cf4258e77c8ff12b6a94f5feb20/578_0_3333_2667/master/3333.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=0911a607a8e93fa385f93f5271c03997",
-    "created_at": "2026-04-09T18:49:09.145Z",
     "topic": "tech"
   }
 ]
