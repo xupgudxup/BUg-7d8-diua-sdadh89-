@@ -1,5 +1,106 @@
 [
   {
+    "slug": "labeling-copilot-an-agent-for-automated-data-curation-in-computer-vision",
+    "title": "Labeling Copilot: An agent for automated data curation in computer vision",
+    "description": "Contribute to ICICLE-ai/labelingcopilot development by creating an account on GitHub.",
+    "fullText": "A deep research agent for automated data curation in computer vision.\n\nLabeling Copilot plans, retrieves, annotates, and augments image datasets end-to-end. It composes three model services (retrieval, annotation, synthesis), coordinates them through a top-level agent, and produces COCO-formatted output with per-model detection provenance.\n\nAuthors:\nDebargha Ganguly*1,3, Sumit Kumar*1,4, Ishwar Balappanawar*1,4, Weicong Chen*3, Shashank Kambhatla1,5, Srinivasan Iyengar2, Shivkumar Kalyanaraman2, Ponnurangam Kumaraguru4, Vipin Chaudhary3\n\n1Microsoft Research    2Microsoft Corporation    3Case Western Reserve University    4IIIT Hyderabad    5University of Pennsylvania\n\nWe recommend running with --with-synthesis. The agent uses synthesis to fill scene-coverage gaps it identifies during curation; without it, those gaps can only be addressed by sampling more from the existing pool. Synthesis needs vision-model API credentials — see Synthesis setup below for the one-time configuration.\n\nThe helper script validates Docker and GPU access, auto-selects a runtime profile for your host, builds the model containers, and waits for each service to report healthy. First startup downloads model weights and datasets into Docker volumes, so expect several minutes of setup on a cold machine.\n\nLabeling Copilot is a curation loop over three tools — retrieve, annotate, synthesise. Running that loop well means planning the next batch, parallelising I/O, interpreting partial failures, tagging scenes, deciding when to trigger synthesis, and persisting state across sessions. That orchestration layer — the \"harness\" described in the paper — is a hard engineering problem in its own right: context-window management, tool-call sequencing, retry strategy, memory compaction, and recovery from ambiguous intermediate outputs.\n\nMature coding agents (Claude Code, Codex, and similar) already solve the harness problem. We therefore expose Labeling Copilot's capabilities as plain HTTP services plus a markdown skill file, and let the agent drive them. For any real curation run this is the recommended path.\n\nThe skill at .claude/commands/curate.md is loaded automatically. It runs an iterative loop with active-learning sampling, multi-model detection, gap analysis, and targeted synthesis, persisting state to agent_output/ so you can stop and resume.\n\nThe same tools could be exposed as an MCP server. We chose not to: modern LLMs invoke shell and HTTP calls very efficiently through their native tool use, and an MCP layer adds schema metadata into every turn's context window without changing what the agent can actually do. Plain HTTP endpoints plus a markdown skill file keep the context small and the surface universal — any agent framework can curl them.\n\nThe repo also ships a short, single-file Python program:\n\nIt runs a fixed cat/dog pipeline — sample, auto-label, detect, save — and is useful for two things: verifying your stack is wired correctly, and reading as an example of the underlying tool calls. It is not an agent. It has no planning, no backtracking, and no memory across runs, because reproducing the harness inside a single Python event loop is exactly the engineering problem we recommend delegating. For anything beyond a smoke test, use /curate or point your own coding agent at the HTTP services.\n\nCat vs dog is a motivating example, not a ceiling. See EXTENDING.md for a walkthrough: changing detection vocabulary, swapping the image pool, writing a custom ETL for your own data, adapting the curation taxonomy, and adding new model services or samplers.\n\nThe viewer renders curated images with bounding-box overlays, per-model scores, scene coverage, and gap analysis. It auto-refreshes so you can watch a curation run unfold.\n\nSynthesis generates targeted image variants to fill scene-coverage gaps identified during curation. It requires vision-model API credentials (OpenAI or Azure OpenAI), so it is not started by default.\n\nSee synthesis/README.md for the service overview, synthesis/API.md for endpoint reference, and synthesis/TROUBLESHOOTING.md for common issues.\n\nThe retrieval service loads images on startup from the dataset named in retrieval/docker-compose.yml. Ships with cat,dog from Oxford-IIIT Pets; edit LABEL_CLASSES to change.\n\nGPU builds are controlled by a small set of environment variables consumed by the top-level script and Dockerfiles:\n\nOn aarch64 / Blackwell-class hosts, the script auto-selects a CUDA 13 profile. On common x86_64 hosts it selects a CUDA 12.1 profile. Set any variable above to override.\n\nWe welcome pull requests. Labeling Copilot is designed to be extended, and there are several directions where community contributions would be especially valuable:\n\nPlease open an issue before large changes so we can align on scope. Small fixes can go straight to a PR.\n\nCorrespondence: debargha@case.edu.\n\nFull author contacts: {debargha, weicong, vipin}@case.edu, {sriyengar, shkalya}@microsoft.com, sumit.k@research.iiit.ac.in, ishwar.balappanawar@students.iiit.ac.in, pk.guru@iiit.ac.in, skamb@seas.upenn.edu.",
+    "readingTime": 4,
+    "keywords": [
+      "vision-model api",
+      "api credentials",
+      "cuda profile",
+      "http services",
+      "fill scene-coverage",
+      "plus markdown",
+      "gap analysis",
+      "scene-coverage gaps",
+      "markdown skill",
+      "skill file"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/ICICLE-ai/labelingcopilot",
+    "thumbnail_url": "https://opengraph.githubassets.com/c1d99445a6d50307dc4d374852b9f7fd492d211b692dc446d320b10c98c1fa12/ICICLE-ai/labelingcopilot",
+    "created_at": "2026-04-14T01:26:39.051Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "linkedin-is-quietly-moving-into-the-ai-training-business",
+    "title": "LinkedIn is quietly moving into the AI training business",
+    "description": "LinkedIn is launching an AI labor marketplace, offering up to $150 an hour for AI training, challenging startups like Mercor and Surge AI.",
+    "fullText": "LinkedIn is paying up to $150 an hour for people to train AI on coding, nursing, finance, and more.\n It's conducting early tests to launch an \"AI labor marketplace,\" LinkedIn confirmed.\n The move would put LinkedIn in direct competition with startups like Mercor and Scale AI.",
+    "readingTime": 1,
+    "keywords": [
+      "linkedin"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/linkedin-enters-ai-training-market-challenges-startups-2026-4",
+    "thumbnail_url": "https://i.insider.com/69dd2e0cdfb2c132adcfcf7a?width=1200&format=jpeg",
+    "created_at": "2026-04-14T01:26:34.312Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "feds-say-suspect-in-molotov-attack-on-sam-altmans-home-listed-ai-ceos-and-investors-in-last-warning-note",
+    "title": "Feds say suspect in Molotov attack on Sam Altman's home listed AI CEOs and investors in 'last warning' note",
+    "description": "Suspect Daniel Moreno-Gama is now facing federal charges in addition to state charges in connection with the Friday attack on Sam Altman's home.",
+    "fullText": "Daniel Moreno-Gama is facing federal charges in connection with the Molotov attack on Sam Altman's home.\n The FBI said the suspect mentioned other AI CEOs in an \"anti-AI\" document found on him.\n The suspect has also been accused of threatening to burn down OpenAI's headquarters.",
+    "readingTime": 1,
+    "keywords": [
+      "suspect"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/altman-molotov-attack-suspect-had-an-anti-ai-doc-feds-2026-4",
+    "thumbnail_url": "https://i.insider.com/69dd3b494d9d0b2056492284?width=746&format=jpeg",
+    "created_at": "2026-04-14T01:26:34.203Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "nvidia-denies-rumors-that-its-in-acquisition-talks-with-pc-maker",
+    "title": "Nvidia denies rumors that it's in acquisition talks with PC maker",
+    "description": "Nvidia (NVDA) denies reports from Semiaccurate that the AI chipmaker is in acquisition talks with a large PC maker, a headline that boosted shares of Intel (INTC) and Dell Technologies (DELL) in Monday's trading session.",
+    "fullText": "Nvidia (NVDA) denies reports from Semiaccurate that the AI chipmaker is in acquisition talks with a large PC maker, a headline that boosted shares of Intel (INTC) and Dell Technologies (DELL) in Monday's trading session.\n\nNvidia setting the record straight when it comes to acquisition plans after reports said the chip giant was eyeing a large PC company.\n\nOnline outlet semi-accurate saying earlier Monday Nvidia was in negotiations to acquire a large PC company. That headline drove shares of Dell and HP Inc sharply higher during the trading session.\n\nDell and HP are among the top in terms of market share when it comes to PC vendors. But after the closing bell, Nvidia put out the following statement. The media report is false.\n\nNvidia is not engaged in discussions to acquire any PC maker.\n\nAs a result, Dell and HP Inc are lower after hours.",
+    "readingTime": 1,
+    "keywords": [
+      "trading session",
+      "dell and hp inc",
+      "reports",
+      "acquisition",
+      "maker",
+      "headline",
+      "shares",
+      "acquire",
+      "nvidia"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://finance.yahoo.com/video/nvidia-denies-rumors-that-its-in-acquisition-talks-with-pc-maker-210613217.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/2zVpiWaTSeXTJQPdQc4wRQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://d29szjachogqwa.cloudfront.net/images/user-uploaded/90515a90-e786-11f0-99fe-0e8345c4333d_c2901fe95779a965796c697793f87c2839869391e5eaaaaffa724b48fc1ca2d5.com/creatr-uploaded-images/2026-01/90515a90-e786-11f0-99fe-0e8345c4333d",
+    "created_at": "2026-04-14T01:26:33.697Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "im-not-buying-nvidia-right-now-these-2-growth-stocks-are-the-smarter-ai-supercycle-play",
+    "title": "I'm Not Buying Nvidia Right Now. These 2 Growth Stocks Are the Smarter AI Supercycle Play.",
+    "description": "Nvidia has been a big artificial intelligence (AI) winner, but there are better ways to play the AI infrastructure market moving forward.",
+    "fullText": "Nvidia (NASDAQ: NVDA) has undeniably been one of the best growth stocks to own over the past several years. The company has seen parabolic growth over the past five years and has established itself as the dominant player in the artificial intelligence (AI) infrastructure space.\n\nThe company did not just stumble into the position it finds itself today, but it was carefully plotted and planned for years before AI hit the mainstream. It is that forward-looking nature that I believe will continue to make Nvidia a winner moving forward.\n\nWill AI create the world's first trillionaire? Our team just released a report on the one little-known company, called an \"Indispensable Monopoly\" providing the critical technology Nvidia and Intel both need. Continue »\n\nWhile it is already the largest company in the world, I think there are better ways to play this AI supercycle right now. Let's look at two AI stocks I have bought instead.\n\nAdvanced Micro Devices (NASDAQ: AMD) is the distant No. 2 player to Nvidia in the graphics processing unit (GPU) market; however, it is at the convergence of two important trends: inference and agentic AI.\n\nThe first phase of AI was all about providing the muscle to train large language models (LLMs). This is why Nvidia, with its GPUs and CUDA software platform, where most foundational AI code was originally written, has dominated the market. However, inference, where AI models draw on what they've been trained on, is projected to become a much larger part of the market. Inference is not nearly as technically demanding as training, and thus AMD has been able to carve a niche in this area.\n\nAMD has recently made important progress when it locked in partnerships with OpenAI and Meta Platforms for its GPUs. While the deals included warrants for up to 10% of AMD's stock, it opened the door for it to meaningfully become a part of the inference roadmap for two of the largest AI data center spenders, while also incentivizing them to help AMD succeed. These two deals should help drive strong growth in the coming years.\n\nThat said, AMD's opportunity in inference is not the main reason I bought the stock. The biggest reason is that the company is very well-positioned to benefit from the next big AI bottleneck: central processing units (CPUs). With the rise of AI agents, data centers are going to need considerably more high-performance CPUs to provide the sequential logic they need to run.\n\nDemand for high-performance CPUs is starting to surge, and the market is already becoming supply constrained. Amazon recently said it has customers who have asked to buy its entire supply of custom Graviton CPUs, but that it's had to turn them down. As the leader in the CPU server market, AMD will be a prime beneficiary of this trend, and best of all, it's just starting.",
+    "readingTime": 3,
+    "keywords": [
+      "high-performance cpus",
+      "market however",
+      "inference",
+      "growth",
+      "stocks",
+      "player",
+      "largest",
+      "processing",
+      "models",
+      "recently"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/markets/stocks/articles/im-not-buying-nvidia-now-190500949.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/Zbdtn9I0uTa25pmIa6y8aA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/motleyfool.com/d794958b3e47af00cacffb014def7d8e",
+    "created_at": "2026-04-14T01:26:33.366Z",
+    "topic": "finance"
+  },
+  {
     "slug": "the-ageold-urge-to-destroy-technology",
     "title": "The Age-Old Urge to Destroy Technology",
     "description": "Our hatred of social media or of artificial intelligence is not some novel phenomenon, the new book “Techno-Negative” reminds us; it’s a feeling that has existed in some form across millennia.",
@@ -1875,103 +1976,5 @@
     "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/1dd8/live/c33b8a60-3377-11f1-9d5c-8ba507d7dbde.png",
     "created_at": "2026-04-10T07:15:04.846Z",
     "topic": "sports"
-  },
-  {
-    "slug": "5-llm-played-poker-opus-busted-first-grok-won",
-    "title": "5 LLM played Poker: Opus busted first, Grok won",
-    "description": "Multi-agent framework that works with your existing stack - sagaripte/chorus",
-    "fullText": "Five AI agents play Texas Hold'em. Each has a distinct personality, runs on a different LLM, and forms real opinions about everyone else's cards.\n\nModels have distinct voices.\n\nOpus delivers theatrical trash talk. Haiku is short, punchy, and chaotic. Grok-reasoning stays dry and measured. You can often tell which model is speaking without looking at the mapping.\n\nReal information asymmetry makes bluffs work.\n\nVince (Opus) successfully faked a flush draw across three streets. Suki (Haiku) had no way of knowing he was bluffing — she only saw her own cards. The deception wasn't simulated; it emerged naturally from hidden information.\n\nPersonality shapes strategy more than you expect.\n\nRex (Grok-fast) barely spoke, folded almost everything, and won by slow-playing a set of 7s. Suki (Haiku) called wildly and rode massive swings. Maya (Sonnet) played tight and disciplined. One-line personality prompts were enough for the models to develop consistent playstyles.\n\nThe most expensive model went broke.\n\nOpus played the most dramatic, aggressive, and entertaining poker — and busted first. The cheapest, most chaotic model (Haiku) took a big chunk of his chips. Draw your own conclusions about cost vs performance.\n\nThe framework stayed out of the way.\n\nAll game logic (legal moves, pot calculation, hand evaluation) stayed in deterministic code. The LLMs only handled strategy and personality. This kept the game fair and prevented common LLM failures like illegal bets or hallucinated cards.\n\nMade with Chorus — the thin multi-agent layer that lets you control the rules while the LLMs bring the chaos.\n\nWant to add your own player? Just extend PokerPlayer, give them a personality prompt, and drop them into the table. Models are interchangeable with one string change.",
-    "readingTime": 2,
-    "keywords": [
-      "suki haiku",
-      "personality",
-      "cards",
-      "models",
-      "model",
-      "distinct",
-      "chaotic",
-      "draw",
-      "strategy",
-      "game"
-    ],
-    "qualityScore": 0.95,
-    "link": "https://github.com/sagaripte/chorus/tree/main/examples/poker",
-    "thumbnail_url": "https://opengraph.githubassets.com/4dbbe728947f15d14787f80862fba5787985fd354ca3a392ecceceb55288ccce/sagaripte/chorus",
-    "created_at": "2026-04-10T01:22:19.233Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "edgesense-replacing-neural-nets-on-microcontrollers-with-symbolic-physics",
-    "title": "EdgeSense – replacing neural nets on microcontrollers with symbolic physics",
-    "description": "EdgeSense: A safe AI ecosystem for autonomous systems. Fuses AI-discovered control equations with MicroSafe-RL (CBF) to guarantee hardware survival and energy efficiency. - Kretski/EdgeSense",
-    "fullText": "Automatic Physical Law Discovery for Embedded Control Systems.\n\nDiscovers interpretable control equations from sensor data using Symbolic Regression,\nthen deploys them as C code on microcontrollers — no neural network required at runtime.\n\nEdgeSense takes raw sensor data and produces a human-readable equation that describes\nthe physical law governing the system. The output is a single C function, ready for\nSTM32 / Arduino / ESP32.\n\nInput: sensor CSV (error, gyro_y, thrust)\n\nOutput: C function deployable in under 1 KB flash\n\nFrom pool_record.csv (real USV motion data), symbolic regression discovered:\n\nThis is a PD controller — discovered automatically from data, without being told\nwhat form the equation should take.\n\nHall of fame (all candidates, ordered by complexity):\n\nComplexity 9 is the recommended deployment equation — lowest loss with minimal\noperations, no risk of NaN, directly compilable.\n\nZero heap allocation. No neural network at runtime. Runs in under 1 µs on STM32F401.\n\nSymbolic regression runs via scripts/train_on_real_data.py and outputs\noutputs/hall_of_fame.csv with all candidate equations ranked by complexity and loss.\n\nEdgeSense output feeds directly into MicroSafe-RL:\n\nMicroSafe-RL repository: github.com/Kretski/MicroSafe-RL\n\nNon-commercial use (research, education, personal projects):\nFree to use with attribution.\n\nCommercial use: Requires separate license.\nContact: kretski1@gmail.com github.com/Kretski\n\nThis repository is not MIT-licensed.",
-    "readingTime": 1,
-    "keywords": [
-      "physical law",
-      "neural network",
-      "sensor",
-      "equation",
-      "output",
-      "complexity",
-      "equations",
-      "runtime",
-      "edgesense",
-      "function"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://github.com/Kretski/EdgeSense",
-    "thumbnail_url": "https://opengraph.githubassets.com/6610aa3c114a6ebc24d44aabf98cf5994720ed1d66b569e3a126b3447a156c8b/Kretski/EdgeSense",
-    "created_at": "2026-04-10T01:22:18.965Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "meet-the-ice-contractor-pivoting-from-detention-facilities-to-man-camps-for-data-center-construction-workers",
-    "title": "Meet the ICE contractor pivoting from detention facilities to 'man camps' for data center construction workers",
-    "description": "Target Hospitality made a $550M deal for housing 4,000 Texas data center. It's one of many companies outside tech benefiting from the AI boom.",
-    "fullText": "Target Hospitality stock is up about 60% since March 31.\n The company landed a $550 million deal to house 4,000 workers building a data center in Texas.\n It is one of many companies outside the tech industry that is benefiting from the AI boom.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/target-hospitality-stock-up-after-550m-texas-data-center-deal-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d7d9a205c9b303c4e769ec?width=1200&format=jpeg",
-    "created_at": "2026-04-10T01:22:17.309Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "bessent-powell-warn-bank-ceos-about-anthropic-model-risks-bloomberg-news-reports",
-    "title": "Bessent, Powell warn bank CEOs about Anthropic model risks, Bloomberg News reports",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/bessent-powell-warn-bank-ceos-about-anthropic-model-risks-bloomberg-news-reports-4607020",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM3901K_L.jpg",
-    "created_at": "2026-04-10T01:22:14.612Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "axon-why-use-many-token-when-few-token-do-trick",
-    "title": "Axon: Why use many token when few token do trick",
-    "description": "AI eXchange Optimized Notation spec and tooling. Contribute to colwill/axon development by creating an account on GitHub.",
-    "fullText": "A pure Rust rule-based NLP engine that translates natural language into AXON notation, compiled to WebAssembly, runs entirely in the browser. Handles both general knowledge and programming tasks in one unified notation.\n\nVSCode package: https://marketplace.visualstudio.com/items?itemName=colwill.axon-notation\n\nLaunch VS Code Quick Open (Ctrl+P), paste the following command, and press enter.\n\nInstall command in vscode: ext install colwill.axon-notation\n\nCompiles the Rust library to WebAssembly and outputs the package to web/pkg/.\n\nBuilds the WASM artifact then serves the web/ directory at http://localhost:3000.\n\nRuns 700+ test cases including general NLP and programming query translation.\n\nThe engine runs a unified pipeline:\n\nStage 0 — Programming detection (code_translator.rs):\n\nStages 1–5 — General NLP (translator.rs):",
-    "readingTime": 1,
-    "keywords": [
-      "engine",
-      "notation",
-      "webassembly",
-      "unified",
-      "vscode",
-      "package",
-      "command",
-      "install",
-      "programming",
-      "rust"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://github.com/colwill/axon",
-    "thumbnail_url": "https://opengraph.githubassets.com/94fa9fb664ab5fc298452ae2d36e607256125ac303d1df43ab6ce1219f50a1b9/colwill/axon",
-    "created_at": "2026-04-09T18:49:25.403Z",
-    "topic": "tech"
   }
 ]
