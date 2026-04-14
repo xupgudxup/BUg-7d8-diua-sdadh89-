@@ -1,5 +1,29 @@
 [
   {
+    "slug": "misconfiguring-infinity-fabric-to-break-amd-sevsnp",
+    "title": "Misconfiguring Infinity Fabric to Break AMD SEV-SNP",
+    "description": "Confidential computing allows cloud tenants to offload sensitive computations and data to remote resources without needing to trust the cloud service provider. Hardware-based trusted execution environments, like AMD SEV-SNP, achieve this by creating Confidential Virtual Machines (CVMs). With Fabricked, we present a novel software-based attack that manipulates memory routing to compromise AMD SEV-SNP. By redirecting memory transactions, a malicious hypervisor can deceive the secure co-processor (PSP) into improperly initializing SEV-SNP. This enables the attacker to perform arbitrary read and write access within the CVM address space, thus breaking SEV-SNP core security guarantees.",
+    "fullText": "Misconfiguring Infinity Fabric to Break AMD SEV-SNP (USENIX Security 2026)\n\nConfidential computing allows cloud tenants to offload sensitive computations and data to remote resources\n without needing to trust the cloud service provider. Hardware-based trusted execution environments, like\n AMD SEV-SNP, achieve this by creating Confidential Virtual Machines (CVMs). With\n Fabricked, we present a novel software-based attack that manipulates memory routing to\n compromise AMD SEV-SNP. By redirecting memory transactions, a malicious hypervisor can deceive the secure\n co-processor (PSP) into improperly initializing SEV-SNP. This enables the attacker to perform arbitrary read\n and write access within the CVM address space, thus breaking SEV-SNP core security guarantees.\n\nStandard cloud environments expose tenant computation and data in use to potentially untrusted cloud service providers.\n Confidential computing addresses this by using Confidential Virtual Machines (CVMs): hardware-shielded\n environments that isolate active workloads and guarantee complete data privacy from the host. Secure\n Encrypted\n Virtualization-Secure Nested Paging (SEV-SNP) is an AMD hardware extension that enables CVMs on AMD server\n CPUs.\n\nModern AMD System-on-Chips (SoCs) use a chiplet-based architecture. The core idea is to manufacture\n individual CPU blocks on separate dies and link them together via a high-speed interconnect. While this design significantly\n improves manufacturing yields, it also introduces complexity in inter-component communication. AMD addresses\n this with the Infinity Fabric, which is responsible for coherent data transport,\n memory routing, and address mapping across CPU cores, memory controllers, and peripheral devices. Because\n platform configurations vary between different systems and boot sequences, the Infinity Fabric must be\n dynamically configured during every CPU boot sequence. AMD delegates parts of this configuration process to\n the motherboard firmware, also known as BIOS or UEFI.\n\nIn the confidential computing threat model, the UEFI is untrusted and\n cloud provider controlled. In Fabricked, we first identify that the\n untrusted UEFI is in charge of locking down parts of the Infinity\n Fabric configuration. As an attacker, we modify the UEFI to skip\n these API calls. This leaves the Infinity Fabric configurable by the\n attacker even after SEV-SNP is activated on the machine.\n\nThe attacker, i.e., a malicious hypervisor, can therefore modify the Infinity\n Fabric to re-route DRAM memory transactions. Since the Infinity\n Fabric connects not only the CPU cores but also the secure co-processor (PSP) to the DRAM, we\n can manipulate PSP read/write operations to DRAM. We use this attacker\n capability to compromise SEV-SNP initialization. Specifically, we\n identify that during the SEV-SNP initialization, the PSP sets up a\n critical data structure, the RMP, that enforces memory access control rules to\n CVM memory. During this setup, the PSP has to perform memory writes\n to the DRAM. By misconfiguring the Infinity Fabric before these PSP\n writes, we are able to drop them. This results in an uninitialized\n RMP, i.e., it remains completely unchanged, retaining its insecure\n default entries set up by the malicious hypervisor. In other words, by\n using Fabricked, the attacker bypasses parts of the SEV-SNP\n initialization while tricking it into believing it succeeded. When\n the victim launches CVMs subsequently on the platform, the\n hypervisor can access its memory as the RMP enforcement is useless\n for all practical purposes.\n\nFabricked is possible due to two critical flaws. First, the hypervisor can maliciously corrupt some\n Infinity\n Fabrics routing rules. Second, when the security co-processor subsequently issues memory requests, the\n corrupted routing rules take precedence over the correct ones — silently misdirecting writes that should\n have initialized the RMP.\n\nFabricked operates as a fully deterministic, software-only exploit with a 100% success\n probability. It does not depend on any code running inside the victim CVM and requires no\n physical access to the hardware.\n\nWe confirmed the vulnerability on AMD Zen 5 EPYC processors running SEV-SNP. However, the AMD advisory also lists firmware updates for Zen 3 and Zen 4 processors.\n\nWe informed AMD about the vulnerability on 3rd August 2025. After the discussion with AMD PSIRT, we agreed\n on an embargo date of 14th April 2026.\n\nAMD acknowledges the vulnerability to be in-scope and issued an advisory under the following link. Fabricked was\n assigned CVE-2025-54510.\n\nTo cite our paper, please use the following BibTeX entry:",
+    "readingTime": 4,
+    "keywords": [
+      "virtual machines",
+      "machines cvms",
+      "cpu cores",
+      "confidential computing",
+      "co-processor psp",
+      "infinity fabric",
+      "sev-snp initialization",
+      "secure co-processor",
+      "cloud service",
+      "malicious hypervisor"
+    ],
+    "qualityScore": 1,
+    "link": "https://fabricked-attack.github.io/",
+    "thumbnail_url": "./preview.png?1234567",
+    "created_at": "2026-04-14T18:58:33.611Z",
+    "topic": "tech"
+  },
+  {
     "slug": "morgan-stanley-breaks-down-the-markets-space-trade-and-shares-14-stocks-for-investors-to-keep-tabs-on",
     "title": "Morgan Stanley breaks down the market's space trade and shares 14 stocks for investors to keep tabs on",
     "description": "\"Space is back in a big way,\" Adam Jonas, an equity analyst at Morgan Stanley, wrote in an April 12 client note.",
@@ -2075,23 +2099,5 @@
     "thumbnail_url": "https://p.potaufeu.asahi.com/46fd-p/picture/30500291/7b5a58c6f2644cb9ba4923491b816ec5.jpg",
     "created_at": "2026-02-25T06:51:07.414Z",
     "topic": "tech"
-  },
-  {
-    "slug": "satellite-photos-show-what-the-massive-blizzard-slamming-the-northeast-looks-like-from-space",
-    "title": "Satellite photos show what the massive blizzard slamming the Northeast looks like from space",
-    "description": "A National Oceanic and Atmospheric Administration weather satellite captured striking photos of the blizzard slamming much of the Northeast.",
-    "fullText": "The National Oceanic and Atmospheric Administration's GOES-19 weather satellite captured striking photos of the powerful winter storm slamming much of the Northeastern US on Monday.\n\nA satellite photo taken at 7:40 a.m. ET showed the storm intensifying over the Atlantic Ocean as the sun rose over the East Coast.\n\nAnother satellite image taken at 10:31 a.m. ET showed the blizzard's comma-head cloud shapes, characteristic of nor'easters.\n\nThe National Weather Service reported winds of 40 to 70 miles per hour across the Northeast, with snowfall rates of over 2 to 3 inches per hour. Some areas were forecast to receive over 2 feet of snow.\n\nOver 9,000 flights have been canceled since Sunday. As of noon ET Monday, more than 600,000 homes and businesses were experiencing power outages, including 410,000 in Massachusetts and New Jersey.\n\nWith the views of the winter storm from space, it's clear to see why.",
-    "readingTime": 1,
-    "keywords": [
-      "per hour",
-      "winter storm",
-      "satellite",
-      "weather"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://www.businessinsider.com/blizzard-satellite-photos-from-space-2026-2",
-    "thumbnail_url": "https://i.insider.com/699c827d2237a6a8f0cda677?width=1200&format=jpeg",
-    "created_at": "2026-02-23T18:49:04.521Z",
-    "topic": "finance"
   }
 ]
