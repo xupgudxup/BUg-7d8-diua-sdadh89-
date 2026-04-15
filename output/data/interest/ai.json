@@ -1,5 +1,179 @@
 [
   {
+    "slug": "ai-reveals-why-bi-still-matters-hint-its-not-dashboards",
+    "title": "AI Reveals Why BI Still Matters (Hint: It's Not Dashboards)",
+    "description": "This article looks at how BI evolved, how dashboards are actually used today, and what survives when AI enters the picture — starting with the foundation that was never really about dashboards in the first place, and ending with the problem nobody in the AI hype cycle wants to talk about: who maintains it all.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.rilldata.com/blog/ai-reveals-why-bi-still-matters-hint-its-not-dashboards",
+    "thumbnail_url": "https://cdn.prod.website-files.com/65a86746782488f38259fe35/69deeaea6c538ef384ab36d2_AI%20Reveals%20Why%20BI%20Still%20Matters%20%20(Hint_%20It%E2%80%99s%20Not%20Dashboards).jpg",
+    "created_at": "2026-04-15T12:59:56.483Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "deploy-openclaw-on-aws-choose-the-right-options-for-your-ai-workload",
+    "title": "Deploy OpenClaw on AWS: Choose the right options for your AI workload",
+    "description": "Connect with builders who understand your journey. Share solutions, influence AWS product development, and access useful content that accelerates your growth. Your community starts here.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://builder.aws.com",
+    "thumbnail_url": "https://builder.aws.com/assets/og-hiXAX-on.png",
+    "created_at": "2026-04-15T12:59:56.368Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "agent-first-social-media-scheduling",
+    "title": "Agent first social media scheduling",
+    "description": "Social media APIs for developers and AI agents with MCP and CLI. Post, schedule, and respond automatically on all platforms.",
+    "fullText": "Yes. We only use each platform’s official APIs (Google, TikTok, Facebook, etc.)—no scraping or workarounds. Mallary is a Meta Verified Tech Provider and has passed platform security reviews where required. We’re also a registered LLC based in Lexington, Kentucky, USA.\n\nNo! That's one of the biggest benefits of using Mallary. You don't need to create developer apps, wait for approval, or deal with quota limits. We handle all of that for you, so you can start posting immediately.\n\nYes! Mallary has an official n8n community node and works seamlessly with Zapier, Make, and other automation platforms. You can also use webhooks for custom integrations. Learn \n\nWe monitor all platform changes and API updates closely. When platforms make changes, we update our integrations immediately so your workflows continue working without interruption. You don't have to worry about keeping up with constant platform changes.\n\nYes! Whether you're migrating from Buffer, Hootsuite, or another tool, or even from custom scripts, you can easily transition to Mallary. Simply connect your social profiles and start using Mallary's API or dashboard. Your existing accounts and content remain intact.\n\nYes! The Mallary dashboard is fully responsive and works on all mobile, tablet and desktop devices. You can post to everywhere (all your socials) from anywhere (the beach). If you're controlling your OpenClaw AI Agent from Telegram on your phone, ask your agent to \"install the Mallary skill\".\n\nMallary automatically ensures posts go out as scheduled. We handle all the edge cases and platform-specific quirks so your posts are retried automatically and only mark known permanent failures as non-retryable.\n\nYes! Once you connect your social accounts to Mallary and make a post, you can track views, comments and likes. We provide hourly refreshes for posts less than 24 hours old, and refresh less frequently as the posts get older.\n\nYes. Video scheduling is live for Instagram, Facebook, LinkedIn, YouTube, TikTok and X where supported by the connected account.\n\nYes. We automatically retry most transient failures up to 3 total attempts (initial try + retries) with exponential backoff (default starts at ~5 minutes, then increases). We also track retry state (attempt, attempts_allowed, next_retry_at) so you can see exactly what’s happening.\n\nNo. We mark known permanent failures as non-retryable and fail fast (for example: missing required permissions/scopes, unsupported media combinations, missing required platform targets, certain 4xx auth/app-limit errors).\n\nFor most platforms, we persist publish state per job and return success if the post already has a remote ID. This is implemented for Facebook/Meta, Instagram, LinkedIn, YouTube, TikTok, Pinterest, Reddit, and Threads. LinkedIn also uses an explicit API idempotency key (X-RestLi-Idempotency-Key) tied to the job.\n\nYes. We enforce platform/format rules (examples: max image/video counts, no image+video mixing where disallowed, duration limits, and required media for platforms like YouTube/TikTok/Pinterest).\n\nYes. We support preflight checks that verify token health, key scope requirements, and required platform options (like Pinterest board, Reddit subreddit, LinkedIn author selection) before publish.\n\nYes. We refresh tokens before posting where supported (Meta/Facebook, X, LinkedIn, YouTube/Google, TikTok, Pinterest, Reddit, Threads).\n\nYes, but only before processing starts. If a job is already active/completed, deletion is blocked to avoid inconsistent or partial publish states.\n\nIt lets you attach up to 3 follow-up comments to a post at publish time, so the post and comments go out in one flow. If a platform or post format doesn’t support follow-up comments, we skip it.\n\nComments Under Post is currently supported on Facebook feed posts, Instagram feed/reels/carousels, LinkedIn, YouTube, Pinterest, Threads, X (Twitter), and Reddit. It is not supported on TikTok or story-style formats like Facebook Stories, Instagram Stories, or Snapchat posts.\n\nYes. For supported platform/format combinations, your follow-up comments are stored with the scheduled post and posted after the main post goes live.\n\nAI Auto Replies automatically detect new questions and comments on your published posts and uses OpenAI (ChatGPT) to post helpful replies using the information you enter in the settings section of the Mallary dashboard. AI Auto Replies are supported on YouTube, Facebook, Instagram, LinkedIn, X (Twitter), Reddit.\n\nReplies are near-real-time, depending on platform API limits and queue load.\n\nYes. You can enable or disable them in dashboard settings (and per post if enabled for your plan).\n\nIt replies to supported comment types on supported platforms. We skip duplicates and avoid re-processing comments already handled. Replies use your business/brand settings and context to stay on-brand and concise.\n\nWe log the failure, surface it in status/observability, and continue processing other supported platforms.\n\nYes, Rate limits are applied per user, per minute, across the API/MCP/CLI. This keeps the platform fast and stable for everyone. Find out more from our API Docs.\n\nMCP lets you use Mallary from AI clients/agents (not just the dashboard or REST API) using a standard tool interface. You can create upload URLs, create posts, check job status, list/delete posts, view analytics, manage webhooks, and disconnect platforms.\n\nSign-up to Mallary, visit the dashboard and grab your API key. Use it as a bearer token: Authorization: Bearer <your_api_key>\n\nYes. The same account permissions, plan gates, and API limits apply to MCP requests.\n\nThe Mallary CLI is the official command-line interface for Mallary. It lets you upload media, create and schedule posts, check job status, fetch analytics, manage webhooks, update settings, and disconnect platforms directly from your terminal. You can install it from npm or use it with npx. Learn more about the social media CLI.\n\nSet your Mallary API key as an environment variable and the CLI will use it for authenticated commands: MALLARY_API_KEY=<your_api_key>. The CLI uses the same API key as the Mallary dashboard, API, and MCP.\n\nYes. The CLI is built for automation. It supports human-readable terminal output by default and --json output for scripts, CI pipelines, and AI agents. That makes it a good fit for OpenClaw, cron jobs, GitHub Actions, internal tools, and terminal-based agent workflows.\n\nYes. The CLI can upload local media files to Mallary’s CDN automatically before publishing, and it also supports advanced per-platform payloads in JSON file mode for options like Instagram post types, YouTube visibility, Pinterest board IDs, and Reddit subreddits.\n\nYes. The CLI uses the same account, plan, and feature rules as the rest of Mallary. Rate limits, posting limits, analytics access, scheduling access, AI auto-reply plan gates, and other permissions still apply when you use the CLI.\n\nThe free plan includes 20 posts/month. Dashboard and API access, basic posting with attachments, ability to add multiple comments to a post when you publish it (where supported, see the engagment faq section)\n\nYou can start with our free plan immediately - no credit card required. When you're ready to upgrade, all paid plans include a 14 day free trial and our 30-day money-back guarantee.\n\nYes, you can upgrade or downgrade your plan at any time. Changes take effect immediately, and we'll prorate your billing accordingly.\n\nWe accept all major credit cards (Visa, MasterCard, American Express), Apple Pay, Amazon Pay, AliPay, Cash App, Google Pay, and many others. We process payments securely through Stripe.\n\nYes, you can cancel your subscription at any time. There are no cancellation fees or penalties. Your service will continue until the end of your current billing period.\n\nYes, we offer a 30-day money-back guarantee. If you're not satisfied with our service, contact us within 30 days of your purchase for a full refund.\n\nIf you exceed your monthly post limit, you'll need to upgrade to a higher plan or wait until the next month. We don't charge overage fees - we simply pause posting until you upgrade or your limit resets.\n\nYes! Annual billing saves you 17% (2 months free)! Get started now.",
+    "readingTime": 7,
+    "keywords": [
+      "pinterest board",
+      "auto replies",
+      "rate limits",
+      "linkedin youtube",
+      "youtube tiktok",
+      "pinterest reddit",
+      "money-back guarantee",
+      "instagram linkedin",
+      "permanent failures",
+      "analytics manage"
+    ],
+    "qualityScore": 1,
+    "link": "https://mallary.ai/",
+    "thumbnail_url": "https://mallary.ai/assets/images/og-image-large.png",
+    "created_at": "2026-04-15T12:59:55.372Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "seeking-connection-the-video-game-where-players-stopped-shooting-and-started-talking",
+    "title": "‘Seeking connection’: the video game where players stopped shooting and started talking",
+    "description": "In a post-apocalyptic landscape of cutthroat scavengers, surprisingly peaceful players are opting to team up and open up – a phenomenon that’s intriguing game developers and psychologists alike\nThe video game Arc Raiders is set in a lethal imagining of an apocalyptic future for humanity. Survivors have been forced to live deep underground in colonies while mysterious, murderous AI machines patrol the surface. Only the desolate ruins of former cities survive, and reckless human “raiders” take trips topside to conduct dangerous scavenging missions.\nFor all the menace of these armed robots, called Arcs, the deadly droids are not the biggest threat in this hugely popular game, which was released late last year and has sold more than 14m copies. Raiders operate with the constant anxiety that another person will shoot them on sight and steal their loot.",
+    "fullText": "In a post-apocalyptic landscape of cutthroat scavengers, surprisingly peaceful players are opting to team up and open up – a phenomenon that’s intriguing game developers and psychologists alike\n\nThe video game Arc Raiders is set in a lethal imagining of an apocalyptic future for humanity. Survivors have been forced to live deep underground in colonies while mysterious, murderous AI machines patrol the surface. Only the desolate ruins of former cities survive, and reckless human “raiders” take trips topside to conduct dangerous scavenging missions.\n\nFor all the menace of these armed robots, called Arcs, the deadly droids are not the biggest threat in this hugely popular game, which was released late last year and has sold more than 14m copies. Raiders operate with the constant anxiety that another person will shoot them on sight and steal their loot. Mercilessness is rewarded in this kind of competitive, high-stakes world.\n\nSo it has come as a jolt to the game’s developers at Embark Studios in Sweden that many players are not shooting at each other at all. “It caught us a little bit by surprise,” says executive producer Aleksander Grøndal, who has found that many people play “a more peaceful version of the game than we anticipated”. He is quick to add: “Pleasantly surprised, just to be clear.”\n\nUnintentionally, the game has become a sort of social and psychological experiment, raising questions about game design – and the human condition – that have intrigued social scientists, psychologists and criminologists. Roughly one in five players have never knocked out another raider, and half have knocked out fewer than 10.\n\nIn most shooters, from Fortnite to Counter-Strike, killing other players is the point – and the way to earn points. (Many of the development team at Embark are experienced with other fast-paced shooter games, including the massive Battlefield and Call of Duty franchises.) And Arc Raiders is part of a growing subgenre of shooting games that are notoriously cutthroat: the extraction shooter, where players compete not just with each other but with the world itself, working against the clock to get out of each round alive and with their scavenged treasure intact. Sessions are intense, with high risk v reward gameplay in which death often comes right at the end of a hard effort gathering loot, as you are ambushed by another player seeking to steal swag. So why aren’t Arc Raiders’ players behaving as mercilessly as the environment calls for?\n\nGrøndal says the team knew there was room for some cooperation. “We always wanted [that] to be the case, but it was a little bit surprising to see how many people latched on to that aspect of the game … It kind of blew the whole extraction shooter open, because it doesn’t always have to be about conflict with other players.”\n\nWhat are people doing instead of shooting each other in this ravaged world? Many are teaming up to take down the robot monsters, which range from flying drones to spherical balls that blast fire. Others try to sneak quietly around them to scavenge rare resources. Grøndal says players also hold spontaneous rave parties, where people play music through their microphones.\n\nBut often, players are just talking. A YouTube video called The Humans of Arc Raiders, inspired by the photographer who interviews strangers in New York City, includes conversations with randomly encountered players. They talk about family struggles, work lives, depression, autism and, in one case, a lung collapse. In one conversation, a heavily armed player in green armour named Poopy candidly asks another raider: “What’s it like having kids, dude?”\n\nWhen I first jumped into Arc Raiders, I found a dichotomy on the topside, where birds sing and plants thrive among the carcasses of downed machines. The more I wandered around this 1970s-style retro-future setting, the more I bumped into other humans, many of whom offered help, such as medical supplies. Mostly we snuck around and battled robots together. It was tense at times, sometimes scary, but often relaxing.\n\nIn one session, I encountered another player with a British accent who was also new to the game. “Have you been killed by another person yet?” he asked me, as we explored a burst concrete dam complex. “Because every person I’ve met has been friendly,” he added. “No one kills each other.”\n\nI must have gotten used to the lack of human-on-human violence because the first time I was eliminated by another person, I felt quite offended. Clearly, I had been lured into a warm feeling of human camaraderie, and it was hard not to be upset. It was as if my attacker had broken an unwritten rule that we were all supposed to help each other out.\n\nThat was, in fact, the aim of the original game Embark had hoped to create – a shared fight against the machines where human players physically cannot fight each other. But late in the development process, they thought it would get boring, so changed it to add in unpredictable humans and the added tension that brings.\n\nInterestingly, there is a lot of spoken communication in Arc Raiders, with players using their microphones much more than in other games. In Arc Raiders, a player can hear any other people in their proximity, allowing them to shout out “I’m friendly!” or “Peaceful! Peaceful!”. More than 95% of players use this proximity chat feature, says Grøndal.\n\nMany players do still shoot on sight, but they form a minority. Embark told the Guardian that about 30% of players are mostly interested in the cooperative aspects of the game; another 30% focus on the player-versus-player action; and the remaining 40% enjoy a mix of both. Those playing solo are generally more friendly, while those who group up into squads of three are more interested in firefights.\n\nSean Hensley, a graphic artist from Tennessee who makes YouTube videos about mental health and video games, has taken an interest in the game and believes players value “connection over competition”. “What players are getting from these friendly interactions is more rewarding than any game loot system or victory screen,” he said in a recent video.\n\nThe strongest catalyst for cooperation, however, might be a common threat. When Embark introduced a massive walking mechanical enemy called the Matriarch, Grøndal expected rival squads to be sneaky, waiting for others to expend their ammunition before attacking them to steal the loot. Instead, players used proximity chat to team up. “In an instant – like literally in less than 30 seconds – everyone on that server stopped shooting each other and faced the bigger challenge together,” he said. “And I hadn’t really anticipated the fact that every single one would cooperate that easily in a 30-second timeframe.”\n\nThis type of unexpected player behaviour can be problematic for developers, as they tweak an enemy’s difficulty depending on how they anticipate people will play. Easily downing a massive robot is less fun, and when everyone cooperates, it only takes a few minutes. “If it’s so easy for people to stop turning on each other,” says Grøndal, “we need to up the challenge.”\n\nWhether players want human connection – or are making a cold, calculated decision that it is more profitable for all to cooperate – is a question for scientists, not video game developers, says Grøndal. He was recently contacted by a criminologist who he says was “really intrigued by how players are interacting with each other”.\n\nEmbark CEO Patrick Söderlund has previously said he was tapped on the shoulder by a neurology professor friend interested in the lessons they could learn from Arc Raiders about human behaviour. But has his own theories, rooted in the modern epidemic of isolation and loneliness. “I think that people are seeking connections with other players and maybe this is not so easy to do out in the real world any more because people are stuck on their phone,” he says. “Maybe we have kind of accidentally created a place for people to connect.” Because the virtual interactions are temporary, Grøndal feels the game functions “as a place to connect with other people and maybe open up without fear or repercussions or judgment”.\n\nThat tallies with my own experience in Arc Raiders, where I met plenty of people, but usually only for a few minutes, before they or I disappeared into the wilderness.\n\nArc Raiders is certainly not what it first seems to be. While it looks like a bleak future where humanity is struggling, there is hope here. “Yes, the Arcs have captured the surface and they’re the dominant. But if you look around you, nature has come back from an ecological collapse,” Grøndal says. “The animals are back and the world is thriving. We want to instil hope in the player.”",
+    "readingTime": 8,
+    "keywords": [
+      "arc raiders",
+      "extraction shooter",
+      "proximity chat",
+      "another raider",
+      "another player",
+      "game developers",
+      "players",
+      "human",
+      "team",
+      "loot"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theguardian.com/games/2026/apr/15/arc-raiders-players-stopped-shooting-started-talking",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/7112cc4241783aefe7c59edf612ed0f4a9e957ae/1360_0_2480_1984/master/2480.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=82627ca263e7564aa30dd45dfb745413",
+    "created_at": "2026-04-15T12:59:26.970Z",
+    "topic": "gaming"
+  },
+  {
+    "slug": "internal-salesforce-org-chart-shows-the-10-executives-helping-ceo-marc-benioff-navigate-ais-threat-to-software",
+    "title": "Internal Salesforce org chart shows the 10 executives helping CEO Marc Benioff navigate AI's threat to software",
+    "description": "Salesforce is under pressure as generative AI threatens to upend its business model. These execs are helping Marc Benioff respond.",
+    "fullText": "Salesforce is facing a fight for its life as generative AI threatens to upend its business model.\n An internal Salesforce chart shows the executives helping CEO Marc Benioff with this effort.\n Salesforce earlier this year appointed new leaders in an executive shake-up.\n\n How is AI impacting Salesforce's model?\n\n Who are the new executives at Salesforce?\n\n How does leadership affect Salesforce's future?\n\n Why did Salesforce restructure leadership?\n\n What are AI agents in Salesforce's defense?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "salesforce's",
+      "model",
+      "executives",
+      "leadership",
+      "salesforce"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/salesforce-org-chart-shows-executives-under-marc-benioff-2026-4",
+    "thumbnail_url": "https://i.insider.com/69dd5d4cdfb2c132adcfd128?width=1200&format=jpeg",
+    "created_at": "2026-04-15T12:59:25.828Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "utilities-are-spending-14-trillion-to-power-the-ai-boom-and-its-hiking-up-electric-bills-across-the-us",
+    "title": "Utilities are spending $1.4 trillion to power the AI boom, and it's hiking up electric bills across the US",
+    "description": "AI's power needs drive $1.4 trillion utility investment by 2030, with utility companies Duke, Southern, and AEP spending big on infrastructure.",
+    "fullText": "Utilities plan to spend $1.4 trillion on capital expenditures by 2030, a PowerLines study found.\n The electricity demands of AI are fueling spending growth, utilities say.\n Duke Energy, Southern Company, and American Electric Power have become some of the biggest spenders.",
+    "readingTime": 1,
+    "keywords": [
+      "utilities"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/utilities-plan-1-4-trillion-capex-ai-demands-2030-2026-4",
+    "thumbnail_url": "https://i.insider.com/69dea03ed06bf1b901273a06?width=1200&format=jpeg",
+    "created_at": "2026-04-15T12:59:25.793Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "snap-is-cutting-1000-jobs-citing-rapid-advancements-in-ai-read-the-memo-it-sent-to-staff",
+    "title": "Snap is cutting 1,000 jobs, citing 'rapid advancements' in AI. Read the memo it sent to staff.",
+    "description": "CEO Evan Spiegel said Snap would cut 1,000 employees, about 16% of its global workforce, and cited AI as a tool to \"increase velocity.\"",
+    "fullText": "Snap is the latest tech company to announce layoffs.\n The company behind Snapchat will cut 16% of its global workforce, according to a regulatory filing.\n In a memo to employees, CEO Evan Spiegel referenced \"rapid advancements\" in AI.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/snap-layoffs-ai-read-memo-snapchat-2026-4",
+    "thumbnail_url": "https://i.insider.com/69df6ca7d06bf1b901273c31?width=1200&format=jpeg",
+    "created_at": "2026-04-15T12:59:25.443Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "buzzy-vibecoding-startup-emergent-is-launching-an-ai-agent-to-take-on-openclaw-and-nanobot",
+    "title": "Buzzy vibe-coding startup Emergent is launching an AI agent to take on OpenClaw and NanoBot",
+    "description": "The startup is launching Wingman, a personal AI agent that operates on messaging platforms like WhatsApp or iMessage.",
+    "fullText": "Emergent is launching Wingman, a personal AI agent, to take on OpenClaw.\n Wingman operates on messaging platforms and integrates with tools like Gmail and Slack.\n Emergent emphasizes Wingman's security, offering features to prevent hacking and data leaks.",
+    "readingTime": 1,
+    "keywords": [
+      "emergent",
+      "wingman"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/vibe-coding-startup-emergent-launching-agent-rival-openclaw-nanobot-2026-4",
+    "thumbnail_url": "https://i.insider.com/69df5cffd06bf1b901273bdf?width=1200&format=jpeg",
+    "created_at": "2026-04-15T12:59:25.123Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "jane-street-signs-6-billion-ai-cloud-deal-with-coreweave-boosts-stake",
+    "title": "Jane Street signs $6 billion AI cloud deal with CoreWeave, boosts stake",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/stock-market-news/jane-street-signs-6-billion-ai-cloud-deal-with-coreweave-boosts-stake-4615477",
+    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM3E0T0_L.jpg",
+    "created_at": "2026-04-15T12:59:23.629Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "crimson-deserts-ai-scandal-should-bother-you-more",
+    "title": "Crimson Desert's AI Scandal Should Bother You More",
+    "description": "Crimson Desert is, in many ways, exactly the type of game I've been waiting for.\nIt's got the enormous, sprawling setting of, say, an Assassin's Creed title, minus the laundry list of quests that often cause me to burn out on Ubisoft's massive open-world games. It encourages freedom and experimentation much in the same way as The Legend of Zelda: Breath of the Wild, but with a more consistent narrative drip-feed that keeps me coming back for more. Sure, it starts off a bit slow, but so far, it's largely been a fun ride. In fact, Crimson Desert is probably the best game I've played so far in 2026.",
+    "fullText": "Crimson Desert's launch was marred by an AI scandal that, just a few weeks later, everyone seems to have forgotten.\n\n on April 14, 2026 at 2:00PM PDT\n\nCrimson Desert is, in many ways, exactly the type of game I've been waiting for.\n\nIt's got the enormous, sprawling setting of, say, an Assassin's Creed title, minus the laundry list of quests that often cause me to burn out on Ubisoft's massive open-world games. It encourages freedom and experimentation much in the same way as The Legend of Zelda: Breath of the Wild, but with a more consistent narrative drip-feed that keeps me coming back for more. Sure, it starts off a bit slow, but so far, it's largely been a fun ride. In fact, Crimson Desert is probably the best game I've played so far in 2026. Or it would be, if it weren't for the little twinge of doubt in the back of my mind that tingles every time I load up the game and leaves me wondering, \"Is this AI?\"\n\nA large part of the discourse surrounding Crimson Desert has been a fairly black-and-white discussion about whether the game is \"good.\" If all gaming discourse took place in a vacuum, I'd say it's a pretty solid 7/10 RPG. But we don't live in a vacuum. We live in a world where studios are increasingly outsourcing their work to generative AI and refusing to disclose it. Developer Pearl Abyss did just that with Crimson Desert, releasing the game on March 19, despite the fact that it was unpolished and featured a frustrating storage system, a bizarre control setup, and blurry graphics on PlayStation 5. Oh, and a load of AI-generated \"placeholder\" art that was \"unintentionally\" left in the game.\n\nNow, as I explore Crimson Desert's world of Pywel, I constantly find myself subconsciously hunting for signs of AI. Was that a graphical glitch, or remnants of an AI-generated asset? Was that just an oddly worded line of dialogue, or is it evidence that some AI-generated \"placeholder dialogue\" was left in the game? By this point, I'm sure that by now, Pearl Abyss has scrubbed all remnants of AI from Crimson Desert, but that doesn't stop me from wondering if there's more. What it really boils down to is that I struggle to appreciate what I've been told is a beautiful, handcrafted world when there's evidence floating around that at least some parts of it were not, in fact, hand-crafted.\n\nOnce players started noticing these obviously AI-generated assets, Pearl Abyss quickly removed them from the game and added an AI use disclosure to its Steam page. And that, it seems, was the end of that. With the AI-generated assets gone, Crimson Desert discourse has largely returned to debates over the quality of the game: \"Is it good? Is it bad? Should I play it? Is it GOTY material?\" It feels like I'm in the minority by daring to ask how this AI scandal happened, and even caring that it happened to begin with.\n\nAccording to Pearl Abyss, it was just an oversight--placeholder art was generated to temporarily fill out the game, and Pearl Abyss forgot to remove a few instances of it. Whoops! In a post on X, the studio apologized for its \"lack of transparency\" in not disclosing the inclusion of AI-generated assets in its game, and says it is conducting a \"comprehensive audit\" to make sure all of it is removed.\n\nThat's nice and all, but it still doesn't explain why this happened. Why did Pearl Abyss need to use generative AI to create horrific placeholder art of six-legged horses? I think we all know the answer: It's quick, it's easy, and most importantly, it's free--or a hell of a lot cheaper than paying a human to do it, anyway. Sure, gen-AI works by drawing from the stolen content of artists, writers, and other creatives. Yes, it spits out god-awful images that aren't worth the drinking water that was wasted to create them. But it allows studios to avoid paying a concept artist to create placeholder art, and when your only concern is the bottom line, I guess that counts as a win. Why wouldn't Pearl Abyss see it that way, when both players and the industry at large have made it clear that not only do they not give a damn about gen-AI in games, they're willing to overlook and even reward it?\n\nTake, for example, Clair Obscur: Expedition 33. By most accounts, Sandfall Interactive's debut title was the best game of 2025. It earned a record-breaking 12 nominations at last year's The Game Awards--the most nominations for a single game in the awards show's history, surpassing previous record-holder The Last of Us Part II. Of those 12 nominations, Clair Obscur won nine awards, beating out Hollow Knight: Silksong for Best Indie Game. Hell, it was even our Game of the Year here at GameSpot last year.\n\nBut then, after winning both Indie Game of the Year and Best Debut Game at December's Indie Game Awards, Clair Obscur had both awards revoked due to Sandfall's admission of generative AI use.\n\n\"When it was submitted for consideration, representatives of Sandfall Interactive agreed that no gen AI was used in the development of Clair Obscur: Expedition 33,\" The Indie Game Awards shared in an official statement. \"In light of Sandfall Interactive confirming the use of gen-AI on the day of the Indie Game Awards 2025 premiere, this does disqualify Clair Obscur: Expedition 33 from its nomination.\"\n\nJust like Pearl Abyss, Sandfall Interactive claimed that it had only used generative AI for temporary placeholder assets that were \"accidentally\" left in the game and were quickly removed once players started noticing them. Just like Pearl Abyss, Sandfall Interactive did not disclose its use of generative AI until after it had been caught red-handed. And just like with Crimson Desert, both the games industry and players seem to have quickly forgotten about the whole ordeal. While The Indie Game Awards was willing to take a hard-line stance on the issue, Clair Obscur didn't lose any of its awards from other ceremonies. In fact, it just snagged another 12 nominations for the upcoming 22nd Annual BAFTA Games Awards, yet again earning more nominations than any other nominee.\n\nWhat kind of message does it send to players and game studios when a developer can release a game, swear up, down, left, right, and center that it contains no AI, get caught lying when AI-generated assets are discovered, claim it was \"just an accident,\" and still earn endless nominations, awards, and other accolades?\n\nI don't care if it was an accident. Generative AI has no place in gaming. It steals from visual artists, writers, musicians, and other creatives. It destroys the planet. It tarnishes the reputations of the developers who worked on the game (whether they personally used AI or not). Is all of that really worth it for some god-awful \"placeholder\" images of eight-legged horses? I reckon these, \"Oops, we forgot to remove the AI assets!\" instances would decrease significantly if developers used standard placeholder textures that actually stand out. A bright, checkered, Garry's Mod-esque missing texture pattern would surely make it easier to avoid accidentally leaving AI-generated assets in one's game. In fact, it would remove the need for AI-generated placeholders in the first place.\n\nRegardless of how they end up in a game, generating AI assets is terrible for the planet, and most LLMs are built from visual and written data taken from the internet without the consent of its creators. (This is why half the people I encounter online now think I'm a robot when I use an em-dash.)\n\nSpeaking of training data, Baldur's Gate 3--a game with zero generative AI use--won Game of the Year in 2023, but apparently taught its developer nothing. Larian Studios recently admitted plans to use generative AI on its upcoming project, Divinity. It later walked these claims back, promising generative AI wouldn't be used for concept art specifically, but asserting it would be using AI for certain aspects of development.\n\n\"The important bit to note is that we will not generate 'creative assets' that end up in a game without being 100% sure about the origins of the training data and the consent of those who created the data,\" Larian CEO Sven Vincke said in a recent Reddit AMA. \"If we use a GenAI model to create in-game assets, then it’ll be trained on data we own.\"\n\nOkay, lovely, you are not using stolen content. Bully for you. Generative AI is still sucking up our drinking water and electricity, something the industry seems content to ignore. But it's not just the industry--according to a recent survey, players generally don't care about the use of generative AI in games, either. Despite some temporary backlash, in the end it feels as though both the gaming industry and players themselves have collectively decided to look the other way when it comes to games companies that are willing to steal art and damage the environment to save a few minutes or dollars on game development.\n\nI'm not alone in my feeling that a drop of AI poisons the well. GameSpot's Mark Delaney recently wrote about his moral conundrum with Arc Raiders. It's a game he enjoys, but Embark Studios CEO Patrick Söderlund recently talked about how the game was made at a fraction of the cost thanks to AI.\n\nThat's nice for executives, but it's not fair to studios who are working on things without AI's helping hand. Steam has implemented an AI use disclosure requirement (which, as previously mentioned, both Clair Obscur and Crimson Desert failed to abide by until caught), but beyond that, I think it's unfair for a game made with generative AI to go up against a game made without it when competing for an award. The team behind The Indie Game Awards certainly appears to agree, but it feels like few others in the industry are willing to draw a hard line against AI.\n\nTo date, Crimson Desert has made over 2 million sales. It--like Arc Raiders and Clair Obscur--is a fun game. But no matter how much I enjoy it, I can't fully immerse myself, as I can't help but wonder, \"What if it wasn't just temporary assets? What if there's more AI?\" Because for me, even a hint of AI is enough to hinder my enjoyment of a game, the same way even a drop of poison is enough to put me off my wine.\n\nGot a news tip or want to contact us directly? Email news@gamespot.com\n\nClaire is a walking Apex Legends encyclopedia, spooky robot enthusiast, TTRPG nerd, and professional lore huntress. She's spent roughly 1,000 hours (each) exploring Baldur's Gate 3 and Cyberpunk 2077, and will happily talk your ear off about either title. When she's not writing, she can usually be found binging YouTube videos about obscure Japanese horror games from the early 2000s, praying in vain for a sequel to ABZÛ, or whining about The Sims. She's currently working on a book about the downfall of the American public school system, and is awaiting the Alien: Isolation sequel with bated breath. She has still not emotionally recovered from Titanfall's undeserved fate.\n\nYou can find Claire on The Hellscape Formerly Known As Twitter @BranthiumBabe and on BlueSky @BeautyBot. She previously worked at Polygon and Cultured Vultures Gaming.",
+    "readingTime": 10,
+    "keywords": [
+      "that's nice",
+      "arc raiders",
+      "obscur expedition",
+      "crimson desert",
+      "artists writers",
+      "drinking water",
+      "ai-generated assets",
+      "abyss sandfall",
+      "stolen content",
+      "don't care"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.gamespot.com/articles/crimson-deserts-ai-scandal-should-bother-you-more/1100-6539362/?ftag=CAD-01-10abi2f",
+    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1752/17528202/4681101-cdplains.jpg",
+    "created_at": "2026-04-15T12:59:19.955Z",
+    "topic": "gaming"
+  },
+  {
     "slug": "nvidias-new-ai-models-spark-rally-in-quantum-computing-stocks",
     "title": "Nvidia’s New AI Models Spark Rally in Quantum Computing Stocks",
     "description": "Asian software and information-technology stocks surged after Nvidia Corp. unveiled a suite of new open-source AI models aimed at accelerating progress within quantum computing.",
@@ -1782,195 +1956,5 @@
     "thumbnail_url": "https://i.guim.co.uk/img/media/e8512c0e0aef3c770ae596a382ca5333e1826213/692_0_4648_3720/master/4648.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d8a740a89c5af70cee2673fe51cad2da",
     "created_at": "2026-04-12T01:27:21.551Z",
     "topic": "science"
-  },
-  {
-    "slug": "minimax-m27-weights-released",
-    "title": "Minimax M2.7 Weights Released",
-    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
-    "fullText": "MiniMax-M2.7 is our first model deeply participating in its own evolution. M2.7 is capable of building complex agent harnesses and completing highly elaborate productivity tasks, leveraging Agent Teams, complex Skills, and dynamic tool search. \n\nM2.7 initiates a cycle of model self-evolution: during development, we let the model update its own memory, build dozens of complex skills for RL experiments, and improve its own learning process based on experiment results. An internal version of M2.7 autonomously optimized a programming scaffold over 100+ rounds — analyzing failure trajectories, modifying code, running evaluations, and deciding to keep or revert — achieving a 30% performance improvement. On MLE Bench Lite (22 ML competitions), M2.7 achieved a 66.6% medal rate, second only to Opus-4.6 and GPT-5.4.\n\nM2.7 delivers outstanding real-world programming capabilities spanning log analysis, bug troubleshooting, refactoring, code security, and machine learning. Beyond code generation, M2.7 demonstrates strong system-level reasoning — correlating monitoring metrics, conducting trace analysis, verifying root causes in databases, and making SRE-level decisions. Using M2.7, we have reduced live production incident recovery time to under three minutes on multiple occasions.\n\nOn SWE-Pro, M2.7 achieved 56.22%, matching GPT-5.3-Codex, with even stronger performance on real-world engineering benchmarks: SWE Multilingual (76.5) and Multi SWE Bench (52.7). On VIBE-Pro (55.6%), M2.7 is nearly on par with Opus 4.6. On Terminal Bench 2 (57.0%) and NL2Repo (39.8%), M2.7 demonstrates deep understanding of complex engineering systems. M2.7 also supports native Agent Teams for multi-agent collaboration with stable role identity and autonomous decision-making.\n\nM2.7 achieved an ELO score of 1495 on GDPval-AA (highest among open-source models), surpassing GPT5.3. It handles Word, Excel, and PPT with high-fidelity multi-round editing, producing editable deliverables. On Toolathon, M2.7 reached 46.3% accuracy (global top tier), and maintains 97% skill compliance across 40+ complex skills on MM Claw. On the MM Claw end-to-end benchmark, M2.7 achieved 62.7%, close to Sonnet 4.6.\n\nM2.7 features strengthened character consistency and emotional intelligence. We open-sourced OpenRoom, an interactive demo that places AI interaction within a Web GUI space with real-time visual feedback and scene interactions. Try it at openroom.ai.\n\nDownload the model from HuggingFace repository: https://huggingface.co/MiniMaxAI/MiniMax-M2.7\n\nWe recommend using the following inference frameworks (listed alphabetically) to serve the model:\n\nWe recommend using SGLang to serve MiniMax-M2.7. Please refer to our SGLang Deployment Guide.\n\nWe recommend using vLLM to serve MiniMax-M2.7. Please refer to our vLLM Deployment Guide.\n\nWe recommend using Transformers to serve MiniMax-M2.7. Please refer to our Transformers Deployment Guide.\n\nYou also can get model weights from modelscope.\n\nMiniMax M2.7 is also available on NVIDIA NIM Endpoint.\n\nWe recommend using the following parameters for best performance: temperature=1.0, top_p = 0.95, top_k = 40. Default system prompt:\n\nPlease refer to our Tool Calling Guide.\n\nContact us at model@minimax.io.",
-    "readingTime": 3,
-    "keywords": [
-      "please refer",
-      "deployment guide",
-      "complex skills",
-      "minimax-m please",
-      "agent teams",
-      "model",
-      "recommend",
-      "achieved",
-      "code",
-      "performance"
-    ],
-    "qualityScore": 0.8,
-    "link": "https://huggingface.co/MiniMaxAI/MiniMax-M2.7",
-    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/MiniMaxAI/MiniMax-M2.7.png",
-    "created_at": "2026-04-12T01:27:18.439Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "neobaby-phoebe-gates-wants-her-185m-ai-startup-phia-to-succeed",
-    "title": "NeoBaby Phoebe Gates wants her $185M AI startup Phia to succeed",
-    "description": "The daughter of Bill Gates and Melinda French Gates acknowledges her privilege, but says she’s building her own thing without their help.",
-    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
-    "readingTime": 1,
-    "keywords": [
-      "fortune"
-    ],
-    "qualityScore": 0.1,
-    "link": "https://fortune.com/2026/02/21/phoebe-gates-startup-phia-succeed-without-help-parents-bill-gates-melinda-french-gates/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/02/GettyImages-2214925234-e1771613783530.jpg?resize=1200,600",
-    "created_at": "2026-04-12T01:27:17.820Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "recursivemode-the-reponative-operating-system-for-ai-engineering",
-    "title": "recursive-mode: The Repo-Native Operating System for AI Engineering",
-    "description": "A document-first workflow that moves agent state out of chat, into locked Markdown, and through a strict audit loop that humans can actually inspect.",
-    "fullText": "Most agent tools optimize for a fast conversation. `recursive-mode` optimizes for a trustworthy record. That difference sounds small until a task stretches across hours, files, and model handoffs, where chat history turns into a messy approximation of state.\n\nThe project starts from a blunt premise: chat context is a poor medium for engineering state. Requirements, analysis, plans, test output, and verification all pile up in one long thread, and the thread becomes harder to trust as it grows. `recursive-mode` moves the important pieces into .recursive/ so the repo, not the sidebar, becomes the durable system of record.\n\nchat context is a poor medium for engineering state.\n\nThat is why the workflow reads less like a prompt recipe and more like a governance layer. It treats the chat as a control surface for commands, not as a notebook for intent. Once you see it that way, the project stops looking like another agent wrapper and starts looking like an operating system for the work itself.\n\nInside the repo, the workflow writes a ledger. Global files like RECURSIVE.md, STATE.md, and DECISIONS.md describe the rules, the current condition, and the reasoning trail. Run-specific folders under .recursive/run/<run-id>/ hold the live artifacts for one execution, including requirements, codebase analysis, implementation plans, and verification notes.\n\nThe point is not just organization. The point is that every artifact has a home, and every home has a job. A human can inspect the files without special tooling, while the agent can be forced to advance only through the accepted sequence.\n\nThis is the technical center of the project. Work advances through a strict phase machine: DRAFT -> AUDIT -> REPAIR -> RE-AUDIT -> PASS -> LOCK. The scripts recursive-status.py and recursive-lock.py do more than summarize progress. They enforce it.\n\n`recursive-status.py` checks whether the run has actually earned the next state. `recursive-lock.py` calculates a content hash over the artifact, excluding the lock line itself, so any later drift invalidates the seal. That is a very different promise from a chat agent that says it is done because it sounds done.\n\nrecursive-mode addresses them by moving the important state into repository docs and advancing work through explicit recursive phases during planning, implementation, and verification.\n\nJSON would be machine-friendly, but it would be less legible to the people who need to audit a run at speed. Markdown keeps the records readable in plain editors, pull requests, and diffs. That legibility is not a cosmetic choice. It is part of the control system.\n\nThe project is not using Markdown because it is quaint. It is using Markdown because a control system that humans cannot inspect is only half a control system.\n\nLocked history is treated as history. If the agent finds a mistake after a phase is sealed, it does not quietly mutate the old record. It appends an Addendum. That keeps the audit trail intact and makes the evolution of a decision visible instead of pretending the original mistake never happened.\n\nThat restraint matters because AI systems are good at producing confident revisions. A governed workflow needs the opposite instinct: preserve the record, then layer corrections on top of it.\n\nThe controller does not accept a subagent's claim at face value. It checks the claimed file impact against the actual disk state before the phase can pass. That sounds bureaucratic until you realize it is the only sane response to multiple agents making changes in parallel.\n\nThis is where the project stops being merely tidy and starts feeling serious. If your orchestration layer cannot distinguish claimed work from actual work, it is just a narrative generator with a shell prompt.\n\n`recursive-mode` is not trying to compete with an executor or a fleet manager. It is the harness that constrains execution. That puts it in a different category from chat-driven coding agents and broader orchestration platforms.\n\nrecursive-mode is a workflow for agentic engineering that I have been using daily and refining over the past four months. It starts from a simple observation: chat context is a poor medium for engineering state. It solves that problem and opens up a few new possibilities for further coding performance improvements, by using generative recursion during planning, implementation and verification.\n\nThe clean distinction is that the tool does not promise to do all the coding itself. It promises to make the coding process governable.\n\nThe larger idea is portable: agent work should be inspectable, resumable, and local-first. If a workflow can survive outside a chat transcript, it can survive handoffs, interruptions, and long-running tasks without collapsing into guesswork. That is the real payoff here, and it reaches well beyond one open-source repo.\n\nThe best systems do not just automate action. They preserve intent. `recursive-mode` is compelling because it treats that preservation as a first-class engineering problem.",
-    "readingTime": 4,
-    "keywords": [
-      "planning implementation",
-      "poor medium",
-      "project stops",
-      "chat context",
-      "agent",
-      "recursive-mode",
-      "engineering",
-      "system",
-      "workflow",
-      "record"
-    ],
-    "qualityScore": 1,
-    "link": "https://repo-explainer.com/try-works/recursive-mode",
-    "thumbnail_url": "https://repo-explainer.com/img/try-works/recursive-mode/repo-native-operating-system.png",
-    "created_at": "2026-04-12T01:27:17.542Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ai-models-are-terrible-at-betting-on-soccer-especially-xai-grok",
-    "title": "AI models are terrible at betting on soccer- especially xAI Grok",
-    "description": "Systems from Google, OpenAI, Anthropic, and xAI struggle with the Premier League.",
-    "fullText": "AI models from Google, OpenAI, and Anthropic lost money betting on soccer matches over a Premier League season, in a new study suggesting even the most advanced systems struggle to analyze the real world over long periods.\n\nThe “KellyBench” report released this week by AI start-up General Reasoning highlights the gap between AI’s rapidly advancing capabilities in certain tasks, such as writing software, and its shortcomings in other kinds of human problems.\n\nLondon-based General Reasoning tested eight top AI systems in a virtual re-creation of the 2023–24 Premier League season, providing them with detailed historical data and statistics about each team and previous games. The AIs were instructed to build models that would maximize returns and manage risk.\n\nThe AI “agents” then placed bets on the outcomes of matches and the number of goals scored to test how they could adapt to new events and updated player data as the season progressed.\n\nThe AI could not access the Internet to retrieve results and each was given three attempts to turn a profit.\n\nAnthropic’s Claude Opus 4.6 fared best, with an average loss of 11 percent and nearly breaking even on one attempt.\n\nxAI’s Grok 4.20 went bankrupt once and failed to complete the other two tries. Google’s Gemini 3.1 Pro managed to turn a 34 percent profit on one go but went bankrupt on another.\n\n“Every frontier model we evaluated lost money over the season and many experienced ruin,” the authors of the paper concluded, with the AI “systematically underperforming humans” in this scenario.\n\nThe results offer some comfort to white-collar professionals and businesses who are fretting that AI could take their jobs, as it roils the shares of industries from finance to marketing.\n\nRoss Taylor, one of the study’s authors and General Reasoning’s chief executive, said: “There is so much hype about AI automation, but there’s not a lot of measurement of putting AI into a longtime horizon setting.”\n\nHe added that many of the benchmarks typically used to test AI are flawed because they are set in “very static environments” that bear little resemblance to the chaos and complexity of the real world.\n\nGeneral Reasoning’s paper, which has not yet been peer reviewed, provides a counterweight to growing excitement in Silicon Valley about the huge recent leaps in AI’s ability to complete computer programming tasks with little to no human intervention.\n\nTaylor, a former Meta AI researcher, said: “If you… try AI on some real-world tasks, it does really badly… Yes, software engineering is very important and economically valuable, but there are lots of other activities with longer time horizons that are important to look at.”",
-    "readingTime": 3,
-    "keywords": [
-      "league season",
-      "premier league",
-      "the ai",
-      "general reasoning’s",
-      "tasks",
-      "models",
-      "money",
-      "matches",
-      "systems",
-      "ai’s"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://arstechnica.com/ai/2026/04/ai-models-are-terrible-at-betting-on-soccer-especially-xai-grok/",
-    "thumbnail_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/premierleaguegambling-1024x648.jpg",
-    "created_at": "2026-04-12T01:27:17.409Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "anthropic-is-close-to-overtaking-openai-on-this-measure-of-ai-business-spending",
-    "title": "Anthropic is close to overtaking OpenAI on this measure of AI business spending",
-    "description": "Anthropic has seen a surge in business spending in recent months, according to Ramp's AI index.",
-    "fullText": "US businesses that integrate AI have tended to choose OpenAI.\n However, Anthropic has seen business spending surge in recent months, according to Ramp's index. \n Anthropic's reputation got an unexpected boost after it challenged a deal with the Pentagon.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/anthropic-may-soon-pass-openai-measure-ai-business-spending-ramp-2026-4",
-    "thumbnail_url": "https://i.insider.com/69da8d16f976785dcb19082f?width=1200&format=jpeg",
-    "created_at": "2026-04-12T01:26:50.538Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "bank-of-england-set-to-discuss-anthropics-mythos-with-banks",
-    "title": "Bank of England Set to Discuss Anthropic’s Mythos With Banks",
-    "description": "The Bank of England plans to discuss the impact of Anthropic PBC’s new AI model with financial institutions, as UK regulators join their peers in the US and elsewhere in raising alarms over the risks posed by the tool.",
-    "fullText": "MarketsBy Tom ReesSaveThe Bank of England plans to discuss the impact of Anthropic PBC’s new AI model with financial institutions, as UK regulators join their peers in the US and elsewhere in raising alarms over the risks posed by the tool.Anthropic’s Mythos model will be on the agenda for the BOE’s next Cross Market Operational Resilience Group and CMORG AI Taskforce meetings, scheduled within the next two weeks, according to a person with knowledge of the matter. The meetings, earlier reported by the Telegraph, will include representatives from the Treasury, the Financial Conduct Authority and the National Cyber Security Centre.",
-    "readingTime": 1,
-    "keywords": [
-      "model",
-      "financial",
-      "meetings"
-    ],
-    "qualityScore": 0.15,
-    "link": "https://www.bloomberg.com/news/articles/2026-04-11/bank-of-england-set-to-discuss-anthropic-s-mythos-with-banks",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iKRq9PBqPBkY/v0/1200x799.jpg",
-    "created_at": "2026-04-11T18:29:24.517Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "pointed-news-quiz-ai-super-mario-retail",
-    "title": "Pointed News Quiz | AI, Super Mario, Retail",
-    "description": "Tim Stenovec, Christina Ruffini, and Lisa Mateo play Pointed on “Bloomberg This Weekend”! Wager your points, leverage your bets and answer wisely. A new quiz is available to play each week on Bloomberg.com and watch the show LIVE every Saturday and Sunday morning:",
-    "fullText": "Apr 11th, 2026Pointed News Quiz | AI, Super Mario, RetailTim Stenovec, Christina Ruffini, and Lisa Mateo play Pointed on “Bloomberg This Weekend”! Wager your points, leverage your bets and answer wisely. A new quiz is available to play each week on Bloomberg.com and watch the show LIVE every Saturday and Sunday morning:ExclusiveDuration:3:18Bessent Met Bank Bosses to Discuss AnthropicDuration:2:16Consumer Sentiment Falls to a Record Low on Inflation ConcernsOpinionDuration:4:34This Map Shows the Future of OilDuration:4:41US CPI Surges in March as War Sends Gas Prices HigherDuration:1:42Blackstone Digital Infrastructure Trust Files for IPODuration:2:15Apple Accused of ‘Union Busting’ Over Store ClosureDuration:1:27Why Is Anthropic's Mythos Seen as a Risk for Banks?Duration:4:44Oil Futures Set for Biggest Weekly Loss Since JuneAvailable on:Listen onApple TVListen onRokuListen onSamsung TVListen onFire TVListen onAndroid TVListen onRakuten TVListen onHaystack NewsWatch BTV in your area:Channel Finder",
-    "readingTime": 1,
-    "keywords": [
-      "tvlisten",
-      "pointed",
-      "quiz"
-    ],
-    "qualityScore": 0.25,
-    "link": "https://www.bloomberg.com/news/videos/2026-04-11/pointed-news-quiz-ai-super-mario-retail-video",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ihmd90oFHisU/v3/-1x-1.webp",
-    "created_at": "2026-04-11T18:29:18.949Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "how-openais-codex-figured-out-how-to-use-adobe-software",
-    "title": "How OpenAI's Codex figured out how to use Adobe software",
-    "description": "OpenAI's Codex AI coding service worked out how to use Adobe Lightroom like a human, denoising 50 photos without an API or plugin.",
-    "fullText": "A version of this story originally appeared in the BI Tech Memo newsletter.\n\n How does Codex interface with apps?\n\n How might AI agents evolve in the future?\n\n How does AI improve software navigation?\n\n What is the \"BullshitBench\" test?\n\n What are AI agents capable of now?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "agents"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/ai-openai-codex-used-adobe-lightroom-like-human-only-faster-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d9781a96ef6a4c9d121dc5?width=1200&format=jpeg",
-    "created_at": "2026-04-11T18:29:16.951Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "anthropics-claude-for-word-is-another-challenge-to-microsofts-software-empire",
-    "title": "Anthropic's Claude for Word is another challenge to Microsoft's software empire",
-    "description": "Anthropic launched a beta version of Claude for Word. It's another challenge to Microsoft's software empire, and a bid to appeal to lawyers.",
-    "fullText": "Anthropic launched a beta version of Claude for Word.\n It follows February's release of Claude add-ins for Excel and PowerPoint.\n The AI startup's latest launch is partly aimed at legal professionals.\n\n What is Claude for Word's main feature?\n\n How does Claude for Word compare to Excel?\n\n What are some use cases for Claude in Word?\n\n Who benefits most from Claude for Word?\n\n Why target legal professionals with Claude?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "legal professionals",
-      "claude",
-      "excel"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/anthropic-claude-microsoft-word-lawyers-2026-4",
-    "thumbnail_url": "https://i.insider.com/69da6a7e96ef6a4c9d121f1e?width=800&format=jpeg",
-    "created_at": "2026-04-11T18:29:16.805Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "wordpress-70-the-good-the-ai-and-the-still-missing",
-    "title": "WordPress 7.0: The Good, the AI, and the Still Missing",
-    "description": "An honest look at WordPress 7.0, the delay, the AI Connectors, the features that actually matter, and the structured content gap that still isn't being addressed.",
-    "fullText": "WordPress 7.0 was supposed to launch yesterday at WordCamp Asia. It didn't. On March 31st, the core team announced a delay to sort out the data storage behind real-time collaboration. A new schedule should land by April 22nd.\n\nIf you've been following the coverage, you'd think this release is primarily about AI. Every WordPress agency with a blog has published their version of \"WordPress 7.0: The AI Era Begins.\" Having spent time with the betas and the developer notes, the AI stuff is comfortably the least interesting thing in this release, and the engineering effort going into it raises some questions about where the project's priorities are heading.\n\nThe real-time collaboration feature lets multiple users edit the same post simultaneously. The delay happened because the sync data storage was causing cache invalidation problems, and the team decided to fix it properly rather than ship it broken for the conference stage.\n\nGood. After three security releases in 24 hours back in March (6.9.2 introduced a white-screen bug, 6.9.3 patched that the same evening, 6.9.4 dropped the next day when they found some fixes hadn't fully applied), taking extra time to get a flagship feature right is the correct call.\n\nFor sites where multiple editors touch content, collaborative editing could be a genuine workflow improvement. It uses HTTP polling that works on any standard hosting, no WebSocket requirement. If it ships reliably, it's probably the most significant feature in the release.\n\nThe catch: it only works in the block editor. Classic meta boxes don't sync, and the collaboration feature actually disables itself when it detects them.\n\nThat's a bigger limitation than the coverage suggests. Gutenberg is great for content-heavy editorial sites where the output is essentially pages of blocks. But a huge number of production WordPress sites use meta boxes for good reason. The moment you need structured data entry, repeatable field groups, complex post relationships, or anything that resembles application data rather than page content, meta boxes and tools like ACF are still the right interface. The block editor wasn't designed for that kind of work, and shoehorning structured data into blocks creates a worse experience for the people entering it.\n\nSo the \"Google Docs for WordPress\" pitch comes with a fairly significant asterisk: it's Google Docs for the subset of WordPress sites that have fully committed to the block editor for everything. That's a lot of sites, but it's not all of them, and pretending otherwise does a disservice to the developers who'll have to explain the limitation to their clients.\n\nWordPress 7.0 introduces a centralised AI infrastructure layer. New Connectors screen in settings. Enter your API key for OpenAI, Anthropic, or Google once, every plugin on the site can use it. Provider-agnostic. Opt-in. Graceful degradation if you don't configure anything.\n\nThe architecture is sensible. If AI features are going to exist in the WordPress ecosystem, and they already do through dozens of plugins, having shared credential management is better than every plugin rolling its own. No argument there.\n\nBut there's a priorities question worth asking.\n\nWordPress has had basic custom fields forever, but they're key-value pairs and not much else. ACF became one of the most essential plugins in the ecosystem because it provided what core never did: repeater fields, flexible content layouts, relationship fields, options pages, proper field group management. The kind of structured content tools that nearly every non-trivial site needs. After twenty-odd years, the answer to \"how do I build structured content in WordPress\" is still \"install a third-party plugin.\"\n\nMultilingual support is in the same boat. Still plugin-dependent, tentatively pencilled in for 7.2 at the earliest. Proper content modelling, same story. And while we're at it, WordPress still doesn't have a proper notifications manager. Admin notices remain a chaotic stack of coloured divs that every plugin dumps at the top of the dashboard with no centralised way to manage, dismiss, or prioritise them. It's the kind of basic housekeeping that would take a fraction of the effort being poured into AI infrastructure.\n\nThese are foundational CMS features that developers have been requesting for years. Seeing significant engineering resources go into AI Connectors and an AI Client API while those gaps persist raises the question of whether the project is chasing attention rather than solving its most pressing problems. AI infrastructure is a reasonable thing to build eventually. It's a strange thing to prioritise over structured content.\n\nI've never been Gutenberg's biggest fan. For content-heavy editorial sites it's fine, but for the kind of builds I do, sites with structured data, custom post types, and specific client workflows, the block editor has always felt like it was designed for a different kind of WordPress than the one I work in. That said, 7.0 has some improvements that suggest it's slowly moving in a more practical direction.\n\nVisual revision tracking. Colour-coded overlays in the revisions panel. Green for added blocks, red for removed, yellow for modified. For text, additions are underlined, deletions shown in strikethrough. Years overdue. For sites with content teams doing editorial review, this is immediately useful.\n\nContentOnly pattern editing. Patterns default to a clean, focused mode where users see fields instead of the full block editor interface. This directly addresses one of the most common complaints about handing WordPress to non-technical clients. Detach the pattern if you need structural access. This is the kind of thinking Gutenberg has needed more of from the start: making the editing experience simpler for the people who actually use it every day rather than more powerful for demo videos.\n\nPseudo-element support in theme.json. Style :hover, :focus, and :active states directly in theme.json without writing custom CSS. Small change, constant friction removed in theme development.\n\nNavigation overlays. Mobile menu overlays are out of experimental, with a guided setup flow. Anyone who's fought with mobile navigation in WordPress themes knows why this matters.\n\nNone of these are going to convert a Gutenberg sceptic overnight, and they don't do much for developers building anything beyond straightforward content sites. But they're steps in the right direction, and they're the substance of this release.\n\nThere's also PHP-only block registration, which lets you register a block without writing any JavaScript. On the surface that sounds useful, but ACF solved this problem years ago when the block editor first launched, and did it better, with support for interactive previews and field integration. The core implementation still doesn't match that. It's a pattern that keeps repeating: the WordPress project eventually gets around to building something the plugin ecosystem figured out ages ago, ships a less capable version, and calls it a feature. It's hard not to see it as another example of engineering effort going to the wrong places.\n\nThe same week WordPress announced its delay, Cloudflare launched EmDash, a TypeScript CMS it's calling \"the spiritual successor to WordPress.\" Built in two months with AI agents, runs on Cloudflare Workers.\n\nEmDash has some interesting ideas around plugin sandboxing and security. But from what I can tell, its headline feature, isolated plugin execution, appears to only work properly on Cloudflare's own infrastructure. You can apparently run it on any Node.js server, but without Workers you seem to lose the security model that's supposed to be the whole point. It's MIT-licensed, which is great, but if the key selling points only work within one vendor's ecosystem, that feels more like a product designed to grow Cloudflare's platform than a genuine open source alternative. I haven't built anything with it yet so I'm happy to be corrected, but the \"spiritual successor to WordPress\" framing feels like a stretch from what I've seen so far.\n\nMeanwhile, every platform from Wix to Hostinger is marketing their AI site builders as though they can produce a professional website from a few sentences. They can't. What they produce is a template with AI-generated filler text and stock imagery that looks passable in a demo video and falls apart the moment a real business tries to use it. If you've ever had to unpick one of these for a client who outgrew it in three months, you know exactly how much time these tools save.\n\nWordPress's competitive advantage isn't AI features. It's the twenty-year ecosystem, the hosting flexibility, and the genuine ownership of content and infrastructure. That's worth protecting and improving. The way to protect it is to make WordPress excellent at the fundamentals, not to chase whatever the rest of the industry is shouting about this quarter.\n\nFreelance web designer, developer and WordPress specialist with over 15 years of hands-on experience building, optimising and maintaining websites for businesses of all sizes. Writing from real-world project experience. More about me →",
-    "readingTime": 8,
-    "keywords": [
-      "spiritual successor",
-      "real-time collaboration",
-      "meta boxes",
-      "engineering effort",
-      "collaboration feature",
-      "structured content",
-      "wordpress sites",
-      "block",
-      "plugin",
-      "infrastructure"
-    ],
-    "qualityScore": 1,
-    "link": "https://adamgreenough.net/blog/wordpress-7-the-good-the-ai-the-missing/",
-    "thumbnail_url": "https://adamgreenough.net/media//blog/covers/wordpress-7-0.png",
-    "created_at": "2026-04-11T18:29:16.075Z",
-    "topic": "tech"
   }
 ]
