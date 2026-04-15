@@ -1,5 +1,45 @@
 [
   {
+    "slug": "nodejs-bindings-for-nvidia-cuvs-gpuaccelerated-vector-search",
+    "title": "Node.js bindings for Nvidia cuVS > GPU-accelerated vector search",
+    "description": "Opensource Node.js bindings for NVIDIA cuVS - GPU-accelerated vector search and clustering - 638Labs/cuvs-node",
+    "fullText": "Opensource Node.js bindings for NVIDIA cuVS - GPU-accelerated vector search and clustering.\n\nBuild, search, and serialize high-performance vector indexes directly from Node.js using NVIDIA GPUs.\n\nYou need a Linux machine with an NVIDIA GPU (A100, H100, or similar) and CUDA 12.x drivers. Cloud GPU instances from RunPod, Lambda, or similar providers work.\n\nThis installs conda, cuVS, builds the native addon, and runs the full test suite. Takes about 15-20 minutes on a fresh instance. On a previously configured instance, it skips what is already installed and goes straight to build and verify.\n\nWhen it finishes, you should see:\n\nIf you see that, everything is working.\n\nSetup is complete. To start working on the code, activate the environment:\n\nEdit code, then build and test:\n\nWhen ready to commit, deactivate conda first (conda conflicts with git's SSH):\n\nActivate the environment before running any examples (see Step 4).\n\nThis example builds a GPU-accelerated nearest neighbor index from 10,000 random vectors with 128 dimensions, searches it with 3 query vectors to find the 10 closest matches for each, then saves and reloads the index from disk.\n\nSee examples/basic.js for a runnable example. Run it with:\n\nWraps GPU handles, CUDA streams, and memory pools. Create one per process, reuse across operations, dispose when done.\n\nGPU-accelerated approximate nearest neighbor index using the CAGRA (Cuda Anns GRAph) algorithm. Graph-based; best general-purpose ANN on GPU.\n\nInverted-file index with flat (uncompressed) lists. Fast to build, exact distances within probed lists, higher memory than IVF-PQ.\n\nInverted-file index with product quantization. Lower memory than IVF-Flat, approximate distances via PQ codes, good for very large datasets.\n\nExact nearest neighbor search via brute-force pairwise distance. Ground-truth baseline and the right choice for small datasets.\n\nCPU-side HNSW graph, produced by converting a GPU-built CagraIndex. Build on GPU for speed, serve on CPU for cheap deployment.\n\nConda modifies library paths that can break git's SSH. Always deactivate conda before git operations:\n\nThen reactivate when you need to build or test again:",
+    "readingTime": 2,
+    "keywords": [
+      "git's ssh",
+      "inverted-file index",
+      "nearest neighbor",
+      "deactivate conda",
+      "gpu-accelerated",
+      "search",
+      "test",
+      "memory",
+      "cuvs",
+      "vector"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/638Labs/cuvs-node",
+    "thumbnail_url": "https://opengraph.githubassets.com/1d58cbb280b3cb65cc5bc39d1e39b74f1ad5ce4cdec17e17803170463e17925d/638Labs/cuvs-node",
+    "created_at": "2026-04-15T19:00:05.552Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "long-elon-short-jensen-a-research-firm-says-retail-traders-are-flocking-back-to-tesla-and-pivoting-from-nvidia",
+    "title": "Long Elon, short Jensen: A research firm says retail traders are flocking back to Tesla and pivoting from Nvidia",
+    "description": "Retail traders have been buying the year to date dip in Tesla shares, while buying of Nvidia stock has slowed, Vanda Research data shows.",
+    "fullText": "Retail traders are buying the year to date dip in Tesla stock, Vanda Research said. \n The cohort, meanwhile, has slowed its buying of Nvidia stock. \n Vanda said tax-day selling pressure could be to blame for the pivot from Nvidia.",
+    "readingTime": 1,
+    "keywords": [
+      "stock vanda",
+      "nvidia"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/tesla-stock-nvidia-elon-musk-tsla-nvda-retail-traders-2026-4",
+    "thumbnail_url": "https://i.insider.com/69df9ab73db3793a607cb6a5?width=1200&format=jpeg",
+    "created_at": "2026-04-15T19:00:01.468Z",
+    "topic": "finance"
+  },
+  {
     "slug": "nvidias-new-ai-models-spark-rally-in-quantum-computing-stocks",
     "title": "Nvidia’s New AI Models Spark Rally in Quantum Computing Stocks",
     "description": "Asian software and information-technology stocks surged after Nvidia Corp. unveiled a suite of new open-source AI models aimed at accelerating progress within quantum computing.",
@@ -2067,46 +2107,6 @@
     "link": "https://www.businessinsider.com/jensen-huang-nvidia-back-future-openai-ipo-sam-altman-drama-2026-2",
     "thumbnail_url": "https://i.insider.com/6982e47ca645d1188188a481?width=1200&format=jpeg",
     "created_at": "2026-02-04T12:35:23.970Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "nvidia-is-clamping-down-on-certain-t5t-emails-that-once-circulated-widely-inside-the-company",
-    "title": "Nvidia is clamping down on certain 'T5T' emails that once circulated widely inside the company",
-    "description": "Nvidia has narrowed how certain 'Top 5 Things' emails are shared, a system long used to give CEO Jensen Huang insight into daily operations.",
-    "fullText": "Nvidia employees may soon notice less traffic in their inboxes.\n\nThe chip giant has implemented a change to its internal email strategy known as T5Ts, or \"Top 5 Things.\"\n\nT5Ts are regular emails that Nvidia employees are expected to send, outlining what they're working on or thinking about, or where they're running into challenges. The messages are sent across teams and to Nvidia's executive staff — including CEO Jensen Huang, who is often known to respond.\n\nIn January, Nvidia substantially reduced T5T distribution within its vast Worldwide Field Operations organization, the team responsible for selling Nvidia's AI technology and helping customers deploy it in the field.\n\nWWFO employees previously shared their T5T emails broadly across the organization. The new policy limits distribution to a \"much smaller group,\" according to internal communications seen by Business Insider.\n\nThis group includes Huang, members of Nvidia's executive staff, and other senior leaders. Nvidia also directed employees to copy the managers responsible for their customer accounts and the industries in which those customers operate. It could not be learned if the change in T5T distribution is companywide.\n\nNvidia did not respond to a request for comment from Business Insider.\n\nT5Ts have been core to Nvidia's culture for decades, designed to flatten its organizational hierarchy and give leadership visibility into day-to-day operations, The Wall Street Journal reported, citing Tae Kim's book \"The Nvidia Way.\"\n\nThe move comes as Nvidia's workforce has expanded rapidly during the AI boom and as more attention has focused on the company and its operations.\n\nWhile top executives will continue to receive T5Ts, the narrowed distribution could signal a shift from Nvidia's culture of open communication and public feedback. The change could also limit how easily employees spot overlapping issues across teams.\n\nBusiness Insider has previously reported how T5Ts enable leaders to intervene when issues arise. Top executives like Huang and vice president Ian Buck have stepped in to mobilize responses amid customer complaints about product launches and AI deployment hurdles.\n\nHuang, known for his demanding pace and for favoring concise communication, has implemented other strategies to reduce hierarchy at Nvidia.\n\nHuang maintains a large number of direct reports, Business Insider previously reported. He also eschews one-on-one meetings to aid in the flow of information and prefers to work in conference rooms rather than private offices, The Journal reported.\n\nHave a tip? Contact this reporter via email at gweiss@businessinsider.com or Signal at @geoffweiss.25. Use a personal email address, a nonwork WiFi network, and a nonwork device; here's our guide to sharing information securely.",
-    "readingTime": 3,
-    "keywords": [
-      "top executives",
-      "nvidia's executive",
-      "t5t distribution",
-      "nvidia's culture",
-      "executive staff",
-      "across teams",
-      "nvidia employees",
-      "business insider",
-      "email",
-      "previously"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/nvidia-t5t-email-distribution-top-executives-2026-2",
-    "thumbnail_url": "https://i.insider.com/69820631d3c7faef0ecd78c6?width=1200&format=jpeg",
-    "created_at": "2026-02-04T12:35:23.855Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "walmart-joins-1-trillion-club-as-tech-frugal-shoppers-fuel-gains",
-    "title": "Walmart Joins $1 Trillion Club as Tech, Frugal Shoppers Fuel Gains",
-    "description": "A rally in Walmart Inc. shares pushed its market capitalization past $1 trillion on Tuesday for the first time ever, vaulting the world’s largest retailer into a category typically occupied by Big Tech firms such as Nvidia Corp. and Alphabet Inc.",
-    "fullText": "IndustriesConsumerBy Peyton Forte and Jaewon KangSaveA rally in Walmart Inc. shares pushed its market capitalization past $1 trillion on Tuesday for the first time ever, vaulting the world’s largest retailer into a category typically occupied by Big Tech firms such as Nvidia Corp. and Alphabet Inc. The stock rose 2.9% to close at an all-time high of $127.71 per share. The jump added roughly $29.1 billion in value, giving the company a market capitalization of just above $1 trillion, according to data compiled by Bloomberg. The shares are up 15% this year, outpacing the S&P 500 Index’s 1.1% advance.",
-    "readingTime": 1,
-    "keywords": [
-      "market capitalization",
-      "shares"
-    ],
-    "qualityScore": 0.55,
-    "link": "https://www.bloomberg.com/news/articles/2026-02-03/walmart-joins-1-trillion-club-as-tech-frugal-shoppers-fuel-gains",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/izYTYvviw7z8/v0/1200x800.jpg",
-    "created_at": "2026-02-04T01:07:08.216Z",
     "topic": "finance"
   }
 ]
