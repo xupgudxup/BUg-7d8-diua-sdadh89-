@@ -1,5 +1,20 @@
 [
   {
+    "slug": "elon-musks-xai-plans-to-supply-ai-computing-power-to-coding-startup-cursor",
+    "title": "Elon Musk's xAI plans to supply AI computing power to coding startup Cursor",
+    "description": "Elon Musk's xAI is collaborating with Cursor, which is using xAI's GPUs for model training, people with knowledge of the matter said.",
+    "fullText": "Elon Musk's AI company xAI plans to allow Cursor to use some of its compute power for training.\n Cursor will train its AI model Composer 2.5 using tens of thousands of xAI GPUs, sources said.\n The arrangement marks a new strategy for xAI in a competitive AI landscape.",
+    "readingTime": 1,
+    "keywords": [
+      "cursor"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/elon-musk-xai-compute-cursor-ai-model-training-2026-4",
+    "thumbnail_url": "https://i.insider.com/69de743bbb50bc96d0b4d081?width=1200&format=jpeg",
+    "created_at": "2026-04-16T01:28:45.958Z",
+    "topic": "finance"
+  },
+  {
     "slug": "coq-theorem-prover-is-now-called-rocq",
     "title": "Coq theorem prover is now called Rocq",
     "description": "Rocq is a mature, dependently-typed functional programming language and interactive theorem prover. Learn more about its rich history.",
@@ -1998,30 +2013,6 @@
     "link": "https://jmmv.dev/2026/03/vibecoding-ticket-el.html",
     "thumbnail_url": "/images/2026-03-06-ticket.el.png",
     "created_at": "2026-03-09T06:49:39.395Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "product-needs-to-be-a-runtime-for-agents-be-a-container-not-a-wrapper",
-    "title": "Product Needs to Be a Runtime for Agents – Be a Container, Not a Wrapper",
-    "description": "We launched Claude Code from inside Hopsworks and realised the platform could become the runtime for coding agents....",
-    "fullText": "Last week we presented our new implementation to make engineering, operating and managing machine learning systems easier by using popular tools such as Claude Code, Codex or Gemini. We wanted to deep dive a bit further on what makes it so different and what this could mean in the AI and data infrastructure field.\n\nFigure 1. \"Hey Claude, make me an AI pipeline - no mistakes!\" A view of the Shell interface in Hopsworks using Claude for building ML pipelines.\n\nSome time in the middle of last year, Jim Dowling, co-founder of Hopsworks, came enthusiastically to show me how he launched Claude Code from within a Jupyter terminal that we deploy with Hopsworks. It was the first moment we realised the implications: we could combulate / tabulate / fingulate / gesticulate with Claude Code within the platform while it could eventually have access to the whole platform (which is fully available via APIs), including the file system (we FUSE mount S3 via our tiered file system HopsFS), source code (we support GitHub/Lab/etc), authentication, the data sources, and so on.\n\nSince then, we engineered relentlessly - and yes, we leveraged Claude Code as well - a new shell interface for Hopsworks that would allow users to interact and make your coding agent interact with the platform from the inside. At this point we had been working on an alternate coding agent called \"Brewer\" for specification-driven development of pipelines. But when we realized Claude now writes the specifications (plans) for you, we quickly pivoted Brewer to become a general purpose platform for any coding agent (not just Claude Code, but even sovereign AI solutions such as Mistral's Devstral).\n\nOur reasoning was essentially that it is now the data platform's job to provide a secure, governed environment for building the AI and data pipelines that power AI and analytics products.\n\nYou don't strictly need to run a coding agent inside a data/AI platform. However, it can reduce large amounts of friction in ensuring access to data (sorry, context!) within the platform, and ensuring sensitive data does not leave the platform.\n\nClaude Code and other coding agents work by navigating directories and reading files (e.g., source code and documentation) from the directory within which they are launched. In Hopsworks, all data/code is encapsulated in a project (think of a project as a Github repository with members and code, but a project can also store data and run compute). The project provides API access to all its data sources, files, compute capabilities, and platform capabilities. We make access to the API available via a CLI tool (we support MCP as well, but CLI tools work better with coding agents).\n\nAnother advantage of running an agent inside your Data/AI platform is that you can lock it down. You can launch a coding agent in Hopsworks that uses a LLM that is hosted in Hopsworks - all inside an air-gapped environment. Hopsworks provides vLLM/KServe support for LLM serving, and open-weight models like Devstral 2 and Qwen3-Coder are catching up fast with the frontier models.\n\nFigure 2. \"Hey Claude, show me the architecture.\"\n\nTo operate effectively within a project, the agent needs more than a shell; it needs the ability to execute commands and take actions. The shell is just the first step; it is the sandbox from which the agent can exist and that sandbox can exist within the boundaries of the projects or, for admins, beyond; in that case, it could access the details of the underlying data infrastructure that the platform operates on; memory, compute capabilities etc. and could even review and send alerts - but more on that later.\n\nAs already mentioned, we also chose to move from MCP to CLI, seemingly because it just worked better and faster. The agent seemed to lose less time trying to understand the underlying commands and what they meant to achieve; less back and forth trying to force an output that didn't work. Coding LLMs have been trained on bash and CLI tools and can compose commands, the Unix way. With CLI tools, agents can use CLI switches and command line tools (e.g., head/tail) to retrieve just the context they need for their task, while MCP can overload the context window if you need to load complete tool descriptions for your platform. The shovels for coding agents now appear to be the container and the CLI tools. You can even ask your coding agent to fix your CLI tool's code. A simple \"debug the CLI by trying this action\" became a way to test the CLI during its development but also find and fix obscure or not yet discovered issues in the backend.\n\nNow - this does not suffice either; as the tooling and the container do not provide context efficiently; Claude Code has not been trained on / or does not inherently recognise, all the aspects of a platform like Hopsworks; with its quirks and edges that come from a near decade-long of implementation and all the decisions that got carried along the way. This will be one of the final steps to make this \"instrumentalisation\" of the platform and its APIs by LLMs; align the implicit expectations of the LLM with the naming conventions, API patterns and path structures of the platform to reduce friction. In other words, the more specialised, non-conventional, closed and domain specific your platform is; the less it can be operated by LLMs, but, the more open and standards based your platform is, the more likely LLMs have encountered something similar in training data, and the less friction you get at coding time.\n\nFor us - it also opens the possibilities to use the Hopsworks platform for use cases that are beyond the original MLOps scope of the platform. If Claude Code can now create datasets, review model deployments and launch jobs; it can also generate queries and dashboards from within the platform; suddenly users can do analytics and derive information from different sources right there in their shell interface. With new support coming for Trino and Superset in Hopsworks 4.8, it is evident that those agents will be able to generate the charts for the business units from the data for executives without any intermediaries (sorry, data analysts!).\n\nDo we replace Tableau and the like? No. We replace the handover of the information to a different team; same agent, same flow, same context. Any user can now build the dashboard with the SAME coding agent within the same context. If you are a data scientist that needs to motivate the case for a specific project; you suddenly can do it, right there, in the data platform, without being a specialist. You have the ability to communicate your work better.\n\nFigure 3. \"Hey Claude, what charts are there in the project?\"\n\nImproving convention, security and extending the capabilities of the agents to operate the systems is the direction of travel. Better yet, agent support: scheduled runs with scoped permissions for fire-and-forget agents, and tracing/debugging for interactive ones.\n\nLots of these new capabilities will be coming to Hopsworks in the coming months, and we will make it available to the community on our SaaS platform for startups and independent developers.\n\nAnd if you are an enterprise, or a data center; we can deploy all this either on-premises or in the cloud; just reach out to us - a human will get back to you!",
-    "readingTime": 7,
-    "keywords": [
-      "figure hey",
-      "hey claude",
-      "cli tools",
-      "file system",
-      "claude code",
-      "shell interface",
-      "compute capabilities",
-      "data/ai platform",
-      "coding agent",
-      "agent inside"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.hopsworks.ai/post/coding-agents-inside-data-platforms",
-    "thumbnail_url": "https://www.hopsworks.ai/post/coding-agents-inside-data-platforms/opengraph-image?4b841acb8d809240",
-    "created_at": "2026-03-09T06:49:37.511Z",
     "topic": "tech"
   }
 ]

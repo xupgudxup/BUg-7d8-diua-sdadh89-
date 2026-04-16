@@ -1,5 +1,53 @@
 [
   {
+    "slug": "leaking-aws-keys-from-a-trading-competition-sandbox-via-stdout",
+    "title": "Leaking AWS Keys from a Trading Competition Sandbox via stdout",
+    "description": "Technical analysis and Proof of Concept (PoC) regarding environment variable exfiltration in containerized cloud sandboxes via side-channel data leaks. - JakOb-dotcom/cloud-sandbox-security-analysis",
+    "fullText": "Cloud Sandbox Security Analysis\nAbstract\nThis repository contains a technical case study on environment variable exfiltration within an algorithmic trading competition platform. The research demonstrates a critical lack of sandbox isolation, allowing for the unauthorized access and extraction of sensitive cloud credentials (AWS Access Keys) via standard output streams.\nKey Findings\n\nVulnerability: Insufficient process isolation within the execution sandbox.\nExfiltration Vector: Direct access to environment variables with subsequent transmission via stdout.\nRisk Level: Critical (Full infrastructure secret disclosure).\n\nStatus\n\nResponsible Disclosure: The vendor was notified of the findings prior to this publication.\nCurrent State: Research documentation and Proof of Concept.",
+    "readingTime": 1,
+    "keywords": [
+      "sandbox",
+      "cloud",
+      "environment",
+      "within",
+      "isolation",
+      "access",
+      "exfiltration",
+      "research",
+      "critical",
+      "findings"
+    ],
+    "qualityScore": 0.55,
+    "link": "https://github.com/JakOb-dotcom/cloud-sandbox-security-analysis/",
+    "thumbnail_url": "https://opengraph.githubassets.com/78fae4e6bb552c236d7829951de07a11e1af4ed06dcbf760c84a9912a1979eb6/JakOb-dotcom/cloud-sandbox-security-analysis",
+    "created_at": "2026-04-16T01:28:48.609Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "spotify-just-partnered-with-one-of-amazons-best-bookselling-rivals",
+    "title": "Spotify Just Partnered With One of Amazon's Best Bookselling Rivals",
+    "description": "The streaming app is linking users to buy physical books, in addition to audiobooks.",
+    "fullText": "What do you primarily use Spotify for? Enjoying music? Keeping up with your favorite podcasts? Listening to audiobooks? Well, the next time you open it (at least on Android) you might just use it to shop for a book—not just an ebook, mind you, but a physical book.\n\nAs reported by TechCrunch, Spotify is now selling physical books on its Android app to users in the U.S. and the U.K., with plans to roll out the feature to iPhones next week. The company first announced the initiative back in February, revealing that it was partnering with Bookshop.org to facilitate the transactions. This isn't your typical corporate agreement, either: Bookshop.org is designed to connect buyers to their local independent bookstores, rather than some enormous conglomerate or distributor. Bookshop says that 50% of the book sale price goes directly to the publisher (who then pays the author), while 30% goes to the bookstore you choose upon purchase. Another 10% goes towards a profit-sharing fund that is distributed among all the bookstores the site works with.\n\nIt might seem a bit silly to think of buying a book through Spotify, an app originally meant solely for music. But like many platforms, Spotify has adapted and grown its offerings over the years. It already sold audiobooks, so why not print and e-books? In effect, Spotify is now directly competing with Amazon as a place you can go for all your literary needs, whether you prefer to read or listen to your books. Maybe a Spotify-branded e-reader is up next—though the last time Spotify tried to sell its own device, it didn't end up working out too well.\n\nNote that there isn't a dedicated storefront for buying books on Spotify. Instead, you'll see a “Get a copy for your bookshelf\" button appear under individual audiobooks. When you choose this, you'll be taken to that book's Bookshop.org page.\n\nIn addition to this news, Spotify also announced an update to Page Match, its feature that lets you sync your place in a book using your phone's camera. Now the feature supports over 30 languages, including French, German, and Swedish. Spotify's audiobook summarization feature, \"Audiobook Recaps,\" is also now accessible on Android. Previously, this feature was exclusive to iOS, and let users listen to a summary of what they had already listened to in an audiobook.\n\nThere have also been updates to audiobook charts across the app, which show customers which books are currently the top sellers. Audiobook charts recently launched in Germany, and users in the U.S. and U.K. now have a dedicated chart for the most popular kids and family-oriented audiobooks, too.",
+    "readingTime": 3,
+    "keywords": [
+      "audiobook charts",
+      "feature",
+      "audiobooks",
+      "books",
+      "users",
+      "bookshop.org",
+      "spotify",
+      "music",
+      "physical",
+      "isn't"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/you-can-now-buy-books-from-spotify?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KP8YXHBS8224YDPD70K18Y82/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-04-16T01:28:44.293Z",
+    "topic": "tech"
+  },
+  {
     "slug": "deploy-openclaw-on-aws-choose-the-right-options-for-your-ai-workload",
     "title": "Deploy OpenClaw on AWS: Choose the right options for your AI workload",
     "description": "Connect with builders who understand your journey. Share solutions, influence AWS product development, and access useful content that accelerates your growth. Your community starts here.",
@@ -1911,53 +1959,5 @@
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KJG4KMFPST9JVNNY3ES2AMA7/hero-image.fill.size_1200x675.png",
     "created_at": "2026-02-28T01:02:19.239Z",
     "topic": "tech"
-  },
-  {
-    "slug": "openai-just-closed-its-biggest-funding-round-raising-110-billion-from-amazon-nvidia-and-softbank",
-    "title": "OpenAI just closed its biggest funding round, raising $110 billion from Amazon, Nvidia, and SoftBank",
-    "description": "OpenAI announced it secured a $110 billion investment from Nvidia, Amazon, and SoftBank.",
-    "fullText": "OpenAI just made its biggest raise yet.\n\nThe company said it has secured a $110 billion investment, with backing coming from Nvidia, Amazon, and SoftBank.\n\nThe new funding was at a $730 billion pre-money valuation, OpenAI said in a Friday announcement. The round included $30 billion from SoftBank, $50 billion from Amazon, and $30 billion from Nvidia. The company had a $500 billion valuation as of October after a secondary share sale.\n\nOpenAI said it had also signed a strategic partnership with Amazon that would see the two companies build customized AI models for Amazon. $35 billion of Amazon's investment is tied to certain milestones being met, OpenAI added.\n\nOpenAI said it also \"secured next generation inference compute\" with Nvidia.\n\nOpenAI said it expects additional investors to join as the round progresses, it added.\n\n\"We are entering a new phase where frontier AI moves from research into daily use at global scale,\" OpenAI wrote in the announcement. \"Leadership will be defined by who can scale infrastructure fast enough to meet demand, and turn that capacity into products people rely on.\"\n\nIn a separate joint statement, OpenAI and Microsoft said their relationship was not changed by the latest investment round.\n\nSpeaking on CNBC after Friday's announcement, OpenAI CEO Sam Altman downplayed concerns around circular financing between AI companies and discussed OpenAI's IPO prospects.\n\n\"We are open to going public at the right time. There are advantages to being private, there are clear advantages to being public,\" he said.",
-    "readingTime": 2,
-    "keywords": [
-      "amazon",
-      "investment",
-      "announcement",
-      "round",
-      "openai",
-      "secured",
-      "softbank",
-      "valuation",
-      "scale",
-      "advantages"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.businessinsider.com/openai-110-billion-funding-nvidia-amazon-softbank-2026-2",
-    "thumbnail_url": "https://i.insider.com/68dc20f81c1f80efbec49e20?width=1200&format=jpeg",
-    "created_at": "2026-02-27T18:27:19.282Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "amazon-ceo-says-many-jobs-weve-thrown-human-beings-at-for-the-last-2030-years-wont-need-as-many-humans",
-    "title": "Amazon CEO says many jobs we've 'thrown human beings at' for the last 20-30 years won't need as many humans",
-    "description": "\"You won't need as many human beings doing those same jobs,\" Amazon CEO Andy Jassy said, predicting AI would also create new jobs as well.",
-    "fullText": "Is the AI job-pocalypse here? Amazon's CEO doesn't think so.\n\nWhite-collar workers are worried. On Thursday, Block CEO Jack Dorsey announced plans to cut nearly half the company, bringing its staff of over 10,000 down to just under 6,000. On the company's earnings call, Dorsey said that more companies would follow by using AI for efficiency gains.\n\nIn a Friday interview with CNBC's Andrew Ross Sorkin, Amazon CEO Andy Jassy said that he hadn't \"really digested\" the news from Block. Still, he had thoughts on the future of work with AI.\n\n\"I do believe that a lot of the jobs that we've thrown human beings at for the last 20 or 30 years, you won't need as many human beings doing those same jobs,\" he said.\n\n\"I also think there are going to be other jobs created, and that has always happened in every technology shift,\" he added.\n\nHe gave the example of the cloud solutions architect. That job didn't exist 15 years ago, he said; now, there are tens of thousands of them.\n\nJassy has previously signaled AI would lead to white-collar job cuts at Amazon.\n\nIn a June memo to employees, the Amazon CEO wrote that \"in the next few years, we expect that this will reduce our total corporate workforce as we get efficiency gains from using AI extensively across the company.\" In the wake of the memo, three internal Amazon Slack channels lit up with criticism from employees, Business Insider previously reported.\n\nIt's not just larger companies trimming staff in the AI era. Take the AI coding startup Vercel, for example, which trained an agent to do sales and then cut its 10-person sales team down to one.\n\nJassy struck an optimistic tone in his Friday interview.\n\nWhat new jobs will AI bring? It's not yet clear. Some proposals — like the idea of the role of an AI prompt engineer — seem to have fizzled out. But AI has certainly driven higher demand for specific types of engineering roles and created a new market for training data.\n\nJassy acknowledged that the business world was going through a \"transition\" period in the interview.\n\n\"We'll all work through it together,\" he said.",
-    "readingTime": 2,
-    "keywords": [
-      "efficiency gains",
-      "human beings",
-      "jassy",
-      "jobs",
-      "interview",
-      "white-collar",
-      "dorsey",
-      "staff",
-      "created",
-      "previously"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/amazon-ceo-jobs-humans-wont-need-as-many-people-2026-2",
-    "thumbnail_url": "https://i.insider.com/67eeaaa4b8b41a9673fc8c61?width=1200&format=jpeg",
-    "created_at": "2026-02-27T18:27:19.081Z",
-    "topic": "finance"
   }
 ]
