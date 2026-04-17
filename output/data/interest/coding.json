@@ -1,5 +1,50 @@
 [
   {
+    "slug": "engram-context-spine-for-ai-coding-agents-88-proven-token-savings",
+    "title": "Engram – context spine for AI coding agents, 88% proven token savings",
+    "description": "The context spine for AI coding agents. 8 providers, 88% proven token savings, 5 IDE integrations (Claude Code, Continue.dev, Cursor, Zed, Aider). Hook-based Read interception, HTTP API, tree-sitte...",
+    "fullText": "Install ·\n Quickstart ·\n Benchmark ·\n IDE Integrations ·\n HTTP API ·\n ECP Spec ·\n Contributing\n\nengram intercepts every file read your AI agent makes and replaces it with a pre-assembled context packet — structure, decisions, git history, library docs, and known issues — from 8 providers, delivered in a single ~500-token response. The agent gets what it needs without reading the file. You stop paying for context you've already paid for.\n\nThis is not a tool the agent calls. It hooks at the Claude Code tool boundary. Every Read, Edit, Write, and cat is intercepted automatically.\n\nThat's the full setup. The next Claude Code session starts with a project brief already loaded, file reads intercepted, and a live HUD showing cumulative savings.\n\nMeasured across 10 structured coding tasks against a baseline of reading the relevant files directly. No synthetic data. No cherry-picked queries.\n\nRun the benchmark yourself: engram bench or engram stress-test for the full suite.\n\nengram sits between your AI agent and the filesystem. When the agent reads a file, engram checks its knowledge graph. If the file is covered with sufficient confidence, it blocks the read and injects a compact context packet instead. The packet is assembled from up to 8 providers in parallel, all pre-cached at session start.\n\nExternal providers cache into SQLite at SessionStart. Per-read resolution is a cache lookup, not a live call. If a provider is unavailable it is skipped silently — you always get at least the structural summary.\n\nTen safety invariants enforced at runtime:\n\nRequires Node.js 20+. Zero native dependencies. No build tools. Local SQLite via sql.js WASM — no Rust, no Python, no system libs.\n\nOpen a Claude Code session. When the agent reads a well-covered file you will see a system-reminder with the structural summary instead of file contents. After the session:\n\nFull recommended setup (one-time per project):\n\nExperience tiers — each works standalone:\n\nPer-IDE setup guides are in docs/integrations/.\n\nproviders.json (optional — auto-detection works for most setups):\n\nKill switch (if anything goes wrong):\n\nAdd --extra-cmd=\"engram hud-label\" to your statusLine command to see live savings:\n\nStart the server with engram server --http (default port 7337).\n\nAll responses are JSON. The server is local-only by default — bind address is 127.0.0.1.\n\nShell wrapper (for Bash-based agents):\n\nengram v1.0 ships the first draft of the Engram Context Protocol (ECP v0.1) — an open specification for how AI coding tools should package and exchange structured context packets.\n\nThe spec defines the wire format, provider negotiation, budget constraints, and confidence scoring used by engram internally. Any tool can implement the spec to produce or consume engram-compatible context packets.\n\nLicense: CC-BY 4.0\n\nSpec: docs/specs/ecp-v0.1.md\n\nSupported languages (AST): TypeScript, JavaScript, Python, Go, Rust, Java, C, C++, Ruby, PHP.\n\nEverything runs locally. No data leaves your machine. No telemetry. No cloud dependency. The only network call is npm install. Prompt content is never logged (asserted in 579 tests).\n\nIssues and PRs welcome at github.com/NickCirv/engram.\n\nRun engram init on a real codebase and share what it got right and wrong. The benchmark suite (engram bench) is the fastest way to see the difference on your own code.",
+    "readingTime": 3,
+    "keywords": [
+      "code session",
+      "structural summary",
+      "context packets",
+      "context packet",
+      "agent reads",
+      "engram bench",
+      "suite engram",
+      "claude code",
+      "file",
+      "benchmark"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/NickCirv/engram",
+    "thumbnail_url": "https://opengraph.githubassets.com/11d7518cd6e418d3f2a8b3ee37bba3656a9d6c23ab12888ed351fd06c4733cfa/NickCirv/engram",
+    "created_at": "2026-04-17T07:18:58.618Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "approve-agents-and-track-progress-while-youre-on-the-go",
+    "title": "Approve agents and track progress while you're on the go",
+    "description": "Remote permission management for AI coding agents. Approve tool calls from your phone. - grainulation/farmer",
+    "fullText": "Approve AI agent tool calls from anywhere.\n\nFarmer sits between your AI coding agent and your terminal, giving you a visual dashboard to approve, deny, or respond to tool calls in real time. Desktop and mobile.\n\nTokens are persisted in a JSON token file (tokens.json in the data directory). The file stores admin and viewer tokens and is backwards compatible with the legacy plain-text format.\n\nFarmer exposes four hook endpoints. All accept POST with JSON body, localhost only:\n\nTo support a new AI agent, extend BaseAdapter in lib/adapters/base.js:\n\nFarmer has zero npm dependencies. SSE for real-time streaming, polling as fallback. Everything is Node built-ins.",
+    "readingTime": 1,
+    "keywords": [
+      "agent",
+      "farmer",
+      "tool",
+      "tokens",
+      "json",
+      "file",
+      "approve"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://github.com/grainulation/farmer",
+    "thumbnail_url": "https://opengraph.githubassets.com/e35ba95da12252f1c57b11dd6bf5dbc630290454531a541e8c1f586c5d0b530c/grainulation/farmer",
+    "created_at": "2026-04-17T07:18:58.065Z",
+    "topic": "tech"
+  },
+  {
     "slug": "rust-195-released-with-several-improvements",
     "title": "Rust 1.95 Released with Several Improvements",
     "description": "Rust 1.95 was released to the wild today as the latest feature update to this popular programming language.",
@@ -1960,53 +2005,5 @@
     "thumbnail_url": "https://information-superhighway.net/nancy-how-can-i-get-out-of-having-to-think.png",
     "created_at": "2026-03-12T01:03:14.240Z",
     "topic": "tech"
-  },
-  {
-    "slug": "so-you-want-to-do-agentic-development",
-    "title": "So You Want to Do Agentic Development",
-    "description": "We’re three months into 2026, and coding agents have been a big part of my time since last year–things have definitely intensified, and one ...",
-    "fullText": "We’re three months into 2026, and coding agents have been a big part of my time since last year–things have definitely intensified, and one of my predictions has already panned out: agents are everywhere.\n\nMy advice for people getting into this remains the same:\n\nIn the music hobby, there’s a thing called GAS–Gear Acquisition Syndrome–where people get obsessed with buying the latest gear even if they don’t know how to use it. I see quite a lot of that in the AI space right now, so I’d rather recommend starting with mature, well-supported tools:\n\nI can’t in good conscience recommend spending hundreds on Anthropic or OpenAI subscriptions right now–the market is saturated, and both are shipping desktop tools (Claude Code, Codex) that will likely come with cheaper tiers. The “use boring technology” adage applies here too.\n\nOf course by now I’ve built my own tools and keep improving upon them, but that’s a long-term project, and I don’t think it’s the best starting point for most people.\n\nI never run agent tools on a machine with personal data–that’s why I built agentbox in the first place. You may not need to be as strict about it as I am, but VS Code supports dev containers on any platform, and both Anthropic and OpenAI are shipping sandboxes with their tools, so there’s really no excuse.\n\nThere are rather a lot of misconceptions about data privacy, and things like OpenClaw don’t help matters (I’m still gobsmacked people give it direct access to their e-mail). Even with enterprise-hosted models that don’t train on your data, “don’t run untrusted code on a machine with personal data” is a principle worth keeping.\n\nLike I was quipping the other day, AI is the new digital advertising–and yet people are giving it more access to their data than they give ad networks, which is just baffling.\n\nAnd speaking of OpenClaw–the “local AI” fallacy needs addressing. None of these things are really “local” in any meaningful sense–the gap between local and cloud models is huge, and even tens of thousands of dollars in hardware won’t get you close to frontier capabilities.\n\n“Fast, Good, Cheap: pick two” still applies, and it’s easy to get bitten by technology advances: I built a server for local AI three years ago and it’s already obsolete.\n\nAnd there is an almost weekly hype cycle around local models that I think is totally unwarranted in practice. For instance, Qwen is promising, but the local quantizations match last year’s cloud models at best, and the gap keeps widening.\n\nI keep coming across people who say AI generates rubbish code, and I think it’s usually one of two things: wrong tools (VS Code does much more than provide a UI–it curates context and feeds models your code structure), or wrong approach (they’re quite literally “holding it wrong”). I wrote about the expectation gap two years ago and the fundamentals haven’t changed.\n\nPart of it is inflated expectations, of course. Frontier models like Opus 4.6 and GPT-5.4 are very capable, but they need skill to use effectively, and they never produce perfect code on the first try. You have to know how to use them, and that takes practice.\n\nI’ve been refining how I work with them since last year, and although things have evolved quite a bit, the core principles remain the same.\n\nEvery project starts with a SPEC.md that I iterate on with the LLM, 20-questions style, until it covers the essentials–goals, functional specs, non-functional specs, technical specs, and acceptance criteria.\n\nI prefer SPEC.md over PRD.md because it emphasises specification over requirements–I want the agent to follow it, not interpret it freely.\n\nThis isn’t a prompt–it’s a living document that evolves with the project. And agents love specs–feeding one an actual ECMA-376 spec document got me to 60% compliance in days, with no hallucinated APIs.\n\nI complement specs with SKILL.md files–guidelines for coding, tooling, or domain-specific tasks. I have a growing collection in agentbox, and every new project starts with a make init that adapts them to the local spec.\n\nYou can also fold these into .github/copilot-instructions.md (which VS Code picks up automatically), but standalone skills are tool-agnostic.\n\nThe properly interesting bit is that agents now write their own skills–piclaw built its own hot-reload, backup, and web scraping skills after I’d guided it through the process a few times. Early days, but that’s where this is headed.\n\nMCP tools work better than skills for chaining–models struggle to chain skills together, whereas MCP narrows context and presents clear next steps. But for teaching how rather than what, skills are still invaluable.\n\nAfter doing the prep work, I go into a loop I’ve been tightening for months:\n\nFrom the SPEC.md, I create a PLAN.md–not a flat TODO checklist, but a structured breakdown the agent can reason about (what’s done, what’s blocked, why). It updates the plan as it goes, which also refreshes model context. No reliance on built-in planning tools (which are patchy across models), and the plan is always in the repo for me to review.\n\nThe loop itself is pretty simple:\n\nThe most important bit of the loop–and the one most people get wrong at first. Effective steering isn’t about reprompting and hoping for the best; it’s about funnelling the agent’s attention to the right context:\n\nYes, that’s proper work. But it’s no different from managing humans, and it gets easier with practice.\n\nSome languages are inherently better for agents–not in terms of popularity (any agent can do decent Python), but because strong types and annotations help models understand intent and self-correct.\n\nIn my experience, Go, Rust and TypeScript work much better than Swift (too many revisions, too-opinionated frameworks). Go in particular reinforces context through explicit function and interface references, and TypeScript has excellent tooling for enforcing good practices–which is why I’ve been using both a lot more recently.\n\nMy sandboxing approach is working well, and I don’t see myself changing it anytime soon. But I’ve been slowly extending my agents’ reach–piclaw, which started as a weekend hack, is now a fully-fledged agentic assistant on my phone, and I’ve been giving it more autonomy as I learn to trust the guardrails.\n\nThe next frontier (boy, is this a pompous term, but I guess corporate speak is sneaking in this late in the evening) is getting agents to collaborate–sharing context and skills to work as a group. I have some ideas about how to do it, but that’s a matter for another post.",
-    "readingTime": 6,
-    "keywords": [
-      "cloud models",
-      "vs code",
-      "tools",
-      "agents",
-      "don’t",
-      "it’s",
-      "context",
-      "skills",
-      "that’s",
-      "project"
-    ],
-    "qualityScore": 1,
-    "link": "https://taoofmac.com/space/blog/2026/03/08/2130",
-    "thumbnail_url": "https://taoofmac.com/media/blog/2026/03/08/2130/q7oqoM79G4IrU9M7C8g0qAxmcbY=/agentic.jpg",
-    "created_at": "2026-03-11T12:35:51.497Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "amazon-orders-90day-reset-after-code-mishaps-cause-millions-of-lost-orders",
-    "title": "Amazon orders 90-day reset after code mishaps cause millions of lost orders",
-    "description": "Internal documents obtained by Business Insider show how Amazon is reacting to a series of recent outages related to software coding issues.",
-    "fullText": "Amazon is beefing up internal guardrails after recent outages hit the company's e-commerce operation, including one disruption tied to its AI coding assistant Q.\n\nDave Treadwell, Amazon's SVP of e-commerce services, told staff on Tuesday that a \"trend of incidents\" emerged since the third quarter of 2025, including \"several major\" incidents in the last few weeks, according to an internal document obtained by Business Insider. At least one of those disruptions were tied to Amazon's AI coding assistant Q, while others exposed deeper issues, another internal document explained.\n\nProblems included what he described as \"high blast radius changes,\" where software updates propagated broadly because control planes lacked suitable safeguards. (A control plane guides how data flows across a computer network).\n\nIn other cases, data corruption took hours to unwind. Some failures were traced back to basic mechanisms, such as a requirement to have two people authorize code changes, that were either lacking or bypassed.\n\nIn response, Amazon is introducing tighter controls that will require engineers to document code changes more thoroughly and secure additional approvals. At the same time, the company is developing other safeguards designed to introduce what executives described as \"controlled friction\" into the code-change review process.\n\n\"We are implementing temporary safety practices which will introduce controlled friction to changes in the most important parts of the Retail experience,\" Treadwell wrote in the document on Tuesday. \"In parallel, we will invest in more durable solutions including both deterministic and agentic safeguards.\"\n\nThe Amazon snafus are an example of how generative AI is upending how software is written, checked, and shipped. AI coding services, such as Claude Code and Amazon's Q and Kiro offerings, help engineers produce way more code than in the past. However, this code still needs to be checked for bugs and other potential issues before putting it out into the world. When this avalanche of new code hits traditional software-review processes, problems can emerge.\n\nAmazon's Treadwell wrote that the company's new code guardrails will combine AI-driven, \"agentic\" tools with more predictable, rules-based \"deterministic\" systems.\n\nThis tackles one of the core issues with AI models. These powerful new services are not deterministic. That means you can ask the same question twice and an AI model may spit out slightly different answers. That sometimes makes this technology inappropriate for corporate workflows that must be 100% accurate every time. That includes core Enterprise Resource Planning software systems and likely applies to crucial things such as product, price, ordering, and transaction data on a giant e-commerce marketplace, such as the one operated by Amazon.\n\nEarlier on Tuesday, Treadwell held a meeting with some Amazon employees to discuss how to address the recent problems. An Amazon spokesperson told Business Insider the meeting was part of a regular weekly review, and that the Amazon Web Services cloud business was not involved in any of these incidents.\n\n\"As part of normal business, the meeting will include a review of the availability of our website and app as we focus on continual improvement,\" the spokesperson said.\n\nSome of the most severe disruptions occurred last week, according to the internal documents.\n\nOn March 2, customers across Amazon marketplaces saw incorrect delivery times when adding items to their carts. The incident led to nearly 120,000 lost orders and roughly 1.6 million website errors. Amazon's AI tool Q was one of the primary contributors that triggered the event, according to an internal review.\n\n\"GenAI's usage in control plane operations will accelerate exposure of sharp edges and places where guardrails do not exist,\" one internal document said of the March 2 incident. \"We need investment in control plane safety.\"\n\nOn March 5, another outage caused a 99% drop in orders across Amazon's North American marketplaces, resulting in 6.3 million lost orders, one of the internal documents stated. One key factor was a production change that was deployed without using a formal documentation and approval process called Modeled Change Management.\n\n\"No automated pre-deployment validation,\" the document said. \"Single authorized operator could execute a high-blast-radius config change with no guardrails.\"\n\nAn Amazon spokesperson told Business Insider that only 1 incident reviewed on Tuesday was AI-related, and none of them involved AI-written code.\n\nNow, Amazon is rolling out a 90-day, temporary safety guideline that will serve as an addendum to the existing policies, according to one of the internal documents.\n\nThe new policy targets approximately 335 \"Tier-1 systems,\" or services that can directly impact consumers, that have experienced multiple order-impacting incidents since last year and are owned by VP-level organizations.\n\nUnder the new policy, Amazon engineers must get two people to review their work before making any coding changes. They also have to use an internal documenting and approval tool and an automated coding system that strictly adheres to Amazon's central reliability engineering rules.\n\nAmazon is also notifying all Tier-1 system owners, as well as Director- and VP-level leaders, instructing them to audit all production code change activities within their organizations.\n\nThe Amazon spokesperson told Business Insider that it is not accurate to say junior and mid-level engineers are required to get sign off from senior engineers for any AI-assisted changes.\n\nThe Financial Times previously reported that Amazon was holding a \"deep dive\" meeting about the outages on Tuesday and that the company's Kiro AI coding tool partly caused a 13-hour AWS service outage in December.\n\nHave a tip? Contact this reporter via email at ekim@businessinsider.com or Signal, Telegram, or WhatsApp at 650-942-3061. Use a personal email address, a nonwork WiFi network, and a nonwork device; here's our guide to sharing information securely.",
-    "readingTime": 5,
-    "keywords": [
-      "controlled friction",
-      "temporary safety",
-      "coding assistant",
-      "internal documents",
-      "internal document",
-      "business insider",
-      "amazon's ai",
-      "the amazon",
-      "an amazon",
-      "on march"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/amazon-tightens-code-controls-after-outages-including-one-ai-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b0757c82b35e2c04dd74a7?width=1200&format=jpeg",
-    "created_at": "2026-03-11T01:05:51.250Z",
-    "topic": "finance"
   }
 ]
