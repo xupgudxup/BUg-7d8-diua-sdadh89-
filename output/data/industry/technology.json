@@ -1,5 +1,29 @@
 [
   {
+    "slug": "understanding-flocks-testing-and-development-program",
+    "title": "Understanding Flock's Testing and Development Program",
+    "description": "This article explains how Flock tests its technology in real-world environments, strengthens search safeguards, and addresses recent privacy questions about its development practices.",
+    "fullText": "Why Flock needs to have live testing partners:\n\nWe are constantly refining our machine learning to ensure we can accurately identify license plates and objects. Here’s a concrete example: when the Tesla Cybertruck came out, we had to build a whole new ML algorithm to identify it. Nothing had been seen like that before. This requires testing and training the models in real-world conditions.\n\nSimilarly, we have instituted a content moderation policy across one of our search features, FreeForm Search. FreeForm allows law enforcement to search for the objective evidence they need to solve a case in plain terms. LPR cameras can use Vehicle FreeForm, allowing police to search for things like “blue car spray-painted with yellow graffiti”. Video cameras have additional FreeForm capabilities that allow officers to search for characteristics on people, like “man wearing a cowboy hat”. *Note: LPR cameras never allow People FreeForm.\n\nWe have also designed and implemented a moderation policy to ensure First Amendment protections are baked in: freedom of speech, religion, and assembly.\n\nSome specific guardrails instituted in the moderation policy are:\n\nThe latter requires a complicated training protocol to ensure the moderation policy works as designed. For example, some vehicle bumper stickers contain words and symbols indicating religious affiliations or nationalities, and the moderation policy needs to recognize, flag, and block these searches.\n\nJust like vehicle identification, these algorithms need to be trained in the real world using real-life examples. Those might be training and demo searches for things like “Cross bumper sticker”, “Star of David,” or “Japanese flag”. These searches, if performed, should not return results.\n\nThis is the same principle behind testing in cybersecurity: you simulate the attack to prove the defense holds. If we don't test whether an antisemitic slur gets blocked, we can't guarantee it will be blocked when it matters.\n\nIn Dunwoody, a Flock employee performed a demo of this content moderation policy by searching for both “Star of David”, which our search moderation tool blocked, and “Cowboy hat,” which the search moderation tool allowed. The test logs from Dunwoody reflect exactly this. Authorized content moderation testing, conducted to verify that the system catches what it's supposed to catch.\n\nSimilarly, one of the benefits communities most value about Flock technology is the ability for law enforcement to directly access privately owned cameras, if and only if the organization allows them to, for crime-solving and security purposes. This is also a feature that must be tested and demoed, both to ensure we get everything right on the technical side and so other agencies and businesses understand how the sharing works.\n\nOur testing and demo partners provide us permission to demo these sharing connections.\n\nFair questions have been asked about conducting demos on cameras in sensitive locations when doing this very critical testing in the real-world. Last week, in the City of Dunwoody, questions were raised about a demo conducted as part of authorized activity approved under the city's demo partner agreement, on cameras at a local Jewish Community Center.\n\nAlthough the camera was only viewed once during a routine demo, we understand that this is a sensitive location for many. We have therefore determined that employees will be trained to only conduct demos in more public locations, like retail parking lots.\n\nWe take every concern about how our technology is used seriously, even when the underlying claims are wrong. That's why every search in the Flock system is permanently logged and auditable, data is deleted after 30 days by default, and local agencies - not Flock - control who can access their data.\n\nA full overview of our compliance tools is available at flock.com/trust.\n\nAccusing someone of spying on children is not a policy disagreement; it is a life-altering allegation. Claims of inappropriate conduct by our employees are false. The employees being named online are well-intentioned employees who accessed a camera network with the city's explicit permission, as part of their job. They are now being called predators for it.\n\nWhen false accusations this serious are used to win a political argument, real people pay the price, and transparent tools that actually solve crime get replaced with either no tools or less transparent technology.\n\nWe will continue to be transparent about how our technology works, how it's tested, and how it's governed, rather than letting false narratives go unchallenged. Safety is a fundamental right for every community.\n\nDiscover how communities across the country are using Flock to reduce crime and build safer neighborhoods.",
+    "readingTime": 4,
+    "keywords": [
+      "lpr cameras",
+      "law enforcement",
+      "cowboy hat",
+      "content moderation",
+      "moderation tool",
+      "moderation policy",
+      "search moderation",
+      "star of david",
+      "demo",
+      "testing"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.flocksafety.com/blog/understanding-flocks-testing-and-development-program",
+    "thumbnail_url": "https://cdn.prod.website-files.com/6823a65a40e8919f48f55a9d/69e1723e223612ca3779b6c7_AdobeStock_304615810.jpeg",
+    "created_at": "2026-04-18T06:56:10.234Z",
+    "topic": "tech"
+  },
+  {
     "slug": "china-offers-vietnam-railway-loans-technology-shows-off-its-highspeed-rail",
     "title": "China offers Vietnam railway loans, technology; shows off its high-speed rail",
     "description": "China offered to boost ties with Vietnam on rail infrastructure, from loans and technology to training, as its neighbour's top leader, To Lam, wound up a visit",
@@ -1914,29 +1938,5 @@
     "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/io7.NKV8CSLU/v2/1200x800.jpg",
     "created_at": "2026-03-15T12:30:07.884Z",
     "topic": "tech"
-  },
-  {
-    "slug": "zelenskiy-says-ukraine-wants-money-technology-in-return-for-middle-east-drone-help",
-    "title": "Zelenskiy says Ukraine wants money, technology in return for Middle East drone help",
-    "description": "KYIV, March 15 (Reuters) - Ukraine wants money and technology in return for helping Middle Eastern nations that have sought its expertise as they defend against Iranian kamikaze drones, ‌President Vol...",
-    "fullText": "KYIV, March 15 (Reuters) - Ukraine wants money and technology in return for helping Middle Eastern nations that have sought its expertise as they defend against Iranian kamikaze drones, ‌President Volodymyr Zelenskiy said, after Kyiv sent specialists to the region.\n\nZelenskiy told reporters that three teams were ‌sent to the Middle East to conduct expert assessments and demonstrate how drone defences should operate. Earlier this week he said teams were ​sent to Qatar, the United Arab Emirates and Saudi Arabia, as well as a U.S. military base in Jordan.\n\n\"This is not about being involved in operations. We are not at war with Iran,\" Zelenskiy said.\n\nHe said that more fundamental, long-term drone deals could be negotiated with Gulf countries and what Ukraine will get in return for the assistance still needed to ‌be discussed.\n\n\"For us today, both the technology ⁠and the funding are important,\" Zelenskiy said.\n\nGulf states have expended large quantities of air-defence missiles to counter Iran’s Shahed drones. Kyiv downs Russian drones every night using an array of ⁠weaponry including cheaper,smaller drones or jamming equipment.\n\nZelenskiy has said that the U.S. as well as countries from Europe, the Middle East and Africa has sought help from Ukraine on how to counter these attacks.\n\nHowever, U.S. President Donald Trump has said the U.S. ​does not ​need Ukraine's help with downing drones.\n\nZelenskiy said that he did ​not know why Washington had not signed a ‌major drone deal which Kyiv has pushed for months, and that he was unsure whether it would be agreed at all.\n\n\"I wanted to sign a deal worth about 35–50 billion dollars,\" he said.\n\nHe also hit out at some Ukrainian companies and foreign governments, which he did not name, who he said had sought to do deals for anti-drone equipment without approval from Kyiv.\n\nZelenskiy raised concerns about the effect of a protracted Middle Eastern conflict on Ukraine's ‌own supplies of air defence missiles.\n\n\"We would very much not like ​the United States to step away from the issue of Ukraine because ​of the Middle East,\" he told reporters.\n\nThe latest ​round of peace talks between Moscow, Kyiv and Washington, which had been due to take ‌place in the UAE, was postponed after U.S. ​and Israeli airstrikes on Iran triggered ​a war in the region two weeks ago.\n\nZelenskiy said Washington had suggested meeting in the U.S. for talks next week, but that the Russian side did not want to meet there.\n\n\"Either they will change the ​country where we meet, or the ‌Russians must confirm (a meeting in) the U.S.,\" he said.\n\nOn the battlefield, Zelenskiy said Ukraine's military believed a ​Russian spring offensive had \"already failed,\" as Moscow had planned for it to be fully underway already.\n\n(Reporting ​by Max Hunder and Yuliia Dysa; Editing by Elaine Hardcastle)",
-    "readingTime": 3,
-    "keywords": [
-      "middle eastern",
-      "middle east",
-      "drones",
-      "sought",
-      "drone",
-      "russian",
-      "ukraine's",
-      "zelenskiy",
-      "technology",
-      "return"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.yahoo.com/news/articles/zelenskiy-says-ukraine-wants-money-085216517.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/0fe083d8e124e7f538a67c921d982d9c",
-    "created_at": "2026-03-15T12:30:02.595Z",
-    "topic": "news"
   }
 ]
