@@ -1,5 +1,29 @@
 [
   {
+    "slug": "linux-71-crypto-code-rework-enables-more-optimizations-by-default",
+    "title": "Linux 7.1 Crypto Code Rework Enables More Optimizations by Default",
+    "description": "Linux libcrypto cryptography subsystem changes for the v7.1 kernel are enabling more optimizations by default and in turn helping to achieve better crypto/hashing performance on this next kernel version.",
+    "fullText": "Linux 7.1 Crypto Code Rework Enables More Optimizations By Default\n\nLinux libcrypto cryptography subsystem changes for the v7.1 kernel are enabling more optimizations by default and in turn helping to achieve better crypto/hashing performance on this next kernel version.\r\nThe crypto pull this week from Eric Biggers of Google migrates more hashing algorithms from the traditional crypto subsystem to the new designated area of lib/crypto/ within the Linux kernel source tree. This simplifies the implementations, helps achieve better performance, and opens the door to more simplifications and code cleaning.\r\nAES CBC-based MACs (AES-CMAC, AES-XCBC-MAC, and AES-CBC-MAC) and GHASH are now seeing optimizations enabled by default. This isn't simply moving existing code over to lib/crypto/ but making integration enhancements along the way.\r\nThe libcrypto code in Linux 7.1 also now optimizes SHA-256 performance on Zhaoxin CPUs via the Padlock Hash Engine, dropping some old and not too useful MD5 implementations, and other changes. More details for those interested via this Git merge.\n\n Add A Comment",
+    "readingTime": 1,
+    "keywords": [
+      "linux",
+      "code",
+      "crypto",
+      "optimizations",
+      "default",
+      "kernel",
+      "performance",
+      "libcrypto",
+      "subsystem",
+      "achieve"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://www.phoronix.com/news/Linux-7.1-Crypto",
+    "thumbnail_url": "https://www.phoronix.net/image.php?id=2023&image=intel_microcode_valentine",
+    "created_at": "2026-04-18T01:19:59.293Z",
+    "topic": "finance"
+  },
+  {
     "slug": "what-are-stablecoins-used-for-today-estimating-the-distribution-of-stablecoins",
     "title": "What Are Stablecoins Used for Today? Estimating the Distribution of Stablecoins",
     "description": "Uncovering where stablecoins are held and how they are used in the financial ecosystem provides three key insights: stablecoins are rarely used for payments, stablecoin infrastructure lacks interoperability, and the stablecoin ecosystem is still predominantly tied to crypto finance.",
@@ -2007,23 +2031,6 @@
     "link": "https://www.businessinsider.com/stocks-to-buy-ai-crypto-bitcoin-data-centers-high-upside-2026-2",
     "thumbnail_url": "https://i.insider.com/698ce888d3c7faef0ece1a42?width=1200&format=jpeg",
     "created_at": "2026-02-12T18:47:35.189Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "bullish-ceo-sees-consolidation-for-bitcoin-in-2026",
-    "title": "Bullish CEO Sees Consolidation for Bitcoin in 2026",
-    "description": "Bullish CEO Tom Farley says 2026 will be a year of consolidation for crypto assets. He tells Bloomberg about his outlook for Bitcoin amid the recent slump. He speaks from the sidelines of \"Consensus Hong Kong\" with Bloomberg's Annabelle Droulers.",
-    "fullText": "Bullish CEO Sees Consolidation for Bitcoin in 2026 BloombergMST BTC-USD Bullish CEO Tom Farley says 2026 will be a year of consolidation for crypto assets. He tells Bloomberg about his outlook for Bitcoin amid the recent slump. He speaks from the sidelines of \"Consensus Hong Kong\" with Bloomberg's Annabelle Droulers.",
-    "readingTime": 1,
-    "keywords": [
-      "bullish ceo",
-      "bitcoin",
-      "consolidation"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://finance.yahoo.com/video/bullish-ceo-sees-consolidation-bitcoin-043415332.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/IgtiWEYS9xefxM7KF7YQDQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/bloomberg_markets_video_2/1135a3086df6389af0bf08b24489c645",
-    "created_at": "2026-02-11T18:49:29.987Z",
     "topic": "finance"
   }
 ]
