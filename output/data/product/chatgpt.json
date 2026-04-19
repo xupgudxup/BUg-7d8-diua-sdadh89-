@@ -1,5 +1,29 @@
 [
   {
+    "slug": "claudecodexproxy-use-claude-code-with-chatgpt-subscription",
+    "title": "Claude-codex-proxy – Use Claude Code with ChatGPT subscription",
+    "description": "Use Claude Code with your ChatGPT subscription via a local Anthropic-compatible proxy - raine/claude-codex-proxy",
+    "fullText": "claude-codex-proxy lets you use\nClaude Code with your ChatGPT Plus or\nPro subscription.\n\nQuick start · How it works ·\nConfiguration · Limitations\n\nI feel Claude Code is still the best harness around, despite occasional\nfrustrations caused by updates. However, Anthropic keeps tightening the usage\nlimits, while OpenAI is still much more generous.\n\nIf you want to use OpenAI plans, your best options seem to be OpenCode and\nCodex. I tried OpenCode, but the UX has many rough edges, especially around\nskills feeling like a second-class feature. Fortunately it's open source and I\nended up forking it and applying some patches, but would much rather not do it.\n\nInstall script (macOS and Linux):\n\nManual: download a prebuilt binary for your platform from the\nreleases page.\n\nOr, on a headless machine (device code flow):\n\nEither command prints a URL. Sign in with your ChatGPT Plus/Pro account. On\nmacOS, credentials are stored in Keychain. On other platforms, they are stored\nlocally for reuse by the proxy.\n\nDefaults to http://127.0.0.1:18765 (loopback only). Override with\nPORT=11435 claude-codex-proxy serve.\n\nOr set it persistently in ~/.claude/settings.json:\n\nSet ANTHROPIC_MODEL to a model your ChatGPT subscription is allowed to use.\nConfirmed working on Plus:\n\nAlso verified working on this project:\n\nThe proxy also accepts a small set of convenience aliases and resolves them\nbefore calling the upstream Codex backend:\n\nThese aliases are only shorthand for portability and cheaper subagent configs;\nthey are not semantic equivalents of the Claude models they resemble.\n\nIf the resolved model isn't supported by your account, upstream returns a 400\nlike\n\"The 'gpt-4.1' model is not supported when using Codex with a ChatGPT account.\".\nThe proxy surfaces that verbatim.\n\nFor example, you can now point Claude Code or a subagent at the proxy with:\n\nand the proxy will send gpt-5.4-mini upstream.\n\nStarts the HTTP proxy and blocks. Binds to 127.0.0.1 only. Logs to\n$XDG_STATE_HOME/claude-codex-proxy/proxy.log (rotated at 20 MiB). Set\nCCP_LOG_STDERR=1 to mirror log lines to stderr while running.\n\nPrints the exact ANTHROPIC_BASE_URL / ANTHROPIC_MODEL env vars to export on\nstartup. Refuses to start traffic until auth login (or auth device) has\nstored a token.\n\nRuns the PKCE browser flow against auth.openai.com using the Codex CLI's\nclient ID. Prints a URL, opens a local callback listener on port 1455, waits for\nthe browser to redirect back, and stores the resulting access / refresh tokens\nin Keychain on macOS or locally on other platforms. The process exits\nautomatically once the tokens are saved.\n\nSign in with your ChatGPT Plus/Pro account, not an OpenAI API account. The\ntoken file includes the extracted chatgpt_account_id so the proxy can set the\nChatGPT-Account-Id header on every upstream call.\n\nSame OAuth flow, but for headless machines. Prints a short user code and a URL;\nyou enter the code from any browser on any other device, and the CLI polls\nauth.openai.com until you authorize, then stores the token.\n\nUseful over SSH, inside a container, or on any host that can't open a browser.\n\nShows whether credentials are stored, the account ID, and how long until the\naccess token expires. Non-zero exit if no auth is present.\n\nThe proxy refreshes the access token 5 minutes before expiry with a\nsingle-flight guard, so concurrent requests never trigger stampedes of refresh\ncalls.\n\nRemoves stored auth credentials. On macOS this deletes the Keychain entry. No\nserver call is needed; the refresh token just becomes dead.\n\nRun auth login again to re-authenticate.\n\nThe proxy speaks enough of the Anthropic API for Claude Code:\n\nSettings are environment variables on the proxy process, not a config file.\n\nInstall a compiled dev build globally: compile the current working tree to a\nbinary and place it on your PATH without linking:",
+    "readingTime": 4,
+    "keywords": [
+      "prints url",
+      "plus/pro account",
+      "auth login",
+      "access token",
+      "claude code",
+      "chatgpt plus/pro",
+      "proxy",
+      "stored",
+      "macos",
+      "upstream"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/raine/claude-codex-proxy",
+    "thumbnail_url": "https://opengraph.githubassets.com/c71f5af4b4638dcf4abd6663256aa6e2c1ff4ac56f882f9ea3903eba81977864/raine/claude-codex-proxy",
+    "created_at": "2026-04-19T12:36:49.686Z",
+    "topic": "tech"
+  },
+  {
     "slug": "eustella-we-reinvent-chatgpt-for-europeans-with-openclaw-in-mind",
     "title": "Eustella: We reinvent ChatGPT for Europeans, with OpenClaw in mind",
     "description": "eustella is Europe's personal AI agent — built for smartphones, powered by open-source models, and designed to keep your data in the EU. The secure European alternative to ChatGPT.",
@@ -2133,27 +2157,5 @@
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KH26KJW3KJD43H7MWGTR35FH/hero-image.fill.size_1200x675.webp",
     "created_at": "2026-02-10T01:21:37.672Z",
     "topic": "tech"
-  },
-  {
-    "slug": "we-asked-13-risingstar-vcs-how-they-use-ai-heres-what-they-told-us",
-    "title": "We asked 13 rising-star VCs how they use AI. Here's what they told us.",
-    "description": "For up-and-coming venture capitalists, tools like ChatGPT and NotebookLM have become a core part of the job.",
-    "fullText": "These days, plenty of venture capitalists are trying to spot the next big thing in artificial intelligence. For some, the best way to do that is to use the technology themselves.\n\nFor a generation raised on Google Docs and Slack, tools like ChatGPT and Google's NotebookLM have become a core part of the job. They offer ways to learn new markets faster, spot non-obvious companies, stress-test investment theses, and turn a swamp of meetings into searchable insights.\n\nBusiness Insider asked its 2026 Rising Stars of Venture Capital honorees how they use AI in their day-to-day work — and which tools they rely on most.\n\nThe following has been edited for length and clarity.\n\nMiloni Madan Presler, partner at IVP:\n\nShruti Kumar, vice president at Tusk Ventures:\n\nSophie Beshar, vice president at Insight Partners:\n\nMeera Oak, partner at Alumni Ventures:\n\nAngèle Sahraoui, investor at Slow Ventures:\n\nManmeet Gujral, vice president at CapitalG:\n\nLexi Henkel, managing director at Maverick Ventures\n\nJames Flynn, partner at Sequoia Capital:\n\nAdil Bhatia, vice president at Redpoint Ventures:\n\nMax Abram, partner at Scale Venture Partners:\n\nSudhee Chilappagari, principal at Battery Ventures:\n\nGloria Zhang, vice president at DCM Ventures:\n\nChristine Esserman, partner at Accel:\n\nJulia Hornstein contributed to this report.",
-    "readingTime": 2,
-    "keywords": [
-      "vice president",
-      "ventures",
-      "spot",
-      "tools",
-      "partner",
-      "venture",
-      "capital",
-      "partners"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://www.businessinsider.com/how-venture-capital-investors-use-ai-chatgpt-notebooklm-2026-2",
-    "thumbnail_url": "https://i.insider.com/6984eeabd3c7faef0ecdb608?width=1200&format=jpeg",
-    "created_at": "2026-02-07T12:25:49.242Z",
-    "topic": "finance"
   }
 ]

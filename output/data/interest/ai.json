@@ -1,5 +1,186 @@
 [
   {
+    "slug": "claudecodexproxy-use-claude-code-with-chatgpt-subscription",
+    "title": "Claude-codex-proxy – Use Claude Code with ChatGPT subscription",
+    "description": "Use Claude Code with your ChatGPT subscription via a local Anthropic-compatible proxy - raine/claude-codex-proxy",
+    "fullText": "claude-codex-proxy lets you use\nClaude Code with your ChatGPT Plus or\nPro subscription.\n\nQuick start · How it works ·\nConfiguration · Limitations\n\nI feel Claude Code is still the best harness around, despite occasional\nfrustrations caused by updates. However, Anthropic keeps tightening the usage\nlimits, while OpenAI is still much more generous.\n\nIf you want to use OpenAI plans, your best options seem to be OpenCode and\nCodex. I tried OpenCode, but the UX has many rough edges, especially around\nskills feeling like a second-class feature. Fortunately it's open source and I\nended up forking it and applying some patches, but would much rather not do it.\n\nInstall script (macOS and Linux):\n\nManual: download a prebuilt binary for your platform from the\nreleases page.\n\nOr, on a headless machine (device code flow):\n\nEither command prints a URL. Sign in with your ChatGPT Plus/Pro account. On\nmacOS, credentials are stored in Keychain. On other platforms, they are stored\nlocally for reuse by the proxy.\n\nDefaults to http://127.0.0.1:18765 (loopback only). Override with\nPORT=11435 claude-codex-proxy serve.\n\nOr set it persistently in ~/.claude/settings.json:\n\nSet ANTHROPIC_MODEL to a model your ChatGPT subscription is allowed to use.\nConfirmed working on Plus:\n\nAlso verified working on this project:\n\nThe proxy also accepts a small set of convenience aliases and resolves them\nbefore calling the upstream Codex backend:\n\nThese aliases are only shorthand for portability and cheaper subagent configs;\nthey are not semantic equivalents of the Claude models they resemble.\n\nIf the resolved model isn't supported by your account, upstream returns a 400\nlike\n\"The 'gpt-4.1' model is not supported when using Codex with a ChatGPT account.\".\nThe proxy surfaces that verbatim.\n\nFor example, you can now point Claude Code or a subagent at the proxy with:\n\nand the proxy will send gpt-5.4-mini upstream.\n\nStarts the HTTP proxy and blocks. Binds to 127.0.0.1 only. Logs to\n$XDG_STATE_HOME/claude-codex-proxy/proxy.log (rotated at 20 MiB). Set\nCCP_LOG_STDERR=1 to mirror log lines to stderr while running.\n\nPrints the exact ANTHROPIC_BASE_URL / ANTHROPIC_MODEL env vars to export on\nstartup. Refuses to start traffic until auth login (or auth device) has\nstored a token.\n\nRuns the PKCE browser flow against auth.openai.com using the Codex CLI's\nclient ID. Prints a URL, opens a local callback listener on port 1455, waits for\nthe browser to redirect back, and stores the resulting access / refresh tokens\nin Keychain on macOS or locally on other platforms. The process exits\nautomatically once the tokens are saved.\n\nSign in with your ChatGPT Plus/Pro account, not an OpenAI API account. The\ntoken file includes the extracted chatgpt_account_id so the proxy can set the\nChatGPT-Account-Id header on every upstream call.\n\nSame OAuth flow, but for headless machines. Prints a short user code and a URL;\nyou enter the code from any browser on any other device, and the CLI polls\nauth.openai.com until you authorize, then stores the token.\n\nUseful over SSH, inside a container, or on any host that can't open a browser.\n\nShows whether credentials are stored, the account ID, and how long until the\naccess token expires. Non-zero exit if no auth is present.\n\nThe proxy refreshes the access token 5 minutes before expiry with a\nsingle-flight guard, so concurrent requests never trigger stampedes of refresh\ncalls.\n\nRemoves stored auth credentials. On macOS this deletes the Keychain entry. No\nserver call is needed; the refresh token just becomes dead.\n\nRun auth login again to re-authenticate.\n\nThe proxy speaks enough of the Anthropic API for Claude Code:\n\nSettings are environment variables on the proxy process, not a config file.\n\nInstall a compiled dev build globally: compile the current working tree to a\nbinary and place it on your PATH without linking:",
+    "readingTime": 4,
+    "keywords": [
+      "prints url",
+      "plus/pro account",
+      "auth login",
+      "access token",
+      "claude code",
+      "chatgpt plus/pro",
+      "proxy",
+      "stored",
+      "macos",
+      "upstream"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/raine/claude-codex-proxy",
+    "thumbnail_url": "https://opengraph.githubassets.com/c71f5af4b4638dcf4abd6663256aa6e2c1ff4ac56f882f9ea3903eba81977864/raine/claude-codex-proxy",
+    "created_at": "2026-04-19T12:36:49.686Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "atlassians-new-data-collection-policy-protects-rich-customers-while-ai-eats",
+    "title": "Atlassian's new data collection policy protects rich customers while AI eats",
+    "description": ": From August 17, the outfit will collect customer metadata by default unless you pay for the top tier",
+    "fullText": "Unless a customer pays for the most expensive enterprise license, or the law forbids it, Atlassian is going to collect their data to train its AI models. And you can't fully opt out.\n\nBeginning in August, the company will seek to collect two types of data from its 300,000 global customers: metadata and in-app data from Jira, Confluence, and its other cloud products, which will then be fed into the company's models.\n\nMetadata includes readability scores and complexity ratings for Confluence page content, task classifications assigned to content (such as \"sales work item\"), semantic similarity scores measuring how similar two Confluence pages are, and numbers entered into Atlassian-created fields – specifically story points assigned to a Jira work item, the end date of a sprint in Jira, and the Service Level Agreement of a Jira Service Management request.\n\nFor the metadata collection, lower-paying customers are on the hook no matter what. “If an Atlassian customer's highest active plan is Free, Standard, or Premium, metadata contribution is always on, and they are not able to opt out,” Arseny Tseytlin, head of product communications at Atlassian, told The Register via email. “All metadata is de-identified and aggregated before it is used to improve apps and experiences for all customers. We remove information that directly identifies individuals, such as name and email addresses.”\n\nOnce it collects the information, Atlassian says it will store it for up to seven years.\n\n“Retaining this data, which has been de-identified and aggregated at a customer level and is common across customers, enables us to make more meaningful observations over longer periods of time,” Tseytlin said. “By unlocking deeper insights into customer behavior, we’re able to drive continual improvements to (the) overall experience.”\n\nAtlassian said that the training will give its apps the ability to surface the most relevant results in response to prompts and queries, summarize relevant content more accurately and concisely, identify the best templates for creating new documents, and learn which agentic workflows and follow-up questions lead to successful completions, making multi-step tasks faster and less confusing.\n\nIn-app data would be the content created by users within the Atlassian platform such as titles and content in Confluence pages, titles, descriptions, and comments in Jira work items, custom emoji names, custom Jira or Confluence status names, and custom workflow names. The Free and Standard tiers have this data collection turned on by default but can opt out; Premium and Enterprise customers have it turned off by default.\n\nTseytlin said that some Atlassian customers are completely excluded from metadata or in‑app \"data contribution\" entirely. This includes those who use customer-managed keys, or bring your own key, Atlassian Government Cloud, or Atlassian Isolated Cloud users. He said Atlassian will also not collect metadata or in-app data from customers with HIPAA compliance requirements or from some government and financial services customers.\n\nThe plan goes into effect on August 17.\n\n“If customers were to right now terminate their contract, the new data contribution settings will not apply to them as these will not be enforced until August 17, 2026,” Tseytlin said.\n\nAfter that date, once a customer opts out of having their data collected, or deletes their Atlassian apps, Atlassian will remove the corresponding in-app data from its datasets within 30 days. He said that, within 90 days, Atlassian will re-train any models previously trained on that data. ®",
+    "readingTime": 3,
+    "keywords": [
+      "confluence pages",
+      "customers",
+      "metadata",
+      "content",
+      "customer",
+      "in-app",
+      "atlassian",
+      "collect",
+      "models",
+      "contribution"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/2026/04/18/atlassians_new_data_collection_policy/",
+    "thumbnail_url": "https://regmedia.co.uk/2026/04/17/shutterstock2.jpg",
+    "created_at": "2026-04-19T12:36:49.167Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "neofeudalism-with-good-ux-handful-of-ai-companies-became-land-we-all-work-on",
+    "title": "Neo-Feudalism With Good UX – handful of AI companies became land we all work on",
+    "description": "A handful of AI companies now control the core infrastructure for thinking, searching, writing, coding, teaching, deciding.They do not just sell tools. They become the terrain.That is where neo-feudalism starts to make sense as a frame.In old feudalism, the lord owned the land.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.gailweiner.com/post/neo-feudalism-with-good-ux-how-a-handful-of-ai-companies-became-the-land-we-all-work-on",
+    "thumbnail_url": "https://static.wixstatic.com/media/9ce583_6410cdf12f8d4a1aacabf30cf656abd4~mv2.png/v1/fill/w_1000,h_667,al_c,q_90,usm_0.66_1.00_0.01/9ce583_6410cdf12f8d4a1aacabf30cf656abd4~mv2.png",
+    "created_at": "2026-04-19T12:36:49.040Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ai-vendors-response-to-security-flaws-it-wasnt-me",
+    "title": "AI vendors' response to security flaws: It wasn't me",
+    "description": "OPINION: Passing the buck, and the blame, down the road shows lack of AI companies' maturity",
+    "fullText": "OPINION AI vendors: \"You need to use AI to fight AI threats (and do everything else in your corporate IT environment).\" Also AI vendors: \"That's not a security flaw; it's working as intended.\"\n\nThis pattern has become increasingly common as the digital hypemeisters tell businesses to use AI to do all the things, especially when it comes to detecting and blocking security issues. That is – until a security flaw exists in the AI itself, and then it's \"expected behavior\" or a \"by-design risk.\"\n\nMaybe, if we're lucky, the AI company at fault will quietly publish new security considerations in its documentation. But the root problem doesn't get fixed. In some cases – like prompt injection – the vendors can't really fix the flaw, even if they wanted to.\n\nA couple of recent examples show how this plays out.\n\nResearchers recently showed how three popular AI agents that integrate with GitHub Actions can be hijacked to steal API keys and access tokens. The three agents are Anthropic's Claude Code Security Review, Google's Gemini CLI Action, and Microsoft's GitHub Copilot, and all three vendors paid out bug bounties for the discoveries.\n\nAnthropic paid a $100 bounty, upgraded the critical severity from a 9.3 to 9.4, and updated a \"security considerations\" section in its documentation. Google paid a $1,337 reward for the finding. And GitHub, after first calling this a \"known issue\" that they \"were unable to reproduce,\" ultimately paid a $500 prize to the researchers for their disclosure.\n\nNone of the vendors assigned CVEs or published public security advisories.\n\nAnother bug-hunting team disclosed a design flaw baked into Anthropic's Model Context Protocol (MCP) that, they said, puts as many as 200,000 servers at risk of complete takeover.\n\nThey \"repeatedly\" asked Anthropic to patch the root issue, and were repeatedly told the protocol works as intended – despite 10 (so far) high- and critical-severity CVEs issued for individual open source tools and AI agents that use MCP.\n\nA root patch, the bug hunters claim, could have reduced risk across software packages totaling more than 150 million downloads and protected millions of downstream users.\n\nAnthropic's reasoning for not fixing the flaw? Expected behavior. \"This is an explicit part of how MCP stdio servers work and we believe this design does not represent a secure default,\" the AI company told the researchers.\n\nThis means that, yet again, the very messy issue of securing these complex, non-deterministic AI systems gets pushed down the line to IT shops or end users. In this case, that includes any developer using Anthropic's official MCP software development kit in their apps or open source projects, plus any company bringing this open source code and AI tools into their environment.\n\nZooming out even further for a minute: it's worth noting the total lack of US federal AI regulations over restricting AI companies. That's despite the fact that one of them (Anthropic) last week warned its latest model is so skilled at finding security flaws that it would be much too dangerous to release it to the public. It's hard to imagine any other sector in which a company could tell people \"our product puts everyone at grave risk\" and still be allowed to operate with impunity.\n\nSomething I try to impart to my kids is the idea that being mature and earning trust means taking responsibility for their choices and actions, and owning their mistakes. That includes admitting when they are wrong, fixing their mistakes when possible, and making a course correction so that they can be better next time.\n\nAll of this \"wasn't-me\" behavior from AI companies saying security is someone else's problem to solve shows a total lack of maturity – or even common decency. One only wonders how long it will be before customers reach the same conclusion. ®",
+    "readingTime": 4,
+    "keywords": [
+      "security considerations",
+      "security flaw",
+      "vendors",
+      "it's",
+      "risk",
+      "anthropic's",
+      "behavior",
+      "root",
+      "researchers",
+      "agents"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/2026/04/19/ai_vendors_response_to_security/",
+    "thumbnail_url": "https://regmedia.co.uk/2023/02/03/shutterstock_excuses.jpg",
+    "created_at": "2026-04-19T12:36:48.502Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ai-song-tops-itunes-global-charts",
+    "title": "AI song tops iTunes global charts",
+    "description": "IngaRose’s Celebrate Me has hit No. 1 on the iTunes charts, putting an AI-generated artist at the center of a huge music industry debate.",
+    "fullText": "An AI-generated artist has climbed to the top of the iTunes charts, with IngaRose’s track Celebrate Me reaching No. 1 globally.\n\nApple Music lists the single as a March 31, 2026, release under Myers Music, while chart trackers showed it sitting at No. 1 on the US & Global iTunes charts on April 17.\n\nIngaRose is not believed to be a real performer. Reporting around the account has linked the project to the recent wave of AI-generated “artists” appearing across iTunes, with Showbiz411 attributing IngaRose and other similar acts to South Carolina producer Dallas Little.\n\nThe same report also pointed to IngaRose’s Instagram bio, which says the songs use “Human-written lyrics” and are “refined using Suno,” an AI music platform.\n\nA post shared by IngaRoseMusic (@ingarosemusic)\n\nCelebrate Me is the latest flashpoint in the growing fight over AI music. While IngaRose presents itself online like a typical artist rollout, the account’s branding leans into synthetic creation rather than hiding it.\n\nApple’s listing for the single also shows Myers Music as the release label, and IngaRose’s artist page now includes a fast-growing catalog of 2026 singles.\n\nThe iTunes chart is separate from streaming-based rankings like Spotify or Billboard. Apple’s own provider support pages distinguish between Apple Music streams and iTunes Store sales, which helps explain why a song can break through quickly in download charts even without dominating streaming platforms.\n\nThat difference is a big part of why IngaRose’s rise has sparked such a strong reaction online. Social posts highlighting Celebrate Me at No. 1 quickly turned the song into a talking point far beyond music circles, with many users linking it to wider fears about AI content flooding the internet.\n\nMan used 1,000 bots to stream AI-generated songs & make millions in revenue\n\nAI Japanese metal band becomes real-life group after creator hires actual musicians to perform\n\nTikTokers mock viral AI dancing babies trend by doing it better than AI",
+    "readingTime": 2,
+    "keywords": [
+      "itunes charts",
+      "celebrate me",
+      "apple music",
+      "myers music",
+      "artist",
+      "release",
+      "songs",
+      "ingarosemusic",
+      "online",
+      "song"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.dexerto.com/entertainment/ai-generated-song-takes-1-spot-on-itunes-global-charts-3353485/",
+    "thumbnail_url": "https://www.dexerto.com/cdn-image/wp-content/uploads/2026/04/17/ingarose-ai-singer.jpg",
+    "created_at": "2026-04-19T12:36:47.946Z",
+    "topic": "entertainment"
+  },
+  {
+    "slug": "the-unsexy-side-of-robotaxis-this-av-hype-conference-showed-me-an-industry-that-wants-to-grow-up",
+    "title": "The 'unsexy' side of robotaxis: This AV hype conference showed me an industry that wants to grow up",
+    "description": "Ride AI, an autonomous vehicle hype conference, showed an industry that wants to move away from the hype and focus on scaling.",
+    "fullText": "Ride AI, an autonomous vehicle hype conference, was hosted in San Francisco, a hub for robotaxis.\n The AV industry's focus has shifted away from building the technology to building a viable business.\n Company leaders told Business Insider the question now centers on how to economically scale.\n\n What are the key challenges in scaling AVs?\n\n What role do partnerships play in AV growth?\n\n What are the future trends in robotaxis?\n\n How is Waymo leading in the AV market?\n\n How has the AV industry's focus shifted?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "industry's focus",
+      "robotaxis",
+      "shifted",
+      "business"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/robotaxi-autonomous-vehicle-industry-maturity-hype-conference-ride-ai-2026-4",
+    "thumbnail_url": "https://i.insider.com/69e19949cb96e245212af188?width=1200&format=jpeg",
+    "created_at": "2026-04-19T12:36:43.076Z",
+    "topic": "auto"
+  },
+  {
+    "slug": "they-built-an-ai-tool-that-called-20000-gas-stations-heres-their-advice-for-aspiring-engineers",
+    "title": "They built an AI tool that called 20,000 gas stations. Here's their advice for aspiring engineers.",
+    "description": "An AI researcher and his husband vibe coded a website that tracks US gas prices. Here are the tricks that turned their bots into tutors.",
+    "fullText": "A couple — including an AI researcher — recently built a website using Claude Code.\n They say their bots act as both agents and teachers. And, sometimes, the AI is a little mean.\n They recommend prompting AI to critique ideas and explain concepts step by step.\n\n How is AI used in software development?\n\n Who are Matt Cortland and John Fleming?\n\n How can AI critique be constructive?\n\n What is vibe-coding in tech projects?\n\n Why showcase tech projects publicly?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "tech projects",
+      "critique",
+      "step"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/couples-ai-vibe-coding-gas-stations-2026-4",
+    "thumbnail_url": "https://i.insider.com/69e19419cb96e245212af173?width=1200&format=jpeg",
+    "created_at": "2026-04-19T12:36:43.075Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "we-moved-to-mexico-in-our-60s-because-the-us-was-too-expensive-we-feel-younger-than-ever-and-have-started-an-ai-business",
+    "title": "We moved to Mexico in our 60s because the US was too expensive. We feel younger than ever and have started an AI business.",
+    "description": "Karen Watts Nauman and Jeff Nauman moved to Lake Chapala, Mexico because they couldn't afford life in the US. Now, they're teaching their peers AI.",
+    "fullText": "Karen Watts Nauman and Jeff Nauman moved to Mexico four years ago, citing cost-of-living concerns.\n They just launched The AI Boomers, a platform for AI courses designed for older Americans.\n Both hope to fully retire in a few years and live out their lives in Lake Chapala near Guadalajara.\n\n What sparked their interest in AI?\n\n How does AI assist older adults?\n\n How does AI impact retirement plans?\n\n Why choose Lake Chapala, Mexico?\n\n What challenges do AI Boomers face?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "nauman",
+      "older",
+      "mexico",
+      "boomers",
+      "lake",
+      "chapala"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/moved-to-mexico-retirement-ai-boomers-cost-of-living-aging-2026-4",
+    "thumbnail_url": "https://i.insider.com/69e25df1367066d7c296dfcc?width=564&format=jpeg",
+    "created_at": "2026-04-19T12:36:42.930Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "ai-hit-software-engineers-first-heres-what-they-want-you-to-know",
+    "title": "AI hit software engineers first. Here's what they want you to know.",
+    "description": "Some engineers say that AI's rapid transformation of the industry serves as a microcosm for what's to come.",
+    "fullText": "Software engineering has transformed in recent months as AI tools have begun taking over coding.\n Developers share their take on what roles and industries are vulnerable to AI disruption and change.\n AI may automate repetitive and administrative jobs, but it also may open new opportunities.\n\n How is AI reshaping coding roles?\n\n How can generalists thrive in AI era?\n\n How can workers adapt to AI changes?\n\n What industries might AI disrupt next?\n\n What's the future of specialized roles?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "roles",
+      "coding",
+      "industries"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/software-engineers-lessons-white-collar-works-ai-disruption-2026-4",
+    "thumbnail_url": "https://i.insider.com/69dd4ed84d9d0b2056492322?width=1200&format=jpeg",
+    "created_at": "2026-04-19T12:36:42.730Z",
+    "topic": "tech"
+  },
+  {
     "slug": "ai-chip-startup-cerebras-files-for-ipo",
     "title": "AI chip startup Cerebras files for IPO",
     "description": "In recent months, the company announced an agreement with Amazon Web Services to use Cerebras chips in Amazon data centers, as well as a deal with OpenAI reportedly worth more than $10 billion.",
@@ -1768,164 +1949,5 @@
     "thumbnail_url": "https://bookface-images.s3.amazonaws.com/logos/bd5ae52f220536cd8542bf0bc9ba4e97b2b64da8.png?1758588692",
     "created_at": "2026-04-16T01:28:42.881Z",
     "topic": "jobs"
-  },
-  {
-    "slug": "chatgpts-latest-stylistic-quirk-is-sinister-infuriating-and-absolutely-everywhere-stuart-heritage",
-    "title": "ChatGPT’s latest stylistic quirk is sinister, infuriating – and absolutely everywhere | Stuart Heritage",
-    "description": "Once you start noticing “it’s not X, it’s Y” as you scroll online, you can’t fail to register it. I’ve become so hypervigilant that it has seeped into my subconscious thoughts\nIf you’ve never seen Jim Carrey’s 2007 psychological thriller The Number 23, then congratulations. It is a film about a man who sees the number 23 so many times that he ends up going bonkers. I used to think this film was stupid. However, now I appear to be living it.",
-    "fullText": "Once you start noticing “it’s not X, it’s Y” as you scroll online, you can’t fail to register it. I’ve become so hypervigilant that it has seeped into my subconscious thoughts\n\nIf you’ve never seen Jim Carrey’s 2007 psychological thriller The Number 23, then congratulations. It is a film about a man who sees the number 23 so many times that he ends up going bonkers. I used to think this film was stupid. However, now I appear to be living it.\n\nMy own personal number 23 is a rhetorical device: “It’s not X, it’s Y.” Everywhere I look, there it is. Whenever I hate myself enough to scroll through Facebook’s wilderness of algorithmically suggested posts, I find myself being smacked in the face with sentences such as: “Self-improvement isn’t a trend, it’s a lifestyle shift,” and “The small wins aren’t just moments, they’re the majority of your life.” Once you notice it, it becomes impossible to ignore. This weekend during a Peloton class (I know, shut up), I heard an instructor bark a variation of “this isn’t X, it’s Y”. Yesterday, a character did the same during a TV show I was reviewing, and I dropped a star from its score in retaliation.\n\nYou know where this is coming from, don’t you? “It’s not X, it’s Y” is an AI mainstay. It’s one of ChatGPT’s most insidious tells. No matter how innocuous a prompt you enter, AI will always find a way to sneak it into its response. Ask it if you should put more ham in your pasta, and it will tell you: “Ham doesn’t just taste good – it makes everything else taste better.” Ask it if you should chase a bee around your garden and it will say: “Bees aren’t stupid – they’re hyper-specialised”.\n\n“It’s not X, it’s Y” has become such a shorthand for lazy AI slop that, as soon as I see or hear someone telling me that something isn’t something because it’s actually something else, I automatically tense up on the assumption that I’m not dealing with a human, I’m dealing with a datacentre. That might not necessarily be the case – there is a possibility every example is completely organic – but it’s a sign of the times that we can’t just relax and assume the things we see and hear were made by people.\n\nAlthough “it’s not X, it’s Y” predates ChatGPT, I cannot hear it without assuming that AI made it. A few weeks ago, I was rewatching the Mad Men episode where Don Draper pitches a watch. “It’s not a timepiece,” he says. “It’s a conversation piece.” A decade ago, I was amazed by Draper’s elegant turn of phrase. But now I can’t see it without thinking that a chatbot vomited it out between daytime scotches.\n\nThere are plenty of other linguistic gimmicks that appear to come direct from ChatGPT. Vague, soft intensifiers are one: if you ever see anything described as “quietly powerful” or “deeply transformative”, then that should set your spidey-senses tingling. ChatGPT is also known for being a bit too liberal with em-dashes. So am I, but the robots can rip them from my cold dead hands. Nevertheless, nothing haunts me quite as much as “it’s not X, it’s Y”.\n\nThis is my life now. I’ve become so hypervigilant to the construction that it has seeped into my subconscious thoughts. This isn’t a cup of tea, I say out loud to myself, it’s a precious respite. That isn’t a window, it’s a portal to a new way of thinking. This isn’t food poisoning, it’s a quietly powerful reminder not to eat raw chicken off the kitchen floor.\n\nSo now, whenever I sit down at my desk, I waste all my energy trying not to write any variation of “it’s not X, it’s Y”, because I don’t want you to think I use AI. It’s much harder than it looks. I literally used it four paragraphs ago, with the datacentre thing. It has made me even more determined to prove that I’m a human. What do I need to do? Come to your house and free-associate a column at you? Send out vials of my saliva? I’ll do whatever it takes.\n\nHopefully this won’t be for ever. AI evolves so quickly that “it’s not X, it’s Y” will soon become a thing of the past. It will probably be replaced by a new stylistic quirk, no less sinister but harder to detect. And if that doesn’t happen, you have my full permission to lock me away for my own safety. “This isn’t incarceration,” you can tell me as you slam the door. “It’s a quiet reset.”",
-    "readingTime": 4,
-    "keywords": [
-      "subconscious thoughts",
-      "it’s",
-      "isn’t",
-      "can’t",
-      "scroll",
-      "i’ve",
-      "hypervigilant",
-      "seeped",
-      "film",
-      "stupid"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/commentisfree/2026/apr/15/chatgpt-stylistic-quirk-its-not-x-its-y",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/14de9a2109ca1e9a665be9363941ae07d03ca734/275_0_2917_2333/master/2917.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctb3BpbmlvbnMucG5n&enable=upscale&s=35ca4ad5ac19e27c6508575487b09f2a",
-    "created_at": "2026-04-15T19:01:01.497Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "snap-inc-blames-ai-as-it-lays-off-1000-workers",
-    "title": "Snap Inc blames AI as it lays off 1,000 workers",
-    "description": "Cuts by Snapchat’s parent company come in response to a declining stock price and pressure from an activist investor\nSnapchat’s parent company plans to lay off 16% of its employees, around 1,000 people, citing “rapid advancements in artificial intelligence”, the social media company told staff on Wednesday in an internal memo. The staff reduction is part of a wave of tech industry layoffs in the past year, with many firms blaming AI for the cuts.\nSnap Inc’s layoffs follow demands last month from Irenic Capital Management, an activist investor whose portfolio manager wrote a letter to the Snap Inc CEO, Evan Spiegel, calling on him to reduce costs and headcount while criticizing the company’s current strategy. In Spiegel’s memo to staff, he claimed that the layoffs would move Snap towards profitability and suggested that artificial intelligence could fill the lack of human labor.\n Continue reading...",
-    "fullText": "Cuts by Snapchat’s parent company come in response to a declining stock price and pressure from an activist investor\n\nSnapchat’s parent company plans to lay off 16% of its employees, around 1,000 people, citing “rapid advancements in artificial intelligence”, the social media company told staff on Wednesday in an internal memo. The staff reduction is part of a wave of tech industry layoffs in the past year, with many firms blaming AI for the cuts.\n\nSnap Inc’s layoffs follow demands last month from Irenic Capital Management, an activist investor whose portfolio manager wrote a letter to the Snap Inc CEO, Evan Spiegel, calling on him to reduce costs and headcount while criticizing the company’s current strategy. In Spiegel’s memo to staff, he claimed that the layoffs would move Snap towards profitability and suggested that artificial intelligence could fill the lack of human labor.\n\n“While these changes are necessary to realize Snap’s long-term potential, we believe that rapid advancements in artificial intelligence enable our teams to reduce repetitive work, increase velocity, and better support our community, partners, and advertisers,” Spiegel wrote.\n\nSnap, which owns the photo- and video-sharing app Snapchat, joins a host of other tech companies that have carried out mass layoffs amid the AI boom. Microsoft, Amazon, Oracle, Jack Dorsey’s financial services firm Block and others have cut tens of thousands of jobs while embracing a shift towards AI tools and claiming that the technology allows for businesses to do more with less human labor.\n\nAlthough Spiegel’s memo stated that the company had already seen productivity benefits from AI, many experts and workers believe that the reality of receiving gains from implementing AI is murkier. Former workers and even pro-AI executives have also sometimes accused firms of “AI-washing” layoffs in an attempt to posture for investors and the market. Marc Andreesen, a venture capitalist and AI booster, similarly claimed recently that AI-related cuts were being used as an excuse for firms that had overstaffed.\n\nAs discontent with AI and concern over its impact on the labor market grow, however, top AI firms such as OpenAI and Anthropic have become increasingly concerned about their image problem and have mounted a political charm offensive to address AI’s potentially harmful effects on the labor market. OpenAI published a set of policy proposals earlier this month suggesting companies could move to a four-day workweek and that the government could create a public wealth fund to return profits to citizens.\n\nSnap’s stock rose around 6% in the early hours of trading on Wednesday following news of its layoffs – recovering some of its value after dropping in price over 30% in the year to date. The company, which was founded in 2011, employed about 5,200 people as of December of last year, according to regulatory filings. It had posted an additional 300 open roles, which Spiegel told staff will no longer be filled.",
-    "readingTime": 3,
-    "keywords": [
-      "snapchat’s parent",
-      "spiegel’s memo",
-      "activist investor",
-      "rapid advancements",
-      "artificial intelligence",
-      "human labor",
-      "labor market",
-      "layoffs",
-      "staff",
-      "firms"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.theguardian.com/technology/2026/apr/15/snap-inc-blames-ai-worker-layoffs",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/c484838752049103bef60e672623e102d2e1c4f1/259_0_3334_2668/master/3334.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5ab4e37dca96f15f8225a380d807629b",
-    "created_at": "2026-04-15T19:01:01.485Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "misogyny-with-a-marketing-budget-uk-ai-firm-accused-of-sexist-advert",
-    "title": "‘Misogyny with a marketing budget’: UK AI firm accused of sexist advert",
-    "description": "Narwhal Labs ad for ‘AI employee’ contains strapline: ‘She outworks everyone. And she’ll never ask for a raise’\nA British AI company that recently secured millions of pounds of investment has been accused of running a misogynistic and sexist advertising campaign.\nThe Advertising Standards Authority (ASA) has received at least seven complaints about the campaign by Narwhal Labs, which includes an advert depicting a woman next to the strapline: “She outworks everyone. And she’ll never ask for a raise.”\n Continue reading...",
-    "fullText": "Narwhal Labs ad for ‘AI employee’ contains strapline: ‘She outworks everyone. And she’ll never ask for a raise’\n\nA British AI company that recently secured millions of pounds of investment has been accused of running a misogynistic and sexist advertising campaign.\n\nThe Advertising Standards Authority (ASA) has received at least seven complaints about the campaign by Narwhal Labs, which includes an advert depicting a woman next to the strapline: “She outworks everyone. And she’ll never ask for a raise.”\n\nThe ad continues: “Meet your new AI employee. Always on, never sick and no HR required.”\n\nThis article includes content hosted on linkedin.com. We ask for your permission before anything is loaded, as the provider may be using cookies and other technologies. To view this content, click 'Allow and continue'.\n\nThe Guardian understands the complaints received by the ASA challenge whether the ads are misogynistic and are being assessed to determine whether there are grounds for further action, although a formal investigation has not been launched.\n\nThe adverts for the Bristol-based company can be found online and had been placed on large banners above the bag drop at Bristol airport, but were taken down after concerns were raised.\n\nAnother ad featuring the same woman states: “Working 9-5? She works 24/7. And she starts for free.”\n\nKate Bell, assistant general secretary of the Trades Union Congress, a federation of trade unions that collectively represents most unionised workers in England and Wales, said: “This deeply sexist advert shows the disturbing vision of the future too many of the people leading tech seem to want to embrace – one where the workers who power the economy are sidelined, with a particular impact on women.\n\n“New technology will only deliver for the country if it’s adopted in a way that benefits workers, rather than prioritising the wealth of a few men at the top. We need more workers’ voices to drive the technology that’s used in their workplaces. And we need more women in tech so the sector can benefit everyone.\n\n“It’s time to build a pro-worker AI strategy that puts dignity and decency at the heart of technological change so nobody is left behind.”\n\nRebecca Horne, the head of communications and campaigns at Pregnant Then Screwed, which campaigns to end discrimination in the workplace, said: “This advert is misogyny with a marketing budget, a textbook case of sexist labour stereotypes dressed up as ‘innovation’.\n\n“It pushes the toxic idea that the ideal worker is a woman who is endlessly available, compliant, unpaid and without needs. It exposes how deeply sexism is baked into our workplaces and now into our technology.\n\n“When you sell a ‘perfect worker’ as a woman who never rests or asks for more, you’re not selling progress, you’re selling the same old misogyny in a shiny new wrapper. It’s a reminder that our culture still expects women, especially mothers, to work harder for less and never complain.”\n\nAnother of the ads in the campaign features a black man with a moustache and a tagline playing on the lyrics of a Lionel Richie song. It reads: “Hello, is it leads you’re looking for? He’ll find them, call them, and follow up. While you sleep.”\n\nEarlier this month, Narwhal Labs said it had received £20m in an investment funding round, which reportedly included backing from Jonathan Swann, a former director of the specialist insurance provider CFC Underwriting. Swann has been approached for comment.\n\nThe company has developed a platform called DeepBlue OS, which uses agentic AI to handle inquiries, contacts, appointments and documents without human intervention. Agentic AI differs from generative AI platforms, such as ChatGPT, in that it acts without needing to be asked a question by a human.\n\nA statement from Narwhal Labs, which was founded in 2022 by Luke Sartain, said: “We understand the strength of feeling our campaign has generated … It was never our intention for the billboards to be perceived as misogynistic or racist, and we take that concern seriously.\n\n“Our billboards depict people from a wide range of demographics. Different genders, backgrounds, and identities … this was never about one group losing out to another. This is something far broader: humans versus machines. The impact will not be selective. It will not discriminate. And the debate it has sparked is exactly the one we need.\n\n“While governments hesitate, the technology is accelerating. When as much as 80% of white-collar work is at risk within the decade, silence is no longer a neutral position. The real question is not whether AI will replace jobs. It’s what we choose to do about it.”\n\nThe company is calling for legislation to give consumers and employees the right to know when they are interacting with AI, not a person; a requirement for businesses deploying AI at scale to invest in reskilling and redeployment for affected workers; and rules on where AI can and cannot replace human roles, particularly in care, education and public safety.\n\nA spokesperson for Bristol airport said: “The third-party company that arranges advertising at the airport removed the advert after concerns were raised regarding the content.”",
-    "readingTime": 5,
-    "keywords": [
-      "bristol airport",
-      "outworks everyone",
-      "narwhal labs",
-      "workers",
-      "campaign",
-      "advert",
-      "woman",
-      "technology",
-      "it’s",
-      "misogynistic"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/media/2026/apr/15/ai-firm-accused-sexist-advert-narwhal-labs-misogyny",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/24d1e3056491bcd2232d7e77a8a40e938909e8e2/167_0_1666_1333/master/1666.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=0db7a85c02cff23589073e5011c27884",
-    "created_at": "2026-04-15T19:01:01.484Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "this-startup-wants-to-replace-marketing-agencies-with-ai-read-the-pitch-deck-it-used-to-raise-45-million",
-    "title": "This startup wants to replace marketing agencies with AI. Read the pitch deck it used to raise $4.5 million.",
-    "description": "Uplane has a platform where brands can launch and test ad campaigns on digital channels like Meta, Google, TikTok, and LinkedIn.",
-    "fullText": "Uplane is a startup that wants to replace marketing agencies with AI.\n It just raised $4.5 million in seed funding, led by Play Ventures.\n\n What sets Uplane apart from competitors?\n\n What challenges do AI marketing tools face?\n\n How will Uplane use its seed funding?\n\n How does AI enhance ad performance?\n\n Who are Uplane's main target clients?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "seed funding",
-      "uplane",
-      "marketing"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/pitch-deck-uplane-raised-funding-to-replace-marketing-agencies-ai-2026-4",
-    "thumbnail_url": "https://i.insider.com/69ddb2efdfb2c132adcfd1cf?width=1130&format=jpeg",
-    "created_at": "2026-04-15T19:00:02.011Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-tiny-disclosure-at-the-bottom-of-openais-tax-day-post-is-all-you-need-to-read",
-    "title": "The tiny disclosure at the bottom of OpenAI's tax day post is all you need to read",
-    "description": "OpenAI reported a surge in Americans using ChatGPT for help with their taxes, but not without a disclaimer.",
-    "fullText": "OpenAI said there's been a surge in tax-related queries on ChatGPT this tax season.\n The company also issued a disclaimer about relying too heavily on the chatbot.\n Americans are increasingly using AI for help with their taxes.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/openai-chatgpt-tax-searches-increase-disclaimer-2026-4",
-    "thumbnail_url": "https://i.insider.com/69dedb2ebb50bc96d0b4d304?width=1200&format=jpeg",
-    "created_at": "2026-04-15T19:00:01.974Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "this-startup-raised-27-million-to-help-solopreneurs-with-ai-read-the-pitch-deck",
-    "title": "This startup raised $27 million to help 'solopreneurs' with AI. Read the pitch deck.",
-    "description": "Nuseir Yassin's startup, Nas.com, uses AI tools to help entrepreneurs with a range of business functions like marketing and storefront design.",
-    "fullText": "Nas Daily's Nuseir Yassin has secured $27 million for his AI platform, Nas.com.\n Nas.com helps solo entrepreneurs build online stores using AI for marketing, ads, and branding.\n Read the pitch deck it used to secure $27 million in a round led by Khosla Ventures.",
-    "readingTime": 1,
-    "keywords": [
-      "nas.com"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/nas-daily-founder-ai-storefront-startup-funding-read-pitch-deck-2026-4",
-    "thumbnail_url": "https://i.insider.com/69debaffddf31b99606d4008?width=1200&format=jpeg",
-    "created_at": "2026-04-15T19:00:01.841Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "how-ai-is-helping-businesses-save-time-and-money-amid-tariff-chaos",
-    "title": "How AI is helping businesses save time and money amid tariff chaos",
-    "description": "Generative AI aids US importers with tariff refunds and scenario planning. KPMG and EQI use AI tools to navigate trade compliance and optimize costs.",
-    "fullText": "Tariff fluctuations over the last year have added a new level of complexity for importers.\n Companies are using generative AI to complete the time-consuming tariff refund process.\n Generative AI can also save weeks of time on complex scenario planning for sourcing materials.",
-    "readingTime": 1,
-    "keywords": [
-      "tariff",
-      "generative"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/ai-helps-us-businesses-manage-supreme-court-tariff-impacts-2026-4",
-    "thumbnail_url": "https://i.insider.com/69de9289bb50bc96d0b4d1a1?width=1200&format=jpeg",
-    "created_at": "2026-04-15T19:00:01.496Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "allbirds-stock-sees-wild-surge-of-more-than-875-on-pivot-from-sneakers-to-ai",
-    "title": "Allbirds stock sees wild surge of more than 875% on pivot from sneakers to AI",
-    "description": "Allbirds stock rocketed higher on Wednesday after announcing plans to become an AI infrastructure company, rebranding itself as NewBird AI.",
-    "fullText": "Allbirds is trading shoes for GPUs and the stock is soaring.\n The sneaker company announced it's pivoting to AI, rebranding itself as NewBird AI.\n The company will focus on providing GPU compute-as-a-service.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/allbirds-stock-price-ai-newbird-gpus-compute-gpuaas-bird-shoes-2026-4",
-    "thumbnail_url": "https://i.insider.com/69df944f55edb86c69eccb99?width=1200&format=jpeg",
-    "created_at": "2026-04-15T19:00:01.464Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ai-in-action-how-companies-are-applying-ai-innovations",
-    "title": "AI in Action: How companies are applying AI innovations",
-    "description": "AI is now a key business consideration. BI's series AI in Action explores how company leaders create infrastructure and culture to drive AI adoption.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/ai-in-action-company-workforce-strategies",
-    "thumbnail_url": "https://i.insider.com/69dfc46516ad6f0000dc4c4e?width=1200&format=jpeg",
-    "created_at": "2026-04-15T19:00:01.318Z",
-    "topic": "finance"
   }
 ]
