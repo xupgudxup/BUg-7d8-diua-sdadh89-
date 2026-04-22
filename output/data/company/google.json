@@ -1,5 +1,29 @@
 [
   {
+    "slug": "spanner-omni-a-downloadable-version-of-google-spanner",
+    "title": "Spanner Omni, a downloadable version of Google Spanner",
+    "description": "Downloadable edition of Google Spanner that allows organizations to run apps in their own data centers, across clouds or even at the edge.",
+    "fullText": "Build, scale, govern, and optimize agents\n\nToday, we announced the preview of Spanner Omni, a downloadable version of Spanner, that expands its industry-leading distributed database capabilities beyond Google Cloud. This enables enterprises to run Spanner in their own data centers, across clouds, or on a laptop — bringing its virtually unlimited scalability, high availability, strong consistency, enterprise-grade security, and multi-model capabilities to AI-enabled applications wherever they operate.\n\nOver a decade ago, Google pioneered the distributed SQL market with Spanner. It offered the \"holy grail\" combination: the horizontal scalability of NoSQL with the ACID (atomicity, consistency, isolation, durability) compliance and strong consistency of a traditional relational database. Since then, Spanner has evolved into an interoperable multimodal database, incorporating SQL, graph, key-value, full-text search, vector search, and analytical processing with columnar engine. This evolution offers the capabilities needed for the AI era and promises an opportunity to simplify and consolidate customers’ workloads — an advancement that has delivered significant value to our customers.\n\nCustomers often navigate across a range of IT environments, from public cloud and hybrid cloud to air-gapped deployments. Spanner Omni meets them where they operate to address the evolving needs of modern enterprises, including:\n\nBusiness continuity: Mission-critical workloads often need truly resilient, high-availability architectures that extend beyond the edge of the cloud. These workloads need to keep running even when business conditions or world events compel changes in their cloud posture.\n\nRegulatory compliance: Customers in highly-regulated industries, like financial services, must meet regulatory requirements like data sovereignty. While many still maintain large on-premises footprints to stay compliant, they’re eager to modernize for the agentic era.\n\nApplication portability: For SaaS providers and other independent software vendors (ISVs), growth depends on meeting customers wherever they are — whether in different clouds or a private data center. They want a consistent technology stack across those environments to minimize development and operational overhead without having to compromise on advanced features for innovation.\n\nSpanner Omni delivers the same core capabilities as our fully-managed Spanner service, with the added freedom to deploy it wherever needed. It provides flexible configuration options ranging from virtual machines (VMs) and Linux containers to Kubernetes clusters. Customers can also run Spanner Omni in a wide range of configurations — on-premises, multicloud, multi-region and hybrid (within reasonable latency topologies), air-gapped, or connected — scaling from a single machine to clusters of thousands of servers. Our internal benchmark tests confirm that Spanner Omni processes millions of queries per second (QPS) across petabytes of data in a single regional deployment.\n\nSpanner Omni opens the door to new possibilities. Through our work with early adopters, we have observed three popular architectures for deploying Spanner Omni:\n\nHybrid and multicloud resilience: Customers are running their Spanner managed service in Google Cloud as their primary database while deploying Spanner Omni in a secondary cloud or on-premises data center as a hot-cold failover site. This primary-secondary architecture provides a critical safety net and helps organizations meet disaster recovery and business continuity requirements, especially in regulated industries. Our customers can also deploy multi-regional HA in jurisdictions where Google Cloud only has one data center, but data sovereignty is a requirement.\n\nUnified tech stack across environments: For organizations with a multicloud or hybrid strategy, Spanner Omni provides a \"write once, run anywhere\" application building experience across environments. By standardizing on a single database layer, teams can drastically reduce their operational overhead and achieve true application portability across any environment, while tapping into cutting-edge database technologies.\n\nOn-premises modernization: Organizations with substantial on-premises commitment or preference to self-manage are no longer locked out of cloud-native innovation. With Spanner Omni, they can build or rewrite next-generation AI applications with Spanner’s multi-model capabilities on existing hardware infrastructure using Spanner’s innovative technology to achieve scale insurance, high availability, global consistency, and much more.\n\nOur vision is simple: If you have compute and a database-grade local file system, you should be able to run Spanner Omni. To make this a reality, we have made a series of innovations to remove Spanner’s dependency on Google. We took the core technologies of Spanner, such as the Paxos consensus, automatic sharding, synchronous replication, and replaced Google-dependent components like Colossus and TrueTime with new creative and innovative solutions.\n\nFor distributed storage everywhere, Spanner Omni replaces Spanner’s reliance on Colossus, Google’s distributed file system, by introducing a \"Colossus-like\" abstraction layer. This layer writes to attached local file systems and makes them available across the network to other nodes. The software automatically handles shard splitting and rebalancing to balance storage across all available servers to ensure peak performance. While Spanner Omni’s file layer isn’t Colossus, it’s a sufficient stand-in to allow Spanner Omni to perform comparably to the Spanner managed service for most workloads.\n\nWe also reimagined TrueTime, one of Spanner’s most well known technologies, which uses atomic clocks and GPS to synchronize time globally. For Spanner Omni, we developed a software-based TrueTime alternative, which — like TrueTime in Google Cloud — provides highly reliable, error-bounded time synchronization across servers in a Spanner Omni deployment. While Spanner depends on time synchronization to achieve strong external consistency, its ability to overlap time uncertainty waits with other database work allows Spanner to tolerate weaker uncertainty bounds than TrueTime provides in practice. TrueTime uses this flexibility to provide timekeeping across diverse and heterogeneous environments without limiting Spanner’s availability or performance.\n\nSpanner Omni’s developer edition is available today in preview (download). This edition includes Spanner’s core capabilities — suited for developing and testing in non-commercial, non-production environments. While it excludes enterprise security features, it’s the ideal sandbox for your next project. For early access to the commercial edition with full features, please reach out to us at https://cloud.google.com/consulting/spanner-omni",
+    "readingTime": 5,
+    "keywords": [
+      "spanner omni",
+      "operational overhead",
+      "business continuity",
+      "application portability",
+      "managed service",
+      "file system",
+      "deploying spanner",
+      "multi-model capabilities",
+      "core capabilities",
+      "stack across"
+    ],
+    "qualityScore": 1,
+    "link": "https://cloud.google.com/blog/products/databases/introducing-spanner-omni",
+    "thumbnail_url": "https://storage.googleapis.com/gweb-cloudblog-publish/images/GCN26_102_BlogHeader_2436x1200_Opt_17_Dark.max-2500x2500.jpg",
+    "created_at": "2026-04-22T18:58:14.892Z",
+    "topic": "tech"
+  },
+  {
     "slug": "google-claims-to-have-all-the-answers-for-enterprise-ai-agent-sprawl",
     "title": "Google claims to have all the answers for enterprise AI agent sprawl",
     "description": "Google Cloud Next: As biz agentic bot-wrangling intensifies, company says AI orchestration, security and infrastructure tools on the way",
@@ -1942,19 +1966,6 @@
     "link": "https://www.businessinsider.com/google-department-defense-military-contract-ai-deepmind-national-security-deals-2026-3",
     "thumbnail_url": "https://i.insider.com/69bbe91f75bee4e0ee55defe?width=1200&format=jpeg",
     "created_at": "2026-03-19T18:42:27.345Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "i-got-a-job-at-amazon-but-kept-interviewing-at-other-maang-companies-heres-why-i-left-for-google",
-    "title": "I got a job at Amazon, but kept interviewing at other MAANG companies. Here's why I left for Google.",
-    "description": "A tech worker explains how he landed interviews at Meta, Apple, and Netflix, joined Amazon, and later moved to Google.",
-    "fullText": "Ganesh Karthik Sankar interviewed at all five MAANG companies during his job search.\n He accepted an offer at Amazon but kept interviewing, later joining Google.\n His top advice: position yourself as an expert in a specific niche.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/big-tech-interviews-apple-meta-netflix-amazon-google-job-search-2026-3",
-    "thumbnail_url": "https://i.insider.com/69bad19ad387710cb9e45e02?width=1200&format=jpeg",
-    "created_at": "2026-03-19T12:38:20.133Z",
     "topic": "finance"
   }
 ]
