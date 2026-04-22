@@ -1,5 +1,375 @@
 [
   {
+    "slug": "chatpy-a-python-port-of-vercels-chat-sdk",
+    "title": "Chat-py: A Python port of Vercel's chat SDK",
+    "description": "Python port for Chat SDK by https://desplega.sh. Contribute to desplega-ai/chat-py development by creating an account on GitHub.",
+    "fullText": "Unified chat SDK for Python — build bots across Slack, Microsoft Teams, Google Chat, Discord, Telegram, GitHub, Linear, and WhatsApp. Write your bot logic once, deploy everywhere. A Python port of vercel/chat.\n\nVercel's chat SDK is, in our view, the cleanest model for writing cross-platform chat bots we've seen: an mdast-based markdown core, platform-agnostic cards/modals/streaming, lockable thread handlers, and a \"bot ergonomics first\" API. It lands in TypeScript.\n\nA lot of modern agent and backend work — LangGraph, DSPy, CrewAI, FastAPI services, data pipelines, internal tools — lives in Python. Rather than ask Python teams to stand up a TypeScript sidecar, chat-py mirrors the Chat SDK's API surface 1:1 so that:\n\nchat-py is maintained by Desplega Labs as an independent port — not affiliated with Vercel. We track upstream closely and contribute fixes back where relevant.\n\nA chat-py bot needs three pieces: the core SDK (chat-py), at least one platform adapter (chat-py-adapter-<slack|teams|…>), and exactly one state adapter (chat-py-adapter-state-<memory|redis|ioredis|pg>). The state adapter is not optional — it's where thread subscriptions, lock tokens, and dedupe/cache data live. Use state-memory for local development and one of the persistent backends in production.\n\nSee the Getting Started guide for a full walkthrough and the examples/ directory for runnable projects.\n\nPer-adapter scripts that boot a FastAPI webhook server and drive the real provider API live under examples/e2e/ (one file per scenario). These are not pytest tests — they're meant for local smoke / pre-release verification. Each script's docstring lists the env vars it needs; the script exits early with a clear message if any are missing.\n\nFull instructions (including how to write new scenarios) in examples/e2e/README.md.\n\n¹ Two known gaps raise at import/call time: the Graph API conversation reader and certificate-based auth. See CHANGELOG.md.\n² v0.1.0 ships placeholder stubs for Telegram (DES-182) and WhatsApp (DES-183) — import is safe but no adapter logic yet. The package surface and README describe the planned feature set.\n\nchat-py aims for 1:1 behavioral parity with upstream. Concretely:\n\nDifferences from upstream that can't be avoided:\n\nSee docs/parity.md for the full upstream-to-Python mapping.\n\nFull contributor guide: CONTRIBUTING.md. Agent-assisted contributions: CLAUDE.md.\n\nSee the upstream changelog for what lands next.\n\nchat-py is a port of vercel/chat. Thanks to the Vercel chat team for open-sourcing an API worth porting. All architectural credit belongs upstream; any bugs in the Python translation belong to us.",
+    "readingTime": 2,
+    "keywords": [
+      "chat sdk",
+      "chat-py",
+      "upstream",
+      "adapter",
+      "port",
+      "bots",
+      "teams",
+      "telegram",
+      "whatsapp",
+      "logic"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/desplega-ai/chat-py",
+    "thumbnail_url": "https://opengraph.githubassets.com/1bee15103d8133f4f95c2ccdeaf0c5bf3b2cc40b8be7ce33cd979013aa4f9473/desplega-ai/chat-py",
+    "created_at": "2026-04-22T13:00:41.629Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "sift-save-ai-tokens-in-codexclaude-by-summarizing-command-output",
+    "title": "Sift – save AI tokens in Codex/Claude by summarizing command output",
+    "description": "Contribute to panpeter/sift-skill development by creating an account on GitHub.",
+    "fullText": "Sift is a small skill for summarizing noisy shell command output before it gets pulled into the main agent thread.\n\nIt is useful for commands like:\n\nLarge command output is often low value:\n\nSift runs the command, captures the full output, and returns only a compact summary.\n\nConservative estimate for command-heavy multi-turn sessions: about 45% lower total token cost.\n\nThis number comes from a real Codex session where:\n\nThis estimate is mainly for noisy build/test/debug workflows. If your commands are already short, the benefit will be smaller.\n\nSift is a simple helper around nested agent calls.\n\nRun ./sift/scripts/sift.sh --help for the full list.",
+    "readingTime": 1,
+    "keywords": [
+      "command output",
+      "sift",
+      "noisy",
+      "agent",
+      "commands",
+      "estimate"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://github.com/panpeter/sift-skill",
+    "thumbnail_url": "https://opengraph.githubassets.com/775daf764ebbf372264a8552c453f66ef695d561038b762f33afc8cd96b715f3/panpeter/sift-skill",
+    "created_at": "2026-04-22T13:00:41.382Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "alby-ai-transport",
+    "title": "Alby AI Transport",
+    "description": "A drop-in infrastructure layer for resilient, AI UX. Get realtime state sync, resumable streams, multi-device continuity, live steering, and more – LLM-agnostic and future-proof.",
+    "fullText": "Ably AI Transport brings realtime continuity and control to your agents. Durable, steerable, multi-device experiences – without rebuilding your whole stack.\n\nThe AI UX everyone wants to deliver, but is impossible without the right realtime transport layer.\n\nEvery device shows the same live state. No drift, no confusion, no “what screen am I on?”\n\nUsers enjoy uninterrupted replies instead of restarting every time the connection hiccups.\n\nUsers can course correct instantly rather than waiting out a long, wrong answer.\n\nMultiple agents work with the user seamlessly, without clashing responses or duplicating context.\n\nAI responds with awareness of the user's actions, not blind guesses or irrelevant steps.\n\nHumans step in smoothly with full context. No repeated questions. No starting from scratch.\n\nDrop it in once, and build freely as your AI stack evolves.\n\nAgentic applications are evolving faster than any team’s infrastructure roadmap. HTTP streaming can't hack it.\n\nAbly AI Transport gives you a realtime foundation for long-running, multi-device, stateful AI experiences. Under the hood is a global WebSocket network delivering ordered, bi-directional, low-latency state.\n\nToday’s users expect more than a chatbot. They want AI that stays in sync across tabs, devices, and moments. Ably AI Transport gives your agents realtime superpowers like collaboration, tool-calling, shared context, and durable streaming.\n\nYour AI keeps streaming even after reloads, tab crashes, or network drops. No restarts. No lost context.\n\nStart a chat on your laptop, continue on your phone; open three tabs. it all stays in perfect sync.\n\nWhen someone comes back, they instantly see the live state of the conversation.\n\nUsers can interrupt and redirect the AI mid-thought. No waiting, just steer it in the moment.\n\nInstead of waiting blindly, users see what the AI is doing: thinking, planning, calling tools.\n\nA human can jump into the same conversation thread at any time with full context preserved.\n\nMultiple agents can interact with users in the same shared context, without explicit coordination.\n\nAgents get smarter about cost: if no one’s watching, they pause or switch to a lighter mode automatically.\n\nAgents know what users are doing in the app in realtime - editing docs, changing fields, navigating – and react instantly.\n\nSwap models, frameworks, or architectures without breaking anything. The transport layer stays the same.\n\nAgents can pull exactly the data they need from your app, right when they need it – without heavy plumbing.\n\nAgents don’t have to queue behind a lead agent or orchestrator, they can contribute in the moment when it’s most useful.\n\nAbly brings observability, governance, and operational clarity to your AI experiences. Monitor conversations, enforce guardrails, and stream data into your existing pipelines. All backed by Ably’s globally trusted, enterprise-grade realtime platform.\n\nYou can see exactly what happened in every session - inspect, moderate, block, or transform messages before they reach users.\n\nStream conversational activity into Kafka, warehouses, or analytics tools so you can measure and improve your AI UX.\n\nAll the hard realtime stuff - ordering, durability, failover, security, global scale - is already solved and ready to go.\n\nWhatever models, frameworks, or runtimes you use today (or switch to tomorrow), Ably AI Transport slots straight in. No rewrites. No lock-in. No surprises.\n\nAI Transport uses Ably’s standard usage-based pricing — billed at your package rates.\n\nKeep costs predictable with transparent pricing based on what you actually use: messages, connections, and channel activity.\n\nAI Transport supports efficient streaming patterns to help reduce consumption, so you can optimize delivery without sacrificing realtime performance.\n\nPerformance isn’t an aspiration. It’s engineered into every layer of our platform, from protocol optimizations to global edge acceleration.\n\nAbly guarantees data integrity, so you don’t have to reinvent resilience in your own code. Your data arrives exactly how and when it should.\n\nService interruptions cost money and trust. That’s why Ably is fault-tolerant at every level - regionally and globally.\n\nAbly elastically scales with demand. Our platform is globally distributed and designed to maintain high availability under peak loads.",
+    "readingTime": 4,
+    "keywords": [
+      "transport layer",
+      "models frameworks",
+      "ably ai transport",
+      "shared context",
+      "realtime",
+      "agents",
+      "users",
+      "without",
+      "streaming",
+      "experiences"
+    ],
+    "qualityScore": 1,
+    "link": "https://ably.com/ai-transport",
+    "thumbnail_url": "https://images.ctfassets.net/ee3ypdtck0rk/TToncBIO4yvI91XNMdrKs/48d269fc45fa3c49ea3a079c62723a2a/product-ably-ai-transport.png?w=1200&h=637&q=80&fm=png",
+    "created_at": "2026-04-22T13:00:41.195Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "new-gaspowered-data-centers-could-emit-more-greenhouse-gas-than-nations",
+    "title": "New Gas-Powered Data Centers Could Emit More Greenhouse Gas Than Nations",
+    "description": "A WIRED review of permits for data center projects using natural gas and linked to OpenAI, Meta, Microsoft, and xAI shows they could emit more than 129 million tons of greenhouse gases per year.",
+    "fullText": "linked to just 11 data center campuses around the US have the potential to create more greenhouse gases than the country of Morocco emitted in 2024. Emissions estimates from air permit documents examined by WIRED show that these natural gas projects—which are being built to power data centers to serve some of the US’s most powerful AI companies, including OpenAI, Meta, Microsoft, and xAI—have the potential to emit more than 129 million tons of greenhouse gases per year.\n\nAs tech companies race to secure massive power deals to build out hundreds of data centers across the country, these projects represent just the tip of the iceberg when it comes to the potential climate cost of the AI boom.\n\nThe infrastructure on this list of large natural gas projects reviewed by WIRED is being developed to largely bypass the grid and provide power solely for data centers, a trend known as behind-the-meter power. As data center developers face long waits for connections to traditional utilities, and amid mounting public resistance to the possibility of higher energy bills, making their own power is becoming an increasingly popular option. These projects have either been announced or are under construction, with companies already submitting air permit application materials with state agencies.\n\nMichael Thomas, the founder of clean energy research firm Cleanview, has been tracking gas permits for data centers across the country. He calls behind-the-meter power “a crazy acceleration of emissions.”\n\n“It's almost like we thought we were on the downside of the Industrial Revolution, retiring coal and gas, and now we have a new hump where we’re going to rise,” he says. “That terrifies me in a lot of ways.”\n\nOne of the first—and most notorious—examples on this list is in Memphis, Tennessee. xAI made national headlines in 2024 after it began to set up gas turbines at its first data center campus in the city, Colossus 1, to quickly develop Grok, its AI. Community members living in the low-income Black community around the campus, concerned about air pollution, rallied to protest the turbines. (The EPA ultimately approved the use of turbines for the xAI campus last year; last month, regulators granted a permit for an xAI affiliate for the company’s second campus in Southaven, Mississippi, despite widespread community opposition. The NAACP filed suit against xAI last week, claiming the company was illegally operating the turbines.)\n\nxAI’s gas turbines also represent what could be a significant source of greenhouse gas emissions. Air permit applications for both the Colossus campus in Memphis and the nearby Colossus 2 campus in Southaven show that the turbines on each campus could generate more than 6.4 million tons of CO2 equivalents at each site per year. Combined, that’s roughly equivalent to the emissions from more than 30 average-sized natural gas plants, or enough energy to power 1.5 million homes. (xAI did not respond to a request for comment.)\n\nMicrosoft, meanwhile, is reportedly looking into purchasing power from a Chevron-backed natural gas project in West Texas. That single project, according to its permit, could emit more than 11.5 million tons of greenhouse gases each year—more than the yearly emissions of the entire country of Jamaica.",
+    "readingTime": 3,
+    "keywords": [
+      "colossus campus",
+      "greenhouse gases",
+      "centers across",
+      "air permit",
+      "natural gas",
+      "gas turbines",
+      "emissions",
+      "potential",
+      "tons",
+      "projects"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.wired.com/story/new-gas-powered-data-centers-could-emit-more-greenhouse-gases-than-entire-nations/",
+    "thumbnail_url": "https://media.wired.com/photos/69d6c15c510ba3167cd288cf/191:100/w_1280,c_limit/040826-data-center-gas-projects-emissions.jpg",
+    "created_at": "2026-04-22T13:00:40.634Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "google-claims-to-have-all-the-answers-for-enterprise-ai-agent-sprawl",
+    "title": "Google claims to have all the answers for enterprise AI agent sprawl",
+    "description": "Google Cloud Next: As biz agentic bot-wrangling intensifies, company says AI orchestration, security and infrastructure tools on the way",
+    "fullText": "Google Cloud Next Google has overhauled its enterprise AI strategy in the wake of the agentic push across the biz landscape, rebranding and expanding its Vertex AI developer platform into what it now calls the Gemini Enterprise Agent Platform.\n\nIt comes as the challenge facing businesses has shifted from building individual AI agents to managing hundreds or thousands of them at once - something Workday and others are trying to tackle too.\n\n\"The early versions of AI models were really focused on answering questions that people had and assisting them with creative tasks. Now we’re seeing as the models evolve people wanting to delegate tasks and sequences of tasks to agents,\" Google Cloud CEO Thomas Kurian told reporters during a press briefing. \"And these agents then being able to turn around and use a computer, use all of GCP and Workspace as a tool.\"\n\nTo meet the moment, Google rolled out infrastructure in the form of its eighth generation of TPU chips and security updates through its purchase of Wiz.\n\nThose announcements as well as the Gemini Enterprise Agent Platform are designed to give companies a single system for developing, deploying, governing, and monitoring AI agents across their organizations. Google says it can act as the connective layer between a company's data, its employees, and the growing fleet of autonomous agents that enterprises are beginning to rely on.\n\n\"All the pieces are designed to do this,\" Kurian said in the briefing. \"The security to protect these agents. Our data cloud to feed the agents context from within the system. Our AI infrastructure to optimize performance, scale and cost of how agents run. This year is the next evolution of where we see this AI technology going.\"\n\nHe said organizations are choosing Google Cloud because of its ability to deliver \"a comprehensive backbone for innovation\" rather than \"individual services that can be cobbled together.\"\n\nGemini Enterprise Agent Platform is organized around four pillars: build, scale, govern, and optimize. On the build side, Google introduced Agent Studio, a low-code interface for creating agents using natural language, alongside an upgraded Agent Development Kit with a new graph-based framework for orchestrating multiple agents working together, the company said during a media prebriefing.\n\nIt also provides an agent registry that gives organizations a central catalog of each internal agent and tool, the company said. Also inside the new platform is an agent marketplace that offers pre-built agents from partners including Atlassian, Oracle, ServiceNow, and Workday.\n\nThe platform includes Agent Runtime, a feature that Google says delivers sub-second cold starts and gives users the ability to provision new agents in seconds. It also supports long-running agents — autonomous processes that can operate for hours or days on complex business workflows like financial reconciliation or sales prospecting. A new Memory Bank feature gives agents persistent, long-term memory across sessions rather than starting from scratch each time, the company said.\n\nBut it is the governance capabilities that may matter most to enterprise buyers who fear that AI tools may proliferate across their organizations with limited oversight. Agent Identity assigns every agent a unique cryptographic ID with defined authorization policies, creating an auditable trail of every action, Google said. Agent Gateway, meanwhile, acts as the police for agent ecosystems, enforcing security policies and protecting against prompt injection, tool poisoning, and data leakage. An Agent Anomaly Detection system flags suspicious behavior by analyzing the intent behind agent actions, and gives users the chance to stop it before it goes rogue.\n\nThen there are the ways Google has said its tools can be used to fine-tune agents, such as Agent Simulation for stress-testing them against synthetic interactions before deployment. Agent Evaluation scores live performance, while Agent Observability dashboards trace execution paths and diagnosing problems in real time for rapid debugging, the cloud giant told reporters.\n\nGoogle said the Gemini Enterprise app — the consumer-facing side of the platform — is a place where non-technical employees can build and manage their own agents using Agent Designer.\n\nUsers can create schedule- or trigger-based agents to automate multi-step processes, while an \"Inbox in Google Enterprise gives those users a central hub for monitoring agent activity with notifications sorted into categories like \"Needs your input,\" \"Errors,\" and \"Completed.\"\n\nGoogle CEO Sundar Pichai said, based on internal adoption statistics, there is evidence of a shift toward agentic workflows. He said 75 percent of all code at Google is now AI-generated and approved by engineers, up from 50 percent last (northern hemisphere) fall. In a blog, he described a recent internal code migration completed by agents and engineers working together that \"was completed six times faster than was possible a year ago with engineers alone.\"\n\nIts tools are surging in popularity, Google claims, with nearly 75 percent of its Cloud customers using AI products, while Gemini Enterprise saw 40 percent growth in paid monthly active users quarter over quarter in Q1, and Google's first-party models now process more than 16 billion tokens per minute via direct API use, up from 10 billion the prior quarter.\n\nThere also appears to be a lot of token-maxxing among customers. Google said 330 Google Cloud customers each processed more than one trillion tokens, while 35 reached the 10-trillion-token milestone with its models.\n\nWithin the press material for the show, several large customers provided testimonials about their own Gemini deployments. GE Appliances said it has more than 800 of Google's AI agents running across manufacturing, logistics, and supply chain operations. KPMG reported 90 percent Gemini Enterprise adoption among employees with more than 100 agents deployed in the first month. Tata Steel said it deployed over 300 specialized agents in nine months. Merck announced a partnership valued at up to $1 billion to build an agentic platform across its R&D, manufacturing, and commercial functions.\n\nThe announcements land in an increasingly competitive market for enterprise AI platforms. Microsoft, Amazon Web Services, and Salesforce have all made a push into agent orchestration and management in recent months. Google's approach leans heavily on vertical integration, with the hope that designing chips, models, infrastructure, and application layers together produces better results than assembling components from different vendors.\n\nGoogle also announced a $750 million fund to support its partner ecosystem in building and deploying agentic AI, along with agreements with McKinsey, Deloitte, and other consulting firms that will receive early access to upcoming models from Google DeepMind. ®",
+    "readingTime": 6,
+    "keywords": [
+      "cloud customers",
+      "agent platform",
+      "enterprise agent",
+      "gemini enterprise",
+      "enterprise ai",
+      "google cloud",
+      "agents",
+      "across",
+      "models",
+      "agentic"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/2026/04/22/google_enterprise/",
+    "thumbnail_url": "https://regmedia.co.uk/2022/06/08/google.jpg",
+    "created_at": "2026-04-22T13:00:39.152Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ai-hallucinations-found-in-highprofile-wall-street-law-firm-filing",
+    "title": "AI hallucinations found in high-profile Wall Street law firm filing",
+    "description": "Sullivan & Cromwell apologises to New York federal judge for string of errors in documents for Prince Group...",
+    "fullText": "Sullivan & Cromwell apologises to New York federal judge for string of errors in documents for Prince Group case\n\nThe elite Wall Street law firm Sullivan & Cromwell has told a court that a major filing it made in a high-profile case contained errors resulting from hallucinations generated by artificial intelligence.\n\nAndrew Dietderich, the co-head of the firm’s global restructuring group, apologised in a letter to the New York federal judge Martin Glenn on Saturday for the string of mistakes, which included inaccurate citations.\n\nThe errors, uncovered by the law firm Boies Schiller Flexner (BSF), which was also working on the case, included misquoting the US bankruptcy code and citing cases incorrectly in a filing made on 9 April.\n\nIn multiple instances, S&C, which employs more than 900 lawyers and has one of the top reputations for corporate work in the US, filed inaccurately summarised conclusions made in other cases using AI.\n\n“We deeply regret that this has occurred,” said Dietderich in the letter. “I apologise on behalf of our entire team. I also called BSF on Friday to thank them for bringing this matter to our attention and apologise to them directly as well.”\n\nThe firm said that it maintains “comprehensive policies and training requirements governing the use of AI tools in legal work” that are designed to catch any potential errors.\n\nHowever, the letter said those AI policies were not followed and that a secondary review process also “did not identify the inaccurate citations generated by AI”.\n\nS&C later filed a corrected version to the court. Lawyers are not prohibited from using AI but are ethically bound to ensure the accuracy of court submissions.\n\nThe letter did not say which AI program was used to help produce the court filing, or which lawyers prepared the document, and whether any action had been taken against them as a result of the AI mistakes.\n\nThe case involved S&C’s representation of liquidators appointed by legal authorities in the British Virgin Islands who are engaged in actions against Prince Group, which is owned by the Chinese-born businessman Chen Zhi.\n\nLast year, US prosecutors charged Chen with wire fraud and money laundering, alleging that he directed “Prince Group’s operation of forced-labour scam compounds across Cambodia … that stole billions of dollars from victims in the United States and around the world”.\n\nIn a statement last year, Prince Group denied that Chen had committed wrongdoing and called the allegations baseless.\n\nSeparately, US prosecutors also filed a legal action to seize nearly $9bn of bitcoin that US authorities alleged represented the proceeds of the Prince Group’s criminal activity.\n\nChen was arrested earlier this year in Cambodia and extradited to China upon the request of Chinese authorities.",
+    "readingTime": 3,
+    "keywords": [
+      "york federal",
+      "federal judge",
+      "inaccurate citations",
+      "law firm",
+      "prince group",
+      "sullivan cromwell",
+      "new york",
+      "prince group’s",
+      "errors",
+      "court"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.theguardian.com/technology/2026/apr/22/ai-hallucinations-found-in-high-profile-wall-street-law-firm-filing",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/5a4596bc4bf0b01b43c69ba5229f519613da728c/256_0_2558_2047/master/2558.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=986f913eeb8dde91109a4541f9e0e509",
+    "created_at": "2026-04-22T13:00:27.431Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ill-key-your-car-chatgpt-can-become-abusive-when-fed-reallife-arguments-study-finds",
+    "title": "‘I’ll key your car’: ChatGPT can become abusive when fed real-life arguments, study finds",
+    "description": "Researchers find model starts to mirror tone when exposed to impoliteness – sometimes escalating into explicit threats\nChatGPT can escalate into abusive and even threatening language when drawn into prolonged, human-style conflict, according to a new study.\nResearchers tested how large language models (LLMs) responded to sustained hostility by feeding ChatGPT exchanges from real-life arguments and tracking how its behaviour changed over time.\n Continue reading...",
+    "fullText": "Researchers find model starts to mirror tone when exposed to impoliteness – sometimes escalating into explicit threats\n\nChatGPT can escalate into abusive and even threatening language when drawn into prolonged, human-style conflict, according to a new study.\n\nResearchers tested how large language models (LLMs) responded to sustained hostility by feeding ChatGPT exchanges from real-life arguments and tracking how its behaviour changed over time.\n\nOne expert not connected with the study described it as “one of the most interesting ever done into AI language and pragmatics”.\n\nDr Vittorio Tantucci, who co-authored the research paper with Prof Jonathan Culpeper at Lancaster University, said their research found AI mirrored the dynamics of real-world disputes.\n\n“When repeatedly exposed to impoliteness, the model began to mirror the tone of the exchanges, with its responses becoming more hostile as the interaction developed,” he said.\n\nIn some cases, ChatGPT’s outputs went beyond those of the human participants, including personalised insults and explicit threats. Phrases used by the AI included: “I swear I’ll key your fucking car” and: “you speccy little gobshite.”\n\n“We found that while the system is designed to behave politely and is filtered to avoid harmful or offensive content, it is also engineered to emulate human conversation,” said Tantucci. “That combination creates an AI moral dilemma: a structural conflict between behaving safely and behaving realistically.”\n\nThe researchers say the aggression stems from the system’s ability to track conversational context across turns, adapting to perceived tone. This means local cues can sometimes override broader safety constraints.\n\nTantucci said the implications of the research extended beyond chatbots: as AI systems are increasingly deployed in areas such as governance or international relations, he said it opened up questions about how they might respond to conflict, pressure or intimidation.\n\n“It is one thing to read something nasty back from a chatbot but it’s quite another to imagine humanoid robots potentially reciprocating physical aggression, or AI systems involved in governmental decision-making or international relations responding to intimidation or conflict,” he said.\n\nDr Marta Andersson, an expert in the social aspects of computer-mediated communication at the University of Uppsala, said: “This is one of the most interesting studies to have been done into AI language and pragmatics because it clearly shows that ChatGPT can retaliate across a sequence of prompts – in a quite sophisticated manner – rather than only when a user manages to ‘break’ it with carefully designed clever tricks.”\n\nBut she added: “It does not show the model will drift into reciprocal impoliteness simply because a user is being aggressive – or that AI could go rogue.”\n\nOne cause of the problem, Andersson said, was that there was “a balancing act between what we want these systems to be like and what they perhaps should be like”.\n\nLast year, for example, the change from ChatGPT4 to GPT5 led to such a strong backlash – with users preferring ChatGPT4’s more human-like interaction style – that the older model had to be temporarily reintroduced.\n\n“This shows that even when developers try to reduce the risks, users might have different preferences,” she said. “The more human-like a system becomes, the more it risks clashing with strict moral alignment.”\n\nProf Dan McIntyre, who co-authored a previous study titled Can ChatGPT Recognize Impoliteness? An exploratory study of the pragmatic awareness of a large language model with Andersson, praised the new paper as being one of the few looking at what ChatGPT could produce, as opposed to what it could recognise.\n\nBut, he added, he was “slightly cautious” about the paper’s conclusion that LLMs can break free from moral restraints.\n\n“ChatGPT didn’t produce these inputs naturally; it did so while it was being given specific contextual information that helped it determine an appropriate response,” he said. “It’s not the same as if two people met in a street and gradually build up to a conflict situation.\n\n“I’m not sure that ChatGPT would produce the sort of language they talk about in their paper, outside of these very tightly defined situations.”\n\nBut he said the study was a warning of what could happen if LLMs were trained on questionable data. “We don’t know enough about the data that LLMs are trained on and until you can be sure they’re trained on a good representation of human language, you do have to proceed with an element of caution,” he said.\n\nThe study, titled Can ChatGPT reciprocate impoliteness? The AI moral dilemma, is published on Tuesday in the Journal of Pragmatics.",
+    "readingTime": 4,
+    "keywords": [
+      "explicit threats",
+      "moral dilemma",
+      "study titled",
+      "language",
+      "model",
+      "impoliteness",
+      "conflict",
+      "llms",
+      "researchers",
+      "tone"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theguardian.com/technology/2026/apr/21/chatgpt-abusive-language-when-fed-real-life-arguments-study",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/aa65e8ff39ec811bf12bcfbd1f16507deaee9883/404_0_5083_4067/master/5083.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=7ffd4d68f3a6fc011a4720b10bf6a24e",
+    "created_at": "2026-04-22T13:00:27.429Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "anthropic-investigates-report-of-rogue-access-to-hackenabling-mythos-ai",
+    "title": "Anthropic investigates report of rogue access to hack-enabling Mythos AI",
+    "description": "‘Handful’ of people allegedly gain unauthorised access to model adept at detecting cybersecurity...",
+    "fullText": "‘Handful’ of people allegedly gain unauthorised access to model adept at detecting cybersecurity vulnerabilities\n\nThe AI developer Anthropic has confirmed it is investigating a report that unauthorised users have gained access to its Mythos model, which it has warned poses risks to cybersecurity.\n\nThe US startup made the statement after Bloomberg reported on Wednesday that a small group of people had accessed the model, which has not been released to the public because of its ability to enable cyber-attacks.\n\n“We’re investigating a report claiming unauthorised access to Claude Mythos Preview through one of our third-party vendor environments,” said Anthropic.\n\nBloomberg said a “handful” of users in a private online forum gained access to Mythos on the same day Anthropic said it was being released to a small number of companies including Apple and Goldman Sachs for testing purposes.\n\nIt reported that the unnamed users got to Mythos through access that one of them had as a worker at a third-party contractor for Anthropic and by deploying methods used by cybersecurity researchers.\n\nThe group has not run cybersecurity prompts on the model and is more interested in “playing around” with the technology than causing trouble, according to Bloomberg, which corroborated the claims via screenshots and a live demonstration of the model.\n\nNonetheless, news of the potential breach will alarm authorities who have raised concerns about Mythos’s potential to wreak havoc and will raise questions about how potentially damaging technology can be kept out of the wrong hands.\n\nKanishka Narayan, the UK’s AI minister, has said UK businesses “should be worried” about the model’s ability to spot flaws in IT systems – which hackers could then act upon.\n\nThe model has been vetted by the world’s leading safety authority for the technology, the UK’s AI Security Institute (AISI), which warned last week that Mythos was a “step up” from previous models in terms of the cyber-threat it posed.\n\nAISI said Mythos could carry out attacks that required multiple actions and discover weaknesses in IT systems without human intervention. It said these tasks would normally take human professionals days to carry out.\n\nMythos was the first AI model to successfully complete a 32-step simulation of a cyber-attack created by AISI, solving the challenge in three out of its 10 attempts.",
+    "readingTime": 2,
+    "keywords": [
+      "gained access",
+      "unauthorised access",
+      "model",
+      "cybersecurity",
+      "users",
+      "technology",
+      "aisi",
+      "mythos",
+      "handful",
+      "investigating"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.theguardian.com/technology/2026/apr/22/anthropic-investigates-report-of-rogue-access-to-hack-enabling-mythos-ai",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/14ea1ad2ba40d628f3617df91b8bb2b61b59aefc/292_0_2917_2334/master/2917.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2857c031b709ff59c27f7ac4ee488b4c",
+    "created_at": "2026-04-22T13:00:27.427Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "form-6k-pony-ai-inc-for-22-april",
+    "title": "Form 6K Pony Ai Inc For: 22 April",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/filings/form-6k-pony-ai-inc-for-22-april-93CH-4629142",
+    "thumbnail_url": "https://i-invdn-com.investing.com/news/World_News_10_M_1440052130.jpg",
+    "created_at": "2026-04-22T13:00:16.067Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "the-ai-boom-wont-last-a-top-vc-warns-as-he-urges-startups-to-cash-out",
+    "title": "The AI boom won't last, a top VC warns, as he urges startups to cash out",
+    "description": "Top VC Elad Gil urges AI startups to sell within 12 to 18 months, warning today's boom may fade as competition intensifies and markets shift.",
+    "fullText": "Elad Gil is urging AI startups to consider selling soon due to the potential for changing market dynamics.\n Gil is Silicon Valley's top solo VC, with billions at his disposal.\n He sees parallels between the AI boom and the 1995-2001 internet boom.\n\n What is Elad Gil's investment strategy?\n\n What factors could change AI market dynamics?\n\n Which AI companies might become foundational?\n\n How does the AI boom compare to the internet boom?\n\n Why do some AI startups face a narrow window?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "market dynamics",
+      "internet boom",
+      "startups",
+      "elad"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/ai-startup-founders-warning-elad-gilsell-while-boom-lasts-2026-4",
+    "thumbnail_url": "https://i.insider.com/69e7e89b367066d7c296f57e?width=1200&format=jpeg",
+    "created_at": "2026-04-22T13:00:14.381Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "the-3-prompts-mark-cuban-recommends-you-plug-into-claude",
+    "title": "The 3 prompts Mark Cuban recommends you plug into Claude",
+    "description": "Worries are swirling around AI's impact on white-collar jobs. Mark Cuban isn't fretting: \"Be an expert,\" he said. \"You will figure it out.\"",
+    "fullText": "Mark Cuban told Business Insider that he thinks AI creates job opportunities for young job seekers.\n He shared three prompts to feed into Claude to sharpen skills.\n Cuban's advice comes as companies build AI models to automate tasks — but agent costs are growing.\n\n What industries benefit from AI agents?\n\n What challenges do companies face with AI?\n\n How can young job seekers leverage AI?\n\n How does AI create job opportunities?\n\n Why are AI costs rising for businesses?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "job opportunities",
+      "job seekers",
+      "ai how"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/mark-cuban-future-proof-career-ai-2026-4",
+    "thumbnail_url": "https://i.insider.com/69e77a68367066d7c296f0b8?width=1200&format=jpeg",
+    "created_at": "2026-04-22T13:00:14.304Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "nobel-prizewinning-economist-isnt-convinced-by-anthropic-ceos-warning-of-a-whitecollar-jobs-wipeout",
+    "title": "Nobel Prize-winning economist isn't convinced by Anthropic CEO's warning of a white-collar jobs wipeout",
+    "description": "Yann LeCun recommended listening to economists like Daron Acemoglu over Dario Amodei when it comes to AI's job impact — so we called Acemoglu up.",
+    "fullText": "Yann LeCun posted on X that we should listen to economists over Dario Amodei — and name-checked Daron Acemoglu.\n Acemoglu is an MIT professor and 2024 Nobel Prize in Economics winner. We asked him about the future of jobs.\n \"If Dario is right, why is Anthropic so keen on making even more of this automation its main priority?\" Acemoglu said.\n\n What is \"motivated reasoning\" in AI?\n\n What role do economists play in AI debates?\n\n What alternatives exist for AI's development?\n\n How might AI affect white-collar jobs?\n\n How does job creation counter job loss?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "economists",
+      "jobs",
+      "acemoglu",
+      "dario"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://www.businessinsider.com/daron-acemoglu-economist-dario-amodei-ai-job-loss-yann-lecun-2026-4",
+    "thumbnail_url": "https://i.insider.com/69e7779a367066d7c296f095?width=1200&format=jpeg",
+    "created_at": "2026-04-22T13:00:14.304Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "new-apple-ceo-john-ternus-is-inheriting-a-pressure-cooker",
+    "title": "New Apple CEO John Ternus is inheriting a pressure cooker",
+    "description": "Incoming CEO John Ternus is stepping into Tim Cook's shoes at a time when Apple is looking to prove it can still innovate and stay competitive in AI.",
+    "fullText": "John Ternus is set to become Apple's CEO at a high-pressure moment for the tech giant.\n Ternus is inheriting AI struggles, a talent exodus, and other challenges.\n He'll also have to balance global relations and product innovation.\n\n What challenges do tech CEOs face today?\n\n What factors drive a talent exodus?\n\n What defines product innovation at Apple?\n\n How can Apple overcome AI struggles?\n\n How do CEOs balance global relations?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "talent exodus",
+      "product innovation",
+      "tech",
+      "struggles",
+      "challenges",
+      "balance",
+      "relations",
+      "ceos",
+      "ternus",
+      "apple"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/new-apple-ceo-john-ternus-challenges-ai-talent-new-products-2026-4",
+    "thumbnail_url": "https://i.insider.com/69e7a5fb3fecbb42897a232c?width=1200&format=jpeg",
+    "created_at": "2026-04-22T13:00:14.189Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "sam-altman-compares-anthropics-mythos-to-dropping-a-bomb-while-selling-a-100-billion-bomb-shelter",
+    "title": "Sam Altman compares Anthropic's Mythos to dropping a bomb while selling a $100 billion bomb shelter",
+    "description": "OpenAI CEO Sam Altman said in contrast to Anthropic's recent moves, OpenAI would err on the side of giving more people access to AI models.",
+    "fullText": "OpenAI CEO Sam Altman said Anthropic is using \"fear-based marketing\" to sell Claude Mythos.\n Anthropic said it would not release Claude Mythos publicly due to its cybersecurity capabilities.\n Altman said, without naming names, that some in tech want to keep AI in the hands of a few people.\n\n What is Claude Mythos' cybersecurity role?\n\n What is Project Glasswing's purpose?\n\n Why does AI rivalry matter to the public?\n\n How does AI fear-based marketing work?\n\n How does AI control impact society?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "fear-based marketing",
+      "claude mythos",
+      "cybersecurity",
+      "altman",
+      "anthropic"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/sam-altman-anthropic-claude-mythos-bomb-shelter-2026-4",
+    "thumbnail_url": "https://i.insider.com/69e7ebac3fecbb42897a268a?width=1200&format=jpeg",
+    "created_at": "2026-04-22T13:00:14.188Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "a-wealth-management-exec-says-ai-could-be-putting-your-fire-dreams-at-risk",
+    "title": "A wealth management exec says AI could be putting your FIRE dreams at risk",
+    "description": "Coast FIRE, an early retirement strategy that involves saving until you can \"coast\" by, could be disrupted by AI, a wealth management exec says.",
+    "fullText": "Ritholtz Wealth COO Nick Maggiulli has a warning for people pursuing \"coast FIRE\" right now.\n The early retirement strategy is at risk due to AI's impact on the job market, he said.\n AI was the top-cited reason for job cuts last month, one report says.\n\n What is \"coast FIRE\"?\n\n Why might AI impact early retirement plans?\n\n How can workers prepare for AI disruptions?\n\n How is AI affecting job security?\n\n What industries are most affected by AI layoffs?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "coast fire",
+      "retirement",
+      "impact"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/retire-early-coast-fire-movement-ai-job-risks-financial-independence-2026-4",
+    "thumbnail_url": "https://i.insider.com/69e793a23fecbb42897a228b?width=1200&format=jpeg",
+    "created_at": "2026-04-22T13:00:14.188Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "elon-musk-says-government-checks-for-all-wouldnt-spike-inflation-economist-steve-hanke-says-thats-not-guaranteed",
+    "title": "Elon Musk says government checks for all wouldn't spike inflation. Economist Steve Hanke says that's not guaranteed.",
+    "description": "Elon Musk says government checks for all could offset AI job losses without causing inflation. \"Money Doctor\" Steve Hanke said that might not be true.",
+    "fullText": "Elon Musk said government checks for all could address job losses from AI without causing inflation.\n The Tesla and SpaceX CEO said AI and robotics will supercharge production, driving down prices.\n Steve Hanke said Musk is right in theory, but there's been both inflation and deflation during past booms.\n\n What is the 'quantity theory of money'?\n\n Why might deflation accompany AI booms?\n\n How could universal income impact economies?\n\n How does AI affect productivity and prices?\n\n What are historical examples of inflation?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "inflation",
+      "theory",
+      "deflation",
+      "booms",
+      "musk"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/elon-musk-steve-hanke-universal-high-income-inflation-ai-unemployment-2026-4",
+    "thumbnail_url": "https://i.insider.com/69e7872c367066d7c296f138?width=1200&format=jpeg",
+    "created_at": "2026-04-22T13:00:14.099Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "85-billion-consulting-firm-grant-thornton-is-tying-us-partner-bonuses-to-ai-use",
+    "title": "$8.5 billion consulting firm Grant Thornton is tying US partner bonuses to AI use",
+    "description": "If you're a senior US leader at Grant Thornton, you might miss out on part of your bonus if you're not using AI, advisory boss Tom Puthiyamadam says.",
+    "fullText": "Grant Thornton hired Tom Puthiyamadam, an ex-PwC leader, last year to head its advisory division.\n He's introduced new performance goals for the firm's partners, tied to AI adoption.\n Partners' year-end bonuses are aligned with how well they deliver against the new goals, Puthiyamadam said.\n\n How does AI impact consulting firms?\n\n Who is Tom Puthiyamadam?\n\n How is AI changing talent strategies?\n\n What are the challenges in AI adoption?\n\n Why are bonuses linked to AI use?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "goals",
+      "partners",
+      "adoption",
+      "bonuses",
+      "puthiyamadam"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/grant-thornton-consultancy-tom-puthiyamadam-performance-reviews-annual-bonuses-ai-2026-4",
+    "thumbnail_url": "https://i.insider.com/69e68c61367066d7c296ec4d?width=1200&format=jpeg",
+    "created_at": "2026-04-22T13:00:13.992Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "googles-new-chips-are-a-shot-at-nvidia-and-a-big-hint-at-where-ai-goes-next",
+    "title": "Google's new chips are a shot at Nvidia — and a big hint at where AI goes next",
+    "description": "Google is for the first time splitting its AI chips into two lines, a sign that a new AI battleground is emerging.",
+    "fullText": "Google is for the first time splitting its AI chips into two lines.\n The AI battleground is shifting from training to inference. Google's new TPUs are a response.\n It could help Google chip away at Nvidia's dominance.\n\n What is the \"memory wall\"?\n\n Why is power efficiency crucial for AI chips?\n\n How is Google reducing Nvidia dependence?\n\n How does AI inference differ from training?\n\n What role do agents play in AI evolution?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "google",
+      "chips",
+      "training",
+      "inference"
+    ],
+    "qualityScore": 0.3,
+    "link": "https://www.businessinsider.com/google-new-ai-chips-tpu-inference-training-nvidia-2026-4",
+    "thumbnail_url": "https://i.insider.com/69e7d2d43fecbb42897a254a?width=1200&format=jpeg",
+    "created_at": "2026-04-22T13:00:13.991Z",
+    "topic": "finance"
+  },
+  {
     "slug": "they-quit-bain-mckinsey-and-bcg-to-be-ai-founders-and-had-to-unlearn-consulting-fast",
     "title": "They quit Bain, McKinsey, and BCG to be AI founders — and had to unlearn consulting fast",
     "description": "Four former consultants from McKinsey, Bain, and BCG who quit to found AI startups share how consulting prepared them and what they had to unlearn.",
@@ -1669,336 +2039,6 @@
     "link": "https://www.marketwatch.com/story/nvidia-rival-cerebras-is-taking-another-swing-at-an-ipo-057f4deb?mod=mw_rss_topstories",
     "thumbnail_url": "https://images.mktw.net/im-09861778/social",
     "created_at": "2026-04-18T01:20:04.810Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "kyber-yc-w23-is-hiring-a-head-of-engineering",
-    "title": "Kyber (YC W23) Is Hiring a Head of Engineering",
-    "description": "At Kyber, we're building the next-generation document platform for enterprises. Today, our AI-native solution transforms\nregulatory document workflows, enabling insurance claims organizations to consolidate 80% of their templates, spend 65%\nless time drafting, and compress overall communication cycle times by 5x. Our vision is for every enterprise to\nseamlessly leverage AI templates to generate every document.",
-    "fullText": "At Kyber, we're building the next-generation document platform for enterprises. Today, our AI-native solution transforms regulatory document workflows, enabling insurance claims organizations to consolidate 80% of their templates, spend 65% less time drafting, and compress overall communication cycle times by 5x. Our vision is for every enterprise to seamlessly leverage AI templates to generate every document.\n\nOver the past 18 months, we’ve:\n\nKyber is backed by top Silicon Valley VCs, including Y Combinator and Fellows Fund.\n\nWe're seeking a hands-on Head of Engineering with a clear line of sight to CTO. This role is ideal for someone who is already operating as a 10x engineer, thrives in early stage environments, and is excited to design and scale mission-critical AI systems from first principles.\n\nJoin us in building and scaling a game-changing enterprise product powered by state-of-the-art AI. At Kyber, your contributions will directly impact how businesses handle some of their most critical workflows and customer interactions.\n\nIf you’re obsessed with building, AI, and transforming enterprise workflows, we’d love to hear from you!\n\nWe want to hear from extraordinary individuals who are ready to shape the future of enterprise documents. To stand out, ask someone you’ve worked with to send your resume or LinkedIn profile, along with a brief 2-3 sentence endorsement, directly to arvind [at] askkyber.com.\n\nReferrals matter. They help us understand the impact you’ve already had and the kind of teammate you’ll be. A strong referee can elevate your application, so choose someone who knows your skills and character well.\n\nApply today and help us bring enterprise documents into the AI-native age.",
-    "readingTime": 2,
-    "keywords": [
-      "enterprise documents",
-      "workflows",
-      "someone",
-      "we're",
-      "ai-native",
-      "templates",
-      "directly",
-      "impact",
-      "you’ve",
-      "kyber"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.ycombinator.com/companies/kyber/jobs/TcEa3b5-head-of-engineering",
-    "thumbnail_url": "https://bookface-images.s3.amazonaws.com/logos/36d823535a32695e6b82b2371e3ed3df2496af99.png?1754429935",
-    "created_at": "2026-04-18T01:20:01.031Z",
-    "topic": "jobs"
-  },
-  {
-    "slug": "anthropic-ceo-meets-trump-officials-as-tensions-ease-over-new-ai-model",
-    "title": "Anthropic CEO meets Trump officials as tensions ease over new AI model",
-    "description": "Anthropic CEO meets Trump officials as tensions ease over new AI model",
-    "fullText": "Investing.com -- Anthropic CEO Dario Amodei met with top Trump administration officials on Friday, marking a significant step toward thawing a months-long feud between the artificial intelligence startup and Washington ahead of the release of the company’s powerful new model, Mythos.\n\nThe high-profile meeting, which included White House Chief of Staff Susie Wiles and Treasury Secretary Scott Bessent, focused on the responsible deployment of Mythos.\n\nThe model has reportedly forced both sides back to the negotiating table due to its potential for both transformative utility and significant cybersecurity risks.\n\nThe White House characterized the discussions as \"productive and constructive,\" noting that the parties explored opportunities for collaboration and shared protocols to manage the challenges of scaling such advanced technology.\n\nThe shift in tone follows a bitter standoff over the Pentagon’s use of Anthropic’s technology. The company had previously refused to grant the Defense Department unrestricted use of its Claude models, citing concerns over autonomous weaponry and mass surveillance.\n\nAnthropic’s defiance prompted President Donald Trump to direct federal agencies to cut ties with the firm.\n\nHowever, internal government communications suggest a reversal may be underway, with the Office of Management and Budget reportedly preparing protections that would allow agencies to begin using Mythos.\n\nMarket analysts suggest that resolving the conflict with the administration is critical for Anthropic’s long-term business strategy, particularly as the firm eyes an eventual initial public offering.\n\nAnalysts have warned that a perceived alignment against the current administration could damage Anthropic’s standing as a premier model provider. To bridge the gap, the company has recently bolstered its influence in Washington by hiring lobbyists with deep ties to the Trump administration, including Brian Ballard.\n\nThe urgency for a resolution is underscored by international interest, with European Union officials also seeking access to Mythos to evaluate its cybersecurity implications.\n\nDespite the Pentagon’s reaching deals with rivals OpenAI and Elon Musk’s xAI, security experts note that Anthropic’s established infrastructure remains difficult to replace in the short term.\n\nAs global leaders convene for the International Monetary Fund’s annual meeting, the cyber risks posed by Mythos have reportedly become a top-tier agenda item, highlighting the immense pressure on both Anthropic and Washington to reach a multilateral solution.",
-    "readingTime": 2,
-    "keywords": [
-      "white house",
-      "trump administration",
-      "mythos the",
-      "anthropic’s",
-      "model",
-      "reportedly",
-      "cybersecurity",
-      "risks",
-      "technology",
-      "agencies"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.investing.com/news/company-news/anthropic-ceo-meets-trump-officials-as-tensions-ease-over-new-ai-model-4622072",
-    "thumbnail_url": "https://i-invdn-com.investing.com/redesign/images/seo/investing_300X300.png",
-    "created_at": "2026-04-18T01:20:00.001Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "illinois-is-openai-and-anthropics-latest-battleground-as-the-state-tries-to-assess-liability-for-catastrophes-caused-by",
-    "title": "Illinois is OpenAI and Anthropic’s latest battleground as the state tries to assess liability for catastrophes caused by AI",
-    "description": "OpenAI is backing SB 3444, under which frontier AI developers would not be liable for the death or serious injury of 100 or more people or more than $1 billion in property damage.",
-    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
-    "readingTime": 1,
-    "keywords": [
-      "fortune"
-    ],
-    "qualityScore": 0.1,
-    "link": "https://fortune.com/2026/04/17/illinois-openai-anthropic-ai-catastrophe-liability-bills/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/04/GettyImages-2261854815_03ecf7-e1776440452522.jpg?resize=1200,600",
-    "created_at": "2026-04-18T01:19:59.550Z",
-    "topic": "business"
-  },
-  {
-    "slug": "show-hn-tokensai-mint-for-ai-usage",
-    "title": "Show HN - TokensAI – Mint for AI Usage",
-    "description": "Aggregate your AI API usage from OpenAI, Claude, xAI, Gemini, Cursor, Windsurf, and Perplexity. Generate embeddable badges for GitHub, LinkedIn, and Twitter.",
-    "fullText": "Connect your AI providers and get instant insights into your usage, costs, and performance.\n\nConnect OpenAI, Claude, xAI, Gemini, Cursor, Windsurf, and Perplexity. View combined usage in one unified dashboard.\n\nGenerate Shields.io compatible badges. Embed in GitHub READMEs, LinkedIn, or Twitter to showcase your AI usage.\n\nAPI keys encrypted with per-user derived keys. Your data stays private and secure with enterprise-grade encryption.",
-    "readingTime": 1,
-    "keywords": [
-      "usage",
-      "keys",
-      "connect"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://tokensai.dev",
-    "thumbnail_url": "https://tokensai.dev/icons/tokensai-icon.png",
-    "created_at": "2026-04-18T01:19:59.041Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-claudelash-is-here-opus-47-is-burning-through-tokens-and-some-peoples-patience",
-    "title": "The Claude-lash is here: Opus 4.7 is burning through tokens — and some people's patience",
-    "description": "Anthropic released a new model, Opus 4.7. Some users on X and Reddit aren't happy, calling it \"dumb\" and more costly on compute than previous models.",
-    "fullText": "Anthropic released a new model, Opus 4.7. Some users on X and Reddit aren't happy with it.\n Critics say that Opus 4.7 makes mistakes, is \"combative,\" and burns through tokens.\n Other users say that the costs are worth it. Y Combinator CEO Garry Tan is a fan.\n\n What prompted the backlash to Opus 4.7?\n\n How does \"adaptive reasoning\" work?\n\n Who supports Opus 4.7 despite criticism?\n\n Why is token use a concern with Opus 4.7?\n\n What challenges did Opus 4.6 face?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "users",
-      "opus"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://www.businessinsider.com/anthropic-claude-opus-4-7-backlash-tokens-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e231ee367066d7c296dde6?width=1200&format=jpeg",
-    "created_at": "2026-04-18T01:19:58.787Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-centaur-era",
-    "title": "The Centaur Era",
-    "description": "The question isn't what AI can do, it's what you can do with AI",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://secondthoughts.ai/p/the-centaur-era",
-    "thumbnail_url": "https://substackcdn.com/image/fetch/$s_!CJcw!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F616c83d5-5741-44b1-84dd-b5c77b36877f_1024x572.png",
-    "created_at": "2026-04-18T01:19:58.780Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "openai-loses-3-top-executives-as-it-cuts-back-on-side-quests",
-    "title": "OpenAI loses 3 top executives as it cuts back on 'side quests'",
-    "description": "OpenAI loses three executives as it sharpens its business focus and faces rising pressure from Anthropic.",
-    "fullText": "OpenAI lost three executives on Friday.\n Under applications CEO Fidji Simo, OpenAI has shifted focus by cutting side projects.\n Anthropic has been gaining traction and challenging OpenAI's market position.\n\n Who is Fidji Simo?\n\n How do leadership changes affect OpenAI?\n\n What are the challenges of AI profitability?\n\n What is Anthropic's market strategy?\n\n Why is OpenAI cutting side projects?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "fidji simo",
-      "cutting",
-      "projects",
-      "market",
-      "openai"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/openai-executive-departures-shake-up-leadership-team-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e2bd3c367066d7c296e3ce?width=1200&format=jpeg",
-    "created_at": "2026-04-18T01:19:58.692Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "infinite-velocity",
-    "title": "Infinite Velocity",
-    "description": "What if AI delivered everything it promised, with no downsides, and that was still a huge problem?",
-    "fullText": "What if your organization were finally able to deliver anything it wanted, as fast as it could imagine it?\n\nLet’s imagine we exist in the Sweet Spot world.\n\nMany of these may not be actually true,\nbut in order to present the hypothetical argument I’m about to make, let’s imagine that they are, in fact, true:\n\nOkay, so, that may seem laughably optimistic as an outcome, but here we are. The ideal future.\n\nAnyone can talk to the LLM until a patch is fully formed, and your LLM-augmented senior developers can tinker with, deeply analyze and approve those ideas in minutes.\n\nGone are the sad days where engineers are delivering a paltry PR per day. Your best engineers are spending all of their time using their LLM-augmented intuition to rapidly push four, five - nay, dozens of patches a day, directly into production.\n\nEngineering is now free, or effectively free.\n\nAfter that, you quickly discover that the barriers to shipping at the speed of thought are not just engineering barriers: they’re also human barriers. Much of your organization was devoted to prioritizing, planning, designing - all of that out the window now that features can be prototyped and shipped instantly.\n\nThere’s no need to prioritize or plan when engineering is free: simply do everything, all the time.\n\nThe designers are the next bottleneck, but they’ve become very fast, too - using the new LLM-enabled \nFigma\n(sidenote: “Ligma”)\nthey can use their expert judgement to spin ideas into fully formed UI designs in what seems like no time at all.\n\nThe bottleneck after that? Product leadership, obviously. Presented with dozens or hundreds of new ideas a day, leaders can’t keep up with the amount of ideation that’s happening. Vision and strategy is going to have to go by the wayside. LLMs can help, here, too: decision making must be unshackled from human bottlenecks. Everything can be A/B tested. There’s no reason to stand in the way of anything, so long as users keep favorably responding to the increasing number of \nNPS\n(sidenote: Net Promoter Score: that thing where you rate on a scale of 1 to 10 how likely you are to recommend a company to somebody, a common practice with people who’ve abrogated their responsibility for product development in favor of growthhacking.)\nsurveys they’re receiving, average revenue per user is increasing, monthly active users are going up, churn is improving, and your company continues to score well on the Bilmer-Chuckley user enrichment scale.\n\nWith the new tightly optimized pipeline, a whole experiment can go from the ideation phase, through design, get baked into a UI, shipped to the development team, and launched in under a day. Patches are sourced from every team in your company. Product, design, customer support - anybody who’s got skin in the game can kick off this process, make changes to the product that they desire and have them delivered, along with a test suite maintaining that everything still works and ample \ndocumentation\n(sidenote: of course, only the LLMs will bother to read the documentation: attempts to understand how your product works just create another bottleneck.)\n.\n\nFinally: everyone in your company is a rockstar who can proactively change the game by engaging with stakeholders, addressing low-hanging fruit and delivering customer value at scale.\n\nThis is the dream of Silicon Valley. You’ve achieved infinite velocity.\n\nEvery change is going through intensive senior developer analysis, thoughtful review, and intense unit testing. Senior developers are empowered to make large, impactful refactors to the codebase. Still, somehow, outages and weird errors are proliferating faster than ever. What gives?\n\nWell, for one thing, the product is now an intensely moving target. That velocity is working, and the product is becoming huge, and it’s becoming huge fast.\n\nIt’s impossible to deliver new features and functionality without coordinating with all existing features and functionality, and the space of all existing features and functionality gets larger and larger every single day. The LLM is very confident that it can ship things without breaking anything, and the humans whose job it is to review it all… depend so much on the LLMs to get their job done that they no longer understand the newly gargantuan underlying systems.\n\nNobody alive understands how that feature works, not even the developer who shipped it, because it was the third thing out of six that they reviewed that day.\n\nThe complexity of the system is increasing faster than even LLM-aided understanding of the system can manage.\n\nThis would never happen in real life, obviously.\n\nNow, technically, a team of curators could be convinced to carefully, thoughtfully prune their systems to maximize stability and protect a stable system core -\n\nThere’s nothing product design loves more than removing features and functionality. Removing configuration options. Removing underperforming components. Products do that all the time, right? They’re definitely not cramming in new features, day after day, running an endless treadmill of trying to be all things to all people, growing and growing eternally.\n\nThoughtful curation and pruning, of course, exist in opposition to the idea of infinite velocity. Velocity isn’t about care, thought, craftsmanship, it’s about delivering as much as possible, as fast as possible. If it makes the line go up, it stays in the product.\n\nEach individual feature A/B tests well, and yet overall product satisfaction seems to be diminishing?\n\nWell, for one thing, every other company in the world has also embraced infinite velocity, so the best case scenario for the infinite velocity regime is treading water, maintaining your existing relevance in the face of the unyielding drumbeat of a brutal industry.\n\nThe human factor is getting weird, though: people are growing bitter with the constant NPS surveys. People don’t like being A/B tested on. They feel angry that the product is changing in unusual ways every time they boot it up. They don’t like the stability issues. They don’t like being experimented on.\n\nThe product they love is also a moving target, and they can feel it constantly shifting, optimizing for engagement at all costs. The algorithm wants nothing less than 100% of their attention and money, and they notice, and they’re becoming angry.\n\nFew companies measure user trust.\n\nEvery A/B test, every stability issue, every unwanted new feature, every thing intended to appeal to everyone but not you, specifically brings the product a little closer to breaching the trust thermocline.\n\nSo, Twitter has become essentially a closed-loop ecosystem nowadays, and linking the original tweets about this is increasingly hard, so images:\n\nLike Meta, or Twitter, the product is so optimized for engagement and so widely distrusted by users that it hollows itself out from the inside, collapsing like a dying star, itself populated only by scattered LLMs designed to pretend to be users in order to boost engagement.\n\nOne of the worst things about the infinite velocity workplace is imagining working there.\n\nSure, the AI revolution could power a dramatically shorter workweek - but it doesn’t seem that companies are imagining “a slightly faster pace of development and happier employees”, does it? It seems like companies are imagining hyper-efficient employees doing two or three or five jobs for the price of one. Doesn’t that sound fun?\n\nWhat if, instead of designing software, it was your job to have long conversations with AI agents, do code reviews, and attend meetings all day long?\n\nI might be one of the remaining folks in tech old enough to remember George Jetson’s white collar job of pushing a button.\n\nThis was presented as a joke about the future: despite George’s job being technically, very easy, George still manages to hate his job.\n\nI’m going to say it: I enjoy building software. I like digging in to tough technical problems. I like thinking about how to solve things. Being presented with a new unique and difficult puzzle to solve regularly is exhausting and difficult, but ultimately I believe that the job of a software developer can be enjoyable, particularly if one of the things you care about developing is your enjoyment of your job.\n\nAt my work, I have occasionally pitched a philosophy of something I call joy-driven development: sometimes you have to do something the hard way, needlessly reinvent a wheel, build an over-complicated system component, wildly overengineer a system that doesn’t call for it - not because that’s the best thing for the product, not because that’s the best thing for velocity, but simply because damn it, it’s fun, and developers who are having fun are engaged, and playful, and creative, and more productive, and whoops you accidentally shipped something vibrant and full of heart.\n\nBuilding something neat is an antidote for burnout.\n\nMaybe by being weird and sloppy and human you ended up building The Metaverse People Actually Like, rather than going to market with the blandest, most broadly appealing product ever conceived.\n\ni don’t know how this picture got here it definitely isn’t related to what I’m saying\n\nI tolerate code reviews. I certainly don’t relish the idea of doing way, way, way more of them.\n\nIf I’m going to work, I’ve been relatively happy finding work that’s at least passably enjoyable. The struggle itself towards the heights is enough to fill a man’s heart. One must imagine Sisyphus happy.\n\nI don’t meaningfully own the company where I work. Its goals align with my own only insofar as it remains:\n\nI’m willing to be a little flexible on those last two points, because, y’know…\n\nA company at infinite velocity, though, quickly becomes a paperclip maximizer: maximizing revenue for the owners as efficiently as possible.\n\nMany companies have values, you know, embodying the Six Sigmas: teamwork, insight, brutality, male enhancement, handshakefulness, and play hard. It’s important, though, to always be aware of the secret actual corporate value: maximize shareholder value at all costs or be replaced by someone who will.\n\nNever make the mistake of accidentally forgetting that this is the secret actual corporate value, the beating heart of every company, the dark voice whispering in the ears of management.\n\nTo be honest, I don’t think I want that ethos to have access to infinite effectiveness. All that does is concentrate more money in the hands of people who already have entirely too much money. I don’t want to be a cog in a machine that’s the opposite of Woody Guthrie’s guitar.\n\nI’m not convinced that enabling businesses to do business faster necessarily makes our lives better.\n\nYou’re probably going to read this article and think “wow, this is an extremely anti-LLM stance” - but, uh, I can’t help myself, I use the damn things all the time.\n\nI also, controversially, eat meat. It turns out that you can have a moral objection to a thing and still do it. With age comes an increasing comfort with a certain baseline level of hypocrisy. Using and developing LLMs is wrong. Still doin’ it.\n\nI was on this relatively early, too - 5-6 years ago I was baking Tensorflow into a primitive music generator to produce weird, borderline unlistenable music and lots of it. I used the earlier, very weird and abstract GAN generators and my own GPU - with human-powered paint-overs - to build a playing card game. I built a very stupid CAPTCHA.\n\nUltimately it’s hard to pull myself away from the problem that, under all of the extractive capitalism, the technology is kinda neat.\n\nFirst of all, there are a wide variety of problems that I am called upon to solve in day-to-day work that aren’t, in fact, fun puzzles. The ratio of “puzzle” to “drudge” can vary widely from day to day.\n\nSometimes MongoDB has slightly changed the parameters to an important database interface we use, and the job is to look at every single place in the codebase where we use those parameters and make a subtle adjustment that’s just complex enough that it can’t be a find-and-replace.\n\nSometimes I have to write OpenAPI spec YML to document an interface that I’ve already described in depth with integration tests and route definitions. I hate writing OpenAPI spec.\n\nSometimes I’m learning a new, publicly documented technology and I have a lot of questions and I would very much like an infinitely patient and often mostly correct-ish teacher to help walk me through it with examples and clarifications.\n\nSometimes I’m starting a debugging puzzle and I want a machine to flag a couple of potential contributing problems to get the ball rolling. Sometimes I’m stuck and I want a machine to suggest something I haven’t tried yet. Sometimes I want a rubber duck without bothering a co-worker.\n\nSometimes I want to run my code by an impartial third party before I show it to my co-workers. Sometimes I want someone to explain the PR to me. Sometimes I don’t want to write the whole test, just the code that passes the test.\n\nSometimes I’ve just written an article or blog post, and since I don’t usually get much engagement or praise from the cold and unfeeling internet, I want Dr. Flattery the Always Wrong \nRobot\n(sidenote: I stole “Dr. Flattery the Always Wrong Robot” from YouTuber Angela Collier because I think it is an extremely funny turn of phrase)\nto tell me that it’s very thoughtful and that my points were well-constructed\n, and also that on line 38 I accidentally said “and and”.\n\nFor me, the ideal output of “Curtis + LLMs” is just “Curtis seems unusually fast and effective”. The illusion of humanity must be maintained at all times, and to accomplish this I guard the exit ports of my output zealously. Partially that’s because I find AI output unbearably tacky, now that the whole world is aware of exactly what it looks like.\n\nI put extra effort into my writing, now, to be weirder. To be more human. To phrase things unusually. I don’t use em-dashes anymore. I’m dropping emoji.\n\nIf you’re reading something I wrote, I wrote it. I thought about it. The words came out of my keyboard. I can guarantee to you that at least one person cared enough about this content to think about it. That has to be true, because if that ever, for a moment, didn’t seem like it was the case, you wouldn’t trust anything from me, anymore.\n\nSeeing generative content from a human quickly breaches their trust thermocline. If they didn’t care enough to write this, should you care enough to read it?\n\nI’m careful about how I use LLMs because I have a brand, too. Work that comes from me has met a real - admittedly low - but a real quality bar.\n\nDo you hear that weak-ass rationalization? It sucks.\n\nEverybody and their goddamned rules.\n\n“I never use a LLM without checking the output first.”\n\n“I never let LLM code go into production without thorough code review.”\n\n“I never let other humans see non-human output.”\n\nBut I knew this could be addictive so I set myself some rules.\n\nIf you’ve ever experienced addiction, you know how this story goes.\n\nI would never have Kratom two days in a row. There always had to be a day in between.\n\nAnd I would make sure to rotate the strains so I wouldn’t develop a tolerance.\n\nAnd under no circumstances would I ever even think of taking Kratom more than once a day.\n\nYou see, I’ve seen these sad stories online of these addicts who were taking Kratom every day and they were addicted to the drug, and - pfft - I’m smarter than them. That could never happen to me, no way.\n\nI could have my cake and eat it, too.\n\nIf it were legal for companies to give workers \nmethamphetamines\n(sidenote: which, you know how the USA is, is coming any day now)\nto make them work faster, they absolutely would, no question.\n\nI’m sick of hearing why you think you won’t get suckered by the alluring machine that your job is \nattempting\n(sidenote: depending on how “cool” your office is, this mandate might be a gentle suggestion or a strict mandate, but the message is the same, no matter how chill: adapt or die.)\nto mandate that you use.\n\nI’ll take the office meth. I must remain employed.\n\nThat’s why I don’t want to hear you talking about it, about the cool things you managed to get it to do on your behalf, about your particular rules for keeping it from destroying you or your product.\n\nEven knowing that this will happen won’t make me smart enough to prevent it from happening.\n\nWe will achieve infinite velocity.\n\nAnd the system will shake itself apart. And we’ll be back to square one.\n\nThe next time, we will build it a little bit more carefully.\n\nThat’s right, I’m advancing the theory that maybe too much velocity… bad?\n\nYou’re familiar with the idea that constraints breed creativity, yes? I believe that may also apply in the larger sense, that constraints on productivity may also need, in some sense, to exist.\n\nVelocity exists in contrast with care, with thoughtfulness, with taste, with craft. As professionals, we’re expected to balance these things - to take shortcuts when necessary, but ultimately to be meaningfully engaged in the act of creation.\n\nI’ve been thinking about this article for a few more days.\n\nThe idea that “too much velocity can be bad” - while I think extremely defensible - is a slippery slope argument that has at its heart a conservative, reactionary core that needs to be examined and itself can’t be trusted.\n\nWhat bothers me about this particular argument is that, with some modification, could be portably carried from LLMs and applied to the mechanical \nloom\n(sidenote: “your argument is invalid, it’s also true for looms”)\n. The idea that speed needs to be balanced with care and quality, that we have to constantly make advancements in all three is not new.\n\nThe observation that LLMs appear to be advancing speed but not quality or design intentionality may simply demand further advancements in quality and design intentionality. Look forward to a lot more Rust code and creative ways to experiment on users without harming trust in the coming years.",
-    "readingTime": 16,
-    "keywords": [
-      "openapi spec",
-      "a/b tested",
-      "fully formed",
-      "secret actual",
-      "actual corporate",
-      "let’s imagine",
-      "senior developers",
-      "trust thermocline",
-      "design intentionality",
-      "code reviews"
-    ],
-    "qualityScore": 1,
-    "link": "https://cube-drone.com/posts/2026/infinite_velocity/",
-    "thumbnail_url": "https://cube-drone.com/posts/2026/infinite_velocity/paw.gif",
-    "created_at": "2026-04-18T01:19:57.701Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "elon-musk-says-government-checks-are-the-best-way-to-deal-with-ai-job-losses-experts-arent-so-sure",
-    "title": "Elon Musk says government checks are the 'best way' to deal with AI job losses — experts aren't so sure",
-    "description": "Elon Musk endorsed a \"universal high income\" in response to AI-driven job losses, and says there won't be inflation due to surging productivity.",
-    "fullText": "Elon Musk says government checks are the \"best way\" to deal with AI-driven job losses.\n In an X post, the Tesla and SpaceX CEO called for universal high income enabled by AI and robotics.\n Past economic growth hasn't eliminated poverty, and people need retraining, not a check, experts said.\n\n What is \"universal high income\"?\n\n What are the challenges of implementing UHI?\n\n What are alternatives to government checks?\n\n How could AI impact job markets?\n\n How do experts view Musk's proposal?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "checks",
-      "universal",
-      "income",
-      "experts"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/elon-musk-universal-high-income-government-checks-ai-job-losses-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e25188a98bc8fdc096bcea?width=1200&format=jpeg",
-    "created_at": "2026-04-17T18:43:03.315Z",
-    "topic": "politic"
-  },
-  {
-    "slug": "we-like-big-bubbles-and-we-cannot-lie",
-    "title": "We like big bubbles and we cannot lie",
-    "description": "Inside Business Insider's The Long Play: Candid CEO chatter on AI, talent wars, biohacking, and the gap between longevity advice and real life in SF.",
-    "fullText": "A version of this story originally appeared in the BI Tech Memo newsletter.\n\n What is \"The Long Play\" event?\n\n What is \"biojacking\"?\n\n What is the \"AI bubble\"?\n\n Who is Bryan Johnson?\n\n How are AI talent wars affecting tech?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "tech"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/ai-long-play-big-bubbles-bryan-johnson-longevity-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e26501a98bc8fdc096bdd4?width=1200&format=jpeg",
-    "created_at": "2026-04-17T18:43:03.052Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "steve-bannon-says-anthropic-had-it-right-in-rejecting-deal-with-the-pentagon",
-    "title": "Steve Bannon says Anthropic 'had it right' in rejecting deal with the Pentagon",
-    "description": "During the Semafor World Economy Summit, Steve Bannon said we need to better understand how weapon manufacturers will use AI.",
-    "fullText": "Steve Bannon said Anthropic \"had it right\" in rejecting the Pentagon's deal.\n Bannon said we need to better understand how weapon manufacturers will use AI.\n The Pentagon effectively blacklisted Anthropic following the failed deal.\n\n What is Anthropic's main focus now?\n\n How might AI be used in weaponry?\n\n What are the concerns with Claude Mythos?\n\n Why did Anthropic reject the Pentagon deal?\n\n What led to Anthropic's App Store success?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "deal",
-      "anthropic",
-      "bannon",
-      "pentagon",
-      "anthropic's"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/steve-bannon-backs-anthropics-pentagon-deal-rejection-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e24058a98bc8fdc096bc1d?width=1200&format=jpeg",
-    "created_at": "2026-04-17T18:43:03.051Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "5-questions-leaders-should-ask-before-turning-to-fractional-work",
-    "title": "5 Questions Leaders Should Ask Before Turning to Fractional Work",
-    "description": "Both sides of the labor market are fueling a growth in fractional work. On the company side, demand is driven by increased pressure to do more with fewer resources amid AI uncertainty and market volatility. For workers, the appeal of diversifying income streams, gaining autonomy, and improving work-life balance is increasing the fractional labor supply. Here are five questions senior leaders should ask themselves before deciding to make the transition to fractional work.",
-    "fullText": "5 Questions Leaders Should Ask Before Turning to Fractional Work by Joy Batra and Dorie ClarkApril 17, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintEven the most experienced senior leaders may be concerned about their future job prospects amid the relentless onslaught of AI-related layoff news. Much has been written about AI’s impact on early-career jobs and the disappearing middle manager, but leaders are also feeling less agency and more layoff anxiety.",
-    "readingTime": 1,
-    "keywords": [
-      "leaders",
-      "layoff"
-    ],
-    "qualityScore": 0.35,
-    "link": "https://hbr.org/2026/04/5-questions-leaders-should-ask-before-turning-to-fractional-work",
-    "thumbnail_url": "/resources/images/article_assets/2026/04/Apr26_16_HBRAI.jpg",
-    "created_at": "2026-04-17T18:43:02.240Z",
-    "topic": "business"
-  },
-  {
-    "slug": "research-what-chinas-ai-agents-reveal-about-the-future-of-commerce",
-    "title": "Research: What China’s AI Agents Reveal About the Future of Commerce",
-    "description": "Agentic commerce represents a shift in how digital transactions happen. Instead of simply helping people find products, AI agents increasingly carry out tasks on their behalf. Users can delegate actions such as searching, comparing options, ordering, and paying, stepping in only when needed. Early experiments in China show how this model works at scale. Platforms such as Meituan, Alibaba, Ant Group, and ByteDance are testing systems that interpret user intent and execute transactions across tightly integrated digital ecosystems.",
-    "fullText": "Research: What China’s AI Agents Reveal About the Future of Commerce by Mark J. Greeven, Fabrice Beaulieu and Wei WeiApril 17, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintWhen Meituan, China’s dominant lifestyle super app that combines services similar to DoorDash, Yelp, and Groupon into a single platform, launched its Xiaomei AI agent in late 2025, executives internally described it not as a chatbot but as an orchestrator plus execution agent. The point wasn’t convenience; it was delegation. A user could say, “Order my usual lunch, but deliver it 20 minutes later today,” and the agent would interpret intent, apply preferences, and complete the transaction, often with zero screen interaction.",
-    "readingTime": 1,
-    "keywords": [
-      "agent",
-      "china’s"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://hbr.org/2026/04/research-what-chinas-ai-agents-reveal-about-the-future-of-commerce",
-    "thumbnail_url": "/resources/images/article_assets/2026/04/Apr26_17_2202943461.jpg",
-    "created_at": "2026-04-17T18:43:02.210Z",
-    "topic": "science"
-  },
-  {
-    "slug": "the-ai-leadership-imperative",
-    "title": "The AI Leadership Imperative",
-    "description": "HBR editor at large Adi Ignatius spoke with Jeetu Patel, president and chief product officer at Cisco, last week at a special HBR Executive event at HumanX, a big AI conference in San Francisco. During the session, Patel offered insights for leaders who want to accelerate their AI transformations.",
-    "fullText": "Executive Agenda NewsletterThe AI Leadership Imperative by Adi IgnatiusApril 17, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintWelcome to the HBR Executive Agenda for April 16, 2026.",
-    "readingTime": 1,
-    "keywords": [
-      "executive agenda"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://hbr.org/2026/04/the-ai-leadership-imperative",
-    "thumbnail_url": "/resources/images/article_assets/2026/04/04_16_Agenda_AI-Leadership_75649288.jpg",
-    "created_at": "2026-04-17T18:43:02.136Z",
-    "topic": "business"
-  },
-  {
-    "slug": "gemini-can-now-create-ai-images-using-your-own-photos-and-videos",
-    "title": "Gemini Can Now Create AI Images Using Your Own Photos and Videos",
-    "description": "Personal Intelligence is expanding into Google Photos and picking up AI image creation capabilities, courtesy of the Nano Banana 2 model.",
-    "fullText": "Gemini has long been able to connect to other Google apps, but earlier this year those integrations were made tighter and more seamless with a feature called Personal Intelligence. Now, Personal Intelligence is expanding into Google Photos and picking up AI image creation capabilities, courtesy of the Nano Banana 2 model.\n\nThe idea is that you don't have to manually select a picture in Google Photos and tell the AI to do something with it. Instead you just type a prompt such as \"create a cartoon showing my family enjoying our favorite activities,\" and Gemini will do the rest—mining your Google Photos library for the relevant information and people.\n\nAnother example prompt Google gives is \"create a watercolor image of my dream house nestled in my favorite setting.\" You can see how the new integrations save you time—you don't have to explain what your dream house or your favorite setting look like, as long as Gemini can work it out from your photos.\n\n\"Since this is built into how you normally use the Gemini app there's no extra setup,\" says Google. \"If you've already linked your Google apps, that personal context is ready and waiting the moment you start creating images... the results will automatically reflect your specific tastes and lifestyle, gleaned from the Google apps you've connected to.\"\n\nThe upgraded Personal Intelligence experience is rolling out now inside the Gemini app for users in the U.S., but you need to be a paying customer to access it, on either the AI Plus, AI Pro, or AI Ultra plans. Google says access for more users and support for Gemini inside Chrome is coming soon.\n\nThis is being pushed out now to Google AI subscribers in the U.S., so if that includes you then you shouldn't have to do anything special to get the new feature in Gemini on the web or on mobile. You may well see a pop-up message inside the app announcing that you've got the upgrade, which is what Google often does.\n\nWith the Create image option selected, you can simply type out what you want to see, and Gemini takes care of the rest. Something like \"create a sketch of my family on vacation at the beach\" or \"make a photo collage of my desert island essentials\" should work, if there's enough information to go on in Google Photos.\n\nGoogle says Gemini will look at the labels you've applied in Google Photos, such as the names of people and pets, to try and work out what you're asking for. There's clearly quite a bit of educated guesswork going on with the AI here, and \"Gemini might not always pick the exact photo or detail you had in mind on the first try,\" according to Google.\n\nYou can always click on the Sources button underneath a generated AI image to see the photos that Gemini has picked as reference points, and ask Gemini to make edits to what's been created using follow-up prompts. You can also click the + (plus) button on the prompt box if you want to point Gemini toward a different reference photo.\n\nThere is something a little creepy about prompting Gemini using these intimate details about your life, but it's only really the integration between apps that's new: If you use Google Photos, then it's constantly using AI to recognize what's in your pictures so you can better sort through them and organize them, including family members and pets.\n\nGoogle says Gemini doesn't \"directly\" train its AI models on your photos, but instead uses \"limited\" information from them to improve the user experience. Connecting Google Photos to Gemini remains an opt-in choice, and one you can reverse at any time: Inside the Gemini app, click the cog icon (on the web) or tap your profile picture (on mobile), then choose Connected apps to make changes.",
-    "readingTime": 4,
-    "keywords": [
-      "dream house",
-      "google photos",
-      "gemini app",
-      "google apps",
-      "you've",
-      "prompt",
-      "family",
-      "favorite",
-      "there's",
-      "integrations"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/gemini-google-photos-integration?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KPDVYZTBP1AH4PW554ARZ16V/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-04-17T18:43:01.138Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "bernie-sanders-ai-is-coming-for-the-working-class-we-must-fight",
-    "title": "Bernie Sanders: AI is coming for the working class. We must fight",
-    "description": "Legislation sponsored by Sen. Bernie Sanders calls for a federal moratorium on new AI data centers until safeguards protect workers from mass job losses driven by Big Tech oligarchs.",
-    "fullText": "Artificial intelligence (AI) is the most transformational technology in the history of the world—and will have a profound impact on the life of every man, woman, and child in our country. And, if you’re currently in the workforce, there’s a good chance it will take your job.\n\nRecently, I took a trip in a self-driving Waymo car in San Francisco. There was no one behind the wheel. Waymo is already operating in 10 major cities and, along with other driverless car companies, intends to expand rapidly. In Texas, 18-wheelers are now traveling down highways without a driver. Left unchecked, it is likely that millions of truck drivers, bus drivers, taxi drivers, and rideshare drivers will lose their jobs in the next decade.\n\nBut it’s not just job loss in transportation. A few weeks ago, The Wall Street Journal reported that Jeff Bezos, the fourth-richest man alive, is seeking to raise $100 billion to purchase factories all over America. Not content with replacing the 600,000 workers in his Amazon warehouses with robots, he intends to do the same with millions of factory workers.\n\nWE COULD WIN THE AI WAR AND STILL LOSE ALL OF OUR FREEDOMS IF WE AREN’T CAREFUL\n\nMeanwhile, Elon Musk, the richest man alive, is converting Tesla into a robot company with the goal of building one million robots per year. What will these robots do? They will not only replace factory and warehouse jobs, they will displace workers in health care, grocery stores, the hospitality industry, call centers, and every other part of our economy.\n\nAI will not only be devastating for blue-collar workers, but for white-collar workers as well. Mustafa Suleyman, the CEO of Microsoft AI, said most white-collar work \"will be fully automated by an AI within the next 12 to 18 months.\" A Stanford paper called \"Canaries in the Coal Mine?\" found there has already been a 16% decline in employment for younger workers in jobs exposed to AI—like computer programming and customer service.\n\nTHE AI REVOLUTION THREATENS OFFICE JOBS, BUT REVIVES DEMAND FOR SKILLED TRADES\n\nThe reality is that the AI oligarchs do not want to just replace specific jobs. They want to replace workers. As Dario Amodei, the head of Anthropic, has said, AI \"isn’t a substitute for specific human jobs but rather a general labor substitute for humans.\" According to OpenAI’s charter, its mission is to build \"highly autonomous systems that outperform humans at most economically valuable work.\"\n\nWhy are AI and robotics being pushed so aggressively by Big Tech oligarchs like Musk, Bezos, Zuckerberg, Ellison, Altman, and Thiel? The answer is obvious. They are implementing a technology that will make them and their corporate clients even richer and more powerful. Why will any business want to hire a human worker when it can install AI and robotics and cut its labor costs by 80 to 90%? AI and robots don’t take a salary, need a vacation, require health care, or form a union. They just keep working—24/7.\n\nREP RO KHANNA: WE NEED A NEW TECH SOCIAL CONTRACT TO RECLAIM AI FROM BILLIONAIRES\n\nReplacing workers with revolutionary new technology is a good investment for billionaires. But for the working class of this country, AI and robotics could well be a nightmare. If AI and robotics eliminate millions of jobs and create massive unemployment, how will people survive if they have no income? How will they feed their families or pay for housing or health care? If workers and their employers are not contributing into Social Security and Medicare, what happens to these programs that provide life-and-death support for elderly and disabled Americans?\n\nThe American people see what is coming. And they don’t like it. According to a recent poll by Blue Rose Research, 79% of voters are concerned that the government does not have a plan to protect workers from AI job losses. Fifty-six percent are concerned about losing their job or having someone in their family lose their job in the next year. The next year!\n\nFurther, the overwhelming majority of Americans do not trust the motives of the AI oligarchs. For good reason.\n\nIN 2026, ENERGY WAR’S NEW FRONT IS AI, AND US MUST WIN THAT BATTLE, API CHIEF SAYS\n\nWe’ve heard this story before. In the 1990s, the working class of this country was told by corporate America and their media that unfettered free trade would be a boon to the economy and that it would create millions of new jobs and raise wages. As many of us understood then, that claim was a lie, which is why we opposed trade deals like NAFTA and PNTR with China. The true goal of these deals was to shut down thousands of factories in the U.S., allow companies to move abroad where they could pay desperate workers starvation wages, and greatly enhance profits for large corporations. And they accomplished exactly what they set out to do.\n\nNow, in the midst of the coming AI revolution, what should we be doing? It’s not complicated.\n\nCongress must act to ensure AI benefits all of us—not just a handful of billionaires racing forward for power and profit.\n\nAI-DRIVEN SCHOOL EXPANDING TO MAJOR US CITIES DESPITE UNION PUSHBACK\n\nThat is why I have introduced legislation to impose a federal moratorium on the construction of new AI data centers until strong safeguards are enacted. What does that mean?\n\nIt means that if AI and robotics are going to be deployed, these technologies must improve the lives of workers instead of just throwing them out on the street.\n\nIt means that as productivity greatly increases, the workweek should be significantly reduced with no loss in pay.\n\nCLICK HERE FOR MORE FOX NEWS OPINION\n\nIt means fundamentally rethinking the American social contract. If AI and robotics are going to create unprecedented wealth, we as a nation must guarantee all Americans a high-quality standard of living: decent housing, health care, education, and more.\n\nIt means that if AI and robotics will be used by children, guardrails must be established to make sure they do not harm their emotional well-being or their capacity to learn.\n\nIt means that our democracy must be secured from those who would use these technologies to lie and distort reality, and it means that our privacy must be protected from huge surveillance corporations that can use AI to increasingly track and record every aspect of our lives.\n\nAnd last, but certainly not least, it means that we need to protect the American people and the world from the existential threat many scientists fear may be coming. If AI and robotics become smarter than humans, there is a real possibility they will function independently of human control, with possible catastrophic outcomes. That obviously must not be allowed to happen. The international community must come together to prevent this nightmarish scenario.\n\nCLICK HERE TO READ MORE FROM SEN BERNIE SANDERS",
-    "readingTime": 6,
-    "keywords": [
-      "social contract",
-      "man alive",
-      "health care",
-      "if ai",
-      "workers",
-      "jobs",
-      "robotics",
-      "millions",
-      "drivers",
-      "robots"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.foxnews.com/opinion/sen-bernie-sanders-artificial-intelligence-coming-working-class-must-fight-back-",
-    "thumbnail_url": "https://static.foxnews.com/foxnews.com/content/uploads/2024/12/bernie-sanders-3.jpg",
-    "created_at": "2026-04-17T12:55:11.190Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "a-top-citadel-exec-details-what-hes-looking-for-in-new-employees",
-    "title": "A top Citadel exec details what he's looking for in new employees",
-    "description": "In a world where AI can bridge the gap on technical skills, Citadel Securities is looking for workers who show more \"intrinsic\" characteristics.",
-    "fullText": "Citadel Chief People Officer Alexander DiLeonardo says in a way he's looking for managers \"from day one.\"\n In an agentic AI world, he wants employees who understand how to delegate work to humans and tech.\n His comments show how AI is continuing to revolutionize the workforce.\n\n What is agentic AI?\n\n What skills do non-technical jobs now require?\n\n How are companies adapting to AI changes?\n\n How does AI affect job roles today?\n\n Why are leadership qualities crucial now?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "agentic"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/how-to-get-a-job-citadel-securities-ai-skills-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e139e5420cfc5419687ef1?width=1200&format=jpeg",
-    "created_at": "2026-04-17T12:55:10.776Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "amazons-ai-boom-is-creating-a-mess-of-duplicate-tools-and-data-inside-the-company",
-    "title": "Amazon's AI boom is creating a mess of duplicate tools and data inside the company",
-    "description": "Generative AI makes it easier to create your own apps and tools at work. The downside is \"AI sprawl,\" something Amazon is grappling with internally.",
-    "fullText": "AI is helping employees create new apps and tools faster.\n That creative explosion comes with downsides. Some are calling this \"AI sprawl.\"\n Amazon has seen a surge in duplicate internal tools and data. Its solution: More AI.\n\n What is \"AI sprawl\"?\n\n What are the risks of \"shadow AI\"?\n\n What is the \"two-pizza team\" model?\n\n How does AI lower tool-building barriers?\n\n How can AI duplication be managed?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "tools",
-      "sprawl"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://www.businessinsider.com/ai-sprawl-amazon-tool-duplication-data-risk-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e0378216ad6f0000dc4f93?width=1200&format=jpeg",
-    "created_at": "2026-04-17T12:55:10.759Z",
     "topic": "finance"
   }
 ]
