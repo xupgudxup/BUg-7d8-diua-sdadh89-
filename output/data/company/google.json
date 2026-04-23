@@ -1,5 +1,66 @@
 [
   {
+    "slug": "google-meet-can-now-take-notes-during-inperson-meetings-too",
+    "title": "Google Meet Can Now Take Notes During In-Person Meetings Too",
+    "description": "\"Take Notes for me\" is no longer limited to virtual meetings.",
+    "fullText": "Google Meet's \"Take Notes for me\" feature is one particularly useful implementation of AI. When you're on a video call, Gemini can dictate what's being said, offering summaries and highlights of the conversation. That way, your attention doesn't need to be split between the conversation at hand and writing down notes to remember key points later: You can just check the notes that are automatically generated as a Google Doc once the meeting is over. It's the kind of feature that sells me more on the whole \"AI assistant\" thing, rather than something trying to order me a coffee.\n\nOf course, video conferencing isn't the only time dictation can be useful. An in-person meeting can benefit from the same perks as a virtual one: Why bother with scribbling down notes on paper or typing away on a laptop when your phone can transcribe the chat on your behalf? I've started using the Voice Memos app on my iPhone for the task, for example, since it's easy to record both audio and an automatic transcription of the conversation. If you're a regular Google Meet user, however, you now have a similar option in your app of choice: Meet's Take Notes for me feature now supports live, in-person meetings as well.\n\nAs noted by 9to5Google, here's how it works: You open the Google Meet site or app on your device, but rather than start a call, you can use the new \"Take Notes for me\" option to task Gemini with transcribing and summarizing your discussion. You can hit \"Pause\" at any time to pause dictation, and \"Stop\" followed by \"Stop taking notes\" to end it altogether. You can also transition to a video call if you want to conference in someone who isn't in the same room as you. And, just as with a Google Meet call, Take Notes for me will automatically save the meeting notes in a Google Doc.\n\nThis feature started as an Alpha-only option but is now rolling out to more Workspace plans. Your admin may need to activate it on their end, but following that, you should be able to start recording your own conversations.\n\nThis feature won't appear for any Google account not tied to a Workspace plan. Of course, there are plenty of alternatives out there if you don't have \"Take Notes for me\" available to you in Google Meet. It won't be a perfect match, since Google Meet integrates with your Google account and does more than just transcribe the call, but there are other options worth considering.\n\nAs I mentioned, I really like using Apple's built-in tools: Voice Memos can generate automatic transcriptions, which you can save to Apple Notes. But if you don't have an Apple device or you prefer another option, PCMag has a series of recommendations, including Otter.ai, GoTranscript, and Rev.",
+    "readingTime": 3,
+    "keywords": [
+      "google account",
+      "google meet",
+      "take notes",
+      "voice memos",
+      "feature",
+      "option",
+      "conversation",
+      "useful",
+      "you're",
+      "gemini"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/google-meet-can-now-take-notes-during-in-person-meetings?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KPXMYW5WTE2F8XE0HRC9XZJA/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-04-23T18:54:57.581Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "message-queue-vs-task-queue-vs-message-broker-why-are-these-always-mixed-up",
+    "title": "Message Queue vs. Task Queue vs. Message Broker: why are these always mixed up?",
+    "description": "While working with tools like Celery, Redis, RabbitMQ, Amazon SQS, and Google Cloud Tasks, you’ve probably came across terms like task…",
+    "fullText": "While working with tools like Celery, Redis, RabbitMQ, Amazon SQS, and Google Cloud Tasks, you’ve probably came across terms like task queue, job queue, message queue, and message broker. If you’re a beginner, these terms can feel confusing as many posts on the internet uses them interchangeably but these are not the same. Each of them solves a different problem, and using them without understand what they does would be waste of resources.\n\nIn this blog, we’ll start from the basics and gradually build up to real systems. We’ll understand what each of these concepts actually does, how they differ, and when you should use them. We’ll also map them to design patterns like Producer Consumer and Pub/Sub, so you can see how everything fits together.\n\nWhenever you visit Celery website you see “A simple distributed Task Queueing service”, when you read a bit of docs then you see “It works with message broking services like Redis Queue, RabbitMQ, Amazon SQS”. When you visit RabbitMQ site you see “It is a messaging and streaming broker”. Similarly when you visit Redis site you see “It is a message queueing and message broking service”. Let’s first understand what message queue, task queue and message brokers are. Then we’ll discuss it further.\n\nIf you are not familiar with producer consumer pattern and pub/sub. Read it first click here\n\nMany articles and posts on the internet uses message queues and task queues interchangeably but there are many differences between both of them.\n\nMessage: A message can be a request, reply , error or just plain text information.\n\nA message queue is a temporary storage which keeps the message sent by the producer until any consumer picks it for execution. Many producers and consumers can use this queue but only a single consumer can read a message. For this reason we call it a one to one or point to point communication. When we need to process the message with multiple consumers we need to use pub/sub pattern alongside this.\n\nSome message queues have the feature of resending the messages if success acknowledgement is not received.\n\nWhile message queues perform the functionality of queueing messages and retry mechanisms perfectly. With scale you need to add multiple queues and managing each of them individually becomes very complex. The simplest solution for this would be to keep all the message queues inside a centralised system with logic to manage all those queues inside that system.\n\nMessage Broker does this. It is a kind of middleman which takes the messages from Producer and stores them temporarily in its respective queue. The consumers continuously poll the Broker for tasks and fetches the task from queue. After successful execution Consumer sends an acknowledgement for the task.\n\nA Task Queue is a system that stores task and execute them using workers. Similar to Message Queue it temporarily holds data but instead of storing just messages it stores jobs where set of execution steps are defined. It can be a function calling or api call or database queries. The Task queue holds these jobs until a worker picks and executes it.\n\nIn addition to this, a Task Queue can handle retries, errors, scheduling, and coordination between multiple brokers.\n\nWorker : A Worker is responsible for executing the tasks. It is a specific type of consumer that the job queue manages. It is handled by the job queues. In message queues you need to manually define your own consumers.\n\nTask : A Task or a Job is a generally a description of work that needs to be done. A task may include sending emails, generating reports, image creation, data processing, generating logs and much more. A message is just a piece of information.\n\nExamples of Task Queues are Celery, APScheduler, Amazon SQS and Google Cloud Task Queues\n\nIs Task Queue used in production?\n\nYes, Task Queues are heavily used in production. In large scale systems tasks are not executed immediately. They are pushed into a queue, and processed by multiple workers running concurrently. For example a user uploads an image. This upload does not lock the server, instead it queues the image upload request and the user gets “Your upload is in progress”. A worker picks this task and after successful execution he gets “Upload Successful” response.\n\nTask Queues also support Batch Processing. Instead of processing large amount of data once, the system breaks it into multiple smaller tasks and push them to the queue. Workers process these tasks asynchronously. Backing up your data, Transferring your cloud data to another device are some of its examples as they work as background processes.\n\nCan I have multiple concurrent workers in single core system?\n\nYou can have multiple workers in single core systems too but instead of working concurrently, your workers use context switching. One worker works for sometime and saves state and other starts working. This way worker switches multiple times and completes execution. This is handled by Operating System. Though it is recommended to not use more than 2 workers per core.\n\nMessage Queues, Task Queues and Message Brokers are not alternatives of each other. They work together in production. Producers send the jobs to the message broker which stores and deliver them using queues and workers fetch those jobs and executes them. The execution logic, retries, and task handling are managed by the workers or the task queue system\n\nTask Queue is built on top of Message Queue if you are not using Redis. Redis has its own Data Store(primarily uses List Data Structure).",
+    "readingTime": 5,
+    "keywords": [
+      "amazon sqs",
+      "google cloud",
+      "rabbitmq amazon",
+      "successful execution",
+      "worker picks",
+      "producer consumer",
+      "queues inside",
+      "message broking",
+      "message brokers",
+      "task queue"
+    ],
+    "qualityScore": 1,
+    "link": "https://medium.com/@yashvaishnav1404/message-queue-and-task-queue-when-to-use-them-fe3a694f6433",
+    "thumbnail_url": "https://miro.medium.com/v2/da:true/resize:fit:930/0*n9rIHaEuasDvb1aO",
+    "created_at": "2026-04-23T18:54:54.318Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "google-exec-says-almost-every-big-studio-uses-ai-but-not-all-disclose-it",
+    "title": "Google exec says almost every big studio uses AI, but not all disclose it",
+    "description": "Google Cloud’s games boss cites Capcom as one major studio that uses AI tools…",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.videogameschronicle.com/news/their-favourite-games-were-already-built-with-ai-google-exec-says-almost-every-studio-uses-ai-but-not-all-disclose-it/",
+    "thumbnail_url": "https://www.videogameschronicle.com/files/2025/09/resident-evil-requiem-pic7.jpg",
+    "created_at": "2026-04-23T18:54:53.165Z",
+    "topic": "tech"
+  },
+  {
     "slug": "jiga-yc-w21-is-hiring",
     "title": "Jiga (YC W21) Is Hiring",
     "description": "We are creating the tool to speed up manufacturing for NASA, Google, Tesla and hundreds more. Join us to build the future of manufacturing.",
@@ -1911,67 +1972,6 @@
     "link": "https://apps.apple.com/us/app/calendar-auto-sync-calmirror/id6759219374",
     "thumbnail_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/61/6f/ac/616fac17-5094-40c8-3a88-4e3ca7216265/Placeholder.mill/1200x630wa.jpg",
     "created_at": "2026-03-21T06:31:06.541Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "google-adds-24hour-wait-and-mandatory-reboot-to-android-sideloading-flow",
-    "title": "Google adds 24-hour wait and mandatory reboot to Android sideloading flow",
-    "description": "Starting in 2026 and in select countries first, Android apps must be registered to a verified developer in order to be installed.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://android-developers.googleblog.com/2025/08/elevating-android-security.html",
-    "thumbnail_url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUkp5dA-6D3rIQN9qhkGM2jBePBpZEWKzRTYaQQdYEItE8dNavcwQdcLHGCBQKBN65O-TQarjAP_CsMpARFMplATz5_7xf1D-GxZ85DRluju1ZU1E6k9fFHwCEJZp4YgmXCyES18I5kxVBjbwkrt6qhLbctXubpj00gH0dBwAAFTiF8stI05tgk1Ma82Q/s1600/Android-Developer-Verification.png",
-    "created_at": "2026-03-21T06:31:04.851Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "google-just-made-four-big-upgrades-to-android-gaming-on-your-windows-pc",
-    "title": "Google Just Made Four Big Upgrades to Android Gaming on Your Windows PC",
-    "description": "Pick up your game where you left off, on your phone or PC.",
-    "fullText": "Google just announced some notable upgrades to the Google Play gaming experience on Windows PCs, with improvements that cover game discovery and purchases, and the news that a broader number of paid titles are now becoming available for the desktop.\n\nWhile an official Windows client for Google Play apps and games has been available for several years, these latest updates mean the experience is more polished than ever before.\n\nThere are four main changes for gamers wanting to play Android games on Windows.\n\nFirst, Google is \"actively expanding\" the number of paid, premium games that are fully optimized for PCs. Android games don't get this optimization by default, and need to be specifically tweaked to support PC gaming (keyboard controls and all), so more titles that meet this criteria will be very welcome.\n\nSecond, there's a new PC section in the Play Store Games tab on mobile devices, so you can actually see which titles are going to be cross-platform compatible before you install them.\n\nThird, you only need to buy a game once to use it on both mobile and desktop (something that wasn't always the case in the past).\n\nThe last upgrade is Game Trials. On selected titles, you'll be able to dive in and start playing for free—once you reach a certain limit in terms of time or progress, you'll then be asked if you want to buy the game (and your progress will be carried over, if you do decide to make the purchase).\n\nIt's not clear from the announcements how long this will all take to roll out, but Google says games such as Moonlight Peaks, Sledding Game, and Low-Budget Repairs will be available on PC in the \"coming months.\" None of those games are live in the Play Store app on Android yet.\n\nThere's a lot to like about running Android games on the desktop—not least a much bigger screen, and keyboard and mouse input options—so if you're keen to dive in, here's how you can give it a try.\n\nGet started by visiting the Google Play Games web portal on your Windows PC. Follow the download prompts, and you get taken through the process of installing the software and entering your Google account details (for syncing purposes). Assuming you have actually played a game on your Android device at some point, your profile and stats are carried over to the desktop.\n\nAt the end of the installation process, you'll be shown a list of games you've already played that are available on Windows. You can also find this list later by clicking From your library on the home page of the Google Play Games app. The majority of the titles I've played on Android seem to be present and correct.\n\nThe playing experience is, on the whole, intuitive and straightforward. Most of the games I tried I had no problems with, although sometimes the desktop controls can take some working out: Click the keyboard icon to the left of the game window to remap these (you might also find some control settings within the games themselves).\n\nYou can also click the visual settings button (the sliders icon) to change how the game is displayed on screen, and there's a volume control button on the left too. Games tend to stick to their default orientation from mobile, whether that's landscape or portrait, but you can adjust the size of the gaming window.\n\nThe games I tried from my own library were rather hit and miss when it came to syncing up—some carried my progress over from my phone and some didn't, so it seems likely that the onus is largely on developers to implement this right now (and it's something Google clearly wants to improve).\n\nFrom the home page, click the magnifying glass icon to explore games from the desktop: You can filter out titles that haven't been optimized for PC, and from what I can see, there's already plenty to choose from. I didn't find any Game Trials available at the time of writing, so it seems those are still in the pipeline.\n\nAndroid games on PC can be a lot of fun—especially those that work properly with keyboards or gamepads—and I can see this being something a lot of gamers should set up, especially given the latest improvements. And when you're not sitting at your Windows PC, you can carry on gaming as normal on your phone or tablet.",
-    "readingTime": 4,
-    "keywords": [
-      "android games",
-      "google play games",
-      "titles",
-      "desktop",
-      "gaming",
-      "there's",
-      "experience",
-      "keyboard",
-      "mobile",
-      "you'll"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/how-to-play-and-sync-your-google-play-android-games-on-your-windows-pc?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KM5W7JD97ZDEATQ6RBE1QES1/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-03-20T18:33:38.508Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "heres-how-googles-safer-sideloading-works-on-android",
-    "title": "Here’s How Google’s ‘Safer’ Sideloading Works on Android",
-    "description": "You can still install unverified apps—but only after a 24-hour waiting period.",
-    "fullText": "While Google has plans to severely restrict Android users' ability to download apps from sources other than the Google Play Store, the company is introducing a new process that will allow sideloading after a mandatory 24-hour waiting period. This new \"advanced flow\" setting is meant to prevent users from installing malware distributed by bad actors through unverified sources, while still allowing them to sideload from legitimate developers.\n\nLast year, Google announced that sideloading on Android would eventually be limited to verified third-party app stores and developers. This change has a clear goal: cracking down on malicious apps impersonating real ones found on the Google Play Store. These restrictions—which go into effect for Brazil, Indonesia, Singapore, and Thailand later this year, and apply globally in 2027—will eventually require developers to register specific details with Google in order to distribute their apps, as well as pay a fee. (Students and hobbyists will be still able to share apps with up to 20 devices without registering or requiring users to go through the new workaround.)\n\nThis move was met with significant criticism from both developers and users, with concerns ranging from privacy infringement (developers now need to share details they didn't previously have to) to increased difficulty accessing modified or downgraded versions of apps. As such, Google is rolling out a compromise it feels will protect most users from malware, while allowing power users to sideload when they wish to.\n\nThe new advanced flow setting will add multiple points of friction to unverified app installation, cutting into the sense of urgency scammers frequently use to distribute malware. Users will go through a one-time process to disable security protections—meaning you won't need to repeat it every time you want to sideload—but you'll still see a warning when you attempt to install an app from an unverified developer.\n\nIf you're interested in this workaround, you will first need to enable developer mode in your device's Settings app and confirm you are not being coerced into disabling security protections on your device (a common scam tactic). Next, you'll need to restart your phone, which shuts down calls and remote access tools scammers may use to communicate with you or control your device. From here, you'll have to wait 24 hours before you can return and authenticate the settings change using biometrics or your device PIN. Finally, you'll confirm you understand the risks, which then allows you to install apps from unverified developers for seven days, or indefinitely.\n\nThis workaround will be available starting in August—before developer registration requirements kick in.",
-    "readingTime": 3,
-    "keywords": [
-      "advanced flow",
-      "users",
-      "apps",
-      "developers",
-      "unverified",
-      "you'll",
-      "malware",
-      "workaround",
-      "developer",
-      "device"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://lifehacker.com/tech/how-googles-safer-sideloading-works-on-android?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KM5WCXS44WSVH5ERF45HJR5D/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-03-20T18:33:38.451Z",
     "topic": "tech"
   }
 ]
