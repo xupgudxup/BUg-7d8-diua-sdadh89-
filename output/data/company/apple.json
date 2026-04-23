@@ -1,5 +1,29 @@
 [
   {
+    "slug": "did-apple-just-fix-the-iphone-bug-that-let-the-fbi-recover-deleted-signal-messages",
+    "title": "Did Apple Just Fix the iPhone Bug That Let the FBI Recover Deleted Signal Messages?",
+    "description": "Apple's latest security update appears to address the issue.",
+    "fullText": "Earlier this month, 404 Media broke a fascinating, complex, and concerning story: The FBI had successfully retrieved incoming Signal messages from a defendant's iPhone, despite the fact that those messages were set to self-destruct within the famously secure chat app. Though it's easy to assume Signal would be to blame, it turns out the fault was with iOS—and Apple may have just fixed the problem.\n\nTo recap: 404 Media spoke to someone who attended the trial in question, where the court learned that all iPhone notifications are stored in a database on the device. So even though the Signal messages were deleted, their notification data remained in this database, from where the FBI was able to obtain them. (The defendant's own messages weren't present, since only incoming texts would generate notifications.)\n\nThe story generated buzz across the tech community. Many of us who have used iPhones since their inception 20 years ago were surprised to learn about this \"notification database,\" a revelation that prompted discussions of the best way to shore up iPhone notification security. Based on the information revealed in the court case, the best course of action seemed to be to block sensitive data from showing up in notifications—if you stop Signal from revealing message info in its alerts, then an intruder accessing your notification database would only see you received a Signal notification, and not what the message said or who it was from. Still, there were unanswered questions: Do notifications remain in the database after you clear them? And if you don't, how long do they stay there?\n\nWhile we don't exactly have answers to those questions, we're perhaps a bit closer to them. On Wednesday, Apple dropped iOS 26.4.2. This update doesn't include any new features or changes, so don't expect your iPhone to look any different after you install it. In fact, the vague release notes only offer that the update \"provides bug fixes and security updates for your iPhone.\" However, click through to Apple's security releases site, and you'll find the official security notes for 26.4.2. Here, we can see one bug fix for Notification Services: \"Notifications marked for deletion could be unexpectedly retained on the device.\"\n\nThere's no easy way to confirm that this fix was issued in response to the Signal news, but the timing is curious, to say the least. What are the chances that, just weeks after the disclosure that the FBI had accessed a user's \"notification database\" to retrieve deleted messages, Apple would issue a fix for a bug that left deleted notifications somewhere on the device? Even still, there are lingering questions: Did the defendant in the case delete the notifications from their iPhone, or just the messages? Did the notifications appear to clear on their own after the messages self-destructed? For what it's worth, Apple also released iOS 18.7.8, which fixes the same Notification Services bug for the older build of iOS. I've reached out to Apple for clarification and will update this piece if I hear back.\n\nIf this update does indeed prevent actors from obtaining previously deleted notifications from our iPhones, it's a good idea to install it ASAP. To do so, head to Settings > General > Software Update, then follow the on-screen instructions to download and install the update. The same applies if you're on iOS 18 trying to install iOS 18.7.8.",
+    "readingTime": 3,
+    "keywords": [
+      "signal messages",
+      "notification database",
+      "deleted notifications",
+      "iphone",
+      "security",
+      "install",
+      "it's",
+      "device",
+      "don't",
+      "media"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/apple-signal-notifications-iphone-bug?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KPVAF7C2HSKYE9F110JV0Q19/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-04-23T01:30:02.636Z",
+    "topic": "tech"
+  },
+  {
     "slug": "new-apple-ceo-john-ternus-is-inheriting-a-pressure-cooker",
     "title": "New Apple CEO John Ternus is inheriting a pressure cooker",
     "description": "Incoming CEO John Ternus is stepping into Tim Cook's shoes at a time when Apple is looking to prove it can still innovate and stay competitive in AI.",
@@ -1980,29 +2004,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/5HMouKWYf30aAGDB77o4RA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/cnet_articles_178/652ff587286032a98e08c194109b6c84",
     "created_at": "2026-03-23T18:39:32.873Z",
     "topic": "tech"
-  },
-  {
-    "slug": "worlds-broadcasters-urge-eu-to-tighten-rules-for-big-tech-in-smart-tv-battle",
-    "title": "World’s broadcasters urge EU to tighten rules for big tech in smart TV battle",
-    "description": "Google, Amazon, Apple and Samsung control operating systems, allowing them to act as gatekeepers, letter...",
-    "fullText": "Google, Amazon, Apple and Samsung control operating systems, allowing them to act as gatekeepers, letter claims\n\nThe world’s largest broadcasters have pushed for the EU to enforce its toughest regulations against virtual TVs and smart assistants built by Google, Amazon, Apple and Samsung.\n\nThe call came in a letter from the Association of Commercial Television and Video on Demand Services in Europe (ACT), whose members include Canal+, RTL, Mediaset, ITV, Paramount+, NBCUniversal, Walt Disney, Warner Bros Discovery, Sky and TF1 Groupe.\n\nThe letter argues that big tech companies have growing control over the operating systems of smart TVs and voice assistants, allowing them to act as “gatekeepers” funnelling users towards some content and away from others.\n\nServices such as Amazon’s Fire TV and Google TV have recommendation systems, as well as search functions, that may prioritise some content over others. These systems, built into many smart TVs, stand to shape how millions of users consume television.\n\n“A limited number of operators are therefore gaining growing ability to shape outcomes for millions of users and businesses by controlling access to audiences and content distribution,” ACT wrote in a letter to the EU’s antitrust chief, Teresa Ribera, reported by Reuters.\n\n“It is crucial that the commission designate major TV operating systems ​as gatekeepers and ensure adequate oversight to guarantee fairness and contestability,” the broadcasters said.\n\nGoogle, Amazon, Apple and Samsung have been approached for comment.\n\nACT’s letter comes amid heightened tension between European authorities and Donald Trump’s administration over the regulation of US tech companies, which has led to a series of tussles over how these firms operate in Europe.\n\nBrussels is reportedly preparing to intensify enforcement of its key anti-competition rules, and the Trump administration has said this is “discriminatory” against US companies.\n\nIn early February, the EU threatened action against Meta for blocking rival AI chatbots from using its WhatsApp business platform, saying it was abusing its dominant market position. Meta said there was no reason for the EU to intervene and that it was not a key distribution channel for AI chatbots.\n\nRibera said on Monday that a decision was soon to come on whether Google’s search engine is breaking the EU’s Digital Markets Act, an investigation that has been ongoing since 2024.\n\nIn December the US imposed sanctions on the former European commissioner Thierry Breton as well as four other European “activists”, accusing them of censorship and “suppress[ing] American viewpoints”. The move was widely seen as an escalation in response to European regulation of US tech platforms.\n\nBreton is challenging the sanctions and the commission has announced it will back him.",
-    "readingTime": 3,
-    "keywords": [
-      "amazon apple",
-      "google amazon",
-      "smart tvs",
-      "operating systems",
-      "letter",
-      "european",
-      "samsung",
-      "gatekeepers",
-      "tech",
-      "users"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.theguardian.com/business/2026/mar/23/broadcasters-eu-big-tech-smart-tv-google-amazon-apple-samsung",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/a0aee994db5373f39dc19e84ea96f6485b9d865c/407_0_4431_3545/master/4431.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=775295ccda9e1014e304d145cc48dba7",
-    "created_at": "2026-03-23T18:39:31.161Z",
-    "topic": "business"
   }
 ]

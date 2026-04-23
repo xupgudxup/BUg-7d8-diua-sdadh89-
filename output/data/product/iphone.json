@@ -1,5 +1,29 @@
 [
   {
+    "slug": "did-apple-just-fix-the-iphone-bug-that-let-the-fbi-recover-deleted-signal-messages",
+    "title": "Did Apple Just Fix the iPhone Bug That Let the FBI Recover Deleted Signal Messages?",
+    "description": "Apple's latest security update appears to address the issue.",
+    "fullText": "Earlier this month, 404 Media broke a fascinating, complex, and concerning story: The FBI had successfully retrieved incoming Signal messages from a defendant's iPhone, despite the fact that those messages were set to self-destruct within the famously secure chat app. Though it's easy to assume Signal would be to blame, it turns out the fault was with iOS—and Apple may have just fixed the problem.\n\nTo recap: 404 Media spoke to someone who attended the trial in question, where the court learned that all iPhone notifications are stored in a database on the device. So even though the Signal messages were deleted, their notification data remained in this database, from where the FBI was able to obtain them. (The defendant's own messages weren't present, since only incoming texts would generate notifications.)\n\nThe story generated buzz across the tech community. Many of us who have used iPhones since their inception 20 years ago were surprised to learn about this \"notification database,\" a revelation that prompted discussions of the best way to shore up iPhone notification security. Based on the information revealed in the court case, the best course of action seemed to be to block sensitive data from showing up in notifications—if you stop Signal from revealing message info in its alerts, then an intruder accessing your notification database would only see you received a Signal notification, and not what the message said or who it was from. Still, there were unanswered questions: Do notifications remain in the database after you clear them? And if you don't, how long do they stay there?\n\nWhile we don't exactly have answers to those questions, we're perhaps a bit closer to them. On Wednesday, Apple dropped iOS 26.4.2. This update doesn't include any new features or changes, so don't expect your iPhone to look any different after you install it. In fact, the vague release notes only offer that the update \"provides bug fixes and security updates for your iPhone.\" However, click through to Apple's security releases site, and you'll find the official security notes for 26.4.2. Here, we can see one bug fix for Notification Services: \"Notifications marked for deletion could be unexpectedly retained on the device.\"\n\nThere's no easy way to confirm that this fix was issued in response to the Signal news, but the timing is curious, to say the least. What are the chances that, just weeks after the disclosure that the FBI had accessed a user's \"notification database\" to retrieve deleted messages, Apple would issue a fix for a bug that left deleted notifications somewhere on the device? Even still, there are lingering questions: Did the defendant in the case delete the notifications from their iPhone, or just the messages? Did the notifications appear to clear on their own after the messages self-destructed? For what it's worth, Apple also released iOS 18.7.8, which fixes the same Notification Services bug for the older build of iOS. I've reached out to Apple for clarification and will update this piece if I hear back.\n\nIf this update does indeed prevent actors from obtaining previously deleted notifications from our iPhones, it's a good idea to install it ASAP. To do so, head to Settings > General > Software Update, then follow the on-screen instructions to download and install the update. The same applies if you're on iOS 18 trying to install iOS 18.7.8.",
+    "readingTime": 3,
+    "keywords": [
+      "signal messages",
+      "notification database",
+      "deleted notifications",
+      "iphone",
+      "security",
+      "install",
+      "it's",
+      "device",
+      "don't",
+      "media"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/apple-signal-notifications-iphone-bug?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KPVAF7C2HSKYE9F110JV0Q19/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-04-23T01:30:02.636Z",
+    "topic": "tech"
+  },
+  {
     "slug": "the-history-of-apple-in-photos-from-the-early-steve-jobs-era-to-the-iphone-launch-to-its-next-ceo",
     "title": "The history of Apple in photos, from the early Steve Jobs era to the iPhone launch to its next CEO",
     "description": "Apple named John Ternus as its next CEO, highlighting its evolution from the iMac to the iPhone, and its leaders, including Steve Jobs and Tim Cook.",
@@ -2194,30 +2218,6 @@
     "link": "https://lifehacker.com/tech/aggressive-spyware-targeting-android-ios-devices?utm_medium=RSS",
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KH6WXXANC515RHZS40RVFH01/hero-image.fill.size_1200x675.jpg",
     "created_at": "2026-02-12T01:12:20.983Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "zerodayrat-malware-grants-full-access-to-android-ios-devices",
-    "title": "ZeroDayRAT malware grants full access to Android, iOS devices",
-    "description": "A new commercial mobile spyware platform dubbed ZeroDayRAT is being advertised to cybercriminals on Telegram as a tool that provides full remote control over compromised Android and iOS devices.",
-    "fullText": "A new commercial mobile spyware platform dubbed ZeroDayRAT is being advertised to cybercriminals on Telegram as a tool that provides full remote control over compromised Android and iOS devices.\n\nThe malware provides buyers with a full-featured panel for managing infected devices, reportedly supporting Android 5 through 16 and iOS up to version 26 latest.\n\nResearchers at mobile threat hunting company iVerify say that ZeroDayRAT not just steals data but also enables real-time surveillance and financial theft.\n\nThe dashboard shows compromised devices and information about the model, operating system version, battery status, SIM details, country, and lock state.\n\nThe malware can log app usage, activity timelines, SMS message exchanges, and provides an overview to the operator.\n\nOther tracking tabs on the dashboard display all received notifications, and also registered accounts on the infected device, showing email/user ID, potentially enabling brute-forcing and credential stuffing.\n\nIf GPS access is secured, the malware can also track the victim in real time and draw their current position on a Google Maps view, with full location history.\n\nApart from passive data logging, ZeroDayRAT also supports active hands-on operations, such as activating the device’s cameras (front and rear) and microphone to gain access to a live media feed, or recording the victim’s screen to expose other secrets.\n\nMoreover, if the SMS access permission is secured, the malware can capture incoming one-time passwords (OTPs), enabling 2FA bypass, and also send SMS from the victim’s device.\n\nThe malware developer also included a keylogging module that can capture user input, like passwords, gestures, or screen unlock patterns.\n\nFurther financial theft is enabled through a cryptocurrency stealer module. The researchers found that the component activates a wallet app scanner looking for MetaMask, Trust Wallet, Binance, and Coinbase, logs wallet IDs and balances, and attempts clipboard address injection, replacing copied wallet addresses with attacker-controlled ones.\n\nThe bank stealer targets online banking apps, UPI platforms like Google Pay and PhonePe, and payment services such as Apple Pay and PayPal. Credential theft occurs by overlaying fake screens.\n\niVerify does not detail how the malware is delivered but say that ZeroDayRAT \"is a complete mobile compromise toolkit.\" The researchers warn that a compromised employee device could lead to enterprise breaches.\n\nFor an individual, a ZeroDayRAT compromise could expose their privacy and lead to financial losses.\n\nUsers are recommended to only trust the official app stores, Google Play on Android and Apple Store on iOS, and install apps from reputable publishers. High-risk users should consider enabling Lockdown Mode on iOS and Advanced Protection on Android.\n\nModern IT infrastructure moves faster than manual workflows can handle.\n\nIn this new Tines guide, learn how your team can reduce hidden manual delays, improve reliability through automated response, and build and scale intelligent workflows on top of tools you already use.",
-    "readingTime": 3,
-    "keywords": [
-      "financial theft",
-      "malware",
-      "zerodayrat",
-      "wallet",
-      "mobile",
-      "compromised",
-      "devices",
-      "researchers",
-      "device",
-      "enabling"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.bleepingcomputer.com/news/security/zerodayrat-malware-grants-full-access-to-android-ios-devices/",
-    "thumbnail_url": "https://www.bleepstatic.com/content/hl-images/2025/06/23/hacker-mobile-phone.jpg",
-    "created_at": "2026-02-11T01:19:48.643Z",
     "topic": "tech"
   }
 ]
