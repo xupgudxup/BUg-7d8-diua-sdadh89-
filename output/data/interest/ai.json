@@ -1,5 +1,141 @@
 [
   {
+    "slug": "i-had-no-way-to-check-how-llms-see-my-saas-or-my-clientsso-i-built-brandgeoco",
+    "title": "I had no way to check how LLMs see my SaaS or my clients',so I built BrandGEO.co",
+    "description": "Discover how AI models like ChatGPT, Claude, and Gemini perceive your brand. Get a free AI visibility audit with scores across 6 dimensions and 5 AI providers.",
+    "fullText": "Find out how ChatGPT, Claude, Gemini, Grok, and DeepSeek perceive and represent your brand. Get your visibility score across 6 dimensions.\n\nYour AI visibility score across 5 providers — in ~2 minutes.\n\nAudited across leading AI providers\n\nEach audit evaluates your brand across six critical dimensions, giving you a complete picture of how AI models perceive and represent you.\n\nDoes AI know your brand exists? We test whether models can identify your company, founders, and core offerings.\n\nHow much does AI know about your products, features, target audience, and technology stack?\n\nHow does AI position you against competitors? Are you top-of-mind in your category?\n\nWhat's the AI's perception of your brand? We measure sentiment, external validation, and content authority.\n\nIn what conversations does AI bring up your brand? We test geographic relevance and topical associations.\n\nHow easily can AI find and reference your brand? We evaluate name uniqueness, search triggers, and query sensitivity.\n\nThree simple steps to understand your brand's AI visibility.\n\nProvide your brand name and website URL. That's all we need to start your comprehensive AI visibility analysis.\n\nWe query OpenAI, Claude, Gemini, Grok, and DeepSeek with structured checks to evaluate your brand's presence.\n\nReceive a detailed visibility report with scores across 6 dimensions, competitor context, and actionable recommendations.\n\nA one-time audit shows where you stand today. A monitor shows where you're headed — tracking shifts in AI perception daily or weekly so you can act before visibility drops.\n\nSchedule daily or weekly scans across all 5 AI providers — no manual work needed.\n\nTrack up to 10 competitors side by side and benchmark your visibility against them.\n\nVisualize 7, 30, and 90-day visibility trends with interactive charts.\n\nGet notified when your visibility drops 10%+ so you can respond quickly.\n\nFrom solo founders to agencies managing dozens of brands. Start with a 7-day free trial on any plan.\n\nOur GEO & AIO experts optimize your website to rank higher in ChatGPT, Claude, Gemini, and more.\n\n30-min free consult · 10+ yrs experience · SOC 2 Type II\n\nStart your audit in under 60 seconds. 7-day free trial on all plans.",
+    "readingTime": 2,
+    "keywords": [
+      "chatgpt claude",
+      "claude gemini",
+      "gemini grok",
+      "free trial",
+      "score across",
+      "across dimensions",
+      "visibility score",
+      "visibility drops",
+      "brand",
+      "providers"
+    ],
+    "qualityScore": 1,
+    "link": "https://brandgeo.co",
+    "thumbnail_url": "https://brandgeo.co/brand-geo-logo-on-white.png",
+    "created_at": "2026-04-24T07:48:06.038Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "reimagine-python-notebooks-in-the-ai-era",
+    "title": "Reimagine Python Notebooks in the AI Era",
+    "description": "We describe how conversational notebook works in MLJAR Studio. It is a virtual AI Data Analyst that can answer data analysis questions using Python behind scenes. It was created on top of Jupyter notebook but has user frinedly design and is AI powered.",
+    "fullText": "At MLJAR, we work on tools that make working with data easier. We love helping people with domain knowledge use computers to analyze their data more effectively. We are building MLJAR Studio, a desktop app for data analysis.\n\nBefore starting work on Studio, we explored many different approaches for creating a universal environment for data work. In the end, we decided to build on top of Jupyter Notebook. It is a flexible tool that can combine markdown and code, and it allows easy experimentation. You can build a program by creating small code snippets and executing them as notebook cells. The notebook keeps the execution state and displays outputs directly below the cells.\n\nI think this is the main reason we fell in love with notebooks.\n\nOf course, notebooks also have drawbacks. They can have hidden state, and they mix code and outputs in a single file, which makes them harder to track in code repositories. Do you remember the famous talk I Don't Like Notebooks by Joel Grus at JupyterCon 2018? Since then, there have been many attempts to fix these problems.\n\nHowever, with the AI era, everything changed.\n\nOnce AI became good at generating code snippets, many tools started adding AI chat in the notebook sidebar. The main view stayed focused on the notebook, while a chat panel appeared on the side. You could ask AI questions about your notebook, and it would provide code snippets that could be inserted and executed. This was a fantastic improvement.\n\nWe implemented this feature in MLJAR Studio as well.\n\nMy cofounder and wife, Aleksandra, has a law and business background. One day, she told me that notebooks are really hard to read. She said she did not want to see all the code cells and was much more interested in the results. For her, code is not the final goal. It is only a way to get results.\n\nShe said that code matters to me because I am an engineer, but most people care mainly about the results. That simple observation changed the way we were thinking.\n\nShe said we should make Python notebooks more user friendly.\n\nAnd this is how we started working on Conversational Notebooks in MLJAR Studio.\n\nIn this article, I would like to show you how conversational notebooks work, what makes them user friendly, and which features make me especially proud.\n\nThe typical workflow in a notebook is simple: write code, execute it, and inspect the output to see whether it works as expected. The hardest part was always the first step: writing the code. The user needed to know syntax, libraries, and implementation details.\n\nAI greatly simplified this step.\n\nIn Conversational Notebooks, there is a prompt box at the bottom of the main view. The user writes in plain English what they want and sends it to the AI model.\n\nIn the response, we receive a reasoning block, response text, and code blocks. We parse the LLM response and store each part as a notebook cell. By the way, the user prompt is also stored as a cell — it is a markdown cell with metadata, which is possible thanks to the flexibility of the *.ipynb format.\n\nThe most interesting part is how we handle code blocks. We parse all ```python ``` blocks, save them as code cells, but display them as collapsed code blocks in the conversational interface. We also make an additional LLM request to generate a short, meaningful description of each code block, as shown below:\n\nWhen you click on code block header, the code panel expands and you can see raw Python code:\n\nAll Python code blocks are executed automatically. Their outputs are displayed directly below the code block. That's how we get notebook which is more focused on results than code.\n\nWhat happens if the generated code uses a Python package that is not available in the current environment?\n\nThe application detects such situations and asks the user for confirmation before installing the new package. Once the package is installed, the code is executed automatically.\n\nIn the screenshot below, the app asks for permission to install mljar-supervised, our open-source package for AutoML.\n\nWhat if the Python code returned by the LLM contains an error?\n\nWe implemented automatic fix retries. The LLM tries to fix its own code by using the error message together with the current code as context.\n\nAs I mentioned earlier, we save user prompts and LLM responses as cells. We also store additional information in the cell metadata.\n\nThanks to this design, each conversation can be saved as a standard .ipynb notebook file. The user can also open the same conversation in the classic notebook view and edit the code directly.\n\nThere is always the problem of having too many Untitled.ipynb files. We start a new conversation by creating an Untitled.ipynb file:\n\nAfter a few prompts, if the user still has not changed the name, we ask the LLM to suggest a meaningful title for the notebook. After a successful rename, we display a small chip in the prompt box to inform the user.\n\nWhen there is an error that cannot be auto-fixed, we display the error information without showing the full traceback.\n\nThe full error traceback is still available in the classic notebook view.\n\nWe use a similar approach for warnings. In conversational mode, only a warning chip is displayed.\n\nWhen the user clicks the chip, the warning details are shown:\n\nOnce the LLM response is processed and the code executes successfully, the workflow does not stop there.\n\nWe make follow-up automatic requests and ask the LLM to analyze the outputs and provide insights. This means the notebook is not only generating code — it is also helping the user understand the results.\n\nWe created a MLJAR Studio as a desktop application, to have better privacy and integrated experience for data analysis. There is no need to upload any data, because the desktop app works with tou local files. In MLJAR Studio we also support local LLMs via Ollama application.\n\nJupyter notebooks changed the way many people work with code and data. They made experimentation easier and more interactive. But in the AI era, we believe notebooks can become even more accessible.\n\nWith Conversational Notebooks, we wanted to keep the flexibility and power of Jupyter while making the experience much more friendly for people who care more about results than code. Code is still there, fully available, editable, and executable - but it is no longer forced into the center of the user experience.\n\nWe believe this is an important step toward a better data analysis workflow: one where users can talk to their notebook, get results quickly, inspect code when needed, and stay focused on solving real problems.\n\nThis is how we reimagine Python notebooks in the AI era.\n\n— The MLJAR Team from Poland with ❤️\n\nMLJAR Studio is a private AI Python notebook for data analysis and machine learning. Generate code with AI, run experiments locally, and keep full control over your workflow.",
+    "readingTime": 6,
+    "keywords": [
+      "llm response",
+      "prompt box",
+      "executed automatically",
+      "desktop app",
+      "python notebooks",
+      "classic notebook",
+      "mljar studio",
+      "user friendly",
+      "python code",
+      "notebook view"
+    ],
+    "qualityScore": 1,
+    "link": "https://mljar.com/blog/reimagine-python-notebook-in-ai-era/",
+    "thumbnail_url": "https://mljar.com/blog/reimagine-python-notebook-in-ai-era/banner.webp",
+    "created_at": "2026-04-24T07:48:04.325Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "claude-can-now-connect-to-lifestyle-apps-like-spotify-instacart-and-alltrails",
+    "title": "Claude can now connect to lifestyle apps like Spotify, Instacart and AllTrails",
+    "description": "Anthropic is expanding its directory of connected services for its Claude AI chatbot.",
+    "fullText": "Anthropic is expanding its directory of connected services for its Claude AI chatbot. The platform can now link up with your accounts on AllTrails, Audible, Booking.com, Instacart, Intuit Credit Karma, Intuit TurboTax, Resy, Spotify, StubHub, Taskrabbit, Thumbtack, TripAdvisor, Uber, Uber Eats and Viator. Additional services will be added in the future.\n\nMore and more AI companies are trying to up their third-party integrations in a pitch to make their services as useful as possible. The benefit of having multiple apps connected means that a chatbot can theoretically execute more complicated tasks on your behalf. This expansion takes that capability from the professional and educational settings, where Anthropic’s connectors have been focused for the past year, to a personal one. So, for instance, Claude can now help plan a hike on AllTrails and then pull up a Spotify playlist that will last for the duration of your trek.\n\nAnthropic noted that it is also reframing how apps are showing up so that an appropriate service is suggested for the task you want to perform. The apps should appear dynamically within the Claude conversation rather than needing a user to swipe between programs. As with most AI actions, Claude is supposed to check with its user before actually taking any actions like securing a reservation or making a purchase.",
+    "readingTime": 2,
+    "keywords": [
+      "services",
+      "apps",
+      "anthropic",
+      "connected",
+      "chatbot",
+      "alltrails",
+      "intuit",
+      "spotify",
+      "uber",
+      "user"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://www.engadget.com/ai/claude-can-now-connect-to-lifestyle-apps-like-spotify-instacart-and-alltrails-225510552.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/u6neEeN5e8tpf1KTUAJWdw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://d29szjachogqwa.cloudfront.net/images/user-uploaded/claude_connectors_4454.png",
+    "created_at": "2026-04-24T07:48:03.277Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "tech-jobs-have-hit-an-ai-air-pocket-is-it-temporary-or-permanent",
+    "title": "Tech jobs have hit an AI air pocket. Is it temporary or permanent?",
+    "description": "Tech layoffs have picked up lately. Some pressures may be temporary as AI reshapes hiring, roles, and the future of work in Silicon Valley.",
+    "fullText": "Tech job cut announcements have picked up again recently.\n Some factors pressuring tech jobs could be temporary, while others may be permanent.\n How long will this \"AI air pocket\" for tech jobs last?\n\n What is an \"AI air pocket\" in tech jobs?\n\n What factors lead to tech job cut cycles?\n\n What roles are emerging due to AI advances?\n\n How does AI impact tech job structures?\n\n How is the tech job market evolving with AI?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "air pocket",
+      "job cut",
+      "tech job",
+      "tech jobs",
+      "factors"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/tech-layoffs-jobs-hit-ai-air-pocket-what-happens-next-2026-4",
+    "thumbnail_url": "https://i.insider.com/69eabaee3fecbb42897a37fd?width=1200&format=jpeg",
+    "created_at": "2026-04-24T07:48:02.097Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "claude-codes-product-chief-says-people-have-serious-fomo-over-ais-relentless-pace",
+    "title": "Claude Code's product chief says people have serious FOMO over AI's relentless pace",
+    "description": "In the race to build the best AI tools, labs, Big Tech, and startups are shipping  products faster than ever — and in increasingly overlapping areas.",
+    "fullText": "Claude Code's head of product said that AI release frequency is causing user FOMO.\n AI labs are shipping new features rapidly, causing user overwhelm and product overlaps.\n This month, Claude Code faced user criticism for lower-quality output.\n\n How can companies manage AI release pace?\n\n How does product overlap affect users?\n\n How has Claude Code evolved since launch?\n\n What causes AI user FOMO?\n\n What are AI labs doing to reduce overwhelm?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "user fomo",
+      "causing user",
+      "claude code",
+      "product",
+      "release",
+      "labs",
+      "overwhelm"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/claude-code-product-chief-users-fomo-anthropic-ai-release-pace-2026-4",
+    "thumbnail_url": "https://i.insider.com/69eb03ad3fecbb42897a3868?width=1200&format=jpeg",
+    "created_at": "2026-04-24T07:48:02.047Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "suttons-predictions-v-race-across-the-world-podcast-host-alfie-watts",
+    "title": "Sutton's predictions v Race Across the World podcast host Alfie Watts",
+    "description": "Chris Sutton takes on Race Across the World podcast host Alfie Watts plus the BBC readers and AI with his predictions for this weekend's fixtures.",
+    "fullText": "Manchester City already hold the record for most consecutive FA Cup semi-finals - eight between 2019 and 2026 - but can they become the first team to reach four finals in a row?\n\nThat is their target when they play Championship side Southampton at Wembley on Saturday at 17:15 BST, live on BBC One and Radio 5 Live.\n\n\"It will be interesting to see whether City boss Pep Guardiola changes his team up much,\" said BBC Sport football expert Chris Sutton.\n\n\"They don't play again until they go to Everton on 4 May, so I don't think he will.\n\n\"But, whoever Pep picks, he will be looking for his team to connect again, the way they were playing before they played Burnley.\"\n\nAs well as the FA Cup, Sutton is making predictions for all 380 Premier League games this season, against AI, BBC Sport readers and a variety of guests.\n\nFor all of this weekend's games, he takes on Tottenham fan Alfie Watts, co-host of the Race Across the World: The Detour visual podcast.\n\nWatts and Tyler West are presenting weekly episodes of the podcast every Thursday until 21 May. It is available to watch now on iPlayer.\n\nDo you agree with their predictions? You can make your own below.\n\nFor the Premier League fixtures, the most popular scoreline selected for each game is used in the scoreboards and tables at the bottom of this page.\n\nA correct result (picking a win, draw or defeat) is worth 10 points. The exact score earns 40 points.\n\nAlfie is a qualified referee who officiates at step three and four of the football pyramid - the Isthmian League and the Southern League Premier Division.\n\nThings are not quite so bad for Spurs that he could be working on their games next season, but he is still not feeling very optimistic about their chances of beating the drop.\n\n\"I am from Hertfordshire and grew up near London Colney, where Arsenal and Watford both train,\" he told BBC Sport. \"My early days of refereeing were always at their academies.\n\n\"I grew up with football but weirdly it was not through my family - they are not interested in it at all. I loved playing it in the playground at school but the reason I support Spurs is down to my uncle's closest mate, who is a fan.\n\n\"I sometimes wish they weren't friends - it would have made my life a lot easier if I supported someone else!\n\n\"I guess for some Spurs fans, what is happening now is almost back to normality, but I grew up in the Mauricio Pochettino era, when the top four was the expectation.\n\n\"I was in year seven when Pochettino arrived in 2014, and I left school just after we'd lost the Champions League final in 2019. I expected more of the same after that - wrongly, so far!\n\n\"There was a time when, if we lost, the result would literally ruin my weekend but as I've got a bit older I am a bit more relaxed about it. Even if we go down this season, football will go on... and so will Spurs.\n\n\"The way I see it, we don't deserve to stay up this season so, if we do, it's a bonus.\"\n\nChris Sutton and Alfie Watts were speaking to BBC Sport's Chris Bevan.\n\nThe AI predictions were generated using Microsoft Copilot Chat - we simply asked the tool to 'predict this weekend's Premier League scores'.\n\nThere are no replays in the FA Cup semi-finals. If level after 90 minutes, games will be decided by extra time and, if necessary, penalties.\n\nGap = league places between the two teams\n\nSunderland lost last week, in an absolute thriller against Aston Villa, but the way they fought back in that game kind of summed up why they have had such a good season.\n\nThey kept having a go and got back from 3-1 to 3-3 in the final few minutes before Villa's last-gasp winner.\n\nForest got in the goals last time out too, scoring four against Burnley, but this game feels like it will be far tighter and quite cagey.\n\nA draw would be a decent result for Forest in the circumstances, with them sitting five points above Spurs who are in the final relegation place.\n\nVitor Pereira's side have been tough to beat recently - they have not lost any of their past seven games in all competitions and they have been good on the road too.\n\nEven so, I have a sneaky feeling Sunderland will find a way of winning this one at home, and leave Forest with a bit more work to do.\n\nAlfie's prediction: Sunderland are brilliant and they have looked so good. It just shows that the right recruitment is the way to stay up in the Premier League. 2-0\n\nAston Villa have got next week's Europa League semi-final against Forest to look forward to, but they are also trying to secure Champions League football through their league position.\n\nSo, I don't see Villa boss Unai Emery making many changes for this game, but it is still a hard one to call because I am not sure what to expect from Fulham.\n\nLooking at Fulham's recent form, they have not scored in their past two games - but that just makes me think they will definitely score on Saturday.\n\nVilla are on a good little run of results but they have not won any of their past four league away games. I don't want to say this will be a draw, but I think I have to.\n\nAlfie's prediction: I do wonder if Marco Silva's time at Fulham is coming to a natural end. I am going for them to get a point here because they are good at home. 1-1\n\nI watched Liverpool win at Hill Dickinson Stadium last week and they got away with it.\n\nVirgil van Dijk's 100th-minute winner was harsh on Everton and harsh on me too - I would have had the BBC predictions title wrapped up again if the score had stayed at 1-1, and I could have been celebrating already.\n\nThe result was what mattered for Reds boss Arne Slot, though, not the performance. I mentioned last week how Slot really needs a strong end to the campaign and to secure Champions League football for next season, and another win here would move them even closer to that.\n\nAll the noise coming out of Anfield doesn't indicate there is going to be a managerial change come the end of the season, but that can always change if results drop off - look at what happened to Liam Rosenior at Chelsea.\n\nIt would not surprise me if Crystal Palace went to Anfield and won because they have done it already this season, and appear well-suited to playing Liverpool.\n\nThe Eagles have already got the better of them three times this season - on penalties at Wembley to decide the Community Shield, in the Premier League at Selhurst Park and then at Anfield in the Carabao Cup.\n\nPalace are over their mid-season blip too but, on the flip side, they don't have much to play for in the league now they are essentially safe.\n\nThey may also have Europe on their mind, because the Conference League gives them a chance of another trophy and they play Shakhtar on Thursday.\n\nBut Liverpool are far from convincing at the moment - Alexander Isak and Florian Wirtz look miles off it - so why I do I still feel myself edging towards Liverpool here?\n\nAlfie's prediction: Palace are pre-occupied with Europe and I just see Liverpool coasting home, especially because of what a win would do for their top-five hopes. 3-1\n\nWhat a great game this will be, with Everton boss David Moyes going back to his old club.\n\nWe know how big a win would be for West Ham in their relegation fight but I was impressed by Everton against Liverpool, especially Kiernan Dewsbury-Hall's performance.\n\nI thought the Hammers' point at Palace last time out was a decent result, but the pressure is still on them to win this one at home.\n\nI am expecting West Ham to play with the kind of intensity that is required but Everton can be a tough nut to crack.\n\nIt finished 1-1 when these two sides met earlier in the season, and this smells of another draw to me.\n\nAlfie's prediction: I am really hoping Everton do us a favour here and they have been good away from home this season. But I don't really think they have got enough to play for, whereas West Ham will really want this.\n\nI am going to go for a draw but I do think West Ham could nick the win, I am just pretending that isn't going to happen. 1-1\n\nTottenham could not beat Wolves at home earlier in the season - they needed a 94th-minute equaliser to avoid defeat in September - but they simply have to beat them this time.\n\nCan Roberto de Zerbi's side win three of their final five games and save themselves from the drop?\n\nOf course they can, but it has to start here. Imagine the psychological damage to the Spurs players and their fans if they don't win this one.\n\nWolves are officially down now, but we have known that will happen for a while.\n\nThe pressure is all on Spurs, and for them to find a way of winning this game.\n\nIf Thomas Frank had stayed in charge and maintained his record of 1.12 points per game, then Spurs would be on 37 points now, in 16th.\n\nInstead, they are in the relegation zone and worrying about how the teams above them are doing as well as trying to pick up points themselves.\n\nFrom watching them, there is nothing that suggests Tottenham will win this time after failing to win any of their previous 15 league games.\n\nSimilarly, they have not kept a clean sheet for 14 league games, so why would they manage one now?\n\nBut I am going to go against the grain here. Spurs absolutely must win this game, so I am going to say they will - and also that Wolves won't score.\n\nI know that is a ridiculous prediction, and I don't even really believe it will happen myself, but then nothing about Spurs' season makes sense when you study it.\n\nAlfie's prediction: I just feel like if we lose this, we are down. There would be no coming back from it, because we still have to go to Villa Park and Stamford Bridge.\n\nIt is possible that we have got a couple more attacking players back available for this game but I am going to be positive here anyway - I can't go against my own team, especially when we are against the team who are bottom of the league and have won three games all season. 1-2\n\nAlfie on why Spurs are struggling: We've had lots of injuries but I don't think we can hide behind that. We've had the same back five for most of this season and we haven't stopped conceding.\n\nYou can probably put our lack of goals down to some players being out, but when you are conceding four home and away against Arsenal and three at home to Forest, can you blame injuries - or are we just rubbish?\n\n1st in the Premier League v 4th in the Championship\n\nLast major trophy? City: 2026 Carabao Cup. Southampton: 1976 FA Cup\n\nFA Cup wins? City: 7 between 1904 and 2023. Southampton: 1\n\nSouthampton drew with Bristol City on Tuesday but, before then, they had won seven in a row in the Championship, and they played really well to knock Arsenal out in the last round too.\n\nI was at St Mary's Stadium when Saints knocked City out of the League Cup in 2023, which shows you what could happen here.\n\nI don't see a shock this time, though.\n\nTonda Eckert has done a phenomenal job with Saints but I still think City will come out comfortable winners, as long as they are not as wasteful as they were against Burnley.\n\nAlfie's prediction: Southampton have been so good, that City can't take this for granted. I thought Saints were heading for League One under Will Still but Eckert took over in December and has turned things around so much that it looks like they are going up instead.\n\nI am pretty sure City will still win the game, because they never really miss a beat when they are at Wembley, but Southampton will not just roll over. 3-0\n\nI did not think Arsenal's defeat at City last week spelt the end of their title hopes, and watching City struggle to put Burnley away on Wednesday must have been a boost for their players.\n\nI know the result still knocked the Gunners off the top of the table but that was not the kind of performance that suggested Pep Guardiola's side are just going to march to the title from here.\n\nHowever you want to view Arsenal's recent form, they know they are still in the race - especially because goal difference could decide the title.\n\nI've been in this situation myself in a title race and, while I am sure both managers will say that it is just about making sure they win their own games, you cannot ignore the fact that the season starts now, and goal difference could be important.\n\nThat's why, if I was an Arsenal player sat at home watching City against Burnley, I would have been thinking that 1-0 is OK for us.\n\nThey are level now, on points and goal difference, and the Gunners still have Burnley to play, but at home.\n\nSo, it is there for them, but they have to get past this game first.\n\nNewcastle have given Arsenal a good game when they've met in recent seasons and there has been a bit of needle between the two sides.\n\nRight now, though, Eddie Howe's side have a few injury problems on top of their dismal form.\n\nThey have dropped off their usual level, and they look a bit flimsy to me. It feels like a good time to play them, and I don't think this will be as close.\n\nAlfie's prediction: Arsenal will win this. They don't tend to blow teams away but they will get the job done. 2-0\n\n8th in the Premier League v 15th in the Premier League\n\nLast major trophy? Chelsea: 2025 Club World Cup. Leeds: 1992 First Division title\n\nFA Cup wins? Chelsea: 8 between 1970 & 2018. Leeds: 1 in 1972, when they beat Arsenal in the final\n\nI don't think Liam Rosenior was the biggest problem at Chelsea, although some of his decisions certainly did not help his cause.\n\nI was at Amex Stadium on Tuesday, co-commentating on Rosenior's final game in charge, and the lack of effort some of the Chelsea players put in against Brighton was more damning on them than their manager.\n\nRosenior was right when he came out afterwards and said the performance was \"unacceptable\" but, sadly, when a manager is so critical of his players you know that is usually the end for him.\n\nI hope Rosenior gets back into management soon, and the state Chelsea are in is certainly not a reflection on him. The model the club's owners have gone for is part of the problem, as Rosenior's predecessors found out too.\n\nIt is left to Calum McFarlane to take charge for this game, and we will have to wait to see who he has fit - and then which Chelsea side will turn up.\n\nLeeds beat Chelsea at Elland Road in December, and drew with them at Stamford Bridge in February.\n\nDaniel Farke's side are not completely safe yet but they picked up another really good point late on against Bournemouth on Wednesday, and they have got a lot about them. I am going for them to beat Chelsea at Wembley too.\n\nAlfie's prediction: Chelsea have looked so vulnerable this season but I think they will still just about scrape through. 2-1\n\nManchester United have become a bit unpredictable recently and Michael Carrick is another manager who could do with having a strong end to the season.\n\nStill, it looks like Carrick has secured Champions League football, so if the club's owners are still deciding about who will be in charge next season then he has done a more than steady job so far.\n\nIt feels like he has passed his audition and also that he has a bit of clout.\n\nI would not like to predict what will happen about his future, though, and I am not sure how this game will go either. It should be close, and it could be quite open too.\n\nBrentford will fancy their chances after beating United 3-1 earlier in the season - and also from seeing how easily Leeds carved them open at Old Trafford a couple of weeks ago.\n\nIgor Thiago scored twice against United in the reverse fixture, and he might cause them a problem or two again.\n\nThe Bees just keep on drawing games at the moment, though, so I've really got to go for another draw here, haven't I?\n\nAlfie's prediction: It's quite sickening for Spurs fans that we poached Thomas Frank from Brentford last summer and they have gone on to have their best-ever season.\n\nWhen they appointed Keith Andrews, I thought they were definitely going down but he has done a brilliant job. United are so hit and miss under Michael Carrick that it makes this one hard to call, but going to go for another Bees draw. 2-2\n\nThree games have already been played in week 34 - they were moved to Tuesday and Wednesday of this week because of the FA Cup semi-finals.\n\nSo far, Chris and Alfie both have one correct result and no exact scores, and are on 10 points.\n\nAI and the BBC readers are doing a bit better - they both have two correct results with no exact scores, and are on 20 points.\n\nEveryone's total points will be added to the tables below when all of this weekend's Premier League games have been played.\n\nListen to the latest Football Daily podcast\n\nGet football news sent straight to your phone",
+    "readingTime": 16,
+    "keywords": [
+      "secure champions",
+      "chris sutton",
+      "alfie's prediction",
+      "cup semi-finals",
+      "carabao cup",
+      "weekend's premier",
+      "spurs fans",
+      "watching city",
+      "club's owners",
+      "goal difference"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.bbc.com/sport/football/articles/c4gxd39xyr0o?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/6880/live/46d26dd0-3da5-11f1-b55d-0f258dce1735.png",
+    "created_at": "2026-04-24T07:48:00.193Z",
+    "topic": "sports"
+  },
+  {
     "slug": "anthropic-says-claude-code-did-get-worse-but-shoots-down-speculation-it-nerfed-the-model",
     "title": "Anthropic says Claude Code did get worse — but shoots down speculation it 'nerfed' the model",
     "description": "Anthropic said it found three issues with Claude Code after users complained the AI tool deteriorated.",
@@ -1905,110 +2041,6 @@
     "link": "https://www.businessinsider.com/google-deepmind-ai-tool-divide-internal-tensions-2026-4",
     "thumbnail_url": "https://i.insider.com/69e68458367066d7c296ebe5?width=1200&format=jpeg",
     "created_at": "2026-04-21T12:59:35.983Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-musk-vs-altman-trial-is-fast-approaching-the-stakes-are-high-for-openai-and-its-ceo",
-    "title": "The Musk vs Altman trial is fast approaching. The stakes are high for OpenAI and its CEO.",
-    "description": "Elon Musk is suing Sam Altman in a case that could cost OpenAI billions. He also asked the judge to consider removing Altman as CEO.",
-    "fullText": "Tech titans Elon Musk and Sam Altman will face off in court starting April 27.\n Musk has accused Altman of deceiving him into donating $38 million to OpenAI, which he helped cofound.\n There's a lot at stake for the defendants, including Altman, OpenAI, and even its major investor, Microsoft.\n\n What are the legal implications for OpenAI?\n\n Why did OpenAI shift to a for-profit model?\n\n How could the trial impact AI industry dynamics?\n\n How might this lawsuit affect Microsoft?\n\n What are Musk's main allegations against Altman?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "microsoft what",
-      "altman",
-      "openai",
-      "musk"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/elon-musk-vs-openai-sam-altman-legal-battle-stakes-microsoft-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e579fa367066d7c296e7a4?width=1200&format=jpeg",
-    "created_at": "2026-04-21T12:59:35.982Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-new-amazon-how-employees-are-navigating-ai-rto-and-a-shifting-culture",
-    "title": "The new Amazon: How employees are navigating AI, RTO, and a shifting culture",
-    "description": "Amazon employees say layoffs, AI, and return-to-office rules have reshaped their jobs in recent years.",
-    "fullText": "Amazon has reshaped its workforce, policies, and strategy in recent years.\n Employees say layoffs, AI, and return-to-office policies are changing their work and lives.\n These changes have created new opportunities for some — and new challenges for others.\n\n How are other companies influenced by Amazon?\n\n How do workers adapt to layoff fears?\n\n How does AI influence productivity?\n\n What are the effects of AI on job roles?\n\n Why are return-to-office policies uneven?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "return-to-office policies",
-      "amazon"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/amazon-employees-layoffs-artificial-intelligence-return-to-office-tech-jobs-2026-4",
-    "thumbnail_url": "https://i.insider.com/69dfa8cc55edb86c69eccc2a?width=1200&format=jpeg",
-    "created_at": "2026-04-21T12:59:35.979Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "i-moved-to-san-francisco-to-work-in-ai-living-here-requires-sacrifices-i-gave-up-normalcy-to-gain-access",
-    "title": "I moved to San Francisco to work in AI. Living here requires sacrifices — I gave up normalcy to gain access.",
-    "description": "A startup founder who moved to San Francisco on an O-1 Visa says his ambition has multiplied, but he feels pressure to always be thriving.",
-    "fullText": "Ahmed Ahres moved from London to San Francisco on an O-1 Visa in 2025.\n Though living in San Francisco has boosted his ambition, he has felt pressure to always be thriving.\n Ahres says it's difficult to escape talks about tech, but relationships are his key to boundaries.\n\n What is an O-1 visa used for?\n\n What defines success in San Francisco tech?\n\n What are the challenges of moving for tech work?\n\n How does tech culture impact mental health?\n\n How do tech professionals set boundaries?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "san francisco",
-      "tech",
-      "visa",
-      "boundaries",
-      "ahres"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/startup-founder-moved-to-san-francisco-feels-ambition-pressure-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e135ff051936af5919a45e?width=1200&format=jpeg",
-    "created_at": "2026-04-21T12:59:35.868Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "this-new-app-uses-ai-to-help-you-catalog-and-make-new-memories-with-your-closest-friends",
-    "title": "This new app uses AI to help you catalog and make new memories with your closest friends",
-    "description": "Bond is a new social app built by a team of engineers and designers from Big Tech companies like Meta, TikTok, and Google.",
-    "fullText": "Bond is a new social media app that uses AI to spark connections and plans with friends.\n The startup is cofounded by ex-VC Dino Becirovic and former Meta engineer Hanxin Jin.\n Bond raised $5 million in seed funding prior to coming out of stealth.\n\n What is \"Dunbar's Number\"?\n\n How does Bond's AI recommend activities?\n\n What role does AI play in Bond?\n\n Who are Bond's cofounders?\n\n What is Bond's monetization strategy?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "bond",
-      "bond's"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/bond-social-app-launches-seed-connecting-friends-memories-ai-2026-4",
-    "thumbnail_url": "https://i.insider.com/69de3f094d9d0b2056492572?width=1200&format=jpeg",
-    "created_at": "2026-04-21T12:59:35.660Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-ai-data-center-boom-is-moving-closer-to-cities-and-this-texas-developer-just-raised-2-billion-to-bet-on-it",
-    "title": "The AI data center boom is moving closer to cities — and this Texas developer just raised $2 billion to bet on it",
-    "description": "Data center development has focused on massive projects for AI training in obscure locations. AI inference is pushing construction closer to cities.",
-    "fullText": "A Dallas-based data center developer secured $2 billion for a data center project.\n The AI boom is shifting toward facilities closer to users, not just remote mega campuses.\n Demand for AI compute is surging, but the project had to navigate cautious lenders.\n\n What is an inference facility?\n\n How does proximity affect AI model delivery?\n\n Who are major players in AI data centers?\n\n Why is Texas a hot spot for data centers?\n\n What challenges face data center financing?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "center",
-      "project",
-      "centers"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/databank-financing-dallas-data-center-inference-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e6a1da3fecbb42897a1e38?width=1200&format=jpeg",
-    "created_at": "2026-04-21T12:59:35.658Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "hot-startup-lovables-security-stumble-shows-one-big-risk-in-using-ai-to-code",
-    "title": "Hot startup Lovable's security stumble shows one big risk in using AI to code",
-    "description": "A security flaw in Lovable's system allowed access to users' data and sparked online backlash over the startup's response.",
-    "fullText": "Lovable's recent data mishap is a reminder of the security risks of vibe coding.\n A security flaw in Lovable's system allowed access to users' data and sparked online backlash.\n Lovable competes with other startups and large frontier labs that are building AI coding tools.\n\n What is vibe coding?\n\n What are secure defaults in coding?\n\n Why is transparency important in tech?\n\n How can AI tools improve security?\n\n How should companies handle data exposure?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "vibe coding",
-      "security",
-      "lovable's",
-      "tools"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/lovable-security-access-vibe-coding-projects-risk-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e726f73fecbb42897a2058?width=1200&format=jpeg",
-    "created_at": "2026-04-21T12:59:35.652Z",
     "topic": "finance"
   }
 ]
