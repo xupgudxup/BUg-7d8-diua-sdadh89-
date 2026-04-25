@@ -1,5 +1,307 @@
 [
   {
+    "slug": "understanding-the-most-viral-chart-in-artificial-intelligence",
+    "title": "Understanding the Most Viral Chart in Artificial Intelligence",
+    "description": "Another chart that goes up and to the right.",
+    "fullText": "MarketsOdd LotsBy Joe Weisenthal and Tracy AllowaySaveListen to Odd Lots on Apple Podcasts\nListen to Odd Lots on Spotify\nWatch Odd Lots on YouTube\n This image obviously describes the stock market, particularly any company whose business is adjacent to artificial intelligence. But beyond stocks, another sort of chart we keep seeing is of AI capabilities also going up and to the right. The most famous and viral of these comes from an organization called METR, which stands for Model Evaluation and Threat Research. The organization is focused on understanding the degree to which AI models can engage in autonomous, complex tasks. METR see this is as a particularly important benchmark, given the risk that AI could one day be engaged in recursive self improvement, taking humans out of the loop. But how do you really gauge a model's ability to do complex problems. And what is being measured for exactly? On this episode, we speak with METR's President Chris Painter as well as Joel Becker, a member of the technical staff who works on evaluation methods for the organization. We discuss both the mechanics and the philosophy of METR's work, and what it means when we see a a chart showing that Clause Opus 4.6 can do a task that would take a human nearly 12 hours.",
+    "readingTime": 2,
+    "keywords": [
+      "odd lots",
+      "organization",
+      "particularly",
+      "chart",
+      "evaluation",
+      "complex",
+      "metr",
+      "metr's"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.bloomberg.com/news/articles/2026-04-25/understanding-the-most-viral-chart-in-artificial-intelligence",
+    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/isPoqPsUaXp8/v1/1200x800.jpg",
+    "created_at": "2026-04-25T12:39:01.776Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "what-the-fed-can-do-about-anthropics-latest-system",
+    "title": "What the Fed Can Do About Anthropic’s Latest System",
+    "description": "Anthropic says its newest AI system can detect serious cybersecurity risks, but the new technology is so powerful that the company is holding back public release. The nearly autonomous system can detect banking software vulnerabilities and spawn sub-agents that operate without human oversight at unprecedented speed. Treasury Secretary Scott Bessent and Fed Chair Jay Powell took the unusual step of calling in major bank leaders to discuss the risks raised by the new model. Experts weigh in on whether regulation and open-source tools can keep the financial system safe.",
+    "fullText": "Apr 25th, 2026What the Fed Can Do About Anthropic’s Latest SystemAnthropic says its newest AI system can detect serious cybersecurity risks, but the new technology is so powerful that the company is holding back public release. The nearly autonomous system can detect banking software vulnerabilities and spawn sub-agents that operate without human oversight at unprecedented speed. Treasury Secretary Scott Bessent and Fed Chair Jay Powell took the unusual step of calling in major bank leaders to discuss the risks raised by the new model. Experts weigh in on whether regulation and open-source tools can keep the financial system safe.Duration:1:14Trump Says He Won't Be Rushed to End Iran WarDuration:5:19Witkoff, Kushner Heading to Pakistan for More TalksDuration:5:21DOJ Drops Powell Probe, Smoothing Path for Warsh to FedDuration:1:39Hegseth Tells Europe the Time for Freeriding Is OverAvailable on:Listen onApple TVListen onRokuListen onSamsung TVListen onFire TVListen onAndroid TVListen onRakuten TVListen onHaystack NewsWatch BTV in your area:Channel Finder",
+    "readingTime": 1,
+    "keywords": [
+      "tvlisten",
+      "system",
+      "detect",
+      "risks",
+      "powell"
+    ],
+    "qualityScore": 0.25,
+    "link": "https://www.bloomberg.com/news/videos/2026-04-25/what-the-fed-can-do-about-anthropic-s-latest-system-video",
+    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i4mmXMqp_t2E/v3/-1x-1.webp",
+    "created_at": "2026-04-25T12:39:00.894Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "making-the-rails-default-job-queue-fiberbased",
+    "title": "Making the Rails Default Job Queue Fiber-Based",
+    "description": "I tried Async::Job for my LLM apps, hit its limits, and patched Solid Queue to run jobs as fibers instead.",
+    "fullText": "Last year I moved the LLM streaming jobs in Chat with Work to Async::Job. It was fast. Genuinely fast. Fiber-based execution with Redis, thousands of concurrent jobs on a single thread. I was so convinced that I wrote a whole post about why async Ruby is the future for AI apps and recommended it to everyone.\n\nAsync::Job doesn’t persist jobs. They go into Redis and they’re gone. Mission Control shows nothing. Background jobs in Rails are already quieter than the rest of your application – they fail without anyone noticing unless you go looking. Even with Honeybadger catching exceptions, I still want to see the full picture: which jobs are queued, which are running, which failed, what the system looks like right now. Without job persistence, you don’t get that.\n\nSolid Queue is the default in Rails 8. Every new Rails app ships with it. When someone picks up Rails to build an LLM application and their 25-thread worker pool can only handle 25 concurrent streaming conversations, the answer shouldn’t be “swap your entire job backend.” It should be “change one line of config.”\n\nIf you already know this, skip ahead to the config.\n\nSolid Queue runs each job on its own thread. Threads can all query the database concurrently, so each one needs its own connection, plus its own stack memory and a slot in the OS scheduler. For a job that crunches data for 30 seconds, that’s fine – the thread is busy. For a job that streams an LLM response for 30 seconds but spends 99% of that time waiting for tokens, the thread is just sitting there holding resources.\n\nFibers sidestep all of this. Cooperatively scheduled, running in userspace on a single thread. When a fiber hits I/O – a network call, a database query, waiting for the next token – it steps aside and another fiber picks up. One thread, hundreds of concurrent jobs. No OS scheduling overhead, and for ordinary Active Record usage on Rails 7.2+, a much smaller database pool. The async gem handles this for you: your code yields at I/O boundaries without you changing anything.\n\nFor the full deep dive – processes, threads, fibers, the GVL, I/O multiplexing – see Async Ruby is the Future.\n\nWhile the PR gets approved, you can point your Gemfile at the branch:\n\nYour jobs don’t change. Your queue doesn’t change. The worker runs them as fibers instead of threads.\n\nthreads or fibers. Pick one per worker. One more thing in your Rails app:\n\nFibers share a thread, so they need fiber-scoped state instead of the default thread-scoped state. The patch checks this at boot and tells you if it’s wrong.\n\nThe core of the patch is FiberPool. One thread, one async reactor, a semaphore capping concurrency at whatever number you set:\n\nWhen the worker picks up jobs, it hands them to the pool. Each one becomes a fiber:\n\nEach job runs as a fiber. When it hits I/O, it yields. The reactor picks up another fiber. One thread, hundreds of jobs, switching at I/O boundaries instead of waiting for the OS to preempt.\n\nCPU-bound work gets nothing from fibers. They don’t parallelize computation. But most of what job queues do is wait on I/O, and that’s exactly where fibers win. If a CPU-bound fiber blocks the reactor, Solid Queue’s supervisor still runs fine on its own process.\n\nFor 1000 concurrent conversations using traditional job queues like SolidQueue or Sidekiq, you’d need 1000 worker threads. Each worker thread holds its database connection for the entire job duration. That’s 1000 database connections for threads that are 99% idle, waiting for streaming tokens.\n\nThat was the theory. Here’s the actual math from the patch.\n\nA Solid Queue worker needs database connections for three things: polling for jobs, heartbeats, and running jobs. With threads, every thread can query the database at the same time, so each one holds its own connection. That’s threads + 2: one per thread, plus two for the worker itself.\n\nWith fibers on Rails 7.2+, all fibers run on one reactor thread. The pool savings come from ordinary Active Record query paths releasing connections between DB operations instead of holding them for the fiber’s lifetime. In practice, that means the minimum is often 1 + 2 = 3: one execution connection, plus two for the worker itself. If your jobs are DB-heavy, use long transactions, or pin connections with APIs like ActiveRecord::Base.connection, increase the pool and fibers will check out separate connections concurrently.\n\nSame concurrency, wildly different connection costs:\n\nThread scales linearly. Fiber stays flat. Multiply by the number of worker processes and the gap gets dramatic: 6 processes with 50 concurrent jobs means 312 connections for thread mode, 18 for fiber. PostgreSQL’s default max_connections is 100.\n\nThe patch detects your Rails version and calculates the right pool size automatically.\n\nI benchmarked four workloads across every combination of concurrency (5 to 100), process count (1, 2, 6), and execution mode. Five runs each, median reported, total concurrency capped at 60 to keep things fair.\n\nRubyLLM Stream is the workload that matters. It runs an actual RubyLLM chat completion with streaming, database writes, and Turbo broadcasts per token – the same thing Chat with Work does in production. Fiber wins every single paired experiment. 9 out of 9.\n\nThe CPU row is the control. Fibers don’t help computation, and the number confirms it: essentially flat. That’s how you know the I/O gains are real and not measurement noise.\n\nThat table shows the best runs. Here’s the full spread. Some configurations favor threads for synthetic workloads, but look at the medians: fiber wins every I/O workload, and RubyLLM Stream always favors fiber:\n\nThose benchmarks cap concurrency at 60. I wanted to see what breaks when you push past that, so I ran a stress suite: 25 to 200 concurrent jobs, 2 and 6 worker processes.\n\nRemember the connection math. Threads need threads + 2 minimum per process. Fibers need 3 minimum. Here’s what happens to thread mode:\n\nPostgreSQL’s default max_connections is 100. Thread mode at 50 concurrent jobs with just 2 processes already exceeds it. With 6 processes, even 25 concurrent jobs needs 162 connections. Out of every thread configuration I tested, only one survived: the smallest.\n\nFiber mode. 3 minimum per process, no matter the concurrency:\n\nEvery configuration completed. 18 total connections for 200 concurrent jobs across 6 processes. Thread mode needed 54 just to survive at 25 with 2.\n\nThread mode doesn’t scale with the current pool sizing. Solid Queue sizes the pool to threads + 2 to avoid connection contention, and database connections are a hard ceiling. Fibers share a smaller pool. You just increase the number.\n\nFiber mode isn’t universally better. CPU-bound jobs get nothing from it. C extensions that aren’t fiber-safe won’t work. And that’s fine – you don’t have to pick one.\n\nAs Trevor Turk pointed out in the PR discussion, that’s the whole point: separately configured worker pools. Here’s what Chat with Work actually runs in production:\n\nAlmost everything uses fibers. LLM streaming, Turbo broadcasts, notifications, maintenance jobs – all fiber-based. Only the cpu queue uses threads, and right now it’s just one thread for the occasional heavy extraction. One backend. One deployment. Mission Control shows all of it.\n\nInstead of running Solid Queue and Async::Job side by side – two processors, two configurations, two sets of things to monitor – you run one. I moved Chat with Work to this setup, and Brad Gessler has been running it in production too.\n\nAsync::Job is actually faster if you compare raw throughput against Redis. It’s not close:\n\nIf you want raw speed and don’t need persistence, Async::Job is the right call. But if you want job visibility, failure tracking, retries, Mission Control, everything Rails gives you out of the box, fiber mode gets you there. Same concurrency. Flat database connections. You set fibers: N and keep building.\n\nThe PR is up on GitHub. The benchmark suite is open source. Run your own numbers, or challenge mine.",
+    "readingTime": 7,
+    "keywords": [
+      "ordinary active",
+      "turbo broadcasts",
+      "postgresql’s default",
+      "hits i/o",
+      "i/o boundaries",
+      "rails app",
+      "llm streaming",
+      "default max_connections",
+      "job queues",
+      "minimum per"
+    ],
+    "qualityScore": 1,
+    "link": "https://paolino.me/solid-queue-doesnt-need-a-thread-per-job/",
+    "thumbnail_url": "https://paolino.me/assets/images/og/posts/solid-queue-doesnt-need-a-thread-per-job.png",
+    "created_at": "2026-04-25T12:38:55.588Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "neoagent-selfhosted-proactiv-agent-with-android-browser-and-desktop-control",
+    "title": "NeoAgent – self-hosted proactiv Agent with Android, browser and desktop control",
+    "description": "Best open-source agentic AI. Contribute to NeoLabs-Systems/NeoAgent development by creating an account on GitHub.",
+    "fullText": "NeoLabs-Systems\n\n /\n\n NeoAgent\n\n Public\n\n  mainBranchesTagsGo to fileCodeFolders and filesNameNameLast commit messageLast commit dateLatest commit History664 Commits.github/workflows.github/workflows  binbin  docsdocs  extensions/chrome-browserextensions/chrome-browser  flutter_appflutter_app  landinglanding  liblib  runtimeruntime  scriptsscripts  serverserver  .env.example.env.example  .gitattributes.gitattributes  .gitignore.gitignore  .npmignore.npmignore  .releaserc.json.releaserc.json  LICENSELICENSE  README.mdREADME.md  com.neoagent.plistcom.neoagent.plist  docusaurus.config.jsdocusaurus.config.js  install.shinstall.sh  package-lock.jsonpackage-lock.json  package.jsonpackage.json  sidebars.jssidebars.js  View all filesRepository files navigationNeoAgent\nYour agent. Your server. Your rules.\n\nA self-hosted, proactive AI agent with a Flutter client for web and Android.\n\nInstall\n\nManage the Service\n\nLinks\nDocs | Issues\n\n Made by Neo | NeoLabs Systems\n\n About\n\n Best open-source agentic AI.\n\n Resources\n\n Readme\n\n License\n\n MIT license\n\n Uh oh!\n\n There was an error while loading. Please reload this page.\n\n Activity \n\n Custom properties \n\n Stars\n\n 2\n stars \n\n Watchers\n\n 0\n watching \n\n Forks\n\n 0\n forks \n\n Report repository\n\n Releases\n 265\n\n v2.3.0\n\n Latest\n\n Apr 25, 2026\n\n + 264 releases\n\n Contributors \n\n Uh oh!\n\n There was an error while loading. Please reload this page.\n\n Languages\n\n JavaScript\n 76.7%\n\n Dart\n 18.0%\n\n Kotlin\n 1.7%\n\n Python\n 1.0%\n\n HTML\n 0.8%\n\n C++\n 0.6%\n\n Other\n 1.2%",
+    "readingTime": 1,
+    "keywords": [
+      "loading please",
+      "please reload",
+      "error",
+      "page",
+      "stars",
+      "forks",
+      "commit",
+      "agent",
+      "license",
+      "releases"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://github.com/NeoLabs-Systems/NeoAgent",
+    "thumbnail_url": "https://opengraph.githubassets.com/c30dc220e384355d6bd246dc8d1f26c92f5fcd1b09f01152c3902d46ce66226f/NeoLabs-Systems/NeoAgent",
+    "created_at": "2026-04-25T12:38:55.251Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "romania-tests-aipowered-drone-interceptors-as-ukraine-war-gets-closer",
+    "title": "Romania tests AI-powered drone interceptors as Ukraine war gets closer",
+    "description": "At a Romanian base overlooking the Black Sea, camouflaged figures squinted up into the sky and drones whined far overhead - the final test of a",
+    "fullText": "CAPU MIDIA, Romania, April 24 (Reuters) - At a Romanian base overlooking the Black Sea, camouflaged figures squinted up into the sky and drones ‌whined far overhead - the final test of a U.S.-made, AI-powered defence system as ‌the conflict in neighbouring Ukraine gets ever closer.\n\nCentre stage were the Merops drone interceptors made by ex-Google CEO ​Eric Schmidt’s company Project Eagle that will be put into operation in Romania \"in a matter of days,\" Defence Minister Radu Miruta said.\n\nThe NATO and European Union state shares a 650-km (400-mile) land border with Ukraine and has seen Russian drones repeatedly breach its airspace as Moscow ‌attacks Ukraine's ports just across the ⁠Danube river.\n\nWith drone threats mounting on NATO's eastern flank, states are scrambling to boost their air defences.\n\n\"The threat is real,\" ⁠Major General Arnoud Stallmann, assistant chief of staff at NATO's Allied Command Transformation, said on Wednesday at the Capu Midia Air Defence Training Range, 80 km away from the Ukrainian frontline.\n\n\"And ​with ​the incursions in NATO-allied countries of drones, we ​needed a solution for that.\"\n\nRomania and ‌NATO have spent two weeks trying out interceptor drones, radars, sensors and jamming equipment made by private companies, while putting existing systems through their paces.\n\nMerops, already in use in Ukraine and another of its neighbours, Poland, includes a ground control base, launchers and its Surveyor interceptor drones that can operate autonomously through AI and radar, NATO sources said.\n\nDefence Minister ‌Radu Miruta described the test as partially successful ​after an interceptor swerved too quickly at one point ​and missed its target.\n\nHe said he ​was impressed with the thermal imaging, the radar's precision and the ‌way it engaged targets.\n\nThe system would be ​able to counter drone ​threats along the Danube river, Miruta said. \"Merops reduces the number of scenarios we cannot handle.\"\n\nRomanian air defences currently include F-16 fighter jets, Patriot systems, Lockheed Martin's HIMARS ​rocket launchers, short-range South Korean ‌surface-to-air Chiron missiles and German anti-aircraft Gepard guns.\n\nRomania and Ukraine also plan ​to jointly produce drones under the European Union's new SAFE rearmament funding mechanism.\n\n(Reporting ​by Luiza Ilie; Editing by Andrew Heavens)",
+    "readingTime": 2,
+    "keywords": [
+      "capu midia",
+      "minister radu",
+      "danube river",
+      "radu miruta",
+      "defence minister",
+      "drone threats",
+      "air defences",
+      "interceptor drones",
+      "merops",
+      "romanian"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.yahoo.com/news/articles/romania-tests-ai-powered-drone-164120681.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/9fe82dd83190029d7f82e2937568036b",
+    "created_at": "2026-04-25T12:38:47.673Z",
+    "topic": "news"
+  },
+  {
+    "slug": "officials-hugely-underestimated-impact-of-ai-datacentres-on-uk-carbon-emissions",
+    "title": "Officials hugely underestimated impact of AI datacentres on UK carbon emissions",
+    "description": "Revised figures increase fears about energy-intensive datacentres worsening climate emergency\nThe UK government vastly underestimated the climate impact of artificial intelligence, it has emerged, after officials raised their estimate of carbon emissions from AI by a factor of more than 100.\nAccording to new data quietly published this week, energy use by AI datacentres in the UK could cause the emission of up to 123m tonnes of carbon dioxide (CO₂) – about as much as generated by 2.7 million people – over the next 10 years.\n Continue reading...",
+    "fullText": "Revised figures increase fears about energy-intensive datacentres worsening climate emergency\n\nThe UK government vastly underestimated the climate impact of artificial intelligence, it has emerged, after officials raised their estimate of carbon emissions from AI by a factor of more than 100.\n\nAccording to new data quietly published this week, energy use by AI datacentres in the UK could cause the emission of up to 123m tonnes of carbon dioxide (CO₂) – about as much as generated by 2.7 million people – over the next 10 years.\n\nThat latest figure replaces a previous estimate – since deleted – that claimed emissions would reach a maximum of 0.142m tonnes of CO₂ in a single year.\n\nThere is increasing alarm at the carbon impact of AI and with calls to reduce global emissions to mitigate the climate emergency becoming increasingly urgent.\n\nPatrick Galey, the head of investigations for the Global Witness climate campaign, said: “We have a handful of years until our carbon budget is exhausted.\n\n“To waste what little bandwidth we have left – when 750 million people worldwide lack access to electricity – assisting some of the richest men ever to hone their plagiarism bots would be a historic idiocy that future generations are unlikely to forgive today’s leaders for.”\n\nThe latest estimates were revealed in a revision to the UK “compute roadmap”, which sets out the government’s plan “to build a world-class compute ecosystem” for delivering artificial intelligence in the UK – a goal on which the government has staked its hopes for economic growth.\n\nHowever, AI datacentres require huge amounts of electricity to operate – much more than the datacentres used to store online data – and most of that continues to be generated by fossil fuels.\n\nAccording to the Department for Science, Innovation and Technology’s (DSIT) latest estimates, the carbon impact of the planned AI buildout could range from 34m to 123m tonnes of CO₂ – about 0.9% to 3.4% of the UK’s projected total emissions between 2025 and 2035. The lower range of the estimate would depend on greater efficiency in AI models and hardware, and faster decarbonisation of the UK’s energy grid.\n\nOfficials from the DSIT appear to have made the revision, first reported by Politico, after an investigation by Foxglove, an independent watchdog, and the Carbon Brief news site said they appeared to be a significant underestimate.\n\nFoxglove’s head of strategy, Tim Squirrell, said: “The government has a legally binding commitment to reach net zero by 2050. This already sat awkwardly alongside its hell-for-leather embrace of a hyperscale AI datacentre buildout, which unchecked could double the electricity consumption of the entire country.\n\n“The situation has now been revealed to be much, much worse, given the fact the government doesn’t seem to have done even the most basic arithmetic needed to measure the potential new carbon emissions of these datacentres.”\n\nThe government declined to comment on the record.",
+    "readingTime": 3,
+    "keywords": [
+      "artificial intelligence",
+      "latest estimates",
+      "climate emergency",
+      "carbon impact",
+      "carbon emissions",
+      "datacentres",
+      "tonnes",
+      "electricity",
+      "energy",
+      "generated"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.theguardian.com/technology/2026/apr/24/officials-hugely-underestimated-impact-of-ai-datacentres-on-uk-carbon-emissions",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/27eee0f11e117ff8a3a29a566e0c66bafbdec427/479_0_7042_5632/master/7042.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=283c82e1a1c7e08ef39855809d397d38",
+    "created_at": "2026-04-25T12:38:47.238Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-former-bytedance-engineer-says-chinas-ai-industry-is-far-behind-the-us-and-the-gap-is-getting-worse",
+    "title": "A former ByteDance engineer says China's AI industry is 'far behind' the US — and the gap is getting worse",
+    "description": "\"I don't even agree with the assumption that Chinese models are catching up — I believe we're still far behind,\" a former ByteDance engineer said.",
+    "fullText": "A former ByteDance engineer says China's AI industry is still far behind the US.\n\nZhang Chi said China's model benchmarks perform well but don't translate into real-world results.\n\nTech leaders like Elon Musk and Jensen Huang believe China is catching up and could even pull ahead.\n\nFor all the talk that China is catching up to the US in AI, a former ByteDance engineer believes it's actually falling further behind.\n\n\"I don't even agree with the assumption that Chinese models are catching up — I believe we're still far behind,\" Zhang Chi, a research scientist and assistant professor at Peking University, said on an episode of the \"Into Asia\" podcast. \"I guess the gap is getting larger, very sadly.\"\n\nZhang, who said he spent about a year at ByteDance working on AI models before returning to academia, said the differences go beyond the perceived rapid progress of Chinese startups.\n\nWhile models from companies like ByteDance, TikTok's parent company, and Alibaba may score well on benchmarks, he said that doesn't mean they work as well in the real world.\n\n\"On paper, every big tech company in China has a good model,\" Zhang said. \"But I don't think they're good enough.\" He added that many teams are focused on \"benchmaxxing\" — optimizing for test scores rather than practical performance.\n\nByteDance and Alibaba have rolled out high-profile AI models — from video generators like Seedance to open-source systems like Qwen — but they've also faced backlash over deepfakes, copyright disputes, and whether those models hold up in real-world use.\n\nA key issue, Zhang said, is speed. He said top US companies can iterate on models far more quickly.\n\n\"Google can train or perform a full round of LLM training, both pre-training and post-training, in three months,\" he said. \"But ByteDance — probably we can only do one iteration in half a year.\"\n\nZhang also pointed to China's structural disadvantages, including access to advanced chips, weaker infrastructure, and lower-quality training data.\n\n\"There's a huge difference between the infrastructure at Google and ByteDance,\" he said. \"I don't think we're getting high-quality data.\"\n\nHe added that some companies rely on distilling outputs from leading US models rather than building their own data pipelines — a shortcut that may limit long-term progress.\n\nZhang said US firms also benefit from stronger user feedback loops. Products like ChatGPT, Claude, and Gemini improve through constant interaction with users, which helps refine their models over time.\n\nChinese models, by contrast, risk falling into a negative cycle. \"Chinese models started not as good, so no one really uses them for really important things,\" Zhang said. \"And the models continue to be not that good.\"\n\nZhang's view contrasts sharply with some of the most prominent voices in tech, many of whom say China is rapidly closing the gap and could even pull ahead.\n\nNvidia CEO Jensen Huang has warned that the US risks falling behind, while Elon Musk has said that China's advantage in energy and compute could help it overtake rivals.\n\nAI pioneer Geoffrey Hinton has also said the US lead may be narrower than it appears, cautioning it could erode over time.\n\nOthers take a more nuanced view. Alibaba chairman Joe Tsai has said the race will be decided less by model strength and more by how quickly AI is deployed.\n\nStill, Zhang's assessment reflects a more pessimistic perspective from inside China's AI ecosystem — one that suggests the gap with the US may be widening.\n\n\"To be fair, I don't think any Chinese company can catch up with them soon,\" he said.",
+    "readingTime": 3,
+    "keywords": [
+      "jensen huang",
+      "bytedance engineer",
+      "chinese models",
+      "far behind",
+      "china's ai",
+      "don't",
+      "tech",
+      "catching",
+      "zhang",
+      "benchmarks"
+    ],
+    "qualityScore": 1,
+    "link": "https://tech.yahoo.com/ai/articles/former-bytedance-engineer-says-chinas-110830737.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/MPnneQxiajxxEQL6vNIMvQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/39adce1712aab5eb1c528cb82fffa934",
+    "created_at": "2026-04-25T12:38:47.076Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "how-i-taught-myself-to-code-quit-my-consulting-job-and-started-an-ai-robotics-firm-by-age-25",
+    "title": "How I taught myself to code, quit my consulting job, and started an AI robotics firm by age 25",
+    "description": "Oscar Brisset, 25, used most of his vacation days to learn to code. He left BCG to launch a YC-backed AI robotics company.",
+    "fullText": "Oscar Brisset transitioned from BCG consultant to AI startup founder by age 25.\n The year before he quit consulting, he used weekends and PTO to teach himself to code.\n His top advice to others who want to take the leap: Don't be afraid to learn technical skills.\n\n What inspired Oscar to pursue AI?\n\n What challenges do AI startups face?\n\n What skills are crucial for tech founders?\n\n How did Oscar balance work and learning?\n\n How does Remy AI's technology differ?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "skills",
+      "oscar"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/consultant-turned-ai-robotics-founder-career-lessons-bcg-remy-2026-4",
+    "thumbnail_url": "https://i.insider.com/69df6084d06bf1b901273bf5?width=1200&format=jpeg",
+    "created_at": "2026-04-25T12:38:46.934Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "now-we-know-who-paid-100000-to-unlock-a-sam-altman-podcast-interview",
+    "title": "Now we know who paid $100,000 to unlock a Sam Altman podcast interview",
+    "description": "A rare podcast featuring OpenAI's top executives was behind a paywall. Someone spent $100,000 to make it free to the public.",
+    "fullText": "A CEO spent $100,000 to make an interview with OpenAI executives free to the public.\n Sam Altman and Greg Brockman appeared on Ashlee Vance's podcast.\n The interview was behind a paywall, and Vance said he would unlock it for a fee.\n\n Why did Jim Belosic pay $100,000?\n\n How does Ashlee Vance choose sponsors?\n\n How does fear-based marketing work?\n\n What is \"doomerism\" in AI?\n\n What is the \"Core Memory\" podcast about?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "interview",
+      "podcast",
+      "ashlee",
+      "vance"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/jim-belosic-paid-unlock-openai-sam-altman-podcast-ashlee-vancei-2026-4",
+    "thumbnail_url": "https://i.insider.com/69eba1863fecbb42897a3c69?width=1200&format=jpeg",
+    "created_at": "2026-04-25T12:38:46.821Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "new-tech-status-symbol-alert-a-sequoiaengraved-mac-mini-for-your-ai-agent",
+    "title": "New tech status symbol alert: A Sequoia-engraved Mac Mini for your AI agent",
+    "description": "Sequoia partner Alfred Lin personally purchased and gave out 200 custom-engraved, numbered Mac Minis on behalf of the VC firm.",
+    "fullText": "Sequoia handed out 200 engraved Mac Minis after its recent AI event.\n Apple's Mac Minis are among the preferred ways to run OpenClaw — and are in increasingly short supply.\n The Sequoia designer who engraved the computers told Business Insider about the engravings' meaning.\n\n Why are Mac Minis favored for OpenClaw?\n\n Who is Alfred Lin?\n\n What is the significance of engraved gifts?\n\n What is Sequoia's Ethos?\n\n How is AI impacting tech events?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "mac minis",
+      "engraved",
+      "sequoia",
+      "openclaw"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/sequoia-mac-mini-engraved-openclaw-2026-4",
+    "thumbnail_url": "https://i.insider.com/69ea30e93fecbb42897a3283?width=1200&format=jpeg",
+    "created_at": "2026-04-25T12:38:46.805Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "im-a-gen-z-microsoft-engineer-ai-doesnt-always-save-me-time-but-its-still-made-my-job-easier",
+    "title": "I'm a Gen Z Microsoft engineer. AI doesn't always save me time, but it's still made my job easier.",
+    "description": "Gen Z Microsoft engineer on why she's not feeling \"AI fatigue,\" how she uses AI, and her advice for breaking into the industry.",
+    "fullText": "Navya Jammalamadaka joined Microsoft in 2024 as a software engineer.\n She said AI tools have become central to her job and made some tasks easier.\n The Gen Zer shared her top advice for using AI and breaking into the tech industry. \n\n What advice does Navya give to job seekers?\n\n What challenges do Gen Z engineers face?\n\n What are common misconceptions about AI?\n\n How is AI adoption affecting tech roles?\n\n How does AI change software engineering?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "software",
+      "advice",
+      "tech",
+      "navya"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/microsoft-software-engineer-artificial-intelligence-tools-copilot-big-tech-advice-2026-4",
+    "thumbnail_url": "https://i.insider.com/69e8fa05a98bc8fdc096d82b?width=504&format=jpeg",
+    "created_at": "2026-04-25T12:38:46.791Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "i-tried-every-trick-to-stand-out-in-my-job-search-a-tip-i-found-on-reddit-was-the-only-strategy-that-got-me-an-offer",
+    "title": "I tried every trick to stand out in my job search. A tip I found on Reddit was the only strategy that got me an offer.",
+    "description": "A job-seeker landed a role at a major retailer by using a free, AI hack she found on Reddit for locating recruiter emails.",
+    "fullText": "Courtney Clapper started applying for jobs in 2025 after graduating from Cornell Tech.\n She tried video cover letters, portfolios, and more to stand out, but had no luck.\n A hack on Reddit helped her get in contact with hiring managers and land her strategy lead job.\n\n What is Apollo AI used for?\n\n What are effective job application tips?\n\n What challenges do new graduates face?\n\n How can job seekers contact hiring managers?\n\n How has Reddit influenced job searches?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "hiring managers",
+      "reddit",
+      "contact"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/job-seeker-landed-role-from-reddit-hack-find-recruiter-email-2026-4",
+    "thumbnail_url": "https://i.insider.com/69ebbfa3367066d7c2970c79?width=1200&format=jpeg",
+    "created_at": "2026-04-25T12:38:46.666Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "andrew-yang-says-ai-could-swell-economic-inequality-at-an-epic-unprecedented-scale",
+    "title": "Andrew Yang says AI could swell economic inequality at an 'epic, unprecedented scale'",
+    "description": "Andrew Yang says a basic income policy will be \"necessary\" to address the impact of AI on the workforce.",
+    "fullText": "Andrew Yang says AI could cause considerable inequality.\n He said a basic income policy will be \"necessary\" to address the issues.\n Yang floated a universal basic income during his 2020 presidential campaign.\n\n What is universal basic income?\n\n What are AI-related layoffs?\n\n How can AI taxes reduce inequality?\n\n How could AI affect job markets?\n\n Why does Yang support a basic income?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "basic income",
+      "universal basic",
+      "inequality",
+      "yang"
+    ],
+    "qualityScore": 0.3,
+    "link": "https://www.businessinsider.com/andrew-yang-ai-income-inequality-ubi-universal-basic-income-2026-4",
+    "thumbnail_url": "https://i.insider.com/69eb84613fecbb42897a3a93?width=1200&format=jpeg",
+    "created_at": "2026-04-25T12:38:46.497Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "junior-talent-can-see-how-to-disrupt-us-goldman-partner-kunal-shah-on-the-next-generation-of-bankers",
+    "title": "Junior talent 'can see how to disrupt us': Goldman partner Kunal Shah on the next generation of bankers",
+    "description": "Kunal Shah, co-CEO of Goldman Sachs International and co-head of FICC, told BI about Europe's tech ecosystem, AI, and the bank's Middle East presence.",
+    "fullText": "Last year, Goldman named Kunal Shah co-CEO of its international business and global co-head of FICC.\n Shah made partner at just 31, having climbed to the top after about a decade with the bank.\n He spoke with Business Insider about the EMEA tech scene, global volatility, and the bank's future.\n\n What drives Shah's interest in disruption?\n\n Why is EMEA tech scene evolving rapidly?\n\n How does volatility impact global banking?\n\n How might AI reshape banking roles?\n\n What challenges do young bankers face today?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "emea tech",
+      "tech scene",
+      "volatility",
+      "banking",
+      "shah",
+      "business"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/goldman-sachs-partner-kunal-shah-international-ai-tech-middle-east-2026-4",
+    "thumbnail_url": "https://i.insider.com/69eb9efca98bc8fdc096e7fa?width=1102&format=jpeg",
+    "created_at": "2026-04-25T12:38:46.361Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "4-people-who-pivoted-into-ai-jobs-and-how-they-did-it",
+    "title": "4 people who pivoted into AI jobs — and how they did it",
+    "description": "Two Microsoft workers pivoted into AI roles from non-technical fields and said their humanities backgrounds were helpful.",
+    "fullText": "AI has become a hiring buzzword, and four employees explained how they added it to their job titles.\n An AI engineer said showcasing side projects was pivotal to transitioning from software engineering.\n Two non-technical Microsoft employees said having a humanities background was a strength.\n\n What skills are crucial for AI roles?\n\n What is AI's impact on job markets?\n\n How do side projects boost AI careers?\n\n How can non-tech backgrounds aid in AI?\n\n What industries are embracing AI?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "employees",
+      "projects"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/4-workers-explain-how-they-added-ai-job-title-2026-4",
+    "thumbnail_url": "https://i.insider.com/69ebbd4d367066d7c2970c54?width=1200&format=jpeg",
+    "created_at": "2026-04-25T12:38:46.347Z",
+    "topic": "finance"
+  },
+  {
     "slug": "chatgpt-recommends-the-same-3-companies-to-every-b2b-buyer-until-they-specify",
     "title": "ChatGPT Recommends the Same 3 Companies to Every B2B Buyer. Until They Specify",
     "description": null,
@@ -1695,297 +1997,5 @@
     "thumbnail_url": "https://hermes-agent.nousresearch.com/img/hermes-og-image.png",
     "created_at": "2026-04-23T01:30:06.920Z",
     "topic": "science"
-  },
-  {
-    "slug": "anthropics-claude-code-pricing-pain-is-sam-altmans-pleasure",
-    "title": "Anthropic's Claude Code pricing pain is Sam Altman's pleasure",
-    "description": "Amid confusion over if Claude Code was being removed from Anthropic's Pro plan, OpenAI's CEO and employees did some trolling of their rival.",
-    "fullText": "Anthropic caused confusion and anger when it appeared to up the pricing for access to its popular Claude Code tool.\n Anthropic later said that it was testing a change for 2% of new users and Claude Code would remain in its lowest-tier paid plan.\n OpenAI CEO Sam Altman and his employees looked to dunk on Anthropic on social media throughout the episode.\n\n What is Claude Code's main function?\n\n What is Sam Altman's role at OpenAI?\n\n What other AI tools compete with Claude?\n\n How does Anthropic's pricing compare?\n\n Why might Anthropic test pricing changes?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "claude code",
-      "anthropic",
-      "pricing",
-      "openai"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/anthropic-claude-code-price-confusion-sam-altman-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e91ff3a98bc8fdc096d94b?width=1200&format=jpeg",
-    "created_at": "2026-04-23T01:30:05.745Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "spacex-and-cursor-have-explored-a-teamup-with-mistral-to-take-on-ai-rivals",
-    "title": "SpaceX and Cursor have explored a team-up with Mistral to take on AI rivals",
-    "description": "Musk has eyed a collaboration with French startup Mistral to help xAI catch Anthropic and OpenAI.",
-    "fullText": "Elon Musk's xAI recently announced a partnership with AI coding startup Cursor.\n The two companies have also explored a three-way partnership with French AI startup Mistral.\n Musk is looking to catch up to Anthropic and OpenAI.\n\n Who are xAI's main competitors?\n\n How does Musk plan to catch up in AI?\n\n Why did Musk criticize Anthropic?\n\n What is Mistral's role in the partnership?\n\n What is Cursor's significance to xAI?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "partnership",
-      "startup",
-      "catch",
-      "musk",
-      "anthropic"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/elon-musk-xai-explored-collaborating-with-mistral-cursor-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e8fcb7367066d7c296fb0f?width=1200&format=jpeg",
-    "created_at": "2026-04-23T01:30:05.604Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "servicenow-ceo-dismisses-ai-software-threats-as-parlor-tricks-as-he-raises-forecasts",
-    "title": "ServiceNow CEO dismisses AI software threats as 'parlor tricks' as he raises forecasts",
-    "description": "ServiceNow raised outlook as CEO Bill McDermott dismisses AI disruption fears, calling rival offerings \"parlor tricks.\"",
-    "fullText": "ServiceNow reported strong Q1 2026 results, raising forecasts amid AI concerns.\n CEO Bill McDermott emphasized ServiceNow's AI product growth and dismissed AI competition threats.\n The stock fell on Middle East deal headwinds and questions about the forecast.\n\n How does ServiceNow leverage AI?\n\n Why does McDermott call AI threats \"parlor tricks\"?\n\n What are the financial impacts of AI on ServiceNow?\n\n What drives ServiceNow's subscription growth?\n\n How does ServiceNow outperform analyst forecasts?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "forecasts",
-      "growth",
-      "threats",
-      "servicenow",
-      "mcdermott",
-      "servicenow's"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/servicenow-ceo-dismisses-ai-threats-parlor-tricks-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e9217a367066d7c296fc32?width=1200&format=jpeg",
-    "created_at": "2026-04-23T01:30:05.572Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "vibe-coding-is-being-called-the-greatest-unlock-for-nontechies-these-5-startups-are-raising-billions",
-    "title": "Vibe coding is being called the greatest unlock for non-techies. These 5 startups are raising billions.",
-    "description": "These entrants are competing with far bigger players, including OpenAI, Anthropic, and Microsoft, that make their own AI-powered coding tools.",
-    "fullText": "Vibe coding companies — including these six — are picking up big money and even some controversy.\n Lovable, Cursor, and Replit are seeing valuations soar even as competition grows.\n The space has seen lots of deal activity and interest from Big Tech.\n\n HOME",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/startups-raising-billions-vibe-coding-boom-cursor-lovable-replit-emergent-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b2aa33a96e437d6eb82f83?width=1200&format=jpeg",
-    "created_at": "2026-04-23T01:30:04.361Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "disney-staffers-have-an-ai-adoption-dashboard-one-claude-user-invoked-the-chatbot-460000-times-in-9-days",
-    "title": "Disney staffers have an 'AI Adoption Dashboard.' One Claude user invoked the chatbot 460,000 times in 9 days.",
-    "description": "Disney has a dashboard that tracks token usage across AI coding tools Cursor and Claude, and shows who the power users are.",
-    "fullText": "Disney is letting some employees see who the AI power-users are.\n The company has an \"AI Adoption Dashboard\" showing who is using the most tokens.\n One Claude super-fan invoked the chatbot about 460,000 times in a nine-day span.\n\n What is \"tokenmaxxing\"?\n\n How does AI usage impact Disney's costs?\n\n How do other companies use AI dashboards?\n\n Who are AI power-users at Disney?\n\n What are the benefits of tracking AI usage?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "power-users",
-      "usage",
-      "disney"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/disney-ai-adoption-dashboard-tokens-tokenmaxxing-claude-cursor-josh-damaro-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e92eca3fecbb42897a2dd3?width=1200&format=jpeg",
-    "created_at": "2026-04-23T01:30:03.965Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "what-smart-people-are-saying-about-spacexs-60-billion-deal-with-cursor-the-hunger-games-have-just-begun",
-    "title": "What smart people are saying about SpaceX's $60 billion deal with Cursor: 'The Hunger Games have just begun'",
-    "description": "Partnering with Cursor could be a crucial step for Elon Musk to get ahead of AI rivals like OpenAI and Anthropic.",
-    "fullText": "SpaceX said on Tuesday that it's partnering with Cursor, an AI coding startup.\n The deal gives Cursor access to SpaceX's computing resources.\n Here's what smart people in business and tech are saying about the multibillion-dollar deal.\n\n What benefits does SpaceX gain from Cursor?\n\n How might this deal impact AI development?\n\n How does this deal affect SpaceX's competitors?\n\n Why is the AI race significant for SpaceX?\n\n What are Cursor's goals in this partnership?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "deal",
-      "spacex's",
-      "spacex",
-      "cursor"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/spacex-cursor-deal-what-smart-people-are-saying-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e90955a98bc8fdc096d892?width=1200&format=jpeg",
-    "created_at": "2026-04-23T01:30:03.884Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "anthropic-has-surged-to-a-trilliondollar-valuation-on-secondary-markets-overtaking-openai",
-    "title": "Anthropic has surged to a trillion-dollar valuation on secondary markets, overtaking OpenAI",
-    "description": "Buyers are in a race to secure a dwindling supply of shares in Anthropic, driving the AI company's valuation on some platforms to $1 trillion.",
-    "fullText": "Anthropic's valuation now hovers at $1 trillion on Forge Global, a leading private marketplace exchange.\n That is a higher price than OpenAI, which was valued at $852 billion earlier this year.\n Those lucky enough to own Anthropic shares are getting hounded with multiple offers a day to sell.\n\n What factors drove Anthropic's valuation?\n\n What's Anthropic's competitive edge over OpenAI?\n\n Why is there less demand for OpenAI shares?\n\n How does Forge Global influence valuations?\n\n How do secondary markets impact investors?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "anthropic's valuation",
-      "forge global",
-      "shares",
-      "openai"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/anthropic-trillion-dollar-valuation-on-secondary-markets-2026",
-    "thumbnail_url": "https://i.insider.com/69e94c6da98bc8fdc096dbee?width=1200&format=jpeg",
-    "created_at": "2026-04-23T01:30:03.869Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "sam-altman-compares-anthropics-mythos-to-dropping-a-bomb-while-selling-a-100-billion-bomb-shelter",
-    "title": "Sam Altman compares Anthropic's Mythos to dropping a bomb while selling a $100 billion bomb shelter",
-    "description": "OpenAI CEO Sam Altman said in contrast to Anthropic's recent moves, OpenAI would err on the side of giving more people access to AI models.",
-    "fullText": "OpenAI CEO Sam Altman said Anthropic is using \"fear-based marketing\" to sell Claude Mythos.\n\nAnthropic said it would not release Claude Mythos publicly due to its cybersecurity capabilities.\n\nAltman said, without naming names, that some in tech want to keep AI in the hands of a few people.\n\nSam Altman accused Anthropic of trying to use \"fear-based marketing\" to sell Claude Mythos, its new AI model.\n\n\"It is clearly incredible marketing to say, 'We have built a bomb. We were about to drop it on your head. We will sell you a bomb shelter for $100 million to run across all your stuff, but only if we pick you as a customer,'\" Altman told podcaster Ashlee Vance in an episode of Vance's \"Core Memory\" podcast posted on Tuesday.\n\nSome in tech have questioned Anthropic's decision to both withhold a public release of Claude Mythos, instead allowing only a few select companies to get a peek behind the curtain.\n\n\"There are people in the world who, for a long time, have wanted to keep AI in the hands of a smaller group of people,\" Altman said. \"You could justify that in a lot of different ways, and some of it's real — like there are going to be legitimate safety concerns. But if what you want is like, 'We need control of AI, just us, because we're the trustworthy people, I think the fear-based marketing is probably the most effective way to justify that.\"\n\nIn contrast, Altman said he has confidence in OpenAI's policies and safeguards. He said there will be \"very dangerous models that will have to be released in different ways,\" but that OpenAI will err on the side of larger releases.\n\n\"The goal here is to benefit everybody and also to, I don't say market this in a way — but like get the world to come on this journey with us, and to say, 'We are going to give you more powerful technology, there's going to be responsibility that goes along with that,'\" he said. \"We are going to try to help set up the world for as much success as we can.\"\n\nAnthropic said earlier this month that it would not release Claude Mythos due to concerns that it was too adept at identifying cybersecurity vulnerabilities. Instead, Anthropic created \"Project Glasswing,\" through which only 11 organizations, including Google, Microsoft, Amazon Web Services, Nvidia, and JPMorgan Chase, were given access to the model.\n\nElsewhere in the interview, Altman suggested Anthropic is partly to blame for the attack on his home. The OpenAI CEO's statements are sure to stoke an already bitter rivalry between Altman and Anthropic CEO Dario Amodei, who left OpenAI to found one of its biggest competitors.\n\n\"I think the doomerism talk hasn't helped. I think the way certain other labs talk about us hasn't helped,\" Altman said, adding, \"I think the way Anthropic talks about OpenAI doesn't help.\"",
-    "readingTime": 3,
-    "keywords": [
-      "release claude",
-      "fear-based marketing",
-      "claude mythos",
-      "altman",
-      "anthropic",
-      "cybersecurity",
-      "tech",
-      "model",
-      "bomb",
-      "justify"
-    ],
-    "qualityScore": 1,
-    "link": "https://tech.yahoo.com/ai/claude/articles/sam-altman-compares-anthropics-mythos-091901785.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/MfJOWjQweXgqAdX_2w8BOQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/65e15391269d86a0514e1a96f32b3ddf",
-    "created_at": "2026-04-23T01:30:00.839Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "what-smart-people-are-saying-about-spacexs-60-billion-deal-with-cursor-the-hunger-games-have-just-begun",
-    "title": "What smart people are saying about SpaceX's $60 billion deal with Cursor: 'The Hunger Games have just begun'",
-    "description": "Partnering with Cursor could be a crucial step for Elon Musk to get ahead of AI rivals like OpenAI and Anthropic.",
-    "fullText": "SpaceX said on Tuesday that it's partnering with Cursor, an AI coding startup.\n\nThe deal gives Cursor access to SpaceX's computing resources.\n\nHere's what smart people in business and tech are saying about the multibillion-dollar deal.\n\nSpaceX's multibillion-dollar deal with AI coding startup Cursor marks a colossal step for Elon Musk and his ambitions to win the AI race.\n\nThe space company, which owns AI startup xAi, said in an X post on Tuesday that it's working with Cursor to \"create the world's best coding and knowledge work AI.\" It's expected to combine Cursor's AI-powered coding model with SpaceX's Colossus training supercomputer, the companies said.\n\nAs part of the deal, SpaceX gains the right to acquire Cursor later this year for $60 billion, or pay Cursor $10 million for the work they produce together.\n\nThe companies have also held discussions in recent weeks with Mistral about a potential three-way partnership, Business Insider reported.\n\nThe partnerships could be a crucial step for Musk to get ahead of rivals like OpenAI and Anthropic.\n\nMusk, who founded SpaceX in 2002, has made serious strides in AI this year. Chief among them is SpaceX's February acquisition of Musk's xAI, which helped SpaceX expand into AI infrastructure and software. In April, SpaceX confidentially filed for an IPO, boosting gains in other space stocks and teasing a public debut this year.\n\nNews of the Cursor deal electrified chatter among business and tech industry professionals on social media, many of whom viewed it as a symbiotic match. Here's what people in tech are saying about the deal.\n\nAlex Finn, founder of Creator Buddy and Henry Intelligent Machines\n\nAlex Finn, founder of Creator Buddy and AI agent startup Henry Intelligent Machines, said the deal made \"so much sense\" in an X post.\n\n\"xAI has been behind on coding products for years now. Cursor has a great coding product, but will fail unless they build their own model,\" he said on Tuesday.\n\nThe deal could allow the two companies to address those issues, Finn said. While SpaceX gains Cursor's coding capabilities, Cursor gets access to SpaceX's compute infrastructure to build its own model rather than relying on OpenAI's ChatGPT or Anthropic's Claude.\n\nFinn said the hurdle Cursor faced is likely happening to many vibe-coding tools that rely on OpenAI and Anthropic, which are building competing offerings.\n\n\"Wins for both sides,\" Finn said.\n\nHadley Harris, cofounder of Eniac Ventures\n\nHadley Harris, cofounder of seed-stage VC firm Eniac Ventures, said on X that he didn't \"get\" the deal.",
-    "readingTime": 3,
-    "keywords": [
-      "creator buddy",
-      "henry intelligent",
-      "intelligent machines",
-      "harris cofounder",
-      "finn founder",
-      "spacex gains",
-      "multibillion-dollar deal",
-      "coding startup",
-      "cursor",
-      "tech"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/sectors/technology/articles/smart-people-saying-spacexs-60-224341967.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/tc_Lu74rruIAtKmz954QIA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/c88a5c5f9c4b4e030957eb29814ce464",
-    "created_at": "2026-04-23T01:29:59.735Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "softbank-seeks-10-billion-margin-loan-backed-by-openai-shares-bloomberg-news-reports",
-    "title": "SoftBank seeks $10 billion margin loan backed by OpenAI shares, Bloomberg News reports",
-    "description": "SoftBank seeks $10 billion margin loan backed by OpenAI shares, Bloomberg News reports",
-    "fullText": "Risk Disclosure: Trading in financial instruments and/or cryptocurrencies involves high risks including the risk of losing some, or all, of your investment amount, and may not be suitable for all investors. Prices of cryptocurrencies are extremely volatile and may be affected by external factors such as financial, regulatory or political events. Trading on margin increases the financial risks.\n\nBefore deciding to trade in financial instrument or cryptocurrencies you should be fully informed of the risks and costs associated with trading the financial markets, carefully consider your investment objectives, level of experience, and risk appetite, and seek professional advice where needed.\n\nFusion Media would like to remind you that the data contained in this website is not necessarily real-time nor accurate. The data and prices on the website are not necessarily provided by any market or exchange, but may be provided by market makers, and so prices may not be accurate and may differ from the actual price at any given market, meaning prices are indicative and not appropriate for trading purposes. Fusion Media and any provider of the data contained in this website will not accept liability for any loss or damage as a result of your trading, or your reliance on the information contained within this website.\n\nIt is prohibited to use, store, reproduce, display, modify, transmit or distribute the data contained in this website without the explicit prior written permission of Fusion Media and/or the data provider. All intellectual property rights are reserved by the providers and/or the exchange providing the data contained in this website.\n\nFusion Media may be compensated by the advertisers that appear on the website, based on your interaction with the advertisements or advertisers.",
-    "readingTime": 2,
-    "keywords": [
-      "fusion media",
-      "website",
-      "financial",
-      "contained",
-      "and/or",
-      "cryptocurrencies",
-      "risks",
-      "market",
-      "investment",
-      "necessarily"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.investing.com/news/stock-market-news/softbank-seeks-10-billion-margin-loan-backed-by-openai-shares-bloomberg-news-reports-4631126",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM3M01S_L.jpg",
-    "created_at": "2026-04-23T01:29:58.637Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "anthropic-investigates-unauthorized-access-to-unreleased-mythos-cybersecurity-ai",
-    "title": "Anthropic investigates unauthorized access to unreleased Mythos cybersecurity AI",
-    "description": "Anthropic’s decision to restrict access to its powerful new model increases fears about the advanced technology",
-    "fullText": "Anthropic’s decision to restrict access to its powerful new model increases fears about the advanced technology\n\nAnthropic has ruled out releasing its latest AI model, Mythos, to the public because of the threat it poses to global cybersecurity.\n\nHowever, the US tech startup behind the Claude chatbot confirmed on Wednesday it was investigating a report that a group of people had gained unauthorised access to Mythos. The alleged incident has raised concerns over the pace of development and the ability of tech companies to keep their riskiest products out of the public domain. Here, we examine Mythos and its potential impact.\n\nMythos is an AI model – the underlying technology that powers tools such as chatbots – that, according to Anthropic, represents a serious potential threat to any organisation’s cybersecurity. Anthropic announced the existence of Mythos on 7 April but said it would not be released publicly because of its ability to identify unknown flaws in IT systems. Those flaws could, theoretically, be exploited by hackers.\n\nAnthropic said Mythos could identify and exploit “zero-day” flaws in every important IT operating system and web browser – if a user asked it to do so. Zero days are so-called because organisations and developers are completely unaware of them and have had no time to patch them before an assailant strikes.\n\nAnthropic described it as a “watershed moment for cybersecurity”. Some of the unnoticed flaws had been around for decades, said the San Francisco company.\n\nThe startup has allowed tech firms and banks, including Apple and Goldman Sachs, to access the model and assess what risks it could pose to their businesses and customers.\n\nMythos represents tangible evidence, according to the UK’s AI Security Institute (AISI), of the disruptive capabilities of advanced AI. Ever since the arrival of OpenAI’s ChatGPT in 2022, experts have warned that AI could cause serious real-world damage.\n\nThere is also a wider point: that Mythos is an indication of the pace of progress in AI. Advanced models tend to be replicated swiftly by other firms, including developers of open-source models that are freely available to users. In a joint letter to business leaders last month, the UK technology secretary, Liz Kendall, and the security minister, Dan Jarvis, said businesses needed to “plan accordingly” for AI capabilities to “rapidly increase” over the next year. AI can, of course, be used to defend against cyber-attacks as well.\n\nAnother concern is that Mythos could fall into the wrong hands despite being withheld from public release. That fear came to fruition this week with Anthropic confirming a “handful” of users in a private online forum had gained access to the model.\n\nHowever, there is also a question about the importance of the thousands of vulnerabilities that Mythos has flagged. Can they cause serious damage? Plus, highlighting an IT flaw is not the same as exploiting one.\n\nThe AISI, which is the world’s leading AI safety body, has taken a look at Mythos and says it is a “step up” on previous models in terms of its threat to cybersecurity. Among the red flags are an ability to carry out attacks involving multiple steps and identifying IT flaws without human guidance.\n\nIt also achieved a first in the eyes of the AISI: successfully completing a 32-step simulation of a cyber-attack in a test created by the institute. It can attack weak, small IT systems, the AISI said, although it could not give a verdict on well-defended systems. The institute ended its assessment with an observation that is often stated elsewhere: AI systems can only get better from here.\n\nRichard Horne, chief executive of the UK’s National Cyber Security Centre, said at the CyberUK conference in Glasgow this week that the emergence of Mythos would help encourage companies to replace “obsolete tech”. “It just drives the urgency,” he added.\n\nHowever, other experts have said Mythos is more an evolution than a revolution. Aisle, a company that works on AI cybersecurity, analysed Anthropic’s main claims: that it had found thousands of zero-day vulnerabilities across large operating systems and browsers, including one in FreeBSD, a cousin to UNIX. It found that other, far cheaper models were also able to find these problems. This did not mean that Mythos’s capabilities were not significant, they said, but that there was more nuance than Anthropic’s urgent tone implied.\n\nThere is also caution from experts that most breaches still come from well-established risks such as weak authentication and already known vulnerabilities that have not been patched. \n\n Some experts suggest there is an element of hype around Anthropic’s claims about Mythos and how a startup estimated to be worth about $800bn (£592bn) has presented them. Mythos is undoubtedly a capable model. However, Anthropic’s dramatic announcement has given it significant airtime and centred its product in a broader, field-wide discussion of how AI might contribute to cyber-risk.\n\nAbout 40 companies, including Google, JP Morgan and Goldman, have been given early access to Mythos through an initiative called Project Glasswing, which is meant to give businesses a chance to test the AI model as part of their cyber defences. Anthropic says they will share what they learn “so the whole industry can benefit”.\n\nHowever, the launch partners have given no detail about what they think Mythos is capable of, and how much of a threat it might present.\n\nThat has not stopped banks and regulators from speculating about its potential impact. And for good reason: if Anthropic’s warnings are correct, having Mythos fall into the wrong hands could wreak havoc on banks and potentially put the wider financial system at risk.\n\nUK government modelling on a worst-case scenario bank hack, produced even before Mythos’s creation, suggested direct debits could fail, leaving rents, mortgages and wages unpaid, while online banking and cash machine withdrawals could be blocked. Commuters could be left in limbo as buses and petrol stations rejected payments. That could prompt panic, leading to a run on rival lenders, as customers pulled money from their accounts amid fear the disruption could spread.\n\nConcern over Mythos’s prospective threats prompted the US treasury secretary, Scott Bessent, to call a meeting with bosses from big American banks, including Goldman and Citi, in Washington earlier this month.\n\nUK regulators have added Mythos to the agenda at the Cross Market Operational Resilience Group meetings this week. This puts it in high-level discussions between senior bankers as well as officials from the Treasury, Bank of England, Financial Conduct Authority and National Cyber Security Centre.",
-    "readingTime": 6,
-    "keywords": [
-      "security centre",
-      "cyber security",
-      "model however",
-      "potential impact",
-      "cause serious",
-      "mythos",
-      "access",
-      "cybersecurity",
-      "flaws",
-      "systems"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/technology/2026/apr/22/what-is-anthropic-mythos-ai-threat-global-cybersecurity",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/c6f64edbac635ab97e61d93d77ecd485b57556e1/509_0_5031_4024/master/5031.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e1bdfb678dc19b7cfb5d936f5ec2304a",
-    "created_at": "2026-04-22T18:58:14.156Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "tesla-earnings-updates-wall-street-looks-for-robotaxi-ai-progress-with-stock-down-14-ytd",
-    "title": "Tesla earnings updates: Wall Street looks for robotaxi, AI progress with stock down 14% YTD",
-    "description": "Tesla will report earnings after the 4 p.m. ET closing bell on Wednesday. Investors head toward the 5:30 p.m.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/tesla-q1-earnings-updates-tsla-stock-robotaxis-elon-musk-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e8cf1c3fecbb42897a2917?width=1024&format=jpeg",
-    "created_at": "2026-04-22T18:58:04.130Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-delusion-of-ai-justice",
-    "title": "The Delusion of ‘AI Justice’",
-    "description": "Elie...",
-    "fullText": "It’s hard to hate people when you’re working shoulder to shoulder with them on things that matter.\n\nAdoption as practiced in the US is rooted in racism, imperialism, colonialism, and outright abduction. It's time to do something different.\n\nWith the first pick of the WNBA draft, the Dallas Wings picked Azzi Fudd. It sparked a sexist, homophobic conversation online.\n\nAs the president seeks to mend fences with his evangelical base, it’s crucial to understand how he enlisted its support in the first place.\n\nNew directives from the Bureau of Prisons amount to government-mandated conversion therapy.\n\nThe damage he and his cronies have wrought could take decades to repair, particularly when it comes to science and public health.",
-    "readingTime": 1,
-    "keywords": [
-      "it’s",
-      "shoulder"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.thenation.com/article/society/ai-courts-robot-judges/",
-    "thumbnail_url": "https://www.thenation.com/wp-content/uploads/2026/04/Mystal-AI-ftr.jpg",
-    "created_at": "2026-04-22T18:57:57.237Z",
-    "topic": "politic"
-  },
-  {
-    "slug": "chatpy-a-python-port-of-vercels-chat-sdk",
-    "title": "Chat-py: A Python port of Vercel's chat SDK",
-    "description": "Python port for Chat SDK by https://desplega.sh. Contribute to desplega-ai/chat-py development by creating an account on GitHub.",
-    "fullText": "Unified chat SDK for Python — build bots across Slack, Microsoft Teams, Google Chat, Discord, Telegram, GitHub, Linear, and WhatsApp. Write your bot logic once, deploy everywhere. A Python port of vercel/chat.\n\nVercel's chat SDK is, in our view, the cleanest model for writing cross-platform chat bots we've seen: an mdast-based markdown core, platform-agnostic cards/modals/streaming, lockable thread handlers, and a \"bot ergonomics first\" API. It lands in TypeScript.\n\nA lot of modern agent and backend work — LangGraph, DSPy, CrewAI, FastAPI services, data pipelines, internal tools — lives in Python. Rather than ask Python teams to stand up a TypeScript sidecar, chat-py mirrors the Chat SDK's API surface 1:1 so that:\n\nchat-py is maintained by Desplega Labs as an independent port — not affiliated with Vercel. We track upstream closely and contribute fixes back where relevant.\n\nA chat-py bot needs three pieces: the core SDK (chat-py), at least one platform adapter (chat-py-adapter-<slack|teams|…>), and exactly one state adapter (chat-py-adapter-state-<memory|redis|ioredis|pg>). The state adapter is not optional — it's where thread subscriptions, lock tokens, and dedupe/cache data live. Use state-memory for local development and one of the persistent backends in production.\n\nSee the Getting Started guide for a full walkthrough and the examples/ directory for runnable projects.\n\nPer-adapter scripts that boot a FastAPI webhook server and drive the real provider API live under examples/e2e/ (one file per scenario). These are not pytest tests — they're meant for local smoke / pre-release verification. Each script's docstring lists the env vars it needs; the script exits early with a clear message if any are missing.\n\nFull instructions (including how to write new scenarios) in examples/e2e/README.md.\n\n¹ Two known gaps raise at import/call time: the Graph API conversation reader and certificate-based auth. See CHANGELOG.md.\n² v0.1.0 ships placeholder stubs for Telegram (DES-182) and WhatsApp (DES-183) — import is safe but no adapter logic yet. The package surface and README describe the planned feature set.\n\nchat-py aims for 1:1 behavioral parity with upstream. Concretely:\n\nDifferences from upstream that can't be avoided:\n\nSee docs/parity.md for the full upstream-to-Python mapping.\n\nFull contributor guide: CONTRIBUTING.md. Agent-assisted contributions: CLAUDE.md.\n\nSee the upstream changelog for what lands next.\n\nchat-py is a port of vercel/chat. Thanks to the Vercel chat team for open-sourcing an API worth porting. All architectural credit belongs upstream; any bugs in the Python translation belong to us.",
-    "readingTime": 2,
-    "keywords": [
-      "chat sdk",
-      "chat-py",
-      "upstream",
-      "adapter",
-      "port",
-      "bots",
-      "teams",
-      "telegram",
-      "whatsapp",
-      "logic"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/desplega-ai/chat-py",
-    "thumbnail_url": "https://opengraph.githubassets.com/1bee15103d8133f4f95c2ccdeaf0c5bf3b2cc40b8be7ce33cd979013aa4f9473/desplega-ai/chat-py",
-    "created_at": "2026-04-22T13:00:41.629Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "sift-save-ai-tokens-in-codexclaude-by-summarizing-command-output",
-    "title": "Sift – save AI tokens in Codex/Claude by summarizing command output",
-    "description": "Contribute to panpeter/sift-skill development by creating an account on GitHub.",
-    "fullText": "Sift is a small skill for summarizing noisy shell command output before it gets pulled into the main agent thread.\n\nIt is useful for commands like:\n\nLarge command output is often low value:\n\nSift runs the command, captures the full output, and returns only a compact summary.\n\nConservative estimate for command-heavy multi-turn sessions: about 45% lower total token cost.\n\nThis number comes from a real Codex session where:\n\nThis estimate is mainly for noisy build/test/debug workflows. If your commands are already short, the benefit will be smaller.\n\nSift is a simple helper around nested agent calls.\n\nRun ./sift/scripts/sift.sh --help for the full list.",
-    "readingTime": 1,
-    "keywords": [
-      "command output",
-      "sift",
-      "noisy",
-      "agent",
-      "commands",
-      "estimate"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://github.com/panpeter/sift-skill",
-    "thumbnail_url": "https://opengraph.githubassets.com/775daf764ebbf372264a8552c453f66ef695d561038b762f33afc8cd96b715f3/panpeter/sift-skill",
-    "created_at": "2026-04-22T13:00:41.382Z",
-    "topic": "tech"
   }
 ]
