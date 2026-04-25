@@ -1,5 +1,29 @@
 [
   {
+    "slug": "replace-ibm-quantum-back-end-with-devurandom",
+    "title": "Replace IBM Quantum back end with /dev/urandom",
+    "description": "This repository contains the code and submission detail for the QDay prize challenge by https://www.projecteleven.com/ - yuvadm/quantumslop",
+    "fullText": "Claim being tested: the Q‑Day Prize submission in this repo demonstrates a\nquantum attack on ECDLP — specifically, key recovery on curves up to 17 bits\nusing IBM Quantum hardware.\n\nThis branch applies a single surgical patch (−29 / +30 lines) to\nprojecteleven.py. The patch replaces the IBM Quantum backend inside\nsolve_ecdlp() with os.urandom. Everything else — circuit construction,\nthe ripple‑carry oracle, the extraction pipeline, the d·G == Q verifier —\nruns byte‑for‑byte unchanged.\n\nIf the quantum computer were contributing measurable signal, this\nsubstitution should break the recoveries. It does not. The author's own CLI\nrecovers every reported private key at statistically indistinguishable rates\nfrom the IBM hardware runs.\n\nSee git diff main for the full 59‑line diff.\n\nCommand: python projecteleven.py --challenge <N> --shots 8192\n\nFull output: urandom_runs/urandom_challenge_4.txt … _10.txt\n\nEvery d is byte‑identical to the author's reported hardware result. The\nauthor ran each once. So did /dev/urandom. Both \"succeeded.\"\n\nCommand: python projecteleven.py --challenge <N> --oracle ripple --shots 20000\n\nFull output:\nurandom_runs/urandom_challenge_16_17_flagship.txt\n\nThe 17‑bit result is the one awarded 1 BTC. /dev/urandom recovers it\n~40% of runs on a laptop. The author ran it once on IBM ibm_fez and\nclaimed a quantum result.\n\nVerbatim terminal output for one 17‑bit run:\n\nNo quantum computer was harmed in the recovery of this private key.\n\nThe author's extraction (ripple_carry_shor.py:197-240, projecteleven.py:264) takes\neach shot's (j, k, r) and accepts d_cand = (r − j)·k⁻¹ mod n iff it passes\nthe classical verifier d_cand · G == Q. Under uniform noise, d_cand is\nuniform on [0, n), so\n\nPlugging in the author's own (n, S):\n\nThe empirical urandom rates above match these theoretical values. The\nauthor's README even predicts this (README.md:210):\n\n\"When shots >> n, random noise alone can recover d with high probability.\"\n\nAll runs from 4‑bit through 10‑bit have shots / n between 1.9× and 1,170×.\nAll of them are in the regime the author identifies as classical.\n\nNo IBM account. No token. No quantum hardware. No network.\n\nThe engineering in this repo (six oracle variants, CDKM ripple‑carry adders\nmapped to heavy‑hex topology, semiclassical phase estimation with mid‑circuit\nmeasurement) is genuine and non‑trivial. The critique here is narrowly about\nthe cryptanalytic claim: that these hardware runs constitute ECDLP key\nrecovery by a quantum computer. They do not. They are classical verification\napplied to uniform‑random candidates — reproducible without any quantum\nhardware at all, as this branch directly shows.",
+    "readingTime": 2,
+    "keywords": [
+      "command python",
+      "python projecteleven.py",
+      "projecteleven.py challenge",
+      "quantum computer",
+      "quantum hardware",
+      "ibm quantum",
+      "author's",
+      "shots",
+      "recovery",
+      "oracle"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/yuvadm/quantumslop/blob/25ad2e76ae58baa96f6219742459407db9dd17f5/URANDOM_DEMO.md",
+    "thumbnail_url": "https://opengraph.githubassets.com/043b0f591349e494b02047c9e2822cd9aed3e613ede6d40ef7512a5595c48f88/yuvadm/quantumslop",
+    "created_at": "2026-04-25T01:23:20.176Z",
+    "topic": "tech"
+  },
+  {
     "slug": "quantum-jamming-explores-the-fundamental-principles-of-nature",
     "title": "Quantum 'Jamming' Explores the Fundamental Principles of Nature",
     "description": "Some quantum cryptographers want to find ways to keep messages secret even if the rules of quantum mechanics don’t hold. The recently rediscovered idea of quantum jamming complicates things.",

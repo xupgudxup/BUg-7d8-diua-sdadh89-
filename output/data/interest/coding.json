@@ -1,5 +1,31 @@
 [
   {
+    "slug": "im-the-senior-director-of-a-5-billion-data-company-heres-how-a-mix-of-programming-and-leadership-courses-skyrocketed-my",
+    "title": "I'm the senior director of a $5 billion data company — here's how a mix of programming and leadership courses skyrocketed my career since college",
+    "description": "I've taken 25 online courses in everything from machine learning to management. Focusing on different strengths helped me advance faster in my career.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/guides/learning/leadership-management-coursera-edx-linkedin-learning-online-courses",
+    "thumbnail_url": "https://i.insider.com/6841ee3c9d73a0031e8df999?width=1200&format=jpeg",
+    "created_at": "2026-04-25T01:22:45.004Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "this-is-the-free-google-online-course-in-python-programming-i-wish-i-took-before-i-started-my-masters-degree",
+    "title": "This is the free Google online course in Python programming I wish I took before I started my master's degree",
+    "description": "If I could go back in time, I would have enrolled in this free Coursera course in Python programming before I began my master's program.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/guides/learning/python-online-course-free-google-coursera",
+    "thumbnail_url": "https://i.insider.com/6841ee3c9d73a0031e8df999?width=1200&format=jpeg",
+    "created_at": "2026-04-25T01:22:43.872Z",
+    "topic": "finance"
+  },
+  {
     "slug": "programming-language-archaeology-and-semantics",
     "title": "Programming Language Archaeology and Semantics",
     "description": "In this episode, Conor and Ben chat about programming language archeology!",
@@ -1916,54 +1942,6 @@
     "link": "https://github.com/jmilinovich/goal-md",
     "thumbnail_url": "https://opengraph.githubassets.com/b446ae43dd3b4dd2e711ce3f9290e14ef90d5b3864979e4e1e3e43b003db8517/jmilinovich/goal-md",
     "created_at": "2026-03-15T18:25:06.111Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "agentic-docs-templates-keep-ai-coding-agents-disciplined",
-    "title": "Agentic Docs Templates, keep AI coding agents disciplined",
-    "description": "A language-agnostic, framework-agnostic repository template for document-driven AI coding agent development. - Sukitly/agentic-docs-templates",
-    "fullText": "A language-agnostic, framework-agnostic repository template for document-driven AI coding agent development.\n\nAI coding agents are powerful but undisciplined by default. They skip context, forget architecture rules, and produce code that drifts from your design. This template provides a structured documentation system that keeps agents in line: read docs before writing code, plan before executing, write tests before implementation, and keep documentation in sync with code.\n\nIf you already have a project and want to adopt this documentation framework, use the bootstrap prompt. An AI agent will analyze your project and generate all documentation files pre-filled with real content (not empty templates).\n\nThe bootstrap prompt works with any AI coding agent. It will analyze your project (tech stack, architecture, conventions, existing docs), confirm findings with you, generate all documentation files with real content, and verify documentation integrity automatically.\n\nThe agent is bound by five rules defined in AGENTS.md:\n\nThe included Python script verifies documentation health:\n\nIt checks that all relative Markdown links point to existing files, that index.md files cover all docs in their directories, that exec plans have the required frontmatter fields and sections, and that paths referenced in ARCHITECTURE.md actually exist.\n\nNo dependencies required. Just Python 3.\n\nSearch for <!-- CUSTOMIZE --> comments across all files to find sections you need to fill in:\n\nAGENTS.md is natively supported by most AI coding agents, including Codex, Cursor, Gemini CLI, pi, and others.\n\nNote: Claude Code uses CLAUDE.md instead — simply rename or symlink from AGENTS.md.\n\nThis template is heavily inspired by OpenAI's Harness Engineering approach to AI-assisted development, combined with practical lessons from real-world projects.",
-    "readingTime": 2,
-    "keywords": [
-      "bootstrap prompt",
-      "coding agents",
-      "coding agent",
-      "documentation files",
-      "template",
-      "docs",
-      "project",
-      "development",
-      "architecture",
-      "rules"
-    ],
-    "qualityScore": 0.95,
-    "link": "https://github.com/Sukitly/agentic-docs-templates",
-    "thumbnail_url": "https://opengraph.githubassets.com/b467f1e8406200d4b61c76b9a037e619223deb8338bd92723a6e01eabc22f07f/Sukitly/agentic-docs-templates",
-    "created_at": "2026-03-15T12:30:11.894Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "lfg-wow-raid-frames-for-ai-agents-on-a-25-led",
-    "title": "Lfg – WoW raid frames for AI agents on a $25 LED",
-    "description": "I built a WoW-inspired raid frame on a 64x64 LED panel to monitor my AI coding agents. When an agent needs approval, it catches fire.",
-    "fullText": "I run up to ten AI coding agents at a time. I wanted to see what they were all doing. So obviously I built a WoW raid frame on a $25 LED panel.\n\nEach agent gets an 8x8 sprite. When it's working, you see an ability icon. When it's idle, it sleeps. When it needs approval, it catches fire. That's it. That's the project.\n\nThe hardware is an iDotMatrix 64x64 LED panel, ~$25. You send it pixel data over Bluetooth and it displays it. btleplug handles the Bluetooth side in Rust.\n\nThe webhook handler and BLE renderer are fully decoupled. The handler updates state; a separate render loop polls every 250ms, diffs the state hash, and debounces 2 seconds before pushing. When an agent enters Requesting, animation speed doubles so the fire pulses with urgency.\n\nThe render pipeline produces a 6-frame animated GIF per cycle. It uses NeuQuant quantization to build a single global 256-color palette across all frames — no per-frame palette switching, which the panel can't handle anyway — then splits the final GIF into 4KB BLE packets with a 16-byte header and CRC32 for integrity. The panel reassembles and plays the animation on loop until the next push.\n\nEach agent gets an 8x8 animated sprite from one of eleven themes — Slimes, Ghosts, Space Invaders, Pac-Men, and more. Each IDE host gets its own theme, so I can tell Claude Code from Cursor at a glance.\n\nThree states: Idle, Working, Requesting. The transitions seem obvious until you run them against real hook traffic.\n\nClaude Code fires PermissionRequest and PreToolUse within ~100μs of each other, out of order. Handle them naively and PreToolUse clobbers Requesting. Second problem: PostToolUse fires after every tool call — transition to Idle on it and agents flash Working → Idle → Working constantly.\n\nDesign principle: idle and approval states are the most important to display correctly. Everything else is nice-to-have.\n\nRequesting is sticky — only cleared by PostToolUse (approval resolved, agent is now working) or Stop. The failure mode — agents appearing idle when they're actually waiting — is the exact thing the whole project exists to prevent.\n\nThe code is MIT, the hardware is $25. github.com/terraboops/lfg\n\nLFG. Looking For Group. Let's f***ing go.",
-    "readingTime": 2,
-    "keywords": [
-      "led panel",
-      "claude code",
-      "agent",
-      "agents",
-      "approval",
-      "frame",
-      "sprite",
-      "it's",
-      "fire",
-      "that's"
-    ],
-    "qualityScore": 1,
-    "link": "https://terratauri.com/blog/lfg-raid-frame-for-ai-agents/",
-    "thumbnail_url": "https://terratauri.com/blog/lfg-raid-frame-for-ai-agents/lfg-hero.gif",
-    "created_at": "2026-03-15T01:19:50.450Z",
     "topic": "tech"
   }
 ]
