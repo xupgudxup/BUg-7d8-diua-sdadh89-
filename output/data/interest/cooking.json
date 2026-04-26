@@ -1,5 +1,94 @@
 [
   {
+    "slug": "wordpress-ai-features-are-coming-nobody-is-talking-about-cost-for-your-users",
+    "title": "WordPress AI Features Are Coming. Nobody Is Talking About Cost for Your Users",
+    "description": "WordPress AI features look amazing in demos. But for the food blogger or small business owner using them, the hidden token costs could quietly wreck their experience and their budget.",
+    "fullText": "Automattic just published a post calling WordPress the operating system of the agentic web. It’s worth reading before you read this. The vision is real, the infrastructure is already shipping, and I believe in where it’s headed. But there’s a…\n\nAutomattic just published a post calling WordPress the operating system of the agentic web. It’s worth reading before you read this. The vision is real, the infrastructure is already shipping, and I believe in where it’s headed. But there’s a WordPress AI token cost that post doesn’t mention once. Not in the pros. Not in the cons. Nowhere. And it’s the cost that determines whether this vision succeeds or quietly loses the people WordPress needs most.\n\nThe Automattic post describes WordPress’s MCP write capabilities shipping in March 2026, giving AI agents the ability to create posts, manage media, handle comments and categories, all through natural conversation with human approval at each step. Furthermore, the WordPress MCP Adapter connects the Abilities API to any MCP-aware AI client, turning self-hosted WordPress sites into agentic platforms with very little additional work.\n\nThat’s not vaporware. That’s shipping infrastructure. As a result of Developers building on the Abilities API right now, including through plugins like QATPT which already has Abilities API integration, are already inside this system.\n\nThe direction is right. The foundation is real. So what’s the problem?\n\nEvery interaction between an AI agent and a WordPress site costs tokens. Tokens are the unit of consumption for AI models like Claude, ChatGPT, and Gemini. Every word sent to the model and every word returned by it gets counted. Those tokens get billed against your account balance or your plan’s usage limits.\n\nMost developers building AI-powered WordPress features understand this because they use AI themselves. They’ve learned to write tight prompts. They use specific language. They know the vocabulary of their own tool. When you watch a demo of an AI assistant creating a custom post type in the WordPress dashboard, it looks fast and clean because the person doing the demo knows to say something precise like “create a publicly queryable post type with a title, a content field, and these two taxonomies.” That’s a lean prompt. It costs very little.\n\nYour end user doesn’t prompt like that.\n\nYour end user is the food blogger who went viral on TikTok and built her site on WordPress because someone told her it was the best platform for her recipes. She’s going to open the AI assistant in the dashboard and have a conversation. “Can you help me set up my recipes?” Then: “Oh, I also want to add cook time.” Then: “Wait, what if people want to filter by cuisine type?” Then: “Actually, can we start over?”\n\nEvery single one of those exchanges burns tokens. Real money. Her money. And she has no idea.\n\nThis is the part that gets missed when developers build AI features for WordPress users. Specifically, the gap between how a developer prompts an AI model and how a regular user prompts one isn’t a style difference. It shows up as a measurable cost difference.\n\nI’ve run these tests with my own plugin work and my Three Man Team. For instance, the same operation run with zero token optimization versus basic optimization produces a meaningful difference in consumption. That gap compounds at scale. As a result, a user who doesn’t know how to write efficient prompts, and has no reason to know, will burn through their AI allocation significantly faster than the developer who built the feature they’re using.\n\nNow layer in what happens when that user hits their limit.\n\nThere’s no graceful failure state built into most of these integrations. The feature stops working. A loading spinner spins. No error message explains that the connected AI account has run out of runway for the week. Consequently, the user doesn’t know if the plugin is broken, if their site is broken, or if something else went wrong. They just know it stopped.\n\nAnd they’re going to blame WordPress.\n\nI’m a power user. I use Claude daily. Moreover, I’ve built token optimization into my development workflow at a level most people in the WordPress community haven’t reached yet. I track my usage, I write efficient prompts, and I’ve integrated optimization practices into tools I build, including QATPT’s Abilities API work.\n\nI’m on a $20 Pro plan. Even so, I still hit my weekly limit almost every week.\n\nThe Anthropic Claude Max plan runs $200 a month. Meanwhile, people on X and Reddit are hitting their limits on that plan too. Regularly. It’s a documented, recurring community complaint. And those are power users who know what they’re doing.\n\nWhat happens to the person who just wanted an easier way to manage their blog?\n\nThis isn’t an argument against building AI features for WordPress. The agentic web is coming whether the community is ready or not, and the developers who build thoughtfully right now will be the ones who earn long-term trust.\n\nFirst, build token transparency into the interface. If your plugin connects to an external AI account, the user needs to understand what that means before they’re surprised by a bill or a broken experience. Not buried in documentation. Visible, in context, before they connect their account.\n\nSecond, optimize on the user’s behalf. You know how your tool should be prompted. You built it. Bake the efficient prompts in. Don’t expose a raw text box and let the user figure out the right vocabulary. If someone is going to use AI to set up their content types, the prompts that actually work should be the ones that fire, not whatever a first-time user types at midnight.\n\nThe Automattic post lists real challenges facing this vision: legacy code, inconsistent plugin quality, hosting fragmentation. Those are worth solving. But the challenge that will determine whether regular WordPress users trust this vision or abandon it is simpler than any of those.\n\nIt’s whether the people building AI features remember who’s going to use them.\n\nWordPress powers 43 percent of the web. Most of those sites are not run by developers. They’re run by the food blogger, the pizza shop owner, the small business owner who learned just enough to update their own pages. Those people are the ecosystem. They’re the reason WordPress matters at the scale it does.\n\nThe agentic web is a real thing that is happening right now. The infrastructure Automattic is describing is real. The opportunity for the WordPress community is real.\n\nBut the opportunity only lands if the features that get built account for the full range of people who are going to use them. Not just the developer watching the demo video. The person who installs the plugin the next day and tries to figure it out on their own.\n\nBuild the feature, with guardrails. Build it like the person who has never heard the word “token” is going to be the one using it.\n\nI work with WordPress site owners one-on-one — no agency overhead, no runaround. Just answers.\n\nThis site uses Akismet to reduce spam. Learn how your comment data is processed.",
+    "readingTime": 6,
+    "keywords": [
+      "food blogger",
+      "operating system",
+      "worth reading",
+      "wordpress users",
+      "agentic web",
+      "wordpress community",
+      "it’s headed",
+      "efficient prompts",
+      "wordpress site",
+      "token optimization"
+    ],
+    "qualityScore": 1,
+    "link": "https://russellenvy.com/wordpress-ai-plugins-token-cost/",
+    "thumbnail_url": "https://russellenvy.com/wp-content/uploads/2026/04/wordpress-ai-plugin-token-cost.webp",
+    "created_at": "2026-04-26T18:36:28.182Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "22-things-i-wish-i-had-when-i-brought-my-new-puppy-home",
+    "title": "22 things I wish I had when I brought my new puppy home",
+    "description": "Before bringing home a new puppy, pick up these essentials so they are well taken care of. You'll need puppy food, potty training products, and more.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/guides/pets/puppy-supplies",
+    "thumbnail_url": "https://i.insider.com/68a3867ba17a8c5b40530db5?width=1200&format=jpeg",
+    "created_at": "2026-04-26T18:36:25.945Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "snacking-on-cat-food-wont-do-your-dog-any-favors-heres-why-and-how-to-ensure-your-dog-eats-a-balanced-diet",
+    "title": "Snacking on cat food won't do your dog any favors — here's why and how to ensure your dog eats a balanced diet",
+    "description": "Only dog food provides the right balance of nutrients for your pup. Eating too much cat food can lead to serious complications, like pancreatitis.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/guides/pets/can-dogs-eat-cat-food",
+    "thumbnail_url": "https://i.insider.com/698a4c49e1ba468a96abb68a?width=1200&format=jpeg",
+    "created_at": "2026-04-26T18:36:25.922Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "i-give-my-dogs-this-snuffle-mat-when-i-cant-take-them-on-long-walks-the-toy-mimics-grass-so-you-can-hide-treats-for",
+    "title": "I give my dogs this snuffle mat when I can't take them on long walks — the toy mimics grass so you can hide treats for them to sniff out",
+    "description": "Snuffle mats are dog toys that stimulate their natural foraging instincts. They are great food toys to prevent boredom and burn off extra energy.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/guides/pets/paw5-wooly-snuffle-mat-for-dogs-review",
+    "thumbnail_url": "https://i.insider.com/62e04ab7d571050018ada64f?width=1200&format=jpeg",
+    "created_at": "2026-04-26T18:36:25.587Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "this-dog-bowl-slows-down-dogs-that-eat-too-fast-and-can-prevent-bloat-heres-how-it-works",
+    "title": "This dog bowl slows down dogs that eat too fast and can prevent bloat — here's how it works",
+    "description": "The Outward Hound Fun Feeder Dog Bowl compartmentalizes food with sturdy BPA-free plastic ridges to prevent a dog from scarfing it down too quickly.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/guides/pets/outward-hound-fun-feeder-dog-bowl-review",
+    "thumbnail_url": "https://i.insider.com/62e04ab7d571050018ada64f?width=1200&format=jpeg",
+    "created_at": "2026-04-26T18:36:25.316Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "my-dogs-love-these-lick-mats-that-can-be-covered-with-wet-food-and-treats-and-they-keep-them-busy-while-i-work-from-home",
+    "title": "My dogs love these lick mats that can be covered with wet food and treats, and they keep them busy while I work from home",
+    "description": "The Hyper Pet IQ Treat Mats slow my dogs down while they eat. Dog lick mats like this one also promote calm behavior and prevent boredom in pets.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/guides/pets/lickimat-for-dogs-review",
+    "thumbnail_url": "https://i.insider.com/62e04ab7d571050018ada64f?width=1200&format=jpeg",
+    "created_at": "2026-04-26T18:36:25.316Z",
+    "topic": "finance"
+  },
+  {
     "slug": "how-to-save-on-groceries-by-keeping-your-food-fresher-longer",
     "title": "How to Save on Groceries by Keeping Your Food Fresher Longer",
     "description": "With grocery prices still high, the average household still throws away more than 100 pounds of spoiled food every year which is nearly $3,000 in groceries. Reporting for TODAY, NBC’s Vicky Nguyen sha...",
@@ -1727,121 +1816,5 @@
     "thumbnail_url": "https://s.yimg.com/os/en/the_big_lead_articles_114/b8312fc3c23ba24e5ae71f1165a5e91f",
     "created_at": "2026-03-17T18:47:44.244Z",
     "topic": "sports"
-  },
-  {
-    "slug": "i-tried-stuffedpepper-recipes-from-ree-drummond-giada-de-laurentiis-and-alex-guarnaschelli-and-the-best-was-very-filling",
-    "title": "I tried stuffed-pepper recipes from Ree Drummond, Giada De Laurentiis, and Alex Guarnaschelli, and the best was very filling",
-    "description": "After trying stuffed-pepper recipes from chefs Ree Drummond, Giada De Laurentiis, & Alex Guarnaschelli, I found the best homemade version of the dish.",
-    "fullText": "I tried stuffed-pepper recipes from Ree Drummond, Giada De Laurentiis, and Alex Guarnaschelli.\n Drummond's recipe could've used more meat, and I wasn't a fan of De Laurentiis' addition of mint.\n Guarnaschelli's use of beans and rice in her stuffed-pepper recipe made for a well-rounded meal.",
-    "readingTime": 1,
-    "keywords": [
-      "stuffed-pepper",
-      "recipe",
-      "laurentiis"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/best-stuffed-pepper-recipes-popular-chefs-review-photos-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b9577f4d65ec51752a1ee9?width=1200&format=jpeg",
-    "created_at": "2026-03-17T18:46:48.979Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "wolfgang-puck-feeds-1700-stars-after-the-oscars-he-says-the-real-challenge-isnt-the-food",
-    "title": "Wolfgang Puck feeds 1,700 stars after the Oscars. He says the real challenge isn't the food.",
-    "description": "Wolfgang Puck leads the Governors Ball catering at the Oscars, managing challenges in the competitive catering industry.",
-    "fullText": "As Hollywood celebrated the Oscars this weekend, Wolfgang Puck and his team were once again tucked away in the kitchens. They're behind one of the ceremony's biggest traditions: the Governors Ball dinner that follows the awards.\n\nPuck has run the culinary team at the Governors Ball for over 30 years. And while the Oscars may be one of the most glamorous nights in Hollywood, Puck says the catering business behind events like the Governors Ball can be tougher to run than a restaurant — an industry where about half of new businesses fail within the first five years.\n\n\"A catering business is really more difficult to run because you might be really busy for a week and then another week you have very little,\" Puck, who has spent decades building both restaurant and catering operations, told Business Insider at this year's Oscars.\n\nThe scale of the operation behind Hollywood's biggest night shows just how labor-intensive that business can be. Puck's team prepares 84 different dishes, including 30,000 small plates for about 1,700 guests at the Governors Ball.\n\nThe event requires an army of workers: around 75 savory chefs, 45 pastry chefs, and hundreds of servers.\n\nPuck explained that the biggest challenge in catering is keeping a stable team when the workload is unpredictable. Restaurants tend to have more consistent hours and traffic. Catering doesn't always work that way.\n\nFor catering operators, the volatility of the business can affect scheduling and payroll. This makes it difficult for catering companies to keep skilled workers, especially during slower periods, Puck says.\n\nThe broader industry reflects that challenge. The US catering sector employs about 158,000 workers across thousands of businesses, but the average company has just about 11 employees, according to industry analysis firm IBISWorld. This means most catering companies rely heavily on temporary or event-based staff to scale up for large jobs.\n\nStaffing shortages have become one of the industry's biggest hurdles. Nearly 89% of event industry leaders say labor shortages have affected their ability to deliver successful events in the last year.\n\n\"People cannot say, 'Okay, I get a job two weekends of the month,'\" Puck told Business Insider. \"People have to pay their rent, feed the family, and everything.\"\n\nPuck opened his business, Wolfgang Puck Catering, in 1998. To create more consistent work for his staff, the company expanded its business beyond large evening events like the Oscars.\n\n\"What is great with us, we do a lot of corporate catering,\" Puck said. \"So we do Netflix, Sony, Beach, Google, Apple, and so forth.\"\n\nThose catering gigs tend to focus on weekday breakfasts and lunches rather than large evening events. This helps fill gaps between large events. \"So that helps us to have a really good team in place,\" Puck said.\n\nAn added bonus, Puck says, is that the Oscars is always on a Sunday, when these big corporations are closed. So, there are no conflicting schedules.",
-    "readingTime": 3,
-    "keywords": [
-      "evening events",
-      "governors ball",
-      "catering business",
-      "team",
-      "biggest",
-      "industry",
-      "puck",
-      "behind",
-      "workers",
-      "restaurant"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/wolfgang-puck-oscars-catering-harder-than-running-restaurant-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b83f18a96e437d6eb861ed?width=1200&format=jpeg",
-    "created_at": "2026-03-17T06:52:03.774Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "clark-howard-is-right-about-percentage-tipping-even-if-the-math-feels-unfair-to-diners",
-    "title": "Clark Howard Is Right About Percentage Tipping, Even If the Math Feels Unfair to Diners",
-    "description": "A caller named Bill from Pennsylvania put a question to consumer advocate Clark Howard on his podcast this week that cuts to the heart of how Americans think about restaurant tipping. “I’ve always tipped 20% for food service,” Bill said. “Recently it hit me that I get the same level of service whether I order ... Clark Howard Is Right About Percentage Tipping, Even If the Math Feels Unfair to Diners",
-    "fullText": "The tipping debate centers on whether servers should receive percentage-based or flat-dollar tips, with the percentage model tied to restaurant price tiers rather than individual effort, since federal tipped minimum wage remains $2.13 per hour and servers depend almost entirely on tips for income.\n\nInflation has already increased tip values automatically as menu prices climbed alongside the Consumer Price Index rising from 319.8 in March 2025 to 327.5 by February 2026, while Americans absorbed higher costs by reducing savings from 6.2% in early 2024 to 4% by late 2025.\n\nA recent study identified one single habit that doubled Americans’ retirement savings and moved retirement from dream, to reality. Read more here.\n\nA caller named Bill from Pennsylvania put a question to consumer advocate Clark Howard on his podcast this week that cuts to the heart of how Americans think about restaurant tipping. \"I've always tipped 20% for food service,\" Bill said. \"Recently it hit me that I get the same level of service whether I order a $30 steak or a $10 burger, same number of plates, same number of trips to the table by the server, etc.\" His conclusion: why not tip a flat dollar amount when the effort is identical?\n\nClark's answer defended the percentage system, but the real answer is more nuanced than either position. Bill's logic is correct as a matter of pure labor economics. Clark is correct about why the system still functions. Understanding both sides tells you something useful about how to tip fairly without overthinking it.\n\nBill's instinct comes from a real place. A server who brings you a $30 steak and a $10 burger to the same table in the same number of trips earns $6 in tips under a 20% model versus $2. The labor input is nearly identical. The pay is three times higher for the steak table.\n\nRead: Data Shows One Habit Doubles American’s Savings And Boosts Retirement\n\nMost Americans drastically underestimate how much they need to retire and overestimate how prepared they are. But data shows that people with one habit have more than double the savings of those who don’t.\n\nBut Clark's response points to something important: \"At a restaurant, normally there's a pretty narrow band on what the entrees cost. There will be some outliers at both ends. So for the servers, it pretty much evens out.\" He is describing a portfolio effect. Across dozens of tables per shift, a server's income averages out to something proportional to the restaurant's overall price tier. A server at a $15-average-entree diner earns less per shift than one at a $45-average-entree steakhouse. The percentage system ties server compensation to the economic level of the establishment they work in.",
-    "readingTime": 3,
-    "keywords": [
-      "per shift",
-      "percentage system",
-      "americans",
-      "savings",
-      "server",
-      "servers",
-      "tips",
-      "restaurant",
-      "habit",
-      "retirement"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/news/clark-howard-percentage-tipping-even-122746336.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/xhH7PacrnkHIFiCIoTofCA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzA-/https://media.zenfs.com/en/24_7_wall_st__718/8724beb91e060352e30e69caa535dfb2",
-    "created_at": "2026-03-17T01:10:52.195Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "top-airline-ceos-plead-with-congress-to-restore-dhs-funding-and-pay-airport-workers-once-again-air-travel-is-the",
-    "title": "Top airline CEOs plead with Congress to restore DHS funding and pay airport workers. ‘Once again, air travel is the political football’",
-    "description": "”It’s difficult, if not impossible, to put food on the table, put gas in the car and pay rent when you are not getting paid,\" the letter said.",
-    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
-    "readingTime": 1,
-    "keywords": [
-      "fortune"
-    ],
-    "qualityScore": 0.1,
-    "link": "https://fortune.com/2026/03/15/airline-ceos-congress-government-shutdown-dhs-funding-tsa-agents/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/03/AP26049814482263-e1773618567989.jpg?resize=1200,600",
-    "created_at": "2026-03-16T01:19:17.910Z",
-    "topic": "politic"
-  },
-  {
-    "slug": "stock-traders-guide-to-navigating-supply-disruption-by-iran-war",
-    "title": "Stock Trader’s Guide to Navigating Supply Disruption by Iran War",
-    "description": "The prospect of a prolonged Iran war and elevated oil prices is prompting stock investors to reassess a broader array of industries, including less obvious targets from food delivery firms to cosmetics makers as supply disruption intensifies.",
-    "fullText": "MarketsBy Winnie Hsu, Nick Heubeck, and Monique MulimaSaveThe prospect of a prolonged Iran war and elevated oil prices is prompting stock investors to reassess a broader array of industries, including less obvious targets from food delivery firms to cosmetics makers as supply disruption intensifies.Global stocks have lost 5.5% since the conflict began, heading for their worst monthly performance since 2022, with Asia being the hardest hit. Traders — wary of resurgent inflation and the mounting cost of the war adding to budget deficits — pushed back their expectations for the next Federal Reserve interest-rate cut to mid-2027. While airlines and shipping firms are among those that have suffered the most from the conflict so far, defense and energy stocks have benefited.",
-    "readingTime": 1,
-    "keywords": [
-      "firms",
-      "stocks",
-      "conflict"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.bloomberg.com/news/articles/2026-03-15/stock-trader-s-guide-to-navigating-supply-disruption-by-iran-war",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iIm8xqY8DDjc/v0/1200x800.jpg",
-    "created_at": "2026-03-15T12:30:14.821Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "two-lpg-ships-sail-through-hormuz-to-shortagehit-india",
-    "title": "Two LPG Ships Sail Through Hormuz to Shortage-Hit India",
-    "description": "Two tankers carrying liquefied petroleum gas are heading to India after crossing the Strait of Hormuz, providing some relief to acute shortages as the war in the Persian Gulf disrupts supply of the cooking fuel.",
-    "fullText": "MarketsBy Rakesh Sharma and Weilun SoonSaveTwo tankers carrying liquefied petroleum gas are heading to India after crossing the Strait of Hormuz, providing some relief to acute shortages as the war in the Persian Gulf disrupts supply of the cooking fuel.The state-owned ships were granted safe transit through the strait, Indian Foreign Ministry spokesman Randhir Jaiswal said Saturday. There remains 22 India-flagged vessels stuck in the Persian Gulf including six LPG vessels, one LNG carrier and four crude oil tankers, according to Rajesh Kumar Sinha, special secretary at the shipping ministry.",
-    "readingTime": 1,
-    "keywords": [
-      "persian gulf",
-      "tankers",
-      "vessels",
-      "strait",
-      "ministry"
-    ],
-    "qualityScore": 0.35,
-    "link": "https://www.bloomberg.com/news/articles/2026-03-14/two-lpg-ships-sail-through-hormuz-on-way-to-shortage-hit-india",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/imv2b2aN0NFI/v0/1200x960.jpg",
-    "created_at": "2026-03-15T01:19:56.962Z",
-    "topic": "finance"
   }
 ]
