@@ -1,5 +1,77 @@
 [
   {
+    "slug": "1b-in-20b-out-apple-stays-out-of-the-war",
+    "title": "1B in, 20B out. Apple stays out of the war",
+    "description": "A contrarian thesis on Apple's true position in the AI era — Apple keeps 5 third-party frontier model suppliers (OpenAI free / Google Gemini $1B / Anthropic walked away / China's Alibaba+Baidu / training compute on Google TPU) while collecting Google's ~$20B/yr Safari TAC, leaving net inflows at +$18-19B/yr; Mac mini / Mac Studio is the only consumer device that combines silicon + OS + your everyday data into a household compute + data hub; Codex Mac Computer Use was rated 'the best so far' by MacStories; Apple 2026 capex $14B vs. five hyperscalers' combined $660-690B; smart glasses launching 2027, benchmarked against Meta Ray-Ban's 7M units.",
+    "fullText": "The common simplified narrative is \"Apple pays Google $1B to use Gemini.\" Reality is much more layered: along the AI axis, Apple simultaneously maintains 5 third-party suppliers + 2 in-house layers + 1 training-compute supplier, and almost none of those relationships involve cash going out. The table below maps the entire 2026 stack.\n\nThe OpenAI relationship is a non-cash barter — neither side pays, but OpenAI monetizes via ChatGPT Plus conversions. Anthropic Claude quoted Apple in the \"billions per year\" range for the Siri job and was rejected; Claude has nonetheless reached the Apple developer ecosystem via Xcode 26.3. The China market requires a local model to obtain generative-AI regulatory approval, so Apple picked Alibaba as primary and Baidu as secondary.\n\nMac's true position in 2026 isn't \"cheap hardware that can run big models\" — it's the physical base inside the home that holds both compute and data. The truly scarce input for an AI agent has never been the model; it's your everyday data: 14 years of family in Photos, 12 years of conversations in Messages, tens of thousands of contracts and attachments in Mail, every event in Calendar, every draft in Notes, every contract in Files, every health trace in Health. Apple has been quietly accumulating this for almost two decades — distributed across roughly 1.4 billion iPhones and ~150 million Macs globally, synced via iCloud, with the local copy always present.\n\nTo say it plainly: in the consumer market, only one player has all five pieces — silicon + operating system + your daily data + privacy-default architecture + on-device inference framework. That player is Apple.\n\nMainstream 2026 Apple Silicon configurations · M4 Ultra has not yet shipped, the flagship remains M3 Ultra (819 GB/s). Equivalent 70B inference on the x86 path requires an H100 ($30K+ per card) and 5-10× the power.\n\nCPU / GPU / Neural Engine share the same RAM pool, so model weights don't need to be ferried over PCIe. M4 Pro 273 GB/s, M4 Max 546 GB/s, M3 Ultra 819 GB/s — data-center-GPU-class memory bandwidth, packed into a desktop, ~30W-idle chassis.\n\nlaunchd daemons let agents start at boot (before any user login) with auto-restart on crash; Tailscale mesh VPN lets your iPhone / iPad / out-of-home MacBook connect directly to the Mac mini at home with zero exposed ports and zero public IP. Caffeinate / pmset to prevent sleep is a known engineering issue, not a blocker. The full \"Mac mini + Tailscale + launchd\" home-server stack has been the dominant configuration on r/selfhosted and Hacker News in the first half of 2026.\n\nThe Apple Foundation Model on-device version is ~3B parameters with 2-bit QAT + LoRA adapters; the server version uses PT-MoE on Apple's own M-silicon data centers (Private Cloud Compute, encrypted memory, no human visibility). App Intents let any third-party app expose features, entities, and queries to Siri / Apple Intelligence — from iOS 26.4, Personal Context already spans the six system domains of Calendar / Files / Mail / Messages / Notes / Photos.\n\nThis isn't the \"Mac inference is cheap\" story. This is the first time household compute and household data have been collected by a single system.\n\nOn 2026-04-16, OpenAI shipped the largest update ever to its Codex Mac client — adding Computer Use: Codex can see the screen, control the cursor, and click and type across any macOS app. MacStories' Federico Viticci, in his first-hand review, gave the verdict directly: \"the best computer use feature I've ever tested\".\n\nThat same week OpenAI also upgraded the underlying model to GPT-5.5, with SWE-bench Verified at 88.7%, Terminal-Bench 2.0 at 82.7%, and a hallucination rate down 60% from GPT-5.4. In other words, Computer Use as a capability has — for the first time — both a model layer that's strong enough and a system layer that's smooth enough.\n\nThe macOS Accessibility framework was designed for screen readers, automation, and assistive input — VoiceOver, Switch Control, and Dictation all rely on it, and the API surface has been stable for twenty years. The cost of getting screen semantics for an agent is far lower than the pixel + OCR scaffolding required on Windows.\n\nFrom AppleScript in 1993 to Shortcuts in 2018, a system-level automation layer has always been present. Codex / Claude Code can have an agent invoke Shortcuts the user has already written rather than simulate clicks by hand. Windows has no equivalent.\n\nCodex / Claude Code / Cursor / Zed — this generation of agent clients is all Mac first: not \"also supports Mac\" but \"Mac is priority one.\" The reason is simple: the engineers writing these tools all use Macs themselves. A capability as interaction-heavy as Computer Use naturally gets polished on macOS first.\n\nmacOS's window model is relatively unified (one main window per app, a global menu bar) and Mission Control's hierarchy is visually clear; Windows still mixes MDI / SDI / floating panels / taskbar paradigms, making UI-tree parsing harder for an agent. Linux desktops are even more fragmented.\n\nRunning CLIP / SigLIP / GPT-4V-class visual encoders on Apple Silicon is within consumer-hardware budgets. The screenshot → element-recognition step in Computer Use, if billed as cloud vision tokens, would spiral; on a Mac, most of it can run locally.\n\nThe macOS sandbox, the Privacy & Security pane, and the TCC (Transparency, Consent, Control) framework — explicitly granting an agent capability over a specific app or directory is OS-native. On Windows that takes additional policy plumbing; on Linux it's stitched together with capabilities + AppArmor.\n\nIn 2026, the five hyperscalers' combined capex lands in the $660–690B range, with ~75% tied directly to AI infrastructure (GPUs, halls, power). Apple's capex the same year is $14B (about 3.4% of revenue), off by an order and a half.\n\nAmazon leads at $200B, with Alphabet $180B, Microsoft $120B+, Meta $125B, and Oracle $50B close behind; Apple at $14B is the obvious outlier in this cohort — just 7% of Amazon's.\n\nData-center depreciation runs 5-6 years, so Amazon's $200B capex implies $33–40B in new annual depreciation hitting the income statement; rolled forward to 2028, the depreciation line alone eats tens of billions of profit.\n\nApple chose another route: $1B/yr to license Gemini. If foundation models continue to commoditize (price wars, open-source catch-up, falling inference costs), Apple is the buyer, with maximum negotiating leverage; the hyperscalers are the sellers who already poured the cash into concrete and can only spread it across scale.\n\nThis matches Apple's historical posture on hardware: don't make panels (buy OLED from Samsung / LG), don't make basebands (buy 5G modems from Qualcomm for years), don't make NAND (buy from Kioxia / Micron) — only do system integration + the entry point + the brand. LLMs now go in the same drawer.\n\nIn 2025, Meta Ray-Ban smart glasses shipped 7M+ units for the year, taking 82% of the global smart-glasses market — large enough that Apple made a reverse decision in October 2025: pause Vision Air (the lightweight headset), redeploy engineers onto smart glasses, target 2027 launch, with a possible end-of-2026 first cut.\n\nForm factor benchmarked to Ray-Ban Meta: camera + microphone + health tracking + Apple chip, leaning on the iPhone for compute. Fashion-accessory route, multiple materials and frame styles. Repeatedly confirmed by Bloomberg / Gurman.\n\nOriginally slated post-2030 but pulled forward after Meta released Ray-Ban Display in 2025. Adds a micro-OLED single- or dual-eye HUD that can show notifications, navigation arrows, and Siri / Gemini visual answers.\n\nHeadset form factor preserved, continuing in the high-ASP professional content / spatial computing / enterprise segment. The M5 refresh strengthens eye-tracking, gesture recognition, and spatial-content creation. Vision Pro doesn't retreat; smart glasses launch alongside it.\n\nWhen AirPods launched in 2016, they were mocked as \"expensive wireless earbuds.\" Three years in, they took 60%+ of the category and contributed more than half of Wearables revenue. Smart glasses sit in a similar position — but their entry-point properties are even stronger:\n\nThis combination of hardware + entry-point distribution is something Google / OpenAI / Anthropic cannot buy with any amount of capex.\n\nStack the four observations together and Apple's position in the 2026 AI ecosystem can be described as follows:\n\nApp Store + default search + Apple Intelligence routing — control of all three entry-point layers is unchanged. Foundation models become a licenseable component; a $1B/yr access fee is just 1% of Services' $109B base.\n\nThe Mac is simultaneously the home's compute (M3 Ultra at 819 GB/s runs 600B+ on one box; Mac mini M4 Pro runs 70B on a desktop) and its data foundation (Photos / Messages / Mail / Notes / Health all local). The only player with all five — silicon + OS + your data + privacy architecture + on-device framework — is Apple. This isn't a model story; it's a structural story.\n\nCodex / Claude Code / Cursor / Zed are all Mac first; Accessibility + Shortcuts + the sandbox model make agents stable and usable on macOS — other systems are still chasing.\n\n$14B vs $660B+ — an order-of-magnitude gap. Outsource depreciation pressure to the shareholders of Google / Microsoft / Amazon; keep buyer-side leverage for yourself. Once foundation models commoditize, this position is the most comfortable in the room.\n\nSmart glasses 2027 + Vision Pro 2 in 2026 + AirPods continuing. 1.4 billion iPhones as the install base + Apple Intelligence + first-party distribution — a hardware + entry-point combination nobody else can buy.\n\nEveryone else is racing on GPUs, on data centers, on frontier models. Apple isn't. It's doing something slower but more structural:\n\n$1B in, $20B out, $14B capex, 1.4B installs — this combination is one of the few \"win without burning cash\" positions inside the 2026 AI capital cycle.",
+    "readingTime": 9,
+    "keywords": [
+      "cursor zed",
+      "code cursor",
+      "claude code",
+      "codex claude",
+      "ultra gb/s",
+      "mac mini",
+      "architecture on-device",
+      "layer that's",
+      "smart glasses",
+      "hardware entry-point"
+    ],
+    "qualityScore": 1,
+    "link": "https://alphasense.cc/signals/apple-ai/",
+    "thumbnail_url": "https://alphasense.cc/og.png",
+    "created_at": "2026-04-26T12:41:04.561Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "meta-buys-aws-graviton-arm-cores-in-a-cpu-land-grab",
+    "title": "Meta buys AWS Graviton Arm cores in a CPU land grab",
+    "description": "Meta is buying \"tens of millions\" of AWS Graviton CPU cores in a big move to bolster its agentic AI compute portfolio",
+    "fullText": "This one should give folks a sense of how much the CPU market is heating up. Just a few weeks after Meta was out saying it would be a launch customer of the Arm AGI CPU, the company is making another big deal for Arm compute and infrastructure. Meta is buying tens of millions of AWS Graviton Arm cores, but also a lot of AWS infrastructure.\n\nA few key details from the press release, starting with the size:\n\n“The deployment starts with tens of millions of Graviton cores, with the flexibility to expand as Meta’s AI\n\ncapabilities grow.” \n\nAWS told us that Meta is one of the largest customers of AWS Bedrock, which is the AWS solution for building generative AI applications. The release we previewed also said that Graviton is built on the AWS Nitro system. That, of course, made me wonder about a simple detail: did Meta buy the Graviton5 chips, or will these be hosted by AWS?\n\nI simply asked, and I was told that AWS would host the parts, but I did not get an answer on whether those Graviton cores would run Bedrock or other applications. Fair enough. Still, that means that Meta is buying not just the chips, but also the power, data center infrastructure, networking, and so forth around those cores because they are being hosted by AWS.\n\nJust for some key specs on the Graviton5:\n\nSo this makes it more of a next-generation chip versus something like an AmpereOne, AMD EPYC 9005 “Turin”, or Intel Xeon 6. The release just said the deal was for Graviton cores and did not specify the generation.\n\nThe key takeaway here is simple. CPUs are in such demand due to agentic AI computing that Meta is investing in AWS infrastructure, despite having experience operating at scale itself. Instead of Meta buying chips and having a company like Wiwynn integrate them into systems, the company is buying compute attached to AWS infrastructure. For AWS, this is great news. For Arm, this is also very good news. Some may immediately think that it is bad news for AMD and Intel, but that might not be the best way to frame it, especially after Intel just delivered solid guidance. This is more of a case where big companies with big budgets are locking in resources.\n\nThe CPU Land Grab is Officially On by Patrick Kennedy\n\nToday’s Meta and AWS Graviton Deal along with Intel results paint a clear picture",
+    "readingTime": 3,
+    "keywords": [
+      "graviton cores",
+      "aws infrastructure",
+      "deal",
+      "release",
+      "chips",
+      "meta",
+      "compute",
+      "tens",
+      "millions",
+      "applications"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.servethehome.com/meta-buys-tens-of-millions-of-aws-graviton-arm-cores-in-a-cpu-land-grab/",
+    "thumbnail_url": "https://www.servethehome.com/wp-content/uploads/2026/04/AWS-Graviton5.jpeg",
+    "created_at": "2026-04-26T12:41:02.422Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "you-feel-radicalized-a-meta-ai-exec-watched-agents-beat-her-top-workers-now-shes-built-a-nonprofit-to-help-gen-z-find",
+    "title": "‘You feel radicalized’: A Meta AI exec watched agents beat her top workers. Now she’s built a nonprofit to help Gen Z find jobs before they disappear",
+    "description": "Gen Z is facing AI-driven layoffs and fewer entry-level jobs. Former Meta and Salesforce AI head Clara Shih says young workers can future-proof their careers by learning how to use AI agents.",
+    "fullText": "Every job is an AI job now. That’s at least how Clara Shih sees it. The former AI exec at Meta and Salesforce, has seen the future of the job market, and it’s a workforce fully enabled by AI.\n\nShih has worked in AI for 20 years. But the turning point came for her last fall when she saw Meta’s AI agents match and even surpass some of her top employees across multiple tasks.\n\nWhat challenges does Gen Z face in today's workplace?\n\nHow is AI transforming the modern job market?\n\nWhat are different perspectives on AI's workplace impact?\n\nHow can AI tools help job seekers find employment?\n\n“In that moment I knew that nothing would ever be the same,” she told Fortune. “You feel radicalized in that moment when you see it working.”\n\nAround the same time, Shih was hearing from the kids of friends and family members—some of whom are Ivy League graduates—about the impossibility of landing a job. That’s why she launched the New Work Foundation, a nonprofit organization, with consumer-facing brand Dear CC, aiming to train Gen Z for a future workplace dominated by AI agents.\n\n“I realized that the only way to help people keep up with the pace of AI was to give them AI tools,” said Shih, who is no longer head of business AI at Meta but is currently an adviser there. “Because if you use the traditional ways…it’s just not fast enough to keep pace with how quickly AI is advancing.”\n\nAI has progressed at a breakneck pace, quickly transforming from a fun gadget used to draft emails and generate cat memes into a sophisticated tool that now threatens to displace a sizable chunk of white-collar workers.\n\nAs a result of that swift development, Gen Zers today find themselves in a bind. The threat of AI-related layoffs, combined with a slowdown in entry-level job openings, has many rethinking their career choices. According to a recent ZipRecruiter report, many are exploring alternatives to the corporate ladder, including entrepreneurship, gig work, and trade school. Still, Shih believes there is a way forward for recent graduates.\n\n“If you want to find a job and if you want to keep your job, you need to learn how to get really good at using AI agents,” she said.\n\nThat sentiment echoes what’s already playing out in the office. A recent survey from AI enterprise platform Writer found that employees actively using AI in their day-to-day tasks are more likely to earn a promotion or a raise than compared to employees refusing to adopt the tech.\n\nTo help Gen Z develop and prepare for the workforce in the AI age, the New Work Foundation just launched several AI-enabled tools. One of them is called Field Report, which offers job seekers a glimpse into the state of their preferred career path.\n\nLooking into a career in law, for example, shows there are 31,500 open roles in the U.S., but while competition is low, the AI automation risk is very high.",
+    "readingTime": 3,
+    "keywords": [
+      "job market",
+      "job seekers",
+      "new work foundation",
+      "agents",
+      "employees",
+      "workplace",
+      "tools",
+      "pace",
+      "career",
+      "that’s"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/sectors/technology/articles/feel-radicalized-meta-ai-exec-080000358.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/bepXyE51FDWZFLHn55s._Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/fortune_175/e7542468ccdb8d95183871a00d452fef",
+    "created_at": "2026-04-26T12:40:54.580Z",
+    "topic": "finance"
+  },
+  {
     "slug": "sooo-about-last-night",
     "title": "Sooo ... About Last Night",
     "description": "Last night (Sat., April 25, 2026), Ultimate Fighting Championship (UFC) returned home to Meta Apex in Las Vegas, Nevada for UFC Vegas 116. In the main event, former Bantamweight champion Aljamain Sterling looked to take a step closer to Featherweight gold by turning away red-hot rising star Youssef Zalal. The co-main event was another potential […]",
@@ -1819,59 +1891,5 @@
     "thumbnail_url": "https://i.insider.com/69c469ed299090a8c09b6652?width=1200&format=jpeg",
     "created_at": "2026-03-26T01:18:51.822Z",
     "topic": "finance"
-  },
-  {
-    "slug": "meta-is-laying-off-hundreds-of-employees-across-reality-labs-and-other-groups",
-    "title": "Meta is laying off hundreds of employees across Reality Labs and other groups",
-    "description": "Meta's latest wave of job cuts follow years of the company pushing to become more efficient and going all in on AI.",
-    "fullText": "Meta began laying off hundreds of employees on Wednesday.\n The company has made several rounds of layoffs in recent years as it has sought to become more efficient.\n At the same time, Meta has continued to pour billions of dollars into AI.",
-    "readingTime": 1,
-    "keywords": [
-      "meta"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/meta-layoffs-job-cuts-ai-reality-labs-recruitment-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b87237a96e437d6eb86875?width=1200&format=jpeg",
-    "created_at": "2026-03-25T18:42:30.901Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "jury-finds-meta-youtube-negligent-in-bellwether-teen-addiction-case",
-    "title": "Jury finds Meta, YouTube negligent in bellwether teen addiction case",
-    "description": "In a 10-to-2 vote, the Los Angeles jury ruled that Meta and Google knew their design was \"dangerous\" but failed to warn the plaintiffs.",
-    "fullText": "Meta and YouTube were found negligent in a landmark social media addiction trial.\n The case centered on a woman who said social media harmed her mental health from a young age.\n The case is viewed as a key test of how juries may see dozens of similar pending lawsuits.",
-    "readingTime": 1,
-    "keywords": [
-      "social media"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/social-media-addiction-trial-jury-verdict-meta-youtube-negligent-2026-3",
-    "thumbnail_url": "https://i.insider.com/69ba0a88d387710cb9e45b05?width=1200&format=jpeg",
-    "created_at": "2026-03-25T18:42:30.230Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "meta-and-youtube-designed-addictive-products-that-harmed-young-people-jury-finds",
-    "title": "Meta and YouTube designed addictive products that harmed young people, jury finds",
-    "description": "Six-week trial including whistleblowers and top executives at Meta and YouTube was first of its kind to go to...",
-    "fullText": "Six-week trial including whistleblowers and top executives at Meta and YouTube was first of its kind to go to trial\n\nMeta and YouTube have been found liable for negligence for deliberately designing addictive products that hooked a young user and led to her being harmed, a jury ruled on Wednesday. The tech companies have also been found liable for failure to warn. The jury awarded the plaintiffs in the case compensatory damages of $3m.\n\nIt took nearly nine days of deliberations for the Los Angeles jury to reach its verdict. Jurors also awarded punitive damages, which will be decided during the next phase of the trial.\n\nThe lawsuit over social media’s alleged harm to young people was the first of its kind to go to trial.\n\nOver the course of the six-week trial, which took place in Los Angeles superior court, jurors heard from top executives at Meta and YouTube, whistleblowers, expert witnesses on social media and addiction, and a 20-year-old woman at the center of the lawsuit, who has gone by the initials KGM for court proceedings.\n\nKGM testified that she became addicted to YouTube at age six and Instagram at nine, which she said had deleterious effects on her wellbeing. By age 10, she said, she had become depressed and was engaging in self-harm as a result. Her social media use allegedly caused her to have strained relationships with her family and in school. When she was 13, KGM’s therapist diagnosed her with body dysmorphic disorder and social phobia, which KGM attributes to her use of Instagram and YouTube.\n\n“How do you make a child never put down the phone? That’s called the engineering of addiction. They engineered it, they put these features on the phones,” Mark Lanier, KGM’s lawyer said during closing arguments last week. “These are Trojan horses: they look wonderful and great … but you invite them in and they take over.”\n\nKGM’s lawyers say her experience is emblematic of what tens of thousands of young people have faced on social media and in their offline lives.\n\n“Today’s verdict is a historic moment – for [KGM] and for the thousands of children and families who have been waiting for this day,” KGM’s lawyers said in a written statement on Wednesday. “A jury of [KGM’s] peers heard the evidence, heard what Meta and YouTube knew and when they knew it, and held them accountable for their conduct. Today’s verdict belongs to [KGM].”\n\nThe plaintiffs’ arguments mirrored those brought against big tobacco in the 1990s, which focused on cigarettes’ addictive qualities and companies’ public denial despite knowledge of their products’ harms. They alleged some of the features that social media companies built into their platforms, such as an infinitely scrollable feed and video autoplay, are designed to keep people on the apps and have made the products addictive.\n\nThe jury’s verdict comes just one day after Meta was ordered to pay $375m in civil penalties in a separate lawsuit in New Mexico. In that case, the jury found the company misled consumers about the safety of its platforms and enabled harm, including child sexual exploitation, against its users. The back-to-back verdicts are the first ever to find Meta liable or negligent for acts committed on its platform.\n\nMeta has said it will appeal the ruling in New Mexico. In the California case, a spokesperson for Meta said: “We respectfully disagree with the verdict and are evaluating our legal options.” YouTube did not immediately return request for a comment.\n\nBoth companies have consistently denied wrongdoing. A YouTube spokesperson, José Castañeda, has called the allegations that were brought “simply not true” and said that providing young people with a “safer, healthier experience has always been core to our work”.\n\nA Meta spokesperson has previously said in statements to the Guardian that KGM’s mental health issues were brought on by a difficult home life and social media use was not to blame. “Her records show significant emotional and physical abuse, academic struggles and psychiatric conditions, separate from her social media usage,” the spokesperson said.\n\nThis trial is the first in a consolidated group of cases brought in California against Meta, TikTok, YouTube and Snap on behalf of more than 1,600 plaintiffs, including more than 350 families and 250 school districts. TikTok and Snap settled the KGM lawsuit just before trial.\n\nKGM’s case is also the first of more than 20 “bellwether” trials, which are slated to go to court over the next couple of years and are used to gauge juries’ reactions as well as set legal precedent. The next bellwether case is scheduled to go to trial in July. A separate series of federal lawsuits with hundreds of plaintiffs making similar allegations is slated to start trial in San Francisco in June.",
-    "readingTime": 4,
-    "keywords": [
-      "today’s verdict",
-      "kgm’s lawyers",
-      "top executives",
-      "meta and youtube",
-      "social media",
-      "six-week trial",
-      "los angeles",
-      "jury",
-      "plaintiffs",
-      "lawsuit"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/media/2026/mar/25/jury-verdict-us-first-social-media-addiction-trial-meta-youtube",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/ad7abdf53572b6a299b623200cecd84634ed160c/412_16_2250_1799/master/2250.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=3d6395d1bac2ce69f369df3bad1ed101",
-    "created_at": "2026-03-25T18:42:22.833Z",
-    "topic": "tech"
   }
 ]
