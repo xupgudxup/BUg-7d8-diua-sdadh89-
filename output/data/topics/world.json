@@ -1,5 +1,77 @@
 [
   {
+    "slug": "liverpool-have-secret-weapon-in-race-for-yan-diomande",
+    "title": "Liverpool have secret weapon in race for Yan Diomande",
+    "description": "Liverpool’s admiration for Yan Diomande is no secret.  The 19-year-old has announced himself as one of world football’s most exciting prospects this season, and many view him as the perfect additi...",
+    "fullText": "Liverpool’s admiration for Yan Diomande is no secret.\n\nThe 19-year-old has announced himself as one of world football’s most exciting prospects this season, and many view him as the perfect addition to Arne Slot’s squad.\n\nThe news that Mohamed Salah will be departing Anfield at the end of the season has only amplified talk of Diomande making a Merseyside move.\n\nLiverpool aren’t the only side chasing a deal for the Ivorian forward though, and a €100 million (~£87m) valuation could complicate things.\n\nA deal to bring Diomande to Anfield won’t be simple, but Slot’s side have a secret weapon that could give them the upper hand.\n\nThe Reds are clearly big admirers of Diomande, but that feeling is reciprocated. The Ivorian has made it clear that he can see himself playing at Anfield one day.\n\nA shared appreciation isn’t the only thing working in Liverpool’s favour though, as the club’s previous dealings with RB Leipzig could prove key.\n\nThat’s according to a report from Football Insider that states that the relationship developed when negotiating deals for both Dominik Szoboszlai and Ibrahima Konate could be key for Liverpool in negotiations for Diomande.\n\nThe Reds’ iconic former manager, Jurgen Klopp, is also Red Bull’s global head of soccer which can only be a positive for Richard Hughes and Co.\n\nThe report claims that agreeing personal terms will likely be no problem if a club-to-club agreement can be reached, and Liverpool could find themselves ahead of other clubs already due to their good working relationship with the RB Leipzig.\n\nDiomande already boasts an impressive 22 goal involvements in 33 matches for the German outfit and will look to impress further when he heads to the World Cup with the Ivory Coast in June.",
+    "readingTime": 2,
+    "keywords": [
+      "anfield",
+      "liverpool",
+      "liverpool’s",
+      "secret",
+      "season",
+      "deal",
+      "relationship",
+      "diomande",
+      "slot’s",
+      "ivorian"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://sports.yahoo.com/articles/liverpool-secret-weapon-race-yan-071000966.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/dmPu8X0hTENipEhH3hl9FA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/anfield_watch_articles_625/ac67bb241bf83ddcbab23428b76d95f1",
+    "created_at": "2026-04-27T08:04:45.861Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "doxa-economicalconstrainted-abm-simulator-with-ollama",
+    "title": "Doxa – Economical-constrainted ABM simulator with Ollama",
+    "description": "A YAML-driven multi-agent simulation platform for economic and social systems. It combines LLM-backed agents, market microstructure, relation graphs, and world events behind a FastAPI API and a Rea...",
+    "fullText": "Quick Start | Contributing | Code of Conduct | Paper | YAML Reference | Full Docs\n\nDoxa is a YAML-driven multi-agent simulation platform for economic and social systems. It combines LLM-backed agents, market microstructure, relation graphs, and world events behind a FastAPI API and a React client.\n\nDo you want to just run Doxa without installation? Here our is the fastest way to get started.\n\nSee QUICKSTART.md for the full setup flow.\n\nDoxa is a modular, extensible platform for multi-agent simulation, integrating generative AI, economic modeling, and social dynamics. This whitepaper presents the motivation, formal architecture, YAML-based scenario schema, agent logic, engine internals, API, and a detailed case study, providing a reproducible foundation for research in computational economics and AI-driven agent systems.\n\nMulti-agent systems (MAS) are fundamental for modeling complex phenomena in economics, social science, and artificial intelligence. However, most existing platforms lack a unified, declarative, and extensible approach to combine economic simulation, social relations, and modern AI-driven reasoning. Doxa addresses this gap by providing a rigorous, YAML-driven simulation engine with support for generative AI, market microstructure, and rich event dynamics.\n\nAgent-based modeling platforms such as NetLogo, MASON, and Repast have enabled decades of research, but typically lack native support for LLM-based reasoning and flexible market mechanisms. Recent frameworks (e.g., OpenAI Gym, PettingZoo) focus on RL environments but do not offer declarative scenario modeling or social/economic integration. Doxa uniquely combines:\n\nDoxa is composed of the following core modules (see server/engine/):\n\nThe architecture is modular, with each subsystem responsible for a specific aspect: economics, market, relations, communication, resources, events, and API integration.\n\nThe scenario YAML file is the single source of truth for simulation configuration. It is strictly validated and supports the following top-level fields:\n\nSee Section 8 for a concrete example (hormuz.yaml).\n\nEach agent $a$ is parameterized by a utility function $U_a$, risk aversion $\\gamma_a$ (CRRA) or $\\alpha_a$ (CARA), and discount factor $\\beta_a$. The agent's decision process maximizes expected utility subject to resource constraints and market conditions. Liquidity preferences and price expectations are modeled as advisory or hard constraints.\n\nLet $M = {m_1, ..., m_k}$ be the set of markets, each defined by a tuple $(resource, currency, price, bounds, clearing, maker)$. Orders are matched according to the clearing policy (per step, on order, call auction). Synthetic market makers post quotes with configurable spread $s$, depth $d$, and inventory skew $\\kappa$.\n\nThe trust graph $G = (V, E)$ is a directed, weighted graph where $E = {(i, j, t_{ij})}$ and $t_{ij} \\in [0,1]$ is the trust from agent $i$ to $j$. Trust is updated by events and actions: $t_{ij}' = t_{ij} + \\Delta t$ (with decay and contagion as specified in YAML).\n\nAgents exchange messages $m = (src, dst, type, payload)$ via private or public channels. Negotiation protocols (propose, accept, reject) are implemented as tools, and communication can trigger trust or event updates.\n\nLet $R$ be the set of resources. Each agent maintains a portfolio $P_a: R \\to \\mathbb{R}_{\\geq 0}$. Resource transfers are validated against global and local constraints, and all operations are atomic (rolled back on violation).\n\nWorld events $E = {e_1, ..., e_n}$ are defined by triggers (tick, condition) and effects (resource, market, trust, contagion). The event scheduler applies effects according to the event type (shock, trend, conditional).\n\nThe API exposes endpoints for scenario management, simulation control, and data streaming. REST endpoints support batch operations; WebSocket endpoints provide real-time updates for agent actions and resources.\n\nThe engine enforces strict validation of scenario files (see CONFIG_YAML_REFERENCE.md):\n\nThe system is designed for reproducibility, extensibility, and modularity. All simulation runs are fully determined by the YAML and engine version.\n\nDoxa supports a wide range of research applications, including:\n\nSee below for a concrete scenario (excerpt):\n\nDoxa is designed for extensibility and reproducibility, but current limitations include scalability to very large agent populations, lack of native distributed execution, and reliance on external LLM APIs for advanced reasoning. Future work includes support for distributed simulation, richer agent cognition, and advanced visualization tools.\n\nDoxa provides a robust, extensible platform for multi-agent simulation, integrating economic, social, and AI-driven reasoning. Its YAML-based configuration, modular engine, and API make it suitable for a wide range of research applications.\n\n% [1] Wilensky, U. (1999). NetLogo. http://ccl.northwestern.edu/netlogo/\n% [2] Luke, S., et al. (2005). MASON: A Multiagent Simulation Environment. Simulation, 81(7), 517-527.\n% [3] North, M.J., et al. (2013). Complex Adaptive Systems Modeling with Repast Simphony. Complex Adaptive Systems Modeling, 1(1), 3.\n% [4] Brockman, G., et al. (2016). OpenAI Gym. arXiv preprint arXiv:1606.01540.\n% [5] Terry, J.K., et al. (2020). PettingZoo: Multi-Agent Reinforcement Learning Environments. NeurIPS 2020.",
+    "readingTime": 4,
+    "keywords": [
+      "complex adaptive",
+      "adaptive systems",
+      "ai-driven reasoning",
+      "wide range",
+      "research applications",
+      "extensible platform",
+      "market microstructure",
+      "simulation integrating",
+      "systems modeling",
+      "multi-agent simulation"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/VincenzoManto/Doxa",
+    "thumbnail_url": "https://opengraph.githubassets.com/ebb90bd9caa047dc0f29b29b20ed2e34bbede23d912a14f8e8cf3efb2650edb6/VincenzoManto/Doxa",
+    "created_at": "2026-04-27T08:04:15.570Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "simons-to-miss-rest-of-season-and-world-cup",
+    "title": "Simons to miss rest of season and World Cup",
+    "description": "Netherlands attacking midfielder Xavi Simons says he is \"heartbroken\" after being ruled out for the rest of the season for relegation-battling Tottenham and this summer's World Cup because of a knee injury.",
+    "fullText": "Netherlands attacking midfielder Xavi Simons has said he is \"heartbroken\" after being ruled out for the rest of the season for relegation-battling Tottenham and this summer's World Cup because of a knee injury.\n\nSimons was carried off on a stretcher in the second half of Tottenham's 1-0 win at Wolves on Saturday with reports, external he may have suffered an anterior cruciate ligament injury.\n\nThe 23-year-old fell to the ground following a collision with Wolves defender Hugo Bueno and, after initially getting to his feet, went down again.\n\n\"They say life can be cruel and today it feels that way,\" Simons wrote in a social media post.\n\n\"My season has come to an abrupt end and I'm just trying to process it. Honestly, I'm heartbroken. None of it makes sense.\"\n\nThe injury to Simons comes amid Spurs fighting for Premier league survival.\n\nTottenham are in the relegation zone in 18th place and two points from safety with four games left.\n\nThe 2026 World Cup, which is taking place in the United States, Canada and Mexico, begins on 11 June, with the Netherlands starting their campaign in Group F against Japan on 14 June.\n\n\"All I've wanted to do is fight for my team and now the ability to do that has been snatched away from me … along with the World Cup,\" added Simons.\n\n\"Representing my country this summer … just gone. It'll take time to find peace with this, but I'll continue to be the best team-mate I can be. I have no doubt that together we'll win this fight.\n\n\"I'll walk this path now, guided by faith, with strength, with resilience, with belief, as I count down the days to getting back out there.\n\nLatest Tottenham news, analysis and fan views\n\nAsk about Tottenham - what do you want to know?",
+    "readingTime": 2,
+    "keywords": [
+      "world cup",
+      "injury",
+      "netherlands",
+      "heartbroken",
+      "season",
+      "wolves",
+      "fight",
+      "i'll",
+      "simons",
+      "tottenham"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://www.bbc.com/sport/football/articles/cy0101p91z3o?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/327c/live/4edd0e30-41fc-11f1-9279-517b7476992f.jpg",
+    "created_at": "2026-04-27T08:04:08.376Z",
+    "topic": "sports"
+  },
+  {
     "slug": "korda-returns-to-world-number-one-with-chevron-win",
     "title": "Korda returns to world number one with Chevron win",
     "description": "Nelly Korda returns to the top of the world rankings with a dominant win at the LPGA Chevron Championship.",
@@ -1987,78 +2059,6 @@
     "link": "https://sports.yahoo.com/articles/most-recent-world-series-champions-123100552.html",
     "thumbnail_url": "https://s.yimg.com/os/en/the_big_lead_articles_114/c232ff32db0a2daa5dca4a25b2055b13",
     "created_at": "2026-04-23T13:00:25.521Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "lamine-yamal-injury-update-offers-spain-world-cup-hope",
-    "title": "Lamine Yamal injury update offers Spain World Cup hope",
-    "description": "Yamal was forced off with a hamstring injury during Barcelona’s win over Celta Vigo on Wednesday, sparking fears over his World Cup status",
-    "fullText": "Lamine Yamal is set to be sidelined for the remainder of the season but should be fit for this summer’s World Cup, according to his club side Barcelona.\n\nSpain were left sweating on the injury status of their young superstar after he was forced off during Barca’s 1-0 win over Celta Vigo in LaLiga on Wednesday evening.\n\nThe 18-year-old had scored the only goal of the game by confidently dispatching a 40th-minute penalty into the bottom right-hand corner but pulled up just as he went to wheel away in celebration, immediately signalling something to the bench before collapsing to the ground and holding the back of his left leg.\n\nHe was swiftly replaced by Roony Bardghji and the worst was feared with rumours of severe hamstring injury, as he quickly underwent scans to confirm the severity of the issue.\n\nOn Thursday afternoon, Barcelona posted an update on his condition, suggesting returning in time for the World Cup was very much still on the cards – even if his club season is over.\n\n“The tests carried out have confirmed that first-team player Lamine Yamal has a hamstring injury in his left leg (biceps femoris muscle),” read the Barca statement.\n\n“The player will follow a conservative treatment plan. Lamine Yamal will miss the remainder of the season, and he is expected to be available for the World Cup.”\n\nBarcelona currently have a nine-point lead over Real Madrid at the top of LaLiga as they look to defend the title they won last year, although their Champions League dream is over after being beaten 3-2 on aggregate by Atletico Madrid in the quarter-finals.\n\nIt is a little over seven weeks until Spain begin their World Cup campaign against Cape Verde on 15 June, which would be enough time for a minor hamstring tear to heal, with a prognosis of around five weeks the norm in that situation.\n\nLa Roja will be desperate to have their teenage talisman available after he helped them to glory at Euro 2024 as a 16-year-old – and was named the young player of the tournament in the process. Spain have won the World Cup just once in their history – back in 2010.\n\nYamal is not the only young talent to suffer a hamstring issue, with Chelsea’s Brazilian star Estevao also a doubt to make the World Cup after picking up his own hamstring injury last weekend.",
-    "readingTime": 2,
-    "keywords": [
-      "world cup",
-      "hamstring injury",
-      "lamine yamal",
-      "season",
-      "player",
-      "remainder",
-      "club",
-      "laliga",
-      "year-old",
-      "back"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://sports.yahoo.com/articles/lamine-yamal-injury-offers-spain-123054827.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/the_independent_us_sports_articles_270/0d7fb86e7fedc8fd08f43179d507a57c",
-    "created_at": "2026-04-23T13:00:25.432Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "new-york-giants-have-the-football-world-guessing-ahead-of-2026-nfl-draft",
-    "title": "New York Giants Have The Football World Guessing Ahead of 2026 NFL Draft",
-    "description": "The New York Giants are the most interesting team heading into the 2026 NFL Draft. They’re the only team that […]",
-    "fullText": "The New York Giants are the most interesting team heading into the 2026 NFL Draft. They’re the only team that has two of the top 10 picks, and nobody seems certain what they intend to do with those picks.\n\nThat’s just how the Giants brass wants it as they head into their first draft under new head coach John Harbaugh. Although we’re over four months from the regular season, New York is always competing against 31 other teams, and you never want your opponents to know your plans.\n\nFor months, speculation has run wild over what the team will do with the fifth overall pick. With the draft just hours away, opinions and mock drafts still vary on who will be the newest Giant.\n\nThe players who have generated the most buzz are Notre Dame running back Jeremiyah Love, Ohio State Buckeyes Sonny Styles, Caleb Downs, Carnell Tate, and Miami offensive tackle Francis Mauigoa. But there have also been speculations that the team is not as high on them as some people believe.\n\nHarbaugh, general manager Joe Schoen, and senior Vice President of Football operations Dawn Aponte have done an excellent job of disguising which direction the team might go with their first pick. This is a stark contrast to the past two drafts, where it was clear New York was eyeing Malik Nabers in 2024 and Abdul Carter last year.\n\nAfter acquiring the 10th overall pick from the Cincinnati Bengals in the Dexter Lawrence trade, nobody is certain who the Giants might take with their second pick. If Downs and Mauigoa are still available, some feel the team won’t pass on both players a second time. In addition, there’s a thought that they could take LSU corner Mansoor Delane. But over the last few days, there’s been buzz that the team is high on Arizona State wide receiver Jordyn Tyson.\n\nOf the receivers in this draft class, the 6’2 203-pound Tyson is viewed as the player with the highest ceiling as he has the speed and size to be a dynamic player. However, he has a history of knee, collarbone, and hamstring injuries, and there are concerns about how his body will hold up playing on the MetLife Stadium turf.\n\nThere are reports that the team would consider trading down from 10 to the middle or late first round and acquire more picks since the team is without a third-round pick. The belief is they would use the mid or late round one pick and take a defensive tackle to replace Lawrence.\n\nThe bottom line is, nobody outside the Giants organization knows for certain how they’ll approach the first round of the draft, and you have to give credit to everyone involved for putting up smoke screens. In the previous build-ups to the draft, the team operated like they were playing checkers; this year, they’re playing chess and have everyone guessing which move they’ll make.\n\nVrabel Seeks Counseling, Will Skip Draft Day as Fallout from Russini Photos Intensifies\n\nTonight’s the Night: Predictions for 2026 NFL Draft, Including Raiders Picks Not Named Mendoza\n\n2026 Minnesota Vikings Mock Draft: Seven-Round Projection, From 18 to 244",
-    "readingTime": 3,
-    "keywords": [
-      "nfl draft",
-      "overall pick",
-      "new york",
-      "team",
-      "picks",
-      "nobody",
-      "round",
-      "mock",
-      "drafts",
-      "players"
-    ],
-    "qualityScore": 1,
-    "link": "https://sports.yahoo.com/articles/york-giants-football-world-guessing-123139976.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/G5.PkX4dVbN.FE4DDRC2QA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sportsnaut_articles_397/c313ae6444dd13850505f36006154da0",
-    "created_at": "2026-04-23T13:00:24.906Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "de-jong-talks-lamine-messi-world-cup-barcelona-history-after-special-achievement-no-better-club-for-me",
-    "title": "De Jong talks Lamine, Messi, World Cup, Barcelona history after special achievement: ‘No better club for me’",
-    "description": "Frenkie de Jong has reached a historic milestone at Barcelona, becoming the Dutch player with the most appearances in the club’s history. With 293 matches in the Blaugrana shirt, the midfielder has...",
-    "fullText": "Frenkie de Jong has reached a historic milestone at Barcelona, becoming the Dutch player with the most appearances in the club’s history.\n\nWith 293 matches in the Blaugrana shirt, the midfielder has now gone past several iconic names, but for him, the achievement is only part of a much bigger journey.\n\nIn a revealing interview, De Jong reflected on his time at Barcelona, addressing both the highs and the challenges he has faced since arriving from Ajax.\n\nDespite periods of uncertainty in the past, especially surrounding his contract and future, the Dutchman made one thing absolutely clear that his heart remains at the club.\n\n“There is no better club for me than Barça. I’ve wanted to be here since I was a child, and family life is perfect. There’s no reason to go anywhere else,” he said.\n\nNotably, De Jong revisited one of the most difficult moments of his Barcelona career – the period in early 2024 when rumours about his contract situation began to affect both him and the fans.\n\n“It was starting to affect the Barça fans. People on the street were mentioning it to me. It started to have a huge impact.\n\nFrenkie de Jong made history at Barcelona. (Photo by Alex Caparros/Getty Images)\n\n“I’m convinced that what journalists write about you has a massive influence on how others perceive you.\n\n“And that’s why I decided to speak out against it so forcefully.”\n\nWhile proud of his longevity, De Jong admitted that team success remains his biggest motivation.\n\nIndividual milestones, he insists, come second to collective achievements.\n\n“I’m proud to have become the Dutch player with the most appearances for Barcelona. I still don’t think it’s a particularly important statistic.\n\n“I would have preferred to have won three Champions League titles, but even so, when you’re able to stay at such a big club for so long, it’s because you’re doing something right.”\n\nLooking back, he identified last season as his most enjoyable period in a Barcelona shirt, both personally and collectively.\n\n“The 2024/25 season. That’s the one I’ll take. We won all three trophies in Spain playing incredible football,” he said.\n\nDe Jong also paid tribute to Ronald Koeman, describing him as a key figure in his development and someone who has played a major role beyond football.\n\n“Ronald Koeman has been fundamental to my career; I have enormous admiration for him.\n\n“Our relationship goes beyond that of coach and player. I see him outside of football; I know his wife and son.”\n\nAway from football, the midfielder shared a personal insight into his life, explaining the meaning behind his shirt number.\n\n“It’s true that both my sons were born on the 21st. My shirt number is crazy! It’s quite funny!\n\n“Being a father has been the best thing that’s ever happened to me.”\n\nDe Jong is quite practical about the Netherlands’ World Cup chance. (Photo by Angel Martinez/Getty Images)\n\nOn international ambitions, De Jong struck a balanced tone regarding the Netherlands’ chances at the World Cup.\n\n“I don’t see the Netherlands as one of the main contenders to win the World Cup. But I consider us to be just below those countries. We can win the World Cup.\n\n“It would be fantastic if we could face Argentina again.\n\n“The last match was very special. But I’m not going to say much about it; I don’t want to give them any motivation.”\n\nFinally, the Barcelona star spoke with admiration about Lionel Messi, while also backing the potential of Lamine Yamal.\n\n“He’s always been my favourite player. As a child, I watched all his matches because he’s the best. I have no doubts. He’s a fantastic footballer.\n\n“As far as I’m concerned, I don’t think I’ll ever see anyone else reach Lionel Messi’s level again.\n\n“Lamine Yamal has incredible talent; he could become the best player in the world, and he could achieve that several times over the course of his career.\n\n“But I’ve watched Messi play since I was a child, and he is the greatest footballer of all time; no other player even comes close to his level.\n\n“Hopefully Lamine Yamal can become the best player in the world.”\n\nHe also moved to defend the young winger from criticism.\n\n“There are moments, sometimes. Some people think he’s undisciplined, but I can tell you that, above all, he’s an extremely cheerful lad.\n\n“He trains normally, always turns up on time and everything goes as it should.\n\n“People must remember that he attracts much more attention because he’s extremely good, so every little detail will stand out more when he’s playing.”",
-    "readingTime": 4,
-    "keywords": [
-      "dutch player",
-      "de jong",
-      "frenkie de jong",
-      "ronald koeman",
-      "shirt",
-      "don’t",
-      "it’s",
-      "football",
-      "club",
-      "child"
-    ],
-    "qualityScore": 1,
-    "link": "https://sports.yahoo.com/articles/jong-talks-lamine-messi-world-124000541.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/FyypgnesVRCDhHbpwdaL3g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04NTU7Y2Y9d2VicA--/https://media.zenfs.com/en/barca_universal_articles_732/ced1ffb5fe74540c168ffec79874c8fd",
-    "created_at": "2026-04-23T13:00:22.549Z",
     "topic": "sports"
   }
 ]

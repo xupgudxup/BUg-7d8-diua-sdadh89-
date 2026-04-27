@@ -1,5 +1,53 @@
 [
   {
+    "slug": "doxa-economicalconstrainted-abm-simulator-with-ollama",
+    "title": "Doxa – Economical-constrainted ABM simulator with Ollama",
+    "description": "A YAML-driven multi-agent simulation platform for economic and social systems. It combines LLM-backed agents, market microstructure, relation graphs, and world events behind a FastAPI API and a Rea...",
+    "fullText": "Quick Start | Contributing | Code of Conduct | Paper | YAML Reference | Full Docs\n\nDoxa is a YAML-driven multi-agent simulation platform for economic and social systems. It combines LLM-backed agents, market microstructure, relation graphs, and world events behind a FastAPI API and a React client.\n\nDo you want to just run Doxa without installation? Here our is the fastest way to get started.\n\nSee QUICKSTART.md for the full setup flow.\n\nDoxa is a modular, extensible platform for multi-agent simulation, integrating generative AI, economic modeling, and social dynamics. This whitepaper presents the motivation, formal architecture, YAML-based scenario schema, agent logic, engine internals, API, and a detailed case study, providing a reproducible foundation for research in computational economics and AI-driven agent systems.\n\nMulti-agent systems (MAS) are fundamental for modeling complex phenomena in economics, social science, and artificial intelligence. However, most existing platforms lack a unified, declarative, and extensible approach to combine economic simulation, social relations, and modern AI-driven reasoning. Doxa addresses this gap by providing a rigorous, YAML-driven simulation engine with support for generative AI, market microstructure, and rich event dynamics.\n\nAgent-based modeling platforms such as NetLogo, MASON, and Repast have enabled decades of research, but typically lack native support for LLM-based reasoning and flexible market mechanisms. Recent frameworks (e.g., OpenAI Gym, PettingZoo) focus on RL environments but do not offer declarative scenario modeling or social/economic integration. Doxa uniquely combines:\n\nDoxa is composed of the following core modules (see server/engine/):\n\nThe architecture is modular, with each subsystem responsible for a specific aspect: economics, market, relations, communication, resources, events, and API integration.\n\nThe scenario YAML file is the single source of truth for simulation configuration. It is strictly validated and supports the following top-level fields:\n\nSee Section 8 for a concrete example (hormuz.yaml).\n\nEach agent $a$ is parameterized by a utility function $U_a$, risk aversion $\\gamma_a$ (CRRA) or $\\alpha_a$ (CARA), and discount factor $\\beta_a$. The agent's decision process maximizes expected utility subject to resource constraints and market conditions. Liquidity preferences and price expectations are modeled as advisory or hard constraints.\n\nLet $M = {m_1, ..., m_k}$ be the set of markets, each defined by a tuple $(resource, currency, price, bounds, clearing, maker)$. Orders are matched according to the clearing policy (per step, on order, call auction). Synthetic market makers post quotes with configurable spread $s$, depth $d$, and inventory skew $\\kappa$.\n\nThe trust graph $G = (V, E)$ is a directed, weighted graph where $E = {(i, j, t_{ij})}$ and $t_{ij} \\in [0,1]$ is the trust from agent $i$ to $j$. Trust is updated by events and actions: $t_{ij}' = t_{ij} + \\Delta t$ (with decay and contagion as specified in YAML).\n\nAgents exchange messages $m = (src, dst, type, payload)$ via private or public channels. Negotiation protocols (propose, accept, reject) are implemented as tools, and communication can trigger trust or event updates.\n\nLet $R$ be the set of resources. Each agent maintains a portfolio $P_a: R \\to \\mathbb{R}_{\\geq 0}$. Resource transfers are validated against global and local constraints, and all operations are atomic (rolled back on violation).\n\nWorld events $E = {e_1, ..., e_n}$ are defined by triggers (tick, condition) and effects (resource, market, trust, contagion). The event scheduler applies effects according to the event type (shock, trend, conditional).\n\nThe API exposes endpoints for scenario management, simulation control, and data streaming. REST endpoints support batch operations; WebSocket endpoints provide real-time updates for agent actions and resources.\n\nThe engine enforces strict validation of scenario files (see CONFIG_YAML_REFERENCE.md):\n\nThe system is designed for reproducibility, extensibility, and modularity. All simulation runs are fully determined by the YAML and engine version.\n\nDoxa supports a wide range of research applications, including:\n\nSee below for a concrete scenario (excerpt):\n\nDoxa is designed for extensibility and reproducibility, but current limitations include scalability to very large agent populations, lack of native distributed execution, and reliance on external LLM APIs for advanced reasoning. Future work includes support for distributed simulation, richer agent cognition, and advanced visualization tools.\n\nDoxa provides a robust, extensible platform for multi-agent simulation, integrating economic, social, and AI-driven reasoning. Its YAML-based configuration, modular engine, and API make it suitable for a wide range of research applications.\n\n% [1] Wilensky, U. (1999). NetLogo. http://ccl.northwestern.edu/netlogo/\n% [2] Luke, S., et al. (2005). MASON: A Multiagent Simulation Environment. Simulation, 81(7), 517-527.\n% [3] North, M.J., et al. (2013). Complex Adaptive Systems Modeling with Repast Simphony. Complex Adaptive Systems Modeling, 1(1), 3.\n% [4] Brockman, G., et al. (2016). OpenAI Gym. arXiv preprint arXiv:1606.01540.\n% [5] Terry, J.K., et al. (2020). PettingZoo: Multi-Agent Reinforcement Learning Environments. NeurIPS 2020.",
+    "readingTime": 4,
+    "keywords": [
+      "complex adaptive",
+      "adaptive systems",
+      "ai-driven reasoning",
+      "wide range",
+      "research applications",
+      "extensible platform",
+      "market microstructure",
+      "simulation integrating",
+      "systems modeling",
+      "multi-agent simulation"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/VincenzoManto/Doxa",
+    "thumbnail_url": "https://opengraph.githubassets.com/ebb90bd9caa047dc0f29b29b20ed2e34bbede23d912a14f8e8cf3efb2650edb6/VincenzoManto/Doxa",
+    "created_at": "2026-04-27T08:04:15.570Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "college-students-wary-of-the-job-market-are-changing-course-in-search-of-aiproof-majors",
+    "title": "College students wary of the job market are changing course in search of 'AI-proof' majors",
+    "description": "Two years ago, Josephine Timperman arrived at college with a plan.  “Everyone has a fear that entry-level jobs will be taken by AI,” said the 20-year-old at Miami University in Ohio.  A few weeks ago,...",
+    "fullText": "Two years ago, Josephine Timperman arrived at college with a plan. She declared a major in business analytics, figuring she'd learn niche skills that would stand out on a resume and help land a good job after college.\n\nBut the rise of artificial intelligence has scrambled those calculations. The basic skills she was learning in things like statistical analysis and coding can now easily be automated. “Everyone has a fear that entry-level jobs will be taken by AI,” said the 20-year-old at Miami University in Ohio.\n\nA few weeks ago, Timperman switched her major to marketing. Her new strategy is to use her undergraduate studies to build critical thinking and interpersonal skills — areas where humans still have an edge.\n\n“You don’t just want to be able to code. You want to be able to have a conversation, form relationships and be able to think critically, because at the end of the day, that’s the thing that AI can’t replace,” said Timperman, who is keeping analytics as a minor and plans to dive deeper into the subject for a one-year master’s program.\n\nToday’s college students say that picking a major that’s “AI-proof” feels like shooting at a moving target as they prepare for a job market that could be fundamentally different by the time they graduate.\n\nAs a result, many are reconsidering their career paths. About 70% of college students see AI as a threat to their job prospects, according to a 2025 poll by the Institute of Politics at the Harvard Kennedy School, while recent Gallup polling finds U.S. workers are increasingly concerned about being replaced by new technologies.\n\nThe uncertainty appears most concentrated among those pursuing degrees in technology and vocational areas of study, where students feel a need to develop expertise in AI but also fear being replaced by it. A recent Quinnipiac poll found the vast majority of Americans believe it’s “very” or “somewhat” important for college and university students to be taught how to use AI, as Gallup Workforce polling finds AI is getting adopted in technology-related fields at higher rates. Meanwhile, students studying health care and natural sciences may be less impacted by AI overhauls, Gallup found.\n\n“We see students all the time change majors. That’s not new or different. But it’s usually for a ton of different reasons,” said Courtney Brown, a vice president at Lumina, an education nonprofit focused on increasing the number of students who seek education beyond high school. “The fact that so many students say it’s because of AI — that is startling.\"\n\nA recent Gallup poll of Generation Z youth and adults, between the ages of 14 and 29, found increasing skepticism and concerns about AI. Although half of Gen Z adults use AI at least “weekly,” and teenagers report higher use, many in this generation see drawbacks to the technology and worry about AI's impact on their cognitive abilities and job prospects. About half — 48% — of Gen Z workers say the risks of AI in the workforce outweigh the possible benefits.\n\nPart of the challenge for college students is that the experts they would typically turn to for advice, like advisers, professors and parents, don’t have any answers. “Students are having to navigate this on their own, without a GPS,” says Brown.\n\nThat uncertainty was evident last month at Stanford University, where the leaders of several prominent universities gathered for a wide-ranging panel discussion on the future of higher education. Topics of concern included the AI revolution that is transforming how students learn and forcing educators to rethink pedagogy.\n\n“We need to think really hard about what students need to learn to be successful in the job market in 10, 20, 30 years,” said Brown University President Christina Paxson.\n\n“And none of us know. We don’t know the answer to that,” Paxson said. “I think it’s communication, it’s critical thought. The fundamentals of a liberal education are probably more important than learning how to code in Java right now.”\n\nComputer science major Ben Aybar, 22, graduated last spring from the University of Chicago and applied for about 50 jobs, mostly in software engineering, without getting a single interview. He pivoted to a master’s degree in computer science and meanwhile has found part-time work doing AI consulting for companies.\n\n“People who know how to use AI will be very valuable,” said Aybar, who sees new jobs emerging that require AI skills, particularly for people who can explain the complexities in layman's terms. “Being able to talk to people and interact with people in a very human way I think is more valuable than ever.”\n\nAt the University of Virginia, data science major Ava Lawless is wondering if her major is worthwhile but can’t get concrete answers. Some advisers feel that data scientists will be safe because they’re the ones building AI models, but she keeps seeing gloomy job reports that indicate the contrary.\n\n“It makes me feel a bit hopeless for the future,” Lawless said. “What if by the time I graduate there’s not even a job market for this anymore?”\n\nShe is considering switching to studio art, which is her minor.\n\n“I’m at a point where I’m thinking if I can’t get a job being a data scientist, I might as well pursue art,” she said. “Because if I’m going to be unemployed, I might as well do something I love.”\n\nThe Associated Press’ education coverage receives financial support from multiple private foundations. AP is solely responsible for all content. Find AP’s standards for working with philanthropies, a list of supporters and funded coverage areas at AP.org.",
+    "readingTime": 5,
+    "keywords": [
+      "computer science",
+      "job market",
+      "job prospects",
+      "students say",
+      "college students",
+      "it’s",
+      "education",
+      "skills",
+      "learn",
+      "jobs"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.yahoo.com/news/articles/college-students-wary-job-market-040631540.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/Ne__TOtlZSNzC7nryO.THw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ap.org/0d81473cf31ca7b17aaff85c28412462",
+    "created_at": "2026-04-27T08:04:10.546Z",
+    "topic": "news"
+  },
+  {
     "slug": "chatgpt-solves-erdos-problem-1176-in-80-minutes",
     "title": "ChatGPT solves Erdos Problem 1176 in 80 minutes",
     "description": "Shared via ChatGPT",
@@ -1975,39 +2023,5 @@
     "thumbnail_url": "https://opengraph.githubassets.com/29744b3bd1bf6e5d53f3788e7729e5693986b2cb614fadcc1215f75bc0748f6f/masondelan/selvedge",
     "created_at": "2026-04-24T01:29:12.612Z",
     "topic": "tech"
-  },
-  {
-    "slug": "spelman-college-students-invent-a-way-for-plants-to-talk-with-the-help-of-ai",
-    "title": "Spelman College students invent a way for plants to talk with the help of AI",
-    "description": "If plants could talk, what would they say? That’s what students at Spelman College are finding out with their project PlantGPT. The device uses artificial intelligence that lets you have conversations...",
-    "fullText": "If plants could talk, what would they say? That’s what students at Spelman College are finding out with their project PlantGPT. The device uses artificial intelligence that lets you have conversations with your houseplants about their current needs using real-time data. These students hope to bring the device to plant owners and eventually farmers.",
-    "readingTime": 1,
-    "keywords": [
-      "students",
-      "device"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.yahoo.com/news/videos/spelman-college-students-invent-way-190704619.html",
-    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/89e545be33dce9288ba530f939bbfd93248cff6c150c6fb8624acc2f3d8de89f/lightyear_networkapi/resizefill_w1200;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fnbcu_713%2F13bd63d2002a566df806896efcc93054",
-    "created_at": "2026-04-24T01:29:10.341Z",
-    "topic": "news"
-  },
-  {
-    "slug": "the-markets-biggest-semiconductor-index-is-on-its-longestever-winning-streak-heres-what-could-trip-it-up",
-    "title": "The market's biggest semiconductor index is on its longest-ever winning streak. Here's what could trip it up.",
-    "description": "The Philadelphia Semiconductor Index is on a record hot streak, up almost 40% in 16 days on renewed excitement for AI among investors.",
-    "fullText": "The Philadelphia Semiconductor Index (SOX) is on a historic winning streak.\n The market's largest chipmaker index is up 38% in 16 days.\n Deutsche Bank sees one supply chain factor that could stop its progress.\n\n What drives the AI chip demand surge?\n\n What role does Nvidia play in the SOX rally?\n\n What are the risks to the SOX's growth streak?\n\n How do helium shortages impact semiconductors?\n\n How does the Iran war threaten chip supply?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "index",
-      "streak",
-      "supply",
-      "chip"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/sox-semiconductor-index-historic-rally-ai-nvidia-tsmc-mu-avgo-2026-4",
-    "thumbnail_url": "https://i.insider.com/69ea2ee9367066d7c2970135?width=1200&format=jpeg",
-    "created_at": "2026-04-23T18:55:00.509Z",
-    "topic": "finance"
   }
 ]
