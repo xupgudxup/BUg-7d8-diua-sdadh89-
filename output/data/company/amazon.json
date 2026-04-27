@@ -1,5 +1,20 @@
 [
   {
+    "slug": "i-shopped-15-the-bin-wins-at-staples-prices-drop-to-2-by-the-end-of-the-week",
+    "title": "I shopped $15 the Bin Wins at Staples. Prices drop to $2 by the end of the week.",
+    "description": "Maria Johnson tested Staples' Bin Wins program, digging through Amazon returns and overstock to find deals and potential resale items.",
+    "fullText": "Maria Johnson is an Orlando-based content creator who shares tips and tricks for saving money.\n She stumbled upon Staples' new Bin Wins program at her local store.\n She believes it's a fun way to find bargains, but says she wouldn't rely on it for things you actually need.\n\n How do \"Bin Wins\" programs work?\n\n Why are \"Amazon returns\" involved in this?\n\n What are the pros of bargain hunting?\n\n What types of items are found in Bin Wins?\n\n How can shoppers maximize savings?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "bin wins"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/staples-bin-wins-review-amazon-returns-deals-2026-4",
+    "thumbnail_url": "https://i.insider.com/69dbff3af976785dcb1909ff?width=480&format=jpeg",
+    "created_at": "2026-04-27T01:46:59.224Z",
+    "topic": "finance"
+  },
+  {
     "slug": "meta-buys-aws-graviton-arm-cores-in-a-cpu-land-grab",
     "title": "Meta buys AWS Graviton Arm cores in a CPU land grab",
     "description": "Meta is buying \"tens of millions\" of AWS Graviton CPU cores in a big move to bolster its agentic AI compute portfolio",
@@ -1786,29 +1801,5 @@
     "thumbnail_url": "https://i.guim.co.uk/img/media/6660c10a8a2e2ea30e4ce5a04f33445f015173a5/0_392_2400_1919/master/2400.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=3db1fa81d6da1eba21870e13f3fa64c9",
     "created_at": "2026-03-11T12:35:44.468Z",
     "topic": "tech"
-  },
-  {
-    "slug": "amazon-orders-90day-reset-after-code-mishaps-cause-millions-of-lost-orders",
-    "title": "Amazon orders 90-day reset after code mishaps cause millions of lost orders",
-    "description": "Internal documents obtained by Business Insider show how Amazon is reacting to a series of recent outages related to software coding issues.",
-    "fullText": "Amazon is beefing up internal guardrails after recent outages hit the company's e-commerce operation, including one disruption tied to its AI coding assistant Q.\n\nDave Treadwell, Amazon's SVP of e-commerce services, told staff on Tuesday that a \"trend of incidents\" emerged since the third quarter of 2025, including \"several major\" incidents in the last few weeks, according to an internal document obtained by Business Insider. At least one of those disruptions were tied to Amazon's AI coding assistant Q, while others exposed deeper issues, another internal document explained.\n\nProblems included what he described as \"high blast radius changes,\" where software updates propagated broadly because control planes lacked suitable safeguards. (A control plane guides how data flows across a computer network).\n\nIn other cases, data corruption took hours to unwind. Some failures were traced back to basic mechanisms, such as a requirement to have two people authorize code changes, that were either lacking or bypassed.\n\nIn response, Amazon is introducing tighter controls that will require engineers to document code changes more thoroughly and secure additional approvals. At the same time, the company is developing other safeguards designed to introduce what executives described as \"controlled friction\" into the code-change review process.\n\n\"We are implementing temporary safety practices which will introduce controlled friction to changes in the most important parts of the Retail experience,\" Treadwell wrote in the document on Tuesday. \"In parallel, we will invest in more durable solutions including both deterministic and agentic safeguards.\"\n\nThe Amazon snafus are an example of how generative AI is upending how software is written, checked, and shipped. AI coding services, such as Claude Code and Amazon's Q and Kiro offerings, help engineers produce way more code than in the past. However, this code still needs to be checked for bugs and other potential issues before putting it out into the world. When this avalanche of new code hits traditional software-review processes, problems can emerge.\n\nAmazon's Treadwell wrote that the company's new code guardrails will combine AI-driven, \"agentic\" tools with more predictable, rules-based \"deterministic\" systems.\n\nThis tackles one of the core issues with AI models. These powerful new services are not deterministic. That means you can ask the same question twice and an AI model may spit out slightly different answers. That sometimes makes this technology inappropriate for corporate workflows that must be 100% accurate every time. That includes core Enterprise Resource Planning software systems and likely applies to crucial things such as product, price, ordering, and transaction data on a giant e-commerce marketplace, such as the one operated by Amazon.\n\nEarlier on Tuesday, Treadwell held a meeting with some Amazon employees to discuss how to address the recent problems. An Amazon spokesperson told Business Insider the meeting was part of a regular weekly review, and that the Amazon Web Services cloud business was not involved in any of these incidents.\n\n\"As part of normal business, the meeting will include a review of the availability of our website and app as we focus on continual improvement,\" the spokesperson said.\n\nSome of the most severe disruptions occurred last week, according to the internal documents.\n\nOn March 2, customers across Amazon marketplaces saw incorrect delivery times when adding items to their carts. The incident led to nearly 120,000 lost orders and roughly 1.6 million website errors. Amazon's AI tool Q was one of the primary contributors that triggered the event, according to an internal review.\n\n\"GenAI's usage in control plane operations will accelerate exposure of sharp edges and places where guardrails do not exist,\" one internal document said of the March 2 incident. \"We need investment in control plane safety.\"\n\nOn March 5, another outage caused a 99% drop in orders across Amazon's North American marketplaces, resulting in 6.3 million lost orders, one of the internal documents stated. One key factor was a production change that was deployed without using a formal documentation and approval process called Modeled Change Management.\n\n\"No automated pre-deployment validation,\" the document said. \"Single authorized operator could execute a high-blast-radius config change with no guardrails.\"\n\nAn Amazon spokesperson told Business Insider that only 1 incident reviewed on Tuesday was AI-related, and none of them involved AI-written code.\n\nNow, Amazon is rolling out a 90-day, temporary safety guideline that will serve as an addendum to the existing policies, according to one of the internal documents.\n\nThe new policy targets approximately 335 \"Tier-1 systems,\" or services that can directly impact consumers, that have experienced multiple order-impacting incidents since last year and are owned by VP-level organizations.\n\nUnder the new policy, Amazon engineers must get two people to review their work before making any coding changes. They also have to use an internal documenting and approval tool and an automated coding system that strictly adheres to Amazon's central reliability engineering rules.\n\nAmazon is also notifying all Tier-1 system owners, as well as Director- and VP-level leaders, instructing them to audit all production code change activities within their organizations.\n\nThe Amazon spokesperson told Business Insider that it is not accurate to say junior and mid-level engineers are required to get sign off from senior engineers for any AI-assisted changes.\n\nThe Financial Times previously reported that Amazon was holding a \"deep dive\" meeting about the outages on Tuesday and that the company's Kiro AI coding tool partly caused a 13-hour AWS service outage in December.\n\nHave a tip? Contact this reporter via email at ekim@businessinsider.com or Signal, Telegram, or WhatsApp at 650-942-3061. Use a personal email address, a nonwork WiFi network, and a nonwork device; here's our guide to sharing information securely.",
-    "readingTime": 5,
-    "keywords": [
-      "controlled friction",
-      "temporary safety",
-      "coding assistant",
-      "internal documents",
-      "internal document",
-      "business insider",
-      "amazon's ai",
-      "the amazon",
-      "an amazon",
-      "on march"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/amazon-tightens-code-controls-after-outages-including-one-ai-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b0757c82b35e2c04dd74a7?width=1200&format=jpeg",
-    "created_at": "2026-03-11T01:05:51.250Z",
-    "topic": "finance"
   }
 ]
