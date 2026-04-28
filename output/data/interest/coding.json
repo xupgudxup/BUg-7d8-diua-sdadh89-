@@ -1,5 +1,27 @@
 [
   {
+    "slug": "offline-agentic-coding",
+    "title": "Offline Agentic Coding",
+    "description": "Offline Agentic Coding: Ollama and Claude code",
+    "fullText": "You can use ollama as the backend for claude code!\n\nThis allows you to use claude code with local models. I'm writing this from an airplane with no internet connection.\n\nGemma4:e2b did not finish any tasks despite being blazing fast at over 100 tokens per second.\n\nqwen3-coder-next:q4_K_M actually did reasonably well. Felt a bit worse than haiku quality but notably slower. Took around half an hour to fill up 75k of context, which is about 40 tokens per second while taking 50-60gb of memory.\n\nqwen3.6:35b was also fairly reasonable. Did an adaquate job writing a small local data processing job, but was also fairly slow.\n\nGemma4:31b felt the most 'claude-like' in claude code, but was also fairly slow and occasionally required some jostling and interruption.\n\nI don't seriously recommend local agentic coding with LLMs. You need some serious hardware to run decent models and it's still slow. It's a nice capability to have locally, but it probably isn't better than coding by hand. Still very cool to have a computer that can program itself though, and amazing that a consumer device can locally run models and software that matches the original gpt-3 era ChatGPT style experience.",
+    "readingTime": 1,
+    "keywords": [
+      "tokens per",
+      "per second",
+      "claude code",
+      "fairly slow",
+      "models",
+      "coding",
+      "it's",
+      "locally"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://www.williamangel.net/blog/2026/04/27/offline-agentic-coding.html",
+    "thumbnail_url": "https://www.williamangel.net/blog/2026/04/27/2026-04-27-offline_agentic_coding.png",
+    "created_at": "2026-04-28T01:54:42.222Z",
+    "topic": "tech"
+  },
+  {
     "slug": "coding-agents-ignore-their-own-budgets",
     "title": "Coding agents ignore their own budgets",
     "description": "Coding agents ignore their own budgets",
@@ -1897,29 +1919,5 @@
     "thumbnail_url": "https://kieranhealy.org/blog/archives/2026/03/09/using-quarto-to-write-a-book/dv2-distributions-page-detail.png",
     "created_at": "2026-03-17T01:10:55.833Z",
     "topic": "tech"
-  },
-  {
-    "slug": "vibe-coding-is-a-real-job-now",
-    "title": "Vibe coding is a real job now",
-    "description": "Vibe coding is allowing people who don't write code to build their own apps — and careers.",
-    "fullText": "Lazar Jovanovic trained as a forestry engineer and has never written code.\n\nSo, when he sits down to build software, he doesn't open an editor and start churning out syntax. He begins by describing what he wants to build to an AI tool.\n\nBefore joining the vibe-coding company Lovable, Jovanovic oversaw operations at an online marketplace. His latest job title: vibe-coding engineer.\n\nAs Jovanovic sees it, his work isn't all that different from traditional software development because he's still building. At Lovable, part of his job is to show customers how easy the tools are for nontechnical users.\n\n\"The skill is no longer writing code,\" Jovanovic, 36, told Business Insider. \"The skill is ownership, clarity, judgment, taste, subject-matter expertise.\"\n\nVibe coding is getting more attention because just about anyone can do it to build useful software. Now, people like Jovanovic are turning it into a full-time job, while others are vibe-coding their own apps and becoming entrepreneurs.\n\nSam Schneidman is head of community at Base44, which lets users build software with natural-language prompts. He said he expects vibe coding to produce a new professional class of creators who want to develop apps yet aren't fluent in languages like Python or Java.\n\nThe era of vibe coding is \"great for the ideas person,\" he told Business Insider.\n\nAntoni Tzavelas, who lives in Toronto, began his career as a fashion designer. When the industry faltered, someone told him how much money he could make in tech. So he went back to school to study systems administration.\n\nTzavelas eventually became a cloud computing engineer, later a DevOps engineer, and, down the line, moved into coaching software development teams.\n\nEven while he progressed through seven career transitions, Tzavelas, 51, said he never learned to code. Then a friend introduced him to vibe coding.\n\n\"That took everything that I've ever learned from every single role and brought it all together,\" Tzavelas told Business Insider.\n\nHe said he has since built a dozen apps in five months. One of them is a tool he developed in two days that analyzes conversations to help users improve their connections with others. Now, Tzavelas is the cofounder of a startup called MiruPulse, which aims to commercialize the app.\n\nVibe coding, he said, brought him the \"ultimate joy of doing a job that I just love every single morning.\"\n\nTzavelas said that while it's easy enough to build a basic app with vibe coding, turning it into a reliable, \"battle-tested\" system that a large company could rely on would likely require a deeper understanding of how IT systems work. That could be a problem if you are trying to turn your idea into a business that has legs.\n\nAnother challenge that entrepreneur Alibek Dostiyarov sees in vibe coding is the buildup of \"judgment debt\" — a pernicious accumulation of decisions that occur when AI alone constructs the technical scaffolding of software.\n\nDostiyarov, who has a background in software engineering and consulting, told Business Insider that the process can let flaws slip through, and over time, those can become like cracks in a foundation.\n\nHe is the cofounder of Perceptis, which develops AI-powered software for professional services firms.\n\nDostiyarov said that, more than ever, companies need to prioritize sound human judgment when developing software. Vibe coding has its place for testing ideas and prototypes. That's about as far as he is willing to go.\n\n\"There is no world that I can imagine in the near future where we'll be just saying, 'OK, now that we've tested it, let's just integrate it directly into our system,'\" Dostiyarov said. Instead, he said, a vibe-coded prototype would need to be rebuilt by trained engineers.\n\nVibe coding sometimes gets a bad rap among industry veterans, Adam Janes, a fractional CTO, told Business Insider.\n\n\"It's a very touchy subject for devs, because they like to think that they have this real expertise,\" he said.\n\nYet Janes thinks an opportunity exists for people who are experts in an area to become professional vibe coders because they can pair their knowledge with AI's technical wizardry.\n\nBecause AI tends to either over-engineer or under-engineer a problem, Janes said, technical expertise is still a big help. Even so, as AI continues to improve, vibe coders could find it easier to develop robust software, he said.\n\n\"Three months ago, we were talking about a completely different world,\" Janes said.\n\nWill Wilson, CEO and cofounder of Antithesis, an autonomous software-testing platform, told Business Insider that he's witnessed a similar shift since the arrival of models such as Claude Opus 4.5 last year.\n\nTheir emergence marked a tipping point, he said, though bottlenecks remain. Wilson said AI coding tools can spit out so much that it becomes \"astonishingly hard\" to review and ensure it won't \"blow up your business.\"\n\nWith vibe coding, he said, \"the burden all shifts to testing and reviewing the code and making sure it works right.\"\n\nThere aren't good estimates of how many professional-level vibe coders are out there, though AI is taking on larger chunks of coding, even in traditional engineering.\n\nFor Jovanovic, there's no going back. Before Lovable hired him, he said he built dozens of apps — including one for journaling and one to track his jogs near his home in Sarasota, Florida.\n\nIt took Jovanovic about a year of vibe coding to go from enthusiast to employee. The toughest part of the job, he said, is articulating what he needs so AI can build it.\n\nJovanovic still gets goosebumps when he thinks about the first time he built an app.\n\n\"This feels like the thing that I was born to do,\" he said.",
-    "readingTime": 5,
-    "keywords": [
-      "software development",
-      "vibe coders",
-      "vibe coding",
-      "business insider",
-      "engineer",
-      "apps",
-      "vibe-coding",
-      "users",
-      "judgment",
-      "expertise"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/vibe-coding-becoming-a-real-job-startups-entrepreneurship-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b461e7a96e437d6eb84cbc?width=1200&format=jpeg",
-    "created_at": "2026-03-16T12:45:30.278Z",
-    "topic": "finance"
   }
 ]
