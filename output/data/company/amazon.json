@@ -1,5 +1,47 @@
 [
   {
+    "slug": "survey-of-iac-tools-used-to-manage-aws",
+    "title": "Survey of IaC Tools Used to Manage AWS",
+    "description": "What are people using to manage their AWS infrastructure? A recent survey tells us.",
+    "fullText": "Below is a graph of the share of IaC tools that are used to manage AWS (2026 data).\n\nThese results were surprising to me in a few ways.\n\nFirst, Ansible is #4 on the list, when it's arguably not an IaC tool. Can Ansible provision things? Sure, but should it?\n\nI'd argue against that Ansible is just not built for that. It can be used for a lot and it can be used to provision infrastructure resources, but Terraform/OpenTofu's model is much better at provisioning such resources. And then managing them.\n\nThat said, Ansible and TF are better together in the environments where they're needed. For example, using Ansible to setup EC2 instances, after TF has provisioned the instance and its surrounding environment, is a good option. (Of course, you could use Packer or containers to avoid managing machines like pets altogether. Lots of ways to peel the banana!)\n\nAnother surprise was CDKTF being over DOUBLE the usage compared to Crossplane (we tried Crossplane and decided against it).\n\nAnd yet, HashiCorp canned CDKTF in spite of that usage. I find that super interesting.\n\nFinally, OpenTofu being at 23% shows that it is gaining traction. We've migrated hundreds of thousands of resources alone at Masterpoint. We'll see this number go up over the coming year, I'm sure. And OpenTofu was the top choice for IaC retention.\n\nThe graph I included above shows usage, but there’s also surveys of retention, awareness and interest. The top answer is different for each, indicating a healthy, competitive IaC ecosystem. You can also check out the demographics of respondents.\n\nJust for kicks, I went and looked at the 2025 results, and was shocked that Winglang is on the list. That company is dead as far as I know. Yet one short year ago, it still managed to get on the board. Good for them, I guess?\n\nHere’s the 2026 survey results again. It closed in February, but you can \n\nMay you never provision infrastructure with Ansible,\n\nPS If you want to chat about which results surprised you, grab some time on my calendar here. If you’ve found this newsletter helpful, please forward it to a friend. Or if you want to share on your company slack, here’s the archive of all my newsletters.",
+    "readingTime": 2,
+    "keywords": [
+      "provision infrastructure",
+      "resources",
+      "usage",
+      "graph",
+      "ways",
+      "list",
+      "sure",
+      "managing",
+      "cdktf",
+      "crossplane"
+    ],
+    "qualityScore": 1,
+    "link": "https://newsletter.masterpoint.io/p/survey-of-iac-tools-used-to-manage-aws",
+    "thumbnail_url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/d310a6f4-235f-40fb-aa26-d429c9609f73/facebook_banner.png?t=1731793502",
+    "created_at": "2026-04-28T13:27:37.747Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "read-amazons-6-internal-tenets-for-ai-adoption-cutting-edge-not-bleeding-edge",
+    "title": "Read Amazon's 6 internal tenets for AI adoption: 'Cutting edge, not bleeding edge'",
+    "description": "Amazon's AI-native strategy prioritizes practical AI adoption, emphasizing balance in speed, cost, and control.",
+    "fullText": "Amazon's massive retail arm has formalized its AI approach in 6 internal engineering tenets.\n The list emphasizes a pragmatic approach that balances speed, cost, and control.\n The tenets are part of a broader AI push to improve coding speed and efficiency.\n\n What is \"AI-native\" strategy?\n\n What are AI adoption challenges?\n\n How does AI improve coding speed?\n\n How does Amazon balance AI and cost?\n\n Why prioritize delivery over cost?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "improve coding",
+      "coding speed",
+      "approach",
+      "tenets"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/amazon-tenets-engineers-building-ai-2026-4",
+    "thumbnail_url": "https://i.insider.com/69efd250a98bc8fdc096f757?width=1200&format=jpeg",
+    "created_at": "2026-04-28T13:27:37.007Z",
+    "topic": "finance"
+  },
+  {
     "slug": "disney-is-shaking-up-its-streaming-data-teams-as-a-top-exec-leaves-read-the-memo",
     "title": "Disney is shaking up its streaming data teams as a top exec leaves. Read the memo.",
     "description": "Disney is reorganizing streaming commerce and data teams as former Netflix and Amazon exec Ajay Arora leaves the company.",
@@ -1747,53 +1789,5 @@
     "thumbnail_url": "https://i.insider.com/69b37c0aa96e437d6eb840c5?width=1200&format=jpeg",
     "created_at": "2026-03-13T12:34:35.830Z",
     "topic": "finance"
-  },
-  {
-    "slug": "i-moved-to-seattle-to-help-me-land-a-job-at-amazon-now-i-live-a-7minute-walk-from-the-office-and-its-given-me-a-career",
-    "title": "I moved to Seattle to help me land a job at Amazon. Now I live a 7-minute walk from the office — and it's given me a career edge.",
-    "description": "Sarthak Gupta moved to Seattle before landing a job at Amazon. He now lives walking distance from the office and says it's helped his career.",
-    "fullText": "This as-told-to essay is based on a conversation with Sarthak Gupta, a 29-year-old data scientist at Amazon who lives in Seattle. The following has been edited for length and clarity.\n\nIn 2023, I was living in New York City and working as a quantitative research intern at a nonprofit organization. I decided to pursue a role at a larger corporation that combined AI, quantitative risk, and finance, and became interested in the tech industry.\n\nTo set myself up for success, I was very strategic about where I chose to live. I realized there were roles that checked all my boxes in the Seattle area, so in early 2024, I decided to move there and stay with a friend to save on rent while applying for jobs. When I moved, I didn't yet have an interview lined up at Amazon, but I was definitely targeting the company.\n\nI believed being in Seattle would offer more networking opportunities, and that listing a Seattle address on my résumé could boost my chances with local employers like Amazon by signaling I was ready to hit the ground running without any relocation delays.\n\nEventually, a cold application turned into an interview with Amazon for a senior risk analyst role. I eventually landed the job and joined Amazon in July 2024.\n\nI'm expected to work from the office five days a week, but my commute is very easy.\n\nAfter I landed the job at Amazon, I moved to South Lake Union. It's a neighborhood in Seattle where it sometimes feels like you can only find two types of people in an apartment building: Amazon and Microsoft employees. My roommate and I split a rent of $4,800 a month, including parking, for our two-bedroom apartment — and it was only a five-minute walk to the office.\n\nI recently moved into my own one-bedroom apartment in South Lake Union, which is a seven-minute walk away from my office. The rent is about $2,700 a month, including parking. I found some cheaper options that were farther away, but staying close to the office was one of my biggest priorities while apartment hunting to avoid unnecessary travel time.\n\nThe short commute has allowed me to focus on building my career instead of feeling drained from getting to and from work. It's also made it easier to attend networking events in the area after work.\n\nWorking from the office makes it easier to connect and collaborate with my team. When everyone is physically around, you don't have to set up meetings for every small discussion. You can just walk over, ask a quick question, and keep moving.\n\nAnother major advantage is the networking and visibility, especially with leaders. In the office, I naturally get to talk to leaders during lunch, coffee breaks, or quick walks. On top of that, spending time with colleagues builds a healthy work relationship; people go from being just coworkers to friends, which makes the work environment more enjoyable.\n\nThe only real downside of working from the office five days a week is on days when I'm feeling slightly unwell or would prefer to work from home. There's been a stronger push for managers and teams to be consistently in the office, and attendance is being tracked more closely. Since everyone is present, there's also an unspoken expectation of being on time, which reduces some flexibility.\n\nFor me, though, the pros outweigh the cons by a large margin. Even when Amazon had a hybrid setup of only three in-office days, I preferred going in every day because I genuinely felt more productive in person.\n\nI wasn't affected by Amazon's recent layoffs in January, nor was anyone on my team, as far as I'm aware. In terms of job security, I think many employees have adopted a more pragmatic mindset, focusing on delivering impact and doing their best work, while accepting that some factors are outside individual control.\n\nOverall, my role as a data scientist — which I transitioned to last year — hasn't changed much, and I'm really happy with the work I'm doing.\n\nOne of my favorite hobbies is mentoring other job seekers I connect with, offering free advice on their résumés, interview prep, and how to incorporate AI tools into their job searches. Some have told me my guidance helped them land jobs.\n\nOne of the main pieces of advice I give job seekers is to start preparing for interviews before they even land one — and to keep preparing throughout the entire process.\n\nI also emphasize the importance of résumés — a candidate should be able to clearly explain and stand behind every word on it. In my experience, 99% of questions trace back to the résumé and how it aligns with the job description.\n\nOnce a young professional lands a job, I recommend that they live close to the office if they can. It frees up time they'd otherwise spend commuting and lets them focus that energy on work, networking, and building connections with colleagues, all of which really help them settle into the new role smoothly. That initial period is crucial for building their presence and making a strong impression.",
-    "readingTime": 5,
-    "keywords": [
-      "south lake",
-      "lake union",
-      "job seekers",
-      "role",
-      "networking",
-      "apartment",
-      "rent",
-      "interview",
-      "amazon",
-      "scientist"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/amazon-data-scientist-seattle-short-commute-return-to-office-2026-3",
-    "thumbnail_url": "https://i.insider.com/69b2b94da96e437d6eb8301c?width=1153&format=jpeg",
-    "created_at": "2026-03-13T12:34:35.484Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "microsoft-backs-ai-firm-anthropic-in-legal-battle-against-pentagon",
-    "title": "Microsoft backs AI firm Anthropic in legal battle against Pentagon",
-    "description": "Tech company filed amicus brief in support of Anthropic’s effort to overturn an aggressive Pentagon designation\nMicrosoft has thrown its weight behind Anthropic’s legal challenge against the Pentagon, filing a court brief in support of the AI company’s effort to overturn an aggressive designation that effectively bars it from government work.\nIn an amicus brief submitted to a federal court in San Francisco this week, Microsoft, which integrates Anthropic’s AI tools into systems it provides to the US military, argued that a temporary restraining order was necessary to prevent serious disruption to suppliers whose products rely on the AI company’s technology. Google, Amazon, Apple and OpenAI have also signed on to a brief in support of Anthropic.\n Continue reading...",
-    "fullText": "Tech company filed amicus brief in support of Anthropic’s effort to overturn an aggressive Pentagon designation\n\nMicrosoft has thrown its weight behind Anthropic’s legal challenge against the Pentagon, filing a court brief in support of the AI company’s effort to overturn an aggressive designation that effectively bars it from government work.\n\nIn an amicus brief submitted to a federal court in San Francisco this week, Microsoft, which integrates Anthropic’s AI tools into systems it provides to the US military, argued that a temporary restraining order was necessary to prevent serious disruption to suppliers whose products rely on the AI company’s technology. Google, Amazon, Apple and OpenAI have also signed on to a brief in support of Anthropic.\n\nIn a statement to the Guardian, Microsoft said: “The Department of War needs reliable access to the country’s best technology. And everyone wants to ensure AI is not used for mass domestic surveillance or to start a war without human control. The government, the entire tech sector, and the American public need a path to achieve all these goals together.”\n\nMicrosoft is one of the Pentagon’s most deeply embedded tech partners, holding a share of the military’s Joe Biden-era $9bn Joint Warfighting Cloud Capability contract alongside Amazon, Google and Oracle, as well as separate software and enterprise services deals worth several billion dollars more. Microsoft’s contracts with the government span defense, intelligence and civilian agencies, and under the Trump administration in September, Microsoft struck another multibillion-dollar deal to help usher along cloud services and AI advancement in the federal government.\n\nThe filing comes after Anthropic launched two lawsuits on Monday – one in federal court in California and one in the DC circuit court of appeals – challenging the Pentagon’s decision to label it a supply-chain risk, a designation that has never previously been applied to a US company.\n\nThe dispute stems from collapsed contract negotiations last month over a $200m deal to deploy Anthropic’s AI on classified military systems just as the US readied for its war on Iran.\n\nTalks fell apart after Anthropic insisted its technology should not be used for mass surveillance of US citizens or to power autonomous lethal weapons, which led to Pete Hegseth, the defense secretary, dubbing the company a supply-chain risk. Last week, the Pentagon formally notified Anthropic of the decision, and the company says its government contracts have already begun to be cancelled. On Thursday, the Pentagon’s chief technology officer, Emil Michael, told CNBC “there’s no chance” the agency renegotiates with Anthropic after the designation.\n\nIn its complaint, Anthropic explained the limits and its hesitations behind its own technology. “Anthropic currently does not have confidence, for example, that Claude would function reliably or safely if used to support lethal autonomous warfare,” the filing read. “These usage restrictions are therefore rooted in Anthropic’s unique understanding of Claude’s risks and limitations.”\n\nThe company also said its first amendment rights were under attack, arguing the Pentagon had used the supply-chain risk designation – typically reserved for firms with ties to foreign adversaries such as China – as ideological punishment for its public stance on AI safety.\n\nMeanwhile, an ongoing Pentagon investigation into the Tomahawk military strike on an Shajarah Tayyebeh elementary school that reportedly killed at least 175 people, according to Iranian officials, has reportedly found in its preliminary examination that Washington was responsible for the killings. It’s unclear if AI was used in the strikes, which appear to have been caused by a targeting mistake based on outdated data from the US Defense Intelligence Agency, people familiar with the investigation told the New York Times.",
-    "readingTime": 3,
-    "keywords": [
-      "defense intelligence",
-      "supply-chain risk",
-      "amicus brief",
-      "federal court",
-      "risk designation",
-      "anthropic’s ai",
-      "technology",
-      "tech",
-      "filing",
-      "military"
-    ],
-    "qualityScore": 0.7,
-    "link": "https://www.theguardian.com/technology/2026/mar/12/microsoft-amicus-brief-anthropic-pentagon",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/2a5411c36099f7543f30d9cb2378dbbb197d94d6/340_0_2467_1975/master/2467.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d69c1abb748657d72d01b9c9a736a726",
-    "created_at": "2026-03-12T18:39:11.217Z",
-    "topic": "tech"
   }
 ]
