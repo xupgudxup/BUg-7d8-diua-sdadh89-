@@ -1,5 +1,21 @@
 [
   {
+    "slug": "driving-lyft-into-the-future",
+    "title": "Driving Lyft into the Future",
+    "description": "As the rideshare industry enters a new phase—shaped by autonomous vehicles, AI-driven decision-making, and expanding platform ecosystems—leaders are being forced to rethink not just strategy, but the fundamentals of how value is created. In this HBR Executive Live conversation, Lyft CEO David Risher reflects on what it takes to lead through that kind of transformation. Drawing on lessons from his time at Amazon and Microsoft, Risher describes how he approached turning around a company he believed had “lost its way”—starting with a renewed commitment to customer obsession, a sharper strategic focus, and the willingness to make difficult trade-offs.",
+    "fullText": "Executive LiveDriving Lyft into the FutureAn HBR Executive Live conversation with Lyft CEO David Risher. by Adi IgnatiusApril 29, 2026Summary.   Leer en españolLer em portuguêsPostPostShareSavePrint2026 will be a “transformational” year for the company, as it introduces autonomous vehicles and looks to evolve from a ride-sharing app to a “global hybrid transportation platform.”",
+    "readingTime": 1,
+    "keywords": [
+      "executive",
+      "lyft"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://hbr.org/2026/04/david-risher-live",
+    "thumbnail_url": "/resources/images/article_assets/2016/09/whiteout.png",
+    "created_at": "2026-04-29T19:07:46.718Z",
+    "topic": "business"
+  },
+  {
     "slug": "big-techs-ai-giants-report-earnings-today-these-are-the-4-most-important-numbers-to-watch",
     "title": "Big Tech's AI giants report earnings today. These are the 4 most important numbers to watch.",
     "description": "Here's what to watch with Alphabet, Microsoft, Amazon, and Meta set to report after the closing bell.",
@@ -1752,30 +1768,6 @@
     "link": "https://zoox.com",
     "thumbnail_url": "https://www.datocms-assets.com/134289/1772650418-sf-202408-zoox-robotaxi-sf-skyline-16x9.png?auto=compress&dpr=2&fm=jpg&q=90&w=400",
     "created_at": "2026-03-14T06:34:12.193Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "you-deleted-everything-and-aws-is-still-charging-you",
-    "title": "You deleted everything and AWS is still charging you?",
-    "description": "The AWS cleanup checklist I wish someone had given me when I was starting out with cloud. Learn what's actually charging you after you delete everything.",
-    "fullText": "The AWS cleanup checklist I wish someone had given me when I was starting out with cloud.\n\nI talk to computer science students regularly. There’s one fear that comes up more than almost anything else: “I am worried about spinning up stuff in the cloud and charges getting out of control.”\n\nI used to feel this. Some time ago, I set up a relational database on RDS, some virtual machines as EC2 instances, an S3 bucket to upload some data. After I was done, I deleted everything on the AWS console. Deleted my database. Terminated my instances. Then I got a bill I wasn’t expecting.\n\nDidn’t everything get deleted? Literally AWS told me “deleting” in the console. I didn’t think anything was running. What happened?\n\nThat experience stuck with me. As I work with students building on AWS, I see the exact same thing happen to them. Last semester alone, I heard some version of this story from students.\n\nI’m gonna walk us through what’s actually going on and give you a checklist to eliminate this fear when building out on AWS.\n\nHere’s an example. You delete your RDS instance at the end of a semester project. Makes sense. Project’s done. But during deletion, AWS offers to create a final snapshot of your database. It’s a checkbox. You probably don’t even register that it’s there. You click through, the database goes away, and that snapshot sits in your account quietly costing you money.\n\nSame thing with EC2. You terminate your instances and depending on how your volumes were configured, the EBS volumes that were attached don’t always get deleted with the instance. They’re still there, billing. Invisible unless you know where to look.\n\nAnd then there’s this one that gets people: Elastic IPs. When you terminate an instance, the Elastic IP doesn’t get deleted with it. It just sits there, unattached, costing you a few dollars per month. Not huge, but it adds up when you forget about it. That one catches people off guard.\n\nNone of this is hidden. It’s all documented. But nobody tells you to look for it when you’re learning, and the console doesn’t wave a red flag that says “hey, you still have billable resources over here.”\n\nHere’s the part that actually gets to me as a Developer Advocate. When a student gets a surprise bill, they don’t usually think “I missed a step in my cleanup.” They think “AWS secretly charges you even after you delete stuff.” They tell their classmates and that becomes the narrative. I’ve heard it in person, on discord, etc. “Be careful with AWS, they’ll charge you for nothing.” It’s not cool because it can scare people away from learning skills that would genuinely help their careers.\n\nAWS doesn’t charge you in mysterious ways. It charges you in specific, predictable ways that nobody taught you to look for. That’s a knowledge gap. The purpose of this post is to shed some light on this.\n\nHere’s something I wish existed when I was starting out. AWS now has a free account plan where you get $100 in credits just for signing up, and you can earn up to $200 total by completing activities like launching an EC2 instance or creating a budget. The key part: you literally cannot be billed. There’s no scenario where you wake up to a surprise charge. When your credits run out or six months pass, whichever comes first, your account just closes. That’s it. No bill.\n\nIf you want more flexibility — say you’re working on a longer project or you don’t want to risk your account closing mid-semester — you can choose the paid account plan instead. You still get the same $200 in credits, but your account stays open after they’re used up. The tradeoff is that you can be billed beyond your credits, which is exactly why the billing alarm later in this post matters. Set that up on day one and you’re covered.\n\nI’ve been guiding more students toward these options lately and it keeps coming up enough that I’ll probably write a dedicated post about it soon.\n\nThis is what I share with every student I work with now. I tell them to bookmark it and come back to it at the end of every project.\n\nBefore you click around trying to find leftover resources, go to AWS Billing Dashboard from the AWS console. Look at the current month’s charges broken down by service. This tells you exactly which services are costing money right now.\n\nIf you see a charge for RDS, go check RDS. If you see a charge for EC2, go check EC2. Let this be your map.\n\nLooking for an exhaustive list of everything going on in your AWS account across all regions?\n\nInstead of clicking through every service console in every region hoping you didn’t forget something, Resource Explorer gives you a single search interface across your entire account. All services. All regions. One view.\n\nThat last part matters more than you’d think. I’ve seen students create resources in us-east-1 for a tutorial and us-west-2 for a class project, then only check one region during cleanup and assume everything’s gone. Resource Explorer solves that completely. Resource Explorer in the console. If your account is truly clean, you’ll see very little. If it’s not, you’ll see exactly what’s still hanging around.\n\nEven with Resource Explorer, it helps to know the specific things that catch people. These are the ones I see come up a lot:\n\nSnapshots (EBS and RDS) Check EC2 -> Snapshots and RDS -> Snapshots. Common silent cost I see among students. They get created automatically, often during deletion workflows, and nobody thinks to look for them. These snapshot costs can add up - something like 100 GB could be $5/month.\n\nUnattached EBS Volumes Go to EC2 -> Volumes and filter by state: “available.” If a volume shows “available,” it’s not attached to anything. It’s just sitting there being billed.\n\nElastic IPs Check EC2 -> Elastic IPs. If any are listed and not associated with a running instance, release them.\n\nNAT Gateways If you followed a VPC tutorial with public and private subnets, check VPC -> NAT Gateways. These run about $32/month whether you’re pushing traffic through them or not. If you don’t need it, delete it.\n\nThis takes two minutes and it’s the single most important thing you can do on a new AWS account.\n\nEvery time I meet a student who communicates to me in a way that signals “I’m scared of cloud billing getting out of control,” I tell them the same thing. That fear is valid. Every dollar matters when you’re a student. Once you understand where surprise charges actually come from, which is a pretty short list, the fear goes away.\n\nThe students who get burned are the ones who don’t know about snapshots, orphaned volumes, and unattached Elastic IPs. Now you do.\n\nI tell students these three things:\n\nStart the account. Build the project. Learn the skills. And when the semester ends, come back to this checklist.\n\nOr to avoid any billing entirely, choose the free account plan when signing up. You still get credits, but you are never billed. Note: when you run out of credits (or 6 months pass, whichever comes first), AWS closes your account.\n\nClick here for more info on AWS Free Tier.\n\nThe best time to set up a billing alert was when you created your account. The second best time is right now.",
-    "readingTime": 7,
-    "keywords": [
-      "nat gateways",
-      "elastic ips",
-      "ebs volumes",
-      "aws console",
-      "account plan",
-      "resource explorer",
-      "free account",
-      "students",
-      "it’s",
-      "don’t"
-    ],
-    "qualityScore": 1,
-    "link": "https://jvogel.me/posts/2026/aws-still-charging-you/",
-    "thumbnail_url": "https://jvogel.me/_astro/light-off.C_c6cQTl.jpg",
-    "created_at": "2026-03-13T18:28:13.185Z",
     "topic": "tech"
   }
 ]
