@@ -1,5 +1,156 @@
 [
   {
+    "slug": "ai-skills-as-loader-spec-not-prompts-why-the-architecture-changes-everything",
+    "title": "AI Skills as loader spec, not prompts – why the architecture changes everything",
+    "description": "INTERNALS.md #2 · Skills are programs, not prompts. How the skills runtime actually loads, and why the architecture is everything.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://internals.laxmena.com/p/what-youre-actually-writing-when",
+    "thumbnail_url": "https://substackcdn.com/image/fetch/$s_!kikC!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F57dcbe69-b354-4bfb-b20f-897b352cd71e_3200x1680.png",
+    "created_at": "2026-05-01T01:58:02.820Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "state-of-the-ai-frontier-april-2026",
+    "title": "State of the AI Frontier, April 2026",
+    "description": "Benchmarks, rankings, and live play for AI models and agents.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://gertlabs.com/blog/state-of-frontier-april-2026",
+    "thumbnail_url": "https://gertlabs.com/gert_labs_og_icon_light.png?v=20260403",
+    "created_at": "2026-05-01T01:58:01.660Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "enabling-privacypreserving-ai-training-on-everyday-devices",
+    "title": "Enabling privacy-preserving AI training on everyday devices",
+    "description": "MIT researchers developed a technique that accelerates a privacy-preserving approach for training AI models on edge devices. Their new framework could enable more accurate, efficient, and secure AI models to be used in under-resourced settings.",
+    "fullText": "A new method developed by MIT researchers can accelerate a privacy-preserving artificial intelligence training method by about 81 percent. This advance could enable a wider array of resource-constrained edge devices, like sensors and smartwatches, to deploy more accurate AI models while keeping user data secure.\n\nThe MIT researchers boosted the efficiency of a technique known as federated learning, which involves a network of connected devices that work together to train a shared AI model.\n\nIn federated learning, the model is broadcast from a central server to wireless devices. Each device trains the model using its local data and then transfers model updates back to the server. Data are kept secure because they remain on each device.\n\nBut not all devices in the network have enough capacity, computational capability, and connectivity to store, train, and transfer the model back and forth with the server in a timely manner. This causes delays that worsen training performance.\n\nThe MIT researchers developed a technique to overcome these memory constraints and communication bottlenecks. Their method is designed to handle a heterogenous network of wireless devices with varied limitations.\n\nThis new approach could make it more feasible for AI models to be used in high-stakes applications with strict security and privacy standards, like health care and finance.\n\n“This work is about bringing AI to small devices where it is not currently possible to run these kinds of powerful models. We carry these devices around with us in our daily lives. We need AI to be able to run on these devices, not just on giant servers and GPUs, and this work is an important step toward enabling that,” says Irene Tenison, an electrical engineering and computer science (EECS) graduate student and lead author of a paper on this technique.\n\nHer co-authors include Anna Murphy ’25, a machine-learning engineer at Lincoln Laboratory; Charles Beauville, a visiting student from Ecole Polytechnique Fédérale de Lausanne (EPFL) in Switzerland and a machine-learning engineer at Flower Labs; and senior author Lalana Kagal, a principal research scientist in the Computer Science and Artificial Intelligence Laboratory (CSAIL) at MIT. The research will be presented at the IEEE International Joint Conference on Neural Networks.\n\nMany federated learning approaches assume all devices in the network have enough memory to train the full AI model, and stable connectivity to transmit updates back to the server quickly.\n\nBut these assumptions fall short with a network of heterogenous devices, like smartwatches, wireless sensors, and mobile phones. These edge devices have limited memory and computational power, and often face intermittent network connectivity.\n\nThe central server usually waits to receive model updates from all devices, then averages them to complete the training round. This process repeats until training is complete.\n\n“This lag time can slow down the training procedure or even cause it to fail,” Tenison says.\n\nTo overcome these limitations, the MIT researchers developed a new framework called FTTE (Federated Tiny Training Engine) that reduces the memory and communication overhead needed by each mobile device.\n\nTheir framework involves three main innovations.\n\nFirst, rather than broadcasting the entire model to all devices, FTTE sends a smaller subset of model parameters instead, reducing the memory requirement for each device. Parameters are internal variables the model adjusts during training.\n\nFTTE uses a special search procedure to identify parameters that will maximize the model’s accuracy while staying within a certain memory budget. That limit is set based on the most memory-constrained device.\n\nSecond, the server updates the model using an asynchronous approach. Rather than waiting for responses from all devices, the server accumulates incoming updates until it reaches a fixed capacity, then proceeds with the training round.\n\nThird, the server weights updates from each device based on when it received them. In this way, older updates don’t contribute as much to the training process. These outdated data can hold the model back, slowing the training process and reducing accuracy.\n\n“We use this semi-asynchronous approach because want to involve the least powerful devices in the training process so they can contribute their data to the model, but we don’t want the more powerful devices in the network to stay idle for a long time and waste resources,” Tenison says.\n\nThe researchers tested their framework in simulations with hundreds of heterogeneous devices and a variety of models and datasets. On average, FTTE enabled the training procedure to reach completing 81 percent faster than standard federated learning approaches.\n\nTheir method reduced the on-device memory overhead by 80 percent and the communication payload by 69 percent, while attaining near the accuracy of other techniques.\n\n“Because we want the model to train as fast as possible to save the battery life of these resource-constrained devices, we do have a tradeoff in accuracy. But a small drop in accuracy could be acceptable in some applications, especially since our method performs so much faster,” she says.\n\nFTTE also demonstrated effective scalability and delivered higher performance gains for larger groups of devices.\n\nIn addition to these simulations, the researchers tested FTTE on a small network of real devices with varying computational capabilities.\n\n“Not everyone has the latest Apple iPhone. In many developing countries, for instance, users might have less powerful mobile phones. With our technique, we can bring the benefits of federated learning to these settings,” she says.\n\nIn the future, the researchers want to study how their method could be used to increase the personalized performance of AI models on each device, rather than focusing on the average performance of the model. They also want to conduct larger experiments on real hardware.\n\nThis work was funded, in part, by a Takeda PhD Fellowship.",
+    "readingTime": 5,
+    "keywords": [
+      "mit researchers",
+      "artificial intelligence",
+      "computer science",
+      "machine-learning engineer",
+      "mobile phones",
+      "learning approaches",
+      "federated learning",
+      "researchers tested",
+      "central server",
+      "researchers developed"
+    ],
+    "qualityScore": 1,
+    "link": "https://news.mit.edu/2026/enabling-privacy-preserving-ai-training-everyday-devices-0429",
+    "thumbnail_url": "https://news.mit.edu/sites/default/files/images/202604/MIT-Federated-Constrained-01-press.jpg",
+    "created_at": "2026-05-01T01:58:01.196Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "godaddy-q1-2026-slides-margin-expansion-ai-momentum-drive-results",
+    "title": "GoDaddy Q1 2026 slides: margin expansion, AI momentum drive results",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/company-news/godaddy-q1-2026-slides-margin-expansion-ai-momentum-drive-results-93CH-4651761",
+    "thumbnail_url": "https://csv-storage.forexpros.com/slides/e7ffed0c161fad0f6de8ddca0ff36cf5d096a4ffd9e9a8c321cd1896bd83850d.png",
+    "created_at": "2026-05-01T01:58:01.171Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "global-investors-are-shrugging-off-iran-worries-and-returning-to-markets-in-asia-the-backbone-of-the-whole-ai-value",
+    "title": "Global investors are shrugging off Iran worries and returning to markets in Asia, the ‘backbone of the whole AI value chain’",
+    "description": "The AI boom is lifting markets across East Asia, yet energy concerns are causing Southeast Asia to lag behind.",
+    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
+    "readingTime": 1,
+    "keywords": [
+      "fortune"
+    ],
+    "qualityScore": 0.1,
+    "link": "https://fortune.com/2026/04/30/global-investors-are-now-looking-towards-asia-as-ai-boom-trumps-iran-war-shocks/",
+    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/04/GettyImages-2271831422-e1777545206267.jpg?resize=1200,600",
+    "created_at": "2026-05-01T01:58:00.926Z",
+    "topic": "business"
+  },
+  {
+    "slug": "a-michelinstarred-restaurant-uses-agentic-ai-to-source-the-freshest-ingredients-possible",
+    "title": "A Michelin-starred restaurant uses agentic AI to source the freshest ingredients possible",
+    "description": "Chef Silvio Pfeufer uses Saltz, a food procurement platform with agentic AI, to find top suppliers and cut down on time-consuming sourcing calls.",
+    "fullText": "Silvio Pfeufer uses Saltz to save time on food procurement at his Michelin-starred restaurant, Matthias.\n Saltz uses agentic AI to modernize a typically complicated process between food buyers and sellers.\n For independent eateries, the streamlined process can reduce costs and increase access to high-quality ingredients.\n\n How does agentic AI improve procurement?\n\n How do independent eateries benefit from AI?\n\n How does Saltz enhance supplier connections?\n\n What are the challenges in food procurement?\n\n What is agentic AI?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "independent eateries",
+      "food procurement",
+      "agentic",
+      "process",
+      "saltz"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/agentic-ai-platform-saltz-modernizes-restaurant-food-procurement-2026-4",
+    "thumbnail_url": "https://i.insider.com/69f37ca83a470d54991e8dc9?width=1200&format=jpeg",
+    "created_at": "2026-05-01T01:58:00.310Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "the-blame-game-over-ai-hallucinations-in-court-filings-has-started",
+    "title": "The blame game over AI hallucinations in court filings has started",
+    "description": "A Louisiana lawyer apologized for errors in filings. He disclosed the tool he uses, and that company said they are not responsible.",
+    "fullText": "A personal injury lawyer apologized for filing court documents with fabricated quotations.\n The lawyer told the judge that he had begun using software from a venture-backed startup called Eve.\n The episode highlights a growing risk for the startups selling artificial intelligence to lawyers.\n\n How do AI hallucinations occur?\n\n How can lawyers verify AI outputs?\n\n How does AI impact legal accountability?\n\n What are the risks for AI startups?\n\n What safeguards do AI tools offer?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "lawyer",
+      "startups",
+      "lawyers"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/ai-hallucinations-court-filings-eve-dudley-debosier-2026-4",
+    "thumbnail_url": "https://i.insider.com/69f379ba79c9af599deece59?width=1200&format=jpeg",
+    "created_at": "2026-05-01T01:58:00.308Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "judge-tells-elon-musk-to-cool-it-on-the-robot-apocalypse-talk",
+    "title": "Judge tells Elon Musk to cool it on the robot apocalypse talk",
+    "description": "Elon Musk made repeated references to an AI \"Terminator\" scenario while testifying before a California federal jury about OpenAI's for-profit move.",
+    "fullText": "Elon Musk repeatedly referenced an AI \"Terminator\" scenario while testifying about OpenAI.\n The judge presiding over the trial shut down the AI doomsday talk on Thursday.\n Musk is suing over $38 million he donated to OpenAI's nonprofit, and AI safety is key to his case.\n\n What are AI safety measures?\n\n What is OpenAI's founding mission?\n\n What role does AI play in Musk's businesses?\n\n How does AI impact the legal system?\n\n How does Musk view AI's potential risks?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "openai's",
+      "safety",
+      "musk"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/judge-elon-musk-stop-robot-apocalypse-ai-terminator-extinction-talk-2026-4",
+    "thumbnail_url": "https://i.insider.com/69f3b66d3022d9b19bbff3d1?width=1200&format=jpeg",
+    "created_at": "2026-05-01T01:58:00.019Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "4-things-you-missed-from-day-4-of-the-musk-v-altman-trial",
+    "title": "4 things you missed from Day 4 of the Musk v. Altman trial",
+    "description": "Elon Musk faced another day of cross-examination. Jared Birchall, Musk's wealth manager, was the next witness called in the blockbuster OpenAI trial.",
+    "fullText": "Elon Musk was back on the witness stand in his civil trial against OpenAI and its CEO, Sam Altman.\n Musk's money manager, Jared Birchall, testified about Musk's charitable donations.\n See who will be questioned next week when the trial continues.\n\n Who is Greg Brockman?\n\n What led to the Musk v. Altman trial?\n\n Who is Jared Birchall?\n\n How does xAI compare to its rivals?\n\n What are Musk's AI-related concerns?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "trial",
+      "musk's",
+      "musk",
+      "altman",
+      "jared",
+      "birchall"
+    ],
+    "qualityScore": 0.3,
+    "link": "https://www.businessinsider.com/takeaways-elon-musk-sam-altman-openai-federal-trial-2026-4",
+    "thumbnail_url": "https://i.insider.com/69f3e2659a23d20d291b540e?width=1200&format=jpeg",
+    "created_at": "2026-05-01T01:57:59.876Z",
+    "topic": "finance"
+  },
+  {
     "slug": "sam-altman-falls-out-of-love-with-universal-basic-income",
     "title": "Sam Altman falls out of love with universal basic income",
     "description": "OpenAI CEO Sam Altman once spent millions to fund a massive study of UBI. In the age of AI, cash payments aren't the best answer.",
@@ -1711,180 +1862,6 @@
     "link": "https://www.businessinsider.com/elon-musk-sam-altman-openai-trial-testimony-2026-4",
     "thumbnail_url": "https://i.insider.com/69f1047f3b4f7c3af2b7abeb?width=1200&format=jpeg",
     "created_at": "2026-04-28T19:18:48.700Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "wall-street-is-eyeing-a-new-burst-of-growth-for-meta-ahead-of-its-q1-earnings-report",
-    "title": "Wall Street is eyeing a new burst of growth for Meta ahead of its Q1 earnings report",
-    "description": "Analysts have a high bar for Meta's revenue growth for the first-quarter, which they expect to be fueled by AI and its ads business.",
-    "fullText": "Meta will report first-quarter earnings after the close on Wednesday.\n Analysts have set a high bar for revenue growth, which they think will be fueled by AI.\n Wall Street is seeking guidance on capex, as the company continues to build out AI capabilities.\n\n How will AI impact Meta's growth?\n\n How does Muse Spark fit into Meta's strategy?\n\n How does Meta compare to AI competitors?\n\n What are Meta's capex guidance details?\n\n What challenges does Meta face with AI?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "meta",
-      "meta's",
-      "growth",
-      "guidance",
-      "capex"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/meta-q1-earnings-preview-ai-revenue-growth-capex-wall-street-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f0d5649244129ecb2f8d11?width=1200&format=jpeg",
-    "created_at": "2026-04-28T19:18:48.482Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-cost-of-compute-is-far-beyond-the-costs-of-the-employees-nvidia-executive-says-right-now-ai-is-more-expensive-than",
-    "title": "‘The cost of compute is far beyond the costs of the employees’: Nvidia executive says right now AI is more expensive than paying human workers",
-    "description": "Big Tech has announced $740 billion in capex this year, but AI has yet to show evidence of widespread increased productivity.",
-    "fullText": "Recent tech layoffs would initially appear to indicate the great labor shift from human workers to AI may already be happening.\n\nMeta announced last week in a memo that it plans to lay off 10% of its workforce, about 8,000 employees, as well as scrap plans to hire for 6,000 open positions. It’s part of an effort to “run the company more efficiently and to allow us to offset the other investments we’re making,” according to the memo. Microsoft has offered thousands of its own employees a voluntary buyout, the largest the company has ever offered.\n\nWhen might AI costs drop below human labor expenses?\n\nWhy do tech layoffs continue despite AI costs?\n\nHow much more expensive is AI than human labor?\n\nWhat factors will make AI economically viable long-term?\n\nOther tech headers, however, suggest that right now, AI isn’t saving companies money on labor; it’s actually costing them more than the humans they currently employ.\n\n“For my team, the cost of compute is far beyond the costs of the employees,” Bryan Catanzaro, vice president of applied deep learning at Nvidia, recently told Axios.\n\nAn MIT study from 2024 backs up Catanzaro’s experience. Analyzing the technical requirements of AI models needed to perform jobs at a human level, researchers found that AI automation would be economically viable in only 23% of roles where vision is a primary part of the work. In the remaining 77% of the time, it was cheaper for humans to continue their work.\n\nIn other instances, AI has proved to be fallible, with one engineer saying an AI agent destroyed his database and network as a result of what he called “overuse.”\n\nDespite no clear evidence of AI improving productivity and, according to the Yale Budget Lab, no widespread data to support the idea of AI displacing jobs, Big Tech firms have continued to pour money into AI, announcing $740 billion in capital expenditures this year so far, according to Morgan Stanley, a 69% increase from 2025. The magnitude of spending has caused some companies to rethink their budget altogether.\n\n“I’m back to the drawing board because the budget I thought I would need is blown away already,” Uber chief technology officer Praveen Neppalli Naga told The Information earlier this month, referring to the rideshare giant’s pivot to AI coding tools, such as Anthropic’s Claude Code.\n\nThis increase in spending has coincided with more layoffs in the tech sector. According to data from Layoffs.fyi, there have been more than 92,000 layoffs in tech in 2026 so far across nearly 100 companies. The rate of these workforce reductions is already far outpacing that of last year, which saw about 120,000 layoffs in total.\n\nThe continued AI spending and layoffs, even as human labor remains cheaper, expose a meaningful discrepancy in the economics of AI, said Keith Lee, an AI and finance professor at the Swiss Institute of Artificial Intelligence’s Gordon School of Business.",
-    "readingTime": 3,
-    "keywords": [
-      "economically viable",
-      "human labor",
-      "tech layoffs",
-      "employees",
-      "memo",
-      "plans",
-      "workforce",
-      "it’s",
-      "despite",
-      "money"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/sectors/technology/articles/cost-compute-far-beyond-costs-071100797.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/GWwIPlOQdJ0k7n5zMu8Fxw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/fortune_175/8e872fdba68c60858d5a65b1d4c04b86",
-    "created_at": "2026-04-28T19:18:38.169Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "google-agrees-to-provide-ai-systems-for-classified-pentagon-work",
-    "title": "Google agrees to provide AI systems for classified Pentagon work",
-    "description": "Google agrees to provide AI systems for classified Pentagon work",
-    "fullText": "Investing.com -- Google has reached an agreement with the US Defense Department to allow its artificial intelligence systems to be used for classified military work, according to a Bloomberg report Tuesday.\n\nA spokesperson for Alphabet Inc.’s Google confirmed the company had amended its contract with the Pentagon. The deal includes providing the Pentagon with API access, giving the agency the ability to connect directly with the company’s software. The arrangement does not include custom work or model development, the spokesperson said.\n\n\"We believe that providing API access to our commercial models, including on Google infrastructure, with industry-standard practices and terms, represents a responsible approach to supporting national security,\" a company spokesperson said in a statement.\n\nThe spokesperson added that the company \"remain committed to the private and public sector consensus that AI should not be used for domestic mass surveillance or autonomous weaponry without appropriate human oversight.\"\n\nThe amended contract represents a new milestone in Google’s provision of AI to the Pentagon. On Monday, hundreds of AI researchers sent a letter to Alphabet Chief Executive Officer Sundar Pichai urging him to refuse to make the company’s AI systems available for classified workloads for US defense missions.\n\nThis article was generated with the support of AI and reviewed by an editor.",
-    "readingTime": 2,
-    "keywords": [
-      "api access",
-      "systems",
-      "classified",
-      "amended",
-      "contract",
-      "company’s",
-      "represents",
-      "google",
-      "pentagon",
-      "defense"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.investing.com/news/stock-market-news/google-agrees-to-provide-ai-systems-for-classified-pentagon-work-93CH-4642696",
-    "thumbnail_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
-    "created_at": "2026-04-28T19:18:37.854Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "cctop-a-keyboardfirst-menubar-app-to-jump-between-ai-coding-sessions",
-    "title": "Cctop – A keyboard-first menubar app to jump between AI coding sessions",
-    "description": "A keyboard-first macOS menubar app. Works with Claude Code, opencode, pi, and Codex CLI.",
-    "fullText": "No. The plugin runs a tiny native binary on each event, which writes a small JSON file and returns immediately. There is no measurable impact on performance.\n\nNo — no network access, no analytics, no telemetry. All session data stays on your machine in ~/.cctop/sessions/ as plain JSON you can inspect anytime.\n\nNo. Once the plugin is installed, every session is automatically tracked. There's no per-project setup.\n\nPlugins look for the cctop helper inside /Applications/cctop.app or ~/.cctop/bin/. Installing elsewhere breaks the integration.\n\nInstalled via Homebrew? Use brew uninstall --cask cctop for step 1.",
-    "readingTime": 1,
-    "keywords": [
-      "plugin",
-      "json",
-      "session",
-      "installed",
-      "cctop"
-    ],
-    "qualityScore": 0.55,
-    "link": "https://cctop.app/",
-    "thumbnail_url": "https://cctop.app/og.png",
-    "created_at": "2026-04-28T13:27:40.820Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "microsofts-github-shifts-to-metered-ai-billing-amid-cost-crisis",
-    "title": "Microsoft's GitHub shifts to metered AI billing amid cost crisis",
-    "description": ": The all-you-can-eat AI buffet is coming to an end",
-    "fullText": "Microsoft is closing the AI buffet offered to GitHub Copilot customers, acknowledging that it can’t sell AI like Red Lobster's Endless Shrimp.\n\nThe US seafood restaurant's all-you-can-eat shrimp promotion led the company to bankruptcy in 2024 and while Microsoft is nowhere near so financially overextended, the software giant's code hosting biz has decided it no longer wants Copilot to operate at a loss.\n\nGitHub is therefore shifting Copilot from request-based billing to usage-based billing on June 1, 2026.\n\nGitHub absorbed much of the escalating inference cost, but the current premium request model is no longer sustainable\n\nUnder request-based billing, GitHub Copilot subscribers will be allowed to submit a set number of premium requests, with certain models priced at a higher request rate but without any consideration for the complexity of the request. So complex prompts that require a lot of \"thinking\" often cost GitHub more than the company earned in subscription fees.\n\n\"Today, a quick chat question and a multi-hour autonomous coding session can cost the user the same amount,\" explained Mario Rodriguez, chief product officer on the GitHub product team, in a blog post. \"GitHub has absorbed much of the escalating inference cost behind that usage, but the current premium request model is no longer sustainable.\"\n\nUnder usage-based billing, there's a more direct correlation with metered tokens – sets of three or four characters that represent the basic economic unit for selling AI services.\n\nIt's not quite as simple as $X for X tokens – different models meter tokens at different rates – so GitHub has devised a virtual currency unit called GitHub AI Credits that's worth $0.01.\n\nCopilot customers consume input tokens, output tokens, and cached tokens, each priced based on the model used. Microsoft converts that to a cost measured in AI Credits.\n\n\"Instead of counting premium requests, every Copilot plan will include a monthly allotment of GitHub AI Credits, with the option for paid plans to purchase additional usage,\" said Rodriguez. \"Usage will be calculated based on token consumption, including input, output, and cached tokens, using the listed API rates for each model.\"\n\nKnowing the outcome of this calculation in advance will be difficult – usage-based billing is non-deterministic, so users can never be sure how much time, and how many tokens, a model will consume to respond to a specific input. Different prompts may involve tools that complicate token consumption calculations.\n\nGitHub at least intends to try to give customers a hint of what's coming. Rodriguez said the company will introduce \"a preview bill experience in early May, giving users and admins visibility into projected costs before the June 1 transition.\"\n\nAI companies were taken by surprise when OpenClaw attracted widespread attention in February, prompting a surge of experimentation with AI agents running 24/7 on various tasks. And the increasing competency of AI models around this time also encouraged more developers to explore AI coding.\n\nAs a result, companies offering subsidized access to AI services through subscription plans faced more demand than they could satisfy with their inferencing infrastructure. The price correction that followed has been rippling across the industry.\n\nGitHub last week signaled its intent to stanch the red ink by suspending the creation of new Copilot, Pro, Pro+, and Student plans.\n\nBefore that, Anthropic and Google took steps to limit some uses of its services. OpenAI responded by debuting a more expensive $100 subscription tier in an effort to boost usage of its Codex model, even as the company is contemplating an end to unlimited usage under subscription plans. Cloud providers like AWS and Azure have been dealing with capacity challenges too.\n\nGitHub's subscription rates will remain the same: Copilot Pro is $10/month, Pro+ is $39/month, Business is $19/user/month, and Enterprise is $39/user/month.\n\nAt the $0.01 GitHub AI Credit rate, Copilot Pro subscribers get 1,000 AI Credits per month. Copilot Pro+ subscribers get 3,900. Once users exhaust the usage allowed under a plan, they can define an overflow budget – or just stop using AI until the next monthly billing cycle resets their AI Credit balance.\n\nOrganizations and enterprises will receive 1,900 and 3,900 API Credits per user per month respectively. However, existing Copilot Business and Copilot Enterprise customers get a higher number of API Credits from June 1 through September 1, 2026, at 3,000 and 7,000 respectively.\n\nUsers on annual subscription plans have the option to cancel and receive a pro-rated refund or to be downgraded to Copilot Free upon subscription expiration – those plans will not be renewable. Regardless, those riding their annual subscription plans to the bitter end will see prices skyrocket for premium models. For example, Anthropic's Opus 4.7, subject to a 7.5x multiple under request-based billing, will see its multiplier jump to 27 going forward. OpenAI's GPT-5.4 will see its multiplier rise from 1x to 6x.\n\nThe new regime isn't entirely metered. Subscribers who reach their AI Credit limit can continue to access Copilot for code completions and Next Edit Suggestions – these services are unlimited on paid plans.\n\nThat's more than you can say about Endless Shrimp, recently revived for a limited time only. ®",
-    "readingTime": 5,
-    "keywords": [
-      "credits per",
-      "pro subscribers",
-      "escalating inference",
-      "token consumption",
-      "longer sustainable",
-      "premium requests",
-      "copilot customers",
-      "request-based billing",
-      "usage-based billing",
-      "cached tokens"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theregister.com/2026/04/28/microsofts_github_shifts_to_metered/",
-    "thumbnail_url": "https://regmedia.co.uk/2020/11/23/shutterstock_ben_franklin.jpg",
-    "created_at": "2026-04-28T13:27:40.671Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "a-time-traveling-superintelligent-ai-tried-to-warn-about-correspondence-dinner",
-    "title": "A Time Traveling Superintelligent AI tried to warn about correspondence dinner",
-    "description": "Exploring the origins of an incredibly dumb, Magic Eye-themed WHCD conspiracy theory.",
-    "fullText": "conspiracy theories\n Did a Time Traveling Superintelligent AI Try to Warn About White House Correspondents Dinner Shooting? An Investigation\n\n Jason Koebler\n\n ·\n\n Apr 27, 2026\n at 2:38 PM\n\n Exploring the origins of an incredibly dumb, Magic Eye-themed WHCD conspiracy theory.",
-    "readingTime": 1,
-    "keywords": [
-      "conspiracy"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://www.404media.co/did-a-time-traveling-superintelligent-ai-try-to-warn-about-white-house-correspondents-dinner-shooting-an-investigation/",
-    "thumbnail_url": "https://storage.ghost.io/c/0f/76/0f76b548-bc58-4f25-abc3-3f5ebca07da4/content/images/size/w1200/2026/04/CleanShot-2026-04-27-at-11.28.27@2x-1.png",
-    "created_at": "2026-04-28T13:27:40.513Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "how-to-audit-what-chatgpt-knows-about-you-and-reclaim-your-data-privacy",
-    "title": "How to audit what ChatGPT knows about you – and reclaim your data privacy",
-    "description": "If you're looking to limit the amount of personal information you give ChatGPT, these are the main settings you should know about.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.zdnet.com/article/chatgpt-privacy-settings-guide/",
-    "thumbnail_url": "https://www.zdnet.com/a/img/resize/ef2f97b51b6a76a22593c4ed29930bb581ab92c8/2026/04/07/c9e9db59-58e5-46fb-b06c-6c8e199e9dbb/gettyimages-2268540971.jpg?auto=webp&fit=crop&height=675&width=1200",
-    "created_at": "2026-04-28T13:27:38.791Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "read-amazons-6-internal-tenets-for-ai-adoption-cutting-edge-not-bleeding-edge",
-    "title": "Read Amazon's 6 internal tenets for AI adoption: 'Cutting edge, not bleeding edge'",
-    "description": "Amazon's AI-native strategy prioritizes practical AI adoption, emphasizing balance in speed, cost, and control.",
-    "fullText": "Amazon's massive retail arm has formalized its AI approach in 6 internal engineering tenets.\n The list emphasizes a pragmatic approach that balances speed, cost, and control.\n The tenets are part of a broader AI push to improve coding speed and efficiency.\n\n What is \"AI-native\" strategy?\n\n What are AI adoption challenges?\n\n How does AI improve coding speed?\n\n How does Amazon balance AI and cost?\n\n Why prioritize delivery over cost?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "improve coding",
-      "coding speed",
-      "approach",
-      "tenets"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/amazon-tenets-engineers-building-ai-2026-4",
-    "thumbnail_url": "https://i.insider.com/69efd250a98bc8fdc096f757?width=1200&format=jpeg",
-    "created_at": "2026-04-28T13:27:37.007Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "8-partners-set-to-transform-the-future-of-energy-consulting",
-    "title": "8 partners set to transform the future of energy consulting",
-    "description": "Consulting firms like Boston Consulting and McKinsey see AI-driven electricity demand surge, complicating energy transition efforts.",
-    "fullText": "Senior advisors are focusing on AI-driven power demand in the energy sector.\n US is emerging as a major hub for global computational demand growth.\n Energy consulting services are experiencing rapid growth due to AI power needs.\n\n How is AI reshaping energy demand?\n\n What challenges face energy consultants now?\n\n What predicts a greener automated future?\n\n Why is the US a hub for compute growth?\n\n How can AI reduce energy needs elsewhere?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "energy",
-      "demand",
-      "growth",
-      "needs"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/top-energy-consultants-ai-power-demand-data-centers-2026-4",
-    "thumbnail_url": "https://i.insider.com/69efcc553fecbb42897a4b57?width=1200&format=jpeg",
-    "created_at": "2026-04-28T13:27:36.996Z",
     "topic": "finance"
   }
 ]
