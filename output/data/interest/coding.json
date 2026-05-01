@@ -1,5 +1,49 @@
 [
   {
+    "slug": "keep-your-coding-agent-on-track",
+    "title": "Keep your coding agent on track",
+    "description": "Governance guardrails and insights for AI coding agents - algorismo-au/lanekeep",
+    "fullText": "English ·\n 简体中文 ·\n 日本語 ·\n Español ·\n 한국어 ·\n Português ·\n Deutsch ·\n Français ·\n Русский ·\n Türkçe ·\n العربية ·\n Tiếng Việt ·\n Italiano ·\n हिन्दी\n\nLaneKeep allows your AI coding agent to run within boundaries that you control.\n\nEvery policy and rule is controlled by you.\n\nSupports Claude Code CLI on Linux, macOS, and Windows (via WSL or Git Bash). Other platforms coming soon.\n\nAdd bin/ to your PATH permanently:\n\nDetects your shell and writes to your rc file. Idempotent.\n\nOr for the current session only:\n\nCreates lanekeep.json, .lanekeep/traces/, and installs hooks in .claude/settings.local.json.\n\nDenied actions show a reason. Allowed actions proceed silently. View decisions in the dashboard (lanekeep ui) or from the terminal with lanekeep trace / lanekeep trace --follow.\n\nlanekeep init registers hooks automatically, but you can manage hook registration independently:\n\nRestart Claude Code after enable or disable for changes to take effect.\n\nenable writes three hooks (PreToolUse, PostToolUse, Stop) into your Claude Code\nsettings file: project-local .claude/settings.local.json if it exists, otherwise\n~/.claude/settings.json. disable removes them cleanly.\n\nHooks alone work: every tool call is evaluated inline. The sidecar adds a\npersistent background process for faster evaluation and the web dashboard:\n\nThere are two levels of \"disable\":\n\nTo pause a single policy and re-enable it:\n\nTo disable LaneKeep entirely and bring it back:\n\nSee Configuration to override, extend, or disable anything.\n\nLaneKeep protects itself and the agent's own governance files from modification\n\ncould disable enforcement, tamper with audit logs, or bypass budget limits.\n\nWrites are blocked by the governance_paths policy (Write/Edit tools).\nReads of the active configuration (lanekeep.json, .lanekeep/ state files)\nare blocked by rules sec-039 and sec-040. Exposing the ruleset would let\nthe agent reverse-engineer match patterns and craft evasions. LaneKeep source\ncode (bin/, lib/) remains readable; security of the engine is open, but the\nactive configuration is opaque to the governed agent. See REFERENCE.md for details.\n\nHooks into the PreToolUse hook and runs every tool call through a tiered pipeline before it executes. First deny stops the pipeline.\n\nThe Semantic evaluator reads the task goal from TaskSpec. Set it with\nlanekeep serve --spec DESIGN.md or write .lanekeep/taskspec.json directly.\nSee REFERENCE.md for details.\n\nSee CLAUDE.md for detailed tier descriptions and data flow.\n\nEverything is configurable: built-in defaults, user-defined rules, and\ncommunity-sourced packs all merge into a single policy. Override any default,\nadd your own rules, or disable what you don't need.\n\nConfig resolves: $PROJECT_DIR/lanekeep.json -> $LANEKEEP_DIR/defaults/lanekeep.json.\nConfig is hash-checked at startup; mid-session modifications deny all calls.\n\nEvaluated before rules. 20 built-in categories, each with dedicated extraction\nlogic (e.g. domains parses URLs, branches extracts git branch names).\nCategories: tools, extensions, paths, commands, domains,\nmcp_servers, and more. Toggle with lanekeep policy or from the Governance tab in the dashboard.\n\nPolicies vs Rules: Policies are structured, typed controls for predefined\ncategories. Rules are the flexible catch-all: they match any tool name + any\nregex pattern against the full tool input. If your use case doesn't fit a policy\ncategory, write a rule instead.\n\nTo temporarily disable a policy (e.g. to update CLAUDE.md):\n\nOrdered first-match-wins table. No match = allow. Match fields use AND logic.\n\nYou don't need to copy the full defaults. Use \"extends\": \"defaults\" and add your rules:\n\nRules can also be added, edited, and dry-run in the Rules tab of the dashboard, or test from the CLI first:\n\nWhen you install a new version of LaneKeep, new default rules become active automatically. Your customizations (extra_rules, rule_overrides, disabled_rules) are never touched.\n\nOn the first sidecar start after an upgrade, you'll see a one-time notice:\n\nUsing a monolithic config? (no \"extends\": \"defaults\") New default rules won't be\nmerged automatically. Run lanekeep migrate to convert to the layered format and keep\nall your customizations intact.\n\nSet via LANEKEEP_PROFILE env var or \"profile\" in lanekeep.json.\n\nSee REFERENCE.md for rule fields, policy categories, settings,\nand environment variables.\n\nSee REFERENCE.md: CLI Reference for the full command list.\n\nSee exactly what your agent is doing while it builds: live decisions, token usage, file activity, and audit trail in one place.\n\nLive input/output token counters, context window usage %, and budget progress bars. Catch sessions heading off the rails before they burn time and money. Set hard caps on actions, tokens, and time that auto-enforce when hit.\n\nLive decision feed, denial trends, per-file activity, latency percentiles, and a decision timeline across your session.\n\nOne-click config validation, plus a coverage map linking rules to regulatory frameworks (PCI-DSS, HIPAA, GDPR, NIST SP800-53, SOC2, OWASP, CWE, AU Privacy Act), with gap highlighting and rule impact analysis.\n\nEvery file your agent reads or writes, with per-file token sizes to see what's eating your context window. Plus operation counts, denial history, and an inline editor.\n\nConfigure enforcement profiles, toggle policies, and tune budget limits, all from the dashboard. Changes take effect immediately without restarting the sidecar.\n\nLaneKeep runs entirely on your machine. No cloud, no telemetry, no account.\n\nSee SECURITY.md for vulnerability reporting.\n\nSee CLAUDE.md for architecture and conventions. Run tests with\nbats tests/ or lanekeep selftest. Cursor adapter included (untested).\n\nAI agent guardrails, AI agent governance, AI coding agent security, agentic AI\nsecurity, vibe coding security, AI agent policy engine, governance sidecar, AI\nagent firewall, AI agent audit trail, AI agent least privilege, AI agent\nsandboxing, prompt injection prevention, MCP security, MCP guardrails, Claude\nCode security, Claude Code guardrails, Claude Code hooks, Cursor guardrails,\nCopilot governance, Aider guardrails, AI agent monitoring, AI agent\nobservability, AI coding assistant safety, policy-as-code, governance-as-code,\nAI agent runtime security, AI agent access control, AI agent permissions, AI\nagent allowlist denylist, OWASP agentic top 10, NIST AI risk management, SOC2\nAI compliance, HIPAA AI compliance, EU AI Act compliance tools, PII detection,\nsecrets detection, AI agent budget limits, token budget enforcement, AI agent\ncost control, shadow AI governance, AI development guardrails, DevSecOps AI, AI\nagent command blocking, AI agent file access control, defense in depth AI, zero\ntrust AI agents, fail-closed security, append-only audit log, deterministic\nguardrails, rule engine AI, compliance automation AI, AI agent behavior\nmonitoring, AI agent risk management, open source AI governance, CLI guardrails\ntool, shell-based policy engine, no-cloud AI security, zero network calls, AI\ncoding tool audit log\n\nWe are looking for ambitious engineers to help us extend the capabilities of LaneKeep.\n\nIs this you? Get in touch → info@algorismo.com",
+    "readingTime": 6,
+    "keywords": [
+      "context window",
+      "risk management",
+      "guardrails claude",
+      "extends defaults",
+      "active configuration",
+      "budget limits",
+      "audit trail",
+      "audit log",
+      "claude code",
+      "lanekeep trace"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/algorismo-au/lanekeep",
+    "thumbnail_url": "https://opengraph.githubassets.com/bd50e6fb18888474cb440827aae5fd6606b2665d6538929f8b8680ed1fa62248/algorismo-au/lanekeep",
+    "created_at": "2026-05-01T12:54:29.980Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "aws-ceo-dismisses-ai-job-loss-fears-says-amazon-plans-to-hire-11000-interns-in-2026",
+    "title": "AWS CEO dismisses AI job loss fears, says Amazon plans to hire 11,000 interns in 2026",
+    "description": "The CEO said demand for software jobs is \"accelerating.\" It comes as other AI leaders warn coding jobs are getting disrupted.",
+    "fullText": "AWS's CEO, Matt Garman, said Amazon sees demand for hiring new software engineers \"accelerating.\"\n He said Amazon will hire 11,000 SDE interns in 2026 — the company says it's similar to recent years.\n Other AI leaders warn coding tools could significantly disrupt software engineering jobs.\n\n What roles will AI play in Amazon's future?\n\n What skills will future engineers need?\n\n What impact do AI tools have on coding jobs?\n\n How is software engineering evolving?\n\n How does AWS plan to use AI tools?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "software engineering",
+      "tools",
+      "amazon",
+      "engineers",
+      "coding",
+      "jobs"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/aws-ceo-amazon-ai-coding-jobs-interns-hiring-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f3719a79c9af599deece26?width=1200&format=jpeg",
+    "created_at": "2026-05-01T12:54:26.410Z",
+    "topic": "finance"
+  },
+  {
     "slug": "an-earlystage-vc-shares-why-hes-not-investing-in-ai-coding-startups-but-doubling-down-on-these-founders",
     "title": "An early-stage VC shares why he's not investing in AI coding startups — but doubling down on these founders",
     "description": "Jussi Salovaara, managing partner at startup accelerator Antler Asia, said he doesn't see much more room for new entrants in the AI-assisted coding space.",
@@ -1879,54 +1923,6 @@
     "link": "https://github.com/bilalimamoglu/sift",
     "thumbnail_url": "https://repository-images.githubusercontent.com/1176844695/cb916442-4eab-4cce-9631-f2cbaf92ff05",
     "created_at": "2026-03-19T18:41:54.657Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "skillfile-the-declarative-skill-manager-now-autodiscovers-skills-in-repos",
-    "title": "Skillfile, the declarative skill manager, now auto-discovers skills in repos",
-    "description": "One-stop shop for AI skills and agents. Search 110K+ community skills, install and track them declaratively, and deploy across all major AI coding tools (Claude Code, Codex, etc) - eljulians/skillfile",
-    "fullText": "Track AI skills and agents declaratively, like dependencies. Pin them. Patch them. Deploy everywhere.\n\nDeclare your skills in a manifest. Pinned to exact commits. Deploys to Claude Code, Cursor, Gemini, and 5 more. Customize without losing upstream updates. Search 110K+ skills from the terminal.\n\nYou found a great skill on GitHub and copied the markdown into .claude/skills/. Maybe you grabbed one from agentskill.sh. So what now?\n\nskillfile fixes all of that. One manifest, one lock file, every platform.\n\nOr download a pre-built binary from GitHub Releases. Or build from \n\nGitHub token recommended. skillfile uses the GitHub API to resolve commits. Without a token you're limited to 60 req/hour. Set GITHUB_TOKEN, GH_TOKEN, or run gh auth login.\n\nThat's it. Skills are fetched, locked to exact SHAs, and deployed. On a fresh clone, skillfile install reproduces the exact same setup.\n\nLooking for skills to install? See awesome-agents-and-skills for a curated collection with a ready-to-use Skillfile.\n\nRun skillfile add for a guided wizard, or use the explicit CLI for any \n\nBrowse agentskill.sh, skills.sh, and skillhub.club without leaving the terminal. Results are sorted by popularity, deduplicated, and include security scores.\n\nEdit an installed skill to fit your workflow, then pin it. Your changes survive upstream updates automatically.\n\nPatches live in .skillfile/patches/ and are committed to version control. Your whole team gets the same customizations.\n\nWrite your Skillfile once. Deploy to every AI coding tool you use.\n\nConfigure multiple platforms at once. skillfile install deploys to all of them.\n\nEvery GitHub entry is pinned to an exact commit SHA in Skillfile.lock. Commit this file. On any machine, skillfile install fetches the exact same bytes. install --update re-resolves to the latest upstream, and the lock diff shows exactly what changed in code review.\n\nCommit Skillfile, Skillfile.lock, and .skillfile/patches/ to your repo. That's it.\n\nThe most common team setup: write your own skills in the repo and mix in community ones. Everyone gets the same AI behavior.\n\nLocal skills live in your repo. You write and version them with git. GitHub skills are pinned to exact SHAs in the lock file. Both deploy to every configured platform. New teammate joins, runs skillfile install, and gets the same AI setup as everyone else.\n\nLine-oriented, space-delimited, human-editable. No YAML, no TOML.\n\nNames are inferred from filenames when omitted. Full format specification in SPEC.md.\n\nskillfile is a file manager. It downloads markdown from sources you specify and places it where your AI tools expect it. It does not execute, verify, or sandbox the content.\n\nThe lock file pins entries to exact commit SHAs. The same SHA always produces the same bytes. install --dry-run lets you review what will be fetched. Patches make all local modifications visible in version control. But none of this tells you whether the content is safe.\n\nReview what you install. The risk profile is the same as git clone.",
-    "readingTime": 3,
-    "keywords": [
-      "exact shas",
-      "upstream updates",
-      "lock file",
-      "bytes install",
-      "exact commit",
-      "skillfile install",
-      "skills",
-      "pinned",
-      "without",
-      "setup"
-    ],
-    "qualityScore": 0.8,
-    "link": "https://github.com/eljulians/skillfile",
-    "thumbnail_url": "https://opengraph.githubassets.com/ae97d97014bdfa4e79d1e8c1f5a832215e31f9ea1cb552d1d4772e7d4f9c9786/eljulians/skillfile",
-    "created_at": "2026-03-19T12:38:29.963Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ai-coding-factory",
-    "title": "AI Coding Factory",
-    "description": "Contribute to jaksa76/ai-coding-factory development by creating an account on GitHub.",
-    "fullText": "Autonomous AI agents that pull issues from a task manager, implement them, and push code — continuously. Inspired by AI Coding Factories.\n\nWorkers poll a task manager for unassigned issues, claim one, clone the repo, invoke an AI agent to implement it, commit and push the result, then loop back for the next issue. The task manager is the single source of truth — no local task store.\n\nThe task management backend is pluggable via the TASK_MANAGER environment variable (default: jira).\n\nClone the repository and run the setup script:\n\nRe-run setup.sh at any time to update credentials or change the agent.\n\nAll configuration is passed via environment variables. setup.sh writes these to an env file for you, but you can also set them manually.\n\nThe default backend is jira. Provide your Jira credentials:\n\nPROJECT is the canonical target passed to loop --project:\n\nClaude (subscription): log in with claude login first, then import your credentials (see below). Or set them manually from ~/.claude/.credentials.json:\n\nThere are three ways to run workers: directly, via Docker, or via the factory.\n\nRun the loop script directly on your machine (no Docker required):\n\nThis uses whatever agent script is on your PATH (set by setup.sh) and the environment variables in your current shell. Useful for development and testing.\n\nBuild a worker image and run it with your env file:\n\nUse factory to manage multiple Docker workers at once:\n\nThis uses the worker-claude image by default. Override with FACTORY_WORKER_IMAGE=<image>. Images are automatically built or rebuilt when missing or outdated.\n\nYou can also set the env file globally:\n\nFor lower-level control (e.g. a specific image):\n\nTo run workers on AWS ECS Fargate instead of local Docker, create a runtime symlink in the factory directory pointing to runtime-aws:\n\nThen set the required AWS variables:\n\nAll other factory commands (factory workers, factory status, factory logs, etc.) work the same way.\n\nTo open a PR per issue instead of pushing directly to the default branch:\n\nOr add a needs-branch label to individual Jira issues. The worker creates feature/<ISSUE-KEY>, pushes it, opens a PR, posts a comment with the PR URL, and attempts to transition the issue to In Review.\n\nIndividual issues can opt out with the skip-branch label (takes precedence over FEATURE_BRANCHES=true).\n\nIf you use a Claude subscription, OAuth tokens expire periodically. After running claude login to refresh them, import the new credentials into your env file with:\n\nThis reads ~/.claude/.credentials.json and updates the CLAUDE_* variables in your env file in place.\n\nIf your workflow requires a planning step before implementation, run planner workers alongside your regular workers. Planners claim issues, generate a written plan, commit it to plans/<ISSUE-KEY>.md in the repo, and move on. A human reviews the plan; once approved, a regular implementation worker picks the issue up.\n\nThis uses the planner-claude image by default. Override with FACTORY_PLANNER_IMAGE=<image>.\n\nTo require planning for all issues by default, set:\n\nIndividual issues can bypass planning with the skip-plan label (takes precedence over PLAN_BY_DEFAULT=true).",
-    "readingTime": 3,
-    "keywords": [
-      "claude subscription",
-      "claude login",
-      "default override",
-      "task manager",
-      "env file",
-      "environment variables",
-      "credentials",
-      "docker",
-      "agent",
-      "loop"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/jaksa76/ai-coding-factory",
-    "thumbnail_url": "https://opengraph.githubassets.com/4cf70529cdd1199d46ef641e261a8bf4b39736a5fab68cd1f27a0685e281ee88/jaksa76/ai-coding-factory",
-    "created_at": "2026-03-19T06:44:35.782Z",
     "topic": "tech"
   }
 ]
