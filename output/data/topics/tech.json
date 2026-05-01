@@ -1,5 +1,107 @@
 [
   {
+    "slug": "pentagon-inks-deals-with-seven-ai-companies-for-classified-military-work",
+    "title": "Pentagon inks deals with seven AI companies for classified military work",
+    "description": "OpenAI, Google, Nvidia and others agreed to ‘any lawful use’ of their tech. Anthropic, feuding with Pentagon over potential AI misuse, was not...",
+    "fullText": "OpenAI, Google, Nvidia and others agreed to ‘any lawful use’ of their tech. Anthropic, feuding with Pentagon over potential AI misuse, was not included\n\nThe Pentagon said on Friday it had reached agreements with seven leading artificial intelligence (AI) companies: SpaceX, OpenAI, Google, Nvidia, Reflection, Microsoft and Amazon Web Services.\n\n“These agreements accelerate the transformation toward establishing the United States military as an AI-first fighting force and will strengthen our warfighters’ ability to maintain decision superiority across all domains of warfare,” the Pentagon said in statement.\n\nThe companies had agreed to the US military’s deployment of their technology for “any lawful use”, according to the Pentagon. The startup Anthropic, which makes the popular Claude chatbot, had rejected including the lawful use standard in its contract with the Defense Department in a high-profile feud with the bureau last month.\n\nThe US Department of Defense is budgeting tens of billions of dollars for numerous technology firms’ cutting edge programs related to intelligence, drone warfare, classified and unclassified information networks and much more. It has requested $54bn for the development of autonomous weapons alone. How each individual company’s technology would be deployed was not specified.\n\nOne of the firms, Reflection AI, has yet to release a publicly available model. The two-year-old company’s goal is to create open-source models as a counter to Chinese AI firms such as DeepSeek. It is seeking a $25bn valuation, the Wall Street Journal reported in March, and has received funding from Nvidia as well as 1789 Capital, the venture fund where Donald Trump Jr is a partner.\n\nThe plans have sparked disputes with some AI firms and controversy and concerns over public spending, global cyber security and the capacity for such technology to be used for domestic surveillance.\n\nIn January Pete Hegseth, the secretary of defense, unveiled a new “AI acceleration strategy” at the Pentagon that he said will “unleash experimentation, eliminate bureaucratic barriers, focus on investments, and demonstrate the execution approach needed to ensure we lead in military AI and that it grows more dominant into the future”.\n\nOn Friday, the department announced that the companies mentioned will be integrated into what it called the Pentagon’s “Impact Levels 6 and 7” network environments to “streamline data synthesis, elevate situational understanding, and augment warfighter decision-making in complex operational environments”, according to a federal statement.\n\n“These agreements accelerate the transformation toward establishing the United States military as an AI-first fighting force and will strengthen our warfighters’ ability to maintain decision superiority across all domains of warfare,” the Pentagon’s statement added.\n\nAnthropic has been in dispute with the Pentagon over guardrails for how the military could use its artificial intelligence tools. The AI giant objected to the lawful use clause in its contract over concerns its technology might be used for domestic mass surveillance or fully autonomous lethal weapons. In response, the Pentagon labeled Anthropic a supply-chain risk last month, the first time an American company has been designated as such. The Pentagon and its contractors are barred from using Anthropic’s products, though they remain difficult to extricate from classified networks. Anthropic sued in response.\n\nDefense department officials believe signing with Anthropic’s rivals could bring the holdout startup back to the negotiating table, according to the New York Times. Anthropic’s latest AI model, the cybersecurity-focused Mythos, has rattled government officials and bankers over its ability to find vulnerabilities in well-tested software. Mythos’s release has complicated Trump and Hegseth’s efforts to blacklist Anthropic.",
+    "readingTime": 3,
+    "keywords": [
+      "openai google",
+      "ai-first fighting",
+      "google nvidia",
+      "transformation toward",
+      "toward establishing",
+      "maintain decision",
+      "decision superiority",
+      "superiority across",
+      "artificial intelligence",
+      "agreements accelerate"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theguardian.com/us-news/2026/may/01/pentagon-us-military-pairs-with-spacex-google-openai",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/8b5b81b3d7abbbb9a5a2c9375594df73f3b4e782/447_0_6827_5464/master/6827.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=b4780ae778350c9814f14c72997f35dc",
+    "created_at": "2026-05-01T18:56:35.620Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "antiddos-firm-heaped-attacks-on-brazilian-isps",
+    "title": "Anti-DDoS Firm Heaped Attacks on Brazilian ISPs",
+    "description": "A Brazilian tech firm that specializes in protecting networks from distributed denial-of-service (DDoS) attacks has been enabling a botnet responsible for an extended campaign of massive DDoS attacks against other network operators in Brazil, KrebsOnSecurity has learned. The firm's chief…",
+    "fullText": "A Brazilian tech firm that specializes in protecting networks from distributed denial-of-service (DDoS) attacks has been enabling a botnet responsible for an extended campaign of massive DDoS attacks against other network operators in Brazil, KrebsOnSecurity has learned. The firm’s chief executive says the malicious activity resulted from a security breach and was likely the work of a competitor trying to tarnish his company’s public image.\n\nFor the past several years, security experts have tracked a series of massive DDoS attacks originating from Brazil and solely targeting Brazilian ISPs. Until recently, it was less than clear who or what was behind these digital sieges. That changed earlier this month when a trusted source who asked to remain anonymous shared a curious file archive that was exposed in an open directory online.\n\nThe exposed archive contained several Portuguese-language malicious programs written in Python. It also included the private SSH authentication keys belonging to the CEO of Huge Networks, a Brazilian ISP that primarily offers DDoS protection to other Brazilian network operators.\n\nFounded in Miami, Fla. in 2014, Huge Networks’s operations are centered in Brazil. The company originated from protecting game servers against DDoS attacks and evolved into an ISP-focused DDoS mitigation provider. It does not appear in any public abuse complaints and is not associated with any known DDoS-for-hire services.\n\nNevertheless, the exposed archive shows that a Brazil-based threat actor maintained root access to Huge Networks infrastructure and built a powerful DDoS botnet by routinely mass-scanning the Internet for insecure Internet routers and unmanaged domain name system (DNS) servers on the Web that could be enlisted in attacks.\n\nDNS is what allows Internet users to reach websites by typing familiar domain names instead of the associated IP addresses. Ideally, DNS servers only provide answers to machines within a trusted domain. But so-called “DNS reflection” attacks rely on DNS servers that are (mis)configured to accept queries from anywhere on the Web. Attackers can send spoofed DNS queries to these servers so that the request appears to come from the target’s network. That way, when the DNS servers respond, they reply to the spoofed (targeted) address.\n\nThe exposed file archive includes a command-line history showing exactly how this attacker built and maintained a powerful botnet by scouring the Internet for TP-Link Archer AX21 routers. Specifically, the botnet seeks out TP-Link devices that remain vulnerable to CVE-2023-1389, an unauthenticated command injection vulnerability that was patched back in April 2023.\n\nMalicious domains in the exposed Python attack scripts included DNS lookups for hikylover[.]st, and c.loyaltyservices[.]lol, both domains that have been flagged in the past year as control servers for an Internet of Things (IoT) botnet powered by a Mirai malware variant.\n\nThe leaked archive shows the botmaster coordinated their scanning from a Digital Ocean server that has been flagged for abusive activity hundreds of times in the past year. The Python scripts invoke multiple Internet addresses assigned to Huge Networks that were used to identify targets and execute DDoS campaigns. The attacks were strictly limited to Brazilian IP address ranges, and the scripts show that each selected IP address prefix was attacked for 10-60 seconds with four parallel processes per host before the botnet moved on to the next target.\n\nThe archive also shows these malicious Python scripts relied on private SSH keys belonging to Huge Networks’s CEO, Erick Nascimento. Reached for comment about the files, Mr. Nascimento said he did not write the attack programs and that he didn’t realize the extent of the DDoS campaigns until contacted by KrebsOnSecurity.\n\n“We received and notified many Tier 1 upstreams regarding very very large DDoS attacks against small ISPs,” Nascimento said. “We didn’t dig deep enough at the time, and what you sent makes that clear.”\n\nNascimento said the unauthorized activity is likely related to a digital intrusion first detected in January 2026 that compromised two of the company’s development servers, as well as his personal SSH keys. But he said there’s no evidence those keys were used after January.\n\n“We notified the team in writing the same day, wiped the boxes, and rotated keys,” Nascimento said, sharing a screenshot of a January 11 notification from Digital Ocean. “All documented internally.”\n\nMr. Nascimento said Huge Networks has since engaged a third-party network forensics firm to investigate further.\n\n“Our working assessment so far is that this all started with a single internal compromise — one pivot point that gave the attacker downstream access to some resources, including a legacy personal droplet of mine,” he wrote.\n\n“The compromise happened through a bastion/jump server that several people had access to,” Nascimento continued. “Digital Ocean flagged the droplet on January 11 — compromised due to a leaked SSH key, in their wording — I was traveling at the time and addressed it on return. That droplet was deprecated and destroyed, and it was never part of Huge Networks infrastructure.”\n\nThe malicious software that powers the botnet of TP-Link devices used in the DDoS attacks on Brazilian ISPs is based on Mirai, a malware strain that made its public debut in September 2016 by launching a then record-smashing DDoS attack that kept this website offline for four days. In January 2017, KrebsOnSecurity identified the Mirai authors as the co-owners of a DDoS mitigation firm that was using the botnet to attack gaming servers and scare up new clients.\n\nIn May 2025, KrebsOnSecurity was hit by another Mirai-based DDoS that Google called the largest attack it had ever mitigated. That report implicated a 20-something Brazilian man who was running a DDoS mitigation company as well as several DDoS-for-hire services that have since been seized by the FBI.\n\nNascimento flatly denied being involved in DDoS attacks against Brazilian operators to generate business for his company’s services.\n\n“We don’t run DDoS attacks against Brazilian operators to sell protection,” Nascimento wrote in response to questions. “Our sales model is mostly inbound and through channel integrator, distributors, partners — not active prospecting based on market incidents. The targets in the scripts you received are small regional providers, the vast majority of which are neither in our customer base nor in our commercial pipeline — a fact verifiable through public sources like QRator.”\n\nNascimento maintains he has “strong evidence stored on the blockchain” that this was all done by a competitor. As for who that competitor might be, the CEO wouldn’t say.\n\n“I would love to share this with you, but it could not be published as it would lose the surprise factor against my dishonest competitor,” he explained. “Coincidentally or not, your contact happened a week before an important event – ​​one that this competitor has NEVER participated in (and it’s a traditional event in the sector). And this year, they will be participating. Strange, isn’t it?”",
+    "readingTime": 6,
+    "keywords": [
+      "ddos-for-hire services",
+      "tp-link devices",
+      "mirai malware",
+      "networks infrastructure",
+      "python scripts",
+      "ssh keys",
+      "massive ddos",
+      "ddos mitigation",
+      "ddos campaigns",
+      "dns servers"
+    ],
+    "qualityScore": 1,
+    "link": "https://krebsonsecurity.com/2026/04/anti-ddos-firm-heaped-attacks-on-brazilian-isps/",
+    "thumbnail_url": "https://krebsonsecurity.com/wp-content/uploads/2026/04/tpllink-ax21.png",
+    "created_at": "2026-05-01T18:56:32.703Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "why-digging-12-miles-deep-is-almost-impossible",
+    "title": "Why digging 12 miles deep is almost impossible",
+    "description": "Humans have drilled only 12.3 kilometers into the Earth and haven't gone further despite decades of tech advances. So what's stopping us?",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/why-digging-12-miles-deep-is-almost-impossible-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f4b2829a23d20d291b55f9?width=1200&format=jpeg",
+    "created_at": "2026-05-01T18:56:31.853Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "why-big-techs-700-billion-ai-splurge-is-misleading",
+    "title": "Why Big Tech's $700 billion AI splurge is misleading",
+    "description": "Big Tech's AI spending is surging. Much of the increase comes from rising component prices, not major new capacity expansion.",
+    "fullText": "Rising component prices are driving Big Tech's AI spending surge.\n Microsoft and Meta's capital expenditure hikes largely result from higher component prices.\n That suggests Big Tech companies haven't massively expanded their buildout plans lately.\n\n What drives AI component price increases?\n\n Why are memory chips crucial for AI growth?\n\n How do investors interpret AI spending trends?\n\n How do rising costs impact Big Tech strategies?\n\n What are DRAM and NAND technologies?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "big tech",
+      "component",
+      "rising"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/big-tech-ai-capex-misleading-higher-memory-chip-prices-2026-4",
+    "thumbnail_url": "https://i.insider.com/69f3fb1b3022d9b19bbff610?width=1200&format=jpeg",
+    "created_at": "2026-05-01T18:56:30.553Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "athletics-wont-strangle-supershoe-innovation-coe",
+    "title": "Athletics won't strangle super-shoe innovation - Coe",
+    "description": "World Athletics president Sebastian Coe says current rules are \"on the right side\" when it comes to shoe technology, following Sabastian Sawe's record-breaking time at the London Marathon.",
+    "fullText": "World Athletics president Sebastian Coe says the organisation will not \"strangle innovation\", following the debate around the so-called 'super shoe' which helped Sabastian Sawe become the first person to run a competitive marathon in under two hours.\n\nThe 31-year-old Kenyan won Sunday's London Marathon in one hour 59 minutes 30 seconds, writing himself into history and breaking a barrier once thought by many to be impossible.\n\n\"I don't think any society, any civilisation, any sector of the economy has been served well if you try to strangle innovation,\" Coe told BBC Sport Africa on a visit to Botswana before the World Relays.\n\n\"The role of World Athletics is very clear - we want to enable, but we also have a regulatory responsibility.\"\n\nSawe, Ethiopia's Yomif Kejelcha - who also ran under two hours as he finished 10 seconds behind Sawe - and Tigst Assefa, who set a new world record time as the winner of the women's race, all wore the Adidas Adios Pro 3 shoes in London.\n\nSawe thanked Adidas for making what he said were the best shoes he had worn, particularly highlighting how \"very light\" and stable they are.\n\nThe first super shoe to weigh under 100 grams, Adidas claim their technology improves running economy by 1.6%.\n\nBut any runner wanting to benefit will have to pay about $500 (£450) to road test the product themselves.\n\n\"Yes, shoes play a part, but not the biggest part,\" Coe said.\n\n\"The biggest part is the mentality of the athlete, the physicality of the athlete, the world-class coaching, the world-class programmes that are now being run through federations to support their athletes. That's all a part of the improved performances.\"\n\nSawe shaved more than two minutes off his personal best in London, attributing his improvement to running about 200km a week at altitude.\n\nHis progress was also aided by developments in fuelling. The Kenyan reportedly took on 115g of carbohydrates per hour during the race, following a breakfast consisting only of two slices of bread with honey and tea.\n\nLighter than a bar of soap - the shoes worn to shatter marathon record\n\nHow special Sawe broke iconic sub-two-hour barrier\n\nStill, the rise of super shoes over the past decade, particularly when it comes the marathon, has prompted World Athletics into a more active regulatory role.\n\nAt the 2016 Olympics in Rio de Janeiro, all three medallists in the men's race wore prototypes of the Nike Vaporfly 4%, which promised a 4% increase in performance.\n\nSportswear brands continue to innovate, pushing the boundaries of the rules, with Coe making it clear regulations could change.\n\n\"This is inevitably an evolutionary process,\" he said. \"It's only been relatively recently that we've had a system of evaluation.\n\n\"We work closely with the athletes, the coaches, the shoe companies. We don't want them to go off and spend hundreds of millions of dollars on shoes that we're going to find illegal. So there is a balance.\"\n\nHe also highlighted another benefit of innovation.\n\n\"We often overlook that with the design to improve performance goes a lot of biomechanical work around injury prevention,\" explained the 59-year-old.\n\n\"The athletes are able to train for longer, they're able to race longer, they're able to be in our sport for longer, and that has to be a good thing.\"\n\n'I did not expect it': Kenya's Sabastian Sawe welcomed home with jubilant celebrations\n\nAfrican athletes need support and protection - Kebinatshipi\n\nReflecting on his own career, the 1980 and 1984 Olympic 1500m champion added: \"I don't think I'd have run under two hours for the marathon with the shoes, but I might have run a little bit quicker for 800m.\"\n\nBut for critics, the concern goes beyond regulation. The fear is that technology could erode the essence of distance running and that performances could reflect engineering rather than human endurance.\n\nCoe accepts the concern but believes the sport remains on the right track.\n\n\"Life is always about balances,\" he said.\n\n\"I think at World Athletics we have technical teams that are always going to be conscious of where that balance is. At the moment, I think we're the right side of it.\"",
+    "readingTime": 4,
+    "keywords": [
+      "strangle innovation",
+      "longer they're",
+      "super shoe",
+      "world athletics",
+      "shoes",
+      "race",
+      "athletes",
+      "hours",
+      "don't",
+      "sawe"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.bbc.com/sport/athletics/articles/cz72w99w93xo?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/22c8/live/9ee24fa0-4583-11f1-b55d-0f258dce1735.jpg",
+    "created_at": "2026-05-01T18:56:28.151Z",
+    "topic": "sports"
+  },
+  {
     "slug": "im-a-big-tech-executive-with-adhd-and-anxiety-neurodivergence-has-its-downsides-but-ive-turned-my-habits-into-strengths",
     "title": "I'm a Big Tech executive with ADHD and anxiety. Neurodivergence has its downsides, but I've turned my habits into strengths.",
     "description": "Wainwright Yu, a Big Tech executive, shares his journey with anxiety and ADHD, turning challenges into strengths throughout his career success.",
@@ -1885,105 +1987,5 @@
     "thumbnail_url": "https://wp.technologyreview.com/wp-content/uploads/2026/04/rice-bowl-claw.jpg?resize=1200,600",
     "created_at": "2026-04-20T13:05:18.942Z",
     "topic": "tech"
-  },
-  {
-    "slug": "merz-touts-brazils-potential-on-critical-metals-says-germany-can-supply-technology",
-    "title": "Merz touts Brazil's potential on critical metals, says Germany can supply technology",
-    "description": "HANOVER, Germany, April 20 () - Germany Chancellor Friedrich Merz said on Monday that ‌Brazil had great potential to expand deliveries ‌of critical metals, adding that Germany can supply the ​technology. \"There are significant opportunities in the cost-effective extraction of certain metals required for e-mobility and wind turbines,\" Merz said at the Hanover ‌industrial fair alongside ⁠Brazilian President Luiz Inacio Lula da Silva.",
-    "fullText": "HANOVER, Germany, April 20 (Reuters) - Germany Chancellor Friedrich Merz said on Monday that ‌Brazil had great potential to expand deliveries ‌of critical metals, adding that Germany can supply the ​technology.\n\n\"There are significant opportunities in the cost-effective extraction of certain metals required for e-mobility and wind turbines,\" Merz said at the Hanover ‌industrial fair alongside ⁠Brazilian President Luiz Inacio Lula da Silva.\n\nWhy does Brazil oppose being just a resource exporter?\n\nWhat defense cooperation areas are Germany and Brazil exploring?\n\nHow will Germany support Brazil's mining technology development?\n\nWhat critical metals does Brazil supply for renewables?\n\n\"Germany is prepared to support ⁠Brazil with technological know-how and expertise in order to further expand these relations,\" he added.\n\nSpeaking ​via a ​translator, Lula said ​his country had expanded ‌its investment in critical minerals and rare earths, but that his government would \"not accept any models that reduce our country to mere resource extraction, serving only to meet demand ‌from abroad.\"\n\nLula added that ​Brazil was seeking to ramp ​up defence ​cooperation with Germany.\n\n\"We are engaged in ‌dialogue regarding strategic areas such ​as tanks, ​air defence and drones, as well as joint projects,\" he said.\n\nGerman-Brazilian government consultations ​are due ‌to take place later on Monday.",
-    "readingTime": 2,
-    "keywords": [
-      "critical metals",
-      "lula",
-      "germany",
-      "hanover",
-      "merz",
-      "expand",
-      "supply",
-      "technology",
-      "extraction",
-      "resource"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://finance.yahoo.com/news/merz-touts-brazils-potential-critical-100405729.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/b6aa00777751075b832b25330d2bebf9",
-    "created_at": "2026-04-20T13:05:08.370Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-talent-ceo-says-data-centers-are-a-massive-opportunity-for-office-workers-to-pivot-midcareer",
-    "title": "A talent CEO says data centers are a 'massive opportunity' for office workers to pivot mid-career",
-    "description": "Broadstaff CEO Carrie Charles urges tech workers to pursue data center jobs, as demand rises with AI expansion.",
-    "fullText": "Carrie Charles, CEO of Broadstaff, highlights data centers as a growth area for tech workers.\n Data center technician jobs are increasing, offering hands-on work with evolving technology.\n Demand for skilled electricians in data centers could lead to high salaries and large opportunities.\n\n What skills are key for data center jobs?\n\n What training programs support tech workers?\n\n How can laid-off tech workers pivot careers?\n\n How do data centers impact local economies?\n\n Why are electricians crucial to data centers?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "tech workers",
-      "centers",
-      "center",
-      "jobs",
-      "electricians"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/broadstaff-ceo-laid-off-tech-workers-pivot-data-centers-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e2984d367066d7c296e2f9?width=1200&format=jpeg",
-    "created_at": "2026-04-20T13:05:04.945Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "cold-case-breakthrough-solves-teen-killing-after-suspect-lived-free-for-decades-better-be-afraid",
-    "title": "Cold case breakthrough solves teen killing after suspect lived free for decades: 'Better be afraid'",
-    "description": "Michigan State Police say DNA technology solved the 1983 cold case murder of 16-year-old Sheri Jo Elliott, identifying Roni Collins as the killer.",
-    "fullText": "Michigan authorities have identified the man responsible for the murder of 16-year-old Sheri Jo Elliott, putting an end to a four-decades-old cold case and marking the latest crime to be solved using advanced DNA technology.\n\nRoni Collins, a 75-year-old resident of Grand Blanc, has been named as Elliott’s killer, according to the Michigan State Police.\n\nOn Nov. 16, 1983, Elliott left her home in Flint to walk to the bus stop and was never seen again.\n\nShe was reported missing several hours later when she failed to return home from school.\n\nGenetic Genealogy That Caught Notorious Killers Now Used In Nancy Guthrie Case\n\nAuthorities searched alongside Elliott’s family for several days in an agonizing effort to locate their missing loved one.\n\n\"It was terrible. But we went and passed missing signs to everybody you know in the neighborhood and in town and stores would put the missing in the windows,\" Elliott’s aunt, Judy Sika, told FOX 66.\n\nFour days after her disappearance, Elliott’s body was discovered in a ditch in nearby Saginaw County.\n\nAn autopsy revealed she had been sexually assaulted and shot multiple times, according to authorities.\n\nFollow The Fox True Crime Team On X\n\n\"You just don't know what a terrible thing it is in your mind when they tell you they found her body,\" Sika told FOX 66. \"That was awful.\"\n\nHowever, a break in the case came after the MSP reopened the investigation in 2023 alongside the Western Michigan University Cold Case Program to take a fresh look at the evidence.\n\n\"The students assisted in reorganizing and digitizing decades of investigative material, providing critical support to the renewed investigation,\" MSP said in a statement.\n\nThe newly reexamined evidence led police to Collins, but he died by suicide in January of this year before authorities could obtain a voluntary DNA sample.\n\nUsing DNA collected from Collins’ autopsy, investigators \"analyzed and conclusively matched evidence recovered from Elliott in 1983, identifying him as the individual responsible for the crime,\" MSP said.\n\nThe case is only the latest to use forensic genetic genealogy to lead investigators to the individual responsible for a long-unsolved murder.\n\nLISTEN TO THE NEW 'CRIME & JUSTICE WITH DONNA ROTUNNO' PODCAST\n\n\"They worked up logical family members, and that can be a thousand people that you have to vet and verify who could probably be related to this person,\" Tom Myers, a retired FBI forensic agent, told Fox News Digital.\n\n\"Then you start to develop who's the likely person,\" Myers added. \"It'll usually come down to three or five people like that. Or sometimes, maybe it's one person who stands out and then when you crosscut that with somebody who's been a bad boy their entire life then that's a good chance that that's who your person is.\"\n\nLike What You're Reading? Find More On The True Crime Hub\n\nAccording to Myers, the reality of testing cold case evidence also comes with the possibility that samples may have been damaged or degraded over time. However, the implementation of genetic genealogy has made it easier for investigators to do more, with less.\n\n\"They now can get DNA from a single hair strand, versus a strand of hair with a follicle,\" Myers said. \"In the 1980s to 1990s, it was a nickel-sized stain down to a dime. Now, it’s three to five skin cells – you can't even see it. That's the DNA.\"\n\nIn light of yet another cold case being solved by genetic genealogy testing, Myers insists the new technology will likely act as a deterrent for aspiring criminals who may rethink their crimes due to the increased possibility of being caught.\n\n\"Investigative genealogy is more comprehensive and, of course, a bigger thing,\" Myers told Fox News Digital. \"But if [investigators are] on top of their game, you better be afraid, because they'll get it.\"\n\nOriginal article",
-    "readingTime": 4,
-    "keywords": [
-      "individual responsible",
-      "genetic genealogy",
-      "authorities",
-      "cold",
-      "elliott’s",
-      "missing",
-      "evidence",
-      "investigators",
-      "michigan",
-      "murder"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.yahoo.com/news/articles/cold-case-breakthrough-solves-teen-140038791.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/2QsW.uityHuU3CuBBbWVYg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/fox_news_text_979/2531477b0891877dd28265cc456ea790",
-    "created_at": "2026-04-20T07:50:17.558Z",
-    "topic": "news"
-  },
-  {
-    "slug": "my-8yearold-and-i-vibecoded-an-app-in-3-hours-ai-is-moving-fast-so-i-figured-its-better-to-start-her-early",
-    "title": "My 8-year-old and I vibe-coded an app in 3 hours. AI is moving fast, so I figured it's better to start her early.",
-    "description": "He built an app with his 8-year-old daughter in 3 hours. Given how fast technology is moving, he wanted to start her AI journey early.",
-    "fullText": "Boo Kok Chuon and his 8-year-old daughter made an app in three hours using various AI tools.\n He told Business Insider that he wanted to start his kid early on AI, given how technology is progressing.\n Still, he places guardrails and takes a cautious approach when introducing AI systems to his kid.\n\n What AI tools did they use?\n\n What challenges arise from AI reliance?\n\n What is \"vibe coding\" with AI?\n\n How does AI benefit children's learning?\n\n How can parents guide AI usage?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "tools"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/vibe-coding-8-year-old-daughter-ai-start-early-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e19c6d051936af5919a651?width=1200&format=jpeg",
-    "created_at": "2026-04-20T01:29:30.928Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "meet-the-godmother-of-silicon-valley-a-high-school-teacher-who-quietly-shaped-the-tech-industry",
-    "title": "Meet the 'Godmother of Silicon Valley,' a high school teacher who quietly shaped the tech industry",
-    "description": "A new documentary explores the impact of Esther Wojcicki, celebrated Palo Alto educator and \"Godmother of Silicon Valley.\"",
-    "fullText": "Esther Wojcicki, 85, is the subject of a new documentary called \"The Godmother of Silicon Valley.\"\n Wojcicki, who was a Palo Alto teacher, raised daughters who became the CEOs of YouTube and 23andMe.\n Wojcicki says to question authority and embrace tech, not \"move fast and break things.\"\n\n Who influenced Wojcicki's teaching style?\n\n How did Wojcicki view tech in education?\n\n How does Wojcicki's approach differ from Zuckerberg's?\n\n What is the TRICK philosophy?\n\n What impact did Wojcicki have on Silicon Valley?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "silicon valley",
-      "tech",
-      "wojcicki's",
-      "wojcicki"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/esther-wojcicki-documentary-highlights-influence-on-tech-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e2a7b4a98bc8fdc096c0bc?width=1200&format=jpeg",
-    "created_at": "2026-04-19T12:36:42.929Z",
-    "topic": "sports"
   }
 ]
