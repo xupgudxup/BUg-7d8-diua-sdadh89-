@@ -1,5 +1,90 @@
 [
   {
+    "slug": "higgins-builds-slender-semifinal-lead-over-murphy",
+    "title": "Higgins builds slender semi-final lead over Murphy",
+    "description": "John Higgins opens up a slender 13-11 advantage over Shaun Murphy heading into the final session of their World Championship semi-final.",
+    "fullText": "John Higgins opened up a slender 13-11 advantage over Shaun Murphy heading into the final session of their World Championship semi-final at the Crucible Theatre.\n\nFour-time champion Higgins, who turns 51 later this month, had not led at the end of a session throughout the tournament but picked the ideal time to change that as he bids to reach a record-equalling ninth final in Sheffield.\n\nHiggins, who started the day strongly but was repeatedly pegged back by 2005 winner Murphy, ended it in the same fashion as he compiled his first century of the contest to hold sway.\n\nThe concluding chapter of their best-of-33 encounter will begin on Saturday at 14:30 BST, with the winner playing either China's Wu Yize or Northern Ireland's Mark Allen in the final.\n\nWu level with Allen after longest Crucible frame\n\nA golden period for snooker - but are UK clubs returning from doldrums?\n\nWorld Championship 2026: Match schedule, BBC TV times & results\n\nHaving resumed at 8-8, England's Murphy struck the first blow on Friday evening with a break of 60 to move into the lead for the first time since the end of the seventh frame.\n\nHowever, in keeping with what had gone before, Higgins immediately responded with runs of 44 and 55 and then pinched the following frame after laying a snooker on the brown.\n\nA wonderful break of 82 from Murphy ensured the players could not be separated at the mid-session interval.\n\nThe duo then conjured up plenty of drama and some superb snooker as they traded the next two frames.\n\nHiggins constructed a 63 and Murphy then knocked in a superb century from the Scot's break-off shot.\n\nAt that stage 12-12 looked the likely outcome to a session in which both players delivered performances brimming with resolve.\n\nHowever, Higgins found an extra gear when it mattered, crafting a run of 70 and then signing off for the evening with a superb 101.\n\nSeven-time world champion Stephen Hendry speaking on BBC Two:\n\nIt's what John Higgins has done in every match this championship - he's got better as each match has gone on and played his best snooker near the end of the match.\n\nHe knows when the business end of these games are and he just finds gears, that's what he's always done.\n\nFormer World Championship semi-finalist Joe Perry:\n\nThat's the best John Higgins has looked in this semi-final.\n\nSince the interval that's breaks of 63, 70 and a century - clinical, one-frame snooker, that's what you want at this stage of the match.",
+    "readingTime": 3,
+    "keywords": [
+      "john higgins",
+      "snooker",
+      "final",
+      "session",
+      "century",
+      "frame",
+      "superb",
+      "semi-final",
+      "winner",
+      "evening"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.bbc.com/sport/snooker/articles/czr27y2r56zo?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/ba15/live/fc1c9570-45a8-11f1-bd52-e755d604ece4.png",
+    "created_at": "2026-05-02T01:47:38.154Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "transparent-tor-proxy-route-all-linux-system-traffic-through-tor",
+    "title": "Transparent Tor Proxy – Route all Linux system traffic through Tor",
+    "description": "A Linux CLI utility that transparently routes all system traffic through the Tor network using nftables. It enables rapid IP rotation and easy toggling of global proxy settings for privacy tasks. -...",
+    "fullText": "Features •\n Contribute •\n Requirements •\n Installation •\n Usage •\n How It Works\n\nNo per-application setup needed — just sudo ttp start and every connection goes through Tor.\n\nTTP is a tool designed to aid privacy by routing traffic through Tor. However, no tool can guarantee 100% anonymity. Your safety also depends on your behavior (e.g., using a regular browser vs. Tor Browser, signing into accounts, etc.). Always use TTP as part of a multi-layered security strategy.\n\nIf you are a whistleblower or are engaging in high-risk activities, DO NOT use TTP. Instead, use officially audited and reliable tools like TailsOS or the Tor Browser directly. The authors and contributors of TTP assume no responsibility for your safety or the consequences of using this software.\n\nWe are actively looking for developers to join the TTP project! Whether you are a student looking to learn or a seasoned professional, your help is welcome.\n\nWe are particularly seeking Senior Developers with expertise in:\n\nIf you want to contribute to making transparent proxying safer and more robust, please check out our Contributing Guidelines or dive right into the Issues.\n\nChoose the method that best fits your needs. Native packages are strongly recommended for system stability, security, and clean uninstallation.\n\nInstalling via native packages ensures that all system dependencies (tor, nftables) and kernel-level optimizations (SELinux) are managed by your OS package manager.\n\nIf you are a developer or want to install from the repository:\n\nWhy use ./install.sh?\n\nUnlike standard Python installers, this script is \"intelligent\". On Red Hat-based systems, it detects if SELinux is in Enforcing mode and dynamically compiles a custom policy module (from ttp_tor_policy.te) to allow Tor to bind to the non-standard ports required by TTP (9040, 9053). This kernel-level optimization cannot be performed by pip.\n\nNote on Linux Distributions (PEP 668)\n\nRecent versions of Ubuntu/Debian prevent global pip install to protect system stability. Using these methods will bypass TTP's kernel-level optimizations (SELinux) and won't handle system dependencies automatically.\n\npipx installs TTP in an isolated environment but makes the command available globally.\n\nIf you prefer standard pip, use a virtual environment to avoid the externally-managed-environment error.\n\nUninstallation Warning: Running pipx uninstall or deleting the venv only removes the Python code. If TTP is active, your firewall and DNS will remain hijacked. Always use ttp stop before uninstalling via pip, or use ./scripts/uninstall.sh if you installed via the source script.\n[!NOTE]\n\nAfter installation, the ttp command is available system-wide.\n\nAll commands require sudo. Except ttp status and ttp --help.\n\nSends NEWNYM to Tor via the control interface — all active circuits are rotated and you get a new exit IP.\n\nTo confirm that the tunnel is working correctly and no leaks are present:\n\nNote: An empty output is the expected behavior under Tor. Tor's transparent resolver does not support TXT records; if this command returns your real ISP's IP, you have a DNS leak.\n\nWeb-based Verification:\nAlways perform additional tests on dnsleaktest.com and ipleak.net.\n\nTo remove TTP completely from the system:\n\nTTP is designed to always restore your network, even in edge cases:\n\nTTP uses a Makefile to automate and standardize the testing pipeline. This ensures that every change is verified against unit and integration tests before being committed.\n\nAlways run make verify before pushing code. If this command fails, the code is NOT ready for production.\n\nWhile Docker integration tests are fast and atomic, they don't capture 100% of the kernel/systemd nuances. For critical changes, it is highly recommended to test in a real QEMU VM:\n\nIf something goes wrong, run the diagnostic command:\n\nContributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.\n\nMIT. See LICENSE",
+    "readingTime": 4,
+    "keywords": [
+      "optimizations selinux",
+      "native packages",
+      "kernel-level optimizations",
+      "integration tests",
+      "system stability",
+      "system dependencies",
+      "tor browser",
+      "command",
+      "code",
+      "contribute"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/onyks-os/TransparentTorProxy",
+    "thumbnail_url": "https://opengraph.githubassets.com/9f5b1c0ebf6f820b8cb50321edcc3a7ecef641bcc1a46be0b40aae8cb9c1be7b/onyks-os/TransparentTorProxy",
+    "created_at": "2026-05-02T01:47:32.190Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "lego-batman-legacy-of-the-dark-knight-pc-requirements-demand-lots-of-ram",
+    "title": "Lego Batman: Legacy Of The Dark Knight PC Requirements Demand Lots Of RAM",
+    "description": "Lego Batman: Legacy of the Dark Knight is a big departure from the tried and tested format of past Lego adaptations, with this adventure pulling from a wide and storied history of Batman and letting it loose in a large, open-world Gotham City. It's looking like an ambitious title that helps explain its higher-than-expected PC requirements.\nPerhaps the most eye-catching line in the PC requirements for Lego Batman: Legacy of the Dark Knight is for system memory. Even for the minimum requirements, you'll need at least 16GB of RAM to help support the game's open world. While that might not have been an issue a year ago, the ongoing RAM crisis driven by the needs of AI data centers makes that a very expensive upgrade if you're still stuck on 8GB.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.gamespot.com/articles/lego-batman-legacy-of-the-dark-knight-pc-requirements-demand-lots-of-ram/1100-6539754/?ftag=CAD-01-10abi2f",
+    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1585/15853545/4691371-2688939069-lego-.jpg",
+    "created_at": "2026-05-02T01:47:28.499Z",
+    "topic": "gaming"
+  },
+  {
+    "slug": "magic-the-gatherings-marvel-super-heroes-expansion-has-a-big-battle-ahead",
+    "title": "Magic: The Gathering's Marvel Super Heroes Expansion Has A Big Battle Ahead",
+    "description": "Ask any Magic: The Gathering player what the most disappointing set of the past 12-18 months has been, and the Spider-Man set from September 2025 will often be the first or second choice. A mishmash of popular and obscure characters (Spider-UK? Huh?), inconsistent mechanics, and a subpar limited environment doomed Peter Parker's first foray into the MTG world.\nThe next set on the 2026 schedule, however, is Marvel Super Heroes, and Wizards of the Coast hopes to prove that Spider-Man was an exception, not the rule.",
+    "fullText": "Marvel's first MTG set failed to live up to expectations. Can the second avoid the same fate?\n\n on May 1, 2026 at 2:00PM PDT\n\nAsk any Magic: The Gathering player what the most disappointing set of the past 12-18 months has been, and the Spider-Man set from September 2025 will often be the first or second choice. A mishmash of popular and obscure characters (Spider-UK? Huh?), inconsistent mechanics, and a subpar limited environment doomed Peter Parker's first foray into the MTG world.\n\nThe next set on the 2026 schedule, however, is Marvel Super Heroes, and Wizards of the Coast hopes to prove that Spider-Man was an exception, not the rule. After the set's brief appearance during the Preview Panel at MagicCon: Las Vegas, the jury is still out, and we're starting to become concerned.\n\nDuring a press preview of the Preview Panel (yes, a preview of the preview) earlier this week, Wizards of the Coast showed off cards from the next three upcoming expansions: June's Marvel Super Heroes, August's The Hobbit, and October's in-universe Reality Fracture. Of those three expansions, we were shown over 20 cards and pieces of art from The Hobbit, 18 cards/art pieces from Reality Fracture, and just five new cards/art pieces from Marvel Super Heroes.\n\nIf you're keeping score at home, those numbers are reversed from what you'd expect, right? We saw more cards from the sets further away than we did from the next set on the calendar. Furthermore, every card we saw for Marvel was chosen to fit the same joke; lead designer Mark Rosewater kept talking about his \"vision\" for the set, so all five choices involved The Vision in some way. Granted, one of them was The Mind Stone, the Marvel set's Headliner card, but still, only five reveals seems pretty reserved for the set that's supposed to be your summer showcase.\n\nNow, Wizards of the Coast likes to omit certain reveals from the press preview that end up appearing in the Preview Panel--a practice that is both understandable (avoids potential leaks) and infuriating (can instantly make pre-written coverage obsolete by omitting a huge reveal the writer didn't know was coming)--so there could be more coming. Also, we've already seen some Marvel cards from that first look back in December, whereas this is the \"first look\" at the other two sets, so perhaps that's why WotC decided to focus less on Marvel.\n\nStill, we're only eight weeks from the Marvel Super Heroes set launch; the clock is ticking.\n\nOne other major obstacle for this Marvel set looms like Galactus over his next meal: year-over-year comparisons. Marvel Super Heroes has been slotted in nearly the exact same timeframe as last year's Final Fantasy set, which in case you'd forgotten, is the best-selling MTG expansion in the game's 30-plus-year history, and it only needed one day to hit that mark.\n\nIt would be foolish to expect that kind of success again from Marvel Super Heroes, through no fault of its own. Final Fantasy was also the first Universes Beyond set to be legal in every competitive format, so more players were focused on purchasing the cards. The allure of the serialized Gold Chocobo cards briefly turned Magic into the Pokemon scene, and many of those scalpers customers were burned by lack of movement and likely won't come back. Final Fantasy was, to use a cliche, a perfect storm, which the sales figured reflected.\n\nMarvel Super Heroes enjoys no such advantages. The Spider-Man set has left a lingering poor taste in the mouths of players--a disillusion which was already compounded by general product and Universes Beyond fatigue. The set will need a strong push towards its release date if it has any hope of reaching the lofty heights of Final Fantasy, and barring a super secret MagicCon reveal, so far, that hasn't happened.\n\nSpeculation aside, the fate of the Marvel Super Heroes expansion all comes down to the cards within, and what we've seen so far does sport some interesting designs. Bruce Banner // The Incredible Hulk immediately made waves thanks to the angry green giant's ability to become more powerful while taking damage. The Mind Stone, shown during MagicCon's preview panel, follows in the footsteps of The Soul Stone before it, with a similar Harness ability and beautiful alternate art treatments that are sure to appeal to collectors.\n\nEven Vision, the running joke of the press preview, has some interesting versatility in his main set form. Flying and Vigilance are always powerful keywords, especially when combined, and in a spellslinger deck like Red/Blue, three cast spells turns Vision into a flying, double-striking, indestructible, vigilant attacker that draws you a card. That's a big threat for an opponent to have to deal with--as if Red/Blue decks needed the help.\n\nIt remains to be seen whether the Marvel Super Heroes expansion for Magic: The Gathering can shake off Spider-Man's sluggish start, or if it will continue to fall short of expectations. We won't know until we see more cards, and frankly, we don't know what Wizards of the Coast is waiting for.\n\nGot a news tip or want to contact us directly? Email news@gamespot.com\n\nJason Fanelli is a games writing vet of nearly 20 years with bylines at Rolling Stone, IGN, Kotaku, The Hollywood Reporter, Variety, MMORPG.com, Game Informer, and more. Ever see that viral Nintendo 64 Eagles jersey from 2014? That's Jason.",
+    "readingTime": 5,
+    "keywords": [
+      "marvel super heroes",
+      "mind stone",
+      "heroes expansion",
+      "cards/art pieces",
+      "press preview",
+      "final fantasy",
+      "magic the gathering",
+      "preview panel",
+      "universes beyond",
+      "coast"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.gamespot.com/articles/magic-the-gatherings-marvel-super-heroes-expansion-has-a-big-battle-ahead/1100-6539742/?ftag=CAD-01-10abi2f",
+    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1639/16394322/4691330-marvelmtg.jpg",
+    "created_at": "2026-05-02T01:47:28.004Z",
+    "topic": "gaming"
+  },
+  {
     "slug": "wu-level-with-allen-after-longest-crucible-frame",
     "title": "Wu level with Allen after longest Crucible frame",
     "description": "Mark Allen and Wu Yize play out the longest frame in Crucible history during the second session of their World Championship semi-final.",
@@ -2051,86 +2136,5 @@
     "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1179/11799911/4689325-xboxdeal.jpg",
     "created_at": "2026-04-28T19:18:45.526Z",
     "topic": "gaming"
-  },
-  {
-    "slug": "zhao-lets-early-lead-slip-as-murphy-fights-back",
-    "title": "Zhao lets early lead slip as Murphy fights back",
-    "description": "Reigning world champion Zhao Xintong lets a 3-0 lead slip as Shaun Murphy fights back to claim a 5-3 lead in the opening session of their World Championship quarter-final.",
-    "fullText": "Reigning world champion Zhao Xintong let a 3-0 lead slip as Shaun Murphy fought back to claim a 5-3 lead in the opening session of their World Championship quarter-final.\n\nZhao, 29, has openly talked about the pressure of defending his crown and lifting the 'Crucible curse' that has followed first-time winners at the famous Sheffield venue, but began in scintillating fashion.\n\nA break of 122 suggested Zhao had picked up from where he left off against Ding Junhui in the second round, and when he pinched the second frame and made a half century in the third, he had established a healthy advantage.\n\nBut Murphy, who won the title in 2005, crafted a 69 then reeled off the next four frames to turn the match on its head.\n\nThe Englishman took the fifth and sixth frames on the black after capitalising on errors from his opponent and controlled the seventh.\n\nWhen Zhao missed the pink in a tense eighth frame, it handed Murphy a two-frame advantage heading into their second session on Tuesday evening at 19:00 BST.\n\nOver on the other side of the auditorium, Barry Hawkins shared the opening six frames of a high-quality contest with Northern Ireland's Mark Allen.\n\nHowever, Hawkins, who had already compiled a century break and three other half centuries, knocked in breaks of 75 and 63 to open up a deserved 5-3 scoreline in his favour.\n\nTheir match also resumes at 19:00 BST on Tuesday.\n\nRobertson calls for ban on O'Sullivan's chalk\n\nCrucible pressure '50 times worse than driving test'\n\nPlayers unhappy as Saudi Arabia Masters cancelled",
-    "readingTime": 2,
-    "keywords": [
-      "second",
-      "frames",
-      "lead",
-      "session",
-      "pressure",
-      "crucible",
-      "break",
-      "frame",
-      "half",
-      "century"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://sports.yahoo.com/articles/zhao-lets-early-lead-slip-130042258.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/bbc_us_articles_995/e67803d085f09b263ab75de350775561",
-    "created_at": "2026-04-28T13:28:02.894Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "wales-prop-tuipulotu-signs-for-harlequins",
-    "title": "Wales prop Tuipulotu signs for Harlequins",
-    "description": "Harlequins sign Wales international prop Sisilia Tuipolotu from Gloucester-Hartpury for the 2026-27 season.",
-    "fullText": "Harlequins have signed Wales international prop Sisilia Tuipolotu from Gloucester-Hartpury for the 2026-27 season.\n\nThe 22-year-old has won three consecutive Prem Women's Rugby titles with the Circus.\n\nTuipolotu has scored 20 tries in 67 appearances for Gloucester-Hartpury since her debut in 2021 and has been capped 33 times by her country, appearing in two World Cups.\n\n\"I'm really excited to be joining Harlequins. I'm excited for the experience, to meet the team and learn from even more world-class players,\" she said.\n\n\"I can't wait to get going in the quarters.\"\n\nGloucester-Hartpury are top of the PWR table, with 70 points from 14 games, as they chase a fourth straight title. Harlequins sit sixth with 37 points.",
-    "readingTime": 1,
-    "keywords": [
-      "gloucester-hartpury",
-      "excited",
-      "points",
-      "harlequins",
-      "tuipolotu"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://sports.yahoo.com/articles/wales-prop-tuipulotu-signs-harlequins-131030748.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/bbc_us_articles_995/9f4168b6d08318d9f3541b06e77b3ced",
-    "created_at": "2026-04-28T13:28:02.248Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "us-medical-centers-need-a-new-model-for-drug-discovery-and-development",
-    "title": "U.S. Medical Centers Need a New Model for Drug Discovery and Development",
-    "description": "U.S. academic medical centers risk losing leadership in drug discovery and development as global competition—especially from China—intensifies and their model struggles to translate breakthroughs into treatments. To respond, they must adopt a faster, more integrated approach: build industry-style development capabilities, embed AI and automation, form strategic partnerships, invest beyond early-stage research, and expand global collaboration. These shifts can help close execution gaps, accelerate clinical progress, and sustain their role in bringing new medicines to patients.",
-    "fullText": "U.S. Medical Centers Need a New Model for Drug Discovery and Development by Anaeze C. Offodile II, Kushal T. Kadakia, Yashodhara Dash, Whitney Snider, Joseph C. Wu and Selwyn M. VickersApril 28, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintFor more than 50 years, U.S. academic medical centers (AMCs) have been the global engine for pharmaceutical innovation. These university-affiliated hospitals are dedicated to fulfilling the mission areas of medical education, scientific research, and patient care. They have developed a distinctive innovation model in which patient care inspires research questions, public investment supports discovery, and public-private partnerships enable the translation of these breakthroughs into clinical practice. But U.S. AMCs are now facing a major challenge from China, which has emerged as a major rival in the last decade. Its pharmaceuticals R&D sector is on track to become the global industry leader, displacing its U.S. counterpart.",
-    "readingTime": 1,
-    "keywords": [
-      "patient care",
-      "medical centers",
-      "model",
-      "innovation",
-      "research",
-      "discovery",
-      "amcs"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://hbr.org/2026/04/u-s-medical-centers-need-a-new-model-for-drug-discovery-and-development",
-    "thumbnail_url": "/resources/images/article_assets/2026/04/Apr26_28_2199370609.jpg",
-    "created_at": "2026-04-28T13:27:35.981Z",
-    "topic": "health"
-  },
-  {
-    "slug": "bbc-and-sky-personalities-reveal-england-t20-world-cup-squad",
-    "title": "BBC and Sky personalities reveal England T20 World Cup squad",
-    "description": "Presenters and personalities from the BBC and Sky reveal the 15 players included in England's squad for the ICC Women's T20 World Cup this summer.",
-    "fullText": "BBC and Sky personalities reveal England T20 World Cup squad54Presenters and personalities from the BBC and Sky reveal the 15 players included in England's squad for the ICC Women's T20 World Cup this summer.",
-    "readingTime": 1,
-    "keywords": [
-      "bbc and sky",
-      "personalities",
-      "reveal"
-    ],
-    "qualityScore": 0,
-    "link": "https://www.bbc.com/sport/cricket/videos/cvgze99v1lvo?at_medium=RSS&at_campaign=rss",
-    "thumbnail_url": "https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/c03c/live/3169c120-42ee-11f1-bd52-e755d604ece4.jpg",
-    "created_at": "2026-04-28T13:27:34.961Z",
-    "topic": "sports"
   }
 ]
