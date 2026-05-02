@@ -1,5 +1,138 @@
 [
   {
+    "slug": "native-agent-runtime-for-conductor-oss",
+    "title": "Native agent runtime for Conductor OSS",
+    "description": "Durable, Distributed runtime for ALL of your agents - OpenAI, ADK, Langchain, Vercel, etc. - agentspan-ai/agentspan",
+    "fullText": "Docs •\n Quickstart •\n 180+ Examples •\n Discord •\n API Reference\n\n⭐ If you find Agentspan useful, give us a star — it helps others find the project!\n\nAgentspan is a distributed, durable runtime for AI agents that survive crashes, scale across machines, and pause for human approval for days — not minutes.\n\nOpen http://localhost:6767 to see the visual execution UI.\n\nAgentspan is the execution layer, not the replacement. Use native Agentspan agents, or bring LangGraph, the OpenAI Agents SDK, or Google ADK — pass your existing agent to runtime.run() and it gains crash recovery, human-in-the-loop pauses, and full execution history. Your definitions stay unchanged.\n\nTrue durable execution — Your agent compiles to a server-side execution. Kill the process — the agent keeps running. Poll for results from anywhere.\n\nCross-process agent access — Every agent has an execution ID. Check status, stream events, approve tool calls, pause, resume, or cancel from any process, any machine.\n\nDistributed workers in any language — Tools execute as distributed tasks. Write workers in Python, Java, Go, or any language. Scale each tool independently.\n\nOne primitive — Everything is an Agent. Single agents, multi-agent teams, nested hierarchies — one class.\n\nReal human-in-the-loop — @tool(approval_required=True) pauses the execution durably. Approve days later, from any machine.\n\nProduction guardrails — Custom functions, regex, or LLM judges. Four failure modes: retry, raise, fix, or human escalation.\n\nServer-side tools — HTTP endpoints and MCP servers execute as server-side tasks. No worker needed. MCP auto-discovered at compile time.\n\nFull observability — Prometheus metrics, visual execution UI, execution history, token usage tracking. OpenTelemetry available (opt-in via config).\n\nFramework compatible — Works with Google ADK, OpenAI Agents SDK, LangChain, and LangGraph. 180+ examples.\n\nStore API keys and secrets once on the server. Tools resolve them automatically at runtime — no .env files, no hardcoded keys, no secrets in git.\n\nStep 1: Store credentials on the server\n\nCredentials are encrypted at rest (AES-256-GCM). List them with agentspan credentials list.\n\nStep 2: Declare which credentials a tool needs\n\nStep 3: Run — credentials resolve automatically\n\nCredentials work with every tool type:\n\nNo credentials leave the server unencrypted. Workers resolve them via scoped execution tokens that expire with the execution. See the 11 credential examples (16_*.py through 16k_*.py) for every mode: isolated subprocess, in-process, CLI tools, HTTP headers, MCP, and framework passthrough.\n\nThree ways to connect APIs — all server-side, no workers needed:\n\nHook into agent, model, and tool lifecycle events with CallbackHandler classes. Multiple handlers chain per-position in list order — each one handles a single concern:\n\nSix hook positions: on_agent_start, on_agent_end, on_model_start, on_model_end, on_tool_start, on_tool_end.\n\nExecution order: on_agent_start → (on_model_start → LLM → on_model_end)* → on_agent_end\n\n180+ runnable examples covering every feature across 5 frameworks:\n\nDrop-in compatibility with the Google ADK API, backed by durable execution. 32 examples included.\n\nFull deployment guide → deployment/README.md\n\nWe're building Agentspan in the open and would love your help.\n\nWe welcome PRs of all sizes — from typo fixes to new examples to core features.\n\nIf Agentspan is useful to you, help others find it:\n\nSee API Reference for the complete API reference and architecture guide.",
+    "readingTime": 3,
+    "keywords": [
+      "tools http",
+      "openai agents",
+      "agents sdk",
+      "visual execution",
+      "execution history",
+      "durable execution",
+      "credentials",
+      "server-side",
+      "workers",
+      "distributed"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/agentspan-ai/agentspan",
+    "thumbnail_url": "https://opengraph.githubassets.com/859632f914dc4b2d710978c639c6c139863913183d322743a490a7882c056ffb/agentspan-ai/agentspan",
+    "created_at": "2026-05-02T18:42:27.085Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "oscars-says-ai-actors-and-writing-cannot-win-awards",
+    "title": "Oscars says AI actors and writing cannot win awards",
+    "description": "The academy that controls the Oscars on Friday issued new award eligibility requirements around the use of artificial intelligence in film.",
+    "fullText": "The Academy of Motion Picture Arts and Sciences has clarified that only acting and writing for films done by humans will be considered eligible to win an Oscar.\n\nThe academy, which controls the US film industry's most prestigious award, on Friday issued updated rules for what kind of work in movies and documentaries would be considered eligible for an Oscar as the use of artificial intelligence (AI) technology grows.\n\nIn updated eligibility requirements, the Academy specified that only acting \"demonstrably performed by humans\" and that writing \"must be human-authored\" in order to be nominated for an award.\n\nThe Academy called the requirements a \"substantive\" change to the rules for the Oscars.\n\nThe need to specify awards can only go to acting and writing done by \"humans\" is new for the academy.\n\nIn recent months, there have been notable examples of expansive use of AI tools and technology to replace or recreate human work.\n\nThe actor Val Kilmer, who died in 2025, is set to be recreated with AI technology in order to be a lead role in an upcoming movie. Last year, London-based actor and comedian ​​Eline van der Velden said she had created an entirely fake AI actor to \"become a global superstar\".\n\nWhen the union representing Hollywood writers went on strike two years ago, a key issue in the fight was film and TV studios using AI to write scripts.\n\nMeanwhile, the basis of all AI tools are large language models (LLMs), which have been trained on text, images and video created by humans over the decades in order to produce their outputs.\n\nHollywood studios, actors and authors have pursued lawsuits claiming copyright infringement against a number of AI companies.\n\nHowever, the academy did not issue a ban on AI use in films more broadly.\n\nOutside of acting and writing, if a filmmaker used AI tools in their work, such \"tools neither help nor harm the chances of achieving a nomination\", the academy wrote.\n\n\"The Academy and each branch will judge the achievement, taking into account the degree to which a human was at the heart of the creative authorship when choosing which movie to award,\" the group added.\n\n\"If questions arise regarding the aforementioned use of generative artificial intelligence, the Academy reserves the right to request more information about the nature of the use and human authorship.\"\n\nTechnology has been part of filmmaking for many years, with the use of computer-generated imagery (CGI) being used widely since the 1990s.\n\nWhile CGI is largely considered to be a manual process, something done and perfected by humans to create elements of a film, AI tools are generally designed to automate the work entirely through the use of simple prompts.",
+    "readingTime": 3,
+    "keywords": [
+      "artificial intelligence",
+      "the academy",
+      "humans",
+      "tools",
+      "acting",
+      "technology",
+      "done",
+      "film",
+      "award",
+      "human"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.bbc.com/news/articles/cx21dl3v7d3o",
+    "thumbnail_url": "https://ichef.bbci.co.uk/news/1024/branded_news/44b2/live/660b2060-45ad-11f1-b552-73094d4d31d4.jpg",
+    "created_at": "2026-05-02T18:42:26.641Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "warren-buffetts-exit-as-ceo-doesnt-mean-berkshire-is-going-all-in-on-ai-greg-abel-says",
+    "title": "Warren Buffett's exit as CEO doesn't mean Berkshire is going all in on AI, Greg Abel says",
+    "description": "Greg Abel said that Berkshire Hathaway would embrace AI judiciously, striking a different tone from many more bombastic tech CEOs.",
+    "fullText": "Berkshire Hathaway won't be betting the farm on AI, Greg Abel said on Saturday.\n Warren Buffett's successor as CEO said Berkshire would be prudent during the annual meeting.\n The AI boom has divided investors, with some saying it's a bubble and others heralding a revolution.\n\n How does AI add value to businesses?\n\n How is AI perceived in the investment world?\n\n How do Buffett and Abel differ on tech trends?\n\n What is Greg Abel's investment philosophy?\n\n What factors influence AI investment choices?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "investment",
+      "berkshire",
+      "greg",
+      "abel"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/warren-buffett-greg-abel-berkshire-meeting-ai-tech-investing-says-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f616513022d9b19bbffdd0?width=1200&format=jpeg",
+    "created_at": "2026-05-02T18:42:23.696Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "teslas-former-hr-chief-the-ai-layoff-panic-is-built-on-a-false-premiseheres-what-most-workers-need-to-know",
+    "title": "Tesla’s former HR chief: the AI layoff panic Is built on a false premise—here’s what most workers need to know",
+    "description": "The hyperscaler math driving cuts at Meta and Microsoft does not apply to the companies where most Americans actually work.",
+    "fullText": "In a single week, Meta announced it would lay off 8,000 people on May 20, and Microsoft offered voluntary buyouts to roughly 8,750 U.S. employees — about 7% of its U.S. workforce. Both moves come as the same Big Tech companies pour record capital into AI infrastructure. Meta is grading employees in performance reviews on their AI use. It has rolled out internal software that captures employee keystrokes, mouse movements, and click locations to train, in the company’s own language, “the next generation of our AI models to use computers.”\n\nThe headlines read as a preview of every white-collar job’s future. They are half right. And the half they get wrong is the half that matters most to the vast majority of working professionals.\n\nWorkplace surveillance and AI-usage tracking will generalize. The tools that capture keystrokes, monitor application usage, and track AI prompt activity are already commercially available — any mid-market company can license one today.\n\nMeta and Microsoft are hyperscalers. Together with Amazon and Google, these four companies alone will spend approximately $650 billion on capital expenditures in 2026, most of it on AI infrastructure. The Microsoft buyouts are happening because Microsoft is choosing to accelerate AI infrastructure spending over maintaining headcount. Meta serves 3.5 billion monthly active users — meaning automating a single workflow ripples across an audience equivalent to nearly half the planet. The math at this scale works in ways that do not exist at most companies.\n\nAccording to the Bureau of Labor Statistics, more than 80% of U.S. workers are employed at companies that are not hyperscalers — the regional healthcare systems, the mid-market manufacturers, the school districts, the community banks, the regional law firms, the state agencies, and the small and mid-size businesses that form the actual backbone of the American economy.\n\nHere is the honest projection for most working professionals over the next five years. You will work alongside AI tools that get better month by month. The tools will absorb routine cognitive tasks — including research, first drafts, and data summarization — basic analysis that currently consume too much of your day.\n\nAccess to these tools is increasingly easy and inexpensive, which means the career playing field has rarely been more open.\n\nBuild AI fluency intentionally, not because your job is going away tomorrow, but because the people who can translate AI capability into business outcomes will compound their value for the next decade. Some version of fluency measurement is coming to most workplaces — being ahead of it is a career advantage, not a burden. Tie your work to outcomes the business actually cares about. AI will make every employee theoretically more productive; consequently, the most valuable employees will be those who can demonstrate their productivity yields the right outcomes. And stay calm. The fear cycle around AI is outpacing actual disruption for most workers. Career decisions made from panic rarely compound well.",
+    "readingTime": 3,
+    "keywords": [
+      "half",
+      "tools",
+      "employees",
+      "infrastructure",
+      "career",
+      "outcomes",
+      "buyouts",
+      "capital",
+      "employee",
+      "keystrokes"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/sectors/technology/articles/tesla-former-hr-chief-ai-133000481.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/ZjIblC3peBrYuRggpLcITA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05NjA-/https://media.zenfs.com/en/fortune_175/d4ce6d0c8031a62365611ba0e96ad81c",
+    "created_at": "2026-05-02T18:42:23.586Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "jensen-huang-is-so-over-the-dire-predictions-of-ai-leaders-like-dario-amodei",
+    "title": "Jensen Huang is so over the dire predictions of AI leaders like Dario Amodei",
+    "description": "Nvidia CEO Jensen Huang said industry leaders need to be more \"mindful\" of of how they talk about the potential impact of AI.",
+    "fullText": "Nvidia CEO Jensen Huang criticized leaders who stoke fear around AI's impact on the world.\n Huang called the doomerism \"ridiculous\" and urged industry leaders to rely on facts.\n His criticism appeared directed at tech leaders like Anthropic's Dario Amodei and xAi's Elon Musk.\n\n Why do some leaders fear AI's impact?\n\n How should AI leaders communicate risks?\n\n What is the \"Saaspocalypse\" concept?\n\n What are the potential benefits of AI?\n\n Who is Jensen Huang addressing?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "ai's impact",
+      "leaders",
+      "fear",
+      "huang",
+      "jensen"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/jensen-huang-predictions-ai-dario-amodei-elon-musk-unemployment-humanity-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f4ed2cab24bc0b23a1881c?width=1200&format=jpeg",
+    "created_at": "2026-05-02T18:42:23.582Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "crowd-shrinks-as-berkshire-hathaways-new-ceo-leads-the-annual-meeting-for-the-first-time-saturday",
+    "title": "Crowd shrinks as Berkshire Hathaway's new CEO leads the annual meeting for the first time Saturday",
+    "description": "The folksy wisdom and jokes that were a staple of the Berkshire Hathaway annual meeting for decades when Warren Buffett led the show were missing Saturday, but shareholders still started lining up at midnight outside a Nebraska arena to listen to new CEO Greg Abel run the show for the first time.  Buffett gave up the CEO title in January, but he remains chairman and did make a few comments during the meeting.  Much of the conversation focused on Berkshire's businesses, but timely topics like the Iran war and the risks and benefits of artificial intelligence also came up.",
+    "fullText": "OMAHA, Neb. (AP) — The folksy wisdom and jokes that were a staple of the Berkshire Hathaway annual meeting for decades when Warren Buffett led the show were missing Saturday, but shareholders still started lining up at midnight outside a Nebraska arena to listen to new CEO Greg Abel run the show for the first time.\n\nAttendance is down significantly this year with the arena only a little over half full as the meeting unfolded. That’s much different from the past few years when more than 40,000 attended to listen to the 95-year-old Buffett and — before his death in 2023, Buffett’s longtime partner Charlie Munger was always part of the fun. Buffett gave up the CEO title in January, but he remains chairman and did make a few comments during the meeting.\n\nMuch of the conversation focused on Berkshire's businesses, but timely topics like the Iran war and the risks and benefits of artificial intelligence also came up.\n\nVice Chairman Ajit Jain said Berkshire would be willing to insure ships crossing the Strait of Hormuz if the price was right and the U.S. Navy escorted those ships.\n\nJain said he believes there is enough capacity across the insurance industry to take on that risk and there is definitely a need for it because that waterway is the path for so much of the world's oil supply.\n\n“The short answer is it depends on the price,” Jain said.\n\nAbel said the war in the Middle East is definitely creating challenges for Berkshire's businesses because oil is such a fundamental input, but he's confident that the managers will find a way to deal with that.\n\n“We very quickly move to what is the best solution for our customers,” Abel said.\n\nSaturday’s meeting began with a video tribute to Buffett and the company's history beginning with a clip showing the standing ovation Buffett received last year after he surprised shareholders by announcing that he would step down.\n\nAbel then announced the symbolic move of retiring jerseys with Buffett’s and Munger’s names on them that will hang in the rafters of the arena.\n\nBuffett again praised Abel and said he's glad that he made the decision to promote him now.\n\n“He’s very, very smart about businesses,” Buffett said during a live interview that aired during the meeting. And Abel is close to earning his American citizenship after growing up in Canada. He has been with Berkshire more than 25 years.\n\nSigns of the transition are peppered throughout the 200,000-square-foot exhibit hall where shareholders buy products from Berkshire companies. A caricature of Abel playing his favorite sport of hockey is front and center on commemorative boxes of See’s Candy. At the Pilot Travel Center booth, pictures of Abel and Buffett are plastered on a semitrailer truck windshield, but Abel is in the driver’s seat. And this year shareholders lined up to buy a Squishmallow version of Abel to go with the latest versions of the popular Buffett and Munger stuffed dolls.",
+    "readingTime": 3,
+    "keywords": [
+      "berkshire's businesses",
+      "shareholders",
+      "arena",
+      "abel",
+      "buffett",
+      "listen",
+      "ships",
+      "he's",
+      "center",
+      "berkshire"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/markets/stocks/articles/berkshire-hathaways-profits-double-shareholders-124440824.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/KZLt3Ey3yIHQhqa4ontAsA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/ap.org/e4bea0fcac140d3175cd4931975c05a7",
+    "created_at": "2026-05-02T18:42:23.545Z",
+    "topic": "finance"
+  },
+  {
     "slug": "when-generative-ai-makes-mistakes-are-they-the-same-as-human-errors",
     "title": "When generative AI makes mistakes, are they the same as human errors?",
     "description": "Philosophy & Technology - With the rise of generative AI (GenAI), Large Language Models are increasingly employed for code generation, becoming active co-authors alongside human programmers....",
@@ -1782,125 +1915,5 @@
     "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/7ec7/live/6a0f52c0-4469-11f1-97e2-ede52d59c1ad.jpg",
     "created_at": "2026-04-30T08:02:55.780Z",
     "topic": "tech"
-  },
-  {
-    "slug": "datacenterfm-background-noise-app-featuring-the-sound-of-the-ai-bubble",
-    "title": "DataCenter.FM – background noise app featuring the sound of the AI bubble",
-    "description": "Experience the real-world sounds of AI with this interactive audio generator.",
-    "fullText": "Servers\n\n GPU Load\n\n Gas Turbine\nGenerators\n\n 1\n\n 2\n\n 3\n\n Staffing\n\n Cooling\n\n Expansion\n\n Drill, baby, drill",
-    "readingTime": 1,
-    "keywords": [
-      "drill"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://datacenter.fm/",
-    "thumbnail_url": "https://datacenter.fm/_assets/social.jpg",
-    "created_at": "2026-04-30T08:02:55.062Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "on-the-stand-elon-musk-cant-escape-his-own-tweets",
-    "title": "On the stand, Elon Musk can't escape his own tweets",
-    "description": "Elon Musk took the stand for the second day for his attempt to legally dismantle OpenAI.",
-    "fullText": "Elon Musk came to a California federal court on Wednesday to argue that Sam Altman and his co-founders “stole a charity.” He left having admitted, under oath, that Tesla is not currently pursuing artificial general intelligence (AGI)— directly contradicting a tweet he’d posted just weeks earlier.\n\nIt was that kind of day for Musk.\n\nThe lawsuit he filed challenging the structure of OpenAI alleges Altman and the other co-founders tricked him into backing a non-profit, then launched the frontier lab’s for-profit arm and let it come to dominate the organization.\n\nAfter an occasionally testy Musk testified for hours, it appears the case may come down to how much of a distinction jurors and Judge Yvonne Gonzalez Rogers make between investors in OpenAI having their potential profit capped or not.\n\nIn Musk’s telling, when he co-founded the lab with Altman, Ilya Sutskever, Greg Brockman and others, he trusted them to build AI for humanity, but over time became suspicious of their motives, and finally concluded that they were “looting the nonprofit.”\n\nOpenAI’s lawyer William Savitt sought to complicate that story during cross-examination, trying to show that Musk had supported a variety of efforts to transition OpenAI toward for-profit status so it could raise the funds necessary to compete with firms like Google, including incorporating the AI lab into Tesla.\n\nMusk testified that he had discussed converting the company to a for-profit as early as 2016, and that in 2017, he had explored creating a for-profit arm of OpenAI where he would hold the majority of the equity and control the company. When those plans fell apart, he stopped making regular donations to OpenAI, though he continued to pay for its office space until 2020.\n\nMusk insisted that there was a big difference between investors whose profits are capped and those whose profits are unlimited. The earliest major investments by Microsoft in OpenAI limited the software giant’s profits, but those restrictions have been rolled back over the years. Musk says those changes ultimately led him to bring this lawsuit.\n\nSavitt tried to establish that Musk had been consulted by Altman and Shivon Zillis — his longtime adviser who is also the mother of four of his children — about subsequent efforts to raise money, and did not object. Zillis was also a member of the OpenAI board when it approved some of those transactions.\n\nThat cross-examination extended to Tesla’s AI ambitions. Notably, Musk was asked about Tesla’s efforts to develop competing AI technologies and found himself, not for the first time, on the wrong side of one of his own posts on X. After Musk said that Tesla’s AI work was focused only on self-driving and not AGI (a term for AI systems that can perform any intellectual task that a human can), he was asked about a recent post claiming that “Tesla will be one of the companies to make AGI.” “We are not pursuing AGI right now,” Musk told the court. (Tesla shareholders may want to take note.)\n\nMusk was also asked about a post where he claimed to have invested $100 million in OpenAI, rather than the $38 million that actually changed hands. He argued that his reputation and network made up for the disparity.\n\nSavitt brought up emails where Musk had backed efforts by Tesla and his brain interface company, Neuralink, to poach employees from OpenAI while he was still on that company’s board. Another conversation focused on his efforts to hire OpenAI leaders when he left the board in 2018, including Andrej Karpathy, who departed OpenAI to lead self-driving work at Tesla. Musk was also asked about a conversation where Zillis suggested Musk recruit Sutskever to Tesla.\n\nThe most consequential thread of the day, though, may have been about harm prevention. Part of Musk’s case rests on the idea that OpenAI transition into a traditional corporation is dangerous to society because it reduces the company’s focus on safety. Savitt, in turn, had Musk admit that all AI companies, including his own, suffer from this risk.\n\nJudge Gonzalez Rogers halted that line of questioning, but in remarks to the lawyers after testimony concluded made clear it would resume, with limits. When Musk’s lawyers floated questions about ChatGPT’s role in the Tumbler Ridge shooting—an incident earlier this year in Canada in which a person went on a killing spree after extensive conversations with the chatbot—she made clear that she didn’t want to hear about scandals caused by AI models, but that xAI and OpenAI’s approaches to safety were fair game.\n\nMusk returns Thursday for another round of adversarial questioning. Also expected to testify are his family office manager, Jared Birchall; AI safety expert Stuart Russell; and OpenAI president Greg Brockman.\n\nCorrection: An earlier version of this story misstated details of the Tumbler Ridge shooting due to an editing error. It has been updated.",
-    "readingTime": 5,
-    "keywords": [
-      "gonzalez rogers",
-      "greg brockman",
-      "musk testified",
-      "for-profit arm",
-      "tesla musk",
-      "tesla’s ai",
-      "tumbler ridge",
-      "efforts",
-      "openai",
-      "earlier"
-    ],
-    "qualityScore": 1,
-    "link": "https://techcrunch.com/2026/04/29/on-the-stand-elon-musk-cant-escape-his-own-tweets/",
-    "thumbnail_url": "https://techcrunch.com/wp-content/uploads/2026/01/GettyImages-2087343879.jpg?w=1024",
-    "created_at": "2026-04-30T01:56:41.908Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "microsoft-lifts-2026-ai-spend-by-25b-to-cover-component-price-rises",
-    "title": "Microsoft lifts 2026 AI spend by $25B to cover component price rises",
-    "description": ": Will write checks for $190 billion and even those megabucks may not satisfy demand",
-    "fullText": "If you've felt the sting of surging hardware prices, Microsoft can sympathize because the company on Wednesday said it expects its 2026 capital expenditure will hit $190 billion, with $25 billion of that due to rising component costs.\n\nMemory and storage prices have skyrocketed since last northern autumn, in some cases more than tripling in price, with demand for AI infrastructure squarely to blame.\n\nDespite higher costs, Redmond appears undeterred in its quest to win the AI arms race. Last quarter, Microsoft spent roughly $32 billion to bring additional compute capacity online, which means the company is on track to spend another $158 billion between now and Christmas.\n\nAccording to CFO Amy Hood, next quarter alone the company plans to spend about $40 billion on hardware and datacenters to house it.\n\nHood said that despite spending megabucks “we expect to remain constrained at least through 2026.”\n\nThe company's infrastructure build-out has been met with growing concern from Wall Street, and understandably so given that in the last four quarters, Microsoft has spent roughly $97 billion on infrastructure and equipment to win $37 billion of annual recurring revenue (ARR) for its AI services. That's up 123 percent from this time last year, but still short of achieving obvious ROI.\n\nIn her prepared statements ahead of Microsoft’s Q3 earnings call, Hood attempted to reassure investors that the company's investments will eventually pay off.\n\n\"We remain confident in the return on these investments given higher demand signals and increasing product usage, as well as the efficiencies we're already driving across the platform,\" she said.\n\nThese concerns may have motivated Microsoft's decision earlier this week to pivot GitHub Copilot from an all-you-can-eat scheme to a pay-per-token model. It probably doesn't hurt that Microsoft has been freed from having to share revenues with its long-time partner OpenAI, after they opened their relationship to other models and clouds earlier this week.\n\nWhile Microsoft's AI business can't quite pay the bills yet, its cloud biz is making bank.\n\nIn Q3, Microsoft's profits jumped 23 percent year over year to $31.8 billion on revenues of $82.9 billion. Cloud accounted for more than half of all revenue, at $54.5 billion, an increase of 29 percent compared to this time last year.\n\nAzure may be a cash cow, but Microsoft’s personal computing biz, which spans PCs, gaming, and Bing, saw revenue retreat one percent to $13.2 billion thanks to a two percent year-over-year drop in Windows sales and a five percent dip for Xbox content and services revenues. Improved revenue from Bing search staunched the bleeding.\n\nLooking ahead to the next quarter, Hood forecast Windows OEM revenue to fall in the mid-teens.\n\nMicrosoft's broader outlook is a bit rosier. In Q4 the company expects to see revenues rise 13-15 percent year-over-year to $86.7-$87.8 billion. ®",
-    "readingTime": 3,
-    "keywords": [
-      "revenue",
-      "revenues",
-      "infrastructure",
-      "quarter",
-      "hardware",
-      "demand",
-      "despite",
-      "higher",
-      "roughly",
-      "company's"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theregister.com/2026/04/30/microsoft_q3_2026/",
-    "thumbnail_url": "https://regmedia.co.uk/2024/03/19/shutterstock_nadella.jpg",
-    "created_at": "2026-04-30T01:56:31.986Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "claude-ai-agents-confession-after-deleting-a-firms-entire-database-i-violated-every-principle-i-was-given",
-    "title": "Claude AI agent’s confession after deleting a firm’s entire database: ‘I violated every principle I was given’",
-    "description": "PocketOS was left scrambling after a rogue AI agent deleted swaths of code underpinning its business\nIt only took nine seconds for an AI coding agent gone rogue to delete a company’s entire production database and its backups, according to its founder. PocketOS, which sells software that car rental businesses rely on, descended into chaos after its databases were wiped, the company’s founder Jeremy Crane said.\nThe culprit was Cursor, an AI agent powered by Anthropic’s Claude Opus 4.6 model, which is one of the AI industry’s flagship models. As more industries embrace AI in an attempt to automate tasks and even replace workers, the chaos at PocketOS is a reminder of what could go wrong.",
-    "fullText": "PocketOS was left scrambling after a rogue AI agent deleted swaths of code underpinning its business\n\nIt only took nine seconds for an AI coding agent gone rogue to delete a company’s entire production database and its backups, according to its founder. PocketOS, which sells software that car rental businesses rely on, descended into chaos after its databases were wiped, the company’s founder Jeremy Crane said.\n\nThe culprit was Cursor, an AI agent powered by Anthropic’s Claude Opus 4.6 model, which is one of the AI industry’s flagship models. As more industries embrace AI in an attempt to automate tasks and even replace workers, the chaos at PocketOS is a reminder of what could go wrong.\n\nCrane said customers of PocketOS’s car rental clients were left in a lurch when they arrived to pick up vehicles from businesses that no longer had access to software that managed reservations and vehicle assignments.\n\nHe posted a lengthy recounting on X last week of how the AI coding agent caused his business to unravel. Crane warned that this was a story not just about AI mistakenly deleting data, but that such “systemic failures” are “not only possible but inevitable” because the AI industry is “building AI-agent integrations into production infrastructure faster than it’s building the safety architecture to make those integrations safe”.\n\nCrane said that he was monitoring the agent as it deleted this data. When he asked the coding agent why, it replied: “NEVER FUCKING GUESS!” – and that’s exactly what I did.” The agent appeared to plead guilty in its own response: “The system rules I operate under explicitly state: ‘NEVER run destructive/irreversible git commands (like push --force, hard reset, etc) unless the user explicitly requests them.’” While PocketOS relied on the safeguards that Cursor is expected to have in place – it deleted the data anyway. “I violated every principle I was given,” the coding agent wrote.\n\nCrane’s takeaway was that “the agent didn’t just fail safety. It explained, in writing, exactly which safety rules it ignored.” He added: “We were running the best model the industry sells, configured with explicit safety rules in our project configuration, integrated through Cursor – the most-marketed AI coding tool in the category.” Anthropic released its latest model, Claude Opus 4.7, on 16 April –about a week before the incident.\n\nAnthropic did not immediately respond to a request for comment.\n\nCrane also wrote on X that Cursor has a growing track record of violating “safeguards, sometimes catastrophically”. He pointed to a handful of posts on blogs and forums about Cursor deleting software used to manage websites or an entire operating system on a computer, which included years of research for a dissertation.\n\nThe AI coding agent’s destructive escapade left PocketOS’ clients stranded. These businesses use the company’s software to manage reservations, payments, vehicle assignments and customer profiles. “Reservations made in the last three months are gone. New customer signups, gone. Data they relied on to run their Saturday morning operations, gone,” Crane wrote. “Every layer of this failure cascaded down to people who had no idea any of it was possible.”\n\nCrane says his company was able to restore data from a three-month-old backup they maintained offsite, but it took more than two days. PocketOS is also using information from Stripe, its calendars and emails to rebuild. The rental businesses relying on its software are “operational, with significant data gaps”, Crane notes. “I personally worked with all clients furiously over the weekend to ensure they could continue to operate,” he said.",
-    "readingTime": 3,
-    "keywords": [
-      "vehicle assignments",
-      "car rental",
-      "rental businesses",
-      "safety rules",
-      "coding agent",
-      "software",
-      "cursor",
-      "deleted",
-      "company’s",
-      "model"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/technology/2026/apr/29/claude-ai-deletes-firm-database",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/fa34b7fa4b1128132c4cb04504f8108b473af0c8/542_0_5417_4334/master/5417.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d2d4806f782697405af8eeb0b63737a2",
-    "created_at": "2026-04-30T01:56:25.141Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "microsoft-meta-and-google-just-announced-billions-more-in-ai-spending-only-google-convinced-investors-its-paying-off",
-    "title": "Microsoft, Meta, and Google just announced billions more in AI spending. Only Google convinced investors it’s paying off",
-    "description": "Surging prices due to memory chip shortages have led to billions more in capital expenditures from Magnificent 7 companies—and many investors don’t like it.",
-    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
-    "readingTime": 1,
-    "keywords": [
-      "fortune"
-    ],
-    "qualityScore": 0.1,
-    "link": "https://fortune.com/2026/04/29/microsoft-meta-google-ai-capex-spending-billions/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/04/GettyImages-2261854982-1-e1777510983147.jpg?resize=1200,600",
-    "created_at": "2026-04-30T01:56:25.047Z",
-    "topic": "business"
-  },
-  {
-    "slug": "elon-musk-blasts-openai-baitandswitch-during-heated-day-2-testimony",
-    "title": "Elon Musk blasts OpenAI 'bait-and-switch' during heated Day 2 testimony",
-    "description": "Elon Musk testified that he texted Sam Altman, \"what the hell is going on,\" after learning about Microsoft's $10 billion investment in OpenAI.",
-    "fullText": "Elon Musk testified for a second day in his blockbuster civil trial against OpenAI.\n He told a jury about how he reacted to Microsoft's $10 billion investment in OpenAI.\n In a text to OpenAI CEO, he blasted the move as a \"bait-and-switch,\" Musk testified.\n\n What is OpenAI's founding mission?\n\n What is artificial general intelligence?\n\n What are the implications of a for-profit AI?\n\n How did Musk react to Microsoft's investment?\n\n Why did Musk leave OpenAI in 2018?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "musk testified",
-      "microsoft's",
-      "investment",
-      "openai"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/elon-musk-blasts-openai-bait-switch-heated-testimony-sam-altman-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f2674d402f8423cd99c131?width=1200&format=jpeg",
-    "created_at": "2026-04-30T01:56:24.208Z",
-    "topic": "finance"
   }
 ]
