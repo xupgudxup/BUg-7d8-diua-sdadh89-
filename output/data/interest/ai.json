@@ -1,5 +1,42 @@
 [
   {
+    "slug": "im-not-worried-about-ai-taking-my-job-guests-and-clients-still-want-a-real-person-to-make-them-feel-special",
+    "title": "I'm not worried about AI taking my job. Guests and clients still want a real person to make them feel special.",
+    "description": "I've worked in the hospitality industry for decades. I know AI can't take away the part of my job that matters most to clients.",
+    "fullText": "I've worked in the hospitality industry for more than 20 years.\n Empathy is at the center of what I do, so I'm not worried about AI taking my job away. \n Technology and people can work well together, but one cannot always replace the other.\n\n HOME",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.3,
+    "link": "https://www.businessinsider.com/not-worried-ai-will-take-my-job-aiproof-career-security-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f4d749ab24bc0b23a1873a?width=527&format=jpeg",
+    "created_at": "2026-05-03T18:42:36.560Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "writing-the-loss-function-ai-feeds-and-the-engagement-optimizer",
+    "title": "Writing the loss function: AI, feeds, and the engagement optimizer",
+    "description": "I keep seeing the 'AI is making us dumber' argument. It replays past tool panics, but the engagement loop AI is landing inside is the new variable.",
+    "fullText": "I keep seeing the same argument about AI making us dumber. It’s the same argument people had about search engines, and\nbefore that books. The usual response is to point at history and say “every generation panics, every generation was\nwrong, relax.” I think that response is half right, and the wrong half is what bothers me.\n\nTools change what we bother to remember. The people who’d trained their whole lives to memorize 10,000-line oral epics\nwatched the craft die when writing showed up. Long arithmetic in your head used to be normal; calculators arrived and\nthe payoff for keeping that skill sharp went away. Brains didn’t shrink. The skills just stopped being worth practicing.\n\nSearch engines are the one I lived through. I was a kid when Google replaced Altavista and went from “useful”\nto being a synonym for finding things. I still remember being\namazed that I could search for a zebra and have a picture of one on my screen in only five minutes. Years\nlater I ended up working on search engines as a dev myself in ecommerce, and I’ve even built one from scratch for\nTheca.\n\nI don’t memorize phone numbers anymore. I don’t memorize directions. I don’t even memorize the APIs of libraries I use\nevery week. What I do instead is keep a fairly precise mental index of where things live and what query will\nretrieve them. That’s a real cognitive trade. I gave up some recall and got back a much larger working set of pointers.\nNet positive, I think, but I notice the trade in a way I didn’t when I was nine.\n\nAI tools push the same trade further. They don’t just outsource recall, they outsource synthesis: the part where you\nactually work through a problem and end up with a model of it in your head. I notice this when I let an LLM write code\nI could have written myself. I get the output, but I didn’t build the model, which is usually the part I wanted. The\npeople who worry about atrophy here aren’t wrong, and it’s worth its own post.\n\nOne thing the prior cases got right is that society kept teaching the underlying skill anyway. Calculators didn’t kill\narithmetic class. Search engines didn’t kill the library-science basics on how an index actually works. Some skills got\ncanonized as core, worth practicing even after the tool that automated them arrived, because we collectively decided\nthey mattered. Coding hadn’t quite reached that status yet, but I think it would have given another decade. AI may have\nshown up too early for that to happen.\n\nSo the historical pattern mostly holds: tools rewire priorities, some skills fade, others grow, the panic looks silly in\nretrospect. Where the “relax, every generation panics” crowd gets it wrong is in assuming AI is just the next entry in\nthat list. It might be. But the environment AI is landing in is not the environment the printing press or the early\nsearch engine landed in.\n\nBooks don’t optimize you. Calculators don’t optimize you. Search engines, at the lookup layer at least, were mostly\ntrying to give you the page you asked for and then get out of the way. Modern search has piled on ads and ranking\nincentives since, but the core “find it and leave” loop is still recognizable. The dominant information channel today\nis none of those things. It’s a feed, and the feed is an optimizer. The target variable is engagement.\n\nEarlier tools removed friction from a specific task and let you spend the saved effort somewhere else. A feed isn’t\ntrying to remove friction from anything you’d recognize as a task. It’s trying to keep you in the loop. The reward\nsignal it’s chasing (what makes you click, stay, scroll, react) is not the same signal as “this was useful to me.” It’s\noften the opposite.\n\nThere’s data on this now. Heavy social media use predicts elevated depression and anxiety in kids and young\nadults[1]. Longitudinal studies find the social media use comes first, not the depression[2].\n\nAnd then you wire a generative model into the same loop. Generative AI doesn’t change the objective, it just gives\nthe loop a faster, cheaper supply tuned to whatever it already rewards.\n\nMy background is in optimization. The recurring question I work on is what a product should actually be optimizing for\n(PhD on automating A/B testing, Eignex the side project still chasing it). So when I look at “LLMs plus a\nrecommendation feed” it looks to me like the same loop with a much better content supply. Not really a new content\nmedium.\n\nThe version running today doesn’t even use generation in the loop. The recommender stacks at the big platforms (Meta,\nTikTok, YouTube) are still doing what they’ve done for a decade: ranking content other people uploaded. The supply pool was already\neffectively infinite after years of user-generated content. The change is that a growing share of what gets uploaded is\nnow AI-made, and the existing optimizer ranks the synthetic stuff exactly like everything else.\n\nThe scarier version puts the generator inside the loop, per-user posts written for you on demand. That sounds like\nfiction, and we don’t have it. The thing is, we don’t need it. The pool of generated content is already absurd enough\nthat something in it fits your viewing history, your current mood, and what you had for breakfast. The optimizer just has\nto find it. A pool that grows by millions of items a day, at near-zero cost per item, behaves a lot like an on-demand\ngenerator.\n\nNone of this is hypothetical. AI-generated music has already racked up millions of streams on Spotify before anyone\nnoticed it wasn’t human (\nthe Velvet Sundown\nstory last summer was the most visible example). Facebook is saturated with generative slop: fabricated heart-warming stories,\nsculptures supposedly carved by a 92-year-old grandpa nobody appreciates,\ncontent farms running cheap image generators to chase engagement[3], and the people reliably engaging with it\nskew much older. The\nTikTok-side version of the same dynamic is “Italian brainrot”, absurd\nAI-generated creatures with names like Tralalero Tralala and Bombardiro Crocodilo, captioned with nonsense-Italian audio\ndubs, pulling hundreds of millions of views from a much younger audience.\n\nFacebook’s own VP described the dynamic in plain terms to Futurism\nearlier this year: “if you, as a user, are interested in a piece of content which happens to be AI-generated, the\nrecommendations algorithm will determine that, over time, you are interested in this topic.” None of this uses\nparticularly sophisticated tech, and it’s already running at scale.\n\nThis loop doesn’t get out of the way like search did. It takes friction out of producing whatever the optimizer\nrewards. Right now that’s engagement, so the system gets better at engagement. Nothing malicious has to happen for\nthat to land badly; it’s doing exactly what it was asked.\n\nI’m not fully pessimistic about this, though.\n\nThe objective is a choice. Engagement isn’t a law of physics. Somebody picked clicks or watch time because it was easy\nto measure and correlated with revenue. People also reach for banning AI-generated content here. That isn’t it either:\n“the machine wrote it” isn’t a stable category once the machines are this good. The thing to push on is the loss\nfunction itself, and the loss function is written by people.\n\nThe irony’s not lost on me that if you’re reading this, it probably reached you through one of these feeds. As engineers we\nlike to act like the loss function is handed down on stone tablets.\n\nIt isn’t. Somebody wrote it, and on the products I work on that somebody is me.\n\nThere is research on what “different” could look like: ranking for informational diversity, or ranking on whether users\nstill endorse a piece of content a week later instead of whether they reacted in the first three seconds[4].\nNone of it is mature, none of it has a business model behind it the way engagement does, and that’s the real obstacle,\nnot the technical side. The systems are perfectly capable of optimizing for something else. The question is whether\nanyone with the keys wants to. I’d rather sort it out before the next, much more capable generator gets wired into the\nsame loop.\n\nNo zebras were harmed in the making of this post.\n\nQuick disclaimer, mental health research is well outside my field, so go to the sources directly if the details matter to you. A reasonable entry point is the JMIR Mental Health 2022 review on adolescent depression and social media use: https://mental.jmir.org/2022/4/e33450. The MDPI surveys (Behavioral Sciences, Healthcare) cover similar ground with slightly different inclusion criteria. Effect sizes and which subgroups are most affected are still actively debated. ↩︎\n\nSame caveat, I’m reading this as a layperson. Longitudinal designs can argue about direction; cross-sectional studies can’t tell you whether unhappy kids reach for the phone or vice versa. The Healthcare review above finds the effect runs forward in time, though the causal picture isn’t fully settled. ↩︎\n\n404 Media’s reporting (Jason Koebler in particular) is the canonical place for this beat, see for example this piece on the recommender actively boosting the spam. There’s also a Stanford / Georgetown preprint from March 2024 (DiResta and Goldstein) quantifying how widely this stuff has propagated through Facebook specifically. Futurism ran a piece in January 2026 cataloguing how much weirder the slop has gotten since text-to-video models became accessible. ↩︎\n\nThere is a small but growing body of work on alternative ranking objectives, see for example arxiv 2501.06274 on incentive design for recommenders, and 2212.00419 on bridging-based ranking. None of it is shipped at scale yet. ↩︎",
+    "readingTime": 9,
+    "keywords": [
+      "worth practicing",
+      "social media",
+      "loss function",
+      "mental health",
+      "generation panics",
+      "don’t optimize",
+      "search engines",
+      "don’t memorize",
+      "loop",
+      "content"
+    ],
+    "qualityScore": 1,
+    "link": "https://eignex.com/posts/writing-the-loss-function/",
+    "thumbnail_url": "https://eignex.com/images/og/posts-writing-the-loss-function.png",
+    "created_at": "2026-05-03T18:42:35.005Z",
+    "topic": "tech"
+  },
+  {
     "slug": "wheres-the-new-ai-infrastructure",
     "title": "Where's the New AI Infrastructure?",
     "description": "Seems reasonable to say that AI is in a railway mania bubble, the kind where there is too much hype for a technology that actually has decisive long-term value. But if so, where's the decentralised infrastructure that...",
@@ -1929,34 +1966,6 @@
     "link": "https://tech.yahoo.com/ai/articles/mark-cuban-warns-biggest-career-105944285.html",
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/s2O6TbXDYWJFupnBBp0N7g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/ee367df759c87bb0f47e9f923eec30e8",
     "created_at": "2026-04-30T19:05:30.819Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "copy-fail-732-bytes-to-root-on-every-major-linux-distribution",
-    "title": "Copy Fail: 732 Bytes to Root on Every Major Linux Distribution",
-    "description": "Xint Code disclosed CVE-2026-31431, an authencesn scratch-write bug chaining AF_ALG + splice() into a 4-byte page cache write. A 732-byte PoC gets root on Ubuntu, Amazon Linux, RHEL, SUSE. | AI for Security,  Vulnerability Research",
-    "fullText": "Xint Code disclosed CVE-2026-31431, an authencesn scratch-write bug chaining AF_ALG + splice() into a 4-byte page cache write. A 732-byte PoC gets root on Ubuntu, Amazon Linux, RHEL, SUSE.",
-    "readingTime": 1,
-    "keywords": [
-      "byte"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://xint.io/blog/copy-fail-linux-distributions",
-    "thumbnail_url": "https://inblog.ai/api/og?title=Copy%20Fail%3A%20732%20Bytes%20to%20Root%20on%20Every%20Major%20Linux%20Distribution.&logoUrl=https%3A%2F%2Fsource.inblog.dev%2Flogo%2F2026-04-21T20%3A39%3A21.712Z-fe202dd0-0a7f-41d2-a9bd-88052b6a6250&blogTitle=",
-    "created_at": "2026-04-30T13:19:26.002Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "cheri-memory-safety-mitigates-llmdiscovered-vulnerability-in-freebsd",
-    "title": "CHERI memory safety mitigates LLM-discovered vulnerability in FreeBSD",
-    "description": "Brooks Davis – Capabilities Limited Over the past three weeks we’ve seen a number posts about the future of using LLMs for bug discovery and exploitation (https://www.forbes.com/sites/jonmarkman/2026/04/08/what-is-claude-mythos-and-why-anthropic-wont-let-anyone-use-it/, https://www.forbes.com/sites/amirhusain/2026/04/01/ai-just-hacked-one-of-the-worlds-most-secure-operating-systems/, https://blog.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://cheri-alliance.org/cheri-memory-safety-mitigates-llm-discovered-vulnerability-in-freebsd/",
-    "thumbnail_url": "https://cheri-alliance.org/wp-content/uploads/2026/04/datacentrepatching-1024x683.png",
-    "created_at": "2026-04-30T13:19:24.702Z",
     "topic": "tech"
   }
 ]
