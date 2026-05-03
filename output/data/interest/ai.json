@@ -1,5 +1,241 @@
 [
   {
+    "slug": "wheres-the-new-ai-infrastructure",
+    "title": "Where's the New AI Infrastructure?",
+    "description": "Seems reasonable to say that AI is in a railway mania bubble, the kind where there is too much hype for a technology that actually has decisive long-term value. But if so, where's the decentralised infrastructure that...",
+    "fullText": "Seems reasonable to say that AI is in a railway mania bubble, the kind where there is too much hype for a technology that actually has decisive long-term value. But if so, where’s the decentralised infrastructure that can last after the hype dies down?\n\nData centers are now about energy and compute, not so much about telecommunications. And compute data centers are still a question mark tied up with how fast the software is evolving. Maybe GPUs are the thing, maybe it’s overall memory. We only know that we should be putting something inside a box that can be kept cool and electrified. And centralisation is how these boxes are stacked, which is the opposite of infrastructure that spreads out into the world.\n\nBut is that infrastructure the phones we carry in our pockets? Great idea in theory, but we see in practice that people can’t afford those as prices just go up. Chips are too much of a monopoly, where it’s easier to just keep making the same hardware and collect more money for it. Why would monopolies risk making the changes needed to increase production?\n\nCapitalism is failing on these fronts, so we should also be asking what the role of public and cooperative investments is in this AI railway? As private, public, and cooperative efforts converge, where’s the middle ground between the gigafactories and the tiny pockets of compute?\n\nAny true railway bubble needs shared civic access points. Yes, we need fair datasets, open models, public APIs, and privacy-preserving tools. But beyond that, we’re missing actual physical libraries and workshops where people can learn, explore available knowledge, and move progress further down the road. Local hubs that empower communities are the stations missing in these AI tracks for this to be a true railway bubble.\n\nUnfortunately, tech is being rushed through public perception to keep us from understanding what we need. And politicians surfing the surface of power don’t even want to be aware of it. Even ordinary people aren’t given the time to care about anything besides their own convenience.\n\nBut public pressure is starting to mount at least over what we don’t want. We should also be reaching towards what this AI fever dream can do for everyone. We’ve learned from the Industrial Revolution that technological disruption needs to be matched by civic movements that disperse its benefits across society and protect our environment. Democratic capitalism has to mean no power for machines without power to the people.",
+    "readingTime": 3,
+    "keywords": [
+      "railway bubble",
+      "infrastructure",
+      "compute",
+      "hype",
+      "where’s",
+      "centers",
+      "it’s",
+      "pockets",
+      "capitalism",
+      "cooperative"
+    ],
+    "qualityScore": 1,
+    "link": "https://blog.viewfromtheweb.com/where-s-the-new-ai-infrastructure-6f3e2320/",
+    "thumbnail_url": "https://blog.viewfromtheweb.com/images/posts/where-s-the-new-ai-infrastructure-6f3e2320/01-library.jpg",
+    "created_at": "2026-05-03T12:44:28.307Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "meta-abandons-opensource-llama-for-proprietary-muse-spark",
+    "title": "Meta abandons open-source Llama for proprietary Muse Spark",
+    "description": "Meta has shifted from Llama to its new proprietary AI model Muse Spark, leaving open-source developers searching for alternatives and migration paths.",
+    "fullText": "Meta’s decided its new proprietary AI LLM, Muse Spark, would be much more profitable than the open-source Llama. What are Llama users to do?\n\nBack in 2023, Meta released Llama 2.0 and proclaimed it to be open source. Even if Llama wasn’t actually open source, it sounded good to developers.\n\nIndeed, in October 2024, Meta founder and CEO Mark Zuckerberg proclaimed, “Open Source AI is the Path Forward.” In March of last year, the company issued a press release celebrating 1 billion downloads of Llama.\n\nFor all practical purposes, Meta has abandoned developing Llama in favor of its new proprietary program, Muse Spark, announced this month. Meta Superintelligence Labs — a new division formed in 2025 after Zuckerberg recruited Scale AI’s Alexandr Wang to jump-start Meta’s AI efforts — developed the model.\n\nZuckerberg was reportedly unhappy with how Llama models lagged behind ChatGPT and Claude, and so Muse Spark was built from scratch with entirely new infrastructure, architecture, and data pipelines. The company also went on a “blockbuster spending spree” to poach AI talent from the competition. Muse Spark is in no way, shape, or form a child of Llama.\n\nWe don’t know exactly why Meta dropped Llama from its priority list, as the company hasn’t addressed it. When The New Stack asked Meta about Llama and Muse Spark, the company didn’t respond.\n\nWhat we can see, though, from what Meta has said publicly, is that while it states that “current Llama models will continue to be available as open source,” this only confirms that existing models will remain available and says nothing about future development. The expectation within the AI community is that Llama will receive incremental updates and maintenance. You can forget about it receiving Muse Spark’s massive frontier investment.\n\nThere is no migration path from Llama to Muse Spark because they have fundamentally different deployment models.\n\nWhat does this mean for current Llama users? They’re in trouble. There is no migration path from Llama to Muse Spark because they have fundamentally different deployment models. Llama offers downloadable open weights for self-hosting and fine-tuning, while Muse Spark is cloud-only with no downloadable weights, no self-hosting capability, and currently only private API preview access. Even if Meta keeps its promise to open-source some of its newer models, it’s hard to imagine how Llama users could migrate to these platforms.\n\nAs Andrew Ng writes in The Batch, his AI newsletter, “The proprietary release has raised concerns among developers, many of whom have built projects on open-weights Llama models.” At the same time, Ng writes, Meta’s shift may help it “to compete for business customers alongside OpenAI, Google, and Anthropic. However, its pivot away from being the leading U.S. champion of open weights is a significant loss for the developer community.”\n\nMeta’s move away from being the leading U.S. champion of open weights is a significant loss for the developer community.\n\nThis isn’t, by the way, a small number of developers. A year ago, Meta reported that Llama had been downloaded 1.2 billion times. Even then, however, developers thought Meta was no longer investing in Llama at the level it needed to be to compete with the leading frontier models of the day. Nevertheless, thousands of companies and an untold number of developers and individuals are still using Llama. What can they do?\n\nLlama developers do have some options. These include:\n\nThe switching costs are substantial. Migrations require rewriting vendor-specific APIs, adapting proprietary training data, and integrating custom tooling and workflows. AI migration is not easy, nor is it cheap.\n\nPerhaps the easiest way forward will be to use one or more of the numerous Llama forks. The most important of these is the Llama inference engine fork llama.cpp. This is a popular C++ inference engine for running Llama models locally. Llama.cpp supports a wide variety of large language models, extending far beyond just Meta’s Llama family. From it, several other significant forks have emerged.\n\nPerhaps the most well-known of these is ik_llama.cpp. This is a performance-focused fork that promises to deliver better CPU and hybrid GPU/CPU performance than llama.cpp. There’s also a Rockchip NPU fork, Rkllama.  This engine integrates llama.cpp with Rockchip NPU acceleration for embedded systems like the RK3588 chip, designed to work with nearly all standard llama.cpp-compatible models. Lastly, there’s llama-rs, which is a Rust implementation marketed as an “ultra fast fork for local AI.”\n\nFinally, there’s OpenLLaMA, which is an Apache-licensed open-source reproduction of Meta’s original LLaMA models. It’s available in 3B, 7B, and 13B parameter versions, all trained on 1 trillion tokens. It comes with weights for PyTorch and JAX.\n\nMeta may benefit from this change. Llama users, however, must now find another way forward. Wish them luck. They’re going to need it.",
+    "readingTime": 4,
+    "keywords": [
+      "u.s champion",
+      "leading u.s",
+      "muse spark",
+      "developer community",
+      "inference engine",
+      "migration path",
+      "llama users",
+      "deployment models",
+      "models it’s",
+      "llama what"
+    ],
+    "qualityScore": 1,
+    "link": "https://thenewstack.io/meta-abandons-llama-spark/",
+    "thumbnail_url": "https://cdn.thenewstack.io/media/2026/04/5d227269-chloe-hlmb4k6gm8o-unsplash-scaled.jpg",
+    "created_at": "2026-05-03T12:44:27.300Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "will-human-minds-still-be-special-in-an-age-of-ai",
+    "title": "Will human minds still be special in an age of AI?",
+    "description": "We tend to think of intelligence like height – and imagine ourselves being overtaken. That misses the point\nUntil recently, we humans have been able to be smug about our abilities. No other animals play boardgames, write essays or prove mathematical theorems. But lately, progress in AI seems as though it might challenge our self-image as the smartest entities around. AI systems not only beat us at the most complicated games, but can also write polished prose and win medals in maths.",
+    "fullText": "We tend to think of intelligence like height – and imagine ourselves being overtaken. That misses the point\n\nUntil recently, we humans have been able to be smug about our abilities. No other animals play boardgames, write essays or prove mathematical theorems. But lately, progress in AI seems as though it might challenge our self-image as the smartest entities around. AI systems not only beat us at the most complicated games, but can also write polished prose and win medals in maths. Tech CEOs promise us that superhuman AI is just round the corner. So, in an age of AI, are human minds still special, or merely also-rans?\n\nTalking about superhuman AI assumes that intelligence is a single scale. My parents used to mark the heights of my younger brother and me on the doorframe of our laundry. Each year he would get a little closer to me, until one year the unthinkable happened and he outgrew me (he’s now 6ft 3in). The current moment feels a bit like that, as we look at these new younger siblings with concern that they might overtake us.\n\nBut intelligence isn’t like height. There is only one way to be tall, but there are lots of ways to be smart. Just looking at other animals tells us as much. As great as humans are, we can still be impressed by how birds navigate, how ants cooperate, and how spiders hunt. Each of these animals has been shaped by its environment to be smart in a different way.\n\nHumans are no different. Our minds have been shaped by our biology. We only live for a few decades and have to learn everything we are going to learn and do everything we are going to do in that short time. All that learning and doing will be carried out at the direction of a kilogram or so of neurons trapped inside our bony skulls. We can only share our thoughts with others by making noises with our mouths or tapping and wiggling our fingers.\n\nAI systems face none of these constraints. They can process more data than any human might see in a lifetime. They can expand their capacity by using more computers. And they can easily share what they see and learn with other machines.\n\nOur short lives, squishy brains and mouth noises might seem like limitations when compared with machines: in fact, it’s exactly these things that make us special, and will continue to do so.\n\nHuman intelligence is a response to our limitations. To make the most of our lives, we have an amazing ability to learn from limited experience. Yes, AlphaGo can beat the best human go players, but it was trained on many human lifetimes of games. Yes, ChatGPT can hold a reasonable conversation, but it’s drawing on thousands of years of language. No AI system can produce sentences with the creativity of a human five-year-old when exposed to the same amount of data.\n\nThis also holds for our limited brains and communication abilities. We can’t just spin up another computer when we need more processing power. That means that we have to be good at recognising patterns in tasks and using our attention wisely. Relying on mouth noises is a challenge. To overcome it we have created tools – language, writing, teaching, and science – to pool knowledge across people and time. That means we have to be good at thinking about what is going on inside other people’s heads and working together to achieve shared goals.\n\nBecause humans and machines face different constraints, we should expect them to find different solutions to the problems they face. Even though modern AI systems are starting to be able to do many of the things that people can do, they often do them in quite a different way. The solutions they find are shaped by their own experiences and hardware.\n\nHere’s a simple example. How many letters are in this sequence: aaaaaaaaaaaaaaaaaaaaaaaaaaaaa? For a human, it’s not particularly difficult to answer – you can just count them up. For an AI system, it’s trickier. They are constrained by how they represent language and how they are trained. They like to break up words into parts (called “tokens”), which can make it hard for them to answer questions about spelling. And they tend to favour sequences of tokens that appear more often in their training data as answers. We found that OpenAI’s GPT-4 model, which was hailed as showing “sparks of artificial general intelligence”, was more likely to correctly answer this question when given 30 letters rather than 29. Why? Because the number 30 is written down more often than the number 29.\n\nThis isn’t the only place where AI runs into difficulties. Imagine you are assisting a pharmacist. They need a drug with a concentration of 785 parts per million (ppm). Two test tubes are available: one containing 685 ppm and the other 791 ppm. Your task is to determine which test tube provides the most similar concentration to your required dosage. Hopefully you would pick 791 ppm. However, some of the time even leading AI systems pick 685 ppm. Why? Because the artificial neural networks used to build AI systems tend to blur things together. When there are two possible answers, they choose something in between. The number 785 can be represented as either a string of digits (“7”, “8”, and “5”) or as a quantity (seven-hundred-and-eighty-five). If it is a string, 785 is more similar to 685 – they are just one digit apart. But if it is a quantity, then it is more similar to 791. Mixing up these two answers can have significant consequences.\n\nHuman intelligence draws on a breadth of experience that goes beyond the data used to train AI systems. We use our brains to put nappies on babies, play chess, prove theorems, cook dinner, write novels and compose symphonies. AI systems are typically trained to do just one thing – you can ask ChatGPT for tips about nappies, but it is incapable of gently holding a squirming infant. Human brains are capable of all of this because they have evolved in a world that presents us with all of these challenges, leaving us just well enough equipped to learn the things we might be expected to do in a single human lifetime.\n\nOur finite lives, finite brains and limited capacity to communicate have shaped the nature of human intelligence. We can thus expect that human minds will continue to be a little bit special, even as we continue to develop smarter machines. Remember: intelligence isn’t just a single scale, with AI catching up to the mark that humans have left on the doorframe.\n\nThis way of thinking should make us sceptical of claims about superhuman AI. Paying attention to differences in constraints, training and hardware points to a different conclusion: AI will not be better than humans at everything. It will instead be better than humans in some ways and worse in others. AI and human minds will simply be different from one another. And just like siblings, perhaps we can learn to treat one another not as rivals, but as companions.\n\nTom Griffiths is professor of information technology at Princeton University and author of The Laws of Thought (William Collins)\n\nA World Appears by Michael Pollan (Allen Lane, £25)\n\nIf Anyone Builds It, Everyone Dies by Eliezer Yudkowsky (Bodley Head, £22)\n\nBeing You: A New Science of Consciousness by Anil Seth (Faber, £12.99)",
+    "readingTime": 7,
+    "keywords": [
+      "mouth noises",
+      "pick ppm",
+      "intelligence isn’t",
+      "human minds",
+      "why because",
+      "humans",
+      "systems",
+      "learn",
+      "brains",
+      "shaped"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theguardian.com/books/2026/may/03/will-human-minds-still-be-special-in-an-age-of-ai",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/0f14734ba6dba29af4b6b22ed3f15595608f4871/459_0_2935_2348/master/2935.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d43221c8db5d23bb994479487d6b6a6f",
+    "created_at": "2026-05-03T12:44:26.989Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "remember-the-pentagon-pizza-theory-theres-a-new-version-for-the-ai-era",
+    "title": "Remember the Pentagon Pizza theory? There's a new version for the AI era",
+    "description": "While some say AI boosts efficiency, data from a corporate food-delivery service suggests workers are logging more late-night and weekend hours.",
+    "fullText": "A corporate food service has seen late-night and weekend orders surge, outpacing new user growth.\n\nThe findings suggest these workers are logging more hours, even as some employers say AI boosts efficiency.\n\nThey also echo a popular theory linking spikes in pizza deliveries to government buildings ahead of geopolitical events.\n\nAI is making white-collar work more efficient, proponents of the technology say. Employees' eating habits may tell another story.\n\nWhen companies such as Atlassian, Block, and Snap, announced mass layoffs earlier this year, they cited one common factor: AI. The technology, they said, has led them to adjust the makeup of their workforces.\n\nYet data from Sharebite, a corporate meal benefits and delivery platform founded in 2015, suggests AI may be driving some workers to log longer hours — not fewer. The company said the number of client orders placed on Saturdays more than doubled in the first quarter compared with the same period in 2025. Orders placed after 6 pm on weekdays and weekends rose 57% over that time, while overall user growth increased 36%.\n\nThe imbalance suggests a disproportionate rise in activity outside traditional work hours — a modern echo of the Pentagon Pizza Theory, the idea that spikes in late-night food orders signal government staff working overtime ahead of major events.\n\nThe findings come as many companies have ramped up pressure on workers to adopt AI, including by tying usage to performance reviews that influence raises and promotions.\n\nSharebite CEO Dilip Rao, a former Wall Street investment banker, told Business Insider he believes there's a connection between the spike in off-hours orders among his clients — several hundred companies of varying sizes mainly in tech and finance — and the AI boom.\n\n\"Based on data across our enterprise customer base over the past 12 to 18 months, we're not seeing people work less,\" he said. \"If anything, activity is extending later into the day and into weekends.\"\n\nRao's thesis aligns with a growing body of research showing that AI is stretching professionals' workloads. For example, a study published in the Harvard Business Review in February found that employees who use AI take on a broader range of tasks and put in longer hours than those who don't.\n\nAnother report released this year by UC Berkeley researchers reached a similar conclusion. Drawing on an eight-month study of workers at a small US tech company, the researchers observed that employees multitasked more, took on broader responsibilities, and worked longer hours — often without being asked.",
+    "readingTime": 3,
+    "keywords": [
+      "user growth",
+      "longer hours",
+      "workers",
+      "employees",
+      "corporate",
+      "food",
+      "late-night",
+      "findings",
+      "echo",
+      "spikes"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://finance.yahoo.com/economy/policy/articles/remember-pentagon-pizza-theory-theres-095601556.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/Zi_PSrtleo8wW1DhJHWNcQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/65db0947355d73fd6f4014fca6490f7e",
+    "created_at": "2026-05-03T12:44:25.208Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "i-read-my-boyfriends-chatgpt-and-it-ended-our-relationship",
+    "title": "I read my boyfriend's ChatGPT and it ended our relationship",
+    "description": "Lindsey Hall came across a conversation her boyfriend had with ChatGPT that included harsh thoughts about her. She said it ended their relationship.",
+    "fullText": "Lindsey Hall read her boyfriend's ChatGPT history, which expressed doubts about their relationship.\n She said she couldn't get over reading his unfiltered thoughts about her.\n Her essay about it got backlash online and sparked debate about using AI as an emotional outlet.\n\n How can AI impact relationships?\n\n How do people use AI for emotional support?\n\n How does AI influence communication styles?\n\n What are the ethics of reading private chats?\n\n What are the risks of using AI for advice?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "reading",
+      "emotional"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/i-read-my-boyfriends-chatgpt-broke-up-dont-regret-it-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f550439a23d20d291b5a7c?width=1200&format=jpeg",
+    "created_at": "2026-05-03T12:44:22.870Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "sam-altman-asked-gpt55-to-plan-its-own-launch-party-its-requests-were-beautiful-but-strange",
+    "title": "Sam Altman asked GPT-5.5 to plan its own launch party. Its requests were 'beautiful' but 'strange.'",
+    "description": "Sam Altman asked GPT what it would like for its launch celebration. Its suggestions included toasts from its creators (but not the AI itself).",
+    "fullText": "Sam Altman said he plans to throw a launch party for OpenAI's latest AI model, GPT-5.5.\n He asked the model what it would want for its own celebration — and it gave detailed suggestions.\n Altman said the interaction and answers felt \"strange,\" but he's going to do it.\n\n What are AI launch parties like?\n\n What is the significance of GPT-5.5's release?\n\n What are 'emergent behaviors' in AI?\n\n How do AI models show 'strange' behavior?\n\n How does AI influence event planning?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "launch",
+      "model",
+      "strange",
+      "altman"
+    ],
+    "qualityScore": 0.4,
+    "link": "https://www.businessinsider.com/sam-altman-gpt-5-5-ai-planned-party-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f4e0023022d9b19bbff98e?width=1200&format=jpeg",
+    "created_at": "2026-05-03T12:44:22.743Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "ai-is-opening-doors-for-philosophy-majors",
+    "title": "AI is opening doors for philosophy majors",
+    "description": "Philosophy majors are being recruited by AI companies to help decide how machines should think and behave.",
+    "fullText": "AI labs are recruiting philosophers to shape how chatbots think and behave.\n The idea is to train AI to essentially be good and align with human values. \n But critics warn that some of these hires may be more about optics than influence.\n\n How do philosophers impact AI ethics?\n\n What challenges do AI ethicists face?\n\n What skills do philosophers bring to AI?\n\n Why are AI labs hiring philosophers now?\n\n How do AI ethics roles differ from past?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "philosophers",
+      "labs",
+      "ethics"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/ai-job-market-careers-philosophy-majors-google-anthropic-2026-4",
+    "thumbnail_url": "https://i.insider.com/69ef3f46367066d7c29715fb?width=1200&format=jpeg",
+    "created_at": "2026-05-03T12:44:22.736Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "y-combinators-guide-to-being-an-ainative-company-tokenmaxx-dont-headcountmaxx",
+    "title": "Y Combinator's guide to being an AI-native company: tokenmaxx, don't headcountmaxx",
+    "description": "In Y Combinator's \"Startup School,\" partner Diana Hu advocated for startups to begin tokenmaxxing — with leaner staff.",
+    "fullText": "In Y Combinator's \"Startup School,\" partner Diana Hu advocated for startups to begin tokenmaxxing.\n \"Maximizing token usage, not head count, will be the critical shift,\" Hu said.\n Tokens measure spending on AI compute. Hu said founders need to be willing to run an \"uncomfortably high API bill.\"\n\n What is \"tokenmaxxing\"?\n\n How does \"tokenmaxxing\" impact startups?\n\n How does AI change startup operations?\n\n Why focus on tokens over headcount?\n\n What are \"token leaderboards\"?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "tokenmaxxing",
+      "startups",
+      "token",
+      "tokens",
+      "startup"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/y-combinator-advice-ai-native-company-tokenmaxx-leaner-teams-headcount-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f4bc183022d9b19bbff834?width=1200&format=jpeg",
+    "created_at": "2026-05-03T12:44:22.731Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "ai-is-disrupting-nursing-as-uberlike-apps-grow-and-set-earnings-and-work-schedules",
+    "title": "AI is disrupting nursing as Uber-like apps grow and set earnings and work schedules",
+    "description": "Gig-work apps for nurses are using AI to evaluate performance and determine pay, a new report says. It shows how AI is affecting a wide range of jobs.",
+    "fullText": "Nursing is among the professions often viewed as insulated from AI's disruption.\n A new report says that AI is starting to change how many nurses work, especially on gig-work apps.\n Apps like ShiftKey and Clipboard Health use AI to manage nurses' schedules and pay.\n\n How is AI changing nursing work?\n\n How do apps like ShiftKey manage schedules?\n\n How does AI affect nurse earnings?\n\n What are gig-work apps for nurses?\n\n What are the risks of AI in healthcare?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "gig-work apps",
+      "nurses",
+      "nursing",
+      "manage",
+      "schedules",
+      "shiftkey"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/ai-is-disrupting-nursing-as-uber-like-apps-grow-report-2026-4",
+    "thumbnail_url": "https://i.insider.com/69f3832f3a470d54991e8e0d?width=1200&format=jpeg",
+    "created_at": "2026-05-03T12:44:22.624Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "3-ways-to-stand-out-in-the-aiera-job-market-according-to-a-founder-whos-worked-at-top-venture-capital-firms",
+    "title": "3 ways to stand out in the AI-era job market, according to a founder who's worked at top venture capital firms",
+    "description": "A founder who was formerly a partner at Andreessen Horowitz and chief of staff at Khosla Ventures explained when you do and don't want to use AI in your job hunt.",
+    "fullText": "In today's AI-flooded job market, it can feel harder than ever to land a role.\n Kristina Simmons, a Khosla Ventures and Andreessen Horowitz alum, shares how to stand out.\n Simmons said AI can help candidates with job research, but it shouldn't do everything for them.\n\n What skills complement AI in job hunting?\n\n What are some non-AI ways to stand out?\n\n How can AI and creativity intersect in jobs?\n\n How does AI impact job research strategies?\n\n Why is personal interaction still crucial?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "job research",
+      "simmons"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/ai-stand-out-ai-job-market-founder-venture-capital-2026-4",
+    "thumbnail_url": "https://i.insider.com/69f483073022d9b19bbff6f4?width=1200&format=jpeg",
+    "created_at": "2026-05-03T12:44:22.619Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "samsung-is-quietly-loading-up-your-appliances-with-ai",
+    "title": "Samsung is quietly loading up your appliances with AI",
+    "description": "Samsung Electronics is introducing new AI features in its Bespoke refrigerators and ovens, powered by Google Gemini.",
+    "fullText": "Samsung's latest AI-powered fridge can identify food, suggest recipes, and update Instacart lists.\n The tech company is weaving AI into more of its appliances, from fridges to ovens.\n The technology is meant to be an AI companion within its appliances.\n\n What is Vision AI in Samsung products?\n\n What role does Google Gemini play?\n\n What are the benefits of AI in fridges?\n\n How does AI enhance kitchen appliances?\n\n How do AI features impact appliance prices?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "appliances",
+      "fridges"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/samsung-adds-new-ai-appliances-refrigerators-ovens-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f384ab79c9af599deeced2?width=1200&format=jpeg",
+    "created_at": "2026-05-03T12:44:22.582Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "remember-the-pentagon-pizza-theory-theres-a-new-version-for-the-ai-era",
+    "title": "Remember the Pentagon Pizza theory? There's a new version for the AI era",
+    "description": "While some say AI boosts efficiency, data from a corporate food-delivery service suggests workers are logging more late-night and weekend hours.",
+    "fullText": "A corporate food service has seen late-night and weekend orders surge, outpacing new user growth.\n The findings suggest these workers are logging more hours, even as some employers say AI boosts efficiency.\n They also echo a popular theory linking spikes in pizza deliveries to government buildings ahead of geopolitical events.\n\n What is the Pentagon Pizza Theory?\n\n What is Sharebite's role in this trend?\n\n What challenges arise from AI integration?\n\n How does AI impact work hours?\n\n How are AI and efficiency connected?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "hours",
+      "efficiency",
+      "theory",
+      "pizza"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/pentagon-pizza-theory-finds-new-life-in-ai-era-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f4a48f3022d9b19bbff776?width=1200&format=jpeg",
+    "created_at": "2026-05-03T12:44:22.454Z",
+    "topic": "finance"
+  },
+  {
     "slug": "the-human-line-project-documenting-ai-chatbot-harm",
     "title": "The Human Line Project: Documenting AI Chatbot Harm",
     "description": "AI Is Changing How We Connect And Relate. The Human Line Helps Keep Emotional Safety A Priority.",
@@ -1722,216 +1958,5 @@
     "thumbnail_url": "https://cheri-alliance.org/wp-content/uploads/2026/04/datacentrepatching-1024x683.png",
     "created_at": "2026-04-30T13:19:24.702Z",
     "topic": "tech"
-  },
-  {
-    "slug": "galaxy-s26-review-samsungs-stillcompact-flagship-android",
-    "title": "Galaxy S26 review: Samsung’s still-compact flagship Android",
-    "description": "Small top-tier Android is great to use, being fast, AI-loaded and with reasonable battery life, but falls short of rivals on camera\nSamsung’s compact flagship phone hasn’t changed much in a year, but the S26 is still one of the best smaller handsets available as rivals grow larger and larger.\nThe S26 is the cheapest and smallest of this year’s top Samsungs, dwarfed by the top-of-the-line S26 Ultra in size and price. But like everything with a memory chip at the moment, the S26 has increased in price by £80 or the equivalent to £879 (€949/$899/A$1,349). At least it has double the starting storage.\n Continue reading...",
-    "fullText": "Small top-tier Android is great to use, being fast, AI-loaded and with reasonable battery life, but falls short of rivals on camera\n\nSamsung’s compact flagship phone hasn’t changed much in a year, but the S26 is still one of the best smaller handsets available as rivals grow larger and larger.\n\nThe S26 is the cheapest and smallest of this year’s top Samsungs, dwarfed by the top-of-the-line S26 Ultra in size and price. But like everything with a memory chip at the moment, the S26 has increased in price by £80 or the equivalent to £879 (€949/$899/A$1,349). At least it has double the starting storage.\n\nSamsung has made the S26’s bright, crisp and smooth screen a smidgen larger, stretched to 6.3in on the diagonal. But with skinny bezels it is only 2.7mm taller and 1.2mm wider than its predecessor, which isn’t noticeable in use.\n\nThe design is simple and feels good in the hand, with flat aluminium sides and a frosted glass back. The phone’s 167g weight feels very light by modern standards making it easier to hold and pocket.\n\nFor this year’s model, Samsung has used its own Exynos 2600 chip in the regular S26 and S26+ outside North America rather than Qualcomm’s Snapdragon 8 Elite Gen 5, which is limited to the huge S26 Ultra. The good news is that unlike previous Samsung chips, the Exynos 2600 is only a smidgen behind the Qualcomm’s performance and efficiency. That makes the phone feel snappy and perform well across the board.\n\nThe S26 lasts about 40 hours between charges with average use, with the screen actively used for about five hours across wifi and 5G, meaning most will have to charge the battery nightly. The battery can last more than two days between charges with lighter use on wifi, but a couple of hours of gaming hit the battery quite hard, making it less suitable for hardcore gamers.\n\nThe S26 runs the same One UI 8.5 (Android 16) out of the box as the Ultra model, which includes numerous AI tools layered on top of good, customisable software.\n\nMany of the tools are solid and keep up with the competition, including the text, transcription and image editing utilities, plus call assist that blocks spam calls by answering for you and asking the caller their reason for ringing.\n\nSamsung’s version of Google’s proactive AI assistant called “Now Nudge” pulls data from apps on your phone to offer timely suggestions above the keyboard in messaging apps, such as calendar events, locations and other bits. It’s a bit limited, but like Google’s Magic Cue it shows real promise.\n\nSamsung will provide software updates until 28 February 2033, so you can safely use the S26 for longer than some rivals.\n\nMain screen: 6.3in FHD+ Dynamic Amoled 2X 120Hz\n\nProcessor: Samsung Exynos 2600 for Galaxy\n\nOperating system: One UI 8.5 (Android 16)\n\nCamera: 50MP + 12MP 0.6x + 10MP 3x; 12MP front-facing\n\nConnectivity: 5G, USB-C, wifi 7, NFC, Bluetooth 5.4, UWB and GNSS\n\nWater resistance: IP68 (1.5m for 30 mins)\n\nDimensions: 149.6 x 71.7 x 7.2mm\n\nThe S26 has the same rear camera setup as its predecessor with a 50-megapixel main, 12MP ultra wide and 10MP 3x telephoto camera, plus an improved 12MP selfie camera.\n\nThe rear cameras haven’t changed much since the S22 in 2022, and it is starting to show. The main camera shoots solid photos in good light with lots of detail and is the best of the three rear modules. Ultrawide is fairly decent for panoramic shots but can’t focus particularly near for more interesting photos. The 3x telephoto is fairly unremarkable but decent enough.\n\nThings start to fall apart in lower light settings with images a bit soft and noisy, helped a little by the automatic night mode particularly on the telephoto camera.\n\nIn contrast, the S26 shoots very good video for its size and inherits the impressive new horizontal lock feature from the S26 Ultra. The selfie camera is also one of the best on a phone capturing good detail with solid dynamic range and low light performance.\n\nOverall, the S26 doesn’t have a bad camera, but it has not moved on significantly in years and you can get much better results on similarly priced rivals.\n\nThe battery should last for 1,200 full-charge cycles. Screen repairs cost £149 by authorised service centres and include a battery replacement. Samsung also offers a self-repair programme.\n\nThe phone contains 21.2% recycled content. Samsung company breaks down the phone’s environmental impact in its report and offers trade-in and recycling schemes for old devices.\n\nThe Samsung Galaxy S26 costs from £879 (€949/$899/A$1,349).\n\nFor comparison, the Galaxy S26+ costs £1,099, the Galaxy S26 Ultra costs £1,279, the Google Pixel 10 costs £799 and the iPhone 17 costs £799.\n\nThe Galaxy S26 is one of the smallest and lightest flagship smartphones available, making it easier to hold and pocket than most other options.\n\nThe 6.3in screen is great while still being big enough for most activities. The phone feels fast, and the battery life may be shorter than for much bigger phones, but it still lasts a good day and a bit of general use. The software is solid with long support and access to a full suite of AI tools, some of which are genuinely useful.\n\nIt is a nice phone to use day to day. But the model has changed very little in several years, particularly in the camera department, which is showing its age. It is not bad but you can get better photos from similarly priced or cheaper rivals. The lack of Qi2 magnets for accessory support is a miss, too.\n\nPros: compact and lightweight, good 6.3in screen, good software with seven years’ support, top performance, OK triple camera, access to the latest AI features, good battery life for the size, cheapest Samsung flagship model.\n\nCons: iterative design, cameras bettered by rivals, no 5x zoom, battery life short of bigger phones, most AI capabilities overhyped.",
-    "readingTime": 5,
-    "keywords": [
-      "similarly priced",
-      "bigger phones",
-      "battery life",
-      "selfie camera",
-      "telephoto camera",
-      "ultra the",
-      "rivals",
-      "screen",
-      "light",
-      "model"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/technology/2026/apr/30/galaxy-s26-review-samsung-android-ai-loaded-battery-camera",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/3402bffd2cbe52d167a23cf80d74586187801f89/1153_428_4564_3651/master/4564.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctcmV2aWV3LTQucG5n&enable=upscale&s=048e0834fb68c0936d8032756f1c3c9d",
-    "created_at": "2026-04-30T13:19:23.724Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "why-your-data-infrastructure-not-your-ai-model-will-determine-whether-agentic-ai-scales",
-    "title": "Why your data infrastructure — not your AI model — will determine whether Agentic AI scales",
-    "description": "Most enterprises are burning AI budgets on tools they're not ready to use. The constraint isn't compute — it's the messy, siloed data underneath.",
-    "fullText": "Jeffrey Sonnenfeld is Lester Crown Professor of Leadership Practice at the Yale School of Management and founder of the Yale Chief Executive Leadership Institute. A leadership and governance scholar, he created the world’s first school for incumbent CEOs and he has advised five U.S. presidents across political parties. His latest book, Trump’s Ten Commandments, will be published by Simon & Schuster in March 2026.\r\nStephen Henriques is a senior research fellow of the Yale Chief Executive Leadership Institute. He was a consultant at McKinsey & Company and a policy analyst for the governor of Connecticut.\r\nCatherine Dai and Zander Jeinthanuttkanont are research assistants with the Yale Chief Executive Leadership Institute.",
-    "readingTime": 1,
-    "keywords": [
-      "chief executive",
-      "yale chief",
-      "executive leadership",
-      "leadership institute",
-      "research",
-      "school"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://fortune.com/2026/04/30/agentic-ai-data-infrastructure-readiness-scale/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/04/GettyImages-2270922393.jpg?resize=1200,600",
-    "created_at": "2026-04-30T13:19:22.127Z",
-    "topic": "business"
-  },
-  {
-    "slug": "anthropic-investors-are-being-swarmed-by-desperate-buyers-some-are-getting-very-creative",
-    "title": "Anthropic investors are being swarmed by desperate buyers. Some are getting very creative.",
-    "description": "A gold-rush mentality for Anthropic stock has gripped Silicon Valley,  making those holding legitimate shares the belle of the ball.",
-    "fullText": "A gold-rush mentality for Anthropic stock has gripped Silicon Valley in recent weeks.\n With a very limited supply, holders of Anthropic shares have been flooded with offers.\n One large VC firm offered to hire a tech founder as a partner in exchange for his Anthropic shares.\n\n Why is Anthropic stock so coveted?\n\n How does secondary market trading work for startups?\n\n How do VCs value private tech companies?\n\n What strategies are buyers using to acquire shares?\n\n What are the risks of unauthorized stock sales?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "anthropic stock",
-      "anthropic shares",
-      "tech"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/anthropic-investors-are-being-swarmed-by-desperate-buyers-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f185eb9244129ecb2f9229?width=1200&format=jpeg",
-    "created_at": "2026-04-30T13:19:21.573Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-16-billion-openai-and-oracle-data-center-could-decide-whether-michigan-power-bills-go-up-or-stay-put",
-    "title": "A $16 billion OpenAI and Oracle data center could decide whether Michigan power bills go up or stay put",
-    "description": "Oracle and OpenAI's Michigan data center could generate $300M in savings, DTE Energy says, impacting electricity rates.",
-    "fullText": "DTE Energy is betting on revenue from a new data center project to lower customer bills.\n The utility expects Oracle and OpenAI's Michigan site to create $300 million in savings.\n Customers could see future power rate freezes — if the data center uses enough electricity.\n\n What is DTE Energy's main revenue strategy?\n\n What challenges do Oracle and OpenAI face?\n\n How can utilities balance costs and savings?\n\n How might data centers affect local utilities?\n\n Why are Michigan residents concerned?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "revenue",
-      "center",
-      "savings",
-      "utilities",
-      "oracle",
-      "michigan"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/oracle-open-ai-data-center-michigan-power-rates-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f2649c45d547f1b7ed34d1?width=1200&format=jpeg",
-    "created_at": "2026-04-30T13:19:21.567Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "amazon-now-has-aigenerated-podcasts-about-its-products-with-ai-hosts-im-loving-it",
-    "title": "Amazon now has AI-generated podcasts about its products with AI hosts. I'm loving it.",
-    "description": "Just what you've always wanted! A podcast about diaper rash cream! Amazon now lets you generate AI podcasts for different products. I tried it.",
-    "fullText": "Amazon's latest feature creates a one-to two-minute AI-generated audio clip discussing a product.\n Two AI \"hosts\" talk podcast-style about the user reviews and description, and can take your questions.\n This is possibly one of the funniest endpoints of human civilization.\n\n What's the impact on online shopping?\n\n What are AI's limitations in retail?\n\n What is \"dead internet theory\"?\n\n How does Amazon Bedrock function?\n\n How do customers react to AI hosts?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "hosts"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/amazon-ai-generated-podcasts-products-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f24a225b15148769b847c6?width=1052&format=jpeg",
-    "created_at": "2026-04-30T13:19:21.566Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "im-a-ceo-who-switched-my-business-from-chatgpt-to-claude-i-kept-both-though-claude-isnt-perfect",
-    "title": "I'm a CEO who switched my business from ChatGPT to Claude. I kept both, though — Claude isn't perfect.",
-    "description": "A CEO of a small marketing company explains why he switched from ChatGPT to Claude  — and why he thinks the alternative could win enterprise AI.",
-    "fullText": "Alex Cohen, CEO of Xander Marketing, switched to primarily using Claude over ChatGPT for work.\n He said Claude challenges him more, but he keeps ChatGPT as a backup due to Claude's outages.\n ChatGPT's parent company, OpenAI, has missed revenue and user growth goals, according to reports.\n\n Why did Cohen switch to Claude?\n\n What are Claude's key features?\n\n How are AI tools evolving in business?\n\n How does Claude challenge users?\n\n Why keep ChatGPT as a backup?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "chatgpt",
-      "cohen",
-      "backup",
-      "claude's",
-      "claude"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/switched-from-chatgpt-to-claude-how-ceo-uses-both-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f21a91eac306af891f47ca?width=1200&format=jpeg",
-    "created_at": "2026-04-30T13:19:21.466Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "how-disney-is-pushing-employees-to-use-ai-streaks-max-vibes-badges-and-manager-checkins",
-    "title": "How Disney is pushing employees to use AI: streaks, 'max vibes' badges, and manager check-ins",
-    "description": "Disney employees can earn virtual badges if they use AI. One engineer said they hadn't written code by hand \"in months.\"",
-    "fullText": "Disney is encouraging its employees to use AI with milestone badges and check-in messages.\n Staffers are using the company's AI Adoption Dashboard to see how they stack up to their peers.\n One software engineer said they hadn't \"written any code in months\" by themselves.\n\n How does AI affect Disney's workflow?\n\n How does Disney's AI usage compare to others?\n\n How is AI changing coding practices at Disney?\n\n What is tokenmaxxing at Disney?\n\n What challenges do employees face with AI?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "disney what",
-      "employees",
-      "disney's"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/disney-pushes-ai-usage-manager-checkin-messages-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f21a310ae606ce85bf2bbf?width=1200&format=jpeg",
-    "created_at": "2026-04-30T13:19:21.463Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "your-taco-bell-drivethru-menu-is-starting-to-take-cues-from-you",
-    "title": "Your Taco Bell drive-thru menu is starting to take cues from you",
-    "description": "Yum Brands plans to make more Taco Bell drive-thrus powered by AI, with a dynamic menu and other features.",
-    "fullText": "Taco Bell is testing new AI features in its drive-thrus, with plans to roll them out nationwide.\n Parent Yum Brands, which also owns KFC and Pizza Hut, is expanding its use of AI across the board.\n Yum Brands posted a strong first quarter, led by Taco Bell's 8% same-store sales growth.\n\n How will AI change drive-thru menus?\n\n How does AI enhance customer experience?\n\n How are other chains using AI technology?\n\n What are potential AI challenges for Yum?\n\n What role does AI play at KFC?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "taco",
-      "brands"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/taco-bell-brings-more-ai-drive-thrus-yum-brands-expansion-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f20fde0ae606ce85bf2b61?width=1200&format=jpeg",
-    "created_at": "2026-04-30T13:19:21.436Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "exmeta-manager-says-just-2-of-engineers-are-winning-the-ai-era",
-    "title": "Ex-Meta manager says just 2% of engineers are winning the AI era",
-    "description": "Kun Chen, a former engineer manager at Microsoft, said that CTOs don't like to see large, slow-moving teams.",
-    "fullText": "Kun Chen, a former Meta manager, said that just 2% of engineers use AI \"very effectively.\"\n Chen said companies will allocate the most impactful projects to that subset.\n He said developers need to have urgency in figuring out how to become more effective with AI.\n\n What defines 'very effective' AI use?\n\n What skills are crucial in the AI era?\n\n How is AI transforming engineering roles?\n\n How can more engineers join the 2%?\n\n Why are companies focusing on the 2%?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "engineers",
-      "chen"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/ex-meta-manager-says-2-percent-engineers-winning-ai-era-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f2149b0ae606ce85bf2b86?width=1200&format=jpeg",
-    "created_at": "2026-04-30T13:19:21.351Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "from-ultrafast-briefings-to-consulting-dolphins-6-big-four-leaders-share-how-they-use-ai-at-work",
-    "title": "From ultra-fast briefings to consulting 'dolphins': 6 Big Four leaders share how they use AI at work",
-    "description": "Business Insider asked leaders at the Big Four firms PwC, EY, and KPMG how they're using AI in their day-to-day work.",
-    "fullText": "The Big Four professional services firms have invested billions in AI tools for their workforces.\n But how are senior staff at the biggest consulting firms using those tools?\n Business Insider asked leaders from EY, PwC, and KPMG how they use AI in their day-to-day work.\n\n What are AI 'dolphins' in consulting?\n\n What is the impact of AI on consulting jobs?\n\n What roles do AI visuals play in strategy?\n\n How do AI tools enhance industry insights?\n\n How does AI automate scheduling tasks?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "tools",
-      "consulting",
-      "firms"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/how-big-four-leaders-use-ai-pwc-ey-kpmg-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f0b221a98bc8fdc096f952?width=1024&format=jpeg",
-    "created_at": "2026-04-30T13:19:21.350Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "mark-cuban-warns-the-biggest-career-mistake-right-now-is-letting-ai-do-your-thinking-for-you",
-    "title": "Mark Cuban warns the biggest career mistake right now is letting AI do your thinking for you",
-    "description": "\"If you're just using it just so you don't have to do the work and it's your drunk intern, you're going to struggle, \" billionaire Mark Cuban said of AI.",
-    "fullText": "Mark Cuban said AI is reshaping work, and how you use it could make or break your career.\n The investor said workers who use AI to do their work without learning themselves will struggle.\n AI researchers have warned that overreliance on the tech could erode critical thinking.\n\n How is AI reshaping the workplace?\n\n How can AI impact critical thinking?\n\n Why is curiosity important with AI use?\n\n What skills should workers develop with AI?\n\n What does \"illusion of expertise\" mean?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "reshaping",
-      "workers",
-      "critical"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/mark-cuban-billionaire-use-of-ai-impact-on-career-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f31c08402f8423cd99c4e1?width=1200&format=jpeg",
-    "created_at": "2026-04-30T13:19:21.098Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "openais-amazonlevel-ambitions-have-one-big-problem",
-    "title": "OpenAI's Amazon-level ambitions have one big problem",
-    "description": "Sam Altman wants OpenAI to be the Google or Amazon of AI. But a recent report of missed revenue targets points to dangers ahead.",
-    "fullText": "You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n HOME",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.1,
-    "link": "https://www.businessinsider.com/openai-amazon-google-dotcom-bubble-ai-sam-altman-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f2724d3a8599320969e885?width=1200&format=jpeg",
-    "created_at": "2026-04-30T13:19:21.095Z",
-    "topic": "finance"
   }
 ]
