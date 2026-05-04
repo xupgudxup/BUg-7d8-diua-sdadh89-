@@ -1,5 +1,45 @@
 [
   {
+    "slug": "how-to-get-alerted-when-a-stripe-charge-fails-no-cloud-vendor-required",
+    "title": "How to: Get Alerted When a Stripe Charge Fails – No Cloud Vendor Required",
+    "description": "Build a real-time alert for failed Stripe charges in under 5 minutes. One function, one trigger, any messaging tool — no AWS, no Azure, no polling.",
+    "fullText": "A charge fails. Nobody notices. The customer retries, gets frustrated, emails support. Support logs into Stripe, finds the charge.failed event, and starts debugging — hours or days after it happened.\n\nStripe can forward events to your endpoint, but it doesn't notify your team. You still need to build the alerting yourself. Stripe's Event Destinations can push to AWS EventBridge or Azure Event Grid, but that means an AWS or Azure account, IAM roles, an event bus, and a cloud bill — all for a notification.\n\nThis walkthrough builds a real-time alert that fires the moment a charge.failed event arrives. One function, one trigger, any messaging tool you want. No cloud vendor, no polling, no infrastructure.\n\nPrerequisites: This builds on Store Stripe Webhook Events and Query Them Forever. If you've already got a stripe-events collection receiving events, you're ready. If not, that post takes about 5 minutes.\n\nCentrali's compute sandbox restricts outbound HTTP to domains you've explicitly approved. Before your function can post alerts, add your messaging provider's domain.\n\nGo to Logic > Domains and add the domain for your tool:\n\nGo to Logic > Functions and create a new function called Alert on Charge Failed.\n\nGo to Logic > Triggers and create a new trigger.\n\nTrigger parameters are encrypted at rest. Your webhook URL is never exposed in logs or function code.\n\nTrigger a failed charge from the Stripe CLI:\n\nOr send a test webhook from the Stripe Dashboard. Within seconds, you should see the alert arrive:\n\nOpen the run detail in the Centrali console to see the execution:\n\nThe function posts { text: message }, which works with Slack and most webhook APIs. For other tools, adjust the payload:\n\nThis pattern isn't limited to failed charges. You can alert on any event type by adjusting the filter:\n\nYou can also build more advanced workflows using orchestrations — chain multiple functions together, add conditional logic, or fan out to several endpoints in parallel.\n\nStart building your own workflow",
+    "readingTime": 2,
+    "keywords": [
+      "charge.failed event",
+      "alert",
+      "webhook",
+      "events",
+      "logs",
+      "cloud",
+      "messaging",
+      "tool",
+      "you've",
+      "create"
+    ],
+    "qualityScore": 1,
+    "link": "https://centrali.io/blog/alert-stripe-charge-failures",
+    "thumbnail_url": "https://centrali.io/blog/alert-stripe-charge-failures/opengraph-image?98b7a8c2acc0ebc6",
+    "created_at": "2026-05-04T19:13:34.916Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "amazons-next-act-delivering-from-outer-space",
+    "title": "Amazon’s Next Act: Delivering From Outer Space",
+    "description": "Panos Panay, Amazon Devices, Alexa and Leo senior vice president, discusses the company’s evolving hardware and satellite strategies, including wearable devices, Alexa Plus, and Leo, its satellite internet service.",
+    "fullText": "Amazon’s Next Act: Delivering From Outer Space WSJEDT AMZN Panos Panay, Amazon Devices, Alexa and Leo senior vice president, discusses the company’s evolving hardware and satellite strategies, including wearable devices, Alexa Plus, and Leo, its satellite internet service.",
+    "readingTime": 1,
+    "keywords": [
+      "devices alexa",
+      "satellite"
+    ],
+    "qualityScore": 0,
+    "link": "https://finance.yahoo.com/video/amazon-next-act-delivering-outer-153700010.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/C.HrSJDvuiIB6kV7EEPfJw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/wall_street_journal_733/91c8cbbc962a7edafce262448c3b9bc3",
+    "created_at": "2026-05-04T19:13:08.243Z",
+    "topic": "finance"
+  },
+  {
     "slug": "the-download-the-north-poles-future-and-humanoid-data",
     "title": "The Download: the North Pole's future and humanoid data",
     "description": "Plus: Google, Microsoft, Amazon and Meta have all set AI spending records.",
@@ -1762,42 +1802,5 @@
     "thumbnail_url": "https://s.yimg.com/os/en/onefootball_articles_802/aedde778fa5b96bbca5f414c80288fa2",
     "created_at": "2026-03-25T01:14:13.174Z",
     "topic": "sports"
-  },
-  {
-    "slug": "android-on-amazon-echo-show-5-2nd-gen-2021",
-    "title": "Android on Amazon Echo Show 5 2nd Gen – 2021",
-    "description": "CURRENT RELEASE:...",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://xdaforums.com/t/unlock-root-twrp-unbrick-amazon-echo-show-5-2nd-gen-2021-cronos.4772596/",
-    "thumbnail_url": "https://xdaforums.com/data/assets/logo/header-forum.jpeg",
-    "created_at": "2026-03-25T01:13:43.820Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "exclusiveamazon-says-aws-bahrain-region-disrupted-following-drone-activity",
-    "title": "Exclusive-Amazon says AWS’ Bahrain region ’disrupted’ following drone activity",
-    "description": "Exclusive-Amazon says AWS’ Bahrain region ’disrupted’ following drone activity",
-    "fullText": "SAN FRANCISCO, March 23 (Reuters) - Amazon said on Monday its Amazon Web Services region in Bahrain has been \"disrupted\" amid the current conflict in the Middle East, marking the second time in a month that its operations have been affected by the war.\n\nThe disruption is due to drone activity in the area, an Amazon spokesperson said, following a Reuters inquiry. Reuters is first to report on the disruption. As of Monday night, AWS had not updated its status page to reflect the impact.\n\nAmazon did not immediately respond to a query on whether its Bahrain facility was directly hit by a drone attack or if the disruption was due to nearby strikes.\n\nThe company said it is helping to migrate customers to alternate AWS regions while it recovers, though it did not provide additional details such as the extent of the damage or how long it anticipates the disruption to last.\n\n\"As this situation evolves and, as we have advised before, we request those with workloads in the affected regions continue to migrate to other locations,\" Amazon said in a statement Monday night.\n\nAWS is Amazon’s cloud computing unit and critical for the operation of many well-known websites and government operations. It is also the company’s main driver of profits.\n\nThe disruption is the second instance of drone activity affecting AWS’ Bahrain region since the start of the U.S.-Israeli war on Iran. Earlier this month AWS reported that facilities in Bahrain and the United Arab Emirates had lost power and it was working to recover, including transferring computing workloads to other regions.\n\nThe strike on the UAE facility was the first time military action had disrupted a major U.S. tech company’s data center, Reuters reported earlier in March. Amazon said it anticipated a \"prolonged\" recovery due to structural damage.\n\n\"These strikes ​have caused structural damage, disrupted power delivery to our infrastructure, and in some cases required fire suppression activities that resulted in additional water ​damage,\" AWS said earlier this month on its status page.\n\nAmazon said at the time that the Bahrain region was impacted by a drone strike in close proximity to one of its facilities.",
-    "readingTime": 2,
-    "keywords": [
-      "night aws",
-      "bahrain region",
-      "status page",
-      "drone activity",
-      "structural damage",
-      "disruption",
-      "reuters",
-      "disrupted",
-      "regions",
-      "amazon"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.investing.com/news/stock-market-news/exclusiveamazon-says-awss-bahrain-region-disrupted-following-drone-activity-4576584",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM2N05W_1200_L.jpg",
-    "created_at": "2026-03-24T06:52:10.195Z",
-    "topic": "finance"
   }
 ]

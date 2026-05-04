@@ -1,5 +1,29 @@
 [
   {
+    "slug": "systemdrecalld",
+    "title": "Systemd-Recalld",
+    "description": "the way people think Windows Recall works. Contribute to erkinalp/recalld development by creating an account on GitHub.",
+    "fullText": "The way people think Windows Recall works.\n\nsystemd-recalld is a desktop audio and video capture daemon for Linux,\ndesigned to work with systemd. It continuously captures your desktop\nactivity — audio from microphones and system output, video from your\ndisplay — and stores it locally with strong encryption. A companion\nquery service powered by AI models lets you search through your captured\nhistory using natural language.\n\nNote: systemd-recalld is not an official component of the\nsystemd project. It is an\nindependent project that integrates with systemd through its public\nAPIs (sd-bus, sd-daemon, sd-notify, service units).\n\nUnlike Microsoft's Windows Recall which is purely local, systemd-recalld\nis designed with a client-server architecture: the capture daemon runs\non your workstation while the query service can run on a separate\nmachine with GPU acceleration for AI inference.\n\nControl the capture daemon via D-Bus:\n\nEdit /etc/systemd/recalld/recalld.conf:\n\nEdit /etc/systemd/recall-query-service/recall-query-service.conf:",
+    "readingTime": 1,
+    "keywords": [
+      "query service",
+      "capture daemon",
+      "systemd-recalld",
+      "systemd",
+      "desktop",
+      "audio",
+      "designed",
+      "project",
+      "windows",
+      "recall"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://github.com/erkinalp/recalld",
+    "thumbnail_url": "https://opengraph.githubassets.com/bd70ecabcf6d1304c2ea7479421aba8fa06dd03cf6dbfe41ecc646e2c0d15704/erkinalp/recalld",
+    "created_at": "2026-05-04T19:13:34.423Z",
+    "topic": "tech"
+  },
+  {
     "slug": "i-built-my-site-as-a-windows-95-experience-2025",
     "title": "I built my site as a Windows 95 experience (2025)",
     "description": "I’m a Senior Software Engineer working at Canva in London. Read more on my website.",
