@@ -1,5 +1,72 @@
 [
   {
+    "slug": "ctx-persistent-memory-for-claude-code-cursor-and-ai-coding-tools",
+    "title": "Ctx – Persistent Memory for Claude Code, Cursor, and AI Coding Tools",
+    "description": "ctx: do you remember? — a single-binary, local-first, convergent memory system for humans and machines. - ActiveMemory/ctx",
+    "fullText": "A lightweight, file-based system that enables AI coding assistants to persist,\nstructure, and rehydrate project context across sessions.\n\nctx works with any AI tool that can read files; no model or\nvendor lock-in.\n\nCreation, not code. Context, not prompts. Verification, not vibes.\n\nctx is infrastructure for preserving intent under scale. Without durable\ncontext, intelligence resets. With ctx, creation compounds.\n\nRead the full Manifesto | ctx.ist/manifesto\n\nContext as State: A Persistence Layer for Human-AI Cognition\n\nAI-assisted development systems assemble context at prompt time using heuristic\nretrieval from mutable sources. These approaches optimize relevance at the moment\nof generation but provide no mechanism for persistence, verification, or\naccumulated learning across sessions. ctx treats context as deterministic state.\n\nMost LLM-driven development fails not because models are weak: They fail because\ncontext is ephemeral. Every new session starts near zero:\n\nctx treats context as infrastructure:\n\nHere's what that looks like in practice:\n\nThat's the whole point: Temporal continuity across sessions.\n\nDownload pre-built binaries from the\nreleases page, or build from\n\ninstructions.\n\nctx activate emits export CTX_DIR=... for your shell; one-shot\ncallers can prefix the binding inline as CTX_DIR=<abs-path> ctx ....\nThe value must be an absolute path with .context as its basename;\nrelative paths and other names are rejected on first use. A small\nallowlist (init, activate, deactivate, version, help,\nsystem bootstrap, doctor, guide, why, config switch/status,\nhub *) runs without CTX_DIR declared; every other command exits\nwith a next-step hint when it is unset.\n\nThis README is a map, not the territory. The full documentation\nlives at ctx.ist and carries the recipes,\nrunbooks, threat model, and design rationale that this file\nintentionally doesn't try to fit. If you're past install and\nwondering \"how do I actually use this in a real session,\" the\nrecipes are the right next stop.\n\nContributions welcome. See CONTRIBUTING.md for guidelines.\n\nAll commits must be signed off (git commit -s) to certify the\nDCO.\n\nOpen source is better together.\n\nJoin the community to ask questions, share feedback, and connect with\nother users:",
+    "readingTime": 2,
+    "keywords": [
+      "across sessions",
+      "ctx treats",
+      "treats context",
+      "system",
+      "model",
+      "creation",
+      "verification",
+      "infrastructure",
+      "without",
+      "development"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/ActiveMemory/ctx",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1138059317/4ac67fcc-c98a-4c88-b162-25cc62239553",
+    "created_at": "2026-05-05T01:52:21.547Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "achieving-3x-speedups-with-diffusionstyle-speculative-decoding",
+    "title": "Achieving 3X speedups with diffusion-style speculative decoding",
+    "description": "Researchers at UCSD have achieved a breakthrough in AI serving efficiency by integrating DFlash, a block-diffusion speculative decoding framework, into the vLLM TPU ecosystem. By shifting from sequential $O(K)$ drafting to a parallel $O(1)$ \"block-painting\" approach, the team unlocked an average 3.13x speedup on TPU v5p, with math and coding tasks seeing gains of nearly 6x. This post explores the technical innovations behind the \"dual-cache\" solution for attention, the discovery of \"K-Flat\" hardware verification costs, and how high-quality draft models are reshaping the future of non-autoregressive LLM generation.",
+    "fullText": "The current landscape of Large Language Model (LLM) acceleration is dominated by autoregressive speculative decoding, where a lightweight drafter predicts tokens sequentially before target verification. However, this serial drafting approach introduces a fundamental execution bottleneck: it requires K sequential forward passes to generate K candidate tokens. This step-by-step dependency forces the system to wait for each token to be predicted before starting the next, inherently limiting the speedup potential of the drafting phase. To break this efficiency ceiling, researchers move beyond token-by-token drafting toward block diffusion, a paradigm shift that enables generating an entire block of candidate tokens in a O(1) single forward pass.\n\nWe are proud to support external researchers pushing the boundaries of AI hardware. Today, we are thrilled to highlight a major open-source milestone from researchers at UCSD: the successful implementation of block-diffusion speculative decoding (i.e., DFlash, a superior diffusion-style speculative decoding developed by Z Lab at UCSD) on Google TPUs, led by Hao Zhang, the co-inventor of paged attention and prefill/decode disaggregated serving.\n\nHere is a technical deep dive from the UCSD researchers detailing how they built this, their performance benchmarks, and what it means for the future of the Google TPU ecosystem.\n\nStandard LLM inference generates text autoregressively. This means the model requires a full forward pass for every single token generated, heavily underutilizing the massive parallel compute capabilities of AI accelerators like TPUs, especially at lower batch sizes.\n\nSpeculative decoding mitigates this by using a smaller, highly efficient \"draft\" model (or mechanism) to predict multiple future tokens simultaneously. The larger \"target\" model then verifies these draft tokens in a single parallel forward pass. If the draft tokens are accurate, the system accepts multiple tokens at the cost of a single step, drastically reducing latency.\n\nHowever, the promise of speculative decoding is often hindered by the draft model itself. Most existing methods rely on autoregressive draft mechanisms that generate candidate tokens sequentially. This means that while the target model's verification is parallel, the drafting phase remains bottlenecked by O(K) serial steps. As a result, the time spent \"guessing\" tokens begins to eat into the time saved by verification, capping the practical speedup potential.\n\nDiffusion LLMs (dLLMs) fundamentally change the game by replacing this sequential process with a block diffusion mechanism. Instead of guessing the next word, dLLM \"paints\" the entire block. A notable dLLM-based drafting method is DFlash. By leveraging the hidden features extracted from the target model, DFlash can generate an entire block of draft tokens in a single forward pass. This shift from O(K) to O(1) complexity reduces drafting latency to nearly negligible levels, making it the perfect architectural fit for the TPU's high-bandwidth Matrix Multiplication Units (MXUs).\n\nThe UCSD research team integrated DFlash into the vLLM TPU Inference framework. DFlash is a novel approach to speculative decoding that leverages block-diffusion mechanisms to propose draft tokens with exceptionally high acceptance lengths (T).\n\nImplementing this on Google TPUs required deep optimization. With architectural guidance from Google Cloud engineers, the UCSD team minimized the overhead to ensure that the memory bandwidth and matrix multiplication units were fully saturated. By mapping the DFlash proposer and the verification pipeline efficiently to the TPU architecture, they minimized the overhead of the drafting phase while maximizing the parallel verification throughput of the target model.\n\nPorting DFlash from its original GPU/PyTorch implementation to the Google TPU/JAX AI Stack ecosystem wasn't just a simple code translation; it required re-engineering the system to align with the unique architectural strengths of TPUs. Here is how the UCSD team tackled the three primary technical hurdles.\n\nIn the PyTorch world, DFlash relies on simple, dynamic KV management. However, high-performance TPU serving via tpu-inference uses paged attention with Pallas kernels—a system that breaks memory into fixed-size pages to maximize efficiency.\n\nThe catch? DFlash's non-causal block diffusion—the very thing that lets it \"paint\" a block of tokens—is fundamentally incompatible with standard paged attention. To solve this, the researchers designed a dual-cache architecture. The target model continues to use a paged KV cache, ensuring it benefits from the high-performance Pallas kernels required for large-scale serving. The draft model uses a specialized path with static on-device JAX arrays, successfully mirroring the original DFlash design while maintaining TPU-native performance.\n\nDFlash is unique because the draft model is \"target-conditioned\"—it stays smart by watching the target model's intermediate reasoning steps. These \"hidden states\" are stored in a context buffer that grows over time.\n\nTo keep communication between the host CPU and the TPU accelerator as fast as possible, the team implemented a power-of-2 padding strategy. This ensures that as newly projected features are appended to the buffer, they are transferred in optimized chunks. By meticulously tracking exactly how much context the draft model has already \"consumed,\" they prevent any duplicate processing or data loss, keeping the parallel drafting highly accurate.\n\nUnlike standard drafting methods, DFlash is uniquely stateful, relying on persistent state across iterations (including context buffers, KV cache positions, and RoPE offsets) to maintain its parallel block predictions. In the TPU-optimized vLLM pipeline, the metadata forwarded to the proposer included the draft tokens currently under verification. While this is standard for most models, for a diffusion-based architecture, it resulted in \"sequence length inflation\"—a misalignment where the internal draft state drifted away from the target model's reality.\n\nTo ensure a rigorous and fair comparison, the UCSD researchers benchmarked DFlash against the current mainstream speculative decoding method on TPUs: EAGLE-3. In this comparative study, the researchers used the exact same hardware (TPU v5p) and the same target model (Llama-3.1-8B) for both.",
+    "readingTime": 5,
+    "keywords": [
+      "ucsd team",
+      "speedup potential",
+      "matrix multiplication",
+      "multiplication units",
+      "paged attention",
+      "ucsd researchers",
+      "generate candidate",
+      "speculative decoding",
+      "drafting phase",
+      "target model's"
+    ],
+    "qualityScore": 1,
+    "link": "https://developers.googleblog.com/supercharging-llm-inference-on-google-tpus-achieving-3x-speedups-with-diffusion-style-speculative-decoding/",
+    "thumbnail_url": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/Gemini_Generated_Image_5uj3px5uj3.2e16d0ba.fill-1200x600.jpg",
+    "created_at": "2026-05-05T01:52:20.939Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "amazon-employees-pushed-for-claude-code-now-theyre-getting-it-and-codex-too",
+    "title": "Amazon employees pushed for Claude Code. Now they're getting it — and Codex, too.",
+    "description": "Some Amazon staff had complained about a lack of access to top AI coding tools, arguing the company risked falling behind in developer productivity.",
+    "fullText": "Amazon formally adopts Claude Code and Codex company-wide, expanding access to AI tools beyond Kiro.\n Amazon is a close partner with Anthropic and OpenAI, having invested billions in both AI labs.\n The rollout addresses internal complaints over AI tools and enhances Amazon's coding capabilities.\n\n Why did Amazon choose Claude Code?\n\n What is Amazon's role in AI development?\n\n What are Claude Code's unique features?\n\n How will Codex improve Amazon's coding?\n\n How do employees benefit from AI tools?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "claude code",
+      "amazon's coding",
+      "tools",
+      "amazon",
+      "codex"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/amazon-claude-code-codex-all-employees-after-pushback-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f8ffe638bee05c969839fc?width=1200&format=jpeg",
+    "created_at": "2026-05-05T01:52:10.201Z",
+    "topic": "finance"
+  },
+  {
     "slug": "local-harness-benchmark-pi-coding-agent-vs-opencode-with-qwen36-35b-a3b",
     "title": "Local Harness Benchmark: Pi Coding Agent vs. OpenCode with Qwen3.6 35B A3B",
     "description": "In the rapidly evolving landscape of AI-assisted development, choosing the right\n\"harness\" is as critical as choosing the model itself. This benchmark explores two of\nthe most prominent open-source harnesses for local LLMs: Pi Coding Agent and\nOpenCode.",
@@ -1858,63 +1925,5 @@
     "thumbnail_url": "https://i.insider.com/69c0b7865b58f1f0f93360b4?width=800&format=jpeg",
     "created_at": "2026-03-23T06:57:45.023Z",
     "topic": "finance"
-  },
-  {
-    "slug": "were-unlocking-a-new-vibe",
-    "title": "We're unlocking a new vibe",
-    "description": "In this Sunday edition of Business Insider Today, we're introducing a new weekly newsletter focused on vibe coding.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/bi-today-sunday-newsletter-vibe-coding-mode-2026-3",
-    "thumbnail_url": "https://i.insider.com/69bd7cb3e98a37a4841f2115?width=1200&format=jpeg",
-    "created_at": "2026-03-22T12:27:56.522Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "synaphe-a-typesafe-language-for-hybrid-ai-and-quantum-computing",
-    "title": "Synaphe – A type-safe language for hybrid AI and quantum computing",
-    "description": "A programming language for hybrid AI and quantum computing. Compile-time tensor shape checking, linear quantum types enforcing the No-Cloning Theorem, and native autodiff across classical-quantum b...",
-    "fullText": "A programming language for hybrid AI and quantum computing\n\nQuick Start •\n What It Does •\n Golden Snippets •\n Installation •\n Docs •\n Contributing\n\nSynaphe (from the Greek synaphe, meaning \"connection\" or \"junction\") is a programming language that bridges classical AI and quantum computing. It transpiles to Python, giving you the entire PyTorch and Qiskit/PennyLane ecosystem — while adding three things Python lacks:\n\nToday, building a hybrid quantum-classical ML workflow requires juggling Python, PyTorch, Qiskit, PennyLane, YAML configs, and dozens of MLOps tools. Tensor shape mismatches crash at runtime. Qubit reuse bugs produce garbage data silently. And computing gradients through quantum circuits requires manual Parameter Shift Rule implementations.\n\nSynaphe reduces a 65-line VQE implementation to 18 lines — and catches shape errors, qubit bugs, and hardware constraint violations before your code ever touches a QPU.\n\nThese side-by-side comparisons show why Synaphe exists:\n\nSee examples/golden_snippets.synaphe for 5 complete comparisons (VQE, hybrid ML, QAOA, differentiable chemistry, anomaly detection).\n\nIncludes real profiles for IBM Brisbane, IBM Sherbrooke, Google Sycamore, and IonQ Forte.\n\nWe welcome contributions! See CONTRIBUTING.md for guidelines.\n\nGood first issues are labeled good first issue — these are scoped, approachable tasks for newcomers. Areas where help is especially welcome:\n\nApache 2.0 — see LICENSE for details.\n\nIf you use Synaphe in research, please cite:",
-    "readingTime": 2,
-    "keywords": [
-      "programming language",
-      "quantum computing",
-      "hybrid",
-      "python",
-      "shape",
-      "qubit",
-      "bugs",
-      "comparisons",
-      "welcome",
-      "synaphe"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://github.com/martus-spinther/synaphe-project",
-    "thumbnail_url": "https://repository-images.githubusercontent.com/1181157028/d67f6b65-31de-43f5-854c-f3b0389270a6",
-    "created_at": "2026-03-22T06:38:24.519Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "cult-of-claude-the-largest-directory-of-claude-code-skills-and-agents",
-    "title": "Cult of Claude – The largest directory of Claude Code skills and agents",
-    "description": "Browse 3296 Claude Code skills and 785 agents. The open-source directory for AI coding tools, custom commands, and automation workflows built by the community.",
-    "fullText": "Browse 3296 skills and 785 agents aggregated from the top community sources, categorized and searchable.\n\n3296 skills · 785 agents · Last updated Mar 21, 2026\n\nTrending and noteworthy from the community\n\n- Distribute and communicate capabilities\n\nSuite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui).\n\nCurated community list of MCP servers.\n\nChat directly with NotebookLM for source-grounded answers based exclusively on uploaded documents\n\nAI system design and deployment expert\n\nEnsures web applications meet accessibility compliance standards\n\n(60.8k ⭐) - The open source AI coding agent.\n\n(37.5k ⭐) - Public repository for Agent Skills.\n\n(90.5k ⭐) - An open-source AI agent that brings the power of Gemini directly into your terminal.\n\n(55.8k ⭐) - Lightweight coding agent that runs in your terminal.\n\nBrowse the full directory or submit your own.",
-    "readingTime": 1,
-    "keywords": [
-      "coding agent",
-      "community",
-      "browse",
-      "agents",
-      "directly",
-      "terminal",
-      "skills"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://cultofclaude.com/",
-    "thumbnail_url": "https://cultofclaude.com/og-default.png",
-    "created_at": "2026-03-21T18:22:12.055Z",
-    "topic": "tech"
   }
 ]

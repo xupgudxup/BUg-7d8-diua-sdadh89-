@@ -1,5 +1,282 @@
 [
   {
+    "slug": "ai-companies-learn-the-word-no",
+    "title": "AI Companies Learn the Word No",
+    "description": "Some of the people building AI have started acting like it might be dangerous.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://reason.com/2026/05/04/ai-companies-learn-the-word-no/",
+    "thumbnail_url": "https://d2eehagpk5cl65.cloudfront.net/img/q60/uploads/2026/04/Pete-Hegseth-vs-Anthropic-v3-1024x576.jpg",
+    "created_at": "2026-05-05T01:52:22.970Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "mtplx-224x-faster-tps-the-native-mtp-inference-engine-for-apple-silicon",
+    "title": "Mtplx – 2.24x faster TPS – The native MTP inference engine for Apple Silicon",
+    "description": "Native MTP Speculative Decoding On Apple Silicon | 2x - 2.5x decode TPS increase at temp 0.6 | MLX-native, OpenAI API/Anthropic-compatible serving, no external drafter. - youssofal/MTPLX",
+    "fullText": "~2.24× over no-MTP AR at temp=0.6 on Qwen3.6-27B · math-correct rejection sampling · MLX-native · zero external drafter\n\nMultiplier is hardware-independent. Absolute tok/s scales with memory bandwidth — current public record on M5 Max: 63.056 / 62.886 tok/s D3, Youssofal/Qwen3.6-27B-MTPLX-Optimized-Speed.\n\nPermissive open source. MTPLX is Apache-2.0: you can use it, modify it, and ship it commercially. If you redistribute MTPLX, keep the license and NOTICE attribution; for public projects and research, visible credit or citation is strongly appreciated.\n\nMTPLX runs the model's own built-in MTP heads as a speculative drafter, with exact probability-ratio acceptance + residual correction — not the greedy-argmax trick most fast-decode tools use at T>0. That means real coding settings (temperature=0.6, top_p=0.95, top_k=20) actually get the speculative speedup and keep the target model's distribution.\n\nThis is not DFlash, DDTree, llama-spec, or an external-drafter system. It's a native-MTP runtime built around MLX, Apple Silicon, and a real OpenAI/Anthropic-compatible serving surface.\n\nThe Homebrew installer sets up the mtplx command in /opt/homebrew/bin and bootstraps the Python runtime under /opt/homebrew/var/mtplx. Python users can also run python3 -m pip install --pre mtplx.\n\nThat's it. The wizard handles the default speed model (Youssofal/Qwen3.6-27B-MTPLX-Optimized-Speed), runtime mode, and surface (browser chat at 127.0.0.1:8000/ or terminal chat) on first run. On every subsequent run it asks \"same as last time?\" so you're one keypress from chatting.\n\nPreview honesty. The cold path is verified at the ~2.24× multiplier above. Sustained no-fan long-context throughput is currently in a worse lane on Flappy 10k versus the v0.2 target — the v0.1 release ships with this gap explicit. Closing it is the v0.2 deliverable; see Roadmap.\n\nPower-user shortcuts (any of these skip the wizard):\n\nHomebrew writes a durable launcher so mtplx works from a normal new Terminal tab. The older script installer remains available if you prefer a user-local venv:\n\nFor Python-only installs, PyPI is also available. Preview 1 is packaged as 0.1.0rc1, so use:\n\nMost \"fast decode on Apple Silicon\" projects fall into one of three buckets:\n\nThe math-correctness wedge is real. At temperature=0.6, the difference between \"rejected because the draft argmax disagrees\" and \"rejected via the Leviathan/Chen rejection-sampling theorem\" is the difference between a benchmark trick and a runtime your code editor can trust. MTPLX does the latter, including residual correction (p − q)+ for the cases where the draft was rejected.\n\nVerified evidence (current public default Youssofal/Qwen3.6-27B-MTPLX-Optimized-Speed):\n\nNo second model, no greedy hack, no external drafter, no silent distribution drift.\n\nPicked by mtplx start, or set explicitly via --profile. Every mode preserves exactness; the difference is the runtime path and whether MTPLX touches your fans.\n\nMax requires ThermalForge. mtplx max --install installs it from source into ~/.mtplx/bin/thermalforge, sets up a passwordless sudoers rule scoped to that one binary, and verifies fans actually ramp before declaring success. One sudo prompt, end-to-end. Crash safety covers SIGINT, SIGTERM, SIGHUP, terminal close, and kill -9 via a detached sidecar process.\n\nv0.1 ships verified Qwen3.6-27B via Youssofal/Qwen3.6-27B-MTPLX-Optimized-Speed, with public served model id mtplx-qwen36-27b-optimized-speed. The compatibility registry already detects DeepSeek V3 / V3.2, GLM-4 MoE / MoE-Lite, MiMo, and MiniMax M2 — unsupported runtime families stay behind explicit compatibility gates rather than silently running.\n\nRun mtplx doctor --summary, mtplx doctor --deep --json, or mtplx doctor --bundle before filing a bug. Bundles are redacted by default under ~/.mtplx/reports/.\n\nEvery command has --json for machine-readable output and --help for context-specific docs.\n\nThe architectural achievement is a single-model native-MTP runtime that's mathematically exact at temperature, with a real serving surface bolted on. There is no second drafter, no greedy hack, and no \"drop in a fast-decode library\" wrapper. Four layers, drawn the way they actually run.\n\nMTPLX is not a thin wrapper over stock MLX — the speed lane sits on top of an MLX source fork plus a small set of custom Metal kernels registered as primitives. Stock mlx-lm cannot reproduce the multiplier above; the runtime layer is what makes the speculative cycle in §2 tractable on Apple Silicon.\n\nWhat we changed at the MLX source level (fork: mlx-mtplx-0.31.2-qmm, commit 2377a99f \"Tune small-M qmv for MTPLX 60TPS path\"):\n\nCustom Metal kernels we shipped on top of the fork:\n\nRuntime knobs that ship on by default in performance-cold:\n\nNumerical hygiene (these are correctness fixes, not speed):\n\nThe target model and the drafter are the same checkpoint. Qwen3.6-27B ships native MTP heads; MTPLX uses them as the speculative drafter. Zero RAM cost for a second model, zero distillation, zero \"we trained a drafter\" handoff. The trunk's KV cache obeys a committed-history contract (verified against the vLLM CUDA reference at cosine > 0.9998 through D5) so recursive draft depth holds together — that's what lets D2/D3/D4 acceptance reach the 90s instead of collapsing.\n\nPer cycle: the MTP head drafts K tokens, the target verifies all K in parallel via one batched forward, probability-ratio acceptance (Leviathan–Chen) decides per-position, residual correction (p − q)+ emits a clean replacement on rejection, and a bonus token falls out for free when all K accept. Verify cost is paid by capture_commit + the linear-gdn-from-conv-tape GDN kernel + a GraphBank of compiled verify shapes; the math is exact at any temperature.\n\nThe runtime is wrapped in a real serving surface so you can point Open WebUI / Claude Code / Cline / Continue / curl / openai-python / anthropic-python at it. Engine sessions keep per-chat state; the Session Bank preserves warm-prefix exact state across turns (verified logits_max_abs_diff = 0.0 against fresh forwards) so multi-turn TTFT doesn't collapse the way a stateless shim would.\n\nThe CLI (mtplx start / pull / doctor / inspect / max) is the on-ramp to all of the above and not the architectural story — it lazy-imports MLX so --help, doctor, inspect, init, setup work on a fresh venv with no GPU/Apple-Silicon stack installed.\n\nMTPLX builds on MLX and the Qwen3-Next model family. The speculative-sampling math follows Leviathan & Chen 2023 (\"Fast Inference from Transformers via Speculative Decoding\") and the MTP heads ship with Qwen. Design and diagnostics are informed by vLLM speculative decoding, vLLM-Metal (issues #188 and #281), DFlash-MLX, DDTree-MLX, and DeepSeek V3.2's mx.depends precedent. Optional fan control via ThermalForge. Model weights and licenses remain governed by their upstream model cards.\n\nMTPLX is released under the Apache License 2.0: you can use it, modify it, and ship it commercially. If you redistribute MTPLX or derivative works, preserve the Apache license and the attribution notices from NOTICE as required by Apache-2.0.\n\nIf MTPLX powers a public project, product, benchmark, article, or research result, please include clear credit in your README, docs, paper, or public writeup:\n\nhttps://github.com/youssofal/mtplx\n\nFor academic or technical writing, cite the repository using CITATION.cff.\n\n— Built by Youssof Altoukhi. Contributions, bug reports, and benchmark replications welcome via Issues.",
+    "readingTime": 6,
+    "keywords": [
+      "metal kernels",
+      "greedy hack",
+      "probability-ratio acceptance",
+      "residual correction",
+      "doctor inspect",
+      "external drafter",
+      "native-mtp runtime",
+      "second model",
+      "redistribute mtplx",
+      "speculative drafter"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/youssofal/MTPLX",
+    "thumbnail_url": "https://opengraph.githubassets.com/4729755c297f7eb13f6c4f8649950e46242e715f859d6e953bc5d08daebd1c40/youssofal/MTPLX",
+    "created_at": "2026-05-05T01:52:22.957Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "blink-ai-assistant-a-knowledge-destination",
+    "title": "Blink – AI Assistant. A Knowledge Destination",
+    "description": "Search the web with AI. Get instant, unbiased answers with verified sources.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://blink-oi.vercel.app",
+    "thumbnail_url": "/og-image.png",
+    "created_at": "2026-05-05T01:52:21.781Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ctx-persistent-memory-for-claude-code-cursor-and-ai-coding-tools",
+    "title": "Ctx – Persistent Memory for Claude Code, Cursor, and AI Coding Tools",
+    "description": "ctx: do you remember? — a single-binary, local-first, convergent memory system for humans and machines. - ActiveMemory/ctx",
+    "fullText": "A lightweight, file-based system that enables AI coding assistants to persist,\nstructure, and rehydrate project context across sessions.\n\nctx works with any AI tool that can read files; no model or\nvendor lock-in.\n\nCreation, not code. Context, not prompts. Verification, not vibes.\n\nctx is infrastructure for preserving intent under scale. Without durable\ncontext, intelligence resets. With ctx, creation compounds.\n\nRead the full Manifesto | ctx.ist/manifesto\n\nContext as State: A Persistence Layer for Human-AI Cognition\n\nAI-assisted development systems assemble context at prompt time using heuristic\nretrieval from mutable sources. These approaches optimize relevance at the moment\nof generation but provide no mechanism for persistence, verification, or\naccumulated learning across sessions. ctx treats context as deterministic state.\n\nMost LLM-driven development fails not because models are weak: They fail because\ncontext is ephemeral. Every new session starts near zero:\n\nctx treats context as infrastructure:\n\nHere's what that looks like in practice:\n\nThat's the whole point: Temporal continuity across sessions.\n\nDownload pre-built binaries from the\nreleases page, or build from\n\ninstructions.\n\nctx activate emits export CTX_DIR=... for your shell; one-shot\ncallers can prefix the binding inline as CTX_DIR=<abs-path> ctx ....\nThe value must be an absolute path with .context as its basename;\nrelative paths and other names are rejected on first use. A small\nallowlist (init, activate, deactivate, version, help,\nsystem bootstrap, doctor, guide, why, config switch/status,\nhub *) runs without CTX_DIR declared; every other command exits\nwith a next-step hint when it is unset.\n\nThis README is a map, not the territory. The full documentation\nlives at ctx.ist and carries the recipes,\nrunbooks, threat model, and design rationale that this file\nintentionally doesn't try to fit. If you're past install and\nwondering \"how do I actually use this in a real session,\" the\nrecipes are the right next stop.\n\nContributions welcome. See CONTRIBUTING.md for guidelines.\n\nAll commits must be signed off (git commit -s) to certify the\nDCO.\n\nOpen source is better together.\n\nJoin the community to ask questions, share feedback, and connect with\nother users:",
+    "readingTime": 2,
+    "keywords": [
+      "across sessions",
+      "ctx treats",
+      "treats context",
+      "system",
+      "model",
+      "creation",
+      "verification",
+      "infrastructure",
+      "without",
+      "development"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/ActiveMemory/ctx",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1138059317/4ac67fcc-c98a-4c88-b162-25cc62239553",
+    "created_at": "2026-05-05T01:52:21.547Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "achieving-3x-speedups-with-diffusionstyle-speculative-decoding",
+    "title": "Achieving 3X speedups with diffusion-style speculative decoding",
+    "description": "Researchers at UCSD have achieved a breakthrough in AI serving efficiency by integrating DFlash, a block-diffusion speculative decoding framework, into the vLLM TPU ecosystem. By shifting from sequential $O(K)$ drafting to a parallel $O(1)$ \"block-painting\" approach, the team unlocked an average 3.13x speedup on TPU v5p, with math and coding tasks seeing gains of nearly 6x. This post explores the technical innovations behind the \"dual-cache\" solution for attention, the discovery of \"K-Flat\" hardware verification costs, and how high-quality draft models are reshaping the future of non-autoregressive LLM generation.",
+    "fullText": "The current landscape of Large Language Model (LLM) acceleration is dominated by autoregressive speculative decoding, where a lightweight drafter predicts tokens sequentially before target verification. However, this serial drafting approach introduces a fundamental execution bottleneck: it requires K sequential forward passes to generate K candidate tokens. This step-by-step dependency forces the system to wait for each token to be predicted before starting the next, inherently limiting the speedup potential of the drafting phase. To break this efficiency ceiling, researchers move beyond token-by-token drafting toward block diffusion, a paradigm shift that enables generating an entire block of candidate tokens in a O(1) single forward pass.\n\nWe are proud to support external researchers pushing the boundaries of AI hardware. Today, we are thrilled to highlight a major open-source milestone from researchers at UCSD: the successful implementation of block-diffusion speculative decoding (i.e., DFlash, a superior diffusion-style speculative decoding developed by Z Lab at UCSD) on Google TPUs, led by Hao Zhang, the co-inventor of paged attention and prefill/decode disaggregated serving.\n\nHere is a technical deep dive from the UCSD researchers detailing how they built this, their performance benchmarks, and what it means for the future of the Google TPU ecosystem.\n\nStandard LLM inference generates text autoregressively. This means the model requires a full forward pass for every single token generated, heavily underutilizing the massive parallel compute capabilities of AI accelerators like TPUs, especially at lower batch sizes.\n\nSpeculative decoding mitigates this by using a smaller, highly efficient \"draft\" model (or mechanism) to predict multiple future tokens simultaneously. The larger \"target\" model then verifies these draft tokens in a single parallel forward pass. If the draft tokens are accurate, the system accepts multiple tokens at the cost of a single step, drastically reducing latency.\n\nHowever, the promise of speculative decoding is often hindered by the draft model itself. Most existing methods rely on autoregressive draft mechanisms that generate candidate tokens sequentially. This means that while the target model's verification is parallel, the drafting phase remains bottlenecked by O(K) serial steps. As a result, the time spent \"guessing\" tokens begins to eat into the time saved by verification, capping the practical speedup potential.\n\nDiffusion LLMs (dLLMs) fundamentally change the game by replacing this sequential process with a block diffusion mechanism. Instead of guessing the next word, dLLM \"paints\" the entire block. A notable dLLM-based drafting method is DFlash. By leveraging the hidden features extracted from the target model, DFlash can generate an entire block of draft tokens in a single forward pass. This shift from O(K) to O(1) complexity reduces drafting latency to nearly negligible levels, making it the perfect architectural fit for the TPU's high-bandwidth Matrix Multiplication Units (MXUs).\n\nThe UCSD research team integrated DFlash into the vLLM TPU Inference framework. DFlash is a novel approach to speculative decoding that leverages block-diffusion mechanisms to propose draft tokens with exceptionally high acceptance lengths (T).\n\nImplementing this on Google TPUs required deep optimization. With architectural guidance from Google Cloud engineers, the UCSD team minimized the overhead to ensure that the memory bandwidth and matrix multiplication units were fully saturated. By mapping the DFlash proposer and the verification pipeline efficiently to the TPU architecture, they minimized the overhead of the drafting phase while maximizing the parallel verification throughput of the target model.\n\nPorting DFlash from its original GPU/PyTorch implementation to the Google TPU/JAX AI Stack ecosystem wasn't just a simple code translation; it required re-engineering the system to align with the unique architectural strengths of TPUs. Here is how the UCSD team tackled the three primary technical hurdles.\n\nIn the PyTorch world, DFlash relies on simple, dynamic KV management. However, high-performance TPU serving via tpu-inference uses paged attention with Pallas kernels—a system that breaks memory into fixed-size pages to maximize efficiency.\n\nThe catch? DFlash's non-causal block diffusion—the very thing that lets it \"paint\" a block of tokens—is fundamentally incompatible with standard paged attention. To solve this, the researchers designed a dual-cache architecture. The target model continues to use a paged KV cache, ensuring it benefits from the high-performance Pallas kernels required for large-scale serving. The draft model uses a specialized path with static on-device JAX arrays, successfully mirroring the original DFlash design while maintaining TPU-native performance.\n\nDFlash is unique because the draft model is \"target-conditioned\"—it stays smart by watching the target model's intermediate reasoning steps. These \"hidden states\" are stored in a context buffer that grows over time.\n\nTo keep communication between the host CPU and the TPU accelerator as fast as possible, the team implemented a power-of-2 padding strategy. This ensures that as newly projected features are appended to the buffer, they are transferred in optimized chunks. By meticulously tracking exactly how much context the draft model has already \"consumed,\" they prevent any duplicate processing or data loss, keeping the parallel drafting highly accurate.\n\nUnlike standard drafting methods, DFlash is uniquely stateful, relying on persistent state across iterations (including context buffers, KV cache positions, and RoPE offsets) to maintain its parallel block predictions. In the TPU-optimized vLLM pipeline, the metadata forwarded to the proposer included the draft tokens currently under verification. While this is standard for most models, for a diffusion-based architecture, it resulted in \"sequence length inflation\"—a misalignment where the internal draft state drifted away from the target model's reality.\n\nTo ensure a rigorous and fair comparison, the UCSD researchers benchmarked DFlash against the current mainstream speculative decoding method on TPUs: EAGLE-3. In this comparative study, the researchers used the exact same hardware (TPU v5p) and the same target model (Llama-3.1-8B) for both.",
+    "readingTime": 5,
+    "keywords": [
+      "ucsd team",
+      "speedup potential",
+      "matrix multiplication",
+      "multiplication units",
+      "paged attention",
+      "ucsd researchers",
+      "generate candidate",
+      "speculative decoding",
+      "drafting phase",
+      "target model's"
+    ],
+    "qualityScore": 1,
+    "link": "https://developers.googleblog.com/supercharging-llm-inference-on-google-tpus-achieving-3x-speedups-with-diffusion-style-speculative-decoding/",
+    "thumbnail_url": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/Gemini_Generated_Image_5uj3px5uj3.2e16d0ba.fill-1200x600.jpg",
+    "created_at": "2026-05-05T01:52:20.939Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-tiny-c-program-where-an-llm-rewires-its-dag-while-running",
+    "title": "A tiny C program where an LLM rewires its DAG while running",
+    "description": "1000-line C program where an LLM can edit the DAG mid-run, but only via a four-verb grammar, and every edit is an auditable event - kouhxp/liteflow",
+    "fullText": "A ~1000-line C program that runs YAML-defined DAGs, where an LLM can edit the graph mid-run.\n\nWhen a task fails, a planner LLM gets the stderr and emits one of four verbs: RETRY, PATCH, INSERT_BEFORE, ABORT. The runtime applies the mutation and continues. Every edit is recorded in an append-only event log, so you can replay any run and see exactly which graph changes the LLM made and why.\n\nNot an agent. A runtime where the LLM is a peer of the scheduler.\n\nSingle file, no libraries. Shells out to curl for HTTP. Linux, macOS, modern Windows.\n\nIf archive fails because /var/log/release/ doesn't exist, the planner can INSERT_BEFORE a mkdir task. The graph grows by one node, the original retries, the run finishes green.\n\nshell, llm, file_read, file_write, decision.\n\ndecision nodes constrain the LLM to picking one of the declared branches. Downstream tasks gate on the choice via when:. The unchosen branch ends in a gated_out state that doesn't poison its dependents.\n\nAnything else from the planner is logged and treated as ABORT. Per-task budgets cap the number of mutations.\n\nEvery state change appends to events.jsonl:\n\nTasks the planner created carry origin=planner along with the mutation id and parent task. You can always answer why is this task in the graph?",
+    "readingTime": 2,
+    "keywords": [
+      "graph",
+      "planner",
+      "edit",
+      "fails",
+      "insert_before",
+      "runtime",
+      "mutation",
+      "doesn't",
+      "decision",
+      "tasks"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://github.com/kouhxp/liteflow",
+    "thumbnail_url": "https://opengraph.githubassets.com/7ad68ce9dc1767c53f7ae588b10e8d42832b73cb2344ed831830f1a3cfd026e4/kouhxp/liteflow",
+    "created_at": "2026-05-05T01:52:20.040Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "mark-cuban-says-ais-biggest-challenge-for-businesses-is-consistency",
+    "title": "Mark Cuban says AI's 'biggest challenge' for businesses is consistency",
+    "description": "The billionaire wrote on X that employees with a lot of domain expertise can capitalize on AI's \"biggest problem.\"",
+    "fullText": "AI tools can provide different answers to the same question, Mark Cuban wrote on X.\n That's a shift from more rules-oriented, less creative traditional enterprise software.\n The result, he argued, is that human judgment and domain expertise are becoming more valuable.\n\n How does AI variability impact business?\n\n How valuable is human judgment in AI use?\n\n How can businesses tackle AI inconsistencies?\n\n What is AI's role in creative tasks?\n\n What are AI's probabilistic structures?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "human judgment",
+      "creative",
+      "valuable",
+      "ai's"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/mark-cuban-biggest-challenge-enterprise-ai-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f8c155ab24bc0b23a1901b?width=1200&format=jpeg",
+    "created_at": "2026-05-05T01:52:10.564Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "from-brutal-competitors-to-collaborators-investing-giants-are-cozying-up-to-rivals-to-fund-ai-and-infrastructure",
+    "title": "From 'brutal competitors' to collaborators: Investing giants are cozying up to rivals to fund AI and infrastructure",
+    "description": "\"We all do a tremendous amount of work with each other,\" said James Zelter, the president of investing giant Apollo.",
+    "fullText": "Capital needs of AI and infrastructure are so great that Wall Street giants are fighting less.\n James Zelter, Apollo's president, said it isn't as \"brutal\" to compete for deals.\n PE giants, including Blackstone, came together to form a joint venture with AI darling Anthropic on Monday.\n\n Why are capital needs so high for AI?\n\n What led to the joint venture with Anthropic?\n\n How might AI reshape job markets?\n\n How are PE firms collaborating now?\n\n Which sectors benefit most from AI funding?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "capital needs",
+      "joint venture",
+      "giants",
+      "anthropic"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/ai-longtime-rivals-partnering-apollo-blackstone-anthropic-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f8de5638bee05c9698388a?width=1200&format=jpeg",
+    "created_at": "2026-05-05T01:52:10.559Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "greg-brockman-says-his-stake-in-openai-is-worth-nearly-30-billion",
+    "title": "Greg Brockman says his stake in OpenAI is worth nearly $30 billion",
+    "description": "Greg Brockman was questioned about his investments in OpenAI, Stripe, Corweave, and Sam Altman's family office.",
+    "fullText": "Greg Brockman on Monday confirmed that OpenAI is exploring an IPO.\n He said his personal stake in the ChatGPT makers is worth nearly $30 billion.\n In court on Monday, Musk's lawyer grilled Brockman about his desire to be rich.\n\n What is the lawsuit about?\n\n What are Musk's allegations?\n\n How does Brockman view his wealth?\n\n How did OpenAI's structure change?\n\n Who is Sam Altman?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "brockman",
+      "musk's"
+    ],
+    "qualityScore": 0.3,
+    "link": "https://www.businessinsider.com/greg-brockman-openai-president-elon-musk-trial-testimony-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f8e486b3045b292f636817?width=1200&format=jpeg",
+    "created_at": "2026-05-05T01:52:10.424Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "wall-streets-15-billion-plan-to-build-the-mckinsey-of-ai",
+    "title": "Wall Street's $1.5 billion plan to build the 'McKinsey of AI'",
+    "description": "Some of Wall Street's biggest investors, like Blackstone, are teaming up with Anthropic to build a consulting firm for the AI future.",
+    "fullText": "Anthropic has partnered with private equity giants to create a $1.5 billion \"McKinsey of AI.\"\n The unnamed firm will build playbooks on AI transformation inside and outside PE portfolios.\n Blackstone, Hellman & Friedman, and Goldman Sachs are joined by a consortium of other investors.\n\n What is the \"McKinsey of AI\"?\n\n Who are the major investors in this venture?\n\n How might AI impact labor costs?\n\n How does Anthropic plan to transform AI use?\n\n What challenges does AI face in PE firms?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "anthropic",
+      "investors",
+      "mckinsey"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/blackstone-anthropic-hellman-goldman-sachs-ai-joint-venture-consulting-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f8fcb6405e0cf89dc86d93?width=1200&format=jpeg",
+    "created_at": "2026-05-05T01:52:10.320Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "amazon-employees-pushed-for-claude-code-now-theyre-getting-it-and-codex-too",
+    "title": "Amazon employees pushed for Claude Code. Now they're getting it — and Codex, too.",
+    "description": "Some Amazon staff had complained about a lack of access to top AI coding tools, arguing the company risked falling behind in developer productivity.",
+    "fullText": "Amazon formally adopts Claude Code and Codex company-wide, expanding access to AI tools beyond Kiro.\n Amazon is a close partner with Anthropic and OpenAI, having invested billions in both AI labs.\n The rollout addresses internal complaints over AI tools and enhances Amazon's coding capabilities.\n\n Why did Amazon choose Claude Code?\n\n What is Amazon's role in AI development?\n\n What are Claude Code's unique features?\n\n How will Codex improve Amazon's coding?\n\n How do employees benefit from AI tools?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "claude code",
+      "amazon's coding",
+      "tools",
+      "amazon",
+      "codex"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.businessinsider.com/amazon-claude-code-codex-all-employees-after-pushback-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f8ffe638bee05c969839fc?width=1200&format=jpeg",
+    "created_at": "2026-05-05T01:52:10.201Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "5-things-you-missed-as-greg-brockman-took-the-stand-at-the-openai-trial",
+    "title": "5 things you missed as Greg Brockman took the stand at the OpenAI trial",
+    "description": "OpenAI President Greg Brockman was questioned about his wealth, an email he sent to Yahoo's then-CEO, Marissa Mayer, and the company's IPO plans.",
+    "fullText": "Elon Musk is suing Sam Altman and Greg Brockman over his charitable donations to OpenAI.\n Brockman, an OpenAI executive and cofounder, took the witness stand on Monday.\n He was asked about his wealth and OpenAI's IPO plans.\n\n What impact could this trial have on OpenAI?\n\n What are the challenges of launching an IPO?\n\n What are the implications of Musk's lawsuit?\n\n How do charitable donations influence startups?\n\n How does expert witness pay vary in trials?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "charitable donations",
+      "witness",
+      "openai",
+      "brockman"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/things-you-missed-greg-brockman-testimony-openai-trial-elon-musk-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f902a7405e0cf89dc86ded?width=1200&format=jpeg",
+    "created_at": "2026-05-05T01:52:10.083Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "palantir-says-ai-tokens-are-the-new-coal-as-its-revenue-surges",
+    "title": "Palantir says AI tokens are the new coal as its revenue surges",
+    "description": "Palantir says falling AI costs are driving a surge in token usage, while warning against wasteful \"AI slop.\"",
+    "fullText": "Palantir CTO Shyam Sankar said its clients are burning through record amounts of AI tokens.\n Sankar said that tokens are the new coal and Palantir is the train.\n Palantir also called out \"AI slop,\" calling itself a \"no slop zone.\"\n\n What are AI tokens used for?\n\n What is Jevons paradox?\n\n What is meant by \"AI slop\"?\n\n How does Palantir compare to other AI firms?\n\n How does AI token consumption impact business?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "tokens",
+      "slop",
+      "palantir",
+      "sankar"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/palantir-q1-2026-earnings-cto-ai-tokens-coal-tech-boom-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f90ca4405e0cf89dc86e63?width=1200&format=jpeg",
+    "created_at": "2026-05-05T01:52:09.873Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "servicenow-lays-out-path-to-30-billion-in-annual-subscription-revenue-as-ai-bets-accelerate",
+    "title": "ServiceNow lays out path to $30 billion in annual subscription revenue as AI bets accelerate",
+    "description": "ServiceNow's new forecasts are aimed at reassuring investors that AI is not a threat to its business and instead could be a major growth driver.",
+    "fullText": "ServiceNow aims to double subscription revenue to $30 billion by 2030.\n ServiceNow's Now Assist product surpassed $750 million in annual contract value, its CFO said.\n ServiceNow CFO Gina Mastantuono reassures investors on AI and forecasts robust profit margins.\n\n What drives ServiceNow's AI monetization?\n\n What is ServiceNow's \"Rule of 60+\" goal?\n\n What are the risks of AI in software sales?\n\n How does AI impact software margins?\n\n How does AI influence software demand?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "software",
+      "margins",
+      "servicenow's",
+      "servicenow"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/servicenow-targets-over-30-billion-subscription-revenue-2030-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f8c61f3022d9b19bc0028d?width=1200&format=jpeg",
+    "created_at": "2026-05-05T01:52:09.860Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "uproar-over-graces-dlss-5-makeover-proves-original-design-was-right-says-resident-evil-requiem-producer",
+    "title": "Uproar Over Grace's DLSS 5 Makeover Proves Original Design Was Right, Says Resident Evil Requiem Producer",
+    "description": "When it announced its AI-powered DLSS 5 raytracing tech earlier this year, Nvidia inadvertently made headlines when users criticized how much the tech apparently changed the faces of game characters, including Grace Ashcroft of Resident Evil Requiem. According to Requiem producer Masato Kumzawa, the uproar about how DLSS 5 might unilaterally change characters' faces contrary to the intent of the developers who created them shows how well Capcom got Grace's design right from the start.\n\"The fact a lot of players commented they really liked the original design of Grace and didn't want to see it changed was a positive,\" Kumzawa told Eurogamer. \"It meant we got the design right [and] points to the fact that Grace quickly established herself as a fan favorite, that people had such strong opinions on her design.\"\nKumzawa didn't comment directly on how Capcom was involved with the announcement.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.gamespot.com/articles/uproar-over-graces-dlss-5-makeover-proves-original-design-was-right-says-resident-evil-requiem-producer/1100-6539772/?ftag=CAD-01-10abi2f",
+    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1585/15853545/4691741-7267212579-Image.jpg",
+    "created_at": "2026-05-05T01:52:09.449Z",
+    "topic": "gaming"
+  },
+  {
     "slug": "trusted-remote-execution-policyenforced-scripts-for-ai-agents-and-humans",
     "title": "Trusted Remote Execution: Policy-Enforced Scripts for AI Agents and Humans",
     "description": "Today, we’re announcing Trusted Remote Execution (Rex, for short) — an open source scripting runtime where every system operation is authorized by policy. Scripts are written in Rhai, a lightweight language with no built-in system access. The only way to reach the host is through operations Rex explicitly provides, which are authorized against a Cedar […]",
@@ -1684,273 +1961,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/inMNwLyJa4eN6yQubIFT9A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/6d63133ee6009c06a6779e136c8e3583",
     "created_at": "2026-05-01T18:56:31.134Z",
     "topic": "tech"
-  },
-  {
-    "slug": "why-big-techs-700-billion-ai-splurge-is-misleading",
-    "title": "Why Big Tech's $700 billion AI splurge is misleading",
-    "description": "Big Tech's AI spending is surging. Much of the increase comes from rising component prices, not major new capacity expansion.",
-    "fullText": "Rising component prices are driving Big Tech's AI spending surge.\n Microsoft and Meta's capital expenditure hikes largely result from higher component prices.\n That suggests Big Tech companies haven't massively expanded their buildout plans lately.\n\n What drives AI component price increases?\n\n Why are memory chips crucial for AI growth?\n\n How do investors interpret AI spending trends?\n\n How do rising costs impact Big Tech strategies?\n\n What are DRAM and NAND technologies?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "big tech",
-      "component",
-      "rising"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/big-tech-ai-capex-misleading-higher-memory-chip-prices-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f3fb1b3022d9b19bbff610?width=1200&format=jpeg",
-    "created_at": "2026-05-01T18:56:30.553Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-psychological-costs-of-adopting-ai",
-    "title": "The Psychological Costs of Adopting AI",
-    "description": "AI adoption strategies are overwhelmingly framed around productivity and efficiency. But that lens misses a critical constraint: the psychological cost of working with AI. New research shows that “psychological debt”—a cluster of six negative effects including cognitive offloading, reduced autonomy, diminished competence, weakened social connection, credibility loss, and identity threat—can materially suppress adoption and erode ROI. In a survey of 1,200 employees across sectors, higher psychological debt was strongly associated with lower AI usage, less sophisticated application, and greater avoidance—even when employees acknowledged AI’s value. Early-career workers were especially affected, suggesting that AI may be undermining skill development at precisely the stage when it matters most.",
-    "fullText": "The Psychological Costs of Adopting AI by Guy ChampnissMay 1, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintAs companies adopt AI, many are focused on improving efficiency and productivity—benefits advertised by the AI companies themselves. That focus might be a mistake. There is growing evidence that AI can have negative psychological consequences for employee motivation, which may even cancel out the benefits of AI, putting already embattled ROI models under even more scrutiny.",
-    "readingTime": 1,
-    "keywords": [
-      "psychological"
-    ],
-    "qualityScore": 0.35,
-    "link": "https://hbr.org/2026/05/the-psychological-costs-of-adopting-ai",
-    "thumbnail_url": "/resources/images/article_assets/2026/04/Ap26_30_ErikCarter-gif.gif",
-    "created_at": "2026-05-01T18:56:29.493Z",
-    "topic": "business"
-  },
-  {
-    "slug": "hallucinated-citations-are-polluting-the-scientific-literature-what-can-be-done",
-    "title": "Hallucinated citations are polluting the scientific literature. What can be done",
-    "description": "Tens of thousands of publications from 2025 might include invalid references generated by AI, a Nature analysis suggests.",
-    "fullText": "Earlier this year, computer scientist Guillaume Cabanac received a notification from Google Scholar that one of his publications had been cited in a paper published in the International Dental Journal1. That was unexpected, because his research on spotting fabricated papers doesn’t typically intersect with dentistry. “I was very surprised to see that I couldn’t recognize my own reference,” says Cabanac, who is based at the University of Toulouse in France.\n\nThe title in the citation resembled that of a preprint2 he had posted in 2021 and never published formally, but the journal was listed as Nature and the DOI — the unique identifier assigned by publishers and preprint repositories — did not lead to the original preprint. “I got very concerned,” adds Cabanac, who immediately suspected that the citation had been hallucinated by artificial intelligence.\n\nThis is just one example of a rapidly growing problem. Surveys and related studies have shown that researchers are increasingly using large language models (LLMs) to help to conduct literature searches, write manuscripts and format bibliographies. And sometimes, these models generate non-existent academic references.\n\nOver the past year, efforts have begun turning up such hallucinated citations in the literature. One analysis of nearly 18,000 papers accepted by three computer-science conferences found a sharp increase in references that cannot be traced to actual scholarly publications3. The results, reported in January, indicated that 2.6% of papers in 2025 had a least one potentially hallucinated citation — up from about 0.3% in 2024. Another analysis, released in February, estimated that 2–6% of papers in four other 2025 computer-science conferences included references with rephrased titles or citations of publications that the authors couldn’t verify by searching through databases and journal archives4.\n\nAnd although the scale of the problem remains uncertain, it’s clear that not only conferences are affected. An exclusive analysis conducted by Nature’s news team, in collaboration with Grounded AI, a company based in Stevenage, UK, suggests that at least tens of thousands of 2025 publications, including journal papers and books, as well as conference proceedings, probably contain invalid references generated by AI.\n\nGrounded AI is among the companies offering publishers tools for screening submissions for problematic references. Several publishers told Nature reporters that they have been exploring such tools or developing in-house versions.\n\nBut some researchers are concerned that the problem will soon get out of hand. “We’re going to see a flood of fake references,” says Alison Johnston, a political scientist at Oregon State University in Corvallis.\n\nAnother issue is deciding what to do about hallucinated citations that make it into the published literature. That’s a problem that academic publishers are wrestling with right now.\n\nCitation errors are not new to academic publishing. “Even before generative AI, we already had so many inaccuracies in citations,” says Mohammad Hosseini, who studies research ethics and integrity at Northwestern University Feinberg School of Medicine in Chicago, Illinois. Issues have tended to include misspelling of authors’ names or errors in the year of publication, the title of the journal or the DOI. Another issue has been discrepancies between the information in the cited work and the details given by the paper citing it5,6.\n\n“Now the problem is not just inaccuracy, it’s about fake citations. It’s about fabricated citations, which is a whole different problem,” says Hosseini.\n\nPublishers told Nature that they are seeing increases in the number of fabricated and inaccurate citations in submissions, and they are taking steps to tackle the issue.\n\nJohnston, co-lead editor of the Review of International Political Economy (RIPE), a journal published by the UK-based Taylor & Francis, says that she rejected 25% of some 100 submissions in January “because of fake references”. She uses the plagiarism-detection software iThenticate to flag unusual or partial matches between the references in submitted papers and published bibliographies. Then she manually checks the suspicious citations. “I’m doing things now to try and detect hallucinated references that I wasn’t doing prior to 2025,” she says.\n\nFrontiers, based in Lausanne, Switzerland, has developed an in-house AI tool for flagging integrity issues at the point of submission, including references to irrelevant or retracted work and hallucinated citations. “Around 5% [of manuscripts] show potential reference-related issues flagged through our checks,” says Elena Vicario, Frontiers’ head of research integrity. But “not all flagged references ultimately turn out to be genuinely problematic”, she adds. That makes it challenging, Vicario says, to come up with a precise measure of the prevalence of any of these types of citation issue.\n\nExperiments using AI chatbots to generate papers have provided insights into how often LLMs produce citation errors and what types of error they tend to make. In one study, researchers prompted OpenAI’s GPT-4o LLM to generate six literature reviews on three mental-health disorders, and analysed the 176 references in those synthetic reviews7. Under these experimental conditions, they found that nearly 20% were fabricated references and could not be linked to actual research. And 45% of the remaining references, which corresponded to genuine publications, contained errors, often incorrect or invalid DOIs.\n\nIn some cases, including in references in published articles, all of the component parts are made up, says Kathryn Weber-Boer, director of scientometrics at the London-based company Digital Science. (The firm is operated by the Holtzbrinck Publishing Group, which is the majority shareholder of Springer Nature, which publishes Nature. Nature’s news team is editorially independent of its publisher.) AI also hallucinates DOIs, both in references that are otherwise genuine as well as in fabricated ones, she adds.\n\nAI-generated references commonly combine fragments of genuine publications, say researchers who have studied the issue (see ‘How fakes can look real’). Joe Shockman, co-founder and chief executive of Grounded AI, calls such references ‘Frankenstein’ citations, likening their assembly to that of the fictional monster. “It looks real to a human being, but is not actually a reference to a real thing,” says Shockman, who is based in Ashland, Oregon.\n\nAlthough some types of error seem to implicate AI, others are less clear-cut, say researchers. “In today’s landscape, we have to recognize that there are human errors and there are machine errors, and those can often overlap,” says Weber-Boer.\n\nHow many hallucinated citations are showing up in published research remains difficult to discern. To get an estimate, Nature’s news team joined forces with Grounded AI, which has developed an AI tool called Veracity that checks citations against scholarly databases and across the web, flagging ones that are invalid, irrelevant or cite retracted work.\n\nNature and Grounded AI collaborated to analyse more than 4,000 publications from last year, covering five leading publishers: Elsevier, Sage, Springer Nature, Taylor & Francis and Wiley. Grounded AI randomly sampled these papers from Europe PMC — a repository of open-access biomedical research articles — and the bibliometric database Crossref, to include equal number of publications per month from each of the five publishers. The sample included published papers as well as book chapters and conference proceedings, and it cut across all subject areas in these publishers’ portfolios.\n\nGrounded AI’s tool looks for an exact match to a reference or the closest match it can find. It then flags citations with major issues, such as mismatched titles or DOIs, missing authors and incorrect journals, as well as more-minor issues. Citations that pointed to papers that couldn’t be found even though they should be easy to find — because the journal in question is indexed by scholarly databases, for example — were marked as especially problematic.\n\nAfter running the publications through the tool, Grounded AI assigned a risk score to each of the published papers, on the basis of the number of references that had major issues and how likely those issues were to have been generated by AI. Grounded AI determined that likelihood using data gleaned from a separate analysis that used two AI models to generate 20,000 synthetic papers; this allowed the company to identify the most common types of citation error that AI makes.\n\nNature manually checked the 100 most suspicious publications and confirmed that 65 contained at least one invalid reference, meaning that it pointed to a publication that did not seem to exist (see ‘Finding the fabrications’). But 22 of the 100 most-suspicious papers had references that did point to genuine publications.\n\nFor the remaining 13 papers, it was unclear whether all their citations pointed to existing research or not. These 13 papers included references to articles that were said to be published in regional journals in languages other than English, and references that had mismatches in metadata that looked like plausible human errors, for example.\n\nThe analysis, which looked at reference lists from Crossref and full text from Europe PMC publications, turned up no clear trend across publishers. Each of the selected publishers had more than five publications with references that manual checks couldn’t validate.\n\nAs a rough estimate, if the rate of 65 publications with at least one invalid reference out of some 4,000 publications analysed holds across the academic literature, it would suggest that more than 110,000 of the 7 million or so scholarly publications from 2025 contain invalid references.\n\nNick Morley, Grounded AI’s co-founder and chief product officer, says that the types of citation problem seen in 2025 are different from those found by his team before the proliferation of LLMs. This fact, he says, points to the use of AI as a leading culprit.\n\nThe true number of hallucinated references is almost certainly higher, says Weber-Boer, because the analysis focused on big publishers, which have more resources for checking citations systematically than do smaller publishers. Fields such as computer science, which has seen a surge in the use of LLMs to produce manuscripts8, might be more affected than other fields. What’s more, the Grounded AI analysis turned up a few hundred more publications that had some risk of hallucinated citations, suggesting that extra manual checking would have brought more such citations to light.\n\nSpokespeople for all five publishers said that they check references as part of their screening and editing process, and they intend to investigate the publications flagged by the Nature analysis. A spokesperson for Taylor & Francis said that some of the publications flagged were already under investigation by its ethics and integrity team.\n\nWhen it comes to hallucinated references, “there have been cases where authors have been able to clearly document where issues have occurred in the process of producing a manuscript, for example using a translation tool, and demonstrate that the rest of the paper can be relied upon, in which case the paper will be corrected”, says Chris Graf, Springer Nature’s research-integrity director. But, more often, these references reflect broader problems with the content, he says.\n\nShockman says that the number of potentially problematic citations flagged by Veracity is an order of magnitude greater when it is used in pilot programmes to screen submissions on behalf of publishers than when it analyses publications. This suggests that publishers are catching a large proportion of such citations before they can make it into the literature.\n\nNature’s collaboration with Grounded AI also highlighted, as many experts have noted, that the detection of invalid citations with automated tools is not error-free. One of the challenges is that journals have various ways of formatting references, and AI tools might fail to recognize references because of how they are styled. These types of problem showed up among citations that manual checks determined to be genuine despite having been flagged by Grounded AI.\n\nAnother issue, says Weber-Boer, is that large-scale bibliometric databases might not index references that can’t be verified, meaning their metadata might not match what appears on the publishers’ websites. Some references do not contain their corresponding DOI, which makes it hard for automated tools to identify the cited paper, adds Weber-Boer. “We’re starting to get a handle on the characteristics of this problem, which are a precursor to understanding the scale of it,” she says.\n\nThe Grounded AI team members acknowledge that not all the references their tool flags will be true positives, but they say they are continuing to improve its performance. IOP Publishing, based in Bristol, UK, is now using Grounded AI’s tool to screen submissions for problematic citations across all of its proprietary journals, says Kim Eggleton, head of peer review and research integrity. “We know it’s a problem, we just don’t know how big the problem is,” she says.\n\ndoi: https://doi.org/10.1038/d41586-026-00969-z\n\nDuane, B., Ashley, P. & Larkin, J. Int. Dent. J. 76, 103979 (2026).\n\nArticle \n PubMed \n\n Google Scholar\n\nCabanac, G., Labbé, C. & Magazinov, A. Preprint at arXiv https://doi.org/10.48550/arXiv.2107.06751 (2021).\n\nSakai, Y., Kamigaito, H. & Watanabe, T. Preprint at arXiv https://doi.org/10.48550/arXiv.2601.18724 (2026).\n\nBienz, A., Pearson, C. & Garcia de Gonzalo, S. Preprint at arXiv https://doi.org/10.48550/arXiv.2602.05867 (2026).\n\nBaethge, C. & Jergas, H. Res. Integr. Peer Rev. 10, 13 (2025).\n\nArticle \n PubMed \n\n Google Scholar\n\nCobb, C. L., Crumly, B., Montero-Zamora, P., Schwartz, S. J. & Martínez, C. R. Jr Am. Psychol. 79, 299–311 (2024).\n\nArticle \n PubMed \n\n Google Scholar\n\nLinardon, J. et al. JMIR Ment. Health 12, e80371 (2025).\n\nArticle \n PubMed \n\n Google Scholar\n\nLiang, W. et al. Nature Hum. Behav. 9, 2599–2609 (2025).\n\nArticle \n PubMed \n\n Google Scholar\n\nAbbonato, D. Preprint at arXiv https://doi.org/10.48550/arXiv.2602.15871 (2026).\n\nResnik, D. B. & Hosseini, M. Account. Res. https://doi.org/10.1080/08989621.2026.2645390 (2026).\n\nArticle \n\n Google Scholar\n\nUS faculty members report high levels of anxiety\n\nEuropean funder must increase capacity to meet the ambition of scientists\n\nPrestigious European science funder scraps stricter rules after researcher backlash\n\nWhy preprint servers are increasing moderation — and what that means for researchers\n\nTo hire good scientists, look at their peer-reviewing records\n\nChina’s latest push to commercialize research: match 680,000 innovators with companies\n\nAll life runs on 20 amino acids. These cells run key machinery on just 19\n\nFriendlier LLMs tell users what they want to hear — even when it is wrong\n\nMachine learning improves health-care access in Sierra Leone\n\nIndividuals from broad fields, including developmental biology, genetics/genomics, systems biology and immunology, if applied to cancer research.\n\nSydney (Region), New South Wales (AU)\n\nJoin Huazhong Agricultural University\n\nNo.1 Shizishan Street, Hongshan District, Wuhan, Hubei Province, China\n\nHuazhong Agricultural University (HZAU)\n\nInterested applicants can contact with the relevant department/school and submit their CV directly.\n\nLocation: London Salary: Attractive executive remuneration package Moorfields Eye Hospital NHS Foundation Trust is a world-leading provider of eye ...\n\nMoorfields Eye Hospital NHS Foundation Trust\n\nThe Marlene & Stewart Greenebaum Comprehensive Cancer Center is recruiting four tenure track Assistant to Associate Professors.\n\nUniversity of Maryland, Baltimore Marlene and Stewart Greenebaum Cancer Center",
-    "readingTime": 13,
-    "keywords": [
-      "huazhong agricultural",
-      "hospital nhs",
-      "nhs foundation",
-      "foundation trust",
-      "stewart greenebaum",
-      "moorfields eye",
-      "cancer center",
-      "agricultural university",
-      "pubmed google",
-      "ai’s tool"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.nature.com/articles/d41586-026-00969-z",
-    "thumbnail_url": "https://media.nature.com/lw1200/magazine-assets/d41586-026-00969-z/d41586-026-00969-z_52212902.jpg",
-    "created_at": "2026-05-01T12:54:32.014Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ai-commerce-needs-an-mlperf-early-attempt-at-one",
-    "title": "AI commerce needs an MLPerf – early attempt at one",
-    "description": "UCP Playground Evals: standardised benchmarks for AI shopping agents. Multi-turn sequences across stores and models, reproducible cross-store comparison reports, replayable sessions, and a CI-ready API. Open methodology, vendor-neutral.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://ucpchecker.com/blog/ucp-playground-evals",
-    "thumbnail_url": "https://ucpchecker.s3.eu-west-1.amazonaws.com/blog/ucpplayground-evals/ucp_playground_evals.webp",
-    "created_at": "2026-05-01T12:54:31.781Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-productivity-panic-is-your-problem-now",
-    "title": "The Productivity Panic Is Your Problem Now",
-    "description": "Your engineering org is caught between executives demanding AI ROI and engineers terrified their own improvements are arguments for their elimination.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://stratechgist.com/p/the-productivity-panic-is-your-problem",
-    "thumbnail_url": "https://substackcdn.com/image/fetch/$s_!3m0S!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa12e7315-0ed9-41d3-a2f7-091e221ca345_1408x768.png",
-    "created_at": "2026-05-01T12:54:31.052Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ling261t-a-trillionparameter-comprehensive-flagship-model-for-complex-tasks",
-    "title": "Ling-2.6-1T: A Trillion-Parameter Comprehensive Flagship Model for Complex Tasks",
-    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
-    "fullText": "🤗 Hugging Face   |   🤖 ModelScope    |   🐙 OpenRouter\n\nToday, we are thrilled to open-source Ling–2.6–1T from the Ling family.\n\nTailored for real–world, complex scenarios, this trillion–parameter model introduces targeted optimizations across inference efficiency, token overhead, and agentic capabilities, making it highly effective for coding and daily workflows.\n\nKey upgrades in Ling–2.6–1T include:\n\nOn Artificial Analysis, Ling-2.6-1T achieved an Intelligence Index of 34 with approximately 16M output tokens, representing a significant generational leap over the previous Ling-1T. This positioning underscores its ability to deliver high-tier intelligence with optimized token consumption.\n\nLing-2.6-1T demonstrates balanced excellence across reasoning, coding, and tool-calling, achieving open-source SOTA status on multiple execution-heavy benchmarks:\n\nNote: If you are interested in the previous version, please visit the past model collections on Huggingface or ModelScope.\n\nhttps://openrouter.ai/inclusionai/ling-2.6-1t:free\n\nhttps://zenmux.ai/inclusionai/ling-2.6-1t\n\nHere is the example to run Ling-1T with 8 GPUs, where the server port is ${PORT}:\n\n1. Standard Inference (Without MTP)\n\n2. Inference with MTP (Multi-Token Prediction)\nThe current official SGLang implementation of MTP contains a bug. For better inference performance, we recommend installing our patched version. Our fix is currently under review and is expected to be merged into the official SGLang library shortly.\n\nWhile Ling-2.6-1T excels in reasoning and agentic efficiency, our future development will focus on:\n\nWe remain committed to pushing the boundaries of model performance to enhance delivery efficiency across all complex scenarios.\n\nThis code repository is licensed under the MIT License.",
-    "readingTime": 2,
-    "keywords": [
-      "complex scenarios",
-      "inference",
-      "model",
-      "across",
-      "efficiency",
-      "modelscope",
-      "open-source",
-      "ling–2.6–1t",
-      "agentic",
-      "coding"
-    ],
-    "qualityScore": 0.95,
-    "link": "https://huggingface.co/inclusionAI/Ling-2.6-1T",
-    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/inclusionAI/Ling-2.6-1T.png",
-    "created_at": "2026-05-01T12:54:30.571Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "keep-your-coding-agent-on-track",
-    "title": "Keep your coding agent on track",
-    "description": "Governance guardrails and insights for AI coding agents - algorismo-au/lanekeep",
-    "fullText": "English ·\n 简体中文 ·\n 日本語 ·\n Español ·\n 한국어 ·\n Português ·\n Deutsch ·\n Français ·\n Русский ·\n Türkçe ·\n العربية ·\n Tiếng Việt ·\n Italiano ·\n हिन्दी\n\nLaneKeep allows your AI coding agent to run within boundaries that you control.\n\nEvery policy and rule is controlled by you.\n\nSupports Claude Code CLI on Linux, macOS, and Windows (via WSL or Git Bash). Other platforms coming soon.\n\nAdd bin/ to your PATH permanently:\n\nDetects your shell and writes to your rc file. Idempotent.\n\nOr for the current session only:\n\nCreates lanekeep.json, .lanekeep/traces/, and installs hooks in .claude/settings.local.json.\n\nDenied actions show a reason. Allowed actions proceed silently. View decisions in the dashboard (lanekeep ui) or from the terminal with lanekeep trace / lanekeep trace --follow.\n\nlanekeep init registers hooks automatically, but you can manage hook registration independently:\n\nRestart Claude Code after enable or disable for changes to take effect.\n\nenable writes three hooks (PreToolUse, PostToolUse, Stop) into your Claude Code\nsettings file: project-local .claude/settings.local.json if it exists, otherwise\n~/.claude/settings.json. disable removes them cleanly.\n\nHooks alone work: every tool call is evaluated inline. The sidecar adds a\npersistent background process for faster evaluation and the web dashboard:\n\nThere are two levels of \"disable\":\n\nTo pause a single policy and re-enable it:\n\nTo disable LaneKeep entirely and bring it back:\n\nSee Configuration to override, extend, or disable anything.\n\nLaneKeep protects itself and the agent's own governance files from modification\n\ncould disable enforcement, tamper with audit logs, or bypass budget limits.\n\nWrites are blocked by the governance_paths policy (Write/Edit tools).\nReads of the active configuration (lanekeep.json, .lanekeep/ state files)\nare blocked by rules sec-039 and sec-040. Exposing the ruleset would let\nthe agent reverse-engineer match patterns and craft evasions. LaneKeep source\ncode (bin/, lib/) remains readable; security of the engine is open, but the\nactive configuration is opaque to the governed agent. See REFERENCE.md for details.\n\nHooks into the PreToolUse hook and runs every tool call through a tiered pipeline before it executes. First deny stops the pipeline.\n\nThe Semantic evaluator reads the task goal from TaskSpec. Set it with\nlanekeep serve --spec DESIGN.md or write .lanekeep/taskspec.json directly.\nSee REFERENCE.md for details.\n\nSee CLAUDE.md for detailed tier descriptions and data flow.\n\nEverything is configurable: built-in defaults, user-defined rules, and\ncommunity-sourced packs all merge into a single policy. Override any default,\nadd your own rules, or disable what you don't need.\n\nConfig resolves: $PROJECT_DIR/lanekeep.json -> $LANEKEEP_DIR/defaults/lanekeep.json.\nConfig is hash-checked at startup; mid-session modifications deny all calls.\n\nEvaluated before rules. 20 built-in categories, each with dedicated extraction\nlogic (e.g. domains parses URLs, branches extracts git branch names).\nCategories: tools, extensions, paths, commands, domains,\nmcp_servers, and more. Toggle with lanekeep policy or from the Governance tab in the dashboard.\n\nPolicies vs Rules: Policies are structured, typed controls for predefined\ncategories. Rules are the flexible catch-all: they match any tool name + any\nregex pattern against the full tool input. If your use case doesn't fit a policy\ncategory, write a rule instead.\n\nTo temporarily disable a policy (e.g. to update CLAUDE.md):\n\nOrdered first-match-wins table. No match = allow. Match fields use AND logic.\n\nYou don't need to copy the full defaults. Use \"extends\": \"defaults\" and add your rules:\n\nRules can also be added, edited, and dry-run in the Rules tab of the dashboard, or test from the CLI first:\n\nWhen you install a new version of LaneKeep, new default rules become active automatically. Your customizations (extra_rules, rule_overrides, disabled_rules) are never touched.\n\nOn the first sidecar start after an upgrade, you'll see a one-time notice:\n\nUsing a monolithic config? (no \"extends\": \"defaults\") New default rules won't be\nmerged automatically. Run lanekeep migrate to convert to the layered format and keep\nall your customizations intact.\n\nSet via LANEKEEP_PROFILE env var or \"profile\" in lanekeep.json.\n\nSee REFERENCE.md for rule fields, policy categories, settings,\nand environment variables.\n\nSee REFERENCE.md: CLI Reference for the full command list.\n\nSee exactly what your agent is doing while it builds: live decisions, token usage, file activity, and audit trail in one place.\n\nLive input/output token counters, context window usage %, and budget progress bars. Catch sessions heading off the rails before they burn time and money. Set hard caps on actions, tokens, and time that auto-enforce when hit.\n\nLive decision feed, denial trends, per-file activity, latency percentiles, and a decision timeline across your session.\n\nOne-click config validation, plus a coverage map linking rules to regulatory frameworks (PCI-DSS, HIPAA, GDPR, NIST SP800-53, SOC2, OWASP, CWE, AU Privacy Act), with gap highlighting and rule impact analysis.\n\nEvery file your agent reads or writes, with per-file token sizes to see what's eating your context window. Plus operation counts, denial history, and an inline editor.\n\nConfigure enforcement profiles, toggle policies, and tune budget limits, all from the dashboard. Changes take effect immediately without restarting the sidecar.\n\nLaneKeep runs entirely on your machine. No cloud, no telemetry, no account.\n\nSee SECURITY.md for vulnerability reporting.\n\nSee CLAUDE.md for architecture and conventions. Run tests with\nbats tests/ or lanekeep selftest. Cursor adapter included (untested).\n\nAI agent guardrails, AI agent governance, AI coding agent security, agentic AI\nsecurity, vibe coding security, AI agent policy engine, governance sidecar, AI\nagent firewall, AI agent audit trail, AI agent least privilege, AI agent\nsandboxing, prompt injection prevention, MCP security, MCP guardrails, Claude\nCode security, Claude Code guardrails, Claude Code hooks, Cursor guardrails,\nCopilot governance, Aider guardrails, AI agent monitoring, AI agent\nobservability, AI coding assistant safety, policy-as-code, governance-as-code,\nAI agent runtime security, AI agent access control, AI agent permissions, AI\nagent allowlist denylist, OWASP agentic top 10, NIST AI risk management, SOC2\nAI compliance, HIPAA AI compliance, EU AI Act compliance tools, PII detection,\nsecrets detection, AI agent budget limits, token budget enforcement, AI agent\ncost control, shadow AI governance, AI development guardrails, DevSecOps AI, AI\nagent command blocking, AI agent file access control, defense in depth AI, zero\ntrust AI agents, fail-closed security, append-only audit log, deterministic\nguardrails, rule engine AI, compliance automation AI, AI agent behavior\nmonitoring, AI agent risk management, open source AI governance, CLI guardrails\ntool, shell-based policy engine, no-cloud AI security, zero network calls, AI\ncoding tool audit log\n\nWe are looking for ambitious engineers to help us extend the capabilities of LaneKeep.\n\nIs this you? Get in touch → info@algorismo.com",
-    "readingTime": 6,
-    "keywords": [
-      "context window",
-      "risk management",
-      "guardrails claude",
-      "extends defaults",
-      "active configuration",
-      "budget limits",
-      "audit trail",
-      "audit log",
-      "claude code",
-      "lanekeep trace"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/algorismo-au/lanekeep",
-    "thumbnail_url": "https://opengraph.githubassets.com/bd50e6fb18888474cb440827aae5fd6606b2665d6538929f8b8680ed1fa62248/algorismo-au/lanekeep",
-    "created_at": "2026-05-01T12:54:29.980Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "jetai-stock-jumps-after-sec-approves-merger-registration",
-    "title": "Jet.AI stock jumps after SEC approves merger registration",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/jetai-stock-jumps-after-sec-approves-merger-registration-93CH-4653129",
-    "thumbnail_url": "https://i-invdn-com.investing.com/news/LYNXNPEC0Q0MJ_M.jpg",
-    "created_at": "2026-05-01T12:54:28.515Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "sec-clears-jetai-flyexclusive-merger-registration-statement",
-    "title": "SEC clears Jet.AI, flyExclusive merger registration statement",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/company-news/sec-clears-jetai-flyexclusive-merger-registration-statement-93CH-4653131",
-    "thumbnail_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
-    "created_at": "2026-05-01T12:54:27.918Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "how-the-us-army-is-readying-for-a-cyberspace-fight-against-enemy-ai-hackers",
-    "title": "How the US Army is readying for a cyberspace fight against enemy AI hackers",
-    "description": "In a hypothetical Indo-Pacific fight, simulated enemy AI agents attacked cybersecurity in waves, analyzing defenses and learning in real time.",
-    "fullText": "The US Army and industry tested how enemy AI could attack in cyberspace.\n The simulated enemy AI exposed vulnerabilities and adapted during multiple waves of attacks.\n Questions remain on the role of AI agents and what can be learned from industry.\n\n How does AI enhance cyber defenses?\n\n How do AI agents adapt and learn?\n\n How is AI used in military strategy?\n\n What role do industry partners play?\n\n What are the ethical concerns of AI in war?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "industry",
-      "enemy",
-      "role",
-      "agents"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/how-us-army-is-readying-for-enemy-ai-cyberspace-attack-2026-5",
-    "thumbnail_url": "https://i.insider.com/69f3a602ab24bc0b23a180fe?width=1200&format=jpeg",
-    "created_at": "2026-05-01T12:54:26.527Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "mark-zuckerberg-says-most-ai-agents-dont-pass-the-mother-test",
-    "title": "Mark Zuckerberg says most AI agents don't pass the 'mother' test",
-    "description": "Meta CEO Mark Zuckerberg said that AI agents showed promise for the future — but many weren't ready for his mom.",
-    "fullText": "Meta CEO Mark Zuckerberg said that many AI agents showed promise — but weren't ready for his mom.\n \"How do you make a version of that experience that is a lot more polished?\" he asked on Meta's first-quarter earnings call.\n Zuckerberg also said that the company wasn't focused on building AI coding agents, a priority for Meta's competitors.\n\n What is the 'mother' test in AI?\n\n What challenges do AI agents face today?\n\n What makes an AI agent 'polished'?\n\n Why isn't Meta focusing on coding AI?\n\n How is Meta different from its competitors?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "agents",
-      "polished",
-      "meta's",
-      "coding",
-      "competitors",
-      "meta",
-      "zuckerberg"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/mark-zuckerberg-ai-agents-mother-test-openclaw-2026-5",
-    "thumbnail_url": "https://i.insider.com/69f365f579c9af599deecda8?width=1200&format=jpeg",
-    "created_at": "2026-05-01T12:54:26.523Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "kids-need-these-3-things-to-thrive-in-the-ai-era-futurist-peter-diamandis-says",
-    "title": "Kids need these 3 things to thrive in the AI era, futurist Peter Diamandis says",
-    "description": "Author and podcaster Peter Diamandis said that children must find their purpose, be curious, and embrace the right mindset to succeed in the AI age.",
-    "fullText": "Peter Diamandis shared the three things he believes children need to succeed in the AI age.\n The futurist said kids need to find their purpose, be curious, and cultivate the right mindset.\n Diamandis fell in love with space at an early age, inspired by the Moon landing and \"Star Trek.\"\n\n How can AI foster children's curiosity?\n\n Why is mindset crucial for success?\n\n What is a 'massive transformative purpose'?\n\n What defines an 'abundance mindset'?\n\n How did the Moon landing inspire Diamandis?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "moon landing",
-      "mindset",
-      "purpose",
-      "diamandis"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/peter-diamandis-ai-skills-children-skills-careers-strategy-parenting-success-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f0abeb367066d7c2971c83?width=1200&format=jpeg",
-    "created_at": "2026-05-01T12:54:26.412Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "aws-ceo-dismisses-ai-job-loss-fears-says-amazon-plans-to-hire-11000-interns-in-2026",
-    "title": "AWS CEO dismisses AI job loss fears, says Amazon plans to hire 11,000 interns in 2026",
-    "description": "The CEO said demand for software jobs is \"accelerating.\" It comes as other AI leaders warn coding jobs are getting disrupted.",
-    "fullText": "AWS's CEO, Matt Garman, said Amazon sees demand for hiring new software engineers \"accelerating.\"\n He said Amazon will hire 11,000 SDE interns in 2026 — the company says it's similar to recent years.\n Other AI leaders warn coding tools could significantly disrupt software engineering jobs.\n\n What roles will AI play in Amazon's future?\n\n What skills will future engineers need?\n\n What impact do AI tools have on coding jobs?\n\n How is software engineering evolving?\n\n How does AWS plan to use AI tools?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "software engineering",
-      "tools",
-      "amazon",
-      "engineers",
-      "coding",
-      "jobs"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/aws-ceo-amazon-ai-coding-jobs-interns-hiring-2026-5",
-    "thumbnail_url": "https://i.insider.com/69f3719a79c9af599deece26?width=1200&format=jpeg",
-    "created_at": "2026-05-01T12:54:26.410Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "mckinsey-says-clients-are-getting-3-back-for-every-1-spent-on-ai-not-too-shabby",
-    "title": "McKinsey says clients are getting $3 back for every $1 spent on AI: 'Not too shabby.'",
-    "description": "McKinsey says AI investment is starting to yield monetary returns for companies.",
-    "fullText": "McKinsey & Company found that AI is delivering monetary gains in an analysis of 20 companies.\n McKinsey says AI adoption at those companies boosted profits by 20% after 2 to 4 years.\n The companies succeeded by focusing on key domains rather than widespread implementation.\n\n What industries benefit most from AI?\n\n What are key domains for AI success?\n\n How can companies maximize AI profits?\n\n How does McKinsey's \"Rewired\" work?\n\n Who are McKinsey's AI clients?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "profits",
-      "domains",
-      "mckinsey",
-      "mckinsey's"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/mckinsey-ai-adoption-return-on-investment-analysis-enterprise-2026-5",
-    "thumbnail_url": "https://i.insider.com/69f3c8383022d9b19bbff4fa?width=1200&format=jpeg",
-    "created_at": "2026-05-01T12:54:26.406Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "what-saaspocalypse-atlassian-twilio-and-five9-stocks-soar-as-their-ai-moves-deliver-earnings-beats",
-    "title": "What SaaSpocalypse? Atlassian, Twilio, and Five9 stocks soar as their AI moves deliver earnings beats",
-    "description": "SaaS stocks have taken a hammering this year over fears AI will make some software obsolete, but earnings this week provided a more positive view.",
-    "fullText": "Atlassian, Twilio, and Five9 shares soar premarket as AI boosts their earnings.\n All three companies have previously been cited as victims of the so-called SaaSpocalypse.\n SaaS stocks have taken a hammering this year over fears AI will make some software obsolete.\n\n How is AI transforming SaaS companies?\n\n How do AI strategies differ among SaaS firms?\n\n How have SaaS stocks performed this year?\n\n What is the 'SaaSpocalypse' narrative?\n\n What are investors looking for in SaaS earnings?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "saas stocks",
-      "earnings",
-      "saaspocalypse"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/software-stocks-soar-atlassian-twilio-five9-saaspocalypse-ai-earnings-beats-2026-5",
-    "thumbnail_url": "https://i.insider.com/69f48bb19a23d20d291b5546?width=1200&format=jpeg",
-    "created_at": "2026-05-01T12:54:26.171Z",
-    "topic": "finance"
   }
 ]
