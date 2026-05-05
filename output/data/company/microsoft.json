@@ -1,5 +1,29 @@
 [
   {
+    "slug": "microsoft-xai-and-google-will-share-ai-models-with-us-government-for-security-reviews",
+    "title": "Microsoft, xAI and Google will share AI models with US government for security reviews",
+    "description": "Microsoft, xAI and Google will share AI models with US government for security reviews",
+    "fullText": "May 5 (Reuters) - Microsoft, Alphabet-owned Google and Elon Musk’s xAI will give the U.S. government early access to new artificial intelligence models before their public release to allow checks for national security risks under a new deal.\n\nThe Center for AI Standards and Innovation (CAISI) at the Department of Commerce said on Tuesday that the agreement would allow it to evaluate the models before deployment and conduct research to assess their capabilities and security risks.\n\nThe development of advanced AI systems including Anthropic’s Mythos has in recent weeks created a stir globally, including among U.S. officials and corporate America, over their ability to supercharge hackers.\n\nThe ChatGPT-maker unveiled GPT-5.4-Cyber last month, a variant of its latest flagship model fine-tuned specifically ​for defensive cybersecurity work, following rival Anthropic’s ‌announcement of advanced AI model Mythos.\n\nAnthropic has been embroiled in a dispute with the Pentagon over guardrails on the military’s use of its AI tools.\n\n\"Independent, rigorous measurement science is essential to understanding frontier AI and its national security implications,\" CAISI Director Chris Fall said in a statement.\n\nThe move builds on 2024 agreements with OpenAI and Anthropic, established under the Biden administration when CAISI was known as the U.S. Artificial Intelligence Safety Institute.\n\nCAISI, which serves as the government’s main hub for AI model testing, said it had already completed more than 40 evaluations, including on cutting-edge models not yet available to the public.\n\nDevelopers frequently hand over versions of their models with safety guardrails stripped back so the center can probe for national security risks, the agency said.\n\nLast week, the Pentagon said it had reached agreements with seven AI companies to deploy their advanced ‌capabilities on the Defense Department’s classified networks as it seeks to broaden the range of AI providers working across the military.\n\nMicrosoft, Google and xAI did not immediately respond to requests for comment.",
+    "readingTime": 2,
+    "keywords": [
+      "artificial intelligence",
+      "security risks",
+      "models",
+      "advanced",
+      "model",
+      "allow",
+      "capabilities",
+      "pentagon",
+      "guardrails",
+      "agreements"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.investing.com/news/stock-market-news/microsoft-xai-and-google-will-share-ai-models-with-us-govt-for-security-reviews-4658803",
+    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM440OQ_L.jpg",
+    "created_at": "2026-05-05T13:10:30.607Z",
+    "topic": "finance"
+  },
+  {
     "slug": "stop-trying-to-replicate-a-single-star-performer",
     "title": "Stop Trying to Replicate a Single Star Performer",
     "description": "Research into organizational learning suggests companies often squander the benefits of diverse talent not because of who they hire, but because of how employees learn from one another. Drawing on computational modeling inspired by James March’s seminal work, the authors show that traditional performance systems—such as Microsoft’s former stack ranking—create two hidden problems: employees over-copy established stars (“overshooting”) and rely on outdated signals of who is performing best (“frozen targets”). These dynamics prevent the recombination of distinct knowledge into better solutions. The fix is to replace fixed rankings with continuously updated “live targets,” allowing new high performers—often underdogs who reach the frontier via different paths—to become visible and influential immediately. Combined with a “mind-the-gap” rule, where those far behind learn quickly and those near the frontier learn selectively, this approach accelerates innovation on complex problems.",
@@ -1972,29 +1996,5 @@
     "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/03/GettyImages-2196945514-e1773095744985.jpg?resize=1200,600",
     "created_at": "2026-03-10T01:04:57.530Z",
     "topic": "business"
-  },
-  {
-    "slug": "microsoft-releases-urgent-office-patch-russianstate-hackers-pounce",
-    "title": "Microsoft releases urgent Office patch. Russian-state hackers pounce",
-    "description": "The window to patch vulnerabilities is shrinking rapidly.",
-    "fullText": "Russian-state hackers wasted no time exploiting a critical Microsoft Office vulnerability that allowed them to compromise the devices inside diplomatic, maritime, and transport organizations in more than half a dozen countries, researchers said Wednesday.\n\nThe threat group, tracked under names including APT28, Fancy Bear, Sednit, Forest Blizzard, and Sofacy, pounced on the vulnerability, tracked as CVE-2026-21509, less than 48 hours after Microsoft released an urgent, unscheduled security update late last month, the researchers said. After reverse-engineering the patch, group members wrote an advanced exploit that installed one of two never-before-seen backdoor implants.\n\nThe entire campaign was designed to make the compromise undetectable to endpoint protection. Besides being novel, the exploits and payloads were encrypted and ran in memory, making their malice hard to spot. The initial infection vector came from previously compromised government accounts from multiple countries and were likely familiar to the targeted email holders. Command and control channels were hosted in legitimate cloud services that are typically allow-listed inside sensitive networks.\n\n“The use of CVE-2026-21509 demonstrates how quickly state-aligned actors can weaponize new vulnerabilities, shrinking the window for defenders to patch critical systems,” the researchers, with security firm Trellix, wrote. “The campaign’s modular infection chain—from initial phish to in-memory backdoor to secondary implants was carefully designed to leverage trusted channels (HTTPS to cloud services, legitimate email flows) and fileless techniques to hide in plain sight.”\n\nThe 72-hour spear phishing campaign began January 28 and delivered at least 29 distinct email lures to organizations in nine countries, primarily in Eastern Europe. Trellix named eight of them: Poland, Slovenia, Turkey, Greece, the UAE, Ukraine, Romania, and Bolivia. Organizations targeted were defense ministries (40 percent), transportation/logistics operators (35 percent), and diplomatic entities (25 percent).\n\nThe infection chain resulted in the installation of BeardShell or NotDoor, the tracking names Trellix has given to the novel backdoors. BeardShell gave the group full system reconnaissance, persistence through injecting processes into Windows svchost.exe, and an opening for lateral movement to other systems inside an infected network. The implant was executed through dynamically loaded .NET assemblies that left no disk-based forensic artifacts beyond memory from the resident code injection.\n\nNotDoor came in the form of a VBA macro and was installed only after the exploit chain disabled Outlook’s macro security controls. Once installed, the implant monitored email folders, including Inbox, Drafts, Junk Mail, and RSS Feeds. It bundled messages into a Windows .msg file, which would then be sent to attacker-controlled accounts set up on cloud service filen.io. To defeat security controls on high-privilege accounts that are designed to restrict access to classified cables and other sensitive documents, the macro processed emails with a custom “AlreadyForwarded” property and set “DeleteAfterSubmit” to true to purge forwarded messages from the Sent Items folder.\n\nTrellix attributed the campaign to APT28 with “high confidence” based on technical indicators and the targets selected. Ukraine’s CERT-UA has also attributed the attacks to UAC-0001, a tracking name that corresponds to APT28.\n\n“APT28 has a long history of cyber espionage and influence operations,” Trellix wrote. “The tradecraft in this campaign—multi-stage malware, extensive obfuscation, abuse of cloud services, and targeting of email systems for persistence—reflects a well-resourced, advanced adversary consistent with APT28’s profile. The toolset and techniques also align with APT28’s fingerprint.”\n\nTrellix has provided a comprehensive list of indicators organizations can use to determine if they have been targeted.",
-    "readingTime": 3,
-    "keywords": [
-      "cloud services",
-      "security controls",
-      "email",
-      "organizations",
-      "inside",
-      "researchers",
-      "installed",
-      "campaign",
-      "designed",
-      "infection"
-    ],
-    "qualityScore": 1,
-    "link": "https://arstechnica.com/security/2026/02/russian-state-hackers-exploit-office-vulnerability-to-infect-computers/",
-    "thumbnail_url": "https://cdn.arstechnica.net/wp-content/uploads/2024/01/russia-state-hacking.jpg",
-    "created_at": "2026-03-08T18:20:13.121Z",
-    "topic": "tech"
   }
 ]
