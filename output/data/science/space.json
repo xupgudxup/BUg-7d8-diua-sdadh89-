@@ -1,5 +1,48 @@
 [
   {
+    "slug": "saved-40gb-of-db-space-wasted-on-unused-indexes",
+    "title": "Saved ~40GB of db space wasted on unused indexes",
+    "description": "Slack alert about rising db write latency led us down an unexpected rabbit hole. The real bottleneck wasn’t Postgres, traffic spikes, or AWS - it was our own \"future-proof\" indexing decision.",
+    "fullText": "Lazy summer afternoon and there was a Slack alert about increased write-throughput latency on our production db hosted on AWS RDS Postgres.\n\nAt first, we assumed it was just temporary traffic growth. CPU would spike every few minutes, connections counts increased and then dropped. So we got to digging deeper.\n\nNormally, I’d manually go through:\n\nheavy cron jobs running at intervals\n\nBut now, I had AI and the first thing it did was find the list of tables and space occupied by them. In retrospect, this is such an obvious first move haha..\n\nWhat caught my attention is the size of notifications table given the number of rows. It didn't make sense. Because the other table contracts is also quite a big table but it's taking 1/4th the space.\n\nSo the next thing we ran was this query\n\nMind that this notifications table had a json field too, and I was kinda afraid if that might be an issue, but apparently not.\n\nSo the next logical step is to find the unused indexes and get rid of them. And maybe optimise some indexes or business logic such that we don't have to waste so much space for simple things.\n\nThis query gave us an insight into space taken by different indexes\n\nThe first four indexes were unused. We updated the business logic such that unseen stuff was handled with cache. And got rid of the unused indexes.\n\nBottom line is that it was my own premature optimization to add indexes on fields that were never queried. I just assumed we may need that.\n\nAnd you know, this all took less than 30 mins to find and resolve, all thanks to AI. It pointed me in the right direction. Gave me those SQL queries which I'd have struggled to figure out on my own, squandering through stackoverflow pre-AI.\n\nTLDR: Don't randomly add indexes to your db tables. You never know when they could be a bottleneck.",
+    "readingTime": 2,
+    "keywords": [
+      "business logic",
+      "notifications table",
+      "add indexes",
+      "unused indexes",
+      "space",
+      "increased",
+      "assumed",
+      "tables",
+      "query",
+      "don't"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://peerlist.io/raviojhax/articles/how-unused-indexes-ate-41gb-postgres",
+    "thumbnail_url": "https://dqy38fnwh4fqs.cloudfront.net/UHDNE6NQ8LPAARN1A9O78JBOBAGB/hdne6nq8lpaarn1a9o78jbobagb-5909-profile.webp",
+    "created_at": "2026-05-06T19:20:36.276Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "anthropic-taps-elon-musks-spacex-for-more-ai-compute-power",
+    "title": "Anthropic taps Elon Musk's SpaceX for more AI compute power",
+    "description": "Anthropic is partnering with SpaceX for compute capacity to enhance Claude Code, utilizing the space giant's Colossus One data center facilities.",
+    "fullText": "Anthropic and SpaceX have signed a new deal for 300 megawatts of compute capacity.\n The OpenAI rival will use Colossus One data center to boost Claude Code for developers.\n SpaceX, after acquiring xAI, is inking new deals to sell GPU access.\n\n What is Claude Code?\n\n Why is computing capacity crucial for AI?\n\n How do data centers impact local communities?\n\n How does GPU access benefit companies?\n\n What is xAI's role in SpaceX's strategy?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "gpu access",
+      "capacity",
+      "spacex",
+      "claude",
+      "code"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/anthropic-deal-to-use-elon-musks-colossus-data-center",
+    "thumbnail_url": "https://i.insider.com/69fb71d5f9e4752b6d6016a2?width=1200&format=jpeg",
+    "created_at": "2026-05-06T19:20:32.257Z",
+    "topic": "finance"
+  },
+  {
     "slug": "disney-ceo-on-why-gaming-could-be-the-companys-next-big-growthdriver",
     "title": "Disney CEO On Why Gaming Could Be The Company's Next Big Growth-Driver",
     "description": "The Walt Disney Company released its latest earnings report today, and included in the announcement was an update on the games business. In particular, Disney said it sees gaming as an area of growth, saying gaming is an area of the business that doesn't deliver \"significant revenue\" yet but is \"strategically important\" to the company overall as it looks to the future. \nCEO Josh D'Amaro said Disney's $1.5 billion investment into Epic Games and Fortnite speaks to Disney's eagerness to do more in gaming.\n\"Interactive platforms are an increasingly relevant medium for younger audiences to engage with characters and stories, and our collaboration with Epic Games is central to our efforts in this space,\" he said.",
@@ -1860,54 +1903,6 @@
     "link": "https://tech.yahoo.com/phones/articles/clear-iphone-cache-put-end-203900636.html",
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/9dw4lVSedIhjexejoPaljQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzQ-/https://media.zenfs.com/en/zdnet_articles_730/42a4f345ec274c2353a1fe8bb110415d",
     "created_at": "2026-03-21T18:22:09.298Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "broncos-save-salary-cap-space-after-offensive-lineman-agrees-to-take-pay-cut",
-    "title": "Broncos save salary cap space after offensive lineman agrees to take pay cut",
-    "description": "The Broncos have more salary cap space available after a backup offensive lineman agreed to take a pay cut.",
-    "fullText": "A backup Denver Broncos offensive lineman has agreed to take a pay cut ahead of the 2026 season.\n\nEarlier this week, KPRC-TV's Aaron Wilson reported that backup swing tackle/guard Matt Peart agreed to a restructured one-year, $2 million deal with the Broncos that includes a $225,000 signing bonus and a $1.215 million base salary. That's a notable drop from the $3.5 million that Peart was originally scheduled to make this season.\n\nAfter Peart agreed to a pay cut, the team saved about $1.58 million in salary cap space, according to Michael Ginnitti of Spotrac.com. Peart signed a two-year, $7 million deal with Denver last March. He dressed for the first six games of the 2025 season and started one game in the place of an injured Ben Powers before suffering a season-ending torn MCL.\n\nNow returning from a major injury, Peart will aim to win a spot as a backup swing tackle/guard again this summer. Taking on a reduced salary should help his chances of making the team. Peart has 10 career starts on his resume, including three with the Broncos.\n\nSocial: Follow Broncos Wire on Facebook and Twitter/X! Did you know: These 25 celebrities are Broncos fans.\n\nThis article originally appeared on Broncos Wire: Denver Broncos: OL Matt Peart agrees to take $1.5 million pay cut",
-    "readingTime": 2,
-    "keywords": [
-      "broncos wire",
-      "swing tackle/guard",
-      "peart agreed",
-      "backup swing",
-      "season",
-      "salary",
-      "deal",
-      "originally",
-      "team",
-      "denver"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://sports.yahoo.com/articles/broncos-save-salary-cap-space-120127132.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/fDH_tXRij_3t91N1JD50KA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDE7Y2Y9d2VicA--/https://media.zenfs.com/en/denver_broncos_wire_usa_today_sports_articles_584/af2b77fd2a9d92f0bdea6fb7dd42e273",
-    "created_at": "2026-03-21T12:27:06.512Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "x59-gets-ready-for-2nd-test-flight-space-photo-of-the-day-for-march-18-2026",
-    "title": "X-59 gets ready for 2nd test flight | Space photo of the day for March 18, 2026",
-    "description": "NASA's X-59 jet looks ready to fly into the sunset in this new image taken before its second test flight.",
-    "fullText": "When you buy through links on our articles, Future and its syndication partners may earn a commission.\n\nNASA's X-59 jet looks ready to fly into the sunset in this new image taken before its second test flight.\n\nThe X-59 is an X-plane (experimental plane) built by NASA and Lockheed Martin to break the sound barrier without producing the typical thunderous sonic booms that accompany supersonic flight.\n\nThe \"quiet' supersonic jet already made one test flight in October 2025, and is now readying for its second test flight. In this photo, technicians monitor the aircraft as it undergoes engine runs ahead of flight number two at NASA's Armstrong Flight Research Center near the historic Edwards Air Force Base in Southern California.\n\nOn its second flight, the X-59 will take off from Armstrong and land at Edwards after around an hour, during which it will reach a maximum altitude of 20,000 feet (6 kilometers) and a max speed of 260 mph (418 km/h). Future flight tests will \"gradually take the X-59 faster and higher to ensure the aircraft’s safety and assess its performance,\" according to NASA.\n\nAs seen in this photo, the X-59 features a radical elongated geometry and altered engine placement that shape the way air flows over the aircraft in an attempt to spread out the shockwaves it produces at supersonic speeds.\n\nSonic booms can be quite loud and disturb people on the ground below. Because of how disruptive these booms can be, supersonic flight has been prohibited over the U.S. since 1973. But programs like the X-59 hope to change that by making supersonic flight less of a nuisance to people on the ground.\n\nThere are also new next-generation supersonic commercial aircraft in development, such as the Boom X-1. If supersonic flight is once again approved over the U.S., the shorter flight times it would enable would revolutionize travel and give a boost to industries that depend on rapid response times.",
-    "readingTime": 2,
-    "keywords": [
-      "sonic booms",
-      "second test",
-      "test flight",
-      "supersonic flight",
-      "aircraft",
-      "nasa's",
-      "engine",
-      "armstrong",
-      "ground",
-      "nasa"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://tech.yahoo.com/science/articles/x-59-gets-ready-2nd-140000946.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/XozKS8DkvJUnR8LggOAmFQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/space_311/3c366414bf248859a105d060377983e1",
-    "created_at": "2026-03-19T18:41:50.610Z",
     "topic": "tech"
   }
 ]
