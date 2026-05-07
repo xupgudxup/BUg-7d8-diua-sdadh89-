@@ -1,5 +1,39 @@
 [
   {
+    "slug": "star-fox-on-switch-2-isnt-just-a-retread-its-a-fresh-start",
+    "title": "Star Fox On Switch 2 Isn't Just A Retread, It's A Fresh Start",
+    "description": "The internet's reaction to Nintendo's surprise announcement of a new Star Fox game was, to put it charitably, mixed. The new game is actually in many ways an old game--a remake of Star Fox 64, with fully revamped graphics, new animated cutscenes with a more realistic style for Fox and his crew, and other bells and whistles. For those hoping for an all-new Star Fox game, it was a letdown. But take heart, Arwing aces: This appears to be part of a calculated strategy to finally make Fox McCloud the star (fox) he deserves to be.\nStar Fox has never been the most popular of Nintendo's franchises, as compared to others like Mario or Zelda.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.gamespot.com/articles/star-fox-on-switch-2-isnt-just-a-retread-its-a-fresh-start/1100-6539843/?ftag=CAD-01-10abi2f",
+    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1585/15855271/4692380-nintendoswitch2_starfox_scrn_20.jpg",
+    "created_at": "2026-05-07T19:25:02.051Z",
+    "topic": "gaming"
+  },
+  {
+    "slug": "kylie-jenner-and-timothe-chalamets-couple-style-moments-ranked-from-worst-to-best",
+    "title": "Kylie Jenner and Timothée Chalamet's couple style moments, ranked from worst to best",
+    "description": "Since they were first linked in 2023, Kylie Jenner and Timothée Chalamet have worn a slew of high-fashion looks as a couple.",
+    "fullText": "Kylie Jenner and Timothée Chalamet have been together for three years.\n Throughout their relationship, they have stepped out together in stylish outfits.\n We ranked Jenner and Chalamet's style moments as a couple from worst to best.\n\n What defines a \"style moment\"?\n\n What are iconic couple fashion moments?\n\n What role does fashion play in celebrity branding?\n\n How do celebrity couples impact fashion trends?\n\n How does public perception influence celebrity style?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "style",
+      "fashion",
+      "celebrity",
+      "together",
+      "moments",
+      "couple",
+      "jenner"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/kylie-jenner-timothee-chalamet-couple-style-moments-ranked-2026-1",
+    "thumbnail_url": "https://i.insider.com/69fcb86fe1443b8dc48e2d75?width=1200&format=jpeg",
+    "created_at": "2026-05-07T19:24:56.436Z",
+    "topic": "finance"
+  },
+  {
     "slug": "target-built-a-trendspotting-tool-thats-speeding-up-the-time-it-takes-to-get-new-fashions-to-store-shelves",
     "title": "Target built a trend-spotting tool that's speeding up the time it takes to get new fashions to store shelves",
     "description": "As fashion gets faster, Target is working to maintain its leading position with a new AI tool that spots trends on catwalks and social feeds.",
@@ -1879,42 +1913,5 @@
     "thumbnail_url": "https://engineerscanada.ca/sites/default/files/2022-12/iron-ring-social.png",
     "created_at": "2026-04-04T06:47:17.267Z",
     "topic": "tech"
-  },
-  {
-    "slug": "libgoc-golike-cspstyle-http-clientserver-library-for-c",
-    "title": "Libgoc – Go-like CSP-style HTTP client/server library for C",
-    "description": "A Go-style CSP concurrency runtime for C: threadpools, stackful coroutines, channels, select, async I/O, and garbage collection in one coherent API. - divs1210/libgoc",
-    "fullText": "A CSP-style HTTP/1.1 library for libgoc — a route-based server that dispatches requests into fibers, and a channel-based client for making outbound HTTP calls, both built on goc_io TCP and picohttpparser with no additional runtime dependencies.\n\ngoc_http.h is a separate header; include it alongside goc.h:\n\nTwo HTTP servers bounce a counter back and forth over HTTP.\n\nBoth the server and client are built on goc_io TCP and share libgoc's\nuv_loop_t. Neither requires any additional runtime dependency beyond libuv.\n\nServer: goc_http_server_listen binds a GC-managed uv_tcp_t and calls\ngoc_io_tcp_server_make to obtain an accept channel. An accept-loop fiber\nreads one uv_tcp_t* per accepted connection and spawns a per-connection\nfiber. The connection fiber reads a complete HTTP/1.1 request via\ngoc_io_read_start, parses it with phr_parse_request (picohttpparser),\nmatches a route, runs middleware, calls the handler, and writes the response\nvia goc_io_write (which dispatches the uv_write to the event loop thread\nthrough a uv_async bridge). No extra threads or mutexes are required beyond\nwhat goc_io already uses.\n\nClient: outbound requests return a channel that delivers a\ngoc_http_response_t* when the response arrives. A single http_client_fiber\non the default pool drives the entire request: DNS lookup via\ngoc_io_getaddrinfo, TCP connect via goc_io_tcp_connect, write via\ngoc_io_write, and read/parse via goc_io_read_start. All I/O completes\nthrough goc_take in the fiber. The event loop is never blocked; other fibers\ncontinue to run while the request is in flight.\n\nThe raw connection handle is never exposed to user code. All access goes\nthrough goc_http_ctx_t helpers; the context is valid only until\ngoc_http_server_respond() (or goc_http_server_respond_error()) delivers its result.\n\nServer-side functions (goc_http_server_respond, goc_http_server_header, etc.) operate\nwithin the per-connection fiber and do not need any cross-thread dispatch.\nClient-side functions (goc_http_get, goc_http_post, etc.) launch a fiber\non the default pool that drives the entire request through goc_io channel\noperations and are safe to call from any fiber.\n\ngoc_http_ctx_t must not be passed across independent requests or stored\nbeyond the lifetime of the handler fiber.\n\nRoutes are matched in registration order. The first matching route wins.\nA route pattern is a path prefix string; exact matching and simple wildcards\n(*) are supported.\n\nUnmatched requests receive an automatic 404 Not Found.\n\nAccess request data through goc_http_ctx_t fields and the helpers below.\nAll returned strings are GC-managed and valid for the lifetime of the context.\n\nExactly one of these must be called before the handler fiber returns.\nCalling more than one, or returning without calling either, is undefined behaviour.\n\nEach function returns a channel that delivers goc_box_int(rc) (rc == 0 on\nsuccess, negative libuv error code on failure) once the response has been\nflushed by libuv. goc_take it to wait for the flush before doing further\nwork that depends on the client having received the response.\n\nMiddleware runs inside the per-request fiber, in registration order, before\nthe route handler is called. Because it runs in a fiber, it can do anything\na handler can — channel operations, goc_io, timeouts — without blocking the\nevent loop.\n\nReturning GOC_HTTP_ERR from any middleware short-circuits the chain and\nsends a 500 to the client; the handler is not called.\n\nAll client functions return a channel that delivers a goc_http_response_t*\nwhen the response arrives. goc_take the channel to receive the result.\nMust be called from fiber context.\n\ngoc_http_request_opts_t carries optional headers and a timeout. Pass\ngoc_http_request_opts() for defaults (no extra headers, no timeout).\n\nBecause the functions return channels, multiple requests can be issued in\nparallel and awaited with goc_alts or goc_take_all:",
-    "readingTime": 3,
-    "keywords": [
-      "goc_io tcp",
-      "additional runtime",
-      "default pool",
-      "event loop",
-      "delivers goc_http_response_t",
-      "response arrives",
-      "via goc_io_read_start",
-      "via goc_io_write",
-      "functions return",
-      "channel operations"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/divs1210/libgoc/blob/main/HTTP.md",
-    "thumbnail_url": "https://opengraph.githubassets.com/767e1b86fe5b801c7d046816cee2a127bd31d6235703ab47618167c78833569a/divs1210/libgoc",
-    "created_at": "2026-04-04T01:14:01.205Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-best-mens-dress-shoes",
-    "title": "The best men's dress shoes",
-    "description": "The best dress shoes for men combine classic style with all-day comfort, making them easier to wear for work and formal occasions.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/guides/style/best-mens-dress-shoes",
-    "thumbnail_url": "https://i.insider.com/68487fc7f748d8c055f369fa?width=1200&format=jpeg",
-    "created_at": "2026-04-04T01:13:49.733Z",
-    "topic": "finance"
   }
 ]

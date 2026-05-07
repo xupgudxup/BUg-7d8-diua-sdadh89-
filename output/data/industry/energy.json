@@ -1,5 +1,65 @@
 [
   {
+    "slug": "oil-prices-settle-1-lower-in-volatile-trading-after-us-mulls-resuming-strait-of-hormuz-military-escorts",
+    "title": "Oil prices settle 1% lower in volatile trading after US mulls resuming Strait of Hormuz military escorts",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/commodities-news/us-oil-prices-rebound-as-investors-assess-prospects-for-a-middle-east-peace-deal-4665898",
+    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM451LV_L.jpg",
+    "created_at": "2026-05-07T19:24:58.806Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "architecting-ground-truth-a-reference-design-for-urban-energy-digital-twins",
+    "title": "Architecting Ground Truth: A Reference Design for Urban Energy Digital Twins",
+    "description": "I. Beyond the 3D Model: The Need for a Truth...",
+    "fullText": "When most people hear Digital Twin, they imagine a sleek 3D model of a city—buildings rendered in high detail, animated with real-time data. But that's only the surface.\n\nA true Digital Twin is not a visualization—it is a structured, living representation of reality. As NIST describes in its Internal Report IR 8356, a Digital Twin must integrate data, models, and simulation to mirror real-world systems in a reliable and actionable way. Similarly, the UK's National Digital Twin Programme (NDTP)—whose foundational Gemini Principles were developed by the Centre for Digital Built Britain at the University of Cambridge—emphasizes that national-scale twins depend on trustworthy, interoperable data, not just visuals.\n\nThis leads to a fundamental challenge: how do you design a system that is simultaneously high-performance (fast, queryable, scalable) and scientifically meaningful (rich in relationships, context, and semantics)? Trying to solve both in a single layer often leads to compromise.\n\nThe solution lies in explicitly separating two concerns:\n\nThis separation aligns with Semantic Web principles from the World Wide Web Consortium (W3C), where raw data is kept distinct from the logic that gives it meaning. In practice:\n\nTo maintain scientific integrity, the system must reflect reality as closely as possible—not just in data, but in structure. This is where a domain-first approach becomes critical.\n\nInstead of designing around tables or endpoints, you design around real-world energy systems: photovoltaic panels, heat pumps, boilers, meters, and buildings. Each is a domain entity with its own properties and behavior. A solar panel has a tilt angle, orientation, and efficiency curve. A boiler depends on a fuel source, combustion efficiency, and thermal output.\n\nBut energy systems don't exist in isolation—they exist in space.\n\nThis is where geospatial intelligence becomes essential. By integrating tools like PostGIS—which follows the Open Geospatial Consortium's Simple Features for SQL specification—the datastore treats location as a first-class citizen. This moves beyond simple addresses into true spatial relationships. Instead of asking:\n\nThis shift—from static records to spatially-aware queries—is what transforms a database into research-grade infrastructure.\n\nOnce reality is correctly structured, the next challenge is protecting it.\n\nIn many systems, the internal database structure is exposed directly to users or external services. This creates a dangerous situation where the \"truth\" can be unintentionally distorted. In a research context, small inconsistencies at the data layer can propagate into massive errors in simulation results.\n\nTo prevent this, we introduce two key patterns:\n\nDTOs (Data Transfer Objects), a concept formally documented by Martin Fowler in Patterns of Enterprise Application Architecture, act as a controlled interface between the outside world and your internal model. Raw database tables are never exposed directly; instead, DTOs ensure that only validated, structured data enters the system, and that researchers always interact with a clean, stable representation—even if the underlying database structure is optimized or changed.\n\nMappers act as scientific translators. When data comes in—whether from a sensor, a user, or another system—it is automatically converted into a strictly-typed internal model in a consistent and validated way. This eliminates manual inconsistencies, unit mismatches, and structural errors that are common in manual data processing.\n\nFinally, there's the question of evolution. Cities change; systems evolve; schemas must keep up without breaking. This is where database migration tools like FlywayDB come in. By version-controlling the database schema, every change is tracked and every environment is reproducible. Any researcher can recreate the exact same \"Ground Truth\" environment, ensuring that simulations are consistent and results can be verified. In effect, your database becomes a living, versioned scientific artifact.\n\nA powerful system is useless if it's hard to navigate.\n\nTraditional APIs require users to know exactly which endpoints to call. This creates friction—especially for researchers more focused on questions than infrastructure, and for the Ontological Engine that must \"browse\" the data autonomously.\n\nThis is where HATEOAS (Hypermedia as the Engine of Application State) comes in, a constraint of REST architecture coined by Roy Fielding in his 2000 doctoral dissertation. With HATEOAS, the API becomes self-discoverable and self-documenting. A user can retrieve a building, follow links to its energy systems, and navigate to related meters or grid nodes—without needing hardcoded paths. The API effectively guides both human researchers and automated engines through the data.\n\nEqually important is the use of specialized controllers rather than a single generic endpoint for all equipment. Dedicated gateways are created for each system type—PV panels, boilers, EV chargers, and so on—because each system has unique physics and constraints.\n\nA solar panel's tilt angle and a boiler's combustion efficiency are not interchangeable concepts. If you force everything into a generic structure, you dilute meaning and degrade validation. Specialized controllers preserve this integrity, ensuring that data entry is precise, models remain faithful to reality, and downstream analysis is reliable.\n\nWith a strong foundation in place, the system is ready to do what it was designed for: powering intelligent, semantic Digital Twins.\n\nThe API acts as the primary data pipeline into the Knowledge Layer—the Ontological Engine. This engine uses structured data from the API to build on-demand metamodels: not static representations, but dynamic interpretations tailored to specific questions.\n\nThis approach aligns with domain standards like the Brick Schema (brickschema.org), maintained by the Brick Consortium, which provides a unified ontology-based metadata standard for representing building assets, subsystems, and the relationships between them. Brick's foundation on W3C's RDF and OWL standards ensures consistent, machine-readable representations that can interoperate across tools and organizations.\n\nWhat makes this approach powerful is not just its precision—but its scalability.\n\nOnce you establish a consistent structure for representing urban energy systems, you can begin to compare cities across climates, policy regimes, and grid configurations:\n\nBecause the underlying data is structured, validated, and interoperable, these comparisons become not just possible—but meaningful.\n\nAt its core, this is not just a software problem—it is a scientific one.\n\nUrban energy systems are complex, interconnected, and constantly evolving. If the underlying data is inconsistent, incomplete, or poorly structured, no amount of modelling can fix it. This is why architecture matters.",
+    "readingTime": 5,
+    "keywords": [
+      "tilt angle",
+      "exposed directly",
+      "specialized controllers",
+      "combustion efficiency",
+      "urban energy",
+      "internal model",
+      "energy systems",
+      "database structure",
+      "digital twin",
+      "structured"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.ptidej.net/blog/architecting-ground-truth-a-reference-design-for-urban-energy-digital-twins/",
+    "thumbnail_url": "https://blog.ptidej.net/content/images/size/w1200/2026/04/dt2.webp",
+    "created_at": "2026-05-07T19:24:57.285Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "oil-turns-positive-on-report-iran-rejects-us-proposal-for-strait-of-hormuz",
+    "title": "Oil turns positive on report Iran rejects US proposal for Strait of Hormuz",
+    "description": "Oil prices turned positive in volatile trade on Thursday after a report said Iran would not allow the U.S. to reopen the Strait of Hormuz with “an",
+    "fullText": "NEW YORK, May 7 (Reuters) - Oil prices turned positive ‌in volatile trade on Thursday after ‌a report said Iran would not allow ​the U.S. to reopen the Strait of Hormuz with “an unrealistic plan.”\n\nBrent crude futures rose 71 cents, or 0.7%, to $101.98 ‌per barrel ⁠at 1:36 p.m. EDT (1736 GMT), while U.S. West Texas Intermediate ⁠crude rose $1.62, or 1.7%, to $96.70.\n\nWhy did oil prices initially fall before recovering?\n\nWhat were the price movements for Brent crude?\n\nHow did Iran's Strait of Hormuz statement affect markets?\n\nWhat caused oil prices to turn positive today?\n\nEarlier in the session, both benchmarks were down ​over $5 a ​barrel.\n\nA senior Iranian ​official said Iran ‌would not allow the U.S. to reopen the Strait of Hormuz with “an unrealistic plan” and then exit the war without paying any reparations “for all the ‌damage inflicted on ​Iran,” the Wall Street ​Journal said, ​citing Iran’s state broadcaster Press ‌TV.",
+    "readingTime": 1,
+    "keywords": [
+      "brent crude",
+      "unrealistic plan",
+      "strait of hormuz",
+      "positive",
+      "allow",
+      "reopen",
+      "rose",
+      "barrel",
+      "iran"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://finance.yahoo.com/news/us-oil-prices-rebound-investors-224107108.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/8bd9899b1acc6e542ac91de8c7d06459",
+    "created_at": "2026-05-07T19:24:53.160Z",
+    "topic": "finance"
+  },
+  {
     "slug": "local-data-center-opposition-claims-its-latest-victim-oracles-project-jupiter-gas-plant",
     "title": "Local data center opposition claims its latest victim: Oracle's Project Jupiter gas plant",
     "description": "Oracle cancels a New Mexico natural gas plant for its Project Jupiter data center site amid community concerns.",
@@ -1880,58 +1940,6 @@
     "link": "https://www.businessinsider.com/gm-invest-gas-cars-ev-demand-misses-expectations-2026-4",
     "thumbnail_url": "https://i.insider.com/69f23a270ae606ce85bf2cee?width=1200&format=jpeg",
     "created_at": "2026-04-30T01:56:24.214Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "energy-hoarding-will-keep-oil-prices-high-even-after-the-iran-war-ends-a-top-consultant-says",
-    "title": "Energy hoarding will keep oil prices high even after the Iran war ends, a top consultant says",
-    "description": "The oil market could soon see a \"mad scramble\" for reserves that will push crude prices even higher, Rapidan founder Bob McNally said.",
-    "fullText": "Bob McNally, founder of Rapidan Energy Group, says a key pillar of the oil market has collapsed.\n Markets are adjusting to the idea that the US will not always secure the flow of oil in the Middle East.\n Nations could beging hoarding ebergy supplies, leading to a \"security premium\" for oil, he said.\n\n What is a \"security premium\"?\n\n Who is Bob McNally?\n\n Why is the Strait of Hormuz crucial?\n\n How does oil hoarding affect prices?\n\n What is the Rapidan Energy Group?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "rapidan energy",
-      "security premium",
-      "hoarding",
-      "mcnally"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/oil-prices-outlook-supply-hoarding-iran-war-energy-crisis-2026-04",
-    "thumbnail_url": "https://i.insider.com/69f0fa2c9244129ecb2f8ebc?width=1200&format=jpeg",
-    "created_at": "2026-04-29T19:07:47.706Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "us-gas-prices-surge-to-over-422-a-gallon-the-highest-in-4-years",
-    "title": "US gas prices surge to over $4.22 a gallon, the highest in 4 years",
-    "description": "Gas prices reached a new 2026 record on Wednesday as tensions in the Middle East continue.",
-    "fullText": "Gas prices climbed north of $4.22 on Wednesday, per AAA. That's the highest since 2022.\n California drivers are nearing $6 a gallon, while Oklahoma has the lowest average price in the US.\n Prices quickly climbed this week as tensions in the Strait of Hormuz persisted.\n\n What impacts gas prices globally?\n\n Why is California's gas so expensive?\n\n How does national security affect gas prices?\n\n How does the Strait of Hormuz affect supply?\n\n What role does Iran play in oil pricing?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "strait of hormuz",
-      "climbed",
-      "affect"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://www.businessinsider.com/gas-prices-gallon-us-aaa-highest-since-2022-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f20eeeeac306af891f474f?width=1200&format=jpeg",
-    "created_at": "2026-04-29T19:07:47.535Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "heres-whats-behind-oils-8day-climb-back-to-iranwar-highs",
-    "title": "Here's what's behind oil's 8-day climb back to Iran-war highs",
-    "description": "Oil prices surged to wartime highs on Wednesday, extending a streak of gains. Markets are trying to navigate an uncertain timeline for peace negotiations.",
-    "fullText": "Oil prices are up almost 30% in eight days as hope for a near-term peace deal fades.\n Crude prices tumbled after the ceasefire, but have steadily climbed back toward recent highs.\n Energy experts see consequences like higher prices and supply hoarding if the conflict drags on.\n\n What factors drive oil prices up?\n\n What is the Strait of Hormuz's role in oil?\n\n What are the economic impacts of Iran tensions?\n\n How does conflict impact oil supply?\n\n How do peace talks affect oil markets?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "peace",
-      "supply",
-      "conflict"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/oil-price-today-brent-wti-iran-war-blockade-peace-deal-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f22b4deac306af891f4897?width=1200&format=jpeg",
-    "created_at": "2026-04-29T19:07:47.344Z",
     "topic": "finance"
   }
 ]
