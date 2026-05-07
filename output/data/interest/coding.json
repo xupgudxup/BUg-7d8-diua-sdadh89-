@@ -1,5 +1,22 @@
 [
   {
+    "slug": "consuming-too-much-ai-can-be-bad-data-on-tokenmaxxing-reveals-a-better-way",
+    "title": "Consuming too much AI can be bad. Data on 'tokenmaxxing' reveals a better way",
+    "description": "Jellyfish data shows that while AI \"tokenmaxxing\" boosts coding output, extreme token use delivers diminishing returns for companies.",
+    "fullText": "Heavy AI token consumption yields limited returns, Jellyfish found in a recent study.\n Jellyfish data shows top AI users consume 10 times as much, and output only doubles.\n Jellyfish AI head Nicholas Arcolano advises balanced AI use for productivity.\n\n What is \"tokenmaxxing\"?\n\n Why is AI efficiency critical now?\n\n How can AI use affect productivity?\n\n How does AI token pricing work?\n\n What are pull requests in coding?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "token",
+      "productivity",
+      "jellyfish"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/ai-tokenmaxxing-fails-as-productivity-strategy-jellyfish-2026-5",
+    "thumbnail_url": "https://i.insider.com/69fb9291c9dd4cb81cda7cc7?width=1200&format=jpeg",
+    "created_at": "2026-05-07T13:27:08.985Z",
+    "topic": "tech"
+  },
+  {
     "slug": "claude-code-creator-boris-cherny-is-sick-of-the-phrase-vibe-coding",
     "title": "Claude Code creator Boris Cherny is sick of the phrase 'vibe coding'",
     "description": "The creator of Claude Code spoke with Business Insider at Anthropic's developer conference in San Francisco on Wednesday.",
@@ -1912,29 +1929,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/VCJAnIrA7L6Mkt76JHBFDg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/globe_458/94afdd9ba93a1c401af71557cc26a1da",
     "created_at": "2026-03-24T18:48:20.341Z",
     "topic": "entertainment"
-  },
-  {
-    "slug": "vibe-coding-programming-for-the-rest-of-us",
-    "title": "Vibe Coding: Programming for the rest of us?",
-    "description": "Vibe coding might prove to be programming for the rest of us.",
-    "fullText": "In 1984, Apple promised us a computer for the rest of us. It was a radical idea at the time: that ordinary people, not just engineers and scientists, deserved access to personal computing. Forty years later, I think we're witnessing the second half of that promise being fulfilled. Not the computer for the rest of us. Programming for the rest of us.\n\nI've spent nearly four decades in IT. I've watched technologies rise and fall, paradigms shift, and entire categories of tools become obsolete overnight. I've done a few years of programming, enough to actually ship iPhone apps in Objective-C on the App Store for a few years. I'm not a stranger to code. But there's a wide gap between writing mobile apps a decade ago and architecting modern full-stack web applications from scratch.\n\nI'm what you'd call a power user: someone with a clear vision of what he needs, and a deep enough understanding of the landscape to know when something is working and when it isn't.\n\nAnd yet, until recently, building my own web apps was simply beyond reach. Not for lack of ideas. I've always had plenty of those. But the distance between having a vision and shipping something real was too wide to cross alone.\n\nClaude Code and vibe coding closed that gap entirely. The proof isn't theoretical. It's running in production.\n\nIn the past year, I shipped six production web apps that support my creative workflows as a writer, photographer, and content creator. A fully featured bookmark manager. An RSS reader with AI summarization and virtual scrolling. A photo-sharing space for my travel photography. That last one deserves a moment. For years, sharing photos meant feeding them into Instagram or Facebook, surrendering them to Meta's ecosystem in exchange for an audience. I was never comfortable with that trade. Now I have a space that is entirely mine, on my own domain, under my own control. No algorithm deciding who sees what. No platform that can change its rules tomorrow. Just my photographs, presented the way I want them. That, more than any technical achievement, is what digital independence actually feels like.\n\nNone of these are toys or demos. They run on real infrastructure: Vercel, Postgres, Redis, Vercel Blob. And I use them every single day.\n\nI use them every day, sometimes many times a day. My RSS reader is open constantly; it's how I stay connected to the ideas and conversations that feed my writing. My bookmark manager is the quiet backbone of my Ephemeral Scrapbook newsletter, helping me track what's worth sharing with readers each week. Two custom-built tools, perfectly shaped to my workflows in a way that no off-the-shelf product ever quite managed. That's exactly why I built them myself.\n\nDo I fully understand every line of code these apps are made of? No. But I have a solid enough mental model to know what's happening at a high level, which is exactly the same relationship I've always had with the layers beneath my work. I don't know every detail of how a compiler translates source code into machine instructions. I understand how TCP/IP networks work at a conceptual level. I'm exactly the kind of person who wants to know the underpinnings, but I've never needed to implement them myself. That's always been fine. Vibe coding is simply the next abstraction layer up, and I've been climbing abstraction layers my whole professional life.\n\nWhat I did bring to the table was something more valuable than syntax knowledge: a precise understanding of my own needs, and forty years of knowing what good software looks and feels like.\n\nThere's a word for what this feels like that I didn't expect to use in the context of software development: liberating. For the first time, the gap between having an idea and having a working thing has essentially collapsed. I'm not held back by what I don't know how to implement. I think about outcomes: what the app needs to do, how it should feel, what problem it solves. The implementation details follow. That shift in focus, from how to what, changes everything about the creative experience. Not everyone sees it that way, of course.\n\nEvery democratizing technology has its detractors. There were people in 1984 who laughed at the idea of moving a cursor with a small plastic box on your desk. There were people who thought desktop publishing would ruin graphic design. Those who bash vibe coding today, who insist it produces brittle code, that it isn't real programming, that it will lead to disaster, are the modern version of those people. They may not be entirely wrong on the technical details, but they're deeply wrong about what matters.\n\nWhat matters is this: people who had something to build and no way to build it now have a way. That is an unambiguous good. Though I'll admit it: living inside that good comes with its own uncomfortable questions.\n\nI'll be honest about something that sits uneasily with me. I feel a genuine sense of digital independence from having built my own tools. My bookmark manager is mine. My RSS reader is mine. Actually, let me be more careful with that word. \"Mine\" in the sense that I designed it, I control what it does, and my data lives where I decide it lives. Not \"mine\" in the sense that I could run it without Vercel tomorrow without significant effort. That distinction matters.\n\nThese apps run on Vercel. They consume object storage from Vercel. They call third-party services I have no control over. The independence is real, but it's layered on top of dependencies that go all the way down. I haven't fully resolved that tension. I'm not sure it can be fully resolved. But I think owning your application layer (your data model, your logic, your user experience) is meaningfully different from outsourcing it entirely. It's not perfect independence. But it's real enough to matter. Ironically, chasing it taught me things I never expected to learn.\n\nHere's something that still surprises me: before I started using Claude Code, I barely understood what GitHub was for in practice. I didn't know Vercel existed. I didn't really know why a specs.md or README.md file mattered. I learned all of that not by studying it, but by needing it, as a side effect of actually building things. Vibe coding didn't just produce apps. It taught me things I wasn't even trying to learn.\n\nAnd the impact didn't stay contained to my personal projects. I started using Claude to manipulate my n8n automation workflows through an MCP connection, an entirely non-programming use case that turned out to be just as transformative. That work prompted me to prepare an hour-long presentation for colleagues at work. The ripple effect, it turns out, goes well beyond your own screen. And when I step back and look at all of it together, one thought keeps surfacing.\n\nI have more ideas now than I've ever had time for. A visual theme plugin for Micro.blog. Improvements to every app I've already shipped. New workflows I haven't imagined yet. That's the other thing vibe coding did: it made me want to build more. Because as technology continues to evolve, I know I have the ability to absorb and integrate new capabilities in ways that simply weren't available to someone with my profile before.\n\nWhich brings me to something I say with the full weight of four decades in IT behind it: my Claude subscription for the year may prove to be the single most transformative investment I have made in my entire career. Not the most expensive. The most transformative.\n\nIn 1984, Apple gave the rest of us the computer. In 2025, vibe coding is giving us the last thing we were missing.",
-    "readingTime": 7,
-    "keywords": [
-      "rss reader",
-      "bookmark manager",
-      "digital independence",
-      "fully resolved",
-      "vibe coding",
-      "web apps",
-      "in apple",
-      "claude code",
-      "my rss",
-      "vercel they"
-    ],
-    "qualityScore": 1,
-    "link": "https://numericcitizen.me/vibe-coding-programming-for-the-rest-of-us/",
-    "thumbnail_url": "https://numericcitizen.me/content/images/size/w1200/2026/03/Cleanshot---Galerie-Photos@2026-03-24@.png",
-    "created_at": "2026-03-24T12:45:15.076Z",
-    "topic": "tech"
   }
 ]
