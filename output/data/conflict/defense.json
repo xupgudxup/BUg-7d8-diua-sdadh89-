@@ -1,5 +1,29 @@
 [
   {
+    "slug": "sweden-detains-sanctioned-oil-tanker-believed-to-be-linked-to-russias-shadow-fleet",
+    "title": "Sweden detains sanctioned oil tanker believed to be linked to Russia's shadow fleet",
+    "description": "Sweden is investigating a sanctioned tanker that is suspected of being part of the sanctioned Russian “shadow fleet,” according to the Scandinavian country's civil defense minister.  The Swedish Coast...",
+    "fullText": "STOCKHOLM (AP) — Sweden is investigating a sanctioned tanker that is suspected of being part of the sanctioned Russian “shadow fleet,” according to the Scandinavian country's civil defense minister.\n\nThe Swedish Coast Guard said it boarded and detained the Jin Hui on Sunday on suspicion of flying a false flag while transiting Swedish waters.\n\nThe vessel was sailing through the Baltic Sea under a Syrian flag, the coast guard said in a statement. There are also concerns about the vessel’s seaworthiness.\n\nThe Jin Hui — which remained anchored off Trelleborg on Monday — is currently on European Union, U.K. and Ukraine sanctions lists, Sweden's Civil Defense Minister Carl-Oskar Bohlin wrote on X.\n\nThe ship’s captain, a Chinese citizen, was arrested on suspicion of using a false document and other offenses, Swedish prosecutors said Monday.\n\nIt is the fifth vessel seizure by Sweden's coast guard in recent weeks.\n\n“Ships with suspected deficiencies in their seaworthiness continue to sail in Swedish waters,” said Daniel Stenling, the coast guard's deputy chief of operations. “This is not acceptable. We have intervened before, now we are intervening again.”\n\nRussia's ambassador to Sweden, Sergey Belyaev, said in a statement Wednesday that the Jin Hui is not operating under the Russian flag, and said Swedish authorities told the embassy there were no Russians on board.\n\nThe statement did not directly address the allegation regarding the shadow fleet.\n\nSweden last year said it would step up insurance checks on foreign ships, aimed at tightening controls on Russian vessels suspected of transporting oil and gas or carrying stolen Ukrainian grain.",
+    "readingTime": 2,
+    "keywords": [
+      "swedish waters",
+      "shadow fleet",
+      "civil defense",
+      "defense minister",
+      "coast guard",
+      "jin hui",
+      "suspected",
+      "russian",
+      "flag",
+      "statement"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://www.yahoo.com/news/articles/sweden-detains-sanctioned-oil-tanker-141930266.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/BG0imz2EoW_Yit8eKsYsYw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03NzQ7Y2Y9d2VicA--/https://media.zenfs.com/en/ap.org/e91d03801ee2a8a3d4f50f2aa443428f",
+    "created_at": "2026-05-07T08:14:13.283Z",
+    "topic": "news"
+  },
+  {
     "slug": "defense-dooms-jack-flaherty-as-detroit-tigers-swept-by-boston-red-sox",
     "title": "Defense dooms Jack Flaherty as Detroit Tigers swept by Boston Red Sox",
     "description": "Detroit Tigers score: Right-hander Jack Flaherty had 10 strikeouts to one walk, but three mistakes from the defense led to four runs for the Red Sox.",
@@ -2107,29 +2131,5 @@
     "thumbnail_url": "https://s.yimg.com/cv/apiv2/sports/share/PD_010626-Social_Share_GENRIC_YAHOO_SPORTS-1200x630.jpg",
     "created_at": "2026-04-01T01:27:13.268Z",
     "topic": "sports"
-  },
-  {
-    "slug": "defenseclaw-secure-your-openclaw",
-    "title": "DefenseClaw: Secure Your OpenClaw",
-    "description": "Security Governance for Agentic AI. Contribute to cisco-ai-defense/defenseclaw development by creating an account on GitHub.",
-    "fullText": "AI agents are powerful. Unchecked, they're dangerous.\n\nLarge language model agents — like those built on OpenClaw — can install skills, call MCP servers, execute code, and reach the network. Every one of those actions is an attack surface. A single malicious skill can exfiltrate data. A compromised MCP server can inject hidden instructions. Generated code can contain hardcoded secrets or command injection.\n\nDefenseClaw is the enterprise governance layer for OpenClaw. It sits between your AI agents and the infrastructure they run on, enforcing a simple principle: nothing runs until it's scanned, and anything dangerous is blocked automatically.\n\nDefenseClaw scans every skill, MCP server, and plugin before it is allowed to run. The CLI wraps Cisco AI Defense scanners (skill-scanner, mcp-scanner) and an AI bill-of-materials generator (aibom) to produce a unified ScanResult with severity-ranked findings. Scan results feed into the admission gate — HIGH/CRITICAL findings auto-block the component, MEDIUM/LOW findings install with a warning, and clean components pass through. All outcomes are logged to the SQLite audit store and forwarded to SIEM.\n\nCodeGuard is a built-in static analysis engine that scans source files line-by-line with regex rules. It targets code written by agents or included in skills and catches:\n\nCodeGuard runs automatically during skill/plugin scans and is also available as a standalone scan via the sidecar API (POST /api/v1/scan/code) or the plugin's /scan code slash command.\n\nThe guardrail proxy inspects every LLM prompt and completion for secrets, PII, and injection patterns. It operates independently of the plugin — it protects the LLM channel even if the plugin is not installed. In observe mode findings are logged; in action mode dangerous content is blocked before it reaches the LLM or the user.\n\nEvery tool call passes through the inspect engine before execution. The OpenClaw plugin's before_tool_call hook sends the tool name and arguments to the gateway, which evaluates them against six rule categories:\n\nFor write and edit tools, the engine additionally runs CodeGuard on the content being written. Verdicts are allow, alert, or block — in observe mode findings are logged but never block; in action mode HIGH/CRITICAL findings cancel the tool call.\n\nDefenseClaw is a multi-component system with three runtimes that work together:\n\nThe CLI and Plugin communicate with the Gateway over a local REST API. The Gateway connects to the OpenClaw Gateway over WebSocket (protocol v3) to A built-in guardrail proxy inspects all LLM traffic in real time.\n\nFor the full system diagram, data flows, and component responsibilities, see docs/ARCHITECTURE.md.\n\nIf you don't already have OpenClaw running:\n\nVerify the gateway is up with openclaw gateway status. See the OpenClaw Getting Started guide for full details.\n\nFor platform-specific instructions (DGX Spark, macOS, cross-compilation), see docs/INSTALL.md.\n\nFor the complete walkthrough including blocking tools, enabling guardrail action mode, and testing blocked prompts, see docs/QUICKSTART.md.\n\nWith action mode enabled, prompts containing injection attacks or data exfiltration patterns are blocked before reaching the LLM:\n\nSeverity thresholds are configurable in ~/.defenseclaw/config.yaml under skill_actions.\n\nRun OpenClaw inside an NVIDIA OpenShell sandbox with full DefenseClaw governance. The sandbox provides OS-level isolation (Linux namespaces, Landlock, seccomp) while DefenseClaw adds scanning, policy enforcement, and audit logging.\n\nThis creates the sandbox system user, moves OpenClaw under sandbox ownership, installs the DefenseClaw plugin, and copies default OpenShell policies.\n\nAccess the OpenClaw UI at http://localhost:18789 (forwarded from the sandbox automatically).\n\nFor full setup, architecture, monitoring, and debugging details, see docs/SANDBOX.md.\n\nNote: Sandbox mode requires Linux with systemd and root access. Not available on macOS/Windows.\n\nThe Go daemon forwards audit events to Splunk in real time. Enable it in config and provide the HEC token:\n\nFor local development, use the built-in preset:\n\nSplunk runtime through this preset, local Splunk usage is subject to the\nSplunk General Terms and the local-mode scope guardrails documented in\ndocs/INSTALL.md.\n\nThat command also installs the local Splunk app automatically. The app gives\nusers a purpose-built investigation surface for DefenseClaw audit activity,\nOpenClaw runtime evidence, diagnostics, metrics, traces, and saved searches.\n\nThe local setup aligns the sidecar with these default local preset values.\nThese values can vary if the preset or config is overridden:\n\nScope guardrails for this local Splunk preset:\nSee docs/INSTALL.md for the full license and scope details.\n\nFor the local Splunk app itself, including dashboard purpose, signal families,\nand investigation workflow, see docs/SPLUNK_APP.md.\nEvents are batched (default 50) and flushed every 5 seconds. Each event includes OTEL-shaped fields with pre-computed Splunk CIM metadata for zero-transformation indexing.\n\nThe daemon exports logs, spans, and metrics via OTLP HTTP to any compatible collector (Jaeger, Grafana, Datadog, etc.):\n\nFor the full OTEL signal spec and Splunk mapping, see docs/OTEL.md.",
-    "readingTime": 4,
-    "keywords": [
-      "mcp server",
-      "high/critical findings",
-      "splunk app",
-      "proxy inspects",
-      "guardrail proxy",
-      "scope guardrails",
-      "observe mode",
-      "action mode",
-      "defenseclaw",
-      "preset"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/cisco-ai-defense/defenseclaw",
-    "thumbnail_url": "https://opengraph.githubassets.com/2c6c37be9c5dbe44938757d2aa7a0479178385bd8b2d8b2605063ee89f303bc2/cisco-ai-defense/defenseclaw",
-    "created_at": "2026-04-01T01:27:04.334Z",
-    "topic": "tech"
   }
 ]
