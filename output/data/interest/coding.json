@@ -1,5 +1,26 @@
 [
   {
+    "slug": "agentctl-a-local-control-plane-for-coding-agents",
+    "title": "Agentctl, a local control plane for coding agents",
+    "description": "agentctl is a focused v1 control layer for coding agents. It gates a small set of high-risk actions, records structured traces for every decision, and replays prior sessions against a different pol...",
+    "fullText": "agentctl is a local control plane for coding agents. It gates a small set of risky actions, records a trace for every decision, and can replay prior sessions against a different policy.\n\nagentctl stores all of its state under ~/.agentctl/:\n\nThere is no repo-local policy file and no HTTP server.\n\nAttach to a supported agent. attach bootstraps ~/.agentctl/ and writes a default policy if one does not exist yet.\n\nEverything else stays out of the control path.\n\nagentctl loads exactly one policy file: ~/.agentctl/policy.yaml.\n\nDefault policy written by attach:\n\nallowed_domains: [] means deny all outbound calls. Omitting allowed_domains means no domain restriction.\n\nRecord a session under a stable session ID:\n\nReplay that session against the current global policy:\n\nOr replay against an alternate policy file:",
+    "readingTime": 1,
+    "keywords": [
+      "policy file",
+      "default policy",
+      "agentctl",
+      "attach",
+      "session",
+      "allowed_domains",
+      "replay"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://github.com/chocks/agentctl",
+    "thumbnail_url": "https://opengraph.githubassets.com/ca16511709fed155d9f027bc837b8966ee6327d0ef249204ec8e1308bb9d62a6/chocks/agentctl",
+    "created_at": "2026-05-08T02:00:45.877Z",
+    "topic": "tech"
+  },
+  {
     "slug": "consuming-too-much-ai-can-be-bad-data-on-tokenmaxxing-reveals-a-better-way",
     "title": "Consuming too much AI can be bad. Data on 'tokenmaxxing' reveals a better way",
     "description": "Jellyfish data shows that while AI \"tokenmaxxing\" boosts coding output, extreme token use delivers diminishing returns for companies.",
@@ -1909,25 +1930,5 @@
     "thumbnail_url": "https://opengraph.githubassets.com/e478e264dba4ec2c9bf2de46978eee6378dd8126eaf54240fe745032cd55f882/vectimus/vectimus",
     "created_at": "2026-03-26T01:19:05.579Z",
     "topic": "tech"
-  },
-  {
-    "slug": "morning-joe-stars-joe-scarborough-mika-brzezinski-reportedly-feel-part-of-ms-nows-slow-phaseout",
-    "title": "‘Morning Joe’ Stars Joe Scarborough, Mika Brzezinski Reportedly Feel Part of MS Now’s Slow Phase-Out",
-    "description": "MS NOW reduced Morning Joe from four to three hours this week, marking a notable shift toward expanded daytime programming. According to Rob Shuter’s Naughty But Nice Substack on Friday, March 20, an ...",
-    "fullText": "MS NOW reduced Morning Joe from four to three hours this week, marking a notable shift toward expanded daytime programming. According to Rob Shuter’s Naughty But Nice Substack on Friday, March 20, an insider said the change at MS NOW (formerly MSNBC) was not the hosts’ idea. Reports this week detailed a broader schedule shuffle moving Stephanie Ruhle and Alicia Menendez into daytime and adjusting Morning Joe’s hours for Joe Scarborough and Mika Brzezinski. While the Associated Press reported MS NOW said it was the show’s choice, a source told Shuter the hosts see it as a slow phase-out. One staffer told Shuter they have “less hours, same pay.” This segment outlines the timeline, attributions, and current status.",
-    "readingTime": 1,
-    "keywords": [
-      "ms now",
-      "hours",
-      "daytime",
-      "hosts",
-      "shuter",
-      "morning"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.yahoo.com/entertainment/videos/morning-joe-stars-joe-scarborough-124432733.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/VCJAnIrA7L6Mkt76JHBFDg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/globe_458/94afdd9ba93a1c401af71557cc26a1da",
-    "created_at": "2026-03-24T18:48:20.341Z",
-    "topic": "entertainment"
   }
 ]
