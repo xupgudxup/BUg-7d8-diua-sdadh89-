@@ -1,5 +1,164 @@
 [
   {
+    "slug": "ai-hard-drive-shortage-making-it-more-expensive-harder-to-archive-the-internet",
+    "title": "AI Hard Drive Shortage Making It More Expensive, Harder to Archive the Internet",
+    "description": "The Internet Archive, Wikimedia, academics, and hobby archivists are having trouble finding hard drives or are having to pay extremely high prices for them.",
+    "fullText": "AI\n The AI Hard Drive Shortage Is Making It More Expensive and Harder to Archive the Internet\n\n Jason Koebler\n\n ·\n\n May 5, 2026\n at 9:20 AM\n\n The Internet Archive, Wikimedia, academics, and hobby archivists are having trouble finding hard drives or are having to pay extremely high prices for them.",
+    "readingTime": 1,
+    "keywords": [
+      "archive",
+      "internet"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.404media.co/the-ai-hard-drive-shortage-is-making-it-more-expensive-and-harder-to-archive-the-internet/",
+    "thumbnail_url": "https://storage.ghost.io/c/0f/76/0f76b548-bc58-4f25-abc3-3f5ebca07da4/content/images/size/w1200/2026/05/CleanShot-2026-05-05-at-06.13.52@2x.png",
+    "created_at": "2026-05-09T01:54:38.213Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "noninvasive-profiling-of-the-tumour-microenvironment-with-spatial-ecotypes",
+    "title": "Non-invasive profiling of the tumour microenvironment with spatial ecotypes",
+    "description": "Multimodal machine learning reveals that tumour microenvironments can be decomposed into spatially organized multicellular ecosystems, termed spatial ecotypes, that can be accessed non-invasively via liquid biopsy and used to profile individual cancers and target treatments.",
+    "fullText": "Multiplexed imaging mass cytometry reveals distinct tumor-immune microenvironments linked to immunotherapy responses in melanoma\n\n Article\n Open access\n 21 October 2022",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.1,
+    "link": "https://www.nature.com/articles/s41586-026-10452-4",
+    "thumbnail_url": "https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41586-026-10452-4/MediaObjects/41586_2026_10452_Fig1_HTML.png",
+    "created_at": "2026-05-09T01:54:23.018Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-mental-model-for-agentic-work",
+    "title": "A Mental Model for Agentic Work",
+    "description": "A mental model for agentic work: how AI agents operate through hosts, context, human interaction, and shared workspaces. Examples in OpenClaw, Cursor & Notion.",
+    "fullText": "Something shifted in the first quarter of 2026. Not a feature launch, not a new product - a structural change in how work happens.\n\nFor the first time, I found myself genuinely operating with agents across every dimension of my work: personal tasks, software engineering, company operations. Not as a novelty. As the default mode.\n\nThis post is the abstraction I arrived at after weeks of doing this. A mental model that applies everywhere - because the architecture underneath is always the same.\n\nOpenClaw is an open-source project that I would label as “an operating system for agents”. But powerful and open-source, like Linux. First commit in November 2025, breakout success by February 2026. I installed it, connected it via Telegram, and started co-working with it - scheduling, filing taxes, processing documents.\n\nBut the product itself wasn’t the revelation. It was the process behind it. The sheer quality of what one person team could ship in three months, using agents to build an agent platform, made something viscerally clear to me: the leverage available through agentic work had crossed a threshold.\n\nWhat I didn’t expect was that the pattern I saw in OpenClaw would repeat everywhere I looked - in my IDE, in my company’s operations, in how I manage my own life. The same architecture, over and over.\n\nHere’s the framework. Every agentic system I’ve encountered - from personal AI assistants to coding agents to operational automation - follows this structure:\n\nFive components. Always present. Always in the same relationship:\n\nAnd threading through all of it: Human Interaction - the chat, voice, or thread interface where the human directs, corrects, and collaborates with the agent.\n\nThe insight that changed how I think about this: every agentic tool I use is an instance of this same model. The only things that change are the host, the context sources, and the workspace.\n\nLet me show you three concrete instances from my own work.\n\nHost: OpenClaw, self-hosted on a VPS.\n\nContext: Calendar, inbox, documents, personal preferences.\n\nWorkspace: Personal notes, tasks, files.\n\nHuman interaction: Telegram chat, voice.\n\nThis is where I first experienced the model in action. OpenClaw isn’t a chatbot - it’s an agent with persistent memory, connected tools, and the ability to self-modify its own skills. It files my taxes. It processes documents. It manages scheduling.\n\nThe key realization: the host matters enormously. Running on a real OS with real hardware (not a sandboxed web app) means residential IP addresses, real browser capabilities, actual file system access. The playing field of the workspace defines the ceiling of what the agent can do.\n\nContext: Repository, full codebase, documentation, issues.\n\nWorkspace: The codebase itself, plus build tools, test runners, terminals.\n\nHuman interaction: Chat and thread within the IDE.\n\nThis is where the 10x-100x speedup lives - and where I spent Q1 2026 pushing the boundaries. I rebuilt my personal website (the one you are on right now) in days, then moved into mission-critical backend work on AQUATY’s distributed system.\n\nThe IDE-as-host is powerful because the workspace is the actual codebase. The agent doesn’t generate code into a void - it reads, writes, runs, and tests in the same environment you do. The shared workspace is maximally integrated.\n\nI’ll go deep on this in a follow-up post. The data is striking - and the failure modes are instructive.\n\nHost: Notion (as an agents platform).\n\nContext: Databases, SOPs, project state, dashboards, connected tools.\n\nWorkspace: Notion pages and databases - the same surfaces the team already works in.\n\nHuman interaction: Comments, requests, AI inbox.\n\nThis is the instance most people haven’t thought about yet. When Notion becomes an agents host, your operational infrastructure becomes the shared workspace. The agent doesn’t just answer questions - it reads your databases, understands your project state, and writes back into the same pages your team uses.\n\nThis is what I mean by agentic operations: not “AI features in a productivity tool,” but a genuine agent loop running against your company’s operational surface.\n\nAcross all three instances, the architecture is identical. What varies:\n\nThe model is fractal. You can zoom into any organization and find these same five components wherever agents are being deployed effectively.\n\nOne more shift matters: when both the agent and the shared workspace live in the cloud, the loop stops being “while I’m at my desk” work. It becomes continuous - always-on, permissioned, and able to run while you sleep. That’s the structural reason the productivity ceiling jumps from incremental gains to 10x, and in the right setups, 100x.\n\nIf you accept this mental model, a few things follow:\n\nThe cloud version of the model is the inflection point: once agents can safely operate against a shared workspace 24/7, organizations can move entire workflows (not just individual tasks) into an always-on agentic loop.\n\nThe host is the strategic decision. Choosing where your agents live determines what they can access, what they can do, and how deeply they integrate with your existing workflows. An agent in a sandboxed chat window is fundamentally limited compared to an agent with native access to your workspace.\n\nContext is the moat. The AI models themselves are increasingly commoditized. What differentiates your agent’s output is the context it has access to - your proprietary data, your SOPs, your project state, your institutional knowledge. Companies that connect richer context will get disproportionately better results. I call this: The Opionated Context Layer.\n\nThe shared workspace is the interface. The best agentic setups don’t create separate “AI outputs” - they write directly into the spaces where humans already work. This is why Cursor works so well (agent writes into your codebase). And why Notion’s approach is IMO leading (agent writes into your operational pages) - if you apply Notion Agents to a workspace your copmpany has been workin in for years, this pays hughe dividends now!\n\nThe human role shifts from executor to architect. In every instance, I’m not doing the footwork. I’m making architectural decisions, auditing outputs, correcting course, and designing the system prompts and context that make the agent effective. The work isn’t less - it’s different.",
+    "readingTime": 6,
+    "keywords": [
+      "chat voice",
+      "connected tools",
+      "mental model",
+      "agent doesn’t",
+      "shared workspace",
+      "agentic",
+      "system",
+      "project",
+      "operational",
+      "access"
+    ],
+    "qualityScore": 1,
+    "link": "https://basti.io/blog/agentic_work_mental_model/",
+    "thumbnail_url": "https://basti.io/media/blog/agentic_work_mental_model/og-image.png",
+    "created_at": "2026-05-09T01:54:21.604Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-company-tested-claude-mythos-preview-it-says-the-ai-found-hundreds-of-bugs-including-1-that-had-existed-for-20-years",
+    "title": "A company tested Claude Mythos Preview. It says the AI found hundreds of bugs, including 1 that had existed for 20 years",
+    "description": "Mozilla says Anthropic's unreleased Claude Mythos AI found security flaws that automated testing systems missed for years.",
+    "fullText": "Mozilla is one of the companies that has access to Anthropic's powerful new Mythos model.\n The company said it fixed 423 security bugs in April. That's 398 more than it did in January.\n Previous AI systems produced \"slop,\" Mozilla wrote.\n\n How does Claude Mythos work?\n\n Why is Mythos restricted to few companies?\n\n What are the benefits of AI in cybersecurity?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "mozilla",
+      "mythos"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/mozilla-anthropic-mythos-hundreds-flaws-fuzzers-2026-5",
+    "thumbnail_url": "https://i.insider.com/69fe0775e1443b8dc48e3422?width=1200&format=jpeg",
+    "created_at": "2026-05-09T01:54:18.931Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "the-42-billion-auto-giant-youve-never-heard-of-is-building-ai-into-its-factories",
+    "title": "The $42 billion auto giant you've never heard of is building AI into its factories",
+    "description": "Magna builds parts for some of the world's biggest automakers, like BYD, Ford, and Toyota. It has a five-pronged AI strategy for its plants.",
+    "fullText": "Magna, a supplier for global carmakers, uses AI to track product quality, equipment, and energy use.\n It produces components for carmakers worldwide, including BYD, Toyota, Ford, and Hyundai.\n Machine learning and mobile-robot deployment are boosting efficiency in its factories.\n\n How does AI enhance product quality?\n\n How can AI mitigate supply chain risks?\n\n What is a \"unified factory\" concept?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "product quality",
+      "carmakers"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/auto-giant-magna-ai-factories-2026-5",
+    "thumbnail_url": "https://i.insider.com/69f8f42238bee05c9698396f?width=1200&format=jpeg",
+    "created_at": "2026-05-09T01:54:18.930Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "kevin-oleary-defends-his-utah-data-center-project-think-about-the-number-of-jobs",
+    "title": "Kevin O'Leary defends his Utah data center project: 'Think about the number of jobs'",
+    "description": "Kevin O'Leary has clashed with residents in Box Elder County, Utah over a new AI data center on a 40,000-acre campus.",
+    "fullText": "Kevin O'Leary says people have misconceptions about what data centers are.\n O'Leary is building a data center in Utah despite community resistance.\n Data center development has become a serious issue for many American communities.\n\n What jobs will the data center create?\n\n What are the misconceptions about data centers?\n\n How do data centers impact communities?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "centers",
+      "center",
+      "misconceptions",
+      "communities",
+      "o'leary"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/kevin-oleary-utah-data-center-stratos-opposition-water-electricity-jobs-2026-5",
+    "thumbnail_url": "https://i.insider.com/69fe177cba7ef34b41f36740?width=1200&format=jpeg",
+    "created_at": "2026-05-09T01:54:18.828Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "claude-brought-to-you-by-elon-musk",
+    "title": "Claude, brought to you by Elon Musk",
+    "description": "Anthropic now relies on  a huge SpaceX data center for AI compute, tying Claude's rapid growth and reliability to Elon Musk.",
+    "fullText": "A version of this story originally appeared in the BI Tech Memo newsletter.\n\n What is Claude's ethical appeal?\n\n What challenges do AI startups face?\n\n How does AI demand impact compute supply?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.4,
+    "link": "https://www.businessinsider.com/claude-elon-musk-anthropic-ai-compute-2026-5",
+    "thumbnail_url": "https://i.insider.com/69fe29f8c9dd4cb81cda8a57?width=1200&format=jpeg",
+    "created_at": "2026-05-09T01:54:18.828Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "the-university-of-michigan-may-have-landed-the-steal-of-the-ai-era",
+    "title": "The University of Michigan may have landed the steal of the AI era",
+    "description": "The University of Michigan's early stake in OpenAI, before Microsoft's massive investment, could yield $2 billion.",
+    "fullText": "University of Michigan's $20 million bet on OpenAI could yield billions, a court exhibit shows.\n The school's investment arrived before Microsoft poured billions into the AI lab.\n OpenAI's meteoric rise means the potential for huge windfalls for early investors.\n\n What factors led to OpenAI's success?\n\n What are venture capitalists' strategies?\n\n How do endowments impact universities?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "billions",
+      "openai's"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/michigan-early-openai-investment-yield-billions-2026-5",
+    "thumbnail_url": "https://i.insider.com/69fe29eee1443b8dc48e3596?width=1200&format=jpeg",
+    "created_at": "2026-05-09T01:54:18.826Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "gta-6-company-exploring-ai-to-help-make-games-smarter-and-possibly-bring-down-costs",
+    "title": "GTA 6 Company \"Exploring\" AI To Help Make Games \"Smarter\" And Possibly Bring Down Costs",
+    "description": "Grand Theft Auto 6 could be one of the most expensive games ever in terms of its budget, and this kind of investment may only be sustainable for a small group of games, Take-Two CEO Strauss Zelnick said in an interview.\nSpeaking to Bloomberg, Zelnick giant investments only make sense for \"massive blockbusters,\" and \"that's super hard to do.\" Of course, GTA 6 is expected to be one of those games, but the industry overall is in for even tougher times ahead if production costs keep ramping up.\n\"We certainly can't deal with exponential growth--we probably can't even deal with linear growth--in production costs,\" he said. \"So everyone puts pressure on everyone, ourselves included.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.gamespot.com/articles/gta-6-company-exploring-ai-to-help-make-games-smarter-and-possibly-bring-down-costs/1100-6539870/?ftag=CAD-01-10abi2f",
+    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1179/11799911/4692608-gta6image.jpg",
+    "created_at": "2026-05-09T01:54:18.664Z",
+    "topic": "gaming"
+  },
+  {
+    "slug": "the-corporate-benefits-rollback-is-spreading",
+    "title": "The corporate benefits rollback is spreading",
+    "description": "AI spending is reshaping workplace benefits. TTEC has paused 401(k) matching for US employees through the end of 2026.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/the-corporate-benefits-rollback-is-spreading-2026-5",
+    "thumbnail_url": "https://i.insider.com/69fe5828c9dd4cb81cda8c74?width=1200&format=jpeg",
+    "created_at": "2026-05-09T01:54:18.574Z",
+    "topic": "finance"
+  },
+  {
     "slug": "safesandbox-infinite-undo-for-ai-coding-agents-cursor-claude-code-codex",
     "title": "SafeSandbox – infinite undo for AI coding agents (Cursor, Claude Code, Codex)",
     "description": "Infinite undo for AI coding agents. Contribute to Baukaalm/safesandbox development by creating an account on GitHub.",
@@ -1772,194 +1931,5 @@
     "thumbnail_url": "https://i.guim.co.uk/img/media/1b55ecee516ee1fb57a3284a68b6c2c1f6b3aa85/651_0_6512_5209/master/6512.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=1566fd3c97745cc80b99b602f46778e9",
     "created_at": "2026-05-06T13:28:19.384Z",
     "topic": "business"
-  },
-  {
-    "slug": "middle-managers-have-yet-another-task-getting-you-to-use-ai",
-    "title": "Middle managers have yet another task: getting you to use AI",
-    "description": "Don't be surprised if AI comes up in your next check-in. Managers are getting in the weeds to help encourage wider adoption.",
-    "fullText": "As if the Great Flattening wasn't enough, managers are being tasked with driving the AI revolution.\n Recent scoops from Business Insider show how managers are trying to get workers to actually use AI.\n They're flagging low usage, creating dashboards, and offering up practical ideas for using the tech.\n\n What is the \"Great Flattening\"?\n\n Why is AI adoption critical for companies?\n\n How is AI reshaping job roles and tasks?\n\n How can managers effectively promote AI?\n\n What challenges do managers face with AI?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "managers",
-      "flattening"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/managers-are-in-charge-of-making-you-use-ai-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fa65915edd94d1e733990d?width=1200&format=jpeg",
-    "created_at": "2026-05-06T13:28:19.242Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-case-for-ai-as-an-engine-of-job-growth-not-a-layoff-machine",
-    "title": "The case for AI as an engine of job growth, not a layoff machine",
-    "description": "Apollo chief economist Torsten Slok has been repeatedly making the case that AI will be additive to the labor market.",
-    "fullText": "A growing chorus of economists led by Torsten Slok is making the case for AI creating job growth.\n The Apollo chief economist argues that lower labor costs can actually increase demand and add jobs.\n Still, companies continue to cite AI as a reason for staff layoffs.\n\n What is the \"Jevons paradox\"?\n\n Who is Torsten Slok?\n\n What are AI-adjacent job areas?\n\n How does AI impact labor costs?\n\n How did the \"China shock\" affect jobs?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "labor",
-      "jobs",
-      "torsten",
-      "slok"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/ai-impact-on-job-labor-market-growth-replacement-torsten-slok-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fa65885edd94d1e733990c?width=915&format=jpeg",
-    "created_at": "2026-05-06T13:28:19.168Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "yahoo-says-its-ai-assistant-has-a-secret-weapon-in-the-new-search-wars",
-    "title": "Yahoo says its AI assistant has a secret weapon in the new search wars",
-    "description": "Yahoo CMO Josh Line said Scout's launch is a \"top priority\" for the internet-media brand this year. It's rolling out an ad campaign this week.",
-    "fullText": "Yahoo is making its Scout AI engine a top priority this year.\n It's a late entrant to the space and hopes to differentiate by prominently displaying sourcing.\n Yahoo is launching an ad campaign this week centered on kids asking their parents tons of questions.\n\n What is Yahoo's Scout AI engine?\n\n How does Yahoo's campaign target parents?\n\n How does Yahoo plan to regain market share?\n\n Why is sourcing important in AI search?\n\n What challenges do late AI entrants face?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "engine",
-      "sourcing",
-      "campaign",
-      "parents",
-      "yahoo",
-      "scout",
-      "yahoo's"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/yahoo-positions-scout-ai-engine-with-the-most-clear-sourcing-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fb03ece3f2a46ca8fcf681?width=1200&format=jpeg",
-    "created_at": "2026-05-06T13:28:19.067Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "why-klarnas-cmo-built-an-ai-replica-of-himself-for-employees-to-vent-at",
-    "title": "Why Klarna's CMO built an AI replica of himself for employees to vent at",
-    "description": "Klarna CMO David Sandström said he's building a team of \"marketing engineers\" but worries about AI taking the jobs of middle-aged generalists.",
-    "fullText": "Klarna's CMO built an AI version of himself for team members to vent at during a tough period.\n David Sandström said it helped keep real-life meetings on track and forward-focused.\n Sandström described how Klarna is leaning into AI and why he wants to hire \"marketing engineers.\"\n\n How can AI replicas aid workplace dynamics?\n\n How is AI reshaping fintech strategies?\n\n How do AI avatars impact leadership roles?\n\n What are 'marketing engineers'?\n\n What challenges come with AI in marketing?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "marketing engineers",
-      "sandström"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/klarna-cmo-built-ai-replica-himself-colleagues-vent-at-2026-5",
-    "thumbnail_url": "https://i.insider.com/69f9dac0b3045b292f636cec?width=1200&format=jpeg",
-    "created_at": "2026-05-06T13:28:19.003Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "4-of-warren-buffetts-berkshire-ceos-told-us-how-theyre-harnessing-ai-in-their-businesses",
-    "title": "4 of Warren Buffett's Berkshire CEOs told us how they're harnessing AI in their businesses",
-    "description": "We spoke to the CEOs of See's Candies, Dairy Queen, Brooks Running, and Squishmallows-maker Jazwares about how they're using AI in Berkshire's empire.",
-    "fullText": "Berkshire Hathaway is using AI to help customers, localize products, and use labor more efficiently.\n Business Insider spoke to the CEOs of four subsidiaries about how they're using the red-hot tech.\n Warren Buffett stepped down as Berkshire's CEO on New Year's Day, making way for Greg Abel.\n\n How is AI reshaping labor efficiency?\n\n What is \"narrow AI\" in Berkshire's strategy?\n\n What are the challenges of AI in fast food?\n\n Why is AI a hot topic in business now?\n\n How do companies use AI to localize products?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "localize products",
-      "labor",
-      "business",
-      "berkshire's"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/warren-buffett-berkshire-ai-dq-squishmallows-brooks-sees-abel-meeting-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fb1805e3f2a46ca8fcf6c7?width=1200&format=jpeg",
-    "created_at": "2026-05-06T13:28:18.743Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "major-publishers-sue-meta-for-copyright-infringement-over-ai-training",
-    "title": "Major publishers sue Meta for copyright infringement over AI training",
-    "description": "Hachette, Macmillan and others allege that Meta pirated millions of works from textbooks to novels for Llama model\nFive major publishers sued Meta Platforms in Manhattan federal court on Tuesday, alleging that the tech giant misused their books and journal articles to train its artificial intelligence models.\nElsevier, Cengage, Hachette, Macmillan and McGraw Hill, as well as author Scott Turow, alleged in the proposed class-action complaint that Meta pirated millions of their works and used them without permission to train its Llama large language models to respond to human prompts.\n Continue reading...",
-    "fullText": "Hachette, Macmillan and others allege that Meta pirated millions of works from textbooks to novels for Llama model\n\nFive major publishers sued Meta Platforms in Manhattan federal court on Tuesday, alleging that the tech giant misused their books and journal articles to train its artificial intelligence models.\n\nElsevier, Cengage, Hachette, Macmillan and McGraw Hill, as well as author Scott Turow, alleged in the proposed class-action complaint that Meta pirated millions of their works and used them without permission to train its Llama large language models to respond to human prompts.\n\n“Meta’s mass-scale infringement isn’t public progress, and AI will never be properly realized if tech companies prioritize pirate sites over scholarship and imagination,” Maria Pallante, the president of the Association of American Publishers, said in a statement.\n\nMeta has denied any wrongdoing.\n\n“AI is powering transformative innovations, productivity and creativity for individuals and companies, and courts have rightly found that training AI on copyrighted material can qualify as fair use,” a Meta spokesperson responded in a statement on Tuesday. “We will fight this lawsuit aggressively.“\n\nThe publishers allege that Meta pirated works ranging from textbooks to scientific articles to novels including The Fifth Season by NK Jemisin and The Wild Robot by Peter Brown for its AI training. They asked the court for permission to represent a larger class of copyright owners and an unspecified amount of monetary damages.\n\nThe lawsuit opens a new front in the ongoing copyright battle between creators and tech companies over AI training, in which dozens of authors, news outlets, visual artists and other plaintiffs have sued companies including Meta, OpenAI and Anthropic for infringement. All of the pending cases are likely to revolve around whether AI systems make fair use of copyrighted material by using it to create new, transformative content. The first two judges to consider the matter issued diverging rulings last year. Amazon- and Google-backed Anthropic was the first major AI company to settle one of the cases, agreeing last year to pay a group of authors $1.5bn to resolve a class-action lawsuit that could have cost the company billions",
-    "readingTime": 2,
-    "keywords": [
-      "meta pirated",
-      "copyrighted material",
-      "pirated millions",
-      "tech",
-      "training",
-      "lawsuit",
-      "allege",
-      "textbooks",
-      "novels",
-      "llama"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.theguardian.com/technology/2026/may/05/publishers-sue-meta-copyright-ai",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/7cd8e9afaac5ea90e11a18a60c74d6b31d95f4e0/1140_725_5976_4779/master/5976.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=ece216ec6cbc2239195b829f2f6570e5",
-    "created_at": "2026-05-06T13:28:18.418Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "openai-presidents-deeply-personal-diary-becomes-focus-in-musks-case-against-altman",
-    "title": "OpenAI president’s ‘deeply personal’ diary becomes focus in Musk’s case against Altman",
-    "description": "Greg Brockman has faced questions about his emails, texts and writings in his personal diary in second week of the trial\nAs Elon Musk’s case against OpenAI entered its second week, focus shifted to the company’s president, Greg Brockman. Over the course of several hours on Monday and Tuesday, Brockman faced questions about his emails, texts and one piece of evidence that has become central to the trial: his personal diary.\nMusk’s lawsuit revolves around his allegation that Brockman, OpenAI and its CEO, Sam Altman, violated the founding agreement of the artificial intelligence firm by turning it into a for-profit entity. Musk argues that Altman and Brockman also unjustly enriched themselves in the process, essentially taking Musk’s money while deceiving him about their true intent for the business. He is seeking Altman and Brockman’s removal, the undoing of the for-profit restructuring and $134bn, which Musk wants distributed to OpenAI’s non-profit.",
-    "fullText": "Greg Brockman has faced questions about his emails, texts and writings in his personal diary in second week of the trial\n\nAs Elon Musk’s case against OpenAI entered its second week, focus shifted to the company’s president, Greg Brockman. Over the course of several hours on Monday and Tuesday, Brockman faced questions about his emails, texts and one piece of evidence that has become central to the trial: his personal diary.\n\nMusk’s lawsuit revolves around his allegation that Brockman, OpenAI and its CEO, Sam Altman, violated the founding agreement of the artificial intelligence firm by turning it into a for-profit entity. Musk argues that Altman and Brockman also unjustly enriched themselves in the process, essentially taking Musk’s money while deceiving him about their true intent for the business. He is seeking Altman and Brockman’s removal, the undoing of the for-profit restructuring and $134bn, which Musk wants distributed to OpenAI’s non-profit.\n\nThe journal, which Brockman kept during the company’s founding years circa 2015, has provided a consistent line of attack for Musk’s attorneys in the lead-up to the trial and during Brockman’s time on the witness stand. Musk’s team has presented numerous embarrassing excerpts, which OpenAI argues are taken out of context, to portray Brockman as self-interested and deceptive. Judge Yvonne Gonzalez Rogers cited Brockman’s entries multiple times in her decision to deny the AI firm’s motion to prevent the case from going to trial.\n\n“Financially what will take me to $1B?” Brockman wrote in one entry in which he asked himself what he “really wants”.\n\nDuring Brockman’s pre-trial deposition, Musk’s attorney brought up the journal a half-dozen times and asked why Brockman wrote “it would be nice to be making the billions”. Brockman responded that he meant it would be nice to have a revenue plan for the company outside donations.\n\n“It’d be wrong to steal the non-profit from him. to convert to a b-corp without him. that’d be pretty morally bankrupt. and he’s really not an idiot,” Brockman wrote in another entry, which considered Musk’s role in the company.\n\nMusk’s lead attorney, Steven Molo, called Brockman to testify on Monday and questioned what he meant by several of his entries, specifically asking about the line that Musk was “really not an idiot”.\n\n“Did you mean to say that only an idiot would allow you to steal a charity?” Molo asked.\n\nDuring a series of tense exchanges, Musk’s attorney also repeatedly read out portions of Brockman’s journal to the court and accused him of deceiving Musk.\n\n“You weren’t honest with Elon Musk when you told him that you wanted OpenAI to remain a non-profit, were you?” Molo asked.\n\n“We were absolutely honest with Elon,” Brockman responded.\n\nOpenAI has denied all of Musk’s claims, stating that the Tesla CEO is merely an aggrieved former co-founder who left the company in 2018 after a failed bid to take control. They argue that Musk was always aware of the intent to create a for-profit structure and that OpenAI is still overseen by a non-profit that seeks to benefit humanity through AI.\n\nOpenAI published a blogpost in January, titled “the truth Elon left out”, that attempted to show Musk’s team misused quotes and cut out relevant sections. Brockman meanwhile posted a lengthy thread on X on the same day as OpenAI’s blog, which gave his explanation of his diary entries.\n\n“I have great respect for Elon, but the way he cherrypicked from my personal journal is beyond dishonest,” Brockman said on X, stating that he was looking forward to being able to tell his full version of events.\n\nMusk’s case against OpenAI, Altman and Brockman isn’t the only lawsuit where the diary has drawn interest. In March, a federal judge ruled that OpenAI must give portions of Brockman’s journal to the New York Times and other plaintiffs in a case that accuses the AI firm of copyright infringement and illegally using newspapers’ intellectual property to train their AI models.\n\nOpenAI’s lawyers began their cross-examination of Brockman on Monday afternoon and carried on into Tuesday, giving him a chance to reframe some of Musk’s accusations and reiterate his claim that he never deceived the world’s richest person.\n\nWhen asked about the diary, Brockman downplayed its role as a record of events and referred to it as stream-of-consciousness writing that he never thought would be public.\n\n“It’s very painful,” Brockman said. “It’s very deeply personal writings that weren’t meant for the world to see but there’s nothing in there that I’m ashamed of.”\n\nSarah Eddy, OpenAI’s lawyer, asked Brockman on Tuesday about sharing equity with Musk and the centibillionaire’s attempt to wrest control of the company. Eddy also questioned the company president about a 2017 meeting at a haunted mansion, which came after OpenAI’s artificial intelligence won a video game competition in Seattle against the best human player in the world. Musk described the victory in an email as a “triggering event” that signified the “time to make the next step for OpenAI”, which Brockman testified he thought meant time for the company to create a for-profit.\n\nMusk emailed people at OpenAI suggesting that they celebrate the video game win with “party carnage” at a haunted mansion he’d just bought in San Francisco. Brockman testified that it was clear there had been a party there the night before and Musk’s then girlfriend, Amber Heard, was present and “served some nice whisky”. Brockman said “it was a very celebratory moment” and they discussed making OpenAI a for-profit.\n\nAfter the celebration, rifts grew among OpenAI’s leadership, Brockman said. Altman believed there should be an equal split of equity but that Musk said he deserved more because he “started the most multibillion-dollar companies in history” and provided the most money to found OpenAI, the OpenAI president testified.\n\nAccording to Brockman, Musk said: “Look, you guys are great, but I can start another AI company tomorrow. One tweet, that’s all it takes.”\n\n“He said that people needed to know he was in charge,” Brockman testified. “He knows rockets; he knows electric cars; he doesn’t know AI.”\n\nAfter Musk’s decision to leave the board became final, Brockman said he felt “relief. Some sadness. The end of era. But it also freed us.”",
-    "readingTime": 6,
-    "keywords": [
-      "musk’s team",
-      "brockman’s journal",
-      "emails texts",
-      "artificial intelligence",
-      "haunted mansion",
-      "musk’s attorney",
-      "brockman responded",
-      "create for-profit",
-      "brockman testified",
-      "personal diary"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/technology/2026/may/05/openai-president-personal-diary-musk-altman-case",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/014e1567f276bf27f68eaf4d3e793e8f60e3b3fc/458_0_4585_3667/master/4585.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=15d6dffeb59fd59c497f7a45692c4e08",
-    "created_at": "2026-05-06T13:28:18.414Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "global-finance-watchdog-warns-over-private-credit-industry-fuelling-ai-boom",
-    "title": "Global finance watchdog warns over private credit industry fuelling AI boom",
-    "description": "Financial Stability Board report reveals tech, healthcare and services sectors as the biggest borrowers\nThe private credit industry’s role in fuelling the AI boom could backfire, with a sharp correction leading to “sizeable” losses, the Financial Stability Board has warned.\nA new report on private credit by the global watchdog, which monitors financial authorities including central banks in 24 countries, found that the healthcare, services, and tech sectors have become the biggest borrowers of private credit.\n Continue reading...",
-    "fullText": "Financial Stability Board report reveals tech, healthcare and services sectors as the biggest borrowers\n\nThe private credit industry’s role in fuelling the AI boom could backfire, with a sharp correction leading to “sizeable” losses, the Financial Stability Board has warned.\n\nA new report on private credit by the global watchdog, which monitors financial authorities including central banks in 24 countries, found that the healthcare, services, and tech sectors have become the biggest borrowers of private credit.\n\nThat includes AI companies, which have increasingly turned to private lenders to fund datacentres and other infrastructure. The AI industry accounted for more than a third of private credit deals in 2025, up from 17% over the previous five years. “This focus on specific sectors may leave private credit funds exposed to idiosyncratic risks … [and] increase exposure to region or industry-specific shocks,” the report said.\n\nOn AI loans, the FSB warned that a “sharp correction in asset valuations, which have increased rapidly, could lead to sizeable credit losses to private credit investors”.\n\nThe FSB said: “This could be triggered by any significant shortfall in the supply of electricity, a critical factor in the construction and operation of datacentres, which could lead to delays or cancellations of projects.”\n\nMeanwhile, AI company valuations could be hit if investments lead to an oversupply of datacentres, which eventually outpaces demand for AI, leading to lower-than-expected returns for investors.\n\nThe FSB report adds to concerns over potentially risky loans arranged by private credit firms, which lend to companies using investor money – rather than customer deposits or loans backed by those deposits – outside the traditional regulated banking system. Those anxieties recently led to a multibillion-pound surge in withdrawals from some private credit funds, forcing some to cap the amount of money that clients can pull out.\n\nWhile advocates have said private credit lenders are better equipped to monitor risks and provide bespoke loan arrangements, the FSB said private credit borrowers typically had lower credit scores and larger debts than those turning to traditional banks for loans.\n\nHowever, traditional banks are increasingly exposed to the private credit sector, either by lending directly to private credit funds, financing riskier fund portfolios or lending to firms that are simultaneously borrowing from private credit firms. Meanwhile, a growing number of banks are agreeing to partner with asset managers on private credit deals.\n\nThat has exposed banks to an opaque sector where lenders “may have only partial information about borrowers, as illustrated by recent corporate bankruptcies and failings”, the FSB said.\n\nThe global watchdog pointed to last year’s collapse of two private credit-backed US automotive companies, Tricolor and First Brands. Both firms have since been hit with fraud allegations, raising concerns over whether private credit lenders may have been too lenient in deciding whether companies were worth lending to. Banks including JP Morgan and Barclays suffered losses on the back of Tricolor’s collapse, while others such as UBS and Jefferies reported significant exposures to the failures.\n\nThe FSB report added that Tricolor and First Brands’ failures together proved “how tightly integrated banks can be in the intricate web of exposures in corporate credit”.",
-    "readingTime": 3,
-    "keywords": [
-      "stability board",
-      "financial stability",
-      "sharp correction",
-      "biggest borrowers",
-      "traditional banks",
-      "credit deals",
-      "credit funds",
-      "the fsb",
-      "credit firms",
-      "credit lenders"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.theguardian.com/business/2026/may/06/global-finance-watchdog-warns-over-private-credit-industry-fuelling-ai-boom",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/c64b9c9e1f6e62f8b1061cc565543311aca43b51/411_0_3910_3128/master/3910.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=f28ab4f4fba295de08c4cde44fde1e65",
-    "created_at": "2026-05-06T13:28:18.413Z",
-    "topic": "business"
-  },
-  {
-    "slug": "research-why-you-shouldnt-treat-ai-agents-like-employees",
-    "title": "Research: Why You Shouldn’t Treat AI Agents Like Employees",
-    "description": "As organizations experiment with placing AI agents on org charts as “employees,” new research shows this framing has unintended consequences. In a large-scale experiment, anthropomorphizing AI reduced individual accountability, increased unnecessary escalation, lowered review quality, and heightened employee uncertainty about their roles—without improving adoption. The findings suggest the core challenge is not whether to deploy agentic AI, but how to redesign workflows, roles, and governance so humans remain clearly accountable while effectively supervising increasingly capable systems.",
-    "fullText": "Research: Why You Shouldn’t Treat AI Agents Like Employees by Matthew Kropp, Julie Bedard, Emma Wiles, Megan Hsu and Lisa KrayerMay 6, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintAs organizations push to accelerate AI adoption, many leaders are considering a simple idea: Stop treating AI as a tool and start treating it as an employee.",
-    "readingTime": 1,
-    "keywords": [
-      "treating"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://hbr.org/2026/05/research-why-you-shouldnt-treat-ai-agents-like-employees",
-    "thumbnail_url": "/resources/images/article_assets/2026/05/May26_06_OscarDuarte.jpg",
-    "created_at": "2026-05-06T13:28:18.130Z",
-    "topic": "science"
-  },
-  {
-    "slug": "fabricai-appoints-bill-maffucci-to-lead-microled-chip-program",
-    "title": "Fabric.AI appoints Bill Maffucci to lead MicroLED chip program",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/company-news/fabricai-appoints-bill-maffucci-to-lead-microled-chip-program-93CH-4663602",
-    "thumbnail_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
-    "created_at": "2026-05-06T13:28:11.993Z",
-    "topic": "finance"
   }
 ]

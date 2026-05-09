@@ -1,5 +1,21 @@
 [
   {
+    "slug": "the-university-of-michigan-may-have-landed-the-steal-of-the-ai-era",
+    "title": "The University of Michigan may have landed the steal of the AI era",
+    "description": "The University of Michigan's early stake in OpenAI, before Microsoft's massive investment, could yield $2 billion.",
+    "fullText": "University of Michigan's $20 million bet on OpenAI could yield billions, a court exhibit shows.\n The school's investment arrived before Microsoft poured billions into the AI lab.\n OpenAI's meteoric rise means the potential for huge windfalls for early investors.\n\n What factors led to OpenAI's success?\n\n What are venture capitalists' strategies?\n\n How do endowments impact universities?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "billions",
+      "openai's"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/michigan-early-openai-investment-yield-billions-2026-5",
+    "thumbnail_url": "https://i.insider.com/69fe29eee1443b8dc48e3596?width=1200&format=jpeg",
+    "created_at": "2026-05-09T01:54:18.826Z",
+    "topic": "finance"
+  },
+  {
     "slug": "internal-microsoft-document-spells-out-the-companys-buyout-offer",
     "title": "Internal Microsoft document spells out the company's buyout offer",
     "description": "Microsoft offered buyouts to thousands of US employees to cut costs amid AI infrastructure spending plans. The offers include cash and insurance.",
@@ -1952,30 +1968,6 @@
     "link": "https://lifehacker.com/tech/microsoft-patch-tuesday-march-2026?utm_medium=RSS",
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KKCSQPCVSRMAFTXGY7BKQ2SE/hero-image.fill.size_1200x675.jpg",
     "created_at": "2026-03-11T18:41:20.318Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "microsoft-bitnet-100b-param-1bit-model-for-local-cpus",
-    "title": "Microsoft BitNet: 100B Param 1-Bit model for local CPUs",
-    "description": "Official inference framework for 1-bit LLMs. Contribute to microsoft/BitNet development by creating an account on GitHub.",
-    "fullText": "Try it out via this demo, or build and run it on your own CPU or GPU.\n\nbitnet.cpp is the official inference framework for 1-bit LLMs (e.g., BitNet b1.58). It offers a suite of optimized kernels, that support fast and lossless inference of 1.58-bit models on CPU and GPU (NPU support will coming next).\n\nThe first release of bitnet.cpp is to support inference on CPUs. bitnet.cpp achieves speedups of 1.37x to 5.07x on ARM CPUs, with larger models experiencing greater performance gains. Additionally, it reduces energy consumption by 55.4% to 70.0%, further boosting overall efficiency. On x86 CPUs, speedups range from 2.37x to 6.17x with energy reductions between 71.9% to 82.2%. Furthermore, bitnet.cpp can run a 100B BitNet b1.58 model on a single CPU, achieving speeds comparable to human reading (5-7 tokens per second), significantly enhancing the potential for running LLMs on local devices. Please refer to the technical report \n\nLatest optimization introduces parallel kernel implementations with configurable tiling and embedding quantization support, achieving 1.15x to 2.1x additional speedup over the original implementation across different hardware platforms and workloads. For detailed technical information, see the optimization guide.\n\nA demo of bitnet.cpp running a BitNet b1.58 3B model on Apple M2:\n\nThis project is based on the llama.cpp framework. We would like to thank all the authors for their contributions to the open-source community. Also, bitnet.cpp's kernels are built on top of the Lookup Table methodologies pioneered in T-MAC. For inference of general low-bit LLMs beyond ternary models, we recommend using T-MAC.\n\n❗️We use existing 1-bit LLMs available on Hugging Face to demonstrate the inference capabilities of bitnet.cpp. We hope the release of bitnet.cpp will inspire the development of 1-bit LLMs in large-scale settings in terms of model size and training tokens.\n\nFor Windows users, install Visual Studio 2022. In the installer, toggle on at least the following options(this also automatically installs the required additional tools like CMake):\n\nFor Debian/Ubuntu users, you can download with Automatic installation script\n\nbash -c \"$(wget -O - https://apt.llvm.org/llvm.sh)\"\n\nIf you are using Windows, please remember to always use a Developer Command Prompt / PowerShell for VS2022 for the following commands. Please refer to the FAQs below if you see any issues.\n\nWe provide scripts to run the inference benchmark providing a model.\n\nHere's a brief explanation of each argument:\n\nThis command would run the inference benchmark using the model located at /path/to/model, generating 200 tokens from a 256 token prompt, utilizing 4 threads.\n\nFor the model layout that do not supported by any public model, we provide scripts to generate a dummy model with the given model layout, and run the benchmark on your machine:\n\nA:\nThis is an issue introduced in recent version of llama.cpp. Please refer to this commit in the discussion to fix this issue.\n\nA:\nBefore building the project, verify your clang installation and access to Visual Studio tools by running:\n\nThis command checks that you are using the correct version of clang and that the Visual Studio tools are available. If you see an error message such as:\n\nIt indicates that your command line window is not properly initialized for Visual Studio tools.\n\n• If you are using Command Prompt, run:\n\n• If you are using Windows PowerShell, run the following commands:\n\nThese steps will initialize your environment and allow you to use the correct Visual Studio tools.",
-    "readingTime": 3,
-    "keywords": [
-      "please refer",
-      "studio tools",
-      "bit llms",
-      "bitnet model",
-      "following commands",
-      "visual studio",
-      "model layout",
-      "inference benchmark",
-      "bitnet.cpp",
-      "models"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/microsoft/BitNet",
-    "thumbnail_url": "https://opengraph.githubassets.com/3c25af1be46b8f0534596d5abef3a33928d8b59f8190e96f9e8ce4b896d9ba31/microsoft/BitNet",
-    "created_at": "2026-03-11T12:35:49.588Z",
     "topic": "tech"
   }
 ]
