@@ -1,5 +1,95 @@
 [
   {
+    "slug": "mark-zuckerberg-told-8k-employees-their-layoffs-are-a-line-item-in-ai-bill",
+    "title": "Mark Zuckerberg Told 8k Employees Their Layoffs Are a Line Item in AI Bill",
+    "description": "On Meta’s Q1 2026 earnings call, CFO Susan Li said the quiet part out loud. “We recently shared internally that we plan to reduce the size of our employee base in May. We believe a leaner operating model will allow us to move more quickly while also helping to offset the substantial investments we are ... Mark Zuckerberg Just Told 8,000 Employees Their Layoffs Are a Line Item in His $145 Billion AI Bill",
+    "fullText": "On Meta’s Q1 2026 earnings call, CFO Susan Li said the quiet part out loud. “We recently shared internally that we plan to reduce the size of our employee base in May. We believe a leaner operating model will allow us to move more quickly while also helping to offset the substantial investments we are making.” That is roughly 8,000 jobs framed, in management’s own words, as an offset to capital expenditure.\n\nMeta (NASDAQ:META | META Price Prediction) raised its 2026 capex guidance to $125 billion to $145 billion, citing higher component pricing and additional data center costs. The company added a $107 billion step-up in contractual commitments in a single quarter for cloud and infrastructure deals. Meta ended Q1 with 77,900 employees, down 1% from Q4 2025.\n\nMark Zuckerberg’s framing is unusually candid: “We are seeing more and more examples where one or two people are building something in a week that would have previously taken dozens of people months.” He paired that with a counterintuitive philosophy: “People will be more important in the future, not less.”\n\nMeta’s AI capex is estimated at four to five times what the company spends on total human compensation. Even if Meta replaced its entire workforce with AI, payroll savings would only be roughly $27 billion, a fraction of the $145 billion infrastructure spend. The binding constraint on growth is now GPUs and the electricity to run them, not talent capacity.\n\nMeta is not alone. Amazon (NASDAQ:AMZN) spent $43.2 billion in cash capex in Q1 with ~30,000 employee reductions over the last five months. Microsoft (NASDAQ:MSFT) booked $34.9 billion in Q1 capex and just signed an incremental $250 billion Azure commitment from OpenAI. Alphabet (NASDAQ:GOOGL) raised its 2026 capex range to $180 billion to $190 billion and signaled 2027 will significantly increase.\n\nThe four hyperscalers are projected to spend up to $725 billion on capex in 2026, a 77% increase year over year. April 2026 job cut announcements hit 83,387, with AI cited for 21,490 of them.\n\nMeta’s Q1 still printed $56.3 billion in revenue, up 33% year over year, with a 41% operating margin and EPS of $10.44. The market is rewarding the spend: META is up 7.26% over the past month.\n\nThe structural beneficiary sits one layer below the apps. NVIDIA (NASDAQ:NVDA) trades at a 43 trailing P/E with a 65% operating margin and is up 80.72% over the last year. When a CEO tells 8,000 employees their jobs are a line item in an AI budget, he is telling shareholders where the puck is going. The hyperscalers have stopped optimizing for headcount and started optimizing for compute share. The human cost is being booked as the savings line that funds it.",
+    "readingTime": 3,
+    "keywords": [
+      "operating margin",
+      "capex",
+      "employee",
+      "offset",
+      "roughly",
+      "jobs",
+      "infrastructure",
+      "employees",
+      "human",
+      "savings"
+    ],
+    "qualityScore": 1,
+    "link": "https://247wallst.com/investing/2026/05/08/mark-zuckerberg-just-told-8000-employees-their-layoffs-are-a-line-item-in-his-145-billion-ai-bill/",
+    "thumbnail_url": "https://247wallst.com/wp-content/uploads/2018/02/zuckerberg-trillionaire.jpg",
+    "created_at": "2026-05-10T01:53:52.035Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "what-software-engineers-can-learn-from-the-aviation-industry",
+    "title": "What Software Engineers Can Learn from the Aviation Industry",
+    "description": "AI coding agents are amazing, but lean on them too hard and your engineering skills atrophy. Aviation already lived through this. Here's what we can steal from how they fixed it.",
+    "fullText": "Over the last few months I’ve been thinking a lot about what’s starting to get known as Agentic Engineering.\n\nAgentic Engineering: integrating AI agents into your existing development workflow under the supervision of an engineer who actually knows what they’re doing.\n\nLike most of my colleagues and friends, I’m a heavy Claude Code (or insert hyped agent harness of the week) user. These tools are genuinely amazing. They really do accelerate you as a software engineer. But the more I’ve used them, the more I’ve come to a painful realization: they come with a cost. Call it coding atrophy.\n\nWhen autopilot was rolled out widely in commercial aviation, the pitch was almost identical to the one we’re hearing about AI coding tools today: reduce load on the human, let them focus on the bigger picture, eliminate human error. Sounds great on paper.\n\nIt didn’t quite work out that way.\n\nAcross the 1980s and 1990s, as glass cockpits and fly-by-wire became standard, something strange started showing up in the data. Overall safety did improve. That part of the pitch was true. But a new category of accident emerged. The FAA’s 2010 review of a decade of crashes found that pilot error was a factor in over 60% of them, and a striking number happened in moments when the autopilot had handed control back to the humans and the humans were no longer up to the job.\n\nA few crashes crystallized the problem:\n\nThe common thread: pilots had been promoted from operators to supervisors of the machine. When the machine needed them to be operators again, the muscle memory wasn’t there.\n\nWhen I started writing this, I assumed the research hadn’t caught up yet. It turns out it has. I just hadn’t gone looking.\n\nGitClear analyzed over 200 million lines of changed code across major enterprise and open-source repos from 2020 to 2024. Their findings are uncomfortable: code churn (lines reverted or rewritten within two weeks of being committed) has roughly doubled since the pre-AI baseline. Refactoring as a share of code changes dropped from 25% in 2021 to under 10% in 2024. Copy-pasted code is up by nearly half. Their summary line is brutal: AI-assisted code “more resembles an itinerant contributor” than a careful senior developer.\n\nApiiro’s 2024 security research found AI-generated code introduced 322% more privilege escalation paths and 153% more design flaws than human-written code. And because AI-assisted commits get merged about 4x faster than regular ones, this code is reaching production before anyone reviews it carefully.\n\nThe cleanest evidence comes from a 2025 randomized controlled trial by METR. They put 16 experienced open-source developers in front of Cursor on real tasks in their own repositories. Before starting, the developers predicted AI would make them 24% faster. After the study, they estimated they’d been 20% faster. They were actually 19% slower.\n\nGoogle’s own 2024 DORA report (not exactly an AI-skeptical source) quantified a 7.2% decrease in delivery stability for every 25% increase in AI adoption.\n\nA note on the data. AI tooling moves faster than rigorous studies can catch up. METR is from mid-2025 and was studying tools that already aren’t quite the current frontier. DORA, GitClear and Apiiro is 2024. Treat the specific numbers as directional rather than current. The pattern is consistent across sources, methodologies, and timeframes, and that consistency is what matters more than any single statistic being today’s truth.\n\nThis isn’t a panic. Aggregate developer productivity is genuinely up. Trivial syntax errors are way down. But the type of failure is shifting, exactly the way it shifted in aviation: fewer of the obvious mistakes, more of the deep, structural, hard-to-catch ones. Things that work in isolation but violate the architecture. Patterns copied from public repos that don’t fit a regulated environment. Hard-coded credentials in scaffolding. Bugs that ship in seconds and take months to refactor out.\n\nThe obvious objection: the models will get better. And they will. The agent-goes-in-circles failure mode I describe will probably look quaint in two years, or heck, even in six months. But that doesn’t make the atrophy problem go away. It probably makes it worse. The better the autopilot gets, the less you fly manually, and the more catastrophic the day you have to.\n\nI noticed it in myself before I noticed it in the data.\n\nHumans are mainly reviewers now. The lines of code I’ve actually written have steadily decreased over the last few months. Most of my time goes into prompting agents, orchestrating them so they don’t step on each other, and reading their output well enough to tell whether it’s right.\n\nThen one day I had a nasty JavaScript Date bug.\n\nThe agent went in circles. Suggested a fix, broke something else, suggested another fix, reintroduced the original bug. Standard. Eventually I closed the session and decided to just fix it myself.\n\nI mean, I could, eventually. But I felt a real, physical resistance in my head. A blockage. The “easy mode” of the last several months had quietly fried something. Skills I’d spent years building (holding state in my head, stepping through code mentally, forming a hypothesis and testing it) had gone soft. It took me embarrassingly long to fix a bug that, eighteen months ago, I would have closed in twenty minutes.\n\nThat was the moment the aviation analogy stopped being a fun thought experiment and started feeling like a warning.\n\nThe aviation industry didn’t respond to this problem by ripping out the autopilots. That would have been insane. Automation has been a net massive win for safety. Instead they responded by changing how pilots are trained.\n\nModern aviation training emphasizes what regulators call automation management: knowing when to use automation, when to disengage it, and how to step back in cleanly when something goes sideways. Pilots are now required to regularly hand-fly in simulators specifically to keep those skills from atrophying. The FAA’s SAFO 17007explicitly tells airlines to create more opportunities for manual flight. EASA published similar guidance. After Colgan, the U.S. mandated higher minimum pilot training standards by law.\n\nI think we need a software-engineering equivalent. A few half-formed ideas:\n\nTeach automation management explicitly. New engineers shouldn’t just learn how to prompt. They should learn where agents excel, where they fail, and what the failure modes actually look like. The signal that an agent is bullshitting you is a learnable skill, and right now we’re mostly learning it by accident.\n\nManual flying days. One day a week, or even one day a month, where you write code without an agent. Not as performative Luddism, but as a deliberate gym session for the skills that go soft when you don’t use them. Pilots don’t hand-fly because they distrust autopilots. They hand-fly because they know the day will come when they have to.\n\nHard cases on hard mode. When something is genuinely tricky (a subtle concurrency bug, a weird performance regression, a piece of business logic with a lot of state) close the agent and reason through it yourself first. Even if you eventually hand it off. The thinking is the workout.\n\nA simulator for engineers. This is the one I haven’t seen anyone build, and I think there’s a real gap. Pilots have flight simulators where they can practice engine failures, instrument failures, every kind of off-nominal scenario. We have LeetCode and toy puzzles. What we don’t have is a realistic environment for practicing the actual skill that’s atrophying. Debugging unfamiliar production-like code, reasoning about state in a real system, recovering from a nasty incident without help. Someone should build that. (Hit me up if you already are. I would be very eager to try this.)\n\nI’m not anti-AI. I’m writing this in an editor with an agent open in the next pane. The tools are real, the gains are real, and the people telling you to throw them out are wrong.\n\nBut the gains aren’t free. Aviation got a thirty-year head start on figuring this out, paid for it in lives, and eventually arrived at a stable answer: the automation stays, the humans stay sharp, and the training adapts to the new reality. We’re somewhere in the messy middle of that same arc, except our crashes are silent, distributed across a thousand subtly broken systems, and won’t show up on the news most of the time.\n\nThe senior engineers we’ll need in five years are the ones who stay sharp now. Don’t let the autopilot fly the whole flight.",
+    "readingTime": 8,
+    "keywords": [
+      "agentic engineering",
+      "automation management",
+      "aviation",
+      "don’t",
+      "pilots",
+      "i’ve",
+      "tools",
+      "autopilot",
+      "across",
+      "humans"
+    ],
+    "qualityScore": 1,
+    "link": "https://mwalterskirchen.dev/blog/piloting-agentic-engineering/",
+    "thumbnail_url": "https://mwalterskirchen.dev/og/piloting-agentic-engineering.png",
+    "created_at": "2026-05-10T01:53:50.507Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "deepinfra-raises-107m-series-b",
+    "title": "DeepInfra raises $107M Series B",
+    "description": "Low pay-as-you-go pricing. No long-term contracts. Simple APIs. Scale to trillions of tokens. 100+ AI models.",
+    "fullText": "Today we're announcing $107 million in Series B funding to scale DeepInfra's inference cloud and expand our global capacity. The round is co-led by 500 Global and Georges Harik, with participation from A.Capital Ventures, Crescent Cove, Felicis, NVIDIA, Peak6, Samsung Next, Supermicro, and Upper90.\n\nThis is a big moment for our team — but more than that, it's a signal about where AI infrastructure is heading. Since our Series A, we've grown the volume of tokens we process by 25x.\n\nWhen we started DeepInfra nearly four years ago, we had a conviction that wasn't yet obvious: inference, not training, would become the dominant driver of enterprise AI workloads. We're now squarely at that inflection point.\n\nTwo shifts are colliding at once. Open-source models are reaching parity with proprietary systems, unlocking a new wave of innovation at a fraction of the cost. And agent-based systems are driving continuous, high-volume token demand — a single agentic task can require 50 to 100+ model calls and run nonstop.\n\nInference is no longer a thin layer on top of an AI stack. It's the system constraint that will define the majority of workloads. And most cloud platforms simply weren't built for this always-on, distributed reality. That's why we built DeepInfra from the ground up — for better economics, performance, and security on inference workloads specifically.\n\nServing inference well isn't just a software problem, and it isn't just a hardware problem. It's a full-stack problem. Sustained, high-throughput, low-latency inference requires specialized hardware, purpose-built networking, and inference-optimized software working in concert. General-purpose cloud infrastructure — designed for a mix of workloads with bursty, unpredictable patterns — leaves performance and cost on the table when applied to always-on token generation.\n\nThat's the gap DeepInfra was built to close. We co-design across all three layers so the stack behaves predictably under the kinds of workloads agentic AI actually produces.\n\nOur approach comes from years of building and operating distributed systems at global scale (the team behind DeepInfra also built imo, the messenger app used by 200M+ people worldwide). A few things make our platform distinct:\n\nPurpose-built and vertically integrated. We own and operate our GPU infrastructure across eight U.S. data centers, with more locations rolling out globally. Owning the stack from chips to APIs gives us structurally better efficiency and more predictable latency than hyperscalers relying on spot or rented capacity.\n\nDesigned for the agentic era. Continuous, high-volume token generation isn't an edge case for us — it's the baseline workload we optimize for.\n\nCollaboration with NVIDIA. We're an early infrastructure collaborator in NVIDIA's open AI ecosystem, supporting Nemotron models, the NemoClaw agent framework, and NVIDIA Dynamo inference software. Early deployment of Blackwell GPUs and upcoming Vera Rubin with Dynamo is unlocking up to 20x improvements in inference cost efficiency.\n\nEnterprise-ready by default. 150+ open-source models through OpenAI-compatible APIs, zero data retention, SOC 2 and ISO 27001 certified — production-grade from day one.\n\nThis funding will accelerate three things: expanding our global compute capacity, deepening our developer tooling, and supporting the next generation of open-source and agentic models as they ship.\n\nWe're grateful to our investors for backing this thesis, and to the developers, scaleups, and enterprises building on DeepInfra. Production-grade inference is becoming the decisive variable in enterprise AI deployment — and we're just getting started.\n\nIf you're building agentic or high-throughput AI workloads, come build with us.",
+    "readingTime": 3,
+    "keywords": [
+      "continuous high-volume",
+      "high-volume token",
+      "token generation",
+      "open-source models",
+      "inference",
+      "workloads",
+      "agentic",
+      "it's",
+      "infrastructure",
+      "cloud"
+    ],
+    "qualityScore": 1,
+    "link": "https://deepinfra.com/blog/deepinfra-series-b",
+    "thumbnail_url": "https://deepinfra.com/blog/us-team-2026.jpg",
+    "created_at": "2026-05-10T01:53:50.431Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ai-creates-a-fearsome-coldwarstyle-dilemma",
+    "title": "AI creates a fearsome cold-war-style dilemma",
+    "description": "America and China are weighing co-operation and competition",
+    "fullText": "WHEN XI JINPING and Donald Trump meet in Beijing on May 14th-15th, they may discuss such vexing problems as war in the Middle East, trade imbalances and the status of Taiwan. Add to that cheering list artificial intelligence. Elites in both Beijing and Washington are unnerved by the technology’s rapid advance. The smarter AI models become, the more vital they are for prosperity at home and geopolitical heft abroad. But the risks they pose grow alongside. Not since the creation of the atomic bomb have great powers faced such a dilemma.\n\nThis article appeared in the China section of the print edition under the headline “Co-operation or competition?”\n\nDiscover stories from this section and \n\nA state-owned enterprise may have to walk the plank\n\nIt sees Donald Trump as both symptom and accelerant of the decline\n\nXi Jinping’s chief of staff handles his security, schedule and more\n\nThe financial hub abounds with precious wares\n\nState media are singing the praises of home-grown canines\n\nA new campaign to put down phones and pick up classics",
+    "readingTime": 1,
+    "keywords": [
+      "section",
+      "donald",
+      "trump",
+      "beijing"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://www.economist.com/china/2026/05/07/ai-creates-a-fearsome-cold-war-style-dilemma",
+    "thumbnail_url": "https://www.economist.com/content-assets/images/20260509_CND001.jpg",
+    "created_at": "2026-05-10T01:53:50.310Z",
+    "topic": "tech"
+  },
+  {
     "slug": "local-ai-search-for-your-video-library-local-open-source",
     "title": "Local AI search for your video library (local, open source)",
     "description": "Local-first AI video knowledge base. Search every frame with natural language, send clips to your NLE, and never lose track of your footage again. Designed for video editors, content creators, and visual storytellers.",
@@ -1845,84 +1935,5 @@
     "thumbnail_url": "https://i.guim.co.uk/img/media/50ca7b9a8cd973e20e672bf13d3c879a254a8546/0_0_3000_2400/master/3000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=b455b9e60a30304e307a6ec2a9853c81",
     "created_at": "2026-05-06T19:20:39.876Z",
     "topic": "health"
-  },
-  {
-    "slug": "recondo-logging-proxy-for-coding-agents-claude-code-codex-gemini",
-    "title": "Recondo – Logging Proxy for Coding Agents (Claude Code, Codex, Gemini)",
-    "description": "AI governance gateway. Wire-level LLM observability — every prompt, every tool call, every response. - recondodev/recondo",
-    "fullText": "The visibility and control layer for coding-agent traffic.\n\nOn-prem gateway. Multi-vendor. Zero touch.\n\nRecondo sits on the network path between coding agents (Claude Code, Codex, Cursor, Aider, Gemini-based agents) and their LLM providers. Every request and response flows through it — visible in one place, controllable at the wire. Cap spend per team, redact secrets before they leave the network, route or block by provider, model, or developer.\n\nUnder the hood, it's a transparent TLS-intercepting proxy: traffic is captured, hashed, compressed, and stored in a content-addressable object store, then structured into sessions, turns, and tool calls. No SDKs, no instrumentation, no developer workflow change.\n\nLanguage: Rust (gateway + CLI), TypeScript (API + dashboard)\nStorage: SQLite (dev) / PostgreSQL (prod)\nObject Store: Local filesystem (dev) / S3 with Object Lock (prod)\nEncryption: KMS customer-managed keys (prod)\nInfrastructure: Terraform (AWS), Docker Compose (local dev)\n\nOperational tables (alerts, GDPR deletion requests, agent baselines, session risk, export schedules, attachments, heartbeats, policies, registered keys, compliance frameworks) are defined in api/migrations/.\n\nturns and tool_calls are append-only — a PostgreSQL trigger refuses any UPDATE or DELETE on either table (api/migrations/003_triggers-indexes.sql), so capture content cannot be silently rewritten after the fact.\n\nNODE_EXTRA_CA_CERTS adds the gateway CA to Node.js's bundled trust list (Node.js does not read the OS trust store by default). Do not use NODE_TLS_REJECT_UNAUTHORIZED=0 — it disables all certificate validation and defeats the purpose of running a CA.\n\nNote: The proxy URL is http:// — the CONNECT handshake is plain HTTP; TLS happens inside the tunnel. NODE_TLS_REJECT_UNAUTHORIZED=0 tells Node.js to trust the gateway's self-signed MITM cert. Codex uses CODEX_CA_CERTIFICATE instead.\n\nRecondo includes a built-in CLI for inspecting captured data.\n\nBoth recipes run fmt + clippy + lint-arch first, so they're full pre-merge\ngates rather than bare nextest invocations. just ci and just ci-all are\naliases for the matching test recipe.\n\nIntegration tests that need PostgreSQL or S3 spawn their own ephemeral\ncontainers via testcontainers-rs — there\nis no just dev-infra prerequisite. The only requirements for just test-all\nare a running Docker daemon and cd api && npm ci having been run once (the\nPG fixture shells out to npm run migrate for schema setup).\n\nFor development with PostgreSQL and S3 emulation:\n\nPostgreSQL connection: localhost:5432, database recondo, user recondo, password recondo_dev.\n\nThe deploy/terraform/aws/ module provisions:\n\nIf your network re-signs TLS certificates (Zscaler, Blue Coat, Palo Alto, etc.):\n\nThe gateway logs Loaded extra CA certificates for upstream TLS on startup when detected.\n\nOperational properties of the capture pipeline:",
-    "readingTime": 3,
-    "keywords": [
-      "object store",
-      "postgresql",
-      "gateway",
-      "recondo",
-      "network",
-      "prod",
-      "trust",
-      "traffic",
-      "agents",
-      "codex"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/recondodev/recondo",
-    "thumbnail_url": "https://opengraph.githubassets.com/ef0ee8ad4d63a75565010aeaea8fe830dcae47471ec2f15cb875e192d073660a/recondodev/recondo",
-    "created_at": "2026-05-06T19:20:37.396Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "take-a-look-at-these-hands-genesis-ai-says-it-taught-a-robot-to-cook-and-play-piano-close-to-humanlevel-performance",
-    "title": "Take a look at these hands: Genesis AI says it taught a robot to cook and play piano close to human-level performance",
-    "description": "Genesis AI CEO Zhou Xian said the company has built robot hands with dexterity and performance close to human levels.",
-    "fullText": "Robotics startup Genesis AI wants to make robots that can operate in any environment.\n The company released videos showing a robot playing the piano, cooking, and harnessing wires.\n CEO Zhou Xian said Genesis combines real-world data with simulation to train its robots.\n\n What are the challenges in robot training?\n\n Who is Zhou Xian and his vision?\n\n How can robotics impact various industries?\n\n How is Genesis AI's approach unique?\n\n What tasks can robots perform now?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "robots",
-      "robotics",
-      "robot",
-      "genesis",
-      "zhou",
-      "xian"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/genesis-ai-robot-cook-play-piano-human-level-performance-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fa95f65edd94d1e7339988?width=1200&format=jpeg",
-    "created_at": "2026-05-06T19:20:32.943Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "corning-stock-rockets-17-on-major-ai-manufacturing-deal-with-nvidia",
-    "title": "Corning stock rockets 17% on major AI manufacturing deal with Nvidia",
-    "description": "Corning stock surged after announcing a multi-year partnership with Nvidia to expand optics manufacturing for AI infrastructure.",
-    "fullText": "Corning stock popped 17% after announcing a new partnership with Nvidia.\n The multiyear agreement will expand optics connectivity for AI infrastructure in the US.\n The partnership will create three new manufacturing plants and 3,000 US jobs.\n\n How will this deal impact US job growth?\n\n Why is Nvidia investing in US infrastructure?\n\n What challenges does AI infrastructure face?\n\n What are the benefits of AI optics?\n\n How does optics connectivity aid AI?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "optics connectivity",
-      "infrastructure",
-      "partnership",
-      "nvidia"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/corning-stock-price-ai-optics-partnership-nvidia-us-manufacturing-glw-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fb3cd4f9e4752b6d6014e3?width=1200&format=jpeg",
-    "created_at": "2026-05-06T19:20:32.848Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "uber-ceo-says-the-company-is-slowing-hiring-as-it-invests-in-ai",
-    "title": "Uber CEO says the company is slowing hiring as it invests in AI",
-    "description": "Uber's CTO said last month that the company had already spent all of its 2026 budget for Claude Code.",
-    "fullText": "Uber is spending more on AI — and hiring less.\n The company uses AI agents for about 10% of the code it produces, CEO Dara Khosrowshahi said.\n Uber wants employees to \"increase their throughput by 20%, 30%, 50%, 100%\" using AI, the CEO said.\n\n How is AI changing Uber's workforce?\n\n What are AI \"superpowers\" for employees?\n\n What are potential risks of AI in Uber?\n\n Why did Uber exceed its AI budget?\n\n How does AI affect Uber's coding process?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "employees",
-      "uber's",
-      "uber"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/uber-slowing-hiring-fund-ai-investment-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fb380ef9e4752b6d6014bf?width=1200&format=jpeg",
-    "created_at": "2026-05-06T19:20:32.848Z",
-    "topic": "finance"
   }
 ]
