@@ -1,5 +1,223 @@
 [
   {
+    "slug": "using-llm-in-the-shebang-line-of-a-script",
+    "title": "Using LLM in the shebang line of a script",
+    "description": "This comment on Hacker News inspired me to investigate patterns for using my LLM CLI tool in a shebang line:",
+    "fullText": "This comment on Hacker News inspired me to investigate patterns for using my LLM CLI tool in a shebang line:\n\nBut seriously, you can put a shebang on an english text file now (if you're sufficiently brave) [...]\n\nLLM can end up installed in all sorts of unpredictable places so the best way to run it is via the #!/usr/bin/env pattern.\n\nHere's how to make English (or Spanish or any other language) text executable via LLM:\n\nSave this as pelican.sh and make it executable with:\n\nOther arguments will be passed through to LLM, so if you want to use a different model:\n\nThis prompt often returns commentary in addition to an SVG. To extract just the first code block in the response add the -x LLM option:\n\nThe -f option needs to come last as it will be passed the path to the script file.\n\nThe -S (for split) option to env is required because, without it, the env command will treat the rest of the line as the full name of the command, producing this error:\n\n/usr/bin/env: 'llm -f': No such file or directory\n\nWith -S the -f is passed as an argument to LLM, and then the path to the file itself is passed after that:\n\nThis takes advantage of LLM's fragments mechanism. The argument to -f is the path to a file, and the contents of that file will then be appended to the prompt.\n\nScripts like this are a lot more interesting if they can execute tools.\n\nLLM has some default tools which you can try out. Here's how to use the llm_time tool which makes the current time available for the model to call:\n\nWhispers of the hour,\n\nSeventeen fifty-two chimes,\n\nTime flows ever on.\n\nLLM supports templates - YAML files that can mix a prompt, system prompt, model options, and tool definitions.\n\nThese can be used with a shebang line by ending that line with a -t, for example:\n\nBrisa en el bosque,\n\nhojas susurran sueños,\n\npaz en el silencio.\n\nTemplates can include parameters, for example:\n\nThis needs to be run like this:\n\nIn hovercraft's hum, where the engines start,\n\nA skunk claims his kingdom, with pride and art.\n\nThe most interesting way to use templates is with embedded tool functions. Here's a simple example of that, saved as calc.sh:\n\nWhich outputs (thanks to the --td tool debug option):\n\nHere's a more complex example which defines a tool for searching my blog:\n\nThis sets up a tool called search_blog(query) which then executes an HTTP request against my datasette.simonwillison.net Datasette instance carrying a SQL query that searches various types of content.\n\nYes. Simon implemented GraphQL support for Datasette as a plugin called datasette-graphql.\n\nHe described it as “a plugin that adds GraphQL query support to Datasette,” and later as a “Datasette plugin providing an automatic GraphQL API for your SQLite databases.” It can expose Datasette tables through GraphQL, including nested fields based on foreign-key relationships.\n\nHere's the full log of that response showing the tool calls that were executed.\n\nCreated 2026-05-11T11:48:57-07:00, updated 2026-05-11T12:18:17-07:00 · History · Edit",
+    "readingTime": 3,
+    "keywords": [
+      "tool",
+      "file",
+      "here's",
+      "datasette",
+      "prompt",
+      "option",
+      "shebang",
+      "model",
+      "path",
+      "templates"
+    ],
+    "qualityScore": 1,
+    "link": "https://til.simonwillison.net/llms/llm-shebang",
+    "thumbnail_url": "https://s3.amazonaws.com/til.simonwillison.net/a1749b9228685da82a7449c25e722cc7.jpg",
+    "created_at": "2026-05-11T19:27:08.815Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "will-ai-produce-the-next-great-divergence",
+    "title": "Will AI Produce the Next Great Divergence?",
+    "description": "An analysis of AI and institutions.",
+    "fullText": "In the 1300s, the Black Death swept across Europe, killing 30 to 50 percent of the continent’s population. The loss of nearly one-third of the continent’s labor supply caused wages to rise across Europe, butWestern and Eastern Europe differed in their response. In Eastern Europe, Eastern lords used their power to cap workers’ rising pay, while Western lords did not. As a consequence, in Western Europe the growing power of workers weakened feudalism and opened the door to the modern economy, while serfdom grew stronger in the East.\n\nThis example, taken from Daron Acemoglu and James Robinson’s book “Why Nations Fail,” is a textbook case of how a so-called critical juncture—a shock like the plague—magnified a small difference in institutions in a way that profoundly altered societies. Today, Acemoglu and Robinson’s lesson has relevance beyond the plague—it can be applied to the rise of artificial intelligence (AI). Artificial intelligence—and the subsequent technologies it may underpin, including biological research, robotics, and more—present a shock that may be akin to the next Industrial Revolution. If models improve at the rate they have for the past three years, they could accelerate scientific research, reshape the economy, and more. In this view, AI will certainly present another critical juncture.\n\nYet, despite the growing consensus that AI will be transformative, few have analyzed how AI interacts with institutions. Some literature, for example, does analyze how artificial general intelligence (AGI) may strengthen or erode state legitimacy, highlighting the need for a middle path. Other literature highlights how AI might empower public infrastructure. Yet there is little work analyzing how AI may be a critical juncture and interact with existing institutional structures. Furthermore, if governments—national, state, and local—are not careful, they risk ending up on the wrong side of this juncture, locked out of the technology’s benefits and subject to its harms.\n\nThere are four reasons we believe AI might be a uniquely powerful accelerator of divergence in institutions worldwide. First, the technology touches a large number of sectors in distinct ways. AI is being rapidly adopted by firms in sectors from coding to finance, but what the impact looks like by sector will no doubt vary substantially—for example, the interpersonal nature of medicine might mean the profession changes less dramatically, while software engineering is more greatly altered. The result is the possible emergence of a vast array of different institutional structures, especially as countries prioritize institutional adaptation aligned with their national interests—for example, a nation dependent on blue-collar labor supplying the AI boom might encourage expansion of such critical sectors.\n\nSecond, the technology is moving fast, while the law moves very slowly. The Model Evaluation and Threat Research (METR) group found that the length of the human software tasks that AI can complete has been doubling every seven months. If research into self-improving AI systems continues, this might accelerate even further. At the same time, laws and institutions have tended to move quite slowly with respect to AI, as technology progresses more quickly than the government’s reaction times, some governments remain hesitant to regulate AI, and additional factors. Consequently, differences in pre-AI legal systems or institutional structures across countries, many of which are slow-moving, influence how institutions adopt and respond to AI. For example, when deepfakes first emerged, a 2024 study found that American social media platforms originally only removed deepfakes reported as copyright infringement, while those reported as privacy violations were allowed to remain up due to the presence of specific laws against the former but not the latter. This approach diverged substantially from China, which passed anti-deepfake regulations in 2022 (though they were often poorly applied), highlighting a real difference in how the institution of social media evolved in response to AI.\n\nThird, there are the massive disparities in use of and access to the technology worldwide. As empirical research has shown, there is a growing AI divide between the Global North and South. This is due to several factors—for example, modern AI development is bound by the scaling laws, which means that nations need sufficient access to expensive AI accelerator chips to do frontier training runs. Using such compute for training is also very energy intensive. Due to the need for chips, energy, and other resources, most large-scale AI development is concentrated in the United States and China, with both countries holding over 80 percent of total global AI supercomputer performance. Even more basic than the AI stack, access to AI is path-dependent on prior access to the internet; currently, 2.2 billion people remain off the internet. Broader disparities in wealth, population, and more also have downstream implications. The result of these combined factors is that institutions in the Global South often struggle to adapt.\n\nThe result can create large-scale institutional divergence for several reasons. At the government level, policymakers in some Global South countries might focus more on AI for development, as India did during the recent AI summit, while other actors have different priorities, such as Europe’s focus on frontier regulation. These competing priorities result in different laws, bureaucracies, and institutional structures. At the people-to-people level, social institutions, such as norms around AI use, may be slower to develop in places where access to the technology is limited. The fact that there is a conceivable future where some countries build bureaucracies to adopt and regulate superhuman AI while others focus on internet deployment should highlight how vast institutional divergence might be.\n\nFourth, there is a massive epistemic disparity among institutional policymakers with respect to AI. In many revolutions or shocks, the epistemic view people had of the shock was similar—few governments in 2020 would disagree with the idea that COVID-19 was an infectious disease. Yet AI has a much more radical divergence in how institutions or governments view the technology. Some governments around the world clearly see AI as a uniquely transformative technology—for example, the United Arab Emirates has spent huge sums on AI chips, talent, and more, seeing the technology as a way to industrialize. Others might show greater concerns about large-scale harms from AI, like cyberattacks, as the UK does with its AI Security Institute. Meanwhile, other governments worldwide believe that, while AI will be transformative, the most realistic harms may be shorter-term harms like labour disruption, rather than large-scale or catastrophic harms.\n\nThe epistemic worldview in which policymakers live greatly magnifies how institutions might diverge; each government may radically adapt institutional structures to reflect its priorities. The United Arab Emirates’ AI optimism certainly played a role in its decision to appoint the world’s first AI minister. U.K. policymakers’ concerns around AI harms caused it to set up its AI Security Institute (AISI), building the world’s leading institution for AI testing. Meanwhile, governments that reject framings of imminent risks are focusing their institutional effort on issues like enhancing AI diffusion, focused on deploying AI only in particular instances. This epistemic divergence can cause countries to set up radically different institutional structures based on their view of the technology.\n\nOf course, institutions could choose to put their heads in the sand and refuse to adapt to AI. However, if institutions don’t adapt, they risk a few key problems. First, there is a chance many institutions themselves might become less relevant—many in higher education, for example, worry that AI may undermine the value of universities by eroding the academic integrity of existing assessment practices. These institutions must, therefore, adapt to ensure their continued relevance.\n\nSecond, even if AI does not render these institutions outright irrelevant, non-adaptation risks implicitly accepting a chosen digital future—just the one that current pre-AI laws and institutions would create by default—which may cause real-world harm. For example, the aforementioned example of copyright laws and deepfakes highlights that, absent adapting legal institutions to tackle such issues, the proliferation of harmful deepfakes may negatively impact those the institution is supposed to protect. Third, beyond harm, failing to adapt can deter the beneficial adoption of the technology—one survey by the European Commission found that firms report that legal barriers around issues like liability were some of the top hurdles to AI adoption in previous years. The result risks a nation leaving its citizens exposed to harm while failing to help them benefit from AI.\n\nGiven that AI may cause institutions to diverge, it raises the question of what this might look like on a global scale. A few different scenarios are possible—none of them mutually exclusive. If AI capabilities grow rapidly toward highly capable agents and superintelligence but remain concentrated in the Global North, global institutional divergence might be quite significant due to the disparities in the technology. Institutional bureaucracies will develop in the countries in which AI progresses rapidly, but not in others.\n\nThe United States—and likely China—will develop institutions for regulating agentic commerce and establishing technical infrastructure for AI agents, new revenue structures for economies like strong AI systems, and bureaucracies for coordinating with the frontier labs. Outside of those leading countries, there will be countries that still seek to expand national internet access, while other nations, like India, might combine their existing digital public infrastructure stack with AI agents in a third model.\n\nIn alternative worlds, where AI capabilities grow slowly and diffuse rapidly worldwide, we can imagine much less divergence. Rapid international diffusion means the technology is present across more countries, while slower growth gives governments worldwide not only time to adapt but also the opportunity to learn from cutting-edge actors on best practices. Institutional adaptation might resemble responses to technologies such as the internet—standard setting internationally, targeted interventions for economic reskilling, and more—which are likely to produce divergence, though a less extreme version of it. The general rule, in our view, is that the more rapidly these capabilities develop and the more concentrated they become, the more institutions globally will diverge.\n\nWhat should governments do to avoid ending up on the wrong side of this divergence? There are four critical steps. First and most important, institutions—public or private—need to get an epistemic handle on where the technology is and the implications it has for them. Many governments, financial institutions, and others are not tuned in to debates at the frontier of AI (even if they do invest in technical personnel), meaning that the technical information they receive may be months or even years behind the cutting edge.\n\nThis means that governments and institutions should find ways to close this gap, which can vary substantially depending on the resources available to each country, geopolitical conditions, and other factors. Some countries might establish hubs in zones of AI progress, as the U.K. did with its AI Security Institute (AISI) in Silicon Valley, to be better read-in on frontier information. Other countries might launch in-house labs to experiment with the technology directly, as with France’s in-house public-sector ALLiaNCE incubator, to reach the frontier through sustained learning and testing. A third option might even be striking deals to join existing information sharing agreements, such as those the U.S. Center for AI Standards and Innovation (CAISI) has with the U.K. AISI.\n\nThe specific approach that is best will depend on each government’s situation. Of course, being at the frontier does not require governments to take a particular view on AI or its future. Rather, the goal of these efforts should be to ensure that governments are aware of debates happening at the frontier, such as those about whether transformers architectures may face limits, potential growth in inference compute demand, and more.\n\nSecond, governments and institutions need to get data on how AI is being diffused throughout society. Good institutional adaptation to AI will focus on promoting positive uses of the technology and curtailing bad ones, which requires data on how AI is used in the first place. A bipartisan letter by Sens. Mark Kelly (D-Ariz.), Mark Warner (D-Va.), Josh Hawley (R-Mo.), and colleagues urging for better federal data on AI’s impact on the workforce is one positive example. Another example is the New Delhi Frontier AI Commitments signed at the recent India AI Impact Summit, which encourages participating organizations to disclose AI usage data as well. This kind of data can enable an understanding of AI’s economic impacts and enable better formulation of new policies, laws, and other institutional efforts. Collecting such aggregate data on how society is adopting AI is challenging—it is expensive, it can take resources away from other efforts, and it may not be clear which data is the best to use. However, collecting aggregated, anonymized data on the state of AI diffusion, even if imperfect, is better than relying on assumptions or inference.\n\nThird, with that data, institutions, both public and private, should begin to actively use futures and foresight methods to plan for different scenarios for AI. This means assessing what happens if AI diffuses across the economy rapidly versus slowly, if AI capabilities reach superhuman capabilities, and more. This kind of epistemic scenario planning is what ensures that, even if a government or a financial institution thinks AI is going one way or another, they are effectively prepared to adapt to any scenario. The RAND Corporation, for example, has conducted many of these scenario-planning exercises. While the time investment for these projects is considerable, understanding the options is critical given the scale and scope of AI progress.\n\nFourth, for the Global South, efforts to close the digital divide quickly—and creatively—are vital. This means active investment in promoting digitization of public and private institutions where appropriate, beginning to experiment with AI use cases, and more. This does not necessarily mean copying the United States or China—India’s innovative use of digital public infrastructure for digital identification and payments, for example, provides one instance of how Global South countries can harness digital technologies to promote development in creative, contextual ways that frontier players do not. AI equivalents could look at establishing agentic commerce platforms for informal or underbanked sections of the economy, multilingual translation platforms like India’s Bhashini, and other initiatives. Of course, this kind of investment can have more significant trade-offs, especially given competing priorities for Global South governments to invest in health, education, or economic development, but such trade-offs are necessary. Much like India’s United Payments Interface has transformed financial inclusion for millions of underbanked Indians, similarly designed interventions with AI agents could be a powerful tool for growth and public benefit.\n\nYet there is a deeper question: What institutional structures will ultimately win out? Which winners might be most surprising? While difficult to predict, one key characteristic of winning institutions is that they rapidly recognize and shape other winning institutions to benefit society. For example, in the Industrial Revolution, the economic institution of the corporation flourished because no other institution could provide the needed capital to finance industrial growth. However, the institutions that thrived alongside it were those that helped support and shape it—for example, British fire insurance companies helped enable corporations’ industrial buildout into the backbone of a modern economy, which in turn helped birth the modern insurance industry. In this case, the winning institution of the corporation was supported and shaped by other key societal institutions.\n\nThis notion raises an insightful point: Achieving a good outcome at a critical juncture is about the achievements of not just one institution but rather an ecosystem. For an institution to adapt successfully, it requires a network of mutually reinforcing institutions shaping each other’s adaptation and development, much like insurance companies and corporations did. Indeed, the example makes clear that adapting to a critical juncture like AI is not an effort that can be undertaken by one siloed organization—rather, it must be a whole-of-society mobilization.",
+    "readingTime": 13,
+    "keywords": [
+      "arab emirates",
+      "security institute",
+      "institute aisi",
+      "united arab",
+      "across europe",
+      "agentic commerce",
+      "social media",
+      "competing priorities",
+      "modern economy",
+      "critical juncture"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.lawfaremedia.org/article/will-ai-produce-the-next-great-divergence",
+    "thumbnail_url": "https://lawfare-assets-new.azureedge.net/assets/images/default-source/article-images/aic94af332-e139-46ec-b224-3308d615b46c.jpg?sfvrsn=8d3f8012_7",
+    "created_at": "2026-05-11T19:27:07.106Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "agentic-ai-vs-ai-agents-the-governance-shift",
+    "title": "Agentic AI vs. AI Agents: The Governance Shift",
+    "description": "Agentic AI decides on its own. AI agents follow scripts. The shift breaks every assumption about access control, audit, and ops in production.",
+    "fullText": "Open any vendor pitch from the last 6 months and somewhere in the deck, you'll see the word agentic. It's been a marketing term for so long that most engineering leaders have started treating it as noise. That's a mistake. The distinction between an AI agent and an agentic system is real, and it breaks every assumption your security team made about access control, audit logging, and incident response.\n\nThis piece is about what actually changes. Not the capability differences (those have been written about endlessly). The infrastructure and governance gap that opens up when an AI system starts deciding what to do next, on its own, in production.\n\nAn AI agent, functionally, is 4 things: an LLM, a set of tools, an identity, and a runtime context. The LLM reasons. The tools let it touch the outside world. The identity decides what it's allowed to do. The context is what it knows during this session.\n\nA customer-research agent reads a CRM, pulls public web data, and writes a brief into a Notion page. It has 3 tools (crm.read, web.search, notion.write). It runs under its own identity (a service account, or impersonating the user who triggered it). It has context for 1 task, then forgets.\n\nA chatbot is not an agent. A chatbot has the LLM and the context. No tools. No identity beyond the user's session. No way to act. The line between a chatbot and an agent is the verb. Agents do. Chatbots talk.\n\nA workflow built around an LLM is also not necessarily an agent. If you wrote a script that calls an LLM, switches on the response, and routes to 1 of 5 fixed branches, that's automation with an LLM in the middle. The LLM is a classifier. The decisions are yours.\n\n3 things separate agentic AI from \"AI agents\" as the term has been used until now. Take away any 1 of them and you're back to an agent.\n\nAutonomy in decision-making. A standard agent picks from a fixed set of tools for a fixed task. \"Process this refund\" leads to refund.issue(order_id, amount). An agentic system decides what task to do next. You hand it a goal (\"get to inbox zero by 5pm\"), and it sequences the work. Whether to escalate, draft a reply, archive, or delegate, the system chooses. The prompt-to-action distance grows.\n\nDelegation. Agentic systems spawn sub-agents to subdivide work. A research agent spawns 3 sub-agents to investigate 3 angles in parallel, then synthesizes. The sub-agents may spawn further sub-agents. Each one is its own LLM session with its own scope. The hierarchy is built at runtime, not at deploy time.\n\nReplanning under failure. A standard agent retries on failure or returns an error. An agentic system replans. If the first approach fails, it tries another. If the data shape is unexpected, it reshapes its query. The action graph is rewritten mid-task.\n\nTake away autonomy and you have a workflow. Take away delegation and you have a single-agent system. Take away replanning and you have a chain-of-thought executor that runs once. None of those are agentic, and none of them carry the governance load that agentic systems do.\n\nThe thing that actually changes is the distance between the prompt and the action.\n\nIn a standard AI agent, that distance is short. The user prompts \"issue a refund for order #4231\". The agent calls 1 tool, refund.issue(order_id=4231, amount=$87). The action is bounded by the prompt. Every authorization check, every audit log entry, every rate limit applies to that single hop.\n\nIn an agentic system, the distance opens up. The user prompts \"make sure every customer who waited more than 2 weeks for a refund gets one today\". The system has to find the affected accounts (a query), decide whether each one qualifies under policy (multiple lookups), issue refunds, send emails, and log the work. Maybe it spawns sub-agents. Maybe it replans when it discovers 1 customer is already a refund recipient. The single prompt fans out into dozens of actions across hours.\n\nThat's where every security assumption you made about AI agents breaks.\n\n4 things change when you move from AI agents to agentic AI.\n\nPer-action authorization, decided in flight. You can't grant scope upfront if the actions aren't known at prompt time. Permissions have to be checked per-action, by a policy engine the agent can't see into. The action has to fail closed when policy denies. We covered the basic case in AI Agent Governance: SSO, RBAC & Audit Logs; the agentic case makes the same rules non-optional.\n\nAudit trail that captures reasoning, not just actions. A standard agent's audit log answers what happened. An agentic system's audit log has to also answer why this action was decided next. The reasoning chain isn't optional documentation. When something goes wrong, the question won't be \"did the agent do X\". You'll see that in the action log. It'll be \"why did the agent decide to do X\". The model's reasoning, the inputs that pushed it there, the tools it considered, all have to be captured.\n\nIdentity per sub-agent, with delegation chains. If your research agent spawns 3 sub-agents and 1 of them does something it shouldn't, \"the research agent did it\" isn't a useful answer. Each sub-agent gets its own identity, with a scoped delegation token issued from the parent. The audit log records the full chain: user → research agent → sub-agent-2 → data-export tool. Lose that chain and you can't unwind an incident.\n\nBlast radius at the orchestrator, not the agent. Rate limits, spend caps, write quotas, approval gates, none of them work if you only apply them to individual agent calls. An agentic system can split a single user prompt into 200 sub-actions across 10 sub-agents, each one technically under its rate limit, totaling a quota the user never approved. Limits have to be enforced at the prompt level, not just the agent level.\n\nIn RootCX: every agent and sub-agent registers with its own identity in the same OIDC layer your humans use (Okta, Entra ID, Google Workspace, Auth0). Every tool call goes through per-action RBAC at the Core, with the policy engine outside the agent. Audit logs are append-only, scoped by user → agent → sub-agent → tool, with the reasoning chain attached at the trigger level. Quotas apply at the prompt level, not just per-tool. The shift from agent to agentic doesn't require a new platform layer. The layer is already there.\n\nFor teams trying to decide whether what they're building is agentic, where it sits on the spectrum, and what governance load it carries:\n\nIf your system is in column 1, you don't have an agent. You have an LLM wrapper. If it's in column 2, the AI agent governance playbook applies. If even 1 row in column 3 matches your system, you're agentic, and the governance gap is wider than your team probably realizes.\n\nMost internal tooling doesn't need agentic systems. If your problem has a known shape (process this refund, send this approval, sync this record), a fixed-tool agent or a workflow is simpler, cheaper, and more auditable. Agentic AI carries a real tax: more compute, more LLM calls, more failure modes, and the governance load above.\n\nA refund agent? Almost never agentic. A research agent that synthesizes findings from 8 sources, each with different shapes? Probably agentic. The decision shouldn't be driven by what's fashionable. It should be driven by whether the problem actually fans out at runtime.\n\nThe do-it-yourself version of this is buildable. It is not cheap. If you're choosing a platform for agentic systems, here's what has to be there on day 1, not as a roadmap item.\n\nShared identity across humans and agents. SSO that issues identities to agents the same way it issues them to humans, through the same OIDC provider. Service identities, impersonation, hybrid, all 3 patterns are supported. If the agent has to authenticate via a shared service account or a static API key, you've already lost the audit trail.\n\nPer-action RBAC at the platform layer. The policy engine has to live outside the agent. Every tool call gets checked against the agent's role and the resource it's touching. The agent never decides whether it's allowed to do something. The platform does. Same model for sub-agents.\n\nAudit logs scoped by delegation chain. Append-only, immutable, queryable by user, agent, sub-agent, tool, and resource. The reasoning chain attached at the trigger level. Retention long enough for your compliance regime (7 years for SOX, 6 for HIPAA).\n\nSub-agent isolation with scoped tokens. When a parent agent spawns a sub-agent, the sub-agent gets its own identity and a scoped delegation token. The token narrows the permissions below those of the parent. The chain is preserved in every action the sub-agent takes.\n\nOrchestrator-level quotas. Rate limits and spend caps on the user prompt and on the agent runtime, not just on individual tool calls. If a prompt explodes into 500 sub-actions, the cap pauses execution and pages a human.\n\nWe built RootCX around exactly this list, because every team we've worked with hits the same wall. The agent works. The production deploy doesn't pass security review. The platform layer is where the agentic shift has to be solved, not in the agent code.\n\nMost \"agentic AI\" content reads like a capability list. Better reasoning, longer context, more tools, autonomous planning. Those things are real, and they're improving fast. But shipping agentic systems to production isn't gated by capability anymore. It's gated by the governance debt the capability creates.\n\nEvery step toward agentic moves work from the developer to the platform. The developer used to decide what the agent could do (declared tools, fixed scope). The platform now has to decide it at runtime, on each action, for systems that delegate to themselves. That work has to be done somewhere. If your platform doesn't do it, your agent will, and your agent will get it wrong eventually.\n\nIf you're already building agentic systems, the governance work doesn't catch up to capability on its own. Start with the identity layer. Every agent and sub-agent gets its own identity in your IdP. The SSO guide for AI-coded internal apps has the patterns. From there, the per-action authz and the audit log build on top. Without an identity layer, none of it works.\n\nThe agentic shift is real. The \"agentic without the platform\" shortcut isn't. You can start a project on RootCX free.",
+    "readingTime": 9,
+    "keywords": [
+      "refund.issue(order_id amount",
+      "service account",
+      "rate limit",
+      "policy engine",
+      "it's allowed",
+      "rate limits",
+      "chain attached",
+      "governance gap",
+      "user prompts",
+      "delegation token"
+    ],
+    "qualityScore": 1,
+    "link": "https://rootcx.com/blog/agentic-ai-vs-ai-agents",
+    "thumbnail_url": "https://rootcx.com/blog/agentic-ai-vs-ai-agents/opengraph-image?9fa01ee4f323f57e",
+    "created_at": "2026-05-11T19:27:04.968Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ai-generated-identical-rsums-for-a-man-and-a-woman-hers-was-more-likely-to-be-labeled-weak-while-his-got-a-97-approval",
+    "title": "AI generated identical résumés for a man and a woman: Hers was more likely to be labeled ‘weak,’ while his got a 97% approval rating",
+    "description": "“If people believe they will be judged more harshly for using AI, they are less likely to adopt it—regardless of their capability.\"",
+    "fullText": "If you’re using AI for professional work purposes and are wondering if you’re being judged for it, it might depend on who you are.\n\nA new study sought to determine whether women—particularly young women—would be treated more harshly than their male counterparts for using artificial intelligence in job applications. Zehra Chatoo, a former Meta strategist and the founder of thinktank Code For Good Now, used AI to generate identical résumés with just one difference: One was for a candidate called Emily Clarke, another for James Clarke.\n\nThe résumés were distributed to two groups, who had been told the documents had been created with the help of artificial intelligence.\n\nReviewers of Emily’s résumé were 22% more likely to question whether the individual could be trusted compared to James. The female candidate’s CV was also twice as likely to raise doubts about her competence and ability to do her job.\n\n“She can’t even write a CV herself—not sure she has the skills to carry out the job,” read some of the feedback on Emily’s CV. James’s résumé had a different response, with his use of AI justified: “He just needed a bit of help putting it together,” was one response.\n\n“When men use AI, we question their effort. When women use AI, we question their integrity. That difference changes the perceived risk of using AI,” Chatoo said.\n\nThe latest data point feeds into broader concerns about an AI gender gap. In a working paper published last year, Harvard Business School Associate Professor Rembrand Koning put the adoption rate between men and women at about 25%.\n\nKoning identified the concern Chatoo’s study exhibits, saying women are concerned about the perception of their work if they use or rely on AI. Koning, a Professor of Business Administration, explained: “Women face greater penalties in being judged as not having expertise in different fields. They might be worried that someone would think even though they got the answer right, they ‘cheated’ by using ChatGPT.”\n\nIt’s perhaps no surprise, then, that women are generally more risk-averse when it comes to AI, a trend also seen in behavior like investing. A January study from Caltech, which surveyed 3,000 people, found women were consistently more skeptical than men that AI benefits would outweigh its risks, and were less convinced that their professional lives would gain because of the technology.\n\nTheir concern may be justified: A Brookings Institute study this year found that of the roles with high AI exposure, but low capacity to adapt to the technological change, 86% were held by women.\n\nA generational divide is also appearing in Chatoo’s study, which surveyed 1,000 British adults: Gen Z men, who have grown up with AI, shared some of the harshest views about Emily’s resume.\n\nOf their responses, 3.5 times the number of Gen Z men described Emily’s résumé as “weak” compared to James’s, whose résumé had a 97% approval rating. By contrast, for the same resume content, Emily’s CV was rated strong by 76% of respondents.\n\n“If people believe they will be judged more harshly for using AI, they are less likely to adopt it—regardless of their capability,” Chatoo added. “Closing the AI adoption gap means addressing not just how people use AI, but how that use is evaluated.”\n\nThis story was originally featured on Fortune.com",
+    "readingTime": 3,
+    "keywords": [
+      "chatoo’s study",
+      "gen men",
+      "emily’s résum",
+      "artificial intelligence",
+      "women",
+      "judged",
+      "koning",
+      "you’re",
+      "professional",
+      "harshly"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.yahoo.com/news/articles/ai-generated-identical-r-sum-080300266.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/NRfcIhsYCFvk8VilY8BtHQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/fortune_175/2c96f46ccbfb786a8253e3559798afa7",
+    "created_at": "2026-05-11T19:27:03.281Z",
+    "topic": "news"
+  },
+  {
+    "slug": "lawsuit-accuses-chatgpt-of-helping-fsu-suspect-plan-shooting",
+    "title": "Lawsuit Accuses ChatGPT of Helping FSU Suspect Plan Shooting",
+    "description": "The family of Tiru Chabba, a father of two killed in the 2025 shooting at Florida State University, is now accusing OpenAI’s ChatGPT of helping the suspect plan out his attack. The complaint details s...",
+    "fullText": "The family of Tiru Chabba, a father of two killed in the 2025 shooting at Florida State University, is now accusing OpenAI’s ChatGPT of helping the suspect plan out his attack. The complaint details several of the suspect's alleged exchanges with an AI-powered chatbot including instructions for how to use the weapons he’d obtained. NBC’s Laura Jarrett reports for TODAY.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.yahoo.com/news/videos/lawsuit-accuses-chatgpt-helping-fsu-123226342.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/9a8fd6324881815cd015598bf7bbf6902b6d82d074a6526c510083fc82d796f7/lightyear_networkapi/resizefill_w1200;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fnbcu_713%2F50a6ddd5017a0b965b8c107f2a3eab36",
+    "created_at": "2026-05-11T19:27:01.557Z",
+    "topic": "news"
+  },
+  {
+    "slug": "trump-and-chinas-xi-set-for-talks-spanning-iran-nuclear-trade-and-ai",
+    "title": "Trump and China’s Xi set for talks spanning Iran, nuclear, trade and AI",
+    "description": "Trump and China’s Xi set for talks spanning Iran, nuclear, trade and AI",
+    "fullText": "WASHINGTON/BEIJING, May 10 (Reuters) - U.S. President Donald Trump and Chinese President Xi Jinping are set to discuss Iran, Taiwan, artificial intelligence and nuclear weapons as they weigh extending a critical minerals deal, according to U.S. officials previewing Trump’s two-day visit to China this week.\n\nThe leaders of the world’s two largest economies will hold their first face-to-face talks in more than six months as they try to stabilize ties strained by trade, the U.S. and Israeli war with Iran and other areas of disagreement.\n\nTrump is scheduled to arrive in Beijing on Wednesday, ahead of talks set to take place Thursday and Friday. It will be his first trip to China since 2017.\n\nAGREEMENTS ON PLANES, AGRICULTURE AND TRADE\n\nThe U.S. and China are expected to agree to forums to facilitate mutual trade and investment, while China is expected to announce purchases related to Boeing airplanes, American agriculture and energy, the officials said.\n\nPlans for a Board of Trade and Board of Investment may be formally announced at the meeting, but those mechanisms may need subsequent work before they can be implemented, one of the officials said.\n\nThe two countries will also discuss lengthening a truce in their trade war that allows rare earth minerals to flow from China to the U.S., though it is not yet clear if that agreement will be extended this week, that official said.\n\nHe nonetheless expressed confidence that the deal, which was struck last autumn and remains in effect, will eventually be extended.\n\n\"It doesn’t expire yet,\" the official told reporters. \"I’m confident we’ll announce any potential extension at the appropriate time.\"\n\nChina’s embassy in Washington declined to comment.\n\nTHORNIER ISSUES INCLUDE TAIWAN, NUCLEAR ARMS, IRAN AND AI\n\nThe Trump-Xi talks are also expected to veer into areas that have long been a source of U.S.-China tension, including Iran, Taiwan and nuclear arms.\n\nChina maintains ties with Iran and remains a major consumer of its oil exports. Trump has been leaning on China to use its influence to push Tehran to make a deal with Washington and end the conflict that began when the U.S. and Israel launched strikes on Iran in late February.\n\nThe Trump administration also has pressed China on its dealings with Russia.\n\n\"The president has spoken multiple times with General Secretary Xi Jinping about the topic of Iran and about the topic of Russia, to include the revenue that China provides to both those regimes, as well as dual-use goods, components and parts, not to mention the potential of weapons exports,\" said one of the officials. \"I expect that conversation to continue.\"\n\nXi, meanwhile, is frustrated with Washington over Taiwan. The U.S. remains the most important ⁠international ​backer and arms supplier for the democratically governed island, which Beijing claims as its own Chinese territory.\n\nChina has ramped up its military presence near Taiwan in recent years, but U.S. policy will not change, the official said.\n\nThe Trump aides expressed increasing concern about advanced artificial intelligence models being developed in China and believed the two sides need \"a channel of communication\" to avoid conflicts arising from their use.\n\n\"What that looks like is yet to be determined, but we want to take this opportunity with the leaders meeting to open up a conversation and to see if we should establish a channel of communication on AI matters,\" said one of the officials.\n\nWashington has also long hoped to open up talks with Beijing about nuclear weapons, though China remains reluctant to discuss its arsenal. The Chinese government has said privately to the U.S. that \"they have no interest in sitting down and discussing any kind of nuclear arms control or anything along those lines at this point,\" the official said.\n\nTrump and Xi’s last meeting was in October in South Korea, where they agreed to pause a bruising trade war that had seen the U.S. impose triple-digit tariffs on Chinese goods and Beijing threaten to restrict the global supply of rare earths.\n\nIn February, the Supreme Court said Trump did not have the authority to impose many of his tariffs on imports worldwide. He has vowed to re-impose some levies using other legal avenues.",
+    "readingTime": 4,
+    "keywords": [
+      "artificial intelligence",
+      "nuclear arms",
+      "nuclear weapons",
+      "trade war",
+      "iran taiwan",
+      "china",
+      "talks",
+      "beijing",
+      "washington",
+      "discuss"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.investing.com/news/commodities-news/trump-and-chinas-xi-set-for-talks-spanning-iran-nuclear-trade-and-ai-4676464",
+    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM490B2_L.jpg",
+    "created_at": "2026-05-11T19:27:00.205Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "the-ai-industry-is-turning-to-an-old-energy-favorite-to-bring-its-data-centers-online-fast",
+    "title": "The AI industry is turning to an old energy favorite to bring its data centers online fast",
+    "description": "AI companies are in a race to secure energy for their data centers. They are finding that natural gas is the easiest solution, if not the cleanest.",
+    "fullText": "The AI industry is driving a surge in energy demand to power its data centers.\n AI companies are finding the fastest way to get that power is by using natural gas.\n As a result, after years of progress to prioritize renewables, natural gas is making a comeback.\n\n Why is natural gas gaining favor again?\n\n How does carbon capture technology work?\n\n What are the environmental impacts of this shift?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "natural gas"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/ai-data-center-energy-natural-gas-renewables-environment-2026-4",
+    "thumbnail_url": "https://i.insider.com/6a01194bba7ef34b41f36df4?width=1200&format=jpeg",
+    "created_at": "2026-05-11T19:26:58.416Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "anthropics-daniela-amodei-shares-her-cofounder-test-go-on-vacation-together",
+    "title": "Anthropic's Daniela Amodei shares her cofounder test:  'Go on vacation together'",
+    "description": "Anthropic president Daniela Amodei shared her tips for picking a good cofounder. She recommended sharing a room while traveling first.",
+    "fullText": "Anthropic president Daniela Amodei shared her tips for picking a good cofounder.\n Amodei recommended traveling with them first and sharing a hotel room.\n \"If you're like, 'Really going to need a vacation to recover from my vacation,' it might be the wrong choice,\" she said.\n\n Why travel for cofounder selection?\n\n How important are shared principles?\n\n What challenges arise in cofounder dynamics?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "cofounder",
+      "shared",
+      "vacation",
+      "amodei"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/daniela-amodei-anthropic-test-cofounder-vacation-advice-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a01dbf9ba7ef34b41f36f46?width=1200&format=jpeg",
+    "created_at": "2026-05-11T19:26:58.270Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "ai-millionaires-are-already-blowing-up-san-francisco-real-estate-prices-wait-until-the-ipos-show-up",
+    "title": "AI millionaires are already blowing up San Francisco real estate prices. Wait until the IPOs show up.",
+    "description": "AI money is already pushing San Francisco housing prices way, way higher — up 14% in the last year. When OpenAI and Anthropic go public, watch out.",
+    "fullText": "San Francisco real estate has been very expensive for a very long time.\n But AI money is pushing San Francisco housing prices way, way up.\n And this is just a prelude: What happens when Anthropic and OpenAI go public, and even more money shows up?\n\n How will IPOs impact local economies?\n\n How do tech booms affect housing markets?\n\n What are the benefits of secondary stock sales?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "san francisco",
+      "money",
+      "housing"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/san-francisco-real-estate-prices-ai-boom-openai-anthropic-ipo-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a0216eae1443b8dc48e3e8b?width=1200&format=jpeg",
+    "created_at": "2026-05-11T19:26:58.021Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "a-logistics-company-uses-ai-to-reduce-its-delivery-routes-by-half-and-save-time-on-package-sorting",
+    "title": "A logistics company uses AI to reduce its delivery routes by half and save time on package sorting",
+    "description": "Net Zero Logistics uses AI tool Finmile to enhance delivery efficiency, cutting costs and optimizing routes with real-time data tracking.",
+    "fullText": "Net Zero Logistics uses the AI-powered tool Finmile to optimize its delivery operations.\n Since implementing Finmile, the logistics company has reduced delivery routes and package sortation time.\n Drivers and the operations team can monitor all delivery data in real time using their phones.\n\n What challenges do logistics firms face?\n\n What technology powers dynamic routing?\n\n How does AI improve delivery efficiency?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "delivery",
+      "finmile",
+      "operations",
+      "logistics"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/finmile-ai-last-mile-delivery-optimization-net-zero-trucking-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a020ce9ba7ef34b41f37095?width=1200&format=jpeg",
+    "created_at": "2026-05-11T19:26:57.882Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "2-solo-business-owners-share-the-ai-workflows-they-use-to-write-better-emails-and-save-hours-of-manual-work",
+    "title": "2 solo business owners share the AI workflows they use to write better emails and save hours of manual work",
+    "description": "AI enhances marketing for solopreneurs in jewelry and web design by acting as a creative partner and optimizing client follow-ups.",
+    "fullText": "Two solopreneurs said AI saves them time and improves their marketing results.\n A jewelry designer uses AI to generate creative variations, improving results.\n A website designer streamlined follow-ups with AI, resulting in more business from dormant leads.\n\n How can AI boost creativity in business?\n\n How can AI improve customer outreach?\n\n What are efficient AI tools for solopreneurs?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "solopreneurs",
+      "designer",
+      "business"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/generative-ai-for-marketing-solo-business-client-outreach-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a020abde1443b8dc48e3e33?width=1200&format=jpeg",
+    "created_at": "2026-05-11T19:26:57.879Z",
+    "topic": "finance"
+  },
+  {
     "slug": "can-we-get-an-ai-to-write-better",
     "title": "Can we get an AI to write better?",
     "description": "A small step",
@@ -1700,204 +1918,6 @@
     "link": "https://www.businessinsider.com/cloudflare-announces-1100-layoffs-amid-ai-focus-shift-2026-5",
     "thumbnail_url": "https://i.insider.com/69fcff8ec9dd4cb81cda8544?width=1200&format=jpeg",
     "created_at": "2026-05-08T02:00:42.754Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "directionally-very-bad-has-entered-the-lexicon-thanks-to-sam-altman-and-mira-murati",
-    "title": "'Directionally very bad' has entered the lexicon, thanks to Sam Altman and Mira Murati",
-    "description": "Resurfaced texts between Sam Altman and Mira Murati, shown as exhibits in the OpenAI trial underway in San Francisco, have become memes.",
-    "fullText": "Resurfaced texts between Sam Altman and Mira Murati have become raw material for meme makers.\n Judging from posts on X, \"directionally very bad\" has entered the meme lexicon.\n The texts are part of the evidence in the trial over Elon Musk's lawsuit against Altman and OpenAI.\n\n What led to Sam Altman's ouster?\n\n How do memes impact public trials?\n\n How do high-profile lawsuits affect CEOs?\n\n Who is Mira Murati?\n\n What's the significance of meme lexicon?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "mira murati",
-      "meme lexicon",
-      "texts",
-      "altman"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/sam-altman-mira-murati-elon-musk-trial-text-memes-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fd0731e1443b8dc48e30af?width=1200&format=jpeg",
-    "created_at": "2026-05-08T02:00:42.752Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "sam-altman-had-a-bad-day-in-court",
-    "title": "Sam Altman had a bad day in court",
-    "description": "From claims of safety taking a back seat to the \"toxic culture\" he created, OpenAI CEO Sam Altman faced a tough day in court.",
-    "fullText": "Sam Altman had a bad day in his trial against Elon Musk.\n Musk's witnesses landed blows in testimony about his honesty and leadership.\n Here's what they said.\n\n What are the trial's potential outcomes?\n\n What is OpenAI's mission?\n\n What role does Microsoft play in this?\n\n Who are the key witnesses for Musk?\n\n How might this trial affect OpenAI?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "trial",
-      "witnesses",
-      "musk"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/elon-musk-witness-testimony-hits-sam-altman-in-trial-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fcfe86c9dd4cb81cda8537?width=1200&format=jpeg",
-    "created_at": "2026-05-08T02:00:42.747Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ai-is-quietly-splitting-the-housing-market-in-two-bay-area-luxury-homes-are-up-13-affordable-ones-are-collapsing",
-    "title": "AI is quietly splitting the housing market in two: Bay Area luxury homes are up 13%, affordable ones are collapsing",
-    "description": "“It’s another sign of the K-shaped economy taking shape in the Bay Area,” said Redfin senior economist Yingqi Xu.",
-    "fullText": "As AI mints new millionaires, billionaires, and even trillionaires, it’s also threatening to replace entry-level workers and sparking fearful chatter of the “permanent underclass.” There’s no place that’s more evident than in the Bay Area, at the heart of Silicon Valley, where technology is wedging a deeper divide in the K-shaped economy, especially in the housing market.\n\nA new Redfin report found that since the launch of ChatGPT’s first model in Nov. 2022, luxury home prices in the region—classified as those selling between $3.1 and $7.6 million—have jumped 13.4%. At the same time, home values for lower-end properties in the Bay Area—those $535,000 to $615,000—have fallen by 3.8%.\n\n“Some owners of lower-end properties have missed out on the AI boom, with home prices in the most affordable Bay Area zip codes declining over the past two years,” Yingqi Xu, Redfin senior economist, said in a statement. “It’s another sign of the K-shaped economy taking shape in the Bay Area, with AI lifting the fortunes of some households and neighborhoods much more than others.”\n\nMany Americans today are grappling with the sobering reality of high mortgage rates, inflated home prices, and a housing stock shortage. Many are delaying homebuying by a near decade from just a few years ago, as the median age of the first-time homebuyer hit 40 in 2025, up from just 33 in 2021.\n\nOverwhelmingly it seems that AI’s biggest winners are thriving and buying up multi-million-dollar properties.\n\nThe median home sale price in the San Francisco metro area—where companies like Meta, Alphabet, Uber, and Salesforce are based—rose 14.4% year over year in March to a record $1.7 million, according to Redfin. The firm’s chief economist Daryl Fairweather told Fortune that the market reflects an increasingly familiar pattern playing out across Silicon Valley today.\n\n“There are lots of people who have gotten very rich off of AI,” she said. However, the opposite also holds true. “At the same time, salaried white-collar workers are feeling the strain of the economy, worry[ing] that AI is going to replace them.”\n\nThis trend also marks a sharp break from Bay Area housing patterns before ChatGPT’s release. Between 2020 and 2022, home-price growth was roughly equal at about 20% across all price segments, from luxury to the cheapest homes. This was largely driven by low mortgage rates and pandemic-era demand.\n\nThe decline in prices at the lower end of the market may seem like an opening for buyers who have been waiting on the sidelines. But Fairweather noted that homes in that range often need significant repairs, and many are condos burdened by high HOA fees, charges that cover shared amenities like pools and gyms and can substantially offset any potential savings from a lower asking price. It’s not so much that these homes are becoming more affordable, but rather that they’re being devalued by homebuyers.",
-    "readingTime": 3,
-    "keywords": [
-      "k-shaped economy",
-      "mortgage rates",
-      "lower-end properties",
-      "bay area",
-      "silicon valley",
-      "it’s",
-      "housing",
-      "market",
-      "replace",
-      "workers"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/sectors/technology/articles/ai-quietly-splitting-housing-market-080800490.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/1.rRqIOaeLftcR56H2GdoA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03ODI-/https://media.zenfs.com/en/fortune_175/a8a419487087e7efafc64f9304665513",
-    "created_at": "2026-05-08T02:00:42.370Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "what-ai-body-scans-can-and-cannot-tell-you",
-    "title": "What AI Body Scans Can (and Cannot) Tell You",
-    "description": "I hope I have the heart of a 25-year-old. Or a lion.",
-    "fullText": "We’re living through a full-fledged skinny epidemic. Even if seeing celebrities get thinner and thinner doesn’t mean anything to you, notice how marketing for various weight loss products is getting increasingly ubiquitous. When I look around, the onslaught doesn’t stop with all the ads for GLP-1s. What has really caught my eye recently is how I—a fitness writer who happens to be pretty thin—keep receiving targeted ads for different types of “AI body scans.” These services take a few different forms (which I dive into below), but what they all try to sell is the same idea: Apparently, I don’t know enough about my body. It turns out I need to know my body fat percentage, muscle mass, visceral fat, and of course, my \"biological age.\"\n\nBefore I break down what exactly these AI body scans can (and cannot) tell you, know that this is not some takedown of AI tools being used by radiologists to spot cancer from a CT scan. What I’m focusing on here is all the false advertising for consumers like me, people naturally drawn to the shiniest tools to understand every little thing about their bodies. But before I build my health decisions around a number on a screen, I have to wonder about the gap between what these tools promise and what they actually deliver.\n\nBody composition scans are nothing new—it’s the AI angle that’s giving the market a fresh angle. The term \"AI body scan\" covers a range of technology, from clinical-grade DEXA machines used in research hospitals, to apps that claim to estimate your body fat from a selfie.\n\nAt the serious end sits the DEXA scan (Dual-Energy X-ray Absorptiometry). Originally developed to measure bone density, DEXA uses two low-dose X-ray beams to distinguish between bone, fat, and lean tissue with genuine precision. It can identify visceral fat (the dangerous kind that accumulates around organs), regional fat distribution, and bone density. A single session might cost between $40 and $300 out-of-pocket, depending on where you go and whether any insurance applies. A company like BodySpec, for instance, has built businesses around making DEXA more accessible, performing around a thousand scans a day and building what it describes as the “largest proprietary DEXA dataset” in the world.\n\nBelow DEXA on the precision ladder sits “bioelectrical impedance analysis” (BIA). BIA is the technology powering most \"smart scales,\" gym body composition stations, and many of those consumer-level AI scanners that keep targeting me with ads. BIA works by passing a small electrical current through your body and measuring how it travels. Fat resists electrical current; lean tissue (mostly water) conducts it well. From this resistance, the device estimates body composition.\n\nThen, at the bottom of the technical hierarchy, sit the phone camera apps. Translating a 2D image into a body fat percentage or visceral fat estimate requires assumptions that are generous at best. These apps may be useful as very rough awareness tools, but so is a photograph.\n\nAgain, it's worth being specific about what AI is actually doing in most of these products, because as always, the word can mean a lot of things. In the better DEXA-based services, AI is being used to process and contextualize large datasets, helping users understand their results in comparison to relevant populations, flagging trends over time, and personalizing recommendations. For instance, BodySpec describes using AI to give its scanning service a kind of institutional memory for each client, stitching together health history and personal context so that consultations feel personalized at scale.\n\nIn consumer devices, \"AI\" most often means that an algorithm has been trained on a dataset to estimate body composition. But the AI is only as good as the underlying measurement, and those underlying measurements might not be accurate in the first place.\n\nLet’s take a look at where the marketing diverges from the medicine, and where some skepticism is warranted. A body composition scan cannot tell you about your insulin sensitivity, inflammation, thyroid function, cortisol levels, or dozens of other physiological variables that determine your actual metabolic health. Two people can have identical DEXA results (same muscle mass, same body fat, same visceral fat reading), but one can have pre-diabetes while the other doesn't.\n\n“I had two people with similar scan results, but very different metabolic health once labs were checked,” says Dr. Raymond Douglas, a board-certified oculoplastic surgeon and professor at Cedars-Sinai Hospital in Los Angeles. “And if you're making lifestyle choices based on a scan number alone, you may be fixing the wrong problem.\"\n\nWhat’s more, that sort of interpretation of scan results assume the reading was accurate in the first place, which isn’t always the case. “I have years of experience with seeing patients who have high muscle readings but are simply water-retained,” says Dr. Alexander Acosta. “If you have retained more water, say from a salty lunch or your period, the machine is likely to report a 5% increase in muscle mass.” This is especially relevant for those BIA products, like the smart scales you might see at the gym. Your hydration state—which fluctuates throughout the day, with exercise, with diet, with hormonal cycles—skews the result.\n\nPerhaps no feature of these AI scanners is more aggressively marketed than \"biological age.\" The marketing angle makes sense: What if you find out your body is actually half your age on paper? It’s no mystery how this number has a way of inspiring either relief or dread, and it often inspires purchases.\n\nBiological age is usually calculated by an algorithm that compares your information with population averages, and those averages are limited. “From my experience, the algorithms don't take into account your genetic background and inherited metabolic rate. The computer may tell a 30-year-old they have a 50-year-old heart due to stress,”Acosta says. “I have actually seen these numbers change by five years after a bad night's sleep.” A number that swings five years based on one night's sleep isn’t a number worth obsessing over, if you ask me.\n\nOne way to approach all this is to think of body scans as a tool to track trends over time, rather than expecting to have your world rocked from a single session. “Muscle trending up, visceral fat trending down—those are worth paying attention to,” Douglas says. “The mistake most people make is treating a single session like a full medical workup.\"\n\nIf you scan under consistent conditions every few months, you could glean a lot of useful information from the patterns that appear. Are you gaining lean mass while losing fat? Is your visceral fat creeping up despite stable weight? These are questions a body composition scan, done repeatedly, can help answer in ways a bathroom scale cannot.\n\n\"A DEXA scan provides a much clearer picture of what is actually happening in your body by measuring body fat percentage by area, lean mass, bone density, and visceral fat,” says Elaine Shi, CEO and co-founder of BodySpec. “It moves us away from guessing based on proxies like BMI—which is outdated and doesn't represent diverse populations—and allows us to make decisions based on clinical-grade insights.\" For example, Shi says people taking GLP-1 medications for weight loss can lose a significant proportion of their reduction in lean muscle mass rather than fat, which could point to a metabolic problem that would be invisible on a regular scale.\n\nIf you're going to use DEXA, use it over the course of several months. Numerous scans taken under consistent conditions (same time of day, same hydration status, same proximity to exercise) could show patterns worth paying attention to. If you're going to use BIA devices, understand that the readings are noisy. Don't scan after a salty meal, after intense exercise, or during a phase of hormonal flux and expect accuracy. If you’re interested in inflammatory markers, fasting glucose, insulin, lipid panels, thyroid function, a body composition score is no substitute for bloodwork.\n\n\"Treat the scan as an awareness tool, then combine it with blood tests, blood markers of inflammation, and lifestyle habits to draw conclusions,\" says Douglas. You should also be especially skeptical of biological age scores. A single number generated by comparing your data to population averages on a given day is not a substantial medical insight. And when you see an ad for a phone camera app that claims to measure your visceral fat with AI, ask what the underlying measurement is. If there is no good answer (which there won’t be from a 2D image), the so-called AI has nothing real to work with.\n\nThe move away from BMI and toward actual body composition measurement is promising for a lot of people. If your doctor sends you to a DEXA scan to assess your bone density and you’re interested in other insights about your body composition along the way, consider your scan results as part of a bigger trend over time. Your body composition score may be a great starting point, but you still want a human healthcare professional to make sense of the results.\n\nAt the end of the day, snake oil will always thrive in the wellness industry. These days, every snake oil salesman under the sun knows to slap on the term \"AI-powered\" to add authoritative language to imperfect products. Before you spend hundreds of dollars on a body scan (or waste your time and energy with a phone app), consider the limitations of these readings—and be honest about what exactly you’re trying to discover here. A scan that cannot distinguish between muscle and retained water, whose biological age score shifts five years with poor sleep, and whose readings vary with what you ate for lunch might not be giving you the answers about your body that you crave.",
-    "readingTime": 9,
-    "keywords": [
-      "smart scales",
-      "thyroid function",
-      "consistent conditions",
-      "snake oil",
-      "weight loss",
-      "phone camera",
-      "population averages",
-      "night's sleep",
-      "you’re interested",
-      "underlying measurement"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/health/what-ai-body-scans-can-and-cannot-tell-you?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KR1ZQBHF60BMA7VC53NT1G9B/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-05-08T02:00:41.767Z",
-    "topic": "health"
-  },
-  {
-    "slug": "llms-distort-our-written-language",
-    "title": "LLMs Distort Our Written Language",
-    "description": "Executive Summary\nLLMs are used by over a billion people globally, and the most frequent use case is to assist with writing. LLMs can provide a huge efficiency boost, but are they actually writing what we want? \nMany users recognize the \"feel\" of LLM prose, but few people realize the extent to",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://sites.google.com/view/llmwritingdistortion/home",
-    "thumbnail_url": "https://lh3.googleusercontent.com/sitesv/AA5AbUA7tjnxeP6puj9vKXXY4vxI0Ngot63azBHlosF4IYT7c9Y9nL5OVzLiBX00cAyh_uv431P6A4nwXSwO2nu7lV77k8vTthObOVp2rgd83zY65wNPLfs-4agVtu6RgFday9av1z3bZe4fBSmM-P6KC4jYLxu27uYWIZ5n3B5OC5WOJJ3HkxCV8NeES0ed3QHZz5IYdVrGgXPLKWZw-W31zaO2b5pnbDgiVSwmMzM=w1280",
-    "created_at": "2026-05-07T19:24:58.067Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "airbnb-earnings-on-deck-as-world-cup-ai-bets-face-test",
-    "title": "Airbnb earnings on deck as World Cup, AI bets face test",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/earnings/airbnb-earnings-on-deck-as-world-cup-ai-bets-face-test-93CH-4669542",
-    "thumbnail_url": "https://i-invdn-com.investing.com/news/LYNXMPEB310IW_M.jpg",
-    "created_at": "2026-05-07T19:24:57.953Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "britain-thought-aipowered-robot-fighter-jets-were-years-away-the-royal-air-force-chief-says-the-future-is-already-here",
-    "title": "Britain thought AI-powered ‘robot fighter jets’ were years away. The Royal Air Force chief says the future is already here.",
-    "description": "The head of the Royal Air Force told Business Insider that uncrewed aircraft are coming and being integrated into the force faster than expected.",
-    "fullText": "The UK aimed to field an 'AI air force' by 2035, the head of the Royal Air Force said.\n Modern conflict in the Middle East is showing that this technology is needed much sooner.\n A priority for the RAF is the development of \"robot fighter jets\" to work alongside crewed planes.\n\n What is the RAF's 'combat air strategy'?\n\n What is a 'loyal wingman' drone?\n\n Why is AI integration accelerating in the RAF?\n\n How will AI impact future air combat?\n\n How does AI change military strategies?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "combat"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/uk-raf-chief-ai-robot-fighter-jets-coming-soon-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fc647b3cfefc31768d67fb?width=1200&format=jpeg",
-    "created_at": "2026-05-07T19:24:56.964Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "still-dont-want-me-trial-reveals-sam-altmans-frantic-texts-after-2023-openai-ouster",
-    "title": "'Still don't want me?' — trial reveals Sam Altman's frantic texts after 2023 OpenAI ouster",
-    "description": "Sam Altman pleaded to  return as OpenAI CEO -- But interim CEO Mira Murati told him the board had made up its mind: they wanted him \"gone.\"",
-    "fullText": "Mira Murati and Sam Altman shared a heated text exchange during his 2023 ouster as CEO of OpenAI.\n Altman pleads desperately for his job back as Murati tells him, \"They don't want you.\"\n The texts were shown to jurors in the ongoing Musk v. Altman civil trial in Oakland, California.\n\n What led to Altman's ouster from OpenAI?\n\n What is the Musk v Altman trial about?\n\n What are the implications of Altman's ouster?\n\n Who is Mira Murati at OpenAI?\n\n How did the board justify Altman's firing?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "altman's ouster",
-      "musk altman",
-      "trial",
-      "murati",
-      "openai",
-      "mira"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/sam-altmans-frantic-texts-after-2023-openai-ouster-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fcadeee1443b8dc48e2cd9?width=1200&format=jpeg",
-    "created_at": "2026-05-07T19:24:56.768Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-ceo-who-briefly-took-over-for-sam-altman-leans-into-being-called-rando-twitch-guy-by-mira-murati",
-    "title": "The CEO who briefly took over for Sam Altman leans into being called 'rando Twitch guy' by Mira Murati",
-    "description": "Emmett Shear spent approximately 72 hours as CEO of OpenAI. At the time, Mira Murati called him the \"rando Twitch guy.\" He's leaned into the meme.",
-    "fullText": "Emmett Shear spent approximately 72 hours as CEO of OpenAI.\n At the time, then-OpenAI exec Mira Murati refered to him as \"rando Twitch guy\" in a text to Sam Altman, who was on the outs.\n The exchange was revealed in the ongoing lawsuit between Elon Musk and Altman. Shear embraced the reference on his X profile.\n\n Why was Shear chosen for OpenAI CEO?\n\n How did Shear react to the text?\n\n What is Y Combinator's influence on Shear?\n\n What is Shear's role at Softmax?\n\n What is the Musk-Altman lawsuit about?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "text",
-      "lawsuit",
-      "shear",
-      "openai",
-      "altman"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/emmett-shear-rando-twitch-guy-ceo-mira-murati-text-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fc93a63cfefc31768d68cb?width=1200&format=jpeg",
-    "created_at": "2026-05-07T19:24:56.558Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "famed-hedge-fund-investor-paul-tudor-jones-says-the-aifueled-market-rally-can-go-for-another-2-years",
-    "title": "Famed hedge fund investor Paul Tudor Jones says the AI-fueled market rally can go for another 2 years",
-    "description": "Paul Tudor Jones thinks the market is in a period similar to late 1999, with the AI-powered rally set to potentially run on for another two years.",
-    "fullText": "Paul Tudor Jones expects up to two more years of the AI-powered bull market. \n The hedge fund investor highlighted AI \"productivity miracles\" as a major catalyst.\n He compared Anthropic's Claude Code to Microsoft's early PC advancements of the 1980s.\n\n What are AI \"productivity miracles\"?\n\n What fueled the 1999 bull market?\n\n What risks come with rapid market growth?\n\n How does Claude Code compare to Windows?\n\n How can AI startups impact the market?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "productivity miracles",
-      "bull market",
-      "claude",
-      "code"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/paul-tudor-jones-ai-bull-market-prediction-tech-stocks-msft-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fcc04ac9dd4cb81cda828c?width=1200&format=jpeg",
-    "created_at": "2026-05-07T19:24:56.308Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-openai-trial-is-exposing-a-brutal-truth-about-workplace-texts",
-    "title": "The OpenAI trial is exposing a brutal truth about workplace texts",
-    "description": "Sam Altman and Mira Murati texts, revealed in the Musk v. Altman trial, are a reminder of the risks of putting sensitive info in writing.",
-    "fullText": "A 2023 text exchange between Mira Murati and Sam Altman was exposed during the OpenAI trial.\n It's a reminder to employees about the risks of putting sensitive information in writing.\n An employment attorney says even if you're using a personal device, it can become fair game in litigation.\n\n What is \"digital hygiene\" at work?\n\n What legal risks do personal devices pose?\n\n What are best practices for sensitive topics?\n\n How can workers protect personal texts?\n\n How does AI impact workplace privacy?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "personal",
-      "risks",
-      "sensitive"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/openai-trial-exposes-truth-about-workplace-texts-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fc9f64e1443b8dc48e2c2a?width=1200&format=jpeg",
-    "created_at": "2026-05-07T19:24:56.307Z",
     "topic": "finance"
   }
 ]
