@@ -1,5 +1,29 @@
 [
   {
+    "slug": "out-with-the-javascript-in-with-the-html",
+    "title": "Out with the JavaScript, in with the HTML",
+    "description": "Writing about the big beautiful mess that is making things for the world wide web.",
+    "fullText": "I’ve been posting about how you can make lots of HTML pages and leverage navigations over in-page, JS-dependent interactions.\n\nNow I’m gonna post another example.\n\nOn my icon sites, I have a little widget that allows you to resize the icons you’re looking at.\n\nPreviously, I implemented this functionality as a web component that looked something like this:\n\nThe size attribute corresponded to an enumeration like sm | md | lg | xl which mapped to actual pixel dimensions like 64×64 or 512×512.\n\nWhen the little widget was clicked to render icons at a different size, JavaScript changed the size attribute on the <icon-list> custom element. From there, the web component’s JS took over changing the dimensions of the children <img> elements, their src attributes, etc.\n\nIt all worked pretty well. However, because that was a client-side solution to my otherwise entirely pre-rendered static site, it required some templating logic and data be duplicated and sent over the wire to every client.\n\nI didn’t love that for various reasons — like “Crap, I updated this one small part of how my icon list renders on the server, but forgot to tweak it on the client, so things are slightly broken now.”\n\nThen one day the thought hit me: instead of relying on JS to make that interaction work (click, execute JS, modify in-page DOM to a new list), what if I just made that interaction a navigation? Click, navigate to a new list.\n\nInstead of “every list of icons ships with some JS that allows them to re-render at four different sizes” I could do “every list of icons ships in four different sizes”.\n\nSo I tried it. And guess what? Once I added some code to support CSS view transitions, I got a cool effect amongst the icons for free — that’s right, by removing code!\n\nI know I’m not doing anything particularly novel here, but as we continue to get new, powerful primitives on the web — like CSS view transitions — I find it really interesting to revisit basic patterns and explore what’s possible now that wasn’t previously.\n\nIt’s fun to ask yourself: “Could I remove some client-side JS and get a better overall experience?” If the answer is yes, I’ll bet you the development experience (and maintenance burden) is much improved too!",
+    "readingTime": 2,
+    "keywords": [
+      "css view",
+      "view transitions",
+      "size attribute",
+      "icons ships",
+      "list",
+      "in-page",
+      "widget",
+      "allows",
+      "previously",
+      "dimensions"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://blog.jim-nielsen.com/2026/out-with-js-in-with-html/",
+    "thumbnail_url": "https://cdn.jim-nielsen.com/blog/2026/icon-sizes-comparison.png",
+    "created_at": "2026-05-11T14:26:48.534Z",
+    "topic": "tech"
+  },
+  {
     "slug": "i-knew-my-writing-students-were-using-ai-their-confessions-led-to-a-powerful-teaching-moment-micah-nathan",
     "title": "I knew my writing students were using AI. Their confessions led to a powerful teaching moment | Micah Nathan",
     "description": "The problem wasn’t just the perfectly polished, yet mediocre prose. It’s what’s lost when we surrender the struggle to translate thought into words\nI have been teaching fiction writing at MIT since 2017. Many of my students last wrote fiction in middle school, and very few have experienced a proper workshop, so at the start of every semester I offer these directions for writer and reader alike:\nRead the story at least twice. Mark what works and what doesn’t – underline great sentences, flag clunky syntax, gaps in logic and unrealistic dialogue. Ask yourself: does the story work?",
@@ -1989,19 +2013,6 @@
     "link": "https://www.lei.chat/posts/triton-bespoke-layouts/",
     "thumbnail_url": "https://www.lei.chat/images/avatar.png",
     "created_at": "2026-02-01T18:21:00.567Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "foundry-selfwriting-ai-agent-that-learns-and-upgrades-itself",
-    "title": "Foundry – Self-writing AI agent that learns and upgrades itself",
-    "description": "The forge that forges itself. Self-writing meta-extension for OpenClaw.ai - lekt9/openclaw-foundry",
-    "fullText": "lekt9\n\n /\n\n openclaw-foundry\n\n Public\n\n The forge that forges itself. Self-writing meta-extension for OpenClaw.ai\n\n claw.getfoundry.app\n\n 0\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n lekt9/openclaw-foundry",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.4,
-    "link": "https://github.com/lekt9/openclaw-foundry",
-    "thumbnail_url": "https://opengraph.githubassets.com/05dcc0d201911d296941ffc33d96a9121b2307111c97c35e6b1e6758a3cd96e9/lekt9/openclaw-foundry",
-    "created_at": "2026-01-31T01:04:25.549Z",
     "topic": "tech"
   }
 ]
