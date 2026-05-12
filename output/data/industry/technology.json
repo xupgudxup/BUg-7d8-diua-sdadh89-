@@ -1,5 +1,33 @@
 [
   {
+    "slug": "star-wars-fate-of-the-old-republic-boss-says-ai-is-creatively-soulless",
+    "title": "Star Wars: Fate Of The Old Republic Boss Says AI Is \"Creatively Soulless\"",
+    "description": "Casey Hudson, the gaming industry veteran who is leading the team making Star Wars: Fate of the Old Republic, has commented on AI, saying he finds it to be \"creatively soulless.\"\nHe said this in an interview with Bloomberg, adding, \"It's hard to imagine where it's actually helpful in the process. I'm just really unimpressed with it.\"\nPresumably Hudson is referring to generative AI, which has been the hot-button topic as of late, but whatever the case, he is clearly not enthusiastic about the technology for Fate of the Old Republic.\nContinue Reading at GameSpot",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.gamespot.com/articles/star-wars-fate-of-the-old-republic-boss-says-ai-is-creatively-soulless/1100-6539898/?ftag=CAD-01-10abi2f",
+    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1179/11799911/4693799-fate.jpg",
+    "created_at": "2026-05-12T19:27:48.464Z",
+    "topic": "gaming"
+  },
+  {
+    "slug": "i-used-ai-for-almost-everything-for-1-year-heres-what-i-learned",
+    "title": "I Used AI for Almost Everything for 1 Year: Here's What I Learned",
+    "description": "Joanna Stern, NBC chief technology analyst and correspondent, immersed herself in the world of artificial intelligence, testing more than 100 cutting-edge AI products and documented her journey in a b...",
+    "fullText": "Joanna Stern, NBC chief technology analyst and correspondent, immersed herself in the world of artificial intelligence, testing more than 100 cutting-edge AI products and documented her journey in a book called “I Am Not a Robot: My Year Using AI to Do (Almost) Everything.” Stern joins TODAY to talk about her takeaways, including the importance of feeling in control of AI saying “I will work with AI but I am not working for it.”",
+    "readingTime": 1,
+    "keywords": [
+      "stern"
+    ],
+    "qualityScore": 0,
+    "link": "https://www.yahoo.com/news/videos/used-ai-almost-everything-1-151214350.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/0b667c56d611d9f868b148f5c97cffaec7fb739923c8bed72102b3c086bccdd0/lightyear_networkapi/resizefill_w1200;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fnbcu_713%2Facb7ebce5c9cd61e3e3032e2ee35ae43",
+    "created_at": "2026-05-12T19:27:42.820Z",
+    "topic": "news"
+  },
+  {
     "slug": "texas-accuses-netflix-of-spying-on-children-in-new-lawsuit",
     "title": "Texas accuses Netflix of spying on children in new lawsuit",
     "description": "Ken Paxton accuses streamer of designing addictive platform and falsely representing data collection practices\nTexas sued Netflix on Monday, accusing the streaming company of spying on children and designing its platform to be addictive.\nKen Paxton, the Texas attorney general, said Netflix has for years falsely represented to consumers that it did not collect or share user data, when it actually tracked and sold viewers’ habits and preferences to commercial data brokers and advertising technology companies, making billions of dollars a year.\n Continue reading...",
@@ -1925,53 +1953,5 @@
     "thumbnail_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
     "created_at": "2026-04-03T06:57:07.826Z",
     "topic": "finance"
-  },
-  {
-    "slug": "i-built-an-sms-gateway-with-a-20-android-phone-jonnonz",
-    "title": "I Built an SMS Gateway with a $20 Android Phone – Jonno.nz",
-    "description": "Turn any Android phone into a programmable SMS gateway for your SaaS — no per-message fees, no carrier contracts, no vendor lock-in.",
-    "fullText": "Twilio charges around $0.05–0.06 per SMS round-trip. Doesn't sound like much until you're building an MVP that sends reminders, confirmations, and notifications — suddenly you're looking at $50/month for a thousand messages. For an app that's not making money yet, that's a dumb tax.\n\nHere's what I did instead: grabbed a cheap Android phone, installed an open-source app called SMS Gateway for Android, and turned it into a full SMS gateway with a REST API. My SMS costs dropped to whatever my mobile plan charges — which on plenty of prepaid plans is zero. Unlimited texts.\n\nThis post walks through exactly how to wire it into a Next.js app, from first install to receiving webhooks. The whole thing took an afternoon.\n\nInstall SMS Gateway for Android from the Google Play Store or grab the APK from GitHub Releases\n\nOpen the app and grant SMS permissions when prompted\n\nYou'll see the main screen with toggles for Local Server and Cloud Server:\n\nThe app supports two modes — local and cloud. Both work well, and I'll cover each.\n\nLocal mode runs an HTTP server directly on the phone. Your backend talks to it over your local network. No cloud dependency, no third-party servers — the simplest setup.\n\nYour phone is now running an HTTP server. Verify it:\n\nThat's it. The phone sends the SMS from its own number, using your mobile plan's rates.\n\nTo receive SMS messages as webhooks:\n\nReplace 192.168.1.100 with your dev machine's local IP. Both devices need to be on the same WiFi network.\n\nCloud mode is easier to set up and works from anywhere — no local network required. The phone connects to SMS Gateway's cloud relay (api.sms-gate.app), and your backend talks to the same cloud API.\n\nThe cloud uses a hybrid push architecture: Firebase Cloud Messaging as the primary channel, Server-Sent Events as fallback, and 15-minute polling as a last resort. It's well thought through.\n\nYour webhook URL must be HTTPS in cloud mode. For local development, use ngrok:\n\nHere's how I integrated SMS Gateway into a Next.js app with a clean provider abstraction. The idea is simple — swap providers without touching business logic.\n\nThe provider handles both local and cloud API differences:\n\nA basic webhook handler that receives inbound SMS and replies:\n\nFor local development without a phone:\n\nWhen someone texts your Android phone, SMS Gateway sends a POST to your webhook URL:\n\nSMS Gateway signs webhook payloads with HMAC-SHA256. Two headers are included:\n\nIf your server doesn't respond 2xx within 30 seconds, SMS Gateway retries with exponential backoff — starting at 10 seconds, doubling each time, up to 14 attempts (~2 days). Solid default behaviour, you don't need to configure anything.\n\nText your Android phone from another phone. You should see:\n\nThat moment when the reply lands on your phone — genuinely satisfying.\n\nI use cloud mode in production because my server's hosted on Railway and can't reach the phone's local network. For development on the same WiFi, local mode is simpler and faster.\n\nThat's an 80%+ saving, and it scales linearly — 10,000 messages a month is still just your plan cost.\n\nIt's worth knowing this is a whole category now. httpSMS and textbee do similar things. I went with SMS Gateway for Android because the local mode is properly useful for development, the documentation is solid, and it's actively maintained — v1.56.0 dropped in March 2026.\n\nFor an MVP, the maths is obvious. A $200 phone and an $8/month plan gets you a programmable SMS gateway that you fully control. No per-message fees, no carrier contracts, no vendor lock-in. If you outgrow it, swap the provider interface to Twilio and you're done — that's why the abstraction exists.",
-    "readingTime": 4,
-    "keywords": [
-      "webhook url",
-      "sms gateway",
-      "http server",
-      "next.js app",
-      "backend talks",
-      "cloud api",
-      "android phone",
-      "cloud mode",
-      "that's",
-      "network"
-    ],
-    "qualityScore": 1,
-    "link": "https://jonno.nz/posts/built-an-sms-gateway-with-a-20-dollar-android-phone/",
-    "thumbnail_url": "https://jonno.nz/og/built-an-sms-gateway-with-a-20-dollar-android-phone.png",
-    "created_at": "2026-04-03T01:19:33.221Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "nanoclaws-architecture-is-a-masterclass-in-doing-less",
-    "title": "NanoClaw's architecture is a masterclass in doing less",
-    "description": "I pulled apart NanoClaw's 8,000-line codebase and found six architectural patterns that most SaaS teams should steal — credential proxies, container isola…",
-    "fullText": "Most codebases grow by adding things. More abstractions, more dependencies, more config files. NanoClaw does the opposite — it replaces a 500,000-line AI assistant framework with roughly 8,000 lines of TypeScript and six production dependencies.\n\nThat's not a flex about line count. It's the result of six architectural bets that are genuinely interesting, and honestly, patterns I wish I'd seen more teams adopt over the years.\n\nI pulled the entire codebase apart to understand how it works. Here's what I found — and why these patterns matter way beyond a personal AI assistant.\n\nThis is the one that properly impressed me.\n\nNanoClaw runs AI agents inside Linux containers. Those agents need API keys to talk to Anthropic. The obvious approach is to pass the key as an environment variable. That's what most of us do, right? Stick it in an env var, maybe pull it from a secrets manager at startup, move on.\n\nNanoClaw doesn't do that. Instead, every container gets a placeholder API key and a base URL pointing at a localhost proxy on port 3001. The proxy sits on the host, intercepts every outbound API request, strips the placeholder, and injects the real credential before forwarding upstream.\n\nThe agent literally cannot leak the real key — it never has it. Even if a prompt injection attack tricks the agent into dumping its environment variables, all you get is ANTHROPIC_API_KEY=placeholder. There's nothing to exfiltrate.\n\nThis pattern now has a proper name — the Phantom Token Pattern. It's being adopted as a sidecar proxy in Kubernetes for production AI agent deployments. NanoClaw arrived at the same design independently, which tells you something about how natural this solution is once you frame the problem correctly.\n\nThe proxy also handles two auth modes (API key and OAuth) and binds differently per platform — 127.0.0.1 on macOS/WSL2, the docker0 bridge IP on Linux. Secrets are loaded into a plain object, never into process.env, so they can't leak to child processes.\n\nAt Vend and Xero I spent a lot of time thinking about authorization. Role-based access, permission checks, middleware that decides what each user can do. It works, but it's a constant source of bugs — one missed check and you've got an escalation vulnerability.\n\nNanoClaw takes a completely different approach. Instead of checking what an agent is allowed to do, it controls what the agent can see.\n\nEach container gets a specific set of mounts. A non-main group container can only see its own folder — it physically cannot access the project root, other groups' data, or host files. The main group gets read-only access to the project, but .env is shadow-mounted to /dev/null. Even with the full project mounted, secrets are invisible.\n\nThe agent inside the container runs with bypassPermissions — it can use Bash, write files, do whatever it wants. But \"whatever it wants\" is constrained by what the OS lets it see. No application-level permission checks needed.\n\nAdditional mounts are validated against a blocklist (.ssh, .gnupg, .aws, credentials, etc.) that lives outside the project root, making it tamper-proof from inside any container. Symlink resolution prevents path traversal attacks like creating /tmp/innocent -> ~/.ssh.\n\nThe security model is the filesystem topology itself.\n\nMessage processing in NanoClaw uses two independent cursors — and the interaction between them is the cleverest bit of the whole system.\n\nCursor 1 is a global watermark. The main polling loop reads new messages from SQLite every 2 seconds. When it sees messages, it advances the watermark immediately and persists it. This prevents the same batch from being processed twice if the loop runs again before the agent finishes.\n\nCursor 2 is per-group. When a group's messages are about to be processed, the per-group cursor advances optimistically before the agent starts. If the agent fails:\n\nThis gives you at-most-once delivery to the user and at-least-once processing for the agent. That's the right tradeoff for a messaging system — users should never see duplicate messages, but retrying agent work is fine.\n\nI've built billing platforms where we had to think about exactly these kinds of delivery guarantees. Getting this wrong in a payments context means double-charging customers. NanoClaw's approach is clean — two cursors, one rule: once you've spoken to the user, you can't unsay it.\n\nNo Redis. No RabbitMQ. No gRPC. NanoClaw's inter-process communication is JSON files on the filesystem.\n\nContainers write outbound messages to /workspace/ipc/messages/. The host writes follow-up messages to /workspace/ipc/input/. Both sides use the same pattern — write to a .tmp file, then rename it into place. rename is atomic on POSIX filesystems. The file either exists with complete content or doesn't exist at all.\n\nAuthorization is enforced by directory identity. Each group has its own IPC directory (/data/ipc/{group}/). The host knows which group wrote a file based on which directory it appeared in. A container can't spoof its identity because its mount configuration fixes which directories it can write to.\n\nThe main group can send messages to any other group. Non-main groups can only send to themselves. This isn't enforced by application logic checking tokens — it's enforced by the host reading from a directory that only one container can write to.\n\nThis is the same atomic write pattern used in crash-safe database implementations. The key constraint — temp file and target must be on the same filesystem — is guaranteed because both live inside the same container mount.\n\nThe main loop polls SQLite every 2 seconds. The IPC watcher polls the filesystem every 1 second. The task scheduler polls every 60 seconds.\n\nIn a system designed for one user, this eliminates entire categories of race conditions. No WebSocket connection management, no event ordering guarantees to maintain, no callback hell. Just: check for new stuff, process it, sleep, repeat.\n\nI've been on teams that reached for event-driven architectures way too early. At Xero we shipped multiple times a day — but the internal tooling that supported that? Half of it would've been simpler with a poll loop. When you know your scale ceiling, polling is a feature, not a limitation.\n\nEach container recompiles TypeScript on startup. The agent-runner source is mounted from a per-group directory, so each group can have customised agent behaviour. The compiled output goes to /tmp/dist which is then made read-only — the agent can't modify its own runner.\n\nNo plugin registry. No abstraction layer. No dependency injection. You want different behaviour per group? Change the source files. The container picks it up on next startup.\n\nThis is slower than a plugin system, sure. Container startup pays a compilation tax. But it eliminates an entire layer of indirection — and that layer is usually where the bugs live.\n\nThese aren't random choices. They're all expressions of the same principle: know your constraints, and use them to delete complexity.\n\nNanoClaw is a single-user system. It knows this. So it polls instead of pushing, uses the filesystem instead of a message queue, and isolates with containers instead of writing authorization middleware.\n\nThe interesting question isn't whether these patterns work for NanoClaw — they obviously do. The question is: where do these same constraints exist in your stack? Because they're more common than you think.",
-    "readingTime": 6,
-    "keywords": [
-      "permission checks",
-      "project root",
-      "agent",
-      "container",
-      "nanoclaw",
-      "messages",
-      "files",
-      "instead",
-      "host",
-      "filesystem"
-    ],
-    "qualityScore": 1,
-    "link": "https://jonno.nz/posts/nanoclaw-architecture-masterclass-in-doing-less/",
-    "thumbnail_url": "https://jonno.nz/og/nanoclaw-architecture-masterclass-in-doing-less.png",
-    "created_at": "2026-04-03T01:19:32.082Z",
-    "topic": "tech"
   }
 ]

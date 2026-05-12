@@ -1,5 +1,29 @@
 [
   {
+    "slug": "filmic-photography-in-davinci-resolve-21",
+    "title": "Filmic Photography in DaVinci Resolve 21",
+    "description": "Resolve 21's new Photo interface unlocks scene-referred grading, cinema-style color tools, and Filmbox Photo Mode for still photography.",
+    "fullText": "Good news, everyone! DaVinci Resolve 21 introduced a dedicated Photo interface.\n\nThat's a big deal. It means photography can now benefit from scene-referred grading, cinema-style color tools, and advanced film emulation like Filmbox — which leverages scene-referred color processing for especially authentic results. This hasn't been possible in the traditional photo software ecosystem.\n\nIn this guide we're going to show you an accurate cinema-style grading workflow for photography in Resolve, help you overcome Resolve's limited RAW-format support, and introduce Filmbox Photo Mode, built specifically for Resolve 21.\n\nResolve groups functionality into \"pages.\" Photography workflows use the Photo page for import, organization, triage, cropping, and reframing. The Color page is where all grading, correction, and film emulation should be done, and the Deliver page is for exporting.\n\nTo get the benefits of cinema color workflows, we need to get photos into a scene-referred color space, which can only be done accurately from a raw image file.\n\nStart on the Photo page by dragging RAW photos onto \"Create an Album\". By default, Resolve renders RAW images with a generic Rec.709 transform, which looks reasonable but isn't what we want. Instead of building transforms manually, just enable DaVinci Color Management under Project Settings, and configure it like this:\n\nResolve will now handle all this setup so we can get to grading:\n\nResolve's RAW photo support is limited and has color-accuracy problems. Hopefully this will improve as it moves out of beta. For now, Blackmagic claims support for Sony, Fuji, Nikon, Canon, and iPhone RAW, but many of these images render with subtle to dramatic color and tonal inaccuracies in scene-referred workflows, especially Fuji and iPhone ProRAW. Even when color is accurate, images often come in quite dark.\n\nTo help with this, we built a free tool called Rawzone that converts nearly every RAW format into scene-referred files. We recommend trying it if your images are looking strange in this workflow:\n\nWith Rawzone's default settings, you can drop the converted EXR file straight into the Photo page, and the color management we set up will adapt it automatically. (Resolve only recognizes ACES color tags, so if you choose a different color space you'll need to tag it manually in Resolve.)\n\nRAW files are required for true scene-referred image data, but JPEGs and other non-RAW files can often work reasonably well in this pipeline with reduced accuracy and latitude.\n\nYou may notice the Photo page has some color controls, but we recommend doing all color work on the Color page.\n\nWith color management configured, we can now make accurate exposure and balance adjustments on the Color page using the color-space-aware HDR > Global tool.\n\nIf you're a Resolve veteran, you can take it from here. If you're new, the Color page can feel daunting, but YouTube is full of great tutorials. Filmbox Looks can also help simplify things by giving you a library of high-quality emulations and curated controls.\n\nFrom the Color page, open the Effects tab and drag Filmbox Looks or Pro onto a node in the node graph. Then enable Photo Mode.\n\nWe recommend leaving Resolve's Photo Preview Resolution on Auto for performance — but keep in mind that it may show a low-resolution preview until you export or switch it to full.\n\nNow you can explore Filmbox's enormous selection of still photo stocks and Looks presets as they were meant to be seen, and pair with Scatter for beautiful optical diffusion.",
+    "readingTime": 3,
+    "keywords": [
+      "film emulation",
+      "color space",
+      "color management",
+      "color page",
+      "scene-referred color",
+      "filmbox looks",
+      "grading",
+      "images",
+      "photography",
+      "accurate"
+    ],
+    "qualityScore": 1,
+    "link": "https://videovillage.com/blog/2026/05/12/filmic-photography-resolve-21",
+    "thumbnail_url": "https://videovillage.com/images/blog/filmic-photography-resolve-21/key-og-ad481490.jpg",
+    "created_at": "2026-05-12T19:28:02.299Z",
+    "topic": "entertainment"
+  },
+  {
     "slug": "a-faithful-llmwiki-implementation-with-wikipediastyle-web-browsing",
     "title": "A faithful LLM-wiki implementation with Wikipedia-style web browsing",
     "description": "A faithful llm-wiki implementation with agent-maintained Markdown knowledge bases and Wikipedia-style web browsing. - hzw1199/CyberMe-LLM-Wiki",
@@ -1907,18 +1931,5 @@
     "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/62c8/live/278b5820-36b5-11f1-879d-1b2f5c3919b8.jpg",
     "created_at": "2026-04-13T01:28:39.681Z",
     "topic": "sports"
-  },
-  {
-    "slug": "tom-marchitelli-traded-a-finance-job-for-fashion-now-he-dresses-elite-athletes-in-5000-suits",
-    "title": "Tom Marchitelli traded a finance job for fashion. Now he dresses elite athletes in $5,000 suits.",
-    "description": "Tom Marchitelli was always passionate about clothes, but never considered working in the fashion industry. One job opportunity pulled him in anyway.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/tom-marchitelli-top-stylist-for-athletes-left-finance-career-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d561511a512d0a63e734ac?width=1200&format=jpeg",
-    "created_at": "2026-04-11T12:33:49.291Z",
-    "topic": "finance"
   }
 ]
