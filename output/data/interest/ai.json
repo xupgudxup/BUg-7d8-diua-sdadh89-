@@ -1,5 +1,234 @@
 [
   {
+    "slug": "a-faithful-llmwiki-implementation-with-wikipediastyle-web-browsing",
+    "title": "A faithful LLM-wiki implementation with Wikipedia-style web browsing",
+    "description": "A faithful llm-wiki implementation with agent-maintained Markdown knowledge bases and Wikipedia-style web browsing. - hzw1199/CyberMe-LLM-Wiki",
+    "fullText": "CyberMe is a general-purpose knowledge base framework maintained by an LLM Agent, suitable for personal, team, or enterprise knowledge bases. It keeps raw materials, a structured Wiki, and Agent working rules in the same repository, allowing the knowledge base to be maintained continuously like a codebase; it also provides a Wikipedia-like visual browsing experience, automatically maintains bidirectional links between entries, and includes both Chinese and English interfaces.\n\nObsidian is the IDE, the LLM is the programmer, and the Wiki is the codebase.\n\nAll Markdown files under raw/ must include the following Front Matter:\n\nWhen saving a web page as Markdown with Obsidian Web Clipper, you can confirm fields such as source, type, clipped_at, status, and title in the sidebar, then save it to the corresponding directory:\n\nSend an Ingest request to the Agent and specify the source file under raw/articles/ to ingest:\n\nThe Agent reads wiki/index.md and the source file, creates or updates concept entries, the index, and the log, then outputs a processing report at the end:\n\nAfter that, you can ask the Agent questions directly. It will read the wiki index and related entries first, then answer based on the existing knowledge base:\n\nraw/ and wiki/ usually contain private materials, team materials, or enterprise internal materials, and are not committed to public repositories by default.\n\nCLAUDE.md is the core of this framework. It specifies that before any operation, the Agent must first read wiki/index.md, then determine whether the current task is operation management, Ingest, Batch Ingest, Lint, or a knowledge query.\n\nAll Wiki pages use Markdown and YAML front matter:\n\nUse Obsidian-style [[bidirectional links]] in the body to connect concepts.\n\nAfter opening the repository in an LLM Agent that can read and write files, you can operate it directly using natural language:\n\nThe Agent automatically maintains wiki/index.md, wiki/log.md, cross-references between concept pages, and the ingest status of raw files according to CLAUDE.md.\n\nvisualize/ is CyberMe's frontend visualization app. It renders the Markdown knowledge base in wiki/ as a browsable website.\n\nIt supports both Chinese and English UI languages: on first visit, it automatically follows the browser language; you can also switch manually from the language button in the top-right corner, and the choice is saved locally in the browser.\n\nThe Wiki home page shows an overview of the knowledge base, including topic, concept, and analysis counts, plus recent content:\n\nUse the search box to quickly locate concepts, topics, and analysis pages:\n\nConcept pages show definitions, detailed explanations, related links, and entry metadata:\n\nAnalysis pages store long-form analyses distilled from Query workflows:\n\nThe timeline log records ingest, query, and lint operations chronologically:\n\nThe Galaxy page renders the knowledge base as an interactive 3D knowledge graph:\n\nThe development server reads wiki/ from the repository root and automatically refreshes when Wiki files change.\n\nThe build output is written to visualize/dist/. During build, the current wiki/ content and wiki-manifest.json are copied into the output directory, making it suitable for deployment to static hosting services such as GitHub Pages, Cloudflare Pages, and nginx.",
+    "readingTime": 3,
+    "keywords": [
+      "bidirectional links",
+      "automatically maintains",
+      "knowledge base",
+      "analysis pages",
+      "concept pages",
+      "llm agent",
+      "the agent",
+      "materials",
+      "files",
+      "wiki"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/hzw1199/CyberMe-LLM-Wiki",
+    "thumbnail_url": "https://opengraph.githubassets.com/1556a6ee7d0846b59f1a7ace0cf08f5f27a40a243cf0b912b86a0e6535046c1f/hzw1199/CyberMe-LLM-Wiki",
+    "created_at": "2026-05-12T02:00:06.077Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ai-vs-open-source-part-1-the-empty-grant",
+    "title": "AI vs. Open Source, Part 1: The Empty Grant",
+    "description": "The step function increase in AI's ability to generate code is looming over open source. What frontier models can do today is a warning shot, already enough to dissolve the legal scaffolding that makes open source enforceable. Historically...",
+    "fullText": "The step function increase in AI’s ability to generate code is looming over open source. What frontier models can do today is a warning shot, already enough to dissolve the legal scaffolding that makes open source enforceable. Historically, companies with flagship open-source software have relied on relicensing as a weapon to protect their competitive advantage. MongoDB moved from AGPL to SSPL in 2018, CockroachDB went from Apache 2.0 to BSL in 2019 to a custom CockroachDB license in 2024, Elasticsearch followed in 2021, HashiCorp switched Terraform and Vault to BSL in 2023, Sentry created an entirely new license (FSL) that same year, and Redis went source-available in 2024, mostly in response to cloud vendors offering their code as managed services. That weapon is now obsolete as AI threatens to make licenses completely irrelevant.\n\nEvery open source license is a conditional grant of copyright. The author holds the copyright, and the license grants permission to use the work only if certain conditions (e.g., attribution, source disclosure, or reciprocal licensing) are satisfied. This is the only enforcement mechanism that sustains open source through the chain of derived works. Without it the entire structure collapses.\n\nAI-generated code is not copyrightable. The D.C. Circuit held in Thaler v. Perlmutter that the Copyright Act requires a human author. The U.S. Copyright Office confirmed that providing prompts to an AI does not constitute sufficient human authorship. This is U.S. law; other jurisdictions differ, but the enforcement gap is universal. The copyright status of “AI-assisted” code is still a legal gray area. While code written with “AI assistance” is copyrightable, the line between AI-generated and merely AI-assisted remains undefined. Is it sufficient to change a comment in AI-generated code to make it AI-assisted? No court has drawn that line.\n\nAI-generated code is already at the gate. Open source maintainers are drowning in “vibe coded” pull requests: AI-generated submissions with minimal human oversight. Gentoo has banned AI-generated code contributions outright. NetBSD classifies them as tainted code requiring core developer approval. The Linux kernel allows them but mandates disclosure and full human accountability. Quality is the basis for rejection today. That filter has a shelf life. As the models improve, the quality will improve. The ethical case for rejecting machine-generated contributions becomes harder to make when the code is indistinguishable from human work.\n\nCode without copyright cannot be licensed. The requirement to share source becomes unenforceable for modifications that have no copyright. Such code falls into a legal void: not public domain (no affirmative dedication), not proprietary (no copyright to assert), not open source (no license that can attach). The license text still sits in the repository. It is an empty grant.\n\nConsider any corporation that writes and maintains code under an open source license. If AI-generated code enters that repository, the license grant over those contributions is void. The codebase becomes unauditable. Some files are copyrighted and licensed, others legally unowned, and yet others become legally contestable “AI-assisted” code.\n\nEvery team using Copilot or Claude Code produces ambiguously authored output. The corporation is strongly incentivized to close the source rather than maintain an open codebase with no legal protection. The relicensing wave already demonstrated this pattern: when the legal basis for openness stops serving the business, the business closes the code. AI-generated code is a larger threat than cloud vendors ever were. Cloud vendors merely underpriced them. AI dissolves the legal mechanism that made their licenses mean anything.\n\nEven if all the lawyers in the world agreed on the copyright question, a second problem remains: AI’s ability to clone functionality with new source code.\n\nClean-room reimplementation has precedent. Sega v. Accolade established that reverse engineering for interoperability is fair use. Yet there was no widespread reimplementation of open source software into closed source counterparts. The economics did not make sense. Rewriting a mature project from scratch took months of expert labor, regardless of what license it carried. Compliance was cheaper than reimplementation. Until now.\n\nWith AI, the cost of generating code has gone down to near zero. Dan Blanchard rewrote the Python chardet library with Claude Code in order to sidestep LGPL. A project that would have taken a team months was completed in days. chardet is a proof of concept, not the end state. Software is modular, and that modularity compounds: as individual components are cloned, they become building blocks for cloning progressively larger and more complex systems. This is not a today problem. It is a next-year problem. MALUS.sh took the concept further, launching as a satirical “clean room as a service.” Feed it any open source project. It produces a functionally equivalent clone stripped of all license obligations. No attribution. No copyleft. The satire landed because the tool works.\n\nGranted, that is still legally fraught because the AI model was trained on open source software, and traditional clean-room doctrine required that the reimplementing team had no access to the original source. Whether the model’s transformation of training data into weights constitutes a sufficient “clean room wall” is novel law. No court has ruled.\n\nRegardless, enforcement at scale is near impossible. You cannot pursue every clone. You cannot detect every AI-generated clone. The economic bulwark of expensive code writing is gone irrespective of the legal outcome. And the cost will only continue to drop. What frontier models clone imperfectly today, the next generation will clone competently. The question is whether actions will follow incentives.\n\nOpen source has survived every prior threat by adapting its licensing regime. Tivoization got GPLv3. Cloud free-riding got SSPL and BSL. Importantly, the legal machinery worked, because copyright was relevant and valuable. AI is different. The machinery itself is failing. The grant is empty and the moat is collapsing. The onslaught of automated discovery and generation is incentivizing institutions to close their source code.\n\nThat would be survivable if the community that built open source could regroup and adapt as it always has. Part 2 examines why that is no longer a safe assumption.\n\nThe copyleft moat was never purely legal. It was economic: compliance was cheaper than reimplementation. AI collapsed that cost.\n\nEvery open source license is a conditional grant of copyright, and copyright is the only enforcement mechanism that sustains open source.\n\nThe Copyright Office says AI assistance does not bar copyrightability but has not defined where AI-assisted ends and AI-generated begins.\n\nAI-generated code is not copyrightable, which means it cannot carry license conditions.",
+    "readingTime": 6,
+    "keywords": [
+      "ai’s ability",
+      "clean room",
+      "frontier models",
+      "cloud vendors",
+      "conditional grant",
+      "enforcement mechanism",
+      "ai-generated code",
+      "ai-assisted code",
+      "claude code",
+      "license"
+    ],
+    "qualityScore": 1,
+    "link": "https://srikanth.sastry.name/ai-vs-open-source-the-empty-grant/",
+    "thumbnail_url": "https://srikanth.sastry.name/og/2026-05-11-ai-vs-open-source-the-empty-grant.png",
+    "created_at": "2026-05-12T02:00:05.753Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "metr-can-barely-measure-claude-mythos-50-task-horizon-now-exceeds-16-hours",
+    "title": "METR can barely measure Claude Mythos – 50% task horizon now exceeds 16 hours",
+    "description": "Launch milestones, founder writing, and press coverage for VibeAI FoldSpace — the cognitive awareness extension for AI conversations.",
+    "fullText": "Two bugs fixed in this release: the Thinking Mirror anti-spam guard that blocked\n auto-open on extension reload, and the onboarding nudge cooldown that silently blocked\n the core passive detection feature on fresh installs. Both caught by controlled testing\n and patched before approval on both browser stores.\n\nThe gap Ender identified — context-awareness between qualitative exploration and technical\n debugging — shipped in v2.20.0 as a code-pattern guard and DEBUG context detector.\n Our first reviewer asked for it. The next version shipped it.\n\nSession Load Arc, Bookmark Panel MVP, coach panel Edge fix, guide panel collapse,\n attention-aware suppression for focused work, and the DEBUG context detector responding\n directly to the first user review.\n\nVibeAI FoldSpace is now available on both major browser platforms.\n Chrome Store ID: lkmfjgaahnmlncgaeocfgiohjiodiohi ·\n Edge Store ID: kbdhbghaidmildhhbodkppnnhklmddfh\n\nWhen a user types a short acknowledgment (\"thanks\", \"ok\", \"hmm\"), the system detects\n Passive Mode and auto-opens the Thinking Mirror guide panel — surfacing reflection prompts\n before acceptance. Confirmed working on ChatGPT, Claude.ai, and Gemini.\n\nAfter months of development and internal validation, VibeAI FoldSpace received its\n first official Chrome Web Store approval. Email confirmed: \"Item successfully published.\"\n\nHugonomy's first appearance in front of fellow startup entrepreneurs at the UIUC Research Park.\n The vision that had lived in sketches, code, and late-night sessions was spoken aloud for the\n first time. Strategic financial insight for early-stage startups.",
+    "readingTime": 2,
+    "keywords": [
+      "debug context",
+      "context detector",
+      "guide panel",
+      "thinking mirror",
+      "vibeai foldspace",
+      "guard",
+      "blocked",
+      "approval",
+      "browser",
+      "shipped"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://hugonomy.com/news.html",
+    "thumbnail_url": "https://hugonomy.com/assets/images/hero-lifestyle-hud.jpg",
+    "created_at": "2026-05-12T02:00:05.220Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "cisco-cpo-predicts-ai-will-have-built-majority-of-their-products-by-end-of-2027",
+    "title": "Cisco CPO predicts AI will have built majority of their products by end of 2027",
+    "description": "'They'll be fully built with AI, no human lines of code,\" Jeetu Patel said",
+    "fullText": "SAN JOSE, California – Cisco Chief Product Officer (CPO) and President Jeetu Patel expects approximately 70% of the networking giant’s product portfolio will be fully AI generated by the end of next year, though humans will remain a key cog in that push.\n\nPatel explained to SDxCental in an exclusive interview at Cisco’s headquarters in San Jose, California, that this “AI-first standpoint” has already begun. That spark was Cisco’s AI Defense product, which the vendor unveiled in early 2025, and that Patel said “has been built 100% with AI. No human lines of code.”\n\nCisco’s next goal is “we will by the end of the year probably have a half -a-dozen products, and by the end of next year, my thinking is we'll have about 70% of our entire portfolio at Cisco by the end of the calendar year ’27, they'll be fully built with AI, no human lines of code,” Patel said.\n\nThis push is backed by 85% of Cisco engineers already using AI “on a regular” basis, highlighting what Patel said was a “massive proliferation of AI across the entire stack.”\n\nOne source of this proliferation is through OpenAI’s Codex AI coding agent platform. Patel had previously noted Cisco was “exploring” Codex, testing the tool’s potential as it sought a 10-times increase in productivity from “the human workforce,” productivity aspirations that also include Anthropic’s Claude Code.\n\n“When Claude Code writes Claude Code and Codex writes Codex, there is a snowball effect that happens. They go really fast,” Patel said. “And so all of our products … Codex is writing Cisco's products right now … and Claude Code is writing Cisco's products.”\n\nAnd what about that 15% of engineers that are not using AI? “They might be deep down in the kernel, and … we're being careful about how we go there,” Patel said\n\nCisco’s AI-fueled product push will require a complete re-think of how those products are currently assembled and how code is managed. Patel did provide a bit of light for humans, noting that “the human having ownership of an AI app, that’s an app that’s built with AI coding, is super important,” but later explained how that new model will be constructed.\n\n“You have to prepare for a world where humans will not know the code that's being written because you will not be able to review all the code that's being written by AI,” Patel said. “So what you have to do is you have to actually make sure that you automate the test beds and harnesses for measuring the outputs of the code.”\n\nThis will be required as that code “within the next year becomes a black box,” Patel explained. “When I say black box, I mean if you want to change code, you’re just going to go to AI and say, ‘go ahead and change this piece of code to have this outcome.’ It will go refactor in the way that needs to be refactored.”\n\nHowever, this model will require the requester to be “very good at saying ‘now, I’m going to measure the outcomes in a way that there’s no regression,’ and that I think is the way this will go,” Patel added. “Your automation will get to be much more effective on the outputs.”\n\nPatel noted that this does lead back to having the right model structure in place as “you have to create a synthetic environment where the outputs can be managed, can be measured for the sanctity of the output much more so than actually evaluating every line of code. That’s a big shift in a way of thinking.”\n\nAnd also having a human minder nearby as “you also need to make sure that whoever is evaluating the outputs is the one that's responsible for the code, even though they don't know the code,” Patel said. “Every piece of code needs to have a provenance of a human, where you can track it back to a human.”",
+    "readingTime": 4,
+    "keywords": [
+      "san jose",
+      "jose california",
+      "cisco's products",
+      "black box",
+      "app that’s",
+      "code that's",
+      "code patel",
+      "human",
+      "outputs",
+      "humans"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.sdxcentral.com/analysis/cisco-cpo-predicts-ai-will-have-built-majority-of-the-vendors-products-by-end-of-2027/",
+    "thumbnail_url": "https://media.datacenterdynamics.com/media/images/IMG_1458.2e16d0ba.fill-1200x630.jpg",
+    "created_at": "2026-05-12T02:00:04.729Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "openai-made-it-harder-to-fire-sam-altman",
+    "title": "OpenAI made it harder to fire Sam Altman",
+    "description": "How many directors does it take to fire OpenAI's CEO? The bar has gotten higher since Sam Altman was sacked back in 2023, new court documents show.",
+    "fullText": "OpenAI quietly changed its bylaws last year, said Elon Musk's expert witness in new court documents.\n Under the new rules, CEO Sam Altman would only need one-third of the board's support to remain CEO.\n OpenAI's \"supermajority\" rules contrast with the trend of most large US public companies.\n\n What are supermajority rules?\n\n How common are supermajority rules?\n\n Why did OpenAI change its bylaws?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "supermajority rules",
+      "bylaws",
+      "openai"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/openai-sam-altman-supermajority-majority-vote-fire-the-ceo-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a021b9dba7ef34b41f3710b?width=1200&format=jpeg",
+    "created_at": "2026-05-12T02:00:04.597Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "what-smart-people-are-saying-about-openais-new-10-billion-company-to-help-businesses-deploy-ai",
+    "title": "What smart people are saying about OpenAI's new $10 billion company to help businesses deploy AI",
+    "description": "OpenAI is working with some big names to start a new company focused on advising businesses on how to build and deploy AI.",
+    "fullText": "OpenAI announced it is creating a new company to consult businesses on building and deploying AI.\n OpenAI Deployment Company is backed by an initial investment of over $4 billion.\n The news shows just how far AI model makers will go to stake out turf in the enterprise market.\n\n What is OpenAI's enterprise strategy?\n\n How does AI impact business operations?\n\n Who are the investors in the new company?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "enterprise",
+      "openai"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/experts-react-openai-deployment-company-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a023a5ee1443b8dc48e4027?width=1200&format=jpeg",
+    "created_at": "2026-05-12T02:00:04.468Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "ilya-sutskever-voted-to-fire-sam-altman-he-avoided-the-internet-in-the-aftermath",
+    "title": "Ilya Sutskever voted to fire Sam Altman. He avoided the internet in the aftermath.",
+    "description": "As a member of OpenAI's board, Ilya Sutskever voted to fire Sam Altman — but later changed his mind.",
+    "fullText": "Ilya Sutskever voted to oust Sam Altman from OpenAI.\n After doing so, he didn't look at the internet, he testified Monday.\n Sutskever said he changed his mind and worried OpenAI would collapse without Altman.\n\n What led to Altman's firing?\n\n What is Safe Superintelligence Inc.?\n\n How did Sutskever's role change post-firing?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "sutskever",
+      "altman",
+      "openai"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/ilya-sutskever-testifies-firing-sam-altman-openai-trial-internet-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a024c4ee1443b8dc48e40e4?width=1200&format=jpeg",
+    "created_at": "2026-05-12T02:00:04.283Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "gitlab-employees-are-the-latest-to-face-layoffs-limbo-read-the-ceos-memo-about-restructuring-openly",
+    "title": "GitLab employees are the latest to face layoffs limbo. Read the CEO's memo about restructuring 'openly.'",
+    "description": "GitLab's CEO told employees the restructuring means layoffs, flatter structure, smaller teams, and AI agents everywhere.",
+    "fullText": "GitLab stock is down after hours following its plans to lay off staff as it looks to meet the \"agentic era.\"\n \"The planning is happening openly, including a voluntary separation window,\" GitLab's CEO wrote in a memo.\n The CEO acknowledged the limbo period \"creates real uncertainty for our team over the next few weeks.\"\n\n What is the \"agentic era\"?\n\n What is GitLab's future strategy?\n\n How might layoffs affect GitLab's culture?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "agentic era",
+      "gitlab's"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/gitlab-layoffs-memo-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a025f2cc9dd4cb81cda95fe?width=1200&format=jpeg",
+    "created_at": "2026-05-12T02:00:04.051Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "ai-isnt-paying-off-in-the-way-companies-think-layoffs-driven-by-automation-are-failing-to-generate-returns-study-finds",
+    "title": "AI isn’t paying off in the way companies think. Layoffs driven by automation are failing to generate returns, study finds",
+    "description": "A Gartner study found that while 80% of companies surveyed reported workforce reductions, there was no correlation to higher ROI.",
+    "fullText": "The ongoing dialogue regarding the ever-imminent displacement of white-collar workers by AI is predicated on the assumption that the technology will become as skilled as the very workers it threatens to displace, thereby cutting labor costs. But a new study found that’s not quite what’s playing out in many companies that have carried out AI-related layoffs.\n\nA survey of 350 global business executives with an annual revenue of at least $1 billion by the research and advisory firm Gartner found that many have reduced their workforce irrespective of AI adoption. While 80% of those surveyed who have piloted an AI or autonomous technology have reported workforce reductions, the businesses cut jobs due to automation regardless of whether the technology was actually generating returns.\n\n“Looking only at layoffs is shortsighted in terms of getting value from AI,” Helen Poitevin, VP analyst at Gartner and a key researcher of the study, told Fortune. “Chasing value only through headcount reduction is likely to lead most organizations down a path of limited returns.”\n\nThe looming threat of AI automation has many employees fearing for their jobs. But a growing number of business leaders and economists are skeptical that the technology will actually spur layoffs. Apollo chief economist Torsten Slok recently argued the Jevons paradox: a 19th century theory that explained why the demand for coal increased even as steam engines became more efficient and coal became cheaper. The paradox also applies to the AI age, Slok argued, and it predicts the technology will lead to more jobs, not less.\n\nPoitevin said the companies reporting high ROI were not the same ones reporting AI-related workforce reductions. In fact, workforce reduction rates were nearly equal for those reporting higher ROI and those with smaller returns or even worsened outcomes from autonomous operations.\n\n“That’s not where the value is,” she said of layoffs. “That’s not where the productivity gains are going to be.”\n\nInstead, the study found companies with the highest gains were those using AI as a form of “people amplification,” implementing the technology to make workers more productive rather than outright replacing them.\n\nThere’s a growing divide today in how global business leaders are approaching AI adoption. In a separate Gartner survey of CEOs and other business executives, about one-third said they expect autonomous AI to help humans make decisions, but stop short of making those decisions independently. But another 27% said they expect AI to do exactly that, with minimal or no human involvement.",
+    "readingTime": 3,
+    "keywords": [
+      "business executives",
+      "workforce reductions",
+      "business leaders",
+      "technology",
+      "layoffs",
+      "workers",
+      "study",
+      "that’s",
+      "gartner",
+      "autonomous"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://finance.yahoo.com/sectors/technology/articles/ai-isn-t-paying-off-163341066.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/o8KvTVYYFLN0UWZPwi5Kkw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03ODY-/https://media.zenfs.com/en/fortune_175/4228967e07bb0a3f9f41b3faee252605",
+    "created_at": "2026-05-12T01:59:58.358Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "openai-cofounder-and-microsoft-ceo-testify-in-elon-musk-v-openai-trial",
+    "title": "OpenAI co-founder and Microsoft CEO testify in Elon Musk v OpenAI trial",
+    "description": "OpenAI co-founder Ilya Sutskever and Microsoft CEO Satya Nadella were among the billionaires to testify in Elon Musk's lawsuit about the control of the artificial intelligence startup. Sam Altman will...",
+    "fullText": "OpenAI co-founder Ilya Sutskever and Microsoft CEO Satya Nadella were among the billionaires to testify in Elon Musk's lawsuit about the control of the artificial intelligence startup. Sam Altman will testify later this week. NBC News' Brian Cheung explains.\n\nElon Musk's lawsuit against one of the world's most valuable private companies has provided a number of details about the inner workings of OpenAI.\n\nElon Musk reached out to OpenAI's Greg Brockman about a potential settlement just days before his lawsuit against the company was set to go to trial.\n\nSixteen top business executives are expected to join President Trump on his trip this week to meet with Chinese leader Xi Jinping.\n\nThe College Sports Commission got a sweeping victory in its first serious challenge in this new era of college athletics.\n\nThe state of Texas is suing Netflix, alleging that the company spies on its users and purposefully designs the service to be addictive.\n\nDan Titus examines what's next for the 76ers and how it could impact the fantasy landscape going forward.\n\nA gas tax holiday would provide some small relief for drivers, but it wouldn't solve the biggest reasons prices at the pump are soaring.\n\nYahoo rounded up everything there is to know about this year's Academy of Country Music Awards, from the evening's full roster of performers and nominees to who Twain is most excited to meet.\n\nUS stock futures rose as Wall Street awaited April's inflation report, which is expected to provide clues about how the war in Iran is affecting the economy and where Federal Reserve interest rates may be headed.\n\nThe Cavaliers and Pistons meet in Game 4 of their second-round playoff series.",
+    "readingTime": 2,
+    "keywords": [
+      "musk's lawsuit",
+      "elon musk's",
+      "testify",
+      "college",
+      "openai"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://www.yahoo.com/news/videos/openai-co-founder-microsoft-ceo-001452331.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/63fd4dfedf7dbdd82a6674a8689d3bd91dcfa3380f3fbab47a9a201ecfce6bd8/lightyear_networkapi/resizefill_w1200;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fnbcu_713%2F14fcb160c785dcf516ae34c308549e03",
+    "created_at": "2026-05-12T01:59:58.295Z",
+    "topic": "news"
+  },
+  {
+    "slug": "jensen-huangs-message-to-electricians-and-plumbers-this-is-your-time-as-ai-buildout-leads-to-soaring-demand-for-skilled",
+    "title": "Jensen Huang’s message to electricians and plumbers: ‘This is your time,’ as AI buildout leads to soaring demand for skilled trades",
+    "description": "Workers in trades are seeing their career prospects increasingly entwined with that of AI.",
+    "fullText": "In the artificial intelligence age, industry leaders say the most in-demand and potentially lucrative professions might not be the roles building AI models themselves, but rather the sorely lacking manual labor needed to supply the technology’s massive infrastructure needs.\n\nThat’s the endorsement of Nvidia CEO Jensen Huang. Addressing Carnegie Mellon University’s class of 2026 during a commencement speech on Sunday, Huang described an AI-era jobs market that extends far beyond the confines of software and engineering degrees.\n\n“AI gives America the opportunity to build again. Electricians, plumbers, iron workers, technicians, builders—this is your time,” Huang said. “AI is not just creating a new computing industry, it is creating a new industrial era.”\n\nThe investment in the physical side of the AI boom is, indeed, enormous. Capital expenditure from the country’s largest tech firms could add up to some $700 billion this year, largely driven by commitments to build the data centers and other infrastructure required to train, deploy, and maintain AI models. Globally, the data center boom could generate almost $7 trillion in investment by the end of the decade if companies can keep up with the demand, according to a McKinsey report published last year.\n\nWhile white collar jobs, particularly those highly exposed to AI, seem more precarious by the day, AI’s infrastructure needs to have Huang and others pointing to the roles traditionally considered blue collar as perhaps the wise choice for new grads.\n\nSome data suggests Huang might be on to something. A March analysis of several million job postings by staffing firm Randstad found demand for skilled trades has soared 27% over the past three years. The need for construction workers is up 30%, welders 25%, and electricians 18%, according to the report. At the same time, companies aren’t able to hire enough young workers to keep up with their needs and to replace the millions of older trades people now entering retirement, a recent JLL report shows.\n\nFigures in the AI world often talk about hardware and computing limiting their loftiest ambitions to scale the technology further, but the lack of physical workers to build out that infrastructure is quickly becoming a bottleneck in its own right.\n\nIt’s not a problem exclusive to the AI industry either.\n\n“I think the intent is there, but there’s nothing to backfill the ambition,” Ford CEO Jim Farley told Axios in September, speaking about the lack of interest in the skilled trades that could support the country’s data center and manufacturing reshorting goals. The headache for employers could be to the benefit of workers, as Huang has previously suggested trades people could soon command six-figure salaries, even early in their career.",
+    "readingTime": 3,
+    "keywords": [
+      "skilled trades",
+      "infrastructure needs",
+      "workers",
+      "industry",
+      "roles",
+      "models",
+      "jobs",
+      "electricians",
+      "creating",
+      "computing"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://finance.yahoo.com/sectors/technology/articles/jensen-huang-message-electricians-plumbers-163907387.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/DnlK4i8GzsO5P_R9OF5Y.g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/fortune_175/b8568bb2298f4c284e99acded8a46805",
+    "created_at": "2026-05-12T01:59:57.886Z",
+    "topic": "finance"
+  },
+  {
     "slug": "using-llm-in-the-shebang-line-of-a-script",
     "title": "Using LLM in the shebang line of a script",
     "description": "This comment on Hacker News inspired me to investigate patterns for using my LLM CLI tool in a shebang line:",
@@ -1684,240 +1913,5 @@
     "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/ee2e/live/6d90bfd0-49e4-11f1-b55d-0f258dce1735.png",
     "created_at": "2026-05-08T13:06:40.792Z",
     "topic": "sports"
-  },
-  {
-    "slug": "the-room-not-the-words-in-it-my-ai-harness",
-    "title": "The room, not the words in it. My AI harness",
-    "description": "I had a mate who's still finding their feet with English ask me last week what I meant by something I'd said. Can't even remember the sentence now. Something throwaway. But watching them try to parse it, then watching myself try to explain it, was the thing that stuck...",
-    "fullText": "I had a mate who's still finding their feet with English ask me last week what I meant by something I'd said. Can't even remember the sentence now. Something throwaway. But watching them try to parse it, then watching myself try to explain it, was the thing that stuck with me.\n\nBecause the words weren't the problem. The words were fine. What they were missing was everything around the words. Who I was talking about. What we'd been chatting about earlier. The tone. The little half-joke buried in there that only really lands if you've lived in Australia for a bit. I had to unpack about ten minutes of context just to make one sentence make sense.\n\nEnglish does this constantly and we never notice. \"We need to talk\" from your boss isn't the same sentence as \"we need to talk\" from your mate at the pub. \"I'm fine\" can mean fine, or the exact opposite, sold entirely on the sigh. None of that is in the words. All of it is in the context.\n\nYou hand the model a sentence. Sometimes one line. It has to figure out what you meant, not what you typed. Except it doesn't know which repo you've been swearing at. Doesn't know \"the auth thing\" is the OAuth flow you rebuilt last Tuesday. Doesn't know your team banned that library, this repo uses tabs, that function is held together by a 2019 comment and hope.\n\nSo it guesses. And when it guesses wrong you get a beautifully formatted answer to a problem you never had.\n\nMost of the noise right now is about the model. Bigger, smarter, faster. Fine. But that's not the broken bit for most people. The broken bit is the context. The harness around the model. What it sees, what it has to infer, how much of your actual situation makes it across the gap before it starts typing.\n\nThat's what this is about. The room, not the words in it.\n\nI'm borrowing the word from Birgitta Böckeler's Harness Engineering, on Martin Fowler's site. Her definition is the cleanest one I've read: the harness is everything in an AI agent except the model itself. The controls around the model that increase your confidence in what comes out, and reduce how closely you have to supervise it.\n\nBöckeler splits those controls two ways, and both splits matter for what follows.\n\nThe first split is guides versus sensors. Guides are feedforward. They steer the agent before it acts, so the first attempt is more likely to be the right one. Sensors are feedback. They observe what the agent did and flag problems after the fact, so it can self-correct. A spec is a guide. A failing test is a sensor.\n\nThe second split is computational versus inferential controls. Computational controls are deterministic. Tests, linters, type checkers. Fast, cheap, reliable. Inferential controls are AI judging AI. Slower and more expensive, but they can reason about whether the code is any good, not just whether it compiles.\n\nThe other phrase from the article I keep coming back to is keep quality left. Catch the problem in the spec, not the PR. In the PR, not in prod. Earlier is cheaper. Every skill below is an attempt to push checks left.\n\nI've always been in on AI coding, mostly from a curiosity perspective. The early attempts were weak. The model didn't understand best practices, solutions were overdone, first principles were out the window, context windows were tiny. Anything more than a small app or a tidy little refactor was fraught.\n\nI remember a 1:1 with a junior developer back then. She was sheepish about how long she'd spent on a problem when the solution turned out simpler than she'd thought. We've all been there. There's a lot to be learned from that style of slog. Spending real time on something, braving through, finding the answer, and getting the win at the end. That challenge-carrot-payoff loop is one of the reasons this career still works for me.\n\nIt didn't take long for AI tools to start eating into that. I'd recently moved into an Engineering Manager role and was on the tools less anyway. I was using Cursor to build small things on the side. One of them, shakashuffle, was a quokka-themed planning poker app (the team estimation game where everyone reveals a card at once so the loudest voice doesn't anchor the room). I wanted my own team to use it because every other planning poker tool out there was clinical, joyless, and somehow expensive.\n\nGetting the landing page to a level I was happy with using Claude 3.5 was a slog, but not the good kind. I spent more time steering the model away from regressions and bad patterns than I did making forward progress. Claude 3.7 with autonomous agents was a step up. Bigger context, better awareness of the codebase. Still not enough. I was writing rules in repo docs, scattering comments around, padding prompts with everything I thought it might need, and it would still trip over itself.\n\nI'd played around with a few planning tools. When Amazon Kiro turned up with its style of spec-driven development, I was in. I'd already been deep in refining the flow from idea to implementation. The product vision, the UX research, the iterative narrowing, the task breakdown, the API schemas, the estimations. All the stuff a real team does before code gets written. Spec-driven development felt like a natural extension of that, just for one developer and an agent.\n\nIf you're a pure vibe coder, I'll admit, this might look like a lot of work. But if you want to stop the agent hallucinating details you didn't mention, or quietly refactoring three files it wasn't asked to touch, stick with me. This is the harness I use to stay in control of Claude, Kiro, Cursor, or whatever else, all of which (let's be honest) are gently working to abstract this stuff away from you.\n\nThe structure here is influenced by the paper Interpretable Context Methodology: Folder Structure as Agentic Architecture by Jake Van Clief and David McDermott at Eduba. The core idea: when planning, decisions, and context live in plain files, they stay readable, portable, and improvable. No vendor lock-in, no hidden state. The structure is part of the architecture.\n\nFor reference. Use whatever you want, this is just mine.\n\nThe four skills I've written to keep my development flow honest are all in open-coding-tools on GitHub:\n\nAll of them write their artefacts to a .plans/ directory at the root of your repo.\n\nSame example end to end, because that's the only way the value clicks.\n\nSay I have an idea. A web app that lists campervan-friendly camping locations with their amenities, but social, so people on the road can leave reviews and follow each other. I open Claude Code and prompt:\n\nI have an idea for a web app that finds all the campervan-driveable camping locations and lists out their amenities. I want it to feel social. Create me a PRD for this using the skill.\n\nproduct-requirements-skill.md on GitHub\n\nThe PRD skill checks .plans/product-requirements-document/ to see what's already in there, picks the next number, reads the template, and creates a new file at .plans/product-requirements-document/PRD-001 - campervan-social.md. The skeleton lands with everything it can fill from my one-paragraph prompt. An Overview. A guess at the Tech Stack based on the repo conventions. A stub for Users. A Features list with the obvious bits. Data Model, UX Design, and Implementation Plan as placeholders.\n\nWhat it doesn't do is fire twenty questions at me in chat. It adds three checkbox questions at the bottom of the PRD file. Something like:\n\nI tick a box, write a note if I want, save the file. The skill reads the file again, folds my answer into the Users section, the Features section, and the Implementation Plan. Then it raises whatever follow-on questions my answer unlocked. Q1 about accounts might open Q4 about which auth provider, and Q5 about whether usernames are unique. The loop runs until every question is answered, the spec is internally consistent, and I sign off.\n\nThe questions I'd skip on my own are the ones the file makes me answer. Those are usually the ones that would've bitten me in week three.\n\nThat's skill one. A guide, in Böckeler's terms. Pure feedforward. It saves me from the most expensive failure mode in AI coding: building something nobody asked for, beautifully.\n\nfeature-development-skill.md on GitHub\n\nSigned-off PRD in hand, I'm not going to give the agent the whole document and say \"build it.\" That's too much rope. I pick one feature. \"Find a campsite within 30 minutes of my current location, filter by amenities.\"\n\nPlan an FD for a location search feature in campervan-social\n\nSame loop, different output. The skill creates .plans/feature-development/FD-001 - campervan - location-search.md, pulls the relevant constraints from the PRD, identifies the modules it'll touch (a server action, a client filter component, a Supabase query), and writes a Files to Modify section.\n\nThe bit I really like is the Risks table. Once it's investigated the codebase, it surfaces footguns it found while looking around. Stale-cache windows. A coexistence issue between an old hook and a new one. A spelling drift between en_AU and en_US in existing copy. Each risk row is tied to a verification step in a tests section, so nothing gets flagged without a plan to actually catch it.\n\nRisks as prose are an essay you skim. Risks as a table are a checklist you can't pretend you didn't see. By the time I sign the FD off, I have a document I could hand to a contractor on the other side of the world and they'd build the same thing.\n\nStill a guide. Still feedforward. The Risks table is the bit that quietly does double duty as a sensor brief, because each risk is paired with the test that'll catch it if it shows up.\n\nI run this on myself before I merge. The model wrote the code. I want a second pass with fresh eyes that aren't the same eyes that wrote it.\n\nDo a CR on the uncommitted changes on this branch.\n\nThe skill reads CLAUDE.md to remember project conventions, runs git diff, reads the surrounding code (diffs miss context), and writes a file at .plans/code-review/CR-001 - campervan - location-search.md. One-line verdict at the top. Findings grouped by severity: blockers, majors, minors, nits.\n\nThis is the inferential sensor in the harness. LLM as judge. Slower and more expensive than a linter, but a linter can't tell you the abstraction is wrong, the naming is misleading, or the route shouldn't be a client component. Computational controls catch the things you can spell out as a rule. This catches the things you can only spot by reading the code.\n\nThe voice is what makes it useful. Principal engineer reviewing a colleague's PR. Direct. No \"consider\" weasel words. If something's fine, it says so and moves on. If something's wrong, it says why and what to do instead. Last week it caught a hardcoded hex where a token would've done, a route that should've been server-only but had 'use client' at the top, and a Promise<any> in a service file because I'd been lazy. None would've stopped the build. All would have annoyed me three weeks later when I'd forgotten the context.\n\ntesting-pyramid-skill.md on GitHub\n\nTwo modes. \"What should I test for this feature\" before I write the tests, or \"audit the existing suite\" when CI starts feeling sluggish.\n\nOutput goes to .plans/testing-pyramid/TP-001 - campervan - location-search.md. It reads the FD, lists every behaviour the feature introduces in a table, and assigns each one to a layer: unit, integration, or e2e. The heuristic is brutally simple: if a test would pass with mockResolvedValue, it doesn't belong in Playwright.\n\nAudit mode has saved my CI bill more than once. Looking at a suite and going \"eighteen unit tests, zero integration tests, twelve e2e tests\" is the kind of feedback I'd never give myself, because I'm the one who wrote the suite.\n\nThis skill is how I keep the cheap, fast, computational sensors doing the heavy lifting, and reserve the expensive end-to-end tests for behaviour you can only verify in a real browser. Quality left, again.\n\nA wrinkle that's crept into the latest versions of these skills. Each Implementation Plan phase now picks its model deliberately, with a small routing table baked into the spec. Haiku for mechanical work like grepping, file moves, pasting known content. Sonnet for bounded judgement where the plan already prescribes the answer. Opus for design, risky migrations, and synthesis that needs to hold the whole picture in its head. Subagents get spawned with the cheapest viable model, and the top-level Opus session is reserved for the bits that actually need it.\n\nQuality left applies to the bill, not just the bug count. If the spec is tight enough that Sonnet can't get it wrong, paying Opus rates is just lighting money on fire.\n\nFour skills. One pattern. Markdown files in .plans/, in-file checkbox questions, fold-in loops, agents that stop and wait instead of running off and writing 400 lines I didn't ask for.\n\nTwo of them (product-requirements, feature-development) are guides. Two of them (code-review, testing-pyramid) are sensors, one inferential and one orchestrating the computational ones. Together they're a small, opinionated harness. The repo itself does the rest. Path aliases, a typed schema, a tight ESLint config, a shared component library. Böckeler calls that harnessability, the structural properties of a codebase that make it controllable. None of this works on a soup of any and circular imports. The harness lives on top of a codebase that's been kept tidy on purpose.\n\nIs this overkill for a weekend project? Probably. Do it anyway. The discipline of writing the context down, even briefly, is what makes the agent useful instead of dangerous.\n\nThe challenge-carrot-payoff loop. It didn't go anywhere. It moved. The slog isn't in the code now, it's in the thinking. Forcing yourself to answer the questions you'd otherwise hand-wave past. Reconciling the contradictions in your own head before they become contradictions in the spec. The win at the end isn't getting the function to compile. It's reading back a document so tight that the agent ships exactly what you intended, the first time. Different shape. Same payoff.",
-    "readingTime": 12,
-    "keywords": [
-      "implementation plan",
-      "risks table",
-      "camping locations",
-      "spec-driven development",
-      "campervan location-search.md",
-      "challenge-carrot-payoff loop",
-      "planning poker",
-      "web app",
-      "broken bit",
-      "inferential controls"
-    ],
-    "qualityScore": 1,
-    "link": "https://blog.imjackofitall.com/posts/2026-04-28/",
-    "thumbnail_url": "https://blog.imjackofitall.com/images/2026-04-28/chicken.png",
-    "created_at": "2026-05-08T07:15:12.100Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "i-used-ai-to-code-a-scheduling-app-in-minutes-it-was-easy-but-it-shouldnt-worry-software-companies",
-    "title": "I used AI to code a scheduling app in minutes. It was easy, but it shouldn't worry software companies.",
-    "description": "I wanted to see how many minutes it would take to build a cute app on Lovable, with functions my friends and I could use to solve scheduling problems.",
-    "fullText": "My friends and I have trouble syncing our schedules for meetups.\n I wanted to see how far I could get using AI to code a cute, helpful scheduling solution.\n I used Lovable to build a web app and got a scheduler up and running within minutes.\n\n How does AI coding work?\n\n Why might AI not threaten software firms?\n\n How is AI changing app development?\n\n What is Lovable's unique offering?\n\n What are common scheduling app features?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "scheduling"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/nontechnical-worker-ai-code-lovable-scheduling-app-friends-meetup-2026-5",
-    "thumbnail_url": "https://i.insider.com/69f30ba9402f8423cd99c4b2?width=1200&format=jpeg",
-    "created_at": "2026-05-08T07:15:11.598Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "airbnbs-ceo-says-ai-writes-60-of-the-companys-code-and-makes-managers-get-their-hands-dirty",
-    "title": "Airbnb's CEO says AI writes 60% of the company's code — and makes managers get their hands dirty",
-    "description": "CEO Brian Chesky added that managers are also getting their hands dirty with coding or using Claude Code.",
-    "fullText": "Airbnb's CEO Brian Chesky sees his company changing significantly with AI.\n He said nearly 60% of the company's code is now written by AI.\n He added that managers are also getting their hands dirty with coding or using Claude Code.\n\n How is Claude Code impacting Airbnb?\n\n How does AI-generated code affect innovation?\n\n How does Airbnb's AI use compare to rivals?\n\n What skills do managers need in AI-driven firms?\n\n What are the challenges of AI in coding?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "ai he",
-      "managers",
-      "coding",
-      "code",
-      "airbnb's",
-      "claude"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/airbnb-ceo-ai-write-majority-company-code-managers-hands-on-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fd6607c9dd4cb81cda860d?width=1200&format=jpeg",
-    "created_at": "2026-05-08T07:15:11.593Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-download-the-tech-reshaping-ivf-and-the-rise-of-balcony-solar",
-    "title": "The Download: the tech reshaping IVF and the rise of balcony solar",
-    "description": "Plus: After years of insults, Anthropic and SpaceX have teamed up.",
-    "fullText": "This is today's edition of The Download, our weekday newsletter that provides a daily dose of what's going on in the world of technology.\n\nIVF has brought millions of babies into the world over the last four decades. But the process can still be slow, painful, and expensive—and far from guaranteed to work. Now, a wave of new technologies aims to change that.\n\nResearchers are using AI to identify promising sperm and embryos, developing robotic systems that could automate parts of the IVF process, and even exploring controversial genetic editing techniques designed to prevent inherited disease.\n\nThe technologies could make IVF more effective and accessible. But they’re also raising difficult ethical questions about how far reproductive medicine should go.\n\nThis story is from MIT Technology Review’s What’s Next series, which looks across industries, trends, and technologies to give you a first look at the future. You can read the rest of them here.\n\nDozens of US states are considering legislation to allow people to install plug-in solar systems, often called balcony solar. These small arrays require little to no setup and could help cut emissions and power bills.\n\nProponents say the systems could make solar power more accessible, but some experts caution that there are safety concerns.\n\nRead the full story on balcony solar’s potentially massive impact in the US.\n\nThis article is from The Spark, our weekly climate newsletter. \n\nResistance against AI’s proliferation is growing. People from all walks of life are speaking out against rising electricity bills from data centers, disappearing jobs, chatbots’ impact on teen mental health, the military’s use of AI, and copyright infringement—among other concerns.\n\nPeople want to have a say in how the technology transforms their future. And they’re starting to create small cracks in AI labs’ vision for the future. Find out how.\n\nResistance is on our list of the 10 Things That Matter in AI Right Now, MIT Technology Review’s guide to what’s really worth your attention in the buzzy world of AI.\n\nI’ve combed the internet to find you today’s most fun/important/scary/fascinating stories about technology.\n\n1 After years of insults, Anthropic and SpaceX have teamed up\nAnthropic will tap SpaceX’s GPUs to meet surging demand. (Axios)\n+ While SpaceX gets a marquee customer for its AI ambitions. (Wired $)\n+ Anthropic says the deal will double Claude Code’s rate limits. (Ars Technica)\n+It’s also exploring building compute capacity in space. (CNBC)\n+ Musk previously called Anthropic “evil” and “misanthropic.” (Gizmodo)\n\n2 Ex-OpenAI leaders say Sam Altman sowed “chaos” and distrust\nFormer CTO Mira Murati said she couldn’t trust his words. (The Verge)\n+ He also bypassed OpenAI’s safety board before a model release. (Gizmodo)\n+ And pitted leaders against one another. (Forbes)\n+ But Elon Musk still tried to recruit Altman to lead a Tesla AI lab. (FT $)\n+ Here’s why Musk and Altman are in court. (MIT Technology Review)\n\n3 China’s humanoid robots are fueling its next export boom\nMorgan Stanley says Beijing has taken an early lead in the sector. (Bloomberg $)\n+ Gig workers are training humanoids at home. (MIT Technology Review)\n\n4 SpaceX’s IPO plans will give Elon Musk “virtually unchecked” authority\nAnd erode typical shareholder protections. (Reuters $)\n+ Activists and pension funds are pushing back against the IPO. (Wired $)\n+ While SpaceX is shifting focus from Falcon 9 to Starship. (Ars Technica)\n\n5 Google DeepMind will use the MMORPG Eve Online for AI model testing\nIt’s also bought a stake in the game’s maker. (Ars Technica)\n+ DeepMind also recently built a new video-game-playing agent. (MIT Technology Review)\n\n6 The US risks isolating its automakers by banning a Chinese EV standard\nIt’s prohibiting software that’s dominating global EV markets. (Rest of World)\n\n7 Elon Musk’s proposed Texas chip factory could cost $119 billion\nIt would manufacture chips for Tesla, SpaceX, and xAI. (CNBC)\n+ Future AI chips could be built on glass. (MIT Technology Review)\n\n8 Why the “attention-span crisis” is misunderstood\nTechnology may be exhausting attention rather than shortening it. (Atlantic $)\n\n9 Scientists are getting closer to explaining what causes lightning\nNew tools are revealing unexpected physics inside thunderstorms. (Quanta)\n\n10 Kids have found an age verification loophole: fake mustaches\nResourceful children are foiling blocks on adult websites. (TechCrunch)\n\n—Mira Murati, the former CTO of OpenAI, testifies ‌in court that CEO Sam Altman was deceptive, Reuters reports.\n\nDuring the Cold War, the US prepared for a psychic war with the Soviet Union and China by spending millions of dollars on research into manipulating the human brain.\n\nThe science never exactly panned out, but residual beliefs fostered by this bizarre conflict continue to play a role in ideological and scientific debates to this day. And now, new technologies are altering how we think about mind control.\n\nThis is how the race for mind control changed America forever.\n\nA place for comfort, fun and distraction to brighten up your day. (Got any ideas? Drop me a line.)\n\n+ Listen to the 10 bird songs of spring in this lovely compilation of American species.\n+ Good Samaritans saved a 29-foot whale that had wandered too far into a river.\n+ Explore the intersection of human emotion and machine learning in this look at AI’s influence on art.\n+ Break down the walls between streaming services and manage all your digital music in one place with this app.\n\nPlus: China has blocked Meta’s $2 billion acquisition of AI startup Manus.\n\nPlus: An unauthorized group has reportedly accessed Anthropic’s Mythos.\n\nPlus: DeepSeek has unveiled its long-awaited new AI model.\n\nDiscover special offers, top stories,\n upcoming events, and more.",
-    "readingTime": 5,
-    "keywords": [
-      "mira murati",
-      "ars technica",
-      "mit technology",
-      "technology review’s",
-      "technology review",
-      "technologies",
-      "systems",
-      "solar",
-      "model",
-      "newsletter"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.technologyreview.com/2026/05/07/1136956/the-download-ivf-tech-balcony-solar/",
-    "thumbnail_url": "https://wp.technologyreview.com/wp-content/uploads/2026/05/260505_IVF_heroNEW.jpg?resize=1200,600",
-    "created_at": "2026-05-08T07:15:10.230Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "being-human-helps-despite-rise-of-ai-is-there-still-hope-for-europes-translators",
-    "title": "‘Being human helps’: despite rise of AI is there still hope for Europe’s translators?",
-    "description": "A booming tech sector has disrupted translation jobs in publishing – but they could be needed for a while longer yet\nIn February 2022, while he was plugging away at rendering the US writer Dana Spiotta’s novel Wayward into French, the literary translator Yoann Gentric decided he needed a bit of light relief. He would test whether AI could put him out of work.\nGentric had been grappling with a short non-verbal sentence that described the book’s protagonist’s feelings upon opening a window: “Bright, sharp night air, bracing.” He put the prompt into DeepL, a neural-network-powered machine translation engine that regularly outperforms Google Translate in accuracy assessments.\n Continue reading...",
-    "fullText": "A booming tech sector has disrupted translation jobs in publishing – but they could be needed for a while longer yet\n\nIn February 2022, while he was plugging away at rendering the US writer Dana Spiotta’s novel Wayward into French, the literary translator Yoann Gentric decided he needed a bit of light relief. He would test whether AI could put him out of work.\n\nGentric had been grappling with a short non-verbal sentence that described the book’s protagonist’s feelings upon opening a window: “Bright, sharp night air, bracing.” He put the prompt into DeepL, a neural-network-powered machine translation engine that regularly outperforms Google Translate in accuracy assessments.\n\nThe proposed translation was reassuring, with his job security in mind: L’air de la nuit, vif et vif, était vivifiant (The night air, lively and lively, was enlivening.) AI had translated the sentence’s meaning but was seemingly unaware that the repetitions rendered the line absurd. It was far inferior to his own translation that would be published in the book a year later: L’air pur et piquant de la nuit, vivifiant.\n\nWhen Gentric repeated his experiment this spring, however, the outcome made him feel less at ease: L’air nocturne était vif, pur et vivifiant, DeepL suggested this time. The online translator still lost the sentence’s stylistic trait by adding a verb, but it had learned to use three different words that even had a musical ring to them. “I don’t know if it’s just chance or a fine-tuned algorithm at work, but nocturne and pur is not bad,” said Gentric.\n\nChatbots running on large language models (LLMs) – neural networks trained on vast amounts of text to generate natural-sounding language – are rapidly infiltrating every aspect of our work and leisure lives. But few professional sectors are being disrupted by the technology as rapidly as the translation industry in Europe, home to more than 200 languages and a booming tech sector.\n\nAccording to a recent joint survey by the French authors’ societies ADAGP and the Société des Gens de Lettres, 79% of translators believe the rise of AI “poses a threat of replacing all or part of their work”. In Britain, a 2025 survey found that 84% of translators questioned expected lower demand for human translation, resulting in lower pay.\n\nThose fears concern the future, but for many translators the nature of their work has already changed. Laura Radosh, a Berlin-based German-to-English translator, used to get about four job requests per month from clients including universities, professors and museums. Last year, the number of offers dropped to one each month.\n\nMany of them were “post-editing” jobs, which required her to correct texts that had already been run through a machine-translation engine. “Post-editing took me as much time as translating from scratch,” said Radosh.\n\nFar less creatively fulfilling than translating from scratch, post-editing is also less well-paid: usually compensated by the hour rather than by the page or by the book, it is paid “at unacceptable rates considering the work involved”, according to the French translators’ association. In Germany, publishers have been found to offer typical rates of two to eight euros per page – a quarter of the average pay for translating a page from scratch.\n\nBut rates for regular technical translations have tumbled too. “I got offered a job at 60 cent[s] a line,” said Radosh. “Before then, 80 cent[s] was the lowest rate I had ever come across.”\n\nEven before the advent of LLMs, translation was a precarious profession: a recent survey by the German translators association VdÜ found that the average income for literary translators – traditionally at the lower-paid end of the sector – was as little as €20,363 euros per annum before tax. But the latest changes in the industry mean that for many translators, the numbers no longer stack up – Radosh recently took a part-time job doing book-keeping for an NGO.\n\nMarco Trombetti, the co-founder and CEO of the machine translation company Translated, said: “Without help, the human brain basically is able to produce about 3,000 words a day of translation. Beginners will manage about 1,500, the best translator in the world may manage 6,000, but the variation is not that big.”\n\nThe cost of human translation, he argued, had until now been defined by the number of neurons we have in the brain. “That’s around 100bn,” Trombetti said. “But if we change that, then we change the unit economics of translation.”\n\nYet the speed of technological change is also revealing what human translators still do best. For one, many machine translators still struggle with context. The German-British academic publisher Springer Nature offers its authors the option to have their books auto-translated into other languages for free, but in spite of assurances of subsequent “human checks”, this process has in the past led to comical results.\n\nIn 2024, Springer Nature machine-translated into German an English-language book by a group of Indian academics called ‘Capital’ in the East: Reflections on Marx. In the chapter headings, however, the machine translator DeepL had rendered “capital” not as Kapital in the intended sense, but Hauptstadt, meaning “capital city”.\n\nA spokesperson for Springer Nature said in a statement: “Our AI‑supported translation is human‑led and reviewed by professional editors. Errors like this are rare and regrettable, and this instance relates to a limited pilot that has since ended.”\n\nJörn Cambreleng, the director of Atlas, a French organisation promoting literary translation, said: “Machine translation is not creative. These systems are built to produce sentences that are generic, sentences that have been said before or sound like they have been said before. Whereas good human translators strive to put into words something that has never been said before.”\n\nOne of the ironies of the upheaval is that literary translation now appears to be a comparatively safer career choice than its technical counterpart.\n\nThe HarperCollins-owned imprint Harlequin France has confirmed that it is working with a French communications agency, Fluent Planet, to produce translations that are generated by AI software and then post-edited by humans, although for now such trial runs are confined to the pulpier reaches of the market: Harlequin’s titles include A Mistress’s Confession and The Embrace of a Prince.\n\nIn Germany, where the total number of new published books has been gradually declining year on year, literature in translation has held up remarkably well, with 8,765 books in translation published in 2024 making up a historically high 15% of the overall output. Increasingly, authors are also contractually obliging their publishers not to use AI in the translation process, said Marieke Heimburger, a Danish-to-German translator who chairs VdÜ.\n\n“AI really cannot do dialogue,” said Katy Derbyshire, a Berlin-based translator who has rendered into English novels by Clemens Meyer, Christa Wolf and others. “When you are translating from scratch, you learn to understand the characters and their motivations, and you’re constantly adjusting them in your head – to individual situations, but also to genre. The dialogue that AI came up with just didn’t suit the character description at all.”\n\nBeing human helped the translation process, she added. “My body has experienced all the pain and the joy that literature strives to convey. I understand what someone might scream when they hit their toe on the bed frame – an algorithm doesn’t.”\n\nFernando Prieto Ramos, of the University of Geneva’s faculty of translation and interpreting, said his centre had noticed a drop in applications to translation courses three years ago, when the rise of generative AI fuelled the hype around machine translation. “But the trend is gradually reverting again with a more diversified training offer,” he said.\n\nEven people who develop machine translation software concede there are tasks that remain beyond their product’s reach. “If in Italian I say Solo tre parole: non sei solo, then a literal translation into English would be ‘Just three words: you are not alone,’” said Trombetti, who founded Translated in 1999. “But you’ve ended up with four words, not three. That’s something that machine translation still struggles with.”\n\nHeimburger said: “I am not really scared of AI, because I know it cannot do what I can do. What I am afraid of is the people who think that AI can do my job.”",
-    "readingTime": 7,
-    "keywords": [
-      "booming tech",
-      "night air",
-      "tech sector",
-      "euros per",
-      "translators association",
-      "machine translation",
-      "human translators",
-      "translation process",
-      "literary translation",
-      "springer nature"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/technology/2026/may/08/being-human-helps-despite-rise-of-ai-is-there-still-hope-for-europes-translators",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/726e5848316bbe71abf2f2680d0e07d8e3f8e398/1_0_4998_4000/master/4998.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d31e2508b2d91075844a4fa88fd1a46e",
-    "created_at": "2026-05-08T07:15:03.730Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "uk-schools-should-remove-pupils-online-photos-as-ai-blackmail-threat-grows-say-experts",
-    "title": "UK schools should remove pupils’ online photos as AI blackmail threat grows, say experts",
-    "description": "Criminals are manipulating pictures found on school websites and social media to create sexually explicit images \nUK schools should remove pictures of pupils’ faces from their websites and social media accounts because blackmailers are using them to create sexually explicit images, experts have said.\nChild safety experts and the UK’s National Crime Agency (NCA) warn that criminals are using AI to manipulate photos of children and then demand cash not to publish them.\n Continue reading...",
-    "fullText": "Criminals are manipulating pictures found on school websites and social media to create sexually explicit images\n\nUK schools should remove pictures of pupils’ faces from their websites and social media accounts because blackmailers are using them to create sexually explicit images, experts have said.\n\nChild safety experts and the UK’s National Crime Agency (NCA) warn that criminals are using AI to manipulate photos of children and then demand cash not to publish them.\n\nThey are recommending educational institutions remove identifiable pictures of children from their websites and social media accounts – or consider not using them at all.\n\nThe Internet Watch Foundation (IWF) said an unnamed UK secondary school had recently been subjected to a blackmail attempt after criminals used the institution’s website or social media accounts to take photos of schoolchildren and then, using AI tools, turned them into child sexual abuse material (CSAM). The blackmailers sent the images to the school and threatened to publish them online if they did not receive money.\n\nThe IWF, which monitors CSAM online, used a digital tool to turn the blackmail images into a “hash”, or digital fingerprint, which was shared with leading tech platforms in order to prevent them from being uploaded. The watchdog said 150 of the images from the secondary school blackmail attempt could be classified as CSAM under UK law.\n\nJess Phillips, the minister for safeguarding and violence against women and girls, said the attempted blackmailing of schools was a “deeply worrying emerging threat” and laws on use of AI to create explicit images would be updated if necessary, having announced a ban on possessing AI models designed to generate CSAM.\n\n“We will not hesitate to go further if necessary and make sure our laws stay up to date with the latest threats,” she said.\n\nThe IWF said the secondary school incident, which happened late last year, is not the only blackmail attempt involving manipulated school website or social media account photos that it is aware of in the UK. The IWF is not naming the school involved in the incident last year, or the police force that contacted it seeking help in blocking distribution of the images.\n\nA UK advisory body on tackling online harms, the early warning working group (EWWG), has issued guidance to schools on protecting pupils from blackmailers. Although the problem is not widespread, the group is concerned it is “only a matter of time” before more schools are targeted.\n\nThe group recommended schools remove images that show a student face-on and instead publish images that are harder to misuse, such as pictures taken from a distance, blurred images or portraits taken from behind a pupil. The advice warned against publishing “identifiable information” that could be used to harm or blackmail an individual, such as “names or faces”.\n\nSchools should also consider whether they need pupil photos at all, said the guidance, stating that establishments should mull over “whether using imagery without children and young people’s faces can still achieve your objectives”. This included “celebrating achievements more safely” by showcasing milestones “while minimising risks”.\n\nAvoiding the use of names or full names in labelling photos will reduce the risk of blackmail, the advice added, while applying privacy settings to a school website or social media account will limit who can view or share content.\n\nA checklist of actions recommended by the EWWG included conducting regular audits of children’s images on websites, social media accounts and promotional material and regularly seeking re-signing of image consent agreements.\n\nIf an incident occurs, the group advised schools to contact the police immediately, retain any criminal images and remove from view the original images that had been tampered with. The EWWG’s members include the NSPCC charity, the IWF, the Welsh government, Education Scotland, the Safeguarding Board for Northern Ireland and the NCA.\n\nThe Confederation of School Trusts (CST), whose academy schools educate more than four million primary and secondary schoolchildren across England, said schools would “carefully consider” the guidance and find the “right balance” between “celebrating pupils … and keeping everyone safe”.\n\n“As educators we instinctively want to celebrate children’s achievements and that includes sharing photos and videos of all the good things that go on in our schools – it is deeply depressing that in doing so we potentially have to contend with threats from abusers and scammers,” said Leora Cruddas, CST chief executive.\n\nBlackmailing people over intimate images is known as sextortion and the crime has a become increasingly prevalent, with the advent of generative AI tools giving criminals a new way of extorting victims. Typically, sextortion involves manipulating a child or adult into sending intimate images or videos of themselves and then threatening to send the images to friends or relatives, or release them online, if the victim does not send money or more explicit images.\n\nSextortion has been linked to the suicides of several British teenagers who have killed themselves after receiving extortion threats. In 2024, the Guardian reported the threat was evolving due to advances in AI, with one teenager being sent a fake “nude” image of herself that appeared to have been taken from her Instagram account.\n\nThe Report Remove service, which allows children to flag explicit images or videos of themselves that have appeared – or could appear – online, said sextortion attempts are increasing. Last year it received 394 reports from under-18s of blackmail attempts after the victims had been manipulated into sending sexual images to predators. The figure is 34% higher than in 2024.\n\nSextortion has been carried out by criminal gangs based outside the UK, with the NCA pointing to west Africa and Nigeria as hubs. It is understood that the secondary school sextortion attempt involved the use of terms that appear in negotiation “scripts” used by sextortion gangs.\n\nSome schools have already taken action after an increase in the threat from AI tools. Last year, the Loughborough Schools Foundation, which represents three private schools, redesigned its website to remove recognisable images of pupils.",
-    "readingTime": 5,
-    "keywords": [
-      "create sexually",
-      "sexually explicit",
-      "media accounts",
-      "social media",
-      "blackmail attempt",
-      "media account",
-      "secondary school",
-      "explicit images",
-      "school website",
-      "intimate images"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/technology/2026/may/08/uk-schools-remove-pupils-photos-online-ai-blackmail-threat-grows",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/d95928e9f50fd04fa2c00f6b7b7ae080b1146273/244_0_5151_4122/master/5151.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=c483b6501d7cefd353ac8e090f8eeadc",
-    "created_at": "2026-05-08T07:15:03.703Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-ai-jailbreakers-podcast",
-    "title": "The AI jailbreakers – podcast",
-    "description": "Journalist Jamie Bartlett on the people trying to get AI to say things it shouldn’t … for the safety of us all\nAll the major AI chatbots – from ChatGPT to Gemini to Grok to Claude – have things they should and shouldn’t say.\nHate speech, criminal material, exploitation of vulnerable users – all of this is content that the most successful large language models in the world shouldn’t produce, that their safety features should guard against.\n Continue reading...",
-    "fullText": "Journalist Jamie Bartlett on the people trying to get AI to say things it shouldn’t … for the safety of us all\n\nAll the major AI chatbots – from ChatGPT to Gemini to Grok to Claude – have things they should and shouldn’t say.\n\nHate speech, criminal material, exploitation of vulnerable users – all of this is content that the most successful large language models in the world shouldn’t produce, that their safety features should guard against.\n\nJournalist Jamie Bartlett – and author of How to Talk to AI – meets the people deliberately trying to break the LLMs out of their own rules.\n\nJamie tells Annie Kelly why these ‘AI jailbreakers’ do it, and what it tells us about how this technology ultimately works.",
-    "readingTime": 1,
-    "keywords": [
-      "journalist jamie",
-      "jamie bartlett",
-      "shouldn’t",
-      "safety"
-    ],
-    "qualityScore": 0.55,
-    "link": "https://www.theguardian.com/news/audio/2026/may/08/the-ai-jailbreakers-podcast",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/514564b10d9a0052b893e014fdc15e5683457169/61_0_3163_2530/master/3163.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=02f05ba379bb8172736de995058768b9",
-    "created_at": "2026-05-08T07:15:03.702Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "why-is-silicon-valley-suddenly-obsessed-with-being-tasteful",
-    "title": "Why is Silicon Valley suddenly obsessed with being tasteful?",
-    "description": "Whether it’s Palantir selling a $239 chore coat, Anthropic taking over a coffee shop or executives walking the red carpet at the Met Gala, tech’s biggest players are pivoting to fashion to sell their brands – and attempt to appear cooler in the process\nLast week, the US spy tech and data firm Palantir launched its latest “merch drop”, including a denim chore coat. “Rugged utility, enduring style” reads the website’s description of the $239 (£175) jacket, which is branded with the company’s logo on the chest pocket and comes in blue or black.\nEliano Younes, the head of strategic engagement at Palantir, told the New York Times that it was part of the company’s commitment to “re-industrializing America” – the jacket is made in Montana and recalls workwear of a previous era. “It’s not political,” he added. “It’s about people who love Palantir and are aligned with our mission.",
-    "fullText": "Whether it’s Palantir selling a $239 chore coat, Anthropic taking over a coffee shop or executives walking the red carpet at the Met Gala, tech’s biggest players are pivoting to fashion to sell their brands – and attempt to appear cooler in the process\n\nLast week, the US spy tech and data firm Palantir launched its latest “merch drop”, including a denim chore coat. “Rugged utility, enduring style” reads the website’s description of the $239 (£175) jacket, which is branded with the company’s logo on the chest pocket and comes in blue or black.\n\nEliano Younes, the head of strategic engagement at Palantir, told the New York Times that it was part of the company’s commitment to “re-industrializing America” – the jacket is made in Montana and recalls workwear of a previous era. “It’s not political,” he added. “It’s about people who love Palantir and are aligned with our mission.”\n\nNever mind that this “mission” includes aiding the Trump administration’s deportation drive and Israel’s devastating assault in Gaza, not to mention publishing a creepy militaristic manifesto: the 420 jackets for sale were gone within a matter of hours. There’s no accounting for taste, it seems.\n\nOnce niche, the durable, versatile French worker’s jacket – and other variations known loosely as chore coats – has become almost ubiquitous over the past two decades. Made from cotton twill or moleskin, it emerged in France after the first world war, when rapid industrialisation meant the growing number of labourers needed durable coats that were practical in the workplace.\n\nGiven that chore coats have been embraced by fashion brands across the price spectrum and worn by celebrities including Monty Don and Harry Styles, they have long since gone beyond their utilitarian underpinning. Indeed, they have become perhaps the defining signifier of a casually alternative taste, which makes them an appealing proxy for tech firms keen to be seen as cool, fun and tasteful. As one style commentator said of Palantir’s jackets, “they need cultural capital to be perceived as acceptable in the zeitgeist”.\n\nPalantir is not alone. The AI company Anthropic collaborated last year with Air Mail, a high-end digital newsletter, to host pop-ups at Air Mail’s newsstands in New York and London: “Pop by for ‘thinking’ caps, a proper cup of coffee, and some surprises.” Then there’s OpenAI, which sells gen-Z-adjacent long-sleeved T-shirts on an online shop designed to look like a website from the 90s. This seems to be an attempt to capitalise on the tongue-in-cheek design trend harking back to a less corporate, more democratic iteration of the web.\n\nThis article includes content provided by Instagram. We ask for your permission before anything is loaded, as they may be using cookies and other technologies. To view this content, click 'Allow and continue'.\n\nOf course, none of this is new. Technocapitalists have been hoovering up everything in front of them, Pac-Man-style, for decades: book stores and music, hotels and homes, taxis and food delivery, even water. On Tuesday, five of the largest book publishers in the US sued Meta, alleging that it pirated millions of their works to train LLMs. OpenAI, Anthropic and Microsoft have been involved in similar copyright suits.\n\nAt the Met Gala on Monday, the Amazon co-founder Jeff Bezos and his wife, Lauren Sánchez, bought their way to the top table via a $10m donation. The grand shindig, which is a fundraiser for the Metropolitan Museum of Art’s Costume Institute, this year brought in a record-breaking $42m. Also in attendance were Meta’s Mark Zuckerberg, Alphabet’s Sergey Brin and senior executives from TikTok, Instagram, Snap and Slack. OpenAI, Meta and Snap bought tables this year for at least $350,000.\n\nThe fashion industry has always had a complicated relationship with the super-rich; tastefulness and refinement can often be tempered by cold, hard cash. But as this year’s Met Gala proved, taste has become a buzzword in Silicon Valley. Zuckerberg has gone through a protracted public effort to cultivate personal style, wearing Bode shirts instead of hoodies. Months before the Met Gala, he took his place in the front row of Prada’s show – the most tasteful of all – at Milan fashion week.\n\nWhat does it mean that tech bros, once proudly unstylish, have turned their attention to fashion? According to Kyle Chayka in the New Yorker, they are trying to give themselves a veneer of the artisanal, as if personal taste can give your company an edge. “We might call what’s going on now ‘taste-washing,’ an attempt to give anti-humanist technologies a veneer of liberal humanism,” Chakya writes. Much of this is self-serving: tech and finance prognosticators talk up the importance of their finely honed human instincts yet are happy to have everything around them automated into oblivion.\n\nA greater interest in such things is not necessarily bad. Why should Jeremy Allen White or Fergus Henderson or customers of The Row be the only people entitled to wear a chore jacket? There is a world in which the desire to prioritise human discernment in the face of overwhelming automation is positive. But when it comes to tech behemoths, we have a hunch where this leads: hoarding and optimising for their financial benefit.\n\nTech’s drive for taste could be fleeting; witness how quickly the industry ditched notions of social justice once it no longer suited it. And when it moves on to the next fad, matters of style and cool will continue in ineffable ways that can’t be optimised or defined only by wealth. And, lest we forget, we don’t have to buy what they’re selling.\n\nBill Cunningham, the fashion and street style photographer who died in 2016, was a lifelong wearer of the classic blue chore coat. In the lovely 2010 documentary Bill Cunningham: New York, he demurred on the merits of his own style, but clearly he had an eye for what looked interesting. He also explained why he gravitated towards the jackets, which he discovered in Paris, where he saw street-sweepers wearing them: they were cheap, washable and functional, with three big pockets. “And I thought the colour was nice.”",
-    "readingTime": 6,
-    "keywords": [
-      "chore coat",
-      "chore coats",
-      "met gala",
-      "fashion",
-      "style",
-      "tech",
-      "taste",
-      "jacket",
-      "anthropic",
-      "attempt"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/fashion/2026/may/08/why-is-silicon-valley-suddenly-obsessed-with-being-tasteful",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/8306c87b2c4d9c1320e8ce579838f4c2fb741b3c/16_26_1777_1422/master/1777.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=44185531764ef6138973d560947e1071",
-    "created_at": "2026-05-08T07:15:03.701Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "elon-musk-called-anthropic-evil-3-months-ago-now-hes-taking-4-billion-to-become-its-data-landlord",
-    "title": "Elon Musk called Anthropic ‘evil’ 3 months ago. Now he’s taking $4 billion to become its data landlord",
-    "description": "“He who controls the data center, really does control the application of artificial intelligence right now.”",
-    "fullText": "Three months ago, Elon Musk wrote on X that Anthropic was “evil,” “misanthropic,” and that the AI lab hated Western civilization. On Wednesday, he leased Anthropic one of his most valuable assets: the world’s biggest supercomputer.\n\nBut Anthropic-lovers shouldn’t bask too long in Musk’s newfound praise (even if he did decide that “nobody set off my evil detector” ). The deal has little to do with them as a company, analysts told Fortune, and everything to do with an upcoming prospectus.\n\nSpaceX is expected to begin its public roadshow next month, with a confidential S-1 filed April 1 targeting a valuation between $1.75 trillion and $2 trillion. Wednesday’s announcement—paired with Musk’s dissolution of his AI company xAI into SpaceX (to make SpaceXAi)—gives the IPO something it didn’t have a week ago: a marquee AI customer for a credible cloud-infrastructure business.\n\nAccording to estimates from Antoine Chkaiban, an analyst at New Street Research, the Anthropic deal will generate $3 billion to $4 billion in annual revenue for SpaceX, with more than $2.5 billion in cash profit. The margins seem extreme, but that’s because the data center is already built: the fixed capital expense is sunk, and the only meaningful operating cost is electricity plus the relatively minimal costs of staffing the place.\n\n“He’s not going to want multiple billions of dollars of GPUs sitting idle,” Chkaiban told Fortune. “It’s a very good business decision.”\n\nAnd, it seems, the start of Elon Musk’s transition from seeking to be a frontrunner in the model race, to being the landlord of AI.\n\n“He who controls the data center, really does control the application of artificial intelligence right now,”  Andrew Moore, the former head of Google Cloud AI and now CEO of defense AI startup Lovelace AI, told Fortune. “So, yeah, I think both sides of this wedding of convenience will be a little stressed out by it.”\n\nColossus 1 contains roughly 220,000 Nvidia GPUs and was built in 2024 to train Grok, Musk’s AI assistant. But Grok hasn’t filled it. Chkaiban estimates Grok generates less than $1 billion in annualized revenue; Anthropic is on track for more than $40 billion. The disparity is the deal. Musk has too much compute and Grok–despite endless “ask Grok” inquiries on X–can’t fill it; Anthropic has too many users and not enough compute. Leasing Colossus 1 to Anthropic funds the gap.\n\nBut it also lets Musk skip a step. The biggest cost line for any of the frontier AI labs is the 30%-plus margin paid to AWS, Microsoft Azure, or Google Cloud for compute. SpaceX captures those margins of the hyperscalers instead of paying it in stressful debt deals, like the AI labs.",
-    "readingTime": 3,
-    "keywords": [
-      "deal",
-      "compute",
-      "evil",
-      "biggest",
-      "business",
-      "estimates",
-      "revenue",
-      "margins",
-      "center",
-      "plus"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/sectors/technology/articles/elon-musk-called-anthropic-evil-194925519.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/w8XOB5MGCsT7XkG31WfINQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03NDI-/https://media.zenfs.com/en/fortune_175/3333504f0f78cf276076ea00d86ec463",
-    "created_at": "2026-05-08T07:15:01.267Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "internal-microsoft-document-spells-out-the-companys-buyout-offer",
-    "title": "Internal Microsoft document spells out the company's buyout offer",
-    "description": "Microsoft offered buyouts to thousands of US employees to cut costs amid AI infrastructure spending plans. The offers include cash and insurance.",
-    "fullText": "Microsoft is offering buyouts to US employees who want to retire.\n The buyout includes cash, insurance, and stock vesting based on employee level and service years.\n The program helps Microsoft cut costs as it plans significant spending.\n\n What are the \"capital expenditures\"?\n\n What is Microsoft's \"head count\" strategy?\n\n How do \"stock vesting\" benefits work?\n\n How does AI investment affect costs?\n\n Why limit buyouts to US employees?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "stock vesting",
-      "microsoft",
-      "buyouts",
-      "employees"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/microsoft-internal-document-shows-buyout-offers-to-us-employees-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fcce91e1443b8dc48e2e69?width=1200&format=jpeg",
-    "created_at": "2026-05-08T02:00:42.837Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "read-the-memo-cloudflare-is-laying-off-1100-employees-to-prepare-for-the-agentic-ai-era",
-    "title": "Read the memo: Cloudflare is laying off 1,100 employees to prepare for 'the agentic AI era'",
-    "description": "Cloudflare announced 1,100 layoffs as it restructures for the age of agentic AI, sending shares tumbling.",
-    "fullText": "Cloudflare on Thursday announced layoffs of 1,100 staff as it reorganizes for \"the agentic AI era.\"\n First-quarter earnings exceeded expectations, but Cloudflare shares dropped over 14% after hours.\n Read the full memo sent to staff below.\n\n What is the \"agentic AI era\"?\n\n Why did Cloudflare shares drop despite earnings?\n\n What trends are driving tech layoffs?\n\n How might AI impact tech company staffing?\n\n How do layoffs affect company culture?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "cloudflare shares",
-      "layoffs",
-      "staff",
-      "agentic",
-      "earnings",
-      "tech"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/cloudflare-announces-1100-layoffs-amid-ai-focus-shift-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fcff8ec9dd4cb81cda8544?width=1200&format=jpeg",
-    "created_at": "2026-05-08T02:00:42.754Z",
-    "topic": "finance"
   }
 ]

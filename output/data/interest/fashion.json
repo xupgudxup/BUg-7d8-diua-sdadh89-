@@ -1,5 +1,42 @@
 [
   {
+    "slug": "a-faithful-llmwiki-implementation-with-wikipediastyle-web-browsing",
+    "title": "A faithful LLM-wiki implementation with Wikipedia-style web browsing",
+    "description": "A faithful llm-wiki implementation with agent-maintained Markdown knowledge bases and Wikipedia-style web browsing. - hzw1199/CyberMe-LLM-Wiki",
+    "fullText": "CyberMe is a general-purpose knowledge base framework maintained by an LLM Agent, suitable for personal, team, or enterprise knowledge bases. It keeps raw materials, a structured Wiki, and Agent working rules in the same repository, allowing the knowledge base to be maintained continuously like a codebase; it also provides a Wikipedia-like visual browsing experience, automatically maintains bidirectional links between entries, and includes both Chinese and English interfaces.\n\nObsidian is the IDE, the LLM is the programmer, and the Wiki is the codebase.\n\nAll Markdown files under raw/ must include the following Front Matter:\n\nWhen saving a web page as Markdown with Obsidian Web Clipper, you can confirm fields such as source, type, clipped_at, status, and title in the sidebar, then save it to the corresponding directory:\n\nSend an Ingest request to the Agent and specify the source file under raw/articles/ to ingest:\n\nThe Agent reads wiki/index.md and the source file, creates or updates concept entries, the index, and the log, then outputs a processing report at the end:\n\nAfter that, you can ask the Agent questions directly. It will read the wiki index and related entries first, then answer based on the existing knowledge base:\n\nraw/ and wiki/ usually contain private materials, team materials, or enterprise internal materials, and are not committed to public repositories by default.\n\nCLAUDE.md is the core of this framework. It specifies that before any operation, the Agent must first read wiki/index.md, then determine whether the current task is operation management, Ingest, Batch Ingest, Lint, or a knowledge query.\n\nAll Wiki pages use Markdown and YAML front matter:\n\nUse Obsidian-style [[bidirectional links]] in the body to connect concepts.\n\nAfter opening the repository in an LLM Agent that can read and write files, you can operate it directly using natural language:\n\nThe Agent automatically maintains wiki/index.md, wiki/log.md, cross-references between concept pages, and the ingest status of raw files according to CLAUDE.md.\n\nvisualize/ is CyberMe's frontend visualization app. It renders the Markdown knowledge base in wiki/ as a browsable website.\n\nIt supports both Chinese and English UI languages: on first visit, it automatically follows the browser language; you can also switch manually from the language button in the top-right corner, and the choice is saved locally in the browser.\n\nThe Wiki home page shows an overview of the knowledge base, including topic, concept, and analysis counts, plus recent content:\n\nUse the search box to quickly locate concepts, topics, and analysis pages:\n\nConcept pages show definitions, detailed explanations, related links, and entry metadata:\n\nAnalysis pages store long-form analyses distilled from Query workflows:\n\nThe timeline log records ingest, query, and lint operations chronologically:\n\nThe Galaxy page renders the knowledge base as an interactive 3D knowledge graph:\n\nThe development server reads wiki/ from the repository root and automatically refreshes when Wiki files change.\n\nThe build output is written to visualize/dist/. During build, the current wiki/ content and wiki-manifest.json are copied into the output directory, making it suitable for deployment to static hosting services such as GitHub Pages, Cloudflare Pages, and nginx.",
+    "readingTime": 3,
+    "keywords": [
+      "bidirectional links",
+      "automatically maintains",
+      "knowledge base",
+      "analysis pages",
+      "concept pages",
+      "llm agent",
+      "the agent",
+      "materials",
+      "files",
+      "wiki"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/hzw1199/CyberMe-LLM-Wiki",
+    "thumbnail_url": "https://opengraph.githubassets.com/1556a6ee7d0846b59f1a7ace0cf08f5f27a40a243cf0b912b86a0e6535046c1f/hzw1199/CyberMe-LLM-Wiki",
+    "created_at": "2026-05-12T02:00:06.077Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "best-plussize-work-clothes",
+    "title": "Best plus-size work clothes",
+    "description": "Plus-size workwear shouldn't have to mean boring tops and blazers. These brands offer polished, size-inclusive office clothes with actual style.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/guides/style/where-to-buy-plus-size-work-clothes",
+    "thumbnail_url": "https://i.insider.com/68e92f6a5dbc4fd10daaa065?width=1200&format=jpeg",
+    "created_at": "2026-05-12T02:00:04.394Z",
+    "topic": "finance"
+  },
+  {
     "slug": "a-full-database-and-facts-on-milwaukee-brewers-walkoff-wins",
     "title": "A full database and facts on Milwaukee Brewers walk-off wins",
     "description": "The Brewers have won back-to-back games in walk-off fashion, which allows us to dive back into our database of all the winners in Milwaukee lore.",
@@ -1883,42 +1920,5 @@
     "thumbnail_url": "https://i.insider.com/69d561511a512d0a63e734ac?width=1200&format=jpeg",
     "created_at": "2026-04-11T12:33:49.291Z",
     "topic": "finance"
-  },
-  {
-    "slug": "fortnite-adding-an-arc-raidersstyle-game-with-disney-characters-report",
-    "title": "Fortnite Adding An Arc Raiders-Style Game With Disney Characters - Report",
-    "description": "Epic Games and Disney are working together on multiple upcoming games as part of the mysterious Disney x Fortnite project, and now one of them has seemingly been revealed early--it's probably not what you expect.\nBloomberg reported that the first new game to come from Disney's $1.5 billion investment into Epic Games will launch in November and it will be a shooter along the lines of the popular extraction game Arc Raiders. Players will be able to suit up as a Disney character and duke it out until they reach an extraction point, sources told the site. According to the report, internal reviews for the project have assessed it to be \"not very original\" in its current form, but other staffers said they feel optimistic that it will be in better shape come launch.",
-    "fullText": "You'll play as a Disney character and fight to get to an extraction point, apparently.\n\nEpic Games and Disney are working together on multiple upcoming games as part of the mysterious Disney x Fortnite project, and now one of them has seemingly been revealed early--it's probably not what you expect.\n\nBloomberg reported that the first new game to come from Disney's $1.5 billion investment into Epic Games will launch in November and it will be a shooter along the lines of the popular extraction game Arc Raiders. Players will be able to suit up as a Disney character and duke it out until they reach an extraction point, sources told the site. According to the report, internal reviews for the project have assessed it to be \"not very original\" in its current form, but other staffers said they feel optimistic that it will be in better shape come launch.\n\nDisney's investment into Epic and Fortnite will span at least two more games, the sources added. An early version of the second game got \"middling internal reviews,\" sources said. The report went on to say budget for the third game was shifted to the first two projects because \"Disney was disappointed by Epic's release timeline.\"\n\nA spokesperson for Epic Games told Bloomberg that its reporting on these unannounced games was \"not reflective of the ambitions of the Disney collaboration.\" The spokesperson said Epic has \"aggressive\" development timelines, and it has always been this way.\n\n\"We've heavily moved developers onto projects with releases approaching, while smaller prototyping teams are working on further-off projects,\" the spokesperson said.\n\nA Disney spokesperson, meanwhile, said it continues to be focused on a \"long-term collaboration\" with Epic to build a \"transformational games and entertainment universe.\"\n\nA spokesperson for Epic, Liz Markman, told GameSpot, \"We are building a new games and entertainment universe of Disney experiences.\" GameSpot has followed up with Disney seeking comment as well\n\nEpic's recent round of 1,000+ layoffs included people working on the unannounced Disney games, the report said. Three former Epic developers speaking to Bloomberg said they faced an \"unrealistic schedule,\" according to the site. Multiple current and former Epic developers said this was emblematic of a pattern that they believed played a part in Epic's recent downsizing decision.\n\nWhile the reported Arc Raiders-style game in Fortnite would be the first brand-new Disney game for Fortnite, Disney and Epic have been in business together for a long time already. Numerous Star Wars and Marvel characters have come to Fortnite, for example, and Toy Story characters came to the game today, April 10. In other news, Fortnite now allows players to build whatever Star Wars games they want, utilizing numerous Star Wars assets, including iconic locations, weapons, voices, and music.\n\nDisney and Epic also work together for film and TV production, with Disney's Lucasfilm utilizing the Unreal Engine to film major productions like The Mandalorian. Beyond this, Disney's new CEO, Josh D'Amaro, has said Fortnite could play host to movie premieres, or even be a way for players to buy Disney Cruise Line tickets.\n\nD'Amaro's love of video games, combined with the ongoing investment and close relationship between Disney and Epic, has fueled theories that Disney could buy Epic and Fortnite. That remains to be seen, and Epic CEO Tim Sweeney owns a majority interest in Epic and would have to sign off.\n\nGot a news tip or want to contact us directly? Email news@gamespot.com",
-    "readingTime": 3,
-    "keywords": [
-      "numerous star",
-      "internal reviews",
-      "entertainment universe",
-      "disney character",
-      "epic developers",
-      "disney and epic",
-      "epic games",
-      "star wars",
-      "extraction",
-      "together"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.gamespot.com/articles/fortnite-adding-an-arc-raiders-style-game-with-disney-characters-report/1100-6539344/?ftag=CAD-01-10abi2f",
-    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1179/11799911/4680334-screenshot2026-04-10at3.07.04%E2%80%AFpm.png",
-    "created_at": "2026-04-11T12:33:46.770Z",
-    "topic": "gaming"
-  },
-  {
-    "slug": "kicking-back-spains-la-liga-goes-retro-for-nostalgic-football-matchday",
-    "title": "Kicking back: Spain's La Liga goes retro for nostalgic football matchday",
-    "description": "La Liga clubs step out in retro kits this weekend, blending football heritage and fashion with nostalgia increasingly making a mark in the modern game.View on euronews",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://sports.yahoo.com/articles/kicking-back-spains-la-liga-060321344.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/euronews_us_news_articles_566/3d92bf2ab0249c0f45076f06a27f3771",
-    "created_at": "2026-04-11T06:49:31.841Z",
-    "topic": "sports"
   }
 ]
