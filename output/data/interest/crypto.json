@@ -1,5 +1,29 @@
 [
   {
+    "slug": "dagbft-with-multiattribute-reputation",
+    "title": "DAG-BFT with multi-attribute reputation",
+    "description": "Savitri Network — Rust implementation of a Proof-of-Unity (PoU) blockchain protocol with Byzantine Fault Tolerant (BFT) finalisation - Savitri-Network/savitri-network",
+    "fullText": "Savitri Network is a high-performance blockchain protocol implementing\nProof-of-Unity (PoU) consensus with Byzantine Fault Tolerant (BFT)\nvoting, written in Rust.\n\nThe codebase is organized as a Cargo workspace of focused crates so each\nlayer of the stack — networking, storage, mempool, consensus,\ncryptography, application contracts — can evolve, be reviewed, and be\nembedded independently.\n\nV0.2 Lattice runtime — A DAG-BFT consensus runtime derived from\nthe Bullshark / Narwhal family ships in observation-only mode\nalongside the V0.1 BFT path. Three concrete deviations from the\nreference designs: wall-clock-bucketed rounds, PoU-weighted pivot\nselection via deterministic shuffle, and an environment-variable-\ngated migration pattern. Empirical evidence on a 4-VM 6-MN 15-LN\ncluster: 0/277 mismatches on canonical state digests under\nsustained load (Phase 1 D3+D4 validation). See\ndocs/CONSENSUS_V0.2_DESIGN.md\nfor the full design and the open\nPhase 2.6 security-hardening milestone\nfor the work in flight.\n\nSavitri separates block production from block finalization:\n\nBlock production happens inside groups: a deterministic partitioning of\nlightnodes into committees. Each group elects a proposer using the\nfive-component PoU score (a moving average of availability, latency,\nintegrity, reputation and participation, weighted 25/20/20/20/15).\n\nThe V0.2 runtime is gated by SAVITRI_CONSENSUS_VERSION=v2; when unset\n(default), V0.2 publishes and certifies but does not push commits to\nchain storage — V0.1 BFT remains authoritative. The flag-day cutover\nis conditioned on the empirical pre-criterion\nlattice_commit_matches_v1 = 1 over a window of at least 10⁵ blocks\n(see the Phase 2.6 milestone).\n\nThe V0.2 Lattice runtime is derived from the Bullshark / Narwhal\nDAG-BFT family. The full academic references and Savitri-specific\ndeviations are documented inline in the source headers of\nsavitri-consensus/src/lattice/:\n\nA 44-page preprint covering the full design, empirical evaluation, and\nhonest security analysis is available in the companion testnet\nrepository (see docs/paper_accademico_savitri.pdf in\nSavitri-Testnet-V0.1.0).\nAn arXiv preprint submission is planned.\n\nLightnode without persistent storage (in-memory backend):\n\nContributions are welcome. Please open an issue first for any non-trivial\nchange, and follow the existing code style. PRs that include tests are\nstrongly preferred.\n\nTwo milestones are currently active and explicitly designed to welcome\nexternal contributors:\n\nNTP-resilient TimeOracle for residential / mobile / IoT validators,\nplus PoU floor admission gate, equivocation slashing, and cross-shard\nwatchdog committee. The Lattice runtime depends on NTP synchronisation\nfor the wall-clock-bucket rounds; this milestone tracks the work to\nmake that dependence safe on heterogeneous validator infrastructure.\n\nRecommended entry point:\n#35 — TimeOracle scaffolding\n(~3 days, no upstream dependencies).\n\nJSON-RPC migration plan for the V0.1 → V0.2 semantic shift (block\nheight → cycle index). Four sub-issues covering Lattice introspection\nendpoints, tx_getStatus extension, dual-mode chain reads, and V0.1\nendpoint retirement.\n\nRecommended entry point:\n#43 — Lattice introspection endpoints\n(~2-3 weeks, purely additive, no SDK coordination required).\n\nAdditional follow-on work — VRF-based group assignment,\nlattice_commit_matches_v1 divergence counter for the empirical\npre-activation criterion — will be filed as the in-flight items\nland.\n\nThis is an open-source release of the Savitri Network reference\nimplementation. The codebase is under active development; APIs and wire\nformats may change between minor versions until a stable 1.0 release.",
+    "readingTime": 3,
+    "keywords": [
+      "recommended entry",
+      "lattice introspection",
+      "lattice runtime",
+      "introspection endpoints",
+      "block production",
+      "savitri network",
+      "the lattice",
+      "empirical",
+      "consensus",
+      "storage"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/Savitri-Network/savitri-network",
+    "thumbnail_url": "https://opengraph.githubassets.com/77f2d87a276758bd8f462beffce95b2682cd0622f46586b66b61cc33993dddf3/Savitri-Network/savitri-network",
+    "created_at": "2026-05-13T19:30:30.203Z",
+    "topic": "tech"
+  },
+  {
     "slug": "us-senate-banking-committee-moves-to-advance-clarity-act-crypto-framework",
     "title": "U.S. Senate Banking Committee moves to advance “Clarity Act” crypto framework",
     "description": "U.S. Senate Banking Committee moves to advance “Clarity Act” crypto framework",
@@ -1942,30 +1966,6 @@
     "link": "https://www.investing.com/news/company-news/aixcrypto-partners-with-california-real-estate-firm-on-blockchain-93CH-4516898",
     "thumbnail_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
     "created_at": "2026-02-20T18:32:29.840Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "openai-and-paradigm-launches-evmbench-to-test-ais-on-smart-contract-security",
-    "title": "OpenAI and Paradigm Launches EVMbench to Test AIs on Smart Contract Security",
-    "description": "OpenAI's EVMbench assesses AI agents on detecting, patching, and exploiting high-severity smart contract flaws . The benchmark comprises 120 curated vulnerabilities from 40 audits, including scenarios from the Tempo blockchain .",
-    "fullText": "OpenAI and Paradigm launched EVMbench, aiming to evaluate AI agents’ ability to detect, patch, and exploit vulnerabilities within Ethereum-based smart contracts that collectively secure over $100 billion in crypto assets. EVMbench is based on 120 vulnerability types found in 40 different security audits (including several from Tempo blockchain) and will include scenarios involving payment-oriented smart contract code related to expected agentic stablecoin transactions.\n\nIntroducing EVMbench—a new benchmark that measures how well AI agents can detect, exploit, and patch high-severity smart contract vulnerabilities. https://t.co/op5zufgAGH\n\nEVMbench measures each artificial intelligence (AI) agent’s performance in three ways:\n\nEach test is conducted by using an Anvil-based, Rust-language harness to provide a deterministic and reproducible means of evaluating agents within isolated environments rather than live networks.\n\nAI’s Frontier models (the most recent ones) have performed significantly better than those measured six months ago. For example, GPT-5.3-Codex’s average performance on exploit tasks is 72.2%, while its predecessor model (GPT-5) had only 31.9% on the same exploits. Detect and patch modes remain more challenging to agents as they often stop their audit process after finding the first fault or have difficulties maintaining the perfect functionality of the contract while also removing vulnerabilities.\n\nnew collab from @paradigm and @OpenAI:\n\nevmbench is a benchmark and agent harness for exploiting smart contract bugs\n\na few months ago, the best models found <20% of critical, fund-draining @Code4rena bugs in our benchmark. today they find > 70% https://t.co/soOrCR38eO pic.twitter.com/2lr0WUVo2Q\n\nEVMbench tackles both sides of AI use in cybersecurity: monitoring new threats while encouraging defensive applications. As part of this initiative, OpenAI recently committed $10M of Application Programming Interface (API) credits through its Cybersecurity Grant Program to help boost efforts toward creating more defensive research and expanding Aardvark’s (its open-source security research agent) footprint with a private beta test.",
-    "readingTime": 2,
-    "keywords": [
-      "smart contract",
-      "agents",
-      "detect",
-      "patch",
-      "exploit",
-      "vulnerabilities",
-      "benchmark",
-      "within",
-      "measures",
-      "performance"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://timescrypto.com/cryptobuzz/ai-and-crypto/openai-paradigm-launches-evmbench-to-test-ai-capabilities-on-smart-contract-security/article-22555/",
-    "thumbnail_url": "https://timescrypto.com/wp-content/uploads/2026/02/open-AI.jpg",
-    "created_at": "2026-02-20T06:41:53.398Z",
     "topic": "finance"
   }
 ]

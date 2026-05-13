@@ -1,5 +1,29 @@
 [
   {
+    "slug": "extract-ios-backups-using-only-stock-macos-command-line-tools",
+    "title": "Extract iOS backups using only stock macOS command line tools",
+    "description": "Extract files from iOS backups using only stock command line tools on macOS - paralevel/extract-ios-backups-from-terminal",
+    "fullText": "Extract iOS backup files with stock macOS CLI tools\nExtract files from iOS backups using only stock command line tools on macOS (Tahoe 26)\n\nNavigate to the backup folder (replace the last part with the subfolder‘s actual name)\n\nGet an overview of all the domains in the backup\n\nExtract everything as deobsfuscated named APFS file clones (which, unless they’re modified, don’t occupy any storage space), to ~/Desktop/ios-backup-extract (remember to delete this folder in advance everytime you run the command), excluding paths containing the strings AppDomain, CloudDocs and FileProvider, which should reduce the extraction time to somewhere around 10 minutes:\n\nLocate the obsfuscated named original file that corresponds to a specific cloned file\n\nUse the last part of the path only, from the domain part, e.g. HomeDomain/rest/of/path, without the leading /Users/username/Desktop/ios-backup-extract/",
+    "readingTime": 1,
+    "keywords": [
+      "extract",
+      "backup",
+      "files",
+      "stock",
+      "macos",
+      "tools",
+      "command",
+      "folder",
+      "named",
+      "file"
+    ],
+    "qualityScore": 0.35,
+    "link": "https://github.com/paralevel/extract-ios-backups-from-terminal",
+    "thumbnail_url": "https://opengraph.githubassets.com/e28365d486a60d72b7e14d45570382cb5884a13333a97ca5a486c376a5300d5f/paralevel/extract-ios-backups-from-terminal",
+    "created_at": "2026-05-13T19:30:24.867Z",
+    "topic": "tech"
+  },
+  {
     "slug": "beat-opensource-screenwriting-app-for-macios",
     "title": "Beat – open-source screenwriting app for Mac/iOS",
     "description": "elegant screenwriting app for macOS and iOS – free and open source!",
@@ -2190,29 +2214,5 @@
     "thumbnail_url": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0e/de/c7/0edec7b3-fed0-7d16-0ff1-7b5a4916c490/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/1920x1080ia-80.png",
     "created_at": "2026-02-28T06:24:24.863Z",
     "topic": "tech"
-  },
-  {
-    "slug": "michael-saylor-defends-bitcoins-plunge-by-comparing-it-to-apples-valley-of-despair-which-preceded-a-huge-rebound",
-    "title": "Michael Saylor defends bitcoin's plunge by comparing it to Apple's 'valley of despair,' which preceded a huge rebound",
-    "description": "Michael Saylor likened bitcoin's trajectory to that of Apple stock, which was stuck in a rut before investors acknowledged the dominance of the iPhone.",
-    "fullText": "Bitcoin is still falling, but Strategy founder Michael Saylor thinks a rebound is coming, and the crypto is following the path of a tech industry icon.\n\nSaylor recently compared bitcoin to Apple, specifically its downturn before the runaway success of the iPhone ushered in a new chapter for the tech titan. He believes investors should keep this in mind as they assess how to play bitcoin's bear market.\n\nThe CEO shared his take on the future of bitcoin with Coin Stories podcast host Natalie Brunell. He took the opportunity to highlight the significant decline in Apple stock in 2013, before the iPhone's popularity ultimately reshaped the consumer tech landscape and helped engineer a comeback.\n\n\"There really is no example of a successful technology investment where you didn't have to weather the 45% drawdown and go through that valley of despair,\" he stated.\n\nSaylor noted that bitcoin prices have been declining for 137 consecutive days, but made it clear he isn't worried. He added that it could take years for a comeback to materialize, but emphasized that it took seven years from the iPhone's release for the market to start pricing in its dominance and for it to receive support from legendary investors Warren Buffett and Carl Icahn.\n\nBuilding off that, Saylor took the analogy even further, noting that Apple isn't the only Big Tech winner to struggle for years before surging to the top of its industry.\n\n\"Big tech has been the primary screaming success,\" he said. \"The stocks are up 10x, 20x, 30x, 50x. But in all cases, you find examples of the conventional market that under-appreciates them and underestimates them.\"\n\nSaylor used Amazon as another example to illustrate this, noting that the e-commerce giant struggled for years before establishing itself as the undisputed leader of the industry. In his view, it seems only logical that bitcoin will follow the same path and ultimately bounce back.\n\nA lot of investors share Saylor's bullishness on bitcoin. However, not all crypto pros think the Apple analogy is the best argument for why bitcoin prices will rebound.\n\nSaylor's stance on bitcoin hasn't served to boost prices. The token fell another 1% on Tuesday, and the crypto has declined more 33% in the last year.\n\n\"It's an interesting comparison, but I don't necessarily think comparing bitcoin to Apple makes sense,\" Alex Taaffe, CRO of crypto market maker GSR, told Business Insider. \"That said, I do agree that capital rotations can lead to extended periods where even high-quality assets fall out of favor.\"",
-    "readingTime": 3,
-    "keywords": [
-      "bitcoin",
-      "apple",
-      "crypto",
-      "market",
-      "industry",
-      "investors",
-      "rebound",
-      "path",
-      "success",
-      "iphone's"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/bitcoin-price-michael-saylor-apple-rebound-crypto-btc-aapl-2026-2",
-    "thumbnail_url": "https://i.insider.com/699de898df1f09368aaaa92b?width=1200&format=jpeg",
-    "created_at": "2026-02-25T12:39:01.830Z",
-    "topic": "finance"
   }
 ]
