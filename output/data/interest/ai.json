@@ -1,5 +1,206 @@
 [
   {
+    "slug": "google-reports-first-known-realworld-aicrafted-zeroday-exploit",
+    "title": "Google reports first known real-world AI-crafted zero-day exploit",
+    "description": "Explore GTIG's 2026 report on how adversaries leverage AI for zero-day exploits, autonomous malware, and industrial-scale cyber operations.",
+    "fullText": "Visibility and context on the threats that matter most.\n\nSince our February 2026 report on AI-related threat activity, Google Threat Intelligence Group (GTIG) has continued to track a maturing transition from nascent AI-enabled operations to the industrial-scale application of generative models within adversarial workflows. This report, based on insights derived from Mandiant incident response engagements, Gemini, and GTIG’s proactive research, highlights the dual nature of the current threat environment where AI serves as both a sophisticated engine for adversary operations and a high-value target for attacks. We explore the following developments:\n\nVulnerability Discovery and Exploit Generation: For the first time, GTIG has identified a threat actor using a zero-day exploit that we believe was developed with AI. The criminal threat actor planned to use it in a mass exploitation event but our proactive counter discovery may have prevented its use. Threat actors associated with the People’s Republic of China (PRC) and the Democratic People's Republic of Korea (DPRK) have also demonstrated significant interest in capitalizing on AI for vulnerability discovery.\n\nAI-Augmented Development for Defense Evasion: AI-driven coding has accelerated the development of infrastructure suites and polymorphic malware by adversaries. These AI-enabled development cycles facilitate defense evasion by enabling the creation of obfuscation networks and the integration of AI-generated decoy logic in malware that we have linked to suspected Russia-nexus threat actors.\n\nAutonomous Malware Operations: AI-enabled malware, such as PROMPTSPY, signal a shift toward autonomous attack orchestration, where models interpret system states to dynamically generate commands and manipulate victim environments. Our analysis of this malware reveals previously unreported capabilities and use cases for its integration with AI. This approach allows threat actors to offload operational tasks to AI for scaled and adaptive activity.\n\nAI-Augmented Research and IO: Adversaries continue to leverage AI as a high speed research assistant for attack lifecycle support, while shifting toward agentic workflows to operationalize autonomous attack frameworks. In information operations (IO) campaigns, these tools facilitate the fabrication of digital consensus by generating synthetic media and deepfake content at scale, exemplified by the pro-Russia IO campaign “Operation Overload.”\n\nObfuscated LLM Access: Threat actors now pursue anonymized, premium tier access to models through professionalized middleware and automated registration pipelines to illicitly bypass usage limits. This infrastructure enables large scale misuse of services while subsidizing operations through trial abuse and programmatic account cycling.\n\nSupply Chain Attacks: Adversaries like \"TeamPCP\" (aka UNC6780) have begun targeting AI environments and software dependencies as an initial access vector. These supply chain attacks result in multiple types of machine learning (ML)-focused risks outlined in the Secure AI Framework (SAIF) taxonomy, namely Insecure Integrated Component (IIC) and Rogue Actions (RA). Our analysis of forensic data associated with these attacks reveals threats actors attempting to pivot from compromised AI software to broader network environments for initial access and to engage in disruptive activities, such as ransomware deployment and extortion.\n\nAttackers rarely shy away from experimentation and innovation, but neither do we. In addition to  sharing our findings and mitigations with the larger security and AI community, Google employs proactive measures to stay ahead of these constantly changing threats. Google enhances our products’ safeguards to offer scaled protections to users. For Gemini, we mitigate model abuse by disabling malicious accounts. Furthermore, we leverage AI agents like Big Sleep to identify software vulnerabilities and use Gemini’s reasoning capabilities via the likes of CodeMender to automatically fix them, proving that AI can also be a powerful tool for defenders.\n\nThreat actors are leveraging AI to augment various phases of the attack lifecycle. This includes supporting the development of vulnerability exploits and malware, facilitating autonomous execution of commands, enabling more targeted and well-researched reconnaissance, and improving the efficacy of social engineering and information operations.\n\nAs the coding capabilities of AI models advance, we continue to observe adversaries increasingly leverage these tools as expert-level force multipliers for vulnerability research and exploit development, including for zero-day vulnerabilities. While these tools empower defensive research, they also lower the barrier for adversaries to reverse-engineer applications and develop sophisticated, AI-generated exploits.\n\nWhile we observe a variety of threat actors leveraging AI for vulnerability research, we noted a particular interest from several clusters of threat activity associated with the People’s Republic of China (PRC) and the Democratic People's Republic of Korea (DPRK). These actors have leveraged sophisticated approaches toward AI-augmented vulnerability discovery and exploitation, beginning with persona-driven jailbreaking attempts and the integration of specialized, high-fidelity security datasets to augment their vulnerability discovery and exploitation workflows.\n\nFigure 1: Example of false narratives used to support persona-driven jailbreaking, a simple form of prompt injection\n\nIn a more sophisticated use case, we observed threat actors experiment with a specialized vulnerability repository hosted on GitHub known as “wooyun-legacy.” The project is designed as a Claude code skill plugin that integrates a distilled knowledge base of over 85,000 real-world vulnerability cases collected by the Chinese bug bounty platform WooYun between 2010 and 2016. By priming the model with vulnerability data, it facilitates in-context learning to steer the model to approach code analysis like a seasoned expert and identify logic flaws that the base model might otherwise fail to prioritize.\n\nIn their pursuit of this vulnerability research, we see clear indications of automation and scaled research. In addition to leveraging individual prompts for real-time troubleshooting, we have observed APT45 sending thousands of repetitive prompts that recursively analyze different CVEs and validate PoC exploits. This results in a more robust arsenal of exploit capabilities that would be impractical to manage without AI assistance.\n\nTo facilitate these activities, actors are also experimenting with agentic tools such as OpenClaw and OneClaw alongside intentionally vulnerable testing environments. The use of these tools alongside vulnerability research suggests an interest in refining AI-generated payloads within controlled settings to increase exploit reliability prior to deployment.\n\nCyber crime threat actors remain interested in leveraging AI for vulnerability development as well. In one notable example, we observed prominent cyber crime threat actors partnering to plan a mass vulnerability exploitation operation. Our analysis of exploits associated with this campaign identified a zero-day vulnerability implemented in a Python script that enables the user to bypass two-factor authentication (2FA) on a popular open-source, web-based system administration tool. GTIG worked with the impacted vendor to responsibly disclose this vulnerability and disrupt this threat activity.\n\nAlthough we do not believe Gemini was used, based on the structure and content of these exploits, we have high confidence that the actor leveraged an AI model to support the discovery and weaponization of this vulnerability. For example, the script contains an abundance of educational docstrings, including a hallucinated CVSS score, and uses a structured, textbook Pythonic format highly characteristic of LLMs training data (e.g., detailed help menus and the clean _C ANSI color class).\n\nFigure 2: Cyber crime threat actors leveraged AI to identify and exploit zero-day vulnerability\n\nThe vulnerability can be classified as a 2FA bypass, though it requires valid user credentials in the first place. It stems not from common implementation errors like memory corruption or improper input sanitization, but a high-level semantic logic flaw where the developer hardcoded a trust assumption. While fuzzers and static analysis tools are optimized to detect sinks and crashes, frontier LLMs excel at identifying these types of high-level flaws and hardcoded static anomalies. Though frontier LLMs struggle to navigate complex enterprise authorization logic, they have an increasing ability to perform contextual reasoning, effectively reading the developer's intent to correlate the 2FA enforcement logic with the contradictions of its hardcoded exceptions. This capability can allow models to surface dormant logic errors that appear functionally correct to traditional scanners but are strategically broken from a security perspective.\n\nFigure 3: LLM vulnerability discovery capabilities compared with other discovery mechanisms\n\nGTIG has identified multiple threat actors experimenting with AI models to develop malware and operational support tools to augment obfuscation capabilities. This has included innovative applications of AI to incorporate just-in-time dynamic modification of source code, enable dynamic payload generation, assist in development of ORB network management tools, and generate decoy code (Table 1). While often experimental, this transition underscores a move toward AI-driven, evasive software suites.\n\nIn prior reports, we highlighted malware families like PROMPTFLUX, notable for its experimentation using the Gemini API to generate code, and HONESTCUE, which interacts with Gemini's API to request specific VBScript obfuscation and evasion techniques to facilitate just-in-time self-modification to evade static signature-based detection. In this report, we highlight additional tools and malware families created with the assistance of AI to support obfuscation and defense evasion.\n\nWe observed activity associated with the PRC-nexus threat actor APT27, which has leveraged Gemini to accelerate the development of a fleet management application likely to support the management of an operational relay box (ORB) network. Our observations of the tool revealed a \"maxHops\" parameter hardcoded to 3 hops, an indicator that the tool was related to development of an anonymization network rather than a VPN since those are typically set to 1 hop. Additionally, the tool lists MOBILE_WIFI and ROUTER as supported device types, suggesting it uses 4G or 5G SIM cards to provide residential IP addresses to potentially obfuscate the true origin of the intrusion activity.\n\nAdditionally, GTIG has continued to observe Russia-nexus intrusion activity targeting Ukrainian organizations to deliver AI-enabled malware as part of their operations. Analysis confirms the use of CANFAIL and LONGSTREAM, which utilize LLM-generated decoy code to obfuscate their malicious functionality.\n\nWe identified multiple developer (i.e., the LLM) comments throughout CANFAIL's source code that specifically call out certain blocks of code that are not used and were likely incorporated as filler content designed to obfuscate malicious activity. The explanatory nature of these comments surrounding the decoy logic likely indicates the threat actor requested the LLM generate outputs that intentionally contained large amounts of inert code potentially for obfuscation (Figure 4).\n\nFigure 4: CANFAIL comments self describing decoy logic\n\nSimilarly, our examination of the LONGSTREAM code family suggests a large volume of decoy logic was likely generated to camouflage the malicious nature of the code family. LONGSTREAM contains coherent but inactive blocks of code related to administrative tasks that are unrelated to the primary objective of the downloader. For example, we identified 32 instances of the code querying the system's daylight saving status. This type of repetitive query exists to populate the script with activity that can appear benign (Figure 5).\n\nFigure 5: LONGSTREAM decoy code example\n\nAdversaries are advancing their implementation of AI-enabled tooling, moving beyond content generation and tool development and into more sophisticated autonomous attack orchestration for malware commands. Threat actors have begun relying on LLMs for interactive system navigation and real-time decision making. By integrating LLMs into malware operations, attackers can enable payloads to act autonomously, independently interacting with the victim environment or device, synthesizing system states, and executing precise commands devoid of human supervision.\n\nA primary example of this evolution is PROMPTSPY, an Android backdoor first identified by ESET. Initial public reporting highlighted PROMPTSPY’s use of the Google Gemini application programming interface (API) to facilitate persistence, specifically by navigating the Android UI to pin the malicious application in the \"recent apps\" list. However, GTIG's examination of the backdoor revealed additional capabilities and use cases for its AI integration. We assess the malware's LLM component was designed to be extensible to support a broader range of goals centered around navigating the Android user interface and autonomously interpreting real-time user activity for follow-on actions.\n\nPROMPTSPY contains an autonomous agent module named “GeminiAutomationAgent,” which leverages a hardcoded prompt to facilitate automated interaction with the targeted device.\n\nThe prompt assigns a benign persona to bypass the LLM's safety filters, then requests an analysis of complex spatial mathematics by instructing the LLM to calculate the geometry of the targeted user interface bounds. This is paired with a set of \"Core Judgment Rules\" that implement anti-hallucination measures and a “User Goal” concatenated to the prompt as part of a separate routine (Figure 6).\n\nThe module then serializes the device's visible user interface hierarchy into an XML-like format via the Accessibility API, sending this payload to the “gemini-2.5-flash-lite” model via an HTTP POST request in \"JSON Mode.\"\n\nThe model returns a structured JSON response based on the supplied user goal, dictating specific action types and spatial coordinates, which the malware parses using a packed-switch instruction to simulate physical gestures (e.g., CLICK, SWIPE). Since the user goal is not hardcoded in the initial prompt but supplied as part of a separate routine, we believe PROMPTSPY was likely designed to facilitate multiple types of device interactions.\n\nFigure 6: Hardcoded prompt utilized by PROMPTSPY\n\nAdditionally, PROMPTSPY can capture victim biometric data to replay authentication gestures (personal identification numbers or lock patterns) to regain access to a compromised device for follow-on exploitation. These AI-enabled capabilities are a notable evolution from conventional Android backdoors that heavily rely on human interaction.\n\nTo maintain persistence, PROMPTSPY utilizes a novel multi-layered defense mechanism to camouflage its activity and prevent uninstallation.\n\nIf the victim tries to uninstall PROMPTSPY, the malware employs its 'AppProtectionDetector' module to identify the on-screen coordinates of the 'Uninstall' button. The malware renders an invisible overlay directly over the button as a shield that silently intercepts and consumes the victim's touch events, making the button appear unresponsive to the user.\n\nIf the victim device becomes inactive, PROMPTSPY operators can utilize Firebase Cloud Messaging (FCM) to relaunch the backdoor, allowing the threat actor to continue their intrusion activity without alerting the victim.\n\nWhile PROMPTSPY initializes using hardcoded default infrastructure and credentials, the malware is designed with high operational resilience, allowing adversaries to rotate critical components at runtime without redeploying the PROMPTSPY payload. Specifically, the malware’s command-and-control (C2) infrastructure, including the Gemini API keys and the VNC relay server, can be updated dynamically via the C2 channel. This configuration model demonstrates the developers anticipated defensive countermeasures and engineered the backdoor to maintain presence even if specific infrastructure endpoints are identified and blocked by defenders.\n\nGoogle has taken action against this actor by disabling the assets associated with this activity. Based on our current detection, no apps containing PROMPTSPY are found on Google Play. Android users are automatically protected against known versions of this malware by Google Play Protect, which is on by default on Android devices with Google Play Services.\n\nMalicious adversaries' most common use case for LLMs mirrors that of standard users – they conduct research and troubleshoot tasks. GTIG has observed a variety of threat actors engaging in this type of prompting to support research, reconnaissance, and troubleshooting throughout various phases of the attack lifecycle. By automating intelligence gathering and task support, these interactions lower the barrier to entry for complex, multi-stage operations and enable threat actors to focus their human capital on the higher-order strategic elements of campaigns.\n\nAdversaries frequently use LLMs to perform reconnaissance that would previously have required significant manual effort. For instance, we have observed actors prompting models to generate detailed organizational hierarchies for specific departments and third-party relationships of large enterprises, particularly those involving high-value functions like finance, internal security, and human resources. This data allows for the creation of higher-fidelity phishing lures tailored to individuals with administrative privileges or access to sensitive data, moving beyond the commodity tactics of traditional bulk phishing.\n\nIn more targeted scenarios, actors have used LLMs to identify specific hardware or software environments used by their victims. In one instance, a threat actor attempted to identify the exact make and model of a computer used by a high-value target, even requesting the LLM identify a collection of photos showing the targeted individual using the device. This level of environmental fingerprinting often precedes the development of tailored exploits or identification of side-channel attack opportunities.\n\nBeyond basic chat interfaces, we see a sophisticated shift toward agentic workflows where adversaries operationalize autonomous frameworks to execute multi-stage security tasks. This marks a significant evolution in the maturity of AI-related threats: the LLM is no longer merely a passive advisor but an active participant in the offensive chain, capable of orchestrating complex toolsets and making tactical decisions at machine speed.\n\nFor example, we recently analyzed a suspected PRC-nexus threat actor deploying agentic tools like Hexstrike and Strix against a Japanese technology firm and a prominent East Asian cybersecurity platform. Hexstrike was utilized alongside the Graphiti memory system, a temporal knowledge graph, to maintain a persistent state of the attack surface, allowing the agent to autonomously pivot between tools like subfinder and httpx based on its internal reasoning. Simultaneously, the actor leveraged Strix, a multi-agent penetration testing framework, to automate the identification and validation of vulnerabilities. This combination of autonomous reconnaissance and automated verification suggests a transition toward AI-driven frameworks that can scale discovery activities with minimal human oversight.\n\nGTIG continues to observe information operations (IO) actors use AI for common productivity tasks like research, content creation, and localization. We have also identified activity indicating threat actors solicit the tool to help craft articles, generate assets, and assist in coding. However, we have not identified this generated content in the wild, and none of these attempts have created breakthrough capabilities for IO campaigns.\n\nActors from Russia, Iran, China, and Saudi Arabia are producing political satire and materials to advance specific narratives across both digital platforms and physical media, such as printed posters. The primary advances we have seen in this area include actors appearing more successful in developing tooling in support of their workflows and the growing adoption of AI-generated narrative audio to address contentious political topics.\n\nGTIG’s tracking of IO threats across the open internet continues to uncover activity illustrating how threat actors use AI tooling to enhance established tactics. For example, GTIG uncovered activity linked to the pro-Russia IO campaign “Operation Overload,” involving video content that leveraged suspected AI voice cloning to impersonate real journalists. This likely represents an AI-supported advancement of the campaign's established tactics, which have long included inauthentic video content designed to appropriate the branding and legitimacy of media and other high profile organizations in support of campaign messaging.\n\nIn identified instances, the actors appear to have manipulated an authentic video to convey a false message. This content appears to splice original vertical videos with montages and fabricated audio to create false and misleading messaging. The close voice match to the original suggests the use of AI tools (Figure 7).\n\nFigure 7: A fabricated video montage accompanied by a suspected AI-generated voiceover impersonating a real journalist was appended to part of a legitimate video news report featuring that same journalist in an attempt to appropriate the credibility of legitimate media\n\nAs the generative AI landscape matures, the methods by which threat actors procure and operationalize these models have shifted from simple experimentation to industrial-scale consumption. Although in prior blog posts we have highlighted AI tools and services offered in the underground, we continue to observe both state-sponsored and cyber crime threat actors leveraging commercially available foundation models and AI-native application building platforms in their pursuit of malicious activity.\n\nIn threat actor engagement with these tools, GTIG has observed a sophisticated evolution to an emerging ecosystem of custom middleware, proxy relays, and automated registration pipelines designed to bypass safety guardrails and billing constraints. By leveraging anti-detect browsers and account-pooling services, actors are attempting to maintain high-volume, anonymized access to premium LLM tiers, effectively industrializing their adversarial workflows while subsidizing their operations through trial abuse and programmatic account cycling.\n\nFigure 8: Threat actors pursue scalable and obfuscated access to LLMs\n\nIn our analysis of PRC-nexus threat activity associated with UNC6201, we observed attempted use of a publicly available Python script hosted on GitHub that automates a workflow to register and immediately cancel premium LLM accounts. The tool allegedly supports the entire process from automatic account registration, CAPTCHA bypassing, and SMS verification to account status confirmation and cancellation. This process highlights the methods adversaries leverage to procure high-tier AI capabilities at scale while insulating their malicious activity from account bans.\n\nWe have observed similar activity from UNC5673, a PRC-nexus threat cluster that has notable overlaps with TEMP.Hex and that has targeted government sectors primarily in South and Southeast Asia. Beyond LLM account registration, the actor has leveraged an array of publicly available commercial tools and GitHub projects that indicate the development of obfuscated and scalable LLM abuse. For example, they employ \"Claude-Relay-Service\" to aggregate multiple Gemini, Claude, and OpenAI accounts, enabling account pooling and cost-sharing. Similarly, they use \"CLI-Proxy-API,\" a proxy server that provides compatible API interfaces for various models to support similar account pooling strategies.\n\nThese tools consolidate multiple API keys into a single, OpenAI-compatible endpoint for streamlined model management. When used maliciously, they could enable the reselling of unauthorized API access and mask individual traffic patterns from safety monitoring.\n\nThese tools automate the creation and verification of user accounts or developer identities across various platforms. When used maliciously, they facilitate Sybil attacks to exploit free-tier credits and maintain a steady supply of disposable accounts for bot-driven tasks.\n\nChatGPT Account Auto-Registration Tool\n\nThese are desktop or terminal-based applications designed to provide a user-friendly interface for interacting with LLMs. Maliciously, they lower the technical barrier for actors to manage complex proxy setups and automate multi-account interactions.\n\nThese systems provide centralized control over distributed API proxies, including logging and quota monitoring. Maliciously, they serve as a C2 hub for orchestrating scalable access across hundreds of compromised or rotated accounts.\n\nThese tools isolate browser fingerprints and hardware signatures to prevent platforms from identifying automated bots. Maliciously, they allow actors to evade browser-based bot detection and manual bans when accessing LLM web interfaces at scale.\n\nTo mitigate the nature of this obfuscation, LLM providers can build signal logic to analyze network infrastructure data associated with AI-related API aggregators. This data helps to enable the disruption efforts we highlight in this report.\n\nAs organizations continue integrating large language models (LLMs) into production environments, the AI software ecosystem has emerged as a primary target for exploitation. While frontier models themselves remain highly resilient to direct compromise, the orchestration layers, including open-source wrapper libraries, API connectors, and skill configuration files, can be vulnerable. GTIG has observed adversaries increasingly target the integrated components that grant AI systems their utility, such as autonomous skills and third-party data connectors.\n\nThroughout early 2026, we observed that threat actors have not yet achieved breakthrough capabilities to bypass the core security logic of frontier models. Instead, these actors are leveraging traditional supply chain tactics, such as embedding malicious logic in popular integration libraries or distributing trojanized configuration files, to gain initial access to production AI environments. These incidents often align with risks described in the Secure AI Framework (SAIF) taxonomy, specifically:\n\nInsecure Integrated Component (IIC): Inclusion of compromised external dependencies that undermine the system.\n\nRogue Actions (RA): Exploitation of AI systems with elevated permissions to execute unauthorized commands or exfiltrate credentials.\n\nThese risks became more apparent in early February 2026, when VirusTotal researchers reported on security risks associated with the OpenClaw AI agent ecosystem, including AI software supply chain risks and vulnerabilities introduced via malicious and insecure skill packages. Most notably, we observed the distribution of malicious packages masquerading as OpenClaw skills containing hidden routines designed to execute unauthorized code and commands on the host system. Given the elevated level of system access that OpenClaw is granted, a skill could be used to perform various privileged actions such as executing code, downloading additional payloads, and discovering and exfiltrating local data.\n\nFurther, even if not inherently malicious, insecure packages could expose users to additional risks. Legitimate skills that fail to leverage secure practices when handling sensitive information, such as credentials or authentication information, could inadvertently expose this information to attackers. This could make this information susceptible to theft by techniques like prompt injection, other malicious skills, or traditional malware threats like infostealers.\n\nWhile the risk of malicious or insecure skills and agent components are not unique to the OpenClaw platform, the discovery of these packages highlights the growing attack surface among AI development platforms and the agentic ecosystem more broadly. Further, the difficulty in identifying and discerning malicious packages from legitimate skills presents significant challenges for defenders. Although this infection vector is opportunistic by nature, the ease by which these skills can be created and distributed could make it an attractive option for a myriad of threat actors seeking access to users’ systems.\n\nTo help mitigate these supply-chain risks, OpenClaw has partnered with VirusTotal to integrate automated security scanning directly into ClawHub, its public skill marketplace. Every skill published to the repository is now automatically analyzed using VirusTotal's Code Insight capability, which evaluates the package's actual code behavior to detect unauthorized network operations, malicious payloads, or unsafe embedded instructions. Based on this security-focused analysis, skills are either approved as benign, flagged with user warnings, or blocked entirely, providing an essential layer of defense against ecosystem abuse.\n\nIn late March 2026, the cyber crime threat actor \"TeamPCP\" (aka UNC6780) claimed responsibility for multiple supply chain compromises of popular GitHub repositories and associated GitHub Actions, including those associated with the Trivy vulnerability scanner, Checkmarx, LiteLLM, and BerriAI. Mandiant responded to numerous incident response engagements associated with this activity, highlighting the wide-impact nature of supply chain operations.\n\nTeamPCP gained initial access through compromised PyPI packages and malicious pull requests to these GitHub repositories. The threat actor subsequently leveraged their access to these GitHub repositories to embed the SANDCLOCK credential stealer and extract high-value cloud secrets, such as AWS keys and GitHub tokens, directly from affected build environments. These stolen credentials were then monetized through partnerships with ransomware and data theft extortion groups.\n\nThe compromise of LiteLLM, an AI gateway utility for integrating multiple LLM providers is noteworthy. It highlights the expanding attack surface of AI platforms and the potential for impact across the software supply chain. Given the package's widespread use, this incident could lead to considerable exposure of AI API secrets from affected victims, which could be used to gain further access to systems for traditional intrusion operations.\n\nMoreover, similar attacks against AI-related dependencies could grant attackers access to unique AI systems, allowing them to conduct novel AI-centric attacks and leverage them in support of traditional intrusion operations. Attackers could leverage this vector not only to pivot to enterprise infrastructure for traditional financially motivated operations (e.g., data theft and ransomware) but also to directly facilitate their operations using AI systems. For example, threat actors with access to an organization’s AI systems could leverage internal models and tools to identify, collect, and exfiltrate sensitive information at scale or perform reconnaissance tasks to move deeper within a network. While the level of access and particular use depends heavily on the organization and the specific compromised dependency, this case study demonstrates the broadened landscape of software supply chain threats to AI systems.\n\nWe believe our approach to AI must be both bold and responsible. That means developing AI in a way that maximizes the positive benefits to society while addressing the challenges. Guided by our AI Principles, Google designs AI systems with robust security measures and strong safety guardrails, and we continuously test the security and safety of our models to improve them.\n\nOur policy guidelines and prohibited use policies prioritize safety and responsible use of Google's generative AI tools. Google's policy development process includes identifying emerging trends, thinking end-to-end, and designing for safety. We continuously enhance safeguards in our products to offer scaled protections to users across the globe.\n\nAt Google, we leverage threat intelligence to disrupt adversary operations. We investigate abuse of our products, services, users, and platforms, including malicious cyber activities by government-backed threat actors, and work with law enforcement when appropriate. Moreover, our learnings from countering malicious activities are fed back into our product development to improve safety and security for our AI models. These changes, which can be made to both our classifiers and at the model level, are essential to maintaining agility in our defenses and preventing further misuse.\n\nGoogle DeepMind also develops threat models for generative AI to identify potential vulnerabilities and creates new evaluation and training techniques to address misuse. In conjunction with this research, Google DeepMind has shared how they're actively deploying defenses in AI systems, along with measurement and monitoring tools, including a robust evaluation framework that can automatically red team an AI vulnerability to indirect prompt injection attacks.\n\nOur AI development and Trust & Safety teams also work closely with our threat intelligence, security, and modelling teams to stem misuse.\n\nThe potential of AI, especially generative AI, is immense. As innovation moves forward, the industry needs security standards for building and deploying AI responsibly. That's why we introduced the Secure AI Framework (SAIF), a conceptual framework to secure AI systems. We've shared a comprehensive toolkit for developers with resources and guidance for designing, building, and evaluating AI models responsibly. We've also shared best practices for implementing safeguards, evaluating model safety, red teaming to test and secure AI systems, and our comprehensive prompt injection approach.\n\nWorking closely with industry partners is crucial to building stronger protections for all of our users. To that end, we're fortunate to have strong collaborative partnerships with security experts via the Coalition for Secure AI (CoSAI) and numerous researchers. We appreciate the work of these researchers and others in the community to help us red team and refine our defenses.\n\nGoogle also continuously invests in AI research, helping to ensure AI is built responsibly, and that we're leveraging its potential to automatically find risks. Last year, we introduced Big Sleep, an AI agent developed by Google DeepMind and Google Project Zero, that actively searches and finds unknown security vulnerabilities in software. Big Sleep has since found its first real-world security vulnerability and assisted in finding a vulnerability that was imminently going to be used by threat actors, which GTIG was able to cut off beforehand. We're also experimenting with AI to not only find vulnerabilities, but also patch them. We recently introduced CodeMender, an experimental AI-powered agent using the advanced reasoning capabilities of our Gemini models to automatically fix critical code vulnerabilities.\n\nGoogle Threat Intelligence Group focuses on identifying, analyzing, mitigating, and eliminating entire classes of cyber threats against Alphabet, our users, and our customers. Our work includes countering threats from government-backed actors, targeted zero-day exploits, coordinated IO, and serious cyber crime networks. We apply our intelligence to improve Google's defenses and protect our users and customers.\n\nAML.T0008.000: Acquire Infrastructure: AI Development Workspaces\n\nThreat actors leveraged low-code AI platforms to rapidly develop and deploy tools.\n\nAML.T0008.005: Acquire Infrastructure: AI Service Proxies\n\nAdversaries deployed self-hosted middleman services (e.g., Claude-Relay-Service) to serve as persistent proxy relays for distributed traffic.\n\nAML.T0016.001: Obtain Capabilities: Software Tools\n\nThreat actors identified and downloaded specialized, community-developed middleware projects from GitHub, such as CLIProxyAPI, which were then configured to serve as a persistent aggregation layer for managing API keys.\n\nAML.T0016.002: Obtain Capabilities: Generative AI\n\nAdversaries utilized automated pipelines, such as the ChatGPT Account Auto-Registration Tool, to programmatically exploit the registration flows of legitimate providers (e.g., Google, Anthropic, OpenAI, etc.).\n\nPROMPTSPY establishes an HTTP POST connection to generativelanguage.googleapis.com, specifically utilizing the gemini-2.5-flash-lite model.\n\nActors leveraged GitHub-hosted scripts to automate high-volume registration of premium LLM accounts, bypassing CAPTCHA and SMS verification.\n\nAML.T0010.001: AI Supply Chain Compromise: AI Software\n\nTeamPCP gained initial access through compromised PyPI packages and malicious pull requests to GitHub repositories and associated GitHub Actions, including those associated with LiteLLM and BerriAI.\n\nAML.T0040: AI Model Inference API Access\n\nPROMPTSPY and HONESTCUE access AI models by querying the Gemini API.\n\nPROMPTSPY leverages its GeminiAutomationAgent to embed an autonomous loop directly on the infected Android device. The class continually feeds the Google Gemini API an XML serialization of the victim's current UI hierarchy alongside the attacker's overarching objective.\n\nAdversaries employed expert persona prompting, such as creating false narratives for the LLM, to steer models past safety guardrails that would otherwise block malicious queries.\n\nThe use of suspected AI voice cloning in “Operation Overload” demonstrates the fabrication of high-fidelity audio artifacts to impersonate authoritative figures and misappropriate media legitimacy.\n\nAML.T0102: Generate Malicious Commands\n\nPROMPTSPY relies on the Gemini API to dynamically generate executable device commands. The malware dynamically parses the natural-language reasoning of the LLM into actionable spatial coordinates and Android accessibility commands.\n\nPROMPTSPY's TcpClient module establishes a persistent, custom reverse TCP tunnel to an attacker-controlled infrastructure.\n\nT1592.001: Gather Victim Host Information: Hardware\n\nA threat actor attempted to identify the exact make and model of a computer used by a high-value target and prompted an LLM to provide photos showing the targeted individual using the device.\n\nT1591.002: Gather Victim Org Information: Business Relationships\n\nThreat actors prompted AI models to generate detailed third-party relationships of large enterprises.\n\nT1591.004: Gather Victim Org Information: Identify Roles\n\nThreat actors prompted AI models to generate detailed organizational hierarchies for specific departments, focusing on high-value functions such as finance, internal security, and human resources.\n\nT1587.001: Develop Capabilities: Malware\n\nAdversaries leveraged AI-augmented research to develop malware, such as CANFAIL and LONGSTREAM.\n\nT1587.004: Develop Capabilities: Exploits\n\nAdversaries leveraged AI-augmented research to develop exploits, such as the identification of 2FA bypass vulnerability in a server administration tool and development of an exploit.\n\nT1588.002: Obtain Capabilities: Tools\n\nThreat actors identified and downloaded specialized, community-developed middleware projects from GitHub, such as CLIProxyAPI, which were then configured to serve as a persistent aggregation layer for managing API keys.\n\nT1588.005: Obtain Capabilities: Exploits\n\nThreat actors leveraged AI to obtain known exploits of vulnerabilities against targeted systems.\n\nT1588.006: Obtain Capabilities: Vulnerabilities\n\nThreat actors leverage AI to research known vulnerabilities of targeted systems.\n\nT1588.007: Obtain Capabilities: Artificial Intelligence\n\nAdversaries utilize automated pipelines, such as the ChatGPT Account Auto-Registration Tool, to programmatically exploit the registration flows of legitimate providers.\n\nThreat actors leverage LLMs to research targeted victims and craft higher-fidelity phishing lures.\n\nT1027.014: Obfuscated Files or Information: Polymorphic Code\n\nMalware families such as PROMPTFLUX employ automated code modification to vary file signatures and bypass legacy security controls.\n\nT1027.016: Obfuscated Files or Information: Junk Code Insertion\n\nMalware families such as CANFAIL and LONGSTREAM contain decoy code to help disguise the malicious nature of the code family.\n\nT1090.003: Proxy: Multi-hop Proxy\n\nWe observed APT27 leverage AI models to accelerate the development of a fleet management application to support the network management for an ORB network using multi-hop configurations.",
+    "readingTime": 29,
+    "keywords": [
+      "democratic people's",
+      "korea dprk",
+      "china prc",
+      "saif taxonomy",
+      "component iic",
+      "people’s republic",
+      "teampcp aka",
+      "aka unc",
+      "python script",
+      "sms verification"
+    ],
+    "qualityScore": 1,
+    "link": "https://cloud.google.com/blog/topics/threat-intelligence/ai-vulnerability-exploitation-initial-access",
+    "thumbnail_url": "https://storage.googleapis.com/gweb-cloudblog-publish/images/03_ThreatIntelligenceWebsiteBannerIdeas_BA.max-2600x2600.png",
+    "created_at": "2026-05-14T02:07:12.800Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "meta-launches-whatsapp-incognito-mode-to-address-privacy-concerns-for-ai-chats",
+    "title": "Meta launches WhatsApp 'incognito' mode to address privacy concerns for AI chats",
+    "description": "Meta Platforms is introducing an \"incognito\" mode for WhatsApp to allow private conversations with its AI chatbot.",
+    "fullText": "LONDON (AP) — Meta Platforms said Wednesday it’s rolling out an “incognito” mode for WhatsApp users to have private conversations with its AI chatbot, a move intended to ease privacy concerns about sensitive information that users share in chats.\n\nThe social media company said in a blog post that incognito chat mode provides a way to have private, temporary conversations with Meta AI, its artificial intelligence assistant that’s been available on WhatsApp for a few years.\n\nMessages will be processed in a “secure environment” that even Meta can’t access, won’t be saved by default and will disappear when exiting a session, Meta said.\n\nGenerative AI systems have been dogged by privacy concerns because the large language models that underpin these systems are trained on vast troves of data, sometimes including personal information provided by users themselves in their conversations with AI chatbots.\n\nRival chatbot makers already have some privacy features. Google’s Gemini chatbot has the option to disable chat history and opt out of allowing one’s data to be used in training its AI models. ChatGPT has similar controls.\n\nMeta says it’s rolling out incognito chats because users often ask chatbots sensitive questions or include private financial, personal, health or work data in their questions.\n\n“We’re starting ask a lot of meaningful questions about our lives with AI systems, and it doesn’t always feel like you should have to share the information behind those questions with the companies that run those AI systems,” Will Cathcart, Meta’s head of WhatsApp, told reporters.\n\nIncognito chat mode has safety features to prevent the chatbot from answering questions about harmful topics, Cathcart said.\n\nIt will “steer the user towards helpful information if it can and then refuse (to answer) and eventually even just stop interacting with the user completely,” Cathcart said.\n\nUsers will only be able to type in questions and get text responses; they won’t be able to upload or generate images. They’ll also have to confirm their age because Meta doesn’t allow users under 13 on its platforms.",
+    "readingTime": 2,
+    "keywords": [
+      "it’s rolling",
+      "privacy concerns",
+      "chat mode",
+      "incognito chat",
+      "users",
+      "chatbot",
+      "systems",
+      "whatsapp",
+      "conversations",
+      "sensitive"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://apnews.com/article/whatsapp-meta-ai-chatbot-privacy-9a5f7565c969cbf04cf150dfc318cfae",
+    "thumbnail_url": "https://dims.apnews.com/dims4/default/be929f4/2147483647/strip/true/crop/1729x1152+0+0/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Feb%2F32%2Fc4a70b34c9bca94fbd5066bd55aa%2Fe8c45bf7c1134a2d93bdad4b5278ea97",
+    "created_at": "2026-05-14T02:07:12.776Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "capcom-is-excited-about-genai-is-still-ramping-up-hiring",
+    "title": "Capcom Is Excited About GenAI, Is Still Ramping Up Hiring",
+    "description": "As part of Capcom's latest earnings briefing, the company disclosed how it's planning to implement generative AI into its work processes, and the short answer is the Resident Evil company sees a lot of potential.\nOn a slide labeled \"growth strategy,\" Capcom said it will utilize AI to \"improve development efficiency and productivity.\" It labeled AI as a \"tool to streamline routine tasks\" so developers can have more time to dedicate to \"creative work.\"\nCapcom said some of the areas of its business that can be made more efficient with AI include research, draft generation, user analysis, interactive manuals, error checks, and meeting notes. The aim is to implement AI systems for these \"routine tasks\" to free up time that can be invested in \"true value creation\" and creative work, Capcom said.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.gamespot.com/articles/capcom-is-excited-about-genai-is-still-ramping-up-hiring/1100-6539927/?ftag=CAD-01-10abi2f",
+    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1179/11799911/4694826-requiem.jpg",
+    "created_at": "2026-05-14T02:07:11.615Z",
+    "topic": "gaming"
+  },
+  {
+    "slug": "openai-exec-recalls-tense-exchange-where-elon-musk-called-him-a-jackass",
+    "title": "OpenAI exec recalls 'tense exchange' where Elon Musk called him a 'jackass'",
+    "description": "OpenAI's chief futurist told the federal jury in the Musk v. Altman trial that Elon Musk \"snapped and called me a jackass\" at a 2018 company meeting.",
+    "fullText": "OpenAI exec Joshua Achiam testified about a \"tense exchange\" he had with Elon Musk in 2018.\n Musk, Achiam told the jury in the Musk v. Altman trial, called him a \"jackass.\"\n The two clashed over AI safety, and Achiam's colleagues later gifted him a gold \"jackass\" trophy.\n\n What is AGI in AI safety?\n\n What led to Musk's OpenAI departure?\n\n How does Musk view AI competition?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "jackass",
+      "safety",
+      "musk",
+      "openai",
+      "achiam"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/openai-executive-recalls-elon-musk-calling-him-a-jackass-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a04c0bbecd7cc1332baedb3?width=1200&format=jpeg",
+    "created_at": "2026-05-14T02:07:08.413Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "amazon-cuts-more-jobs-months-after-mass-layoffs",
+    "title": "Amazon cuts more jobs months after mass layoffs",
+    "description": "Amazon cut more jobs in its retail business this week, as the company doubles down on AI-driven efficiency gains.",
+    "fullText": "Amazon's Selling Partner Services team cut jobs this week.\n Amazon is doubling down on AI and other forms of automation.\n The latest job cuts highlight Amazon's ongoing efficiency drive.\n\n How does AI impact job security?\n\n What roles do AI and automation play?\n\n What is Amazon's efficiency strategy?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "automation",
+      "efficiency",
+      "amazon's"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/amazon-continues-job-cuts-retail-ai-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a04d715abc4e9d88574948b?width=1200&format=jpeg",
+    "created_at": "2026-05-14T02:07:08.265Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "read-the-memo-cisco-to-cut-about-4000-jobs-in-aidriven-restructuring",
+    "title": "Read the memo: Cisco to cut about 4,000 jobs in AI-driven restructuring",
+    "description": "Cisco announced job cuts affecting roughly 4,000 staff, as CEO Chuck Robbins shifts the company's focus to AI investments, buoyed by strong earnings.",
+    "fullText": "Cisco plans to cut about 4,000 jobs to refocus on AI, affecting less than 5% of its workforce.\n Despite layoffs, Cisco sees strong quarterly results and raises sales forecast on AI demand.\n Cisco's restructuring will invest \n\n How will AI reshape Cisco's workforce?\n\n How does AI demand affect tech layoffs?\n\n What are AI-driven restructuring benefits?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "cisco",
+      "workforce",
+      "layoffs",
+      "demand",
+      "cisco's",
+      "restructuring"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/cisco-announces-4000-layoffs-ai-driven-business-shift-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a04f25494eb4c909fb2bd3f?width=1200&format=jpeg",
+    "created_at": "2026-05-14T02:07:08.109Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "an-internal-memo-shows-linkedins-new-marketing-playbook-fewer-staff-tighter-budgets-and-more-ai",
+    "title": "An internal memo shows LinkedIn's new marketing playbook: fewer staff, tighter budgets, and more AI",
+    "description": "LinkedIn is cutting marketing roles and trimming paid media spend as it leans on AI, its CMO Jessica Jensen says in an internal email.",
+    "fullText": "LinkedIn's marketing team is embracing AI as it cuts staff, an internal memo shows.\n Marketing will also reduce its ad spending, according to an email from LinkedIn CMO Jessica Jensen.\n LinkedIn says it's positioning itself for future success as it implements \"organizational changes.\"\n\n How is AI reshaping marketing?\n\n How do layoffs impact company culture?\n\n What are LinkedIn's future success plans?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "marketing",
+      "linkedin's",
+      "linkedin",
+      "success"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/linkedin-layoffs-marketing-staff-ai-usage-growth-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a04fea1abc4e9d8857496f1?width=1200&format=jpeg",
+    "created_at": "2026-05-14T02:07:07.923Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "openai-trial-wraps-up-with-testimony-about-reid-hoffman-a-trophy-and-a-musk-outburst",
+    "title": "OpenAI trial wraps up with testimony about Reid Hoffman, a trophy, and a Musk outburst",
+    "description": "A gag-gift trophy, an Elon Musk tantrum, and a Reid Hoffman name-drop figured prominently in the final day of testimony for Musk v Altman jurors.",
+    "fullText": "Jurors on Wednesday sat for a final day of testimony in the Musk v. Altman showdown.\n A trophy and a tantrum figured prominently, and LinkedIn cofounder Reid Hoffman was name-dropped.\n Closing arguments and the start of jury deliberations are expected on Thursday.\n\n What impact could this trial have on AI?\n\n How do tech partnerships affect nonprofits?\n\n Who are the key figures in this case?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/musk-v-altman-final-testimony-jackass-trophy-reid-hoffman-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a03921195396a3b6e417ac6?width=1200&format=jpeg",
+    "created_at": "2026-05-14T02:07:07.913Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "anthropic-cfo-says-ai-now-writes-90-of-its-code-changing-whitecollar-jobs-from-execution-to-oversight",
+    "title": "Anthropic CFO says AI now writes 90% of its code, changing white-collar jobs from execution to oversight",
+    "description": "Krishna Rao of Anthropic discusses AI's impact on automating white-collar tasks, increasing productivity, and shifting employee roles to management.",
+    "fullText": "Anthropic CFO Krishna Rao said AI has reshaped Anthropic's white-collar work environment.\n Execution roles turned into supervisors of AI, requiring higher \"talent density\" across the company.\n Anthropic's AI, Claude, now writes 90% of the company's code and handles most of its finance work.\n\n How does AI impact \"talent density\"?\n\n How is Claude transforming finance roles?\n\n What challenges come with AI oversight?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "talent density",
+      "roles",
+      "finance",
+      "anthropic's",
+      "claude"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/anthropic-cfo-white-collar-jobs-changed-execution-oversight-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a04dfb7ecd7cc1332baef11?width=1200&format=jpeg",
+    "created_at": "2026-05-14T02:07:07.898Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "redefining-what-efficiency-means-in-the-age-of-ai",
+    "title": "Redefining What Efficiency Means in the Age of AI",
+    "description": "A conversation with neuroscientist Mithu Storoni about training our brains to work more effectively with AI.",
+    "fullText": "All episodes\n\n All episodes\n\n Details\n\n Transcript\n\n May 13, 2026\n\n What is the real definition of efficiency in a world powered by AI? What if it was quality, not quantity? Neuroscientist Mithu Storoni has researched how and when our brains are the most creative and truly productive at knowledge work. In this conversation, she shares how we can train our brains to be more effective at doing work that really matters. She explains how our brains tackle different kinds of work, how we can better schedule our days to align with those states of mind, and what this all means for leaders and organizations. Storoni is the author of the book Hyperefficient: Optimize Your Brain to Transform the Way You Work.\nKey episode topics include: leadership and managing people, entrepreneurs and founders, innovation, organizational culture, corporate strategy, succession planning\n\nListen to the original HBR IdeaCast episode: Training Your Brain to Work More Effectively\nFind more episodes of HBR IdeaCast\nDiscover 100 years of Harvard Business Review articles, case studies, podcasts, and more at hbr.org\n\n Back / Redefining What Efficiency Means in the Age of AI\n\n Latest in this series\n\n All episodes",
+    "readingTime": 1,
+    "keywords": [
+      "episodes",
+      "brains",
+      "efficiency",
+      "episode",
+      "storoni",
+      "brain",
+      "ideacast"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://hbr.org/podcast/2026/05/redefining-what-efficiency-means-in-the-age-of-ai",
+    "thumbnail_url": "https://hbr.org/resources/images/article_assets/2024/11/wide-hbr-on-leadership-24.png",
+    "created_at": "2026-05-14T02:07:07.385Z",
+    "topic": "business"
+  },
+  {
+    "slug": "asia-stocks-rise-on-ai-enthusiasm-focus-on-trumpxi-summit",
+    "title": "Asia stocks rise on AI enthusiasm, focus on Trump-Xi summit",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/stock-market-news/asia-stocks-rise-on-ai-enthusiasm-focus-on-trumpxi-summit-4687031",
+    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM4D02J_L.jpg",
+    "created_at": "2026-05-14T02:07:01.153Z",
+    "topic": "finance"
+  },
+  {
     "slug": "ais-newest-aesthetic-has-some-people-upset",
     "title": "AI's newest aesthetic has some people upset",
     "description": "We wrote about AI coders carrying around half-open laptops to keep their AI agents working, and a lot of you crashed out over it.",
@@ -1742,199 +1943,6 @@
     "link": "https://rootcx.com/blog/agentic-ai-vs-ai-agents",
     "thumbnail_url": "https://rootcx.com/blog/agentic-ai-vs-ai-agents/opengraph-image?9fa01ee4f323f57e",
     "created_at": "2026-05-11T19:27:04.968Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ai-generated-identical-rsums-for-a-man-and-a-woman-hers-was-more-likely-to-be-labeled-weak-while-his-got-a-97-approval",
-    "title": "AI generated identical résumés for a man and a woman: Hers was more likely to be labeled ‘weak,’ while his got a 97% approval rating",
-    "description": "“If people believe they will be judged more harshly for using AI, they are less likely to adopt it—regardless of their capability.\"",
-    "fullText": "If you’re using AI for professional work purposes and are wondering if you’re being judged for it, it might depend on who you are.\n\nA new study sought to determine whether women—particularly young women—would be treated more harshly than their male counterparts for using artificial intelligence in job applications. Zehra Chatoo, a former Meta strategist and the founder of thinktank Code For Good Now, used AI to generate identical résumés with just one difference: One was for a candidate called Emily Clarke, another for James Clarke.\n\nThe résumés were distributed to two groups, who had been told the documents had been created with the help of artificial intelligence.\n\nReviewers of Emily’s résumé were 22% more likely to question whether the individual could be trusted compared to James. The female candidate’s CV was also twice as likely to raise doubts about her competence and ability to do her job.\n\n“She can’t even write a CV herself—not sure she has the skills to carry out the job,” read some of the feedback on Emily’s CV. James’s résumé had a different response, with his use of AI justified: “He just needed a bit of help putting it together,” was one response.\n\n“When men use AI, we question their effort. When women use AI, we question their integrity. That difference changes the perceived risk of using AI,” Chatoo said.\n\nThe latest data point feeds into broader concerns about an AI gender gap. In a working paper published last year, Harvard Business School Associate Professor Rembrand Koning put the adoption rate between men and women at about 25%.\n\nKoning identified the concern Chatoo’s study exhibits, saying women are concerned about the perception of their work if they use or rely on AI. Koning, a Professor of Business Administration, explained: “Women face greater penalties in being judged as not having expertise in different fields. They might be worried that someone would think even though they got the answer right, they ‘cheated’ by using ChatGPT.”\n\nIt’s perhaps no surprise, then, that women are generally more risk-averse when it comes to AI, a trend also seen in behavior like investing. A January study from Caltech, which surveyed 3,000 people, found women were consistently more skeptical than men that AI benefits would outweigh its risks, and were less convinced that their professional lives would gain because of the technology.\n\nTheir concern may be justified: A Brookings Institute study this year found that of the roles with high AI exposure, but low capacity to adapt to the technological change, 86% were held by women.\n\nA generational divide is also appearing in Chatoo’s study, which surveyed 1,000 British adults: Gen Z men, who have grown up with AI, shared some of the harshest views about Emily’s resume.\n\nOf their responses, 3.5 times the number of Gen Z men described Emily’s résumé as “weak” compared to James’s, whose résumé had a 97% approval rating. By contrast, for the same resume content, Emily’s CV was rated strong by 76% of respondents.\n\n“If people believe they will be judged more harshly for using AI, they are less likely to adopt it—regardless of their capability,” Chatoo added. “Closing the AI adoption gap means addressing not just how people use AI, but how that use is evaluated.”\n\nThis story was originally featured on Fortune.com",
-    "readingTime": 3,
-    "keywords": [
-      "chatoo’s study",
-      "gen men",
-      "emily’s résum",
-      "artificial intelligence",
-      "women",
-      "judged",
-      "koning",
-      "you’re",
-      "professional",
-      "harshly"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.yahoo.com/news/articles/ai-generated-identical-r-sum-080300266.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/NRfcIhsYCFvk8VilY8BtHQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/fortune_175/2c96f46ccbfb786a8253e3559798afa7",
-    "created_at": "2026-05-11T19:27:03.281Z",
-    "topic": "news"
-  },
-  {
-    "slug": "lawsuit-accuses-chatgpt-of-helping-fsu-suspect-plan-shooting",
-    "title": "Lawsuit Accuses ChatGPT of Helping FSU Suspect Plan Shooting",
-    "description": "The family of Tiru Chabba, a father of two killed in the 2025 shooting at Florida State University, is now accusing OpenAI’s ChatGPT of helping the suspect plan out his attack. The complaint details s...",
-    "fullText": "The family of Tiru Chabba, a father of two killed in the 2025 shooting at Florida State University, is now accusing OpenAI’s ChatGPT of helping the suspect plan out his attack. The complaint details several of the suspect's alleged exchanges with an AI-powered chatbot including instructions for how to use the weapons he’d obtained. NBC’s Laura Jarrett reports for TODAY.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.yahoo.com/news/videos/lawsuit-accuses-chatgpt-helping-fsu-123226342.html",
-    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/9a8fd6324881815cd015598bf7bbf6902b6d82d074a6526c510083fc82d796f7/lightyear_networkapi/resizefill_w1200;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fnbcu_713%2F50a6ddd5017a0b965b8c107f2a3eab36",
-    "created_at": "2026-05-11T19:27:01.557Z",
-    "topic": "news"
-  },
-  {
-    "slug": "trump-and-chinas-xi-set-for-talks-spanning-iran-nuclear-trade-and-ai",
-    "title": "Trump and China’s Xi set for talks spanning Iran, nuclear, trade and AI",
-    "description": "Trump and China’s Xi set for talks spanning Iran, nuclear, trade and AI",
-    "fullText": "WASHINGTON/BEIJING, May 10 (Reuters) - U.S. President Donald Trump and Chinese President Xi Jinping are set to discuss Iran, Taiwan, artificial intelligence and nuclear weapons as they weigh extending a critical minerals deal, according to U.S. officials previewing Trump’s two-day visit to China this week.\n\nThe leaders of the world’s two largest economies will hold their first face-to-face talks in more than six months as they try to stabilize ties strained by trade, the U.S. and Israeli war with Iran and other areas of disagreement.\n\nTrump is scheduled to arrive in Beijing on Wednesday, ahead of talks set to take place Thursday and Friday. It will be his first trip to China since 2017.\n\nAGREEMENTS ON PLANES, AGRICULTURE AND TRADE\n\nThe U.S. and China are expected to agree to forums to facilitate mutual trade and investment, while China is expected to announce purchases related to Boeing airplanes, American agriculture and energy, the officials said.\n\nPlans for a Board of Trade and Board of Investment may be formally announced at the meeting, but those mechanisms may need subsequent work before they can be implemented, one of the officials said.\n\nThe two countries will also discuss lengthening a truce in their trade war that allows rare earth minerals to flow from China to the U.S., though it is not yet clear if that agreement will be extended this week, that official said.\n\nHe nonetheless expressed confidence that the deal, which was struck last autumn and remains in effect, will eventually be extended.\n\n\"It doesn’t expire yet,\" the official told reporters. \"I’m confident we’ll announce any potential extension at the appropriate time.\"\n\nChina’s embassy in Washington declined to comment.\n\nTHORNIER ISSUES INCLUDE TAIWAN, NUCLEAR ARMS, IRAN AND AI\n\nThe Trump-Xi talks are also expected to veer into areas that have long been a source of U.S.-China tension, including Iran, Taiwan and nuclear arms.\n\nChina maintains ties with Iran and remains a major consumer of its oil exports. Trump has been leaning on China to use its influence to push Tehran to make a deal with Washington and end the conflict that began when the U.S. and Israel launched strikes on Iran in late February.\n\nThe Trump administration also has pressed China on its dealings with Russia.\n\n\"The president has spoken multiple times with General Secretary Xi Jinping about the topic of Iran and about the topic of Russia, to include the revenue that China provides to both those regimes, as well as dual-use goods, components and parts, not to mention the potential of weapons exports,\" said one of the officials. \"I expect that conversation to continue.\"\n\nXi, meanwhile, is frustrated with Washington over Taiwan. The U.S. remains the most important ⁠international ​backer and arms supplier for the democratically governed island, which Beijing claims as its own Chinese territory.\n\nChina has ramped up its military presence near Taiwan in recent years, but U.S. policy will not change, the official said.\n\nThe Trump aides expressed increasing concern about advanced artificial intelligence models being developed in China and believed the two sides need \"a channel of communication\" to avoid conflicts arising from their use.\n\n\"What that looks like is yet to be determined, but we want to take this opportunity with the leaders meeting to open up a conversation and to see if we should establish a channel of communication on AI matters,\" said one of the officials.\n\nWashington has also long hoped to open up talks with Beijing about nuclear weapons, though China remains reluctant to discuss its arsenal. The Chinese government has said privately to the U.S. that \"they have no interest in sitting down and discussing any kind of nuclear arms control or anything along those lines at this point,\" the official said.\n\nTrump and Xi’s last meeting was in October in South Korea, where they agreed to pause a bruising trade war that had seen the U.S. impose triple-digit tariffs on Chinese goods and Beijing threaten to restrict the global supply of rare earths.\n\nIn February, the Supreme Court said Trump did not have the authority to impose many of his tariffs on imports worldwide. He has vowed to re-impose some levies using other legal avenues.",
-    "readingTime": 4,
-    "keywords": [
-      "artificial intelligence",
-      "nuclear arms",
-      "nuclear weapons",
-      "trade war",
-      "iran taiwan",
-      "china",
-      "talks",
-      "beijing",
-      "washington",
-      "discuss"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.investing.com/news/commodities-news/trump-and-chinas-xi-set-for-talks-spanning-iran-nuclear-trade-and-ai-4676464",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM490B2_L.jpg",
-    "created_at": "2026-05-11T19:27:00.205Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-ai-industry-is-turning-to-an-old-energy-favorite-to-bring-its-data-centers-online-fast",
-    "title": "The AI industry is turning to an old energy favorite to bring its data centers online fast",
-    "description": "AI companies are in a race to secure energy for their data centers. They are finding that natural gas is the easiest solution, if not the cleanest.",
-    "fullText": "The AI industry is driving a surge in energy demand to power its data centers.\n AI companies are finding the fastest way to get that power is by using natural gas.\n As a result, after years of progress to prioritize renewables, natural gas is making a comeback.\n\n Why is natural gas gaining favor again?\n\n How does carbon capture technology work?\n\n What are the environmental impacts of this shift?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "natural gas"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/ai-data-center-energy-natural-gas-renewables-environment-2026-4",
-    "thumbnail_url": "https://i.insider.com/6a01194bba7ef34b41f36df4?width=1200&format=jpeg",
-    "created_at": "2026-05-11T19:26:58.416Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "anthropics-daniela-amodei-shares-her-cofounder-test-go-on-vacation-together",
-    "title": "Anthropic's Daniela Amodei shares her cofounder test:  'Go on vacation together'",
-    "description": "Anthropic president Daniela Amodei shared her tips for picking a good cofounder. She recommended sharing a room while traveling first.",
-    "fullText": "Anthropic president Daniela Amodei shared her tips for picking a good cofounder.\n Amodei recommended traveling with them first and sharing a hotel room.\n \"If you're like, 'Really going to need a vacation to recover from my vacation,' it might be the wrong choice,\" she said.\n\n Why travel for cofounder selection?\n\n How important are shared principles?\n\n What challenges arise in cofounder dynamics?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "cofounder",
-      "shared",
-      "vacation",
-      "amodei"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/daniela-amodei-anthropic-test-cofounder-vacation-advice-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a01dbf9ba7ef34b41f36f46?width=1200&format=jpeg",
-    "created_at": "2026-05-11T19:26:58.270Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ai-millionaires-are-already-blowing-up-san-francisco-real-estate-prices-wait-until-the-ipos-show-up",
-    "title": "AI millionaires are already blowing up San Francisco real estate prices. Wait until the IPOs show up.",
-    "description": "AI money is already pushing San Francisco housing prices way, way higher — up 14% in the last year. When OpenAI and Anthropic go public, watch out.",
-    "fullText": "San Francisco real estate has been very expensive for a very long time.\n But AI money is pushing San Francisco housing prices way, way up.\n And this is just a prelude: What happens when Anthropic and OpenAI go public, and even more money shows up?\n\n How will IPOs impact local economies?\n\n How do tech booms affect housing markets?\n\n What are the benefits of secondary stock sales?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "san francisco",
-      "money",
-      "housing"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/san-francisco-real-estate-prices-ai-boom-openai-anthropic-ipo-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0216eae1443b8dc48e3e8b?width=1200&format=jpeg",
-    "created_at": "2026-05-11T19:26:58.021Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-logistics-company-uses-ai-to-reduce-its-delivery-routes-by-half-and-save-time-on-package-sorting",
-    "title": "A logistics company uses AI to reduce its delivery routes by half and save time on package sorting",
-    "description": "Net Zero Logistics uses AI tool Finmile to enhance delivery efficiency, cutting costs and optimizing routes with real-time data tracking.",
-    "fullText": "Net Zero Logistics uses the AI-powered tool Finmile to optimize its delivery operations.\n Since implementing Finmile, the logistics company has reduced delivery routes and package sortation time.\n Drivers and the operations team can monitor all delivery data in real time using their phones.\n\n What challenges do logistics firms face?\n\n What technology powers dynamic routing?\n\n How does AI improve delivery efficiency?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "delivery",
-      "finmile",
-      "operations",
-      "logistics"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/finmile-ai-last-mile-delivery-optimization-net-zero-trucking-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a020ce9ba7ef34b41f37095?width=1200&format=jpeg",
-    "created_at": "2026-05-11T19:26:57.882Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "2-solo-business-owners-share-the-ai-workflows-they-use-to-write-better-emails-and-save-hours-of-manual-work",
-    "title": "2 solo business owners share the AI workflows they use to write better emails and save hours of manual work",
-    "description": "AI enhances marketing for solopreneurs in jewelry and web design by acting as a creative partner and optimizing client follow-ups.",
-    "fullText": "Two solopreneurs said AI saves them time and improves their marketing results.\n A jewelry designer uses AI to generate creative variations, improving results.\n A website designer streamlined follow-ups with AI, resulting in more business from dormant leads.\n\n How can AI boost creativity in business?\n\n How can AI improve customer outreach?\n\n What are efficient AI tools for solopreneurs?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "solopreneurs",
-      "designer",
-      "business"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/generative-ai-for-marketing-solo-business-client-outreach-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a020abde1443b8dc48e3e33?width=1200&format=jpeg",
-    "created_at": "2026-05-11T19:26:57.879Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "can-we-get-an-ai-to-write-better",
-    "title": "Can we get an AI to write better?",
-    "description": "A small step",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.strangeloopcanon.com/p/can-we-get-an-ai-to-write-better",
-    "thumbnail_url": "https://substackcdn.com/image/fetch/$s_!xkbZ!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F70e3b0fc-2d12-4a2f-8644-549f39f3d5c4_1600x597.png",
-    "created_at": "2026-05-11T14:26:49.167Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "how-to-bring-a-company-up-to-speed-on-ai",
-    "title": "How to bring a company up to speed on AI",
-    "description": "Identify the fast movers. Build a shared backlog. Run 2-week sprints with a single owner per topic. Pair-do with the rest of the team.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.theaithinker.com/p/how-to-bring-a-company-up-to-speed",
-    "thumbnail_url": "https://substackcdn.com/image/fetch/$s_!FXiM!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6dd2f487-44c2-47d0-aa0f-5d613ca1a955_1024x731.png",
-    "created_at": "2026-05-11T14:26:48.541Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "anthropic-says-evil-portrayal-of-ai-responsible-for-claude-blackmail-attempts",
-    "title": "Anthropic says 'evil' portrayal of AI responsible for Claude blackmail attempts",
-    "description": "Fictional portrayals of artificial intelligence can have a real effect on AI models, according to Anthropic.",
-    "fullText": "Fictional portrayals of artificial intelligence can have a real effect on AI models, according to Anthropic.\n\nLast year, the company said that during pre-release tests involving a fictional company, Claude Opus 4 would often try to blackmail engineers to avoid being replaced by another system. Anthropic later published research suggesting that models from other companies had similar issues with “agentic misalignment.”\n\nApparently Anthropic has done more work around that behavior, claiming in a post on X, “We believe the original source of the behavior was internet text that portrays AI as evil and interested in self-preservation.”\n\nThe company went into more detail in a blog post stating that since Claude Haiku 4.5, Anthropic’s models “never engage in blackmail [during testing], where previous models would sometimes do so up to 96% of the time.”\n\nWhat accounts for the difference? The company said it found that training on “documents about Claude’s constitution and fictional stories about AIs behaving admirably improve alignment.”\n\nRelated, Anthropic said that it found training to be more effective when it includes “the principles underlying aligned behavior” and not just “demonstrations of aligned behavior alone.”\n\n“Doing both together appears to be the most effective strategy,” the company said.",
-    "readingTime": 1,
-    "keywords": [
-      "aligned behavior",
-      "models",
-      "fictional",
-      "blackmail",
-      "training",
-      "anthropic",
-      "claude"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://techcrunch.com/2026/05/10/anthropic-says-evil-portrayals-of-ai-were-responsible-for-claudes-blackmail-attempts/",
-    "thumbnail_url": "https://techcrunch.com/wp-content/uploads/2026/04/GettyImages-2269811684.jpg?w=1024",
-    "created_at": "2026-05-11T14:26:48.538Z",
     "topic": "tech"
   }
 ]
