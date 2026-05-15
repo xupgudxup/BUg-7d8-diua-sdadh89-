@@ -1,5 +1,21 @@
 [
   {
+    "slug": "should-your-subscription-business-use-autorenew",
+    "title": "Should Your Subscription Business Use Auto-Renew?",
+    "description": "Subscription businesses obsess over pricing and churn, but the most consequential strategic choice may be far simpler: whether subscriptions auto-renew or auto-cancel. Drawing on a 1.4 million–person field experiment with a major European newspaper, the authors show that while auto-renewal boosts short-term retention, it suppresses trial sign-ups so sharply that auto-cancel ultimately produces more paying subscribers and higher-quality customers over time. The right approach depends on two factors—whether customers are naturally loyal or variety-seeking, and whether a company is an incumbent defending share or a challenger trying to acquire it—making renewal defaults a competitive strategy decision, not merely an operational setting.",
+    "fullText": "Should Your Subscription Business Use Auto-Renew? by Klaus M. Miller and Z. John ZhangMay 15, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintThe subscription economy is one of the most significant business model transformations of the past two decades. It spans media, software, food and beverages, health and wellness, e-commerce, and telecommunications. Total revenues were estimated at nearly $500 billion in 2024 and are projected to exceed $1.5 trillion by 2033. The average American consumer now holds anywhere between seven and 12 paid subscriptions. For executives managing these businesses, the strategic questions are urgent: How do you acquire subscribers profitably, retain them durably, and position yourself against competitors chasing the same recurring revenue?",
+    "readingTime": 1,
+    "keywords": [
+      "subscription",
+      "business"
+    ],
+    "qualityScore": 0.55,
+    "link": "https://hbr.org/2026/05/should-your-subscription-business-use-auto-renew",
+    "thumbnail_url": "/resources/images/article_assets/2026/05/May26_15_580815527.jpg",
+    "created_at": "2026-05-15T19:16:01.768Z",
+    "topic": "business"
+  },
+  {
     "slug": "ai-writing-hits-a-ceiling",
     "title": "AI Writing Hits a Ceiling",
     "description": "Machine-generated online articles haven't swallowed the web yet.",
@@ -1960,29 +1976,5 @@
     "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1647/16470614/4649750-helldivers2%27sinvasionofasuper-tough%2Csocialist-lovingworldisn%27tgoingwell.jpg",
     "created_at": "2026-02-11T12:42:47.981Z",
     "topic": "gaming"
-  },
-  {
-    "slug": "agentscript",
-    "title": "AgentScript",
-    "description": "A few weeks ago, I was staring at a system prompt that was 127,000 tokens long. One hundred and twenty-seven thousand tokens - just the system prompt. Most of it was, you guessed it, tool schemas: JSON definitions for every possible thing the agent could do, most of which it would never touch in any given run. My solution? I propose AgentScript: a code-first execution language where the LLM can only interact with the outside world by writing programs.",
-    "fullText": "A few weeks ago, I was staring at a system prompt that was 127,000 tokens long. One hundred and twenty-seven thousand tokens - just the system prompt. Most of it was, you guessed it, tool schemas: JSON definitions for every possible thing the agent could do, most of which it would never touch in any given run.\n\nMy solution? I propose AgentScript: a code-first execution language where the LLM can only interact with the outside world by writing programs. No tool schemas, no function calling, no MCP, no multi-modal response gymnastics. The model writes code, a sandboxed runtime executes it, and the return value is the response. As simple as that.\n\nHere’s how tool calling works today: you define a bunch of tools as JSON schemas, stuff them into the system prompt, and hope the model picks the right one. Each tool needs a name, a description, parameter definitions, and examples. A single tool can easily consume hundreds of tokens. A production-grade system might have tens, sometimes hundrends, of tools.\n\nAnd the tools the model never uses still consume tokens - they’re sitting in the context window like furniture in a storage unit you’re paying rent on but never visiting (I would know something about that). As systems grow, you get this compounding problem: context inflation drives up latency and reduces alignment, both in turn drive up costs, and costs scale non-linearly because you’re paying for all those schema tokens on every single inference call.\n\nSince many agent tasks require iteration, filtering, branching, retries, and aggregation, when you encode these behaviors through repeated LLM calls or chained tool invocations, you’re effectively using natural language as a programming language. You’re asking the model to be both the thinker and the doer, when decades of CS have taught us that these should be separate concerns.\n\nIn the last few months, I’ve seen this become an exciting idea space: Program-of-thought prompting, code interpreter systems, Anthropic’s work on code execution with MCP - they all point to the same conclusion: models are better planners than executors, and deterministic computation belongs outside the model.\n\nAgentScript takes that insight to its logical conclusion.\n\nAgentScript enforces a code-only contract between a language model and its execution environment. In this world, the LLM is not an API client, not it is a conversational participant; it’s a program author that can only emit AgentScript code. So there is only one execution entry point, and all interaction with the world happens through code.\n\nThis collapses tool calling, function responses, and structured outputs into a single universal abstraction: program execution.\n\nThe execution model is deliberately boring:\n\nIntermediate data never enters the model’s context unless the program explicitly reads the persisted logs from the file system. This is my main insight: pull-based data access instead of push-based context stuffing.\n\nThe API surface can be intentionally tiny, for example:\n\nThe model already knows JavaScript. The API is small enough to learn once and never forget.\n\nAnd the safety model is simple: constraints are enforced by the runtime, not the model. The model can write whatever code it wants. The sandbox decides what actually executes, like only mounting the working directory, allowlisted commands, or network access.\n\nTo start with, a backwards-compatible model would be to force a tool call from LLM responses and only give it a single tool: execute_agentscript, and stop the loop based on the execution of the code.\n\nThere are also a few extensions I’m thinking about:\n\nWhen systems become too complex to reason about in prose, you re-found them on code. This has happened repeatedly in computing history, and it’s happening again now to agents.\n\nWritten on a flight from Amsterdam to New Delhi",
-    "readingTime": 4,
-    "keywords": [
-      "system prompt",
-      "tool schemas",
-      "model",
-      "code",
-      "execution",
-      "tokens",
-      "agentscript",
-      "language",
-      "context",
-      "you’re"
-    ],
-    "qualityScore": 1,
-    "link": "https://anandchowdhary.com/blog/2026/agentscript",
-    "thumbnail_url": "https://v1.screenshot.11ty.dev/https%3A%2F%2Fanandchowdhary.com%2Fblog%2F2026%2Fagentscript%3Fscreenshot%3Dtrue/opengraph/",
-    "created_at": "2026-02-11T06:51:16.629Z",
-    "topic": "tech"
   }
 ]

@@ -1,5 +1,106 @@
 [
   {
+    "slug": "10-stocks-to-protect-you-from-the-risky-ai-trade",
+    "title": "10 stocks to protect you from the risky AI trade",
+    "description": "Also in Weekend Reads: Tips for selling a home, the bond market’s reaction as Kevin Warsh takes over at the Fed and advice from the Moneyist.",
+    "fullText": "10 stocks to protect you from the risky AI tradeAlso in Weekend Reads: Tips for selling a home, the bond market’s reaction as Kevin Warsh takes over at the Fed and advice from the MoneyistShareResize(6 min)Is it fair to say that AI-related stocks are in a bubble? Recent action in the stock market makes it difficult not to worry about how long investors’ enthusiasm over data infrastructure to support generative artificial intelligence might last. Or maybe investors need to cushion their portfolios to mitigate the risk of paying too high a price for AI-oriented names.On Thursday, shares of the newly listed Cerebras CBRS shot up to $311.07 from their initial public offering price of $185, for a one-day gain of 68% for investors who were able to get in at the IPO price. That made for a market capitalization of $66.95 billion for a company that posted $510 million in revenue for 2025.",
+    "readingTime": 1,
+    "keywords": [
+      "investors",
+      "stocks",
+      "market"
+    ],
+    "qualityScore": 0.45,
+    "link": "https://www.marketwatch.com/story/10-stocks-to-protect-you-from-the-risky-ai-trade-de4665d8?mod=mw_rss_topstories",
+    "thumbnail_url": "https://images.mktw.net/im-96265997/social",
+    "created_at": "2026-05-15T19:16:42.635Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "aiglue-dropin-audit-and-governance-for-openai-and-anthropic-apps",
+    "title": "AI_glue – drop-in audit and governance for OpenAI and Anthropic apps",
+    "description": "Contribute to simonhansedasi/ai_glue development by creating an account on GitHub.",
+    "fullText": "Drop-in AI observability and governance for OpenAI and Anthropic applications.\n\nai_glue does not replace your AI stack. It has no opinion on prompts, agents, RAG pipelines, or orchestration. It sits between your applications and model providers to add governance, auditing, spend visibility, and policy enforcement. Think of it as a transparent proxy with a dashboard — not a framework.\n\nEvaluating / self-hosted — you are both the operator and the user. Clone it, add your own API key to .env, run it on your machine. The quickstart below covers this case.\n\nTeam deployment — IT deploys one ai_glue instance on a shared server with the organization's API key in .env. Individual developers never touch an API key. They change one environment variable on their machine and everything is logged, governed, and visible on the shared dashboard.\n\nPoint existing apps at ai_glue instead of the real provider. One environment variable per app:\n\nEvery call is intercepted, logged, and governance-checked. The app receives the real response unchanged. Streaming is fully supported — the proxy passes the stream through and captures token counts and latency at the end.\n\nTag calls with optional headers for project and session labeling:\n\nIf no headers are present, calls fall back to AIGLUE_DEFAULT_PROJECT / AIGLUE_DEFAULT_SESSION from .env.\n\nEdit governance.yaml to configure rules. Changes apply immediately — no restart needed.\n\nPII detection is regex-based (not ML). Hard-blocking violations are never logged — the call was never made. PII flags are logged as warnings and do not block calls.\n\nSecurity note: governance.yaml becomes a sensitive file if you use the team API key mapping feature (see below), since it maps key prefixes to real project names. Treat it like .env in production — restrict filesystem permissions and do not commit it. governance.yaml is gitignored by default for this reason.\n\nAll three views draw from the same unified dataset merged across all instances.\n\nFull call log. Every call from every instance in one table. Summary cards, daily charts, and by-project/by-model breakdowns are all merged across instances. Per-session drilldown shows individual turns, tool calls, and highlights flagged PII inline. Filters: ?project=X, ?session=X, ?flagged=1.\n\nNon-technical. No session IDs, no model names. Cards: Total AI Spend, Projects Active, Conversations, Risk Flags. Charts: Spend by Project, Daily Spend trend. Unreviewed PII flags and governance blocks surface as a risk callout with a \"Mark all reviewed\" action.\n\nOne panel per instance with its individual summary, by-project table, and by-model table. Useful for comparing dev vs. staging vs. prod activity side by side.\n\nRun one ai_glue instance per environment. A parent instance pulls /api/summary from each child and merges everything into a single unified view.\n\nTo add a child — edit governance.yaml on the parent only, no code changes:\n\nSet AIGLUE_INSTANCE_NAME on each child so it appears with a meaningful label in parent views.\n\nIssue each team a synthetic key with a recognizable prefix. Teams swap their real provider key for it — no other changes needed. The proxy detects the prefix, tags all calls with the team's project name, and substitutes the real API key before forwarding. This enables centralized billing, per-team spend attribution, and chargeback models without distributing raw provider keys.\n\nAdd spend caps or rate limits per team by adding the team name to projects: in governance.yaml.\n\nSet AIGLUE_LOG_RAW=false in .env to store only the hash when prompt content is sensitive. Restrict filesystem permissions on audit.db in production — it contains call metadata and optionally raw prompts.\n\nai_glue logs every prompt and response, which means your audit database doubles as a conversation dataset. The /export/training endpoint turns logged conversations into JSONL you can use for fine-tuning, content mining, or building provider-independent capability baselines.\n\nThis is particularly useful when a model you depend on is deprecated or sunsetted — if your conversations were logged through ai_glue, you have the raw material to fine-tune a replacement rather than starting from scratch.\n\nOn any session page (/session/<id>), click Export JSONL to download that conversation as a single-session JSONL record.\n\nOn any project page (/project/<name>), click Export all conversations to download every session for that project.\n\nformat=session — one JSONL line per full conversation, with alternating user/assistant turns. Compatible with most fine-tuning pipelines.\n\nformat=turn (default) — one JSONL line per API call, as isolated prompt/completion pairs. Useful for token-level analysis or simpler fine-tuning setups.\n\n27 tests. No API keys required. All LLM calls are mocked.",
+    "readingTime": 4,
+    "keywords": [
+      "pii flags",
+      "restrict filesystem",
+      "filesystem permissions",
+      "merged across",
+      "environment variable",
+      "edit governance.yaml",
+      "ai_glue instance",
+      "logged",
+      "team",
+      "conversations"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/simonhansedasi/ai_glue",
+    "thumbnail_url": "https://opengraph.githubassets.com/95ce5e2158526cef5482b3e6707312dc8197e158414418411a72085b4ec5c45e/simonhansedasi/ai_glue",
+    "created_at": "2026-05-15T19:16:39.465Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "emergence-world-world-building-as-a-way-to-evaluate-llms",
+    "title": "Emergence World: World building as a way to evaluate LLMs",
+    "description": "Five parallel AI agent worlds. Five frontier models. Fifteen days. Watch Claude, Gemini, Grok, GPT and a mixed world build societies from scratch.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://world.emergence.ai/",
+    "thumbnail_url": "https://world.emergence.ai/opengraph.jpg",
+    "created_at": "2026-05-15T19:16:35.075Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "google-has-been-quietly-gaining-ai-customers-even-before-big-releases-next-week",
+    "title": "Google has been quietly gaining AI customers, even before big releases next week",
+    "description": "Vercel CEO Guillermo Rauch highlights Google's Gemini Flash model's rise in AI demand, overtaking Anthropic in Vercel's AI Gateway.",
+    "fullText": "Read in app\n\n A version of this story originally appeared in the BI Tech Memo newsletter.\n\n How does Google compete in AI market?\n\n What trends are shaping AI demand?\n\n What are \"Gemini\" tokens used for?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.4,
+    "link": "https://www.businessinsider.com/google-gemini-flash-model-quietly-winning-ai-customers-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a04f632ecd7cc1332baf095?width=1200&format=jpeg",
+    "created_at": "2026-05-15T19:16:03.372Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "taylor-swift-collaborator-jack-antonoff-tells-people-who-are-making-ai-art-to-drive-right-off-that-cliff",
+    "title": "Taylor Swift collaborator Jack Antonoff tells people who are making AI art to 'drive right off that cliff'",
+    "description": "Jack Antonoff, a songwriter for Taylor Swift, criticized AI in music, defending traditional creative processes as a \"holy\" artistic ritual.",
+    "fullText": "Read in app\n\n Jack Antonoff defended traditional songwriting as a \"holy process\" in an open letter.\n Antonoff denounced AI-generated music as a way to fake making art.\n He isn't the first artist to condemn the use of artificial intelligence in the arts.\n\n How is AI impacting the music industry?\n\n Who else opposes AI in the arts?\n\n What are the ethical concerns of AI in music?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "music",
+      "arts",
+      "antonoff"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/jack-antonoff-slams-ai-in-music-defends-songwriting-process-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a0722bfecd7cc1332bb0063?width=1200&format=jpeg",
+    "created_at": "2026-05-15T19:16:03.208Z",
+    "topic": "entertainment"
+  },
+  {
+    "slug": "an-inflationfueled-surge-in-bond-yields-is-knocking-stocks-down-from-alltime-highs",
+    "title": "An inflation-fueled surge in bond yields is knocking stocks down from all-time highs",
+    "description": "Bond yields surged on Friday, sparking a retreat from stocks after major indexes notched records on the back of a blistering rally in tech and AI names.",
+    "fullText": "Read in app\n\n The scorching stock rally faded on Friday as inflation fears stoked a shift to risk-off among investors.\n US stocks fell as Treasury yields spiked and oil prices crept higher again,\n Investors weighed the impact of a stalemate in the Iran war after Trump's meeting with China's Xi.\n\n What impacts bond yield increases?\n\n What is the Fed's inflation strategy?\n\n How does oil price affect stocks?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "inflation",
+      "investors",
+      "stocks"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/bond-yields-treasury-bonds-stock-market-today-oil-prices-inflation-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a071ee994eb4c909fb2cd1a?width=1200&format=jpeg",
+    "created_at": "2026-05-15T19:16:02.650Z",
+    "topic": "finance"
+  },
+  {
     "slug": "the-munificent-7-why-energy-stocks-are-the-best-way-to-play-the-ai-buildout-says-former-goldman-strategist",
     "title": "The ‘Munificent 7’: Why energy stocks are the best way to play the AI build-out, says former Goldman strategist",
     "description": "The commodity complex is in a structural bull market, and capital should be flowing away from the companies desperate for commodities and towards those who have them, argues Jeff Currie.",
@@ -1811,122 +1912,6 @@
     "link": "https://finance.yahoo.com/news/chinese-oil-supertanker-seen-attempting-033635186.html",
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/zrjnT2ZgIgCmR.eN8VwQtg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/bloomberg_holding_pen_162/75ab3c1f7bd3f2fe1f35862ddeb5dc45",
     "created_at": "2026-05-13T19:30:20.905Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "alexandr-wang-says-its-unfair-to-say-metas-ai-researchers-are-just-there-for-the-money",
-    "title": "Alexandr Wang says it's 'unfair' to say Meta's AI researchers are just there for the money",
-    "description": "Meta made eye-popping offers during the AI talent war, but Alexandr Wang says that's not why the company was able to poach key talent.",
-    "fullText": "Meta AI chief Alexandr Wang said his team isn't just in it for the money.\n\nMeta reportedly made gigantic offers, including $100 million packages, amid the AI talent wars.\n\nWang called it \"an incorrect assumption\" that money was the sole reason Meta poached some key members.\n\nMeta made some big splashes in the AI talent war, but the tech giant's AI chief isn't thrilled by the narrative that his team is a bunch of mercenaries.\n\n\"This is one of, I think, the larger, I would say, like narrative violations or maybe like differences between external perception and what the day-to-day inside is like actually,\" Wang told tech journalists Ashlee Vance and Kylie Robison during an interview for their \"Core Memory\" podcast that was posted on Wednesday.\n\nVance asked Wang about the reputation that Meta's SuperIntelligence Lab is composed of top AI researchers who were lured away from rival companies, at least in part, thanks to the very generous terms Meta CEO Mark Zuckerberg and his team put on the table. Top AI researchers reportedly received $100 million offers.\n\n\"I think it's like an incorrect assumption to think that, like the researchers are just money motivated or anything,\" Wang said. \"And for most of them actually like, you know, the financial prospects of them staying wherever they were look very good as well, like looked very, very, very strong as well.\"\n\nInstead of money, Wang said Meta's recruits were motivated by other factors, including the prospect of having a large amount of compute at their disposal. Business Insider has previously reported how dedicated compute is a big part of leading tech companies' recruitment pitch.\n\n\"People joined because there was high compute per researcher, so they could make more progress than maybe they would be able to make it wherever they were before, because there's great talent density like people saw that it was like a truly cracked group that was pretty small, and that we were going to give them the resources and freedom to make very bold research bets,\" Wang said.\n\nWang, who cofounded Scale AI, was viewed as one of the top prizes in the AI talent war. Meta spent $14 billion to acquire nearly half of Scale AI and to lure Wang to lead a new AI team. Meta's other top recruits include former GitHub CEO Nat Friedman, who helps lead the development of AI products; Ruoming Pang, who was the head of Apple's foundation model team; and Trapit Bansal, a former top researcher at OpenAI.\n\nBeyond the compensation packages, rival AI and tech executives have poked fun at the lengths Meta went to woo AI researchers. Vance asked Wang about OpenAI's chief research officer, Mark Chen, who said that Zuckerberg hand-delivered homemade soup to an unnamed OpenAI employee.",
-    "readingTime": 3,
-    "keywords": [
-      "incorrect assumption",
-      "talent war",
-      "scale ai",
-      "team",
-      "money",
-      "tech",
-      "researchers",
-      "chief",
-      "wang",
-      "compute"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://finance.yahoo.com/news/alexandr-wang-says-unfair-metas-163710407.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/fx2HYViLzw9PNgwrncKXLg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/575e804ddd0b8e42efcb2849475ae1e0",
-    "created_at": "2026-05-13T19:30:20.170Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "beware-what-you-tell-your-ai-chatbot-its-not-a-shrink-its-a-snitch-arwa-mahdawi",
-    "title": "Beware what you tell your AI chatbot. It’s not a shrink – it’s a snitch | Arwa Mahdawi",
-    "description": "In a case of ‘oh dear diary’, the OpenAI president Greg Brockman is having to read extracts from his musings about Elon Musk in court. It’s a terrifying reminder that what’s divulged to AI really isn’t private\nThe hottest new read of 2026 may well be The Secret Diary of Greg Brockman, Aged 38¾. It’s got everything: feuding billionaires, scheming CEOs and a perhaps somewhat unreliable narrator. You won’t find it in the library, but you can watch Brockman, a co-founder and president of OpenAI, being forced to read the juiciest bits out loud in court.\nBefore you ask ChatGPT to explain, here’s the backstory: Elon Musk is in a legal battle with Brockman and the OpenAI CEO, Sam Altman.",
-    "fullText": "In a case of ‘oh dear diary’, the OpenAI president Greg Brockman is having to read extracts from his musings about Elon Musk in court. It’s a terrifying reminder that what’s divulged to AI really isn’t private\n\nThe hottest new read of 2026 may well be The Secret Diary of Greg Brockman, Aged 38¾. It’s got everything: feuding billionaires, scheming CEOs and a perhaps somewhat unreliable narrator. You won’t find it in the library, but you can watch Brockman, a co-founder and president of OpenAI, being forced to read the juiciest bits out loud in court.\n\nBefore you ask ChatGPT to explain, here’s the backstory: Elon Musk is in a legal battle with Brockman and the OpenAI CEO, Sam Altman. Musk, a former board member of OpenAI, is accusing the men of violating the AI firm’s founding agreement by turning it into a for-profit entity. Meanwhile, Altman et al are arguing Musk is just upset he’s not in control of the company and wants to bring down his competition.\n\nHelpfully for Musk, Brockman kept a diary during the company’s founding years; this has become central to the case. In one heavily cited extract, Brockman writes: “Financially what will take me to $1B?” Another scrutinised passage: “It’d be wrong to steal the non-profit from [Musk]. to convert to a b-corp without him. that’d be pretty morally bankrupt. and he’s really not an idiot.” (He may have been lusting after billions, but his sentence structure suggests Brockman is ambivalent about capitalism – or at least capitals.)\n\nLook, I’m not an expert in crime management, but I’m pretty sure there are certain thoughts you shouldn’t share with Dear Diary. Even Brockman’s tech bro peers are aghast at his journal-maxxing. “I love the guy, but what … is he thinking?” David Friedberg, a co-host of the All-In podcast, said on a recent episode. “You’re just sitting here at home, like, let me write about the crime I’m committing … and by the way, let me never delete it.” Alleged crime, David, alleged.\n\nNot a lot of people are keeping journals laying out potentially problematic corporate manoeuvres. However, millions of people are using tools such as ChatGPT as a sort of therapist or digital confession box; a place to share private or half-formed thoughts. “Within the next decade,” one lawyer told Axios, “the diary equivalent will be standard discovery in every major executive litigation in the country.”\n\nWhat does this mean? It means you shouldn’t trust a chatbot with your secrets because, as a number of recent cases demonstrate (including one where a former NFL player allegedly asked ChatGPT for help after he killed his girlfriend), conversations with AI are admissible in court. Even if you don’t expect any legal trouble, you should be wary about sharing your sensitive information: most chatbot conversations are not private, and may be retained indefinitely and shared with other humans. Your AI chatbot is not a shrink – it’s a snitch.",
-    "readingTime": 3,
-    "keywords": [
-      "dear diary",
-      "elon musk",
-      "openai",
-      "court",
-      "it’s",
-      "chatgpt",
-      "crime",
-      "chatbot",
-      "brockman",
-      "president"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/commentisfree/2026/may/13/beware-what-you-tell-your-ai-chatbot-its-not-a-shrink-its-a-snitch",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/2a87d55d1431f734f7b321f3320c8160efd59863/514_0_2739_2192/master/2739.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctb3BpbmlvbnMucG5n&enable=upscale&s=49b5e6a62c86f325760f5815f3e37c2a",
-    "created_at": "2026-05-13T14:05:20.572Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "imposter-syndrome-used-to-be-a-lie-ai-made-it-true",
-    "title": "Imposter syndrome used to be a lie. AI made it true",
-    "description": "For decades, psychologists told us self-doubt at work was a distortion. Then AI came along and made the gap real — for everyone, at once.",
-    "fullText": "Jeffrey Sanchez-Burks is a behavioral scientist, cultural psychologist, and the William Russell Kelly Professor of Business Administration at the University of Michigan Ross School of Business. His research explores the role of emotion, culture, and group dynamics in organizational life. For more than two decades, he has advised CEOs and executive teams across Fortune 500 firms, startups, and mission-driven organizations in sectors ranging from advertising and the arts to factory floors, hospitals, and AI companies. His work is published in top peer-reviewed journals and has been featured in The New York Times, Harvard Business Review, NPR, Fortune, BBC, and CBS. He is the author of the forthcoming Human Mode: Unlock Your Unique Edge and Transform Your World of Work (Harper Business, March 2027).",
-    "readingTime": 1,
-    "keywords": [
-      "business",
-      "fortune"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://fortune.com/2026/05/13/jeffrey-sanchez-burks-ai-imposter-syndrome-competence-vertigo-capability-gap/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/05/1767724225991.jpg?resize=1200,600",
-    "created_at": "2026-05-13T14:04:52.027Z",
-    "topic": "business"
-  },
-  {
-    "slug": "mira-muratis-ai-dream-team-got-their-stock-options-now-many-are-out",
-    "title": "Mira Murati's AI dream team got their stock options. Now many are out.",
-    "description": "Thinking Machines Lab, led by former OpenAI CTO Mira Murati, faces talent loss to rivals like Meta amid Silicon Valley's competitive AI sector.",
-    "fullText": "Thinking Machines Lab has lost a third of its founding team to rivals amid fierce AI talent wars.\n Meta, OpenAI, and xAI lured the founders of Thinking Machines Lab with huge compensation offers.\n CEO Mira Murati's startup has also hired top talent and recently unveiled a new type of AI model.\n\n How does equity vesting impact retention?\n\n How do AI talent wars affect startups?\n\n What attracts talent to Thinking Machines?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "machines lab",
-      "talent wars",
-      "thinking machines lab"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/thinking-machines-lab-key-talent-meta-openai-xai-2026-5",
-    "thumbnail_url": "https://i.insider.com/69ea45c2a98bc8fdc096df92?width=1200&format=jpeg",
-    "created_at": "2026-05-13T14:04:50.898Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "harvard-cs-professor-sees-the-dip-in-enrollment-as-part-of-an-ebb-and-flow-that-existed-before-ai",
-    "title": "Harvard CS professor sees the dip in enrollment as part of an 'ebb and flow' that existed before AI",
-    "description": "Harvard computer science professor David J. Malan says CS will remain valuable, but interest is likely to fluctuate for a while.",
-    "fullText": "A Harvard professor said interest in computer science is likely to \"ebb and flow.\"\n Professor David J. Malan said interest in CS was declining before AI.\n Malan, who also teaches a popular online CS course, said \"the downturn in tech offerings\" is also to blame.\n\n What factors influence CS enrollment?\n\n What are key skills in CS beyond coding?\n\n How has AI impacted tech job demand?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "interest",
-      "tech",
-      "professor",
-      "malan"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/cs-enrollment-decline-harvard-professor-david-malan-cs50-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0387df95396a3b6e417a18?width=1200&format=jpeg",
-    "created_at": "2026-05-13T14:04:50.893Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "good-news-ai-coders-you-can-keep-your-laptop-running-while-closed",
-    "title": "Good news, AI coders: You can keep your laptop running while closed",
-    "description": "Business Insider readers sounded off about techies walking around with laptops slightly open for their AI agents. Many recommended workarounds.",
-    "fullText": "Business Insider readers sounded off about the latest AI trend: techies walking around with slightly open laptops.\n Many said there are better ways to keep AI agents running, like changing settings or using a terminal command or outside apps.\n In response, some open-laptop-walkers said these solutions had too much \"friction\" — or weren't obvious in the first place.\n\n Why do coders prefer open laptops?\n\n How do third-party apps help AI coders?\n\n What are the risks of open laptops?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "laptops",
-      "apps",
-      "coders"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/how-to-keep-laptop-ai-agent-running-while-lid-closed-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0383be95396a3b6e4179dd?width=1200&format=jpeg",
-    "created_at": "2026-05-13T14:04:50.765Z",
     "topic": "finance"
   }
 ]
