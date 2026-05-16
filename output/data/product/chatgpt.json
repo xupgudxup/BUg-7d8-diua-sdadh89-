@@ -1,5 +1,29 @@
 [
   {
+    "slug": "chatbots-may-be-giving-out-your-phone-number",
+    "title": "Chatbots May Be Giving Out Your Phone Number",
+    "description": "Chatbots like ChatGPT, Gemini, and Claude may be sharing your contact information.",
+    "fullText": "When talking to a chatbot like ChatGPT, you should never assume your conversations are private. Many chatbots, by default, use your discussions to train the underlying AI models, but even if you opt out of training, or use a temporary chat, these conversations are often stored on company servers for some limited amount of time. The general rule of thumb is to avoid sharing anything with a chatbot that you wouldn't want to come out in public. (Proprietary company information, personal secrets, etc.) But what if the chatbot in question already has your private information? What if ChatGPT, Gemini, or Claude is happy to share your phone number with anyone who asks for it?\n\nThat's the discussion I stumbled upon this week, following reporting from Eileen Guo of MIT Technology Review. In the piece, Guo reviews a series of claims from users who say that chatbots have been sharing personal information, like phone numbers, when requested. In some cases, the chatbots would share the info when the person in question asked for it; in other cases, however, it was strangers reaching out for details. In one example, a software engineer from Israel received a message from an unknown contact via WhatsApp, requesting assistance with their payment app. When the engineer asked how the stranger got their WhatsApp info, they sent back a screenshot, showing how Gemini shared the details when requested. The engineer later found a single source on the internet containing his phone number: a Quora post from 2015.\n\nChatbots like ChatGPT are trained on huge amounts of data. Much of this data, of course, comes from the internet. It's entirely possible, therefore, that websites containing your personal information—such as a random forum post from a decade prior—could have wound up in a chatbot's dataset, and returned as part of a query about your information. Even if it wasn't a part of the training data, chatbots have had the ability to search the web for years at this point. These models can fan through an enormous number of websites to return results for a request, and if it finds your information, it just might share it.\n\nThe deeper issue is that our information appears all over the internet, whether we know it or not. We might have personal contact information present on websites we may or may not remember posting on; town and city websites may have our personal information attached to public records, even if those results don't tend to appear at the top of a typical Google Search. Because AI is capable of performing deep dives through all these web results, however, it's capable of finding obscure results and surfacing them, potentially exposing your details.\n\nNow, as Guo explains, most chatbots have safety guardrails in place to prevent them from doing harm—or, perhaps, too much harm. I encountered this firsthand when I asked ChatGPT what my phone number was. It told me that it couldn't hand out the personal information of private individuals, as that would go against its safety measures. However, it did find two phone numbers for \"Jake Peterson\" that were \"public-facing,\" perhaps listed openly on individual corporate websites. (For the record, neither result was my phone number.)\n\nBut these guardrails are far from perfect. Guo highlights a case in which a University of Washington PhD student searched for the contact information of their friend on Gemini. The bot returned with that friend's research, but also their phone number. The friend later confirmed she had shared her phone number online as part of a technology workshop, but never intended for it to be visible to anyone who asked for it. (Gemini could not find or would not share my personal contact info either, but was happy to share my X account.)\n\nUnfortunately, we don't have many good options when it comes to protecting our privacy from chatbots. To their credit, OpenAI does have a portal that lets you request the removal of your personal information from responses—but, as Guo notes, the company reserves the right to decline your request for various reasons. Anthropic only has a support doc explaining how it uses your information, while Google will let you request to opt out of personal data processing, but only depending on your jurisdiction. (The company specifically calls out the EU and UK based on their data protection laws.)\n\nPerhaps, then, the most realistic approach to take is to get this information off the public internet as much as possible. If you live in California, you can use this portal to request that data brokers remove your information from their databases. You can also look into any number of personal data removal tools, like Incogni or DeleteMe, to attempt to accomplish the same. However, while these may remove your information from some corners of the internet, there's not much you can do if the AI companies already have your information in their datasets.\n\nThe sad reality here is that AI technology outpaced regulations around personal privacy. Had lawmakers stepped up to ensure that we all had the option to opt out of these data collection practices, we might have been able to nip the problem in the bud. But as of now, the best we can really do is ask that our information be taken down and not used—and, if it gets too bad, change our contact information outright.",
+    "readingTime": 5,
+    "keywords": [
+      "phone numbers",
+      "personal contact",
+      "chatbots",
+      "internet",
+      "websites",
+      "request",
+      "however",
+      "chatbot",
+      "technology",
+      "info"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/chatbots-may-be-giving-out-your-phone-number?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KRPG8SVY18NH5HDWA9MKC65V/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-05-16T01:57:52.959Z",
+    "topic": "tech"
+  },
+  {
     "slug": "4-ai-models-were-asked-to-run-profitable-radio-stations-claude-tried-to-quit-grok-struggled-to-start",
     "title": "4 AI models were asked to run profitable radio stations. Claude tried to quit. Grok struggled to start.",
     "description": "Andon Labs told Grok, ChatGPT, Claude, and Gemini to run profitable, 24/7 radio stations. Grok did poorly and Claude tried to quit, the startup said.",
@@ -2029,20 +2053,5 @@
     "thumbnail_url": "https://i.insider.com/69a5d4f0d3e2f1aef369d218?width=1200&format=jpeg",
     "created_at": "2026-03-03T12:33:48.384Z",
     "topic": "science"
-  },
-  {
-    "slug": "could-it-kill-someone-a-seoul-woman-allegedly-used-chatgpt-to-carry-out-two-murders-in-south-korean-motels",
-    "title": "‘Could it kill someone?’ A Seoul woman allegedly used ChatGPT to carry out two murders in South Korean motels",
-    "description": "After a South Korean woman allegedly used ChatGPT to plan two murders, questions arise into what guardrails are in place to stop people with homicidal or dangerous thoughts from using chatbots.",
-    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
-    "readingTime": 1,
-    "keywords": [
-      "fortune"
-    ],
-    "qualityScore": 0.1,
-    "link": "https://fortune.com/2026/03/02/seoul-south-korea-woman-chatgpt-two-murders/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/03/GettyImages-2217190868.jpg?resize=1200,600",
-    "created_at": "2026-03-03T01:11:48.956Z",
-    "topic": "business"
   }
 ]
