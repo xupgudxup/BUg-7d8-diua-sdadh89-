@@ -1,5 +1,147 @@
 [
   {
+    "slug": "skills-8-mcp-tools-6-runtimes-one-memory-system-that-never-forgets",
+    "title": "Skills, 8 MCP tools, 6 runtimes, one memory system that never forgets",
+    "description": "職人 Shokunin 62 AI agent skills for OpenCode, Claude Code, Cursor, Windsurf. ChromaDB memory, MCP servers, declarative self-updates. Multi-model, open source, zero cost. - EliasOulkadi/shokunin",
+    "fullText": "Persistent AI memory for developers. 62 skills, multi-strategy recall (vector + BM25 + temporal), ChromaDB memory, MCP servers, declarative self-updates. Zero servers, zero API costs, fully offline.\n\n職人 (shokunin) means artisan in Japanese. These skills aim for that standard: every detail crafted, every edge case handled, every workflow automated.\n\n62 skills across 10 domains. Each skill teaches the agent how to handle a specific domain: with decision tables, error patterns, production checklists, anti-patterns, and cited sources. Not generic prompts. Real engineering guides.\n\nThe Docker skill is 6,300 words with multi-stage build templates for Node, Go, Python and Rust, BuildKit cache optimization, distroless base images, seccomp profiles, and CVE scanning. The auth skill references OWASP directly. The database one has real EXPLAIN ANALYZE output. Frontend skills include Emil Kowalski patterns (Sonner, Vaul), Paul Bakaus principles (Impeccable), and Leon Lin variance engines (Taste). Skills are validated by CI on every push: frontmatter, workflow, error handling, sources. All mandatory.\n\nEach skill includes: trigger-optimized descriptions, procedural workflows, error handling, production checklists, anti-patterns, cited sources. Advanced skills also include executable scripts, reference files, and reusable templates.\n\nUbuntu 24.04+: PEP 668 blocks global pip install by default. The installer handles this automatically with --break-system-packages. If you run into issues, see the Troubleshooting section below.\n\nMulti-strategy recall (vector + BM25 + temporal + reciprocal rank fusion). Session management with explicit continue (no guessing which session to resume).\n\nAll data stored at ~/.shokunin/memory/. No cloud, no telemetry, no subscriptions.\n\nOpenCode custom commands: /save (save session to ChromaDB), /load (load previous session), /status (healthcheck).\n\nThe ecosystem works across multiple AI coding runtimes. The core (skills, memory, scripts) is runtime-agnostic. Only MCP server configuration and instruction files differ.\n\nClaude Code: Copy .pack/templates/claude-code.json to project root as claude.json or configure via CLAUDE.md.\n\nCline: Add the mcpServers block from .pack/templates/cline-settings.json to VS Code's settings.json. Copy .pack/rules/cline-memory.md as .clinerules.\n\nCursor: Configure MCP servers in Cursor Settings > MCP using .pack/templates/cursor-mcp.json. Copy .pack/rules/cursor-memory.mdc to .cursor/rules/memory.mdc.\n\nContinue.dev: Copy .pack/templates/continue-config.yaml to .continue/config.yaml. Add .pack/rules/continue-memory.md to .continue/rules/.\n\nWindsurf: Copy .pack/templates/windsurf-mcp.json MCP config. Copy .pack/rules/windsurf-memory.md to .windsurf/rules/memory.md.\n\nMIT free as in freedom, free as in zero cost.",
+    "readingTime": 2,
+    "keywords": [
+      "mcp servers",
+      "multi-strategy recall",
+      "recall vector",
+      "production checklists",
+      "checklists anti-patterns",
+      "error handling",
+      "session",
+      "memory",
+      "zero",
+      "skills"
+    ],
+    "qualityScore": 0.8,
+    "link": "https://github.com/EliasOulkadi/shokunin",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1236456093/875a06ac-fb5f-43fa-b28a-46e3f6d8af93",
+    "created_at": "2026-05-16T12:57:37.509Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "arxiv-to-ban-researchers-for-a-year-if-they-submit-ai-slop",
+    "title": "ArXiv to Ban Researchers for a Year If They Submit AI Slop",
+    "description": "The change comes as arXiv and others struggle to manage an influx of AI-generated materials masquerading as rigorous science.",
+    "fullText": "AI\n ArXiv to Ban Researchers for a Year if They Submit AI Slop\n\n Samantha Cole\n\n ·\n\n May 15, 2026\n at 11:52 AM\n\n The change comes as arXiv and others struggle to manage an influx of AI-generated materials masquerading as rigorous science.",
+    "readingTime": 1,
+    "keywords": [
+      "arxiv"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://www.404media.co/new-arxiv-rules-ai-generated-papers-ban/",
+    "thumbnail_url": "https://images.unsplash.com/photo-1708793737579-3df8763a5119?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMTc3M3wwfDF8c2VhcmNofDQ5fHxzY2llbnRpZmljJTIwcGFwZXJ8ZW58MHx8fHwxNzc4ODU5Nzc2fDA&ixlib=rb-4.1.0&q=80&w=2000",
+    "created_at": "2026-05-16T12:57:22.183Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "i-used-ai-to-help-market-my-bagel-shop-then-the-onestar-reviews-came-in",
+    "title": "I used AI to help market my bagel shop. Then the one-star reviews came in.",
+    "description": "Adam Jones tried using AI to edit the social media posts for Myers' Bagels. After customer outcry, he apologized — but isn't anti-AI.",
+    "fullText": "Read in app\n\n Adam Jones owns Myer's Bagels, a Montreal-style bagel shop that tried using AI to edit its social media posts.\n Customers decried the use of AI in the shop's Instagram comments and left negative Google reviews.\n Jones apologized and said he'd be more careful with AI and social media — though he's not anti-AI.\n\n Why did AI edits upset customers?\n\n What is Montreal-style bagel?\n\n How can businesses use AI cautiously?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "montreal-style bagel",
+      "social media",
+      "customers",
+      "jones"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/bagel-shop-owner-removes-ai-social-media-marketing-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a04ab5695396a3b6e41801c?width=1200&format=jpeg",
+    "created_at": "2026-05-16T12:57:21.758Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "i-was-rejected-for-a-job-6-minutes-after-i-applied-i-told-the-company-that-ai-was-screening-out-strong-candidates",
+    "title": "I was rejected for a job 6 minutes after I applied. I told the company that AI was screening out strong candidates.",
+    "description": "An IT professional says he was turned down for a role so quickly that he felt compelled to tell the employer what happened.",
+    "fullText": "Read in app\n\n Tony Tellez, 49, recently launched a job search for the first time in 10 years.\n A near-instant rejection from an employer convinced the IT pro that he wasn't given a fair chance.\n Tellez said he told the company's HR chief that AI was filtering out qualified candidates.\n\n What is AI's role in job applications?\n\n What are alternatives to AI screening?\n\n How can AI bias affect job seekers?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "tellez"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/it-pro-reached-out-after-receiving-job-rejection-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a04c2efecd7cc1332baedc2?width=1200&format=jpeg",
+    "created_at": "2026-05-16T12:57:21.700Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "this-sector-is-joining-memory-stocks-as-the-next-frontier-of-the-ai-trade",
+    "title": "This sector is joining memory stocks as the next frontier of the AI trade",
+    "description": "The next wave of the AI trade involves more than memory stocks. Optics tech stocks have surged in 2026. Here's what you need to know.",
+    "fullText": "Read in app\n\n Memory chips aren't the only AI bottleneck that is fueling massive stock gains.\n Optical tech is an increasingly key component of data centers.\n Optical stocks like Lumentum, Ciena, Corning, and Coherent are some of the top performers of 2026.\n\n What drives AI demand for optical tech?\n\n What challenges do copper wires present?\n\n How does optical tech impact data centers?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "optical tech",
+      "centers"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/optics-stocks-memory-chips-ai-trade-lite-cien-glw-cohr-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a0766f9ecd7cc1332bb03bf?width=1200&format=jpeg",
+    "created_at": "2026-05-16T12:57:21.613Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "ai-face-is-taking-over-and-driving-plastic-surgeons-crazy",
+    "title": "AI face is taking over — and driving plastic surgeons crazy",
+    "description": "Patients are turning to ChatGPT for beauty standards. The results aren't physically possible.",
+    "fullText": "Read in app\n\n Patients are turning to AI for inspiration in plastic surgery and dermatology.\n The results, doctors say, are often physically impossible or unsafe.\n It's the latest example of how technology is growing the gap between beauty expectations and reality.\n\n How does AI impact beauty standards?\n\n How do surgeons handle AI expectations?\n\n What are the risks of AI in surgery?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "surgery",
+      "beauty",
+      "expectations"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/ai-generated-images-chatgpt-reshape-plastic-surgery-beauty-expectations-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a074e9794eb4c909fb2cf40?width=1200&format=jpeg",
+    "created_at": "2026-05-16T12:57:21.478Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "salesforce-ceo-marc-benioff-said-his-company-will-likely-spend-300m-on-anthropic-tokens",
+    "title": "Salesforce CEO Marc Benioff said his company will likely spend $300M on Anthropic tokens",
+    "description": "Salesforce CEO Marc Benioff said he's able to work faster with AI agents and that the company is working on tech to make coding easier at Slack.",
+    "fullText": "Salesforce CEO Marc Benioff had high praise for AI coding agents and Anthropic.\n\nThe CEO said agents have allowed him to be more efficient and faster with product iteration.\n\nHe said Salesforce will also be introducing tech that makes coding easier inside Slack.\n\nMarc Benioff is all in on the AI coding agent craze and is willing to spend big on it for his company.\n\nIn an episode of the All-In podcast published on Friday, the Salesforce CEO said his company is projected to spend $300 million on tokens from Anthropic.\n\nTokens are bits of information, like parts of a word, that a user types and a model processes. AI companies track token usage to bill users and large organizations.\n\n\"These coding agents are awesome. Anthropic is awesome,\" he said. \"I am going to probably use $300 million of Anthropic (tokens) this year at Salesforce. Coding. Everything's going to be cheaper to make.\"\n\nBenioff said in the podcast that AI agents have brought \"unprecedented\" levels of efficiency at his company, pointing to areas such as service, support, distribution, and marketing.\n\nLast August, the CEO announced that AI agents enabled Salesforce to cut its support staff from 9,000 to 5,000.\n\nWith the productivity boosts he's seen with coding agents, Benioff revealed in the podcast that Salesforce is also working on ways to make coding easier in Slack, the productivity platform Salesforce has owned since 2021.\n\n\"We're even working on technology inside Slack to make it easier for everybody to code,\" he said. \"You're going to see some cool stuff with Slack and code I'm not ready to talk about yet. But there's no question that we are in a new moment in coding.\"\n\nBenioff said that while he projects a $300 million spend on Anthropic this year, he doesn't believe every token a company employee use has to go to a frontier model like Anthropic's Claude.\n\nThe CEO called for an \"intermediary layer\" in the future that could determine which token inputs should go to Anthropic and which ones may be suitable for smaller models.",
+    "readingTime": 2,
+    "keywords": [
+      "inside slack",
+      "marc benioff",
+      "salesforce ceo",
+      "coding easier",
+      "coding agents",
+      "podcast",
+      "model",
+      "awesome",
+      "productivity",
+      "code"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/sectors/technology/articles/salesforce-ceo-marc-benioff-said-030807359.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/fwTNR8PsGSgZIoQa1dpeQA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/612f0f57f50cfb7f3c4913bd6f0fcf85",
+    "created_at": "2026-05-16T12:57:20.858Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "top-5-japanese-ai-and-chip-stocks-to-watch-according-to-mizuho",
+    "title": "Top 5 Japanese AI and Chip Stocks to Watch, According to Mizuho",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/stock-market-news/top-5-japanese-ai-and-chip-stocks-to-watch-according-to-mizuho-93CH-4694456",
+    "thumbnail_url": "https://i-invdn-com.investing.com/news/LYNXMPEDAF0IH_M.jpg",
+    "created_at": "2026-05-16T12:57:19.131Z",
+    "topic": "finance"
+  },
+  {
     "slug": "quantumguard-free-quantum",
     "title": "QuantumGuard – Free Quantum",
     "description": "AI-powered quantum cryptography vulnerability scanner. Detect post-quantum risks in your cryptographic infrastructure before harvest-now-decrypt-later attacks strike.",
@@ -1793,139 +1935,6 @@
     "link": "https://www.businessinsider.com/cisco-announces-4000-layoffs-ai-driven-business-shift-2026-5",
     "thumbnail_url": "https://i.insider.com/6a04f25494eb4c909fb2bd3f?width=1200&format=jpeg",
     "created_at": "2026-05-14T02:07:08.109Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "an-internal-memo-shows-linkedins-new-marketing-playbook-fewer-staff-tighter-budgets-and-more-ai",
-    "title": "An internal memo shows LinkedIn's new marketing playbook: fewer staff, tighter budgets, and more AI",
-    "description": "LinkedIn is cutting marketing roles and trimming paid media spend as it leans on AI, its CMO Jessica Jensen says in an internal email.",
-    "fullText": "LinkedIn's marketing team is embracing AI as it cuts staff, an internal memo shows.\n Marketing will also reduce its ad spending, according to an email from LinkedIn CMO Jessica Jensen.\n LinkedIn says it's positioning itself for future success as it implements \"organizational changes.\"\n\n How is AI reshaping marketing?\n\n How do layoffs impact company culture?\n\n What are LinkedIn's future success plans?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "marketing",
-      "linkedin's",
-      "linkedin",
-      "success"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/linkedin-layoffs-marketing-staff-ai-usage-growth-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a04fea1abc4e9d8857496f1?width=1200&format=jpeg",
-    "created_at": "2026-05-14T02:07:07.923Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "openai-trial-wraps-up-with-testimony-about-reid-hoffman-a-trophy-and-a-musk-outburst",
-    "title": "OpenAI trial wraps up with testimony about Reid Hoffman, a trophy, and a Musk outburst",
-    "description": "A gag-gift trophy, an Elon Musk tantrum, and a Reid Hoffman name-drop figured prominently in the final day of testimony for Musk v Altman jurors.",
-    "fullText": "Jurors on Wednesday sat for a final day of testimony in the Musk v. Altman showdown.\n A trophy and a tantrum figured prominently, and LinkedIn cofounder Reid Hoffman was name-dropped.\n Closing arguments and the start of jury deliberations are expected on Thursday.\n\n What impact could this trial have on AI?\n\n How do tech partnerships affect nonprofits?\n\n Who are the key figures in this case?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/musk-v-altman-final-testimony-jackass-trophy-reid-hoffman-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a03921195396a3b6e417ac6?width=1200&format=jpeg",
-    "created_at": "2026-05-14T02:07:07.913Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "anthropic-cfo-says-ai-now-writes-90-of-its-code-changing-whitecollar-jobs-from-execution-to-oversight",
-    "title": "Anthropic CFO says AI now writes 90% of its code, changing white-collar jobs from execution to oversight",
-    "description": "Krishna Rao of Anthropic discusses AI's impact on automating white-collar tasks, increasing productivity, and shifting employee roles to management.",
-    "fullText": "Anthropic CFO Krishna Rao said AI has reshaped Anthropic's white-collar work environment.\n Execution roles turned into supervisors of AI, requiring higher \"talent density\" across the company.\n Anthropic's AI, Claude, now writes 90% of the company's code and handles most of its finance work.\n\n How does AI impact \"talent density\"?\n\n How is Claude transforming finance roles?\n\n What challenges come with AI oversight?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "talent density",
-      "roles",
-      "finance",
-      "anthropic's",
-      "claude"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/anthropic-cfo-white-collar-jobs-changed-execution-oversight-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a04dfb7ecd7cc1332baef11?width=1200&format=jpeg",
-    "created_at": "2026-05-14T02:07:07.898Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "redefining-what-efficiency-means-in-the-age-of-ai",
-    "title": "Redefining What Efficiency Means in the Age of AI",
-    "description": "A conversation with neuroscientist Mithu Storoni about training our brains to work more effectively with AI.",
-    "fullText": "All episodes\n\n All episodes\n\n Details\n\n Transcript\n\n May 13, 2026\n\n What is the real definition of efficiency in a world powered by AI? What if it was quality, not quantity? Neuroscientist Mithu Storoni has researched how and when our brains are the most creative and truly productive at knowledge work. In this conversation, she shares how we can train our brains to be more effective at doing work that really matters. She explains how our brains tackle different kinds of work, how we can better schedule our days to align with those states of mind, and what this all means for leaders and organizations. Storoni is the author of the book Hyperefficient: Optimize Your Brain to Transform the Way You Work.\nKey episode topics include: leadership and managing people, entrepreneurs and founders, innovation, organizational culture, corporate strategy, succession planning\n\nListen to the original HBR IdeaCast episode: Training Your Brain to Work More Effectively\nFind more episodes of HBR IdeaCast\nDiscover 100 years of Harvard Business Review articles, case studies, podcasts, and more at hbr.org\n\n Back / Redefining What Efficiency Means in the Age of AI\n\n Latest in this series\n\n All episodes",
-    "readingTime": 1,
-    "keywords": [
-      "episodes",
-      "brains",
-      "efficiency",
-      "episode",
-      "storoni",
-      "brain",
-      "ideacast"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://hbr.org/podcast/2026/05/redefining-what-efficiency-means-in-the-age-of-ai",
-    "thumbnail_url": "https://hbr.org/resources/images/article_assets/2024/11/wide-hbr-on-leadership-24.png",
-    "created_at": "2026-05-14T02:07:07.385Z",
-    "topic": "business"
-  },
-  {
-    "slug": "asia-stocks-rise-on-ai-enthusiasm-focus-on-trumpxi-summit",
-    "title": "Asia stocks rise on AI enthusiasm, focus on Trump-Xi summit",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/asia-stocks-rise-on-ai-enthusiasm-focus-on-trumpxi-summit-4687031",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM4D02J_L.jpg",
-    "created_at": "2026-05-14T02:07:01.153Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ais-newest-aesthetic-has-some-people-upset",
-    "title": "AI's newest aesthetic has some people upset",
-    "description": "We wrote about AI coders carrying around half-open laptops to keep their AI agents working, and a lot of you crashed out over it.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/ai-trend-laptop-open-crack-agent-power-user-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0396af95396a3b6e417b23?width=1200&format=jpeg",
-    "created_at": "2026-05-13T19:30:31.606Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "openai-just-lost-its-enterprise-ai-crown-to-anthropic",
-    "title": "OpenAI just lost its enterprise AI crown to Anthropic",
-    "description": "Anthropic surpassed OpenAI in AI business spending, according to Ramp's AI Index, marking a significant shift in AI adoption for the Claude creator.",
-    "fullText": "Anthropic has surpassed OpenAI in business AI adoption, according to Ramp's AI Index.\n Anthropic's rise has been driven by surging Claude Code adoption.\n AI market competition remains volatile, Ramp's economist said.\n\n What is Claude Code's key feature?\n\n What factors drive AI market volatility?\n\n How does Ramp's AI Index work?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "adoption",
-      "market",
-      "ramp's",
-      "index",
-      "claude"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/anthropic-tops-openai-business-ai-adoption-ramp-index-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0399a47c7e83f26041b09b?width=1200&format=jpeg",
-    "created_at": "2026-05-13T19:30:31.457Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "tech-investor-dan-niles-predicts-ai-stocks-will-crash-by-30-to-50-in-2027",
-    "title": "Tech investor Dan Niles predicts AI stocks will crash by 30% to 50% in 2027",
-    "description": "Tech investor Dan Niles says the AI boom still has room to run, but warns stocks could crash up to 50% in 2027.",
-    "fullText": "Dan Niles predicted AI stocks could tumble as much as 50% after the boom peaks in early 2027.\n The tech investor said agentic AI will fuel the rally before triggering a reset across markets.\n Niles said Google is best positioned for AI because it owns the industry's full stack.\n\n What is \"agentic AI\"?\n\n What factors drive AI stock volatility?\n\n How is Google leading in AI?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "agentic",
-      "google",
-      "niles"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/dan-niles-ai-stocks-could-crash-50-percent-next-year-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a031808e1443b8dc48e42d1?width=1200&format=jpeg",
-    "created_at": "2026-05-13T19:30:31.348Z",
     "topic": "finance"
   }
 ]
