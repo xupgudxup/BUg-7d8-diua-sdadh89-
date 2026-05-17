@@ -1,5 +1,29 @@
 [
   {
+    "slug": "open-architecture-multibeam-ebl-for-sub10nm-sovereign-chip-manufacturing",
+    "title": "Open architecture multi-beam EBL for sub-10nm sovereign chip manufacturing",
+    "description": "Open architecture multi-beam direct-write electron-beam lithography — Morin 2026 v5. CC BY 4.0 papers + MIT code. Sub-10 nm capable, ~$37M/tool vs EUV $200-400M, multi-vendor supply chain, no paten...",
+    "fullText": "An open, mask-free, multi-vendor architecture for mature-node semiconductor manufacturing — published, simulated, and software-defined.\n\nRelease: v5 (May 16, 2026) — final integrated open-source release with full software stack (GDS-II pattern compiler, real-time control firmware, tool operating system) layered on top of the v4.1 hardware engineering.\n\nORCID: 0009-0008-8373-1496\nCorrespondence: robmorin0@gmail.com\nLicense: papers under CC BY 4.0 · code under MIT (see LICENSE.papers, LICENSE.code)\n\nMorin, R. G. (2026). Multi-Beam Direct-Write Electron Lithography via Multi-Rate Electromagnetic Steering — v5 Open Architecture Release. Zenodo. https://doi.org/10.5281/zenodo.20247262\n\nA complete open-source design package for a multi-beam direct-write electron-beam lithography (EBL) machine. It targets mature-node semiconductor manufacturing (50–180 nm range) at roughly 10× lower capital cost than EUV (~$37 M per tool vs $200–400 M), with no single-vendor architectural dependency.\n\nThe architecture is released under CC BY 4.0 (papers) + MIT (code). The author makes no patent claim on anything in this package. By publication, the entire design enters the public domain as prior art and may not be enclosed by subsequent IP filings by any party.\n\nIf you want to build this machine — or fork the architecture, or extract subsystems for adjacent applications — this package gives you everything needed up to the Stage A prototype build.\n\nAll quantitative claims in the paper are simulated and the code is included. Anyone can run these to reproduce the published numbers, or modify them for their own architecture variants.\n\n12 buildable engineering specifications, each with:\n\nComponent selection + vendor candidates (≥3 vendors / ≥2 jurisdictions per subsystem)\n\nHardware: v4_cryocolumn.md, v4_datapath.md, v4_blanker.md, v4_wafer_thermal.md, v4_resist_outgassing.md, v4_source_and_registration.md, v4_cold_warm_interface.md, v4_loeffler_jansen.md\n\nSoftware: v5_software_compiler.md, v5_software_firmware.md, v5_software_operating_system.md\n\nIntegration: v4_INTEGRATION.md, v4_phase3_findings.md\n\nPrototype path: v4_stage_A_prototype.md\n\nA sketch of how the same architectural principles apply to X-ray lithography (using an electron-beam-pumped X-ray converter array). Coarser node range (130–250 nm) than the EBL primary, but useful for thick-resist and photon-sensitive substrate applications.\n\nReference implementations and code skeletons for the v5 software stack. These are starting points, not production-ready code — but they're enough that a competent team can build out from them.\n\nStart with paper/Morin_2026_Multi-Beam_EBL_v5.pdf. ~20 pages, includes all the key numbers and figures.\n\nThe CC BY 4.0 license requires attribution but otherwise permits any use including commercial. The MIT license on code is similarly permissive. Two principles to keep:\n\nRemaining work is normal engineering execution (process development, prototype build, integration test) — not paradigm risk.\n\nFor questions, collaborations, or to share your fork:\n\nThe architecture is open. The math is honest. The supply chain is multi-vendor. The patent landscape is clean. Build it.",
+    "readingTime": 3,
+    "keywords": [
+      "mature-node semiconductor",
+      "semiconductor manufacturing",
+      "multi-beam direct-write",
+      "software stack",
+      "cc by",
+      "architecture",
+      "code",
+      "engineering",
+      "license",
+      "lithography"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/robmorin0-hash/multibeam-ebl-open",
+    "thumbnail_url": "https://opengraph.githubassets.com/57c04073c0f95c1a461e3f6f2299c278fa45b934aa84c18dc45906ab36a9c285/robmorin0-hash/multibeam-ebl-open",
+    "created_at": "2026-05-17T02:00:30.347Z",
+    "topic": "tech"
+  },
+  {
     "slug": "supreme-court-revives-suit-against-major-logistics-company-with-potentially-big-effects-on-industry",
     "title": "Supreme Court revives suit against major logistics company with potentially big effects on industry",
     "description": "The Supreme Court on Thursday allowed a man to sue a major logistics company after he lost part of his leg in a semi tractor-trailer crash, a decision that could have big ripple effects across the tru...",
