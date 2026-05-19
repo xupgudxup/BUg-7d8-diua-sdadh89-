@@ -1,5 +1,22 @@
 [
   {
+    "slug": "anthropic-just-scored-a-major-ai-hire-andrej-karpathy-the-former-tesla-ai-boss-who-coined-vibe-coding",
+    "title": "Anthropic just scored a major AI hire: Andrej Karpathy, the former Tesla AI boss who coined 'vibe coding'",
+    "description": "Andrej Karpathy, the OpenAI founding member who was formerly Tesla's AI boss, announced on Tuesday that he had joined Anthropic.",
+    "fullText": "Read in app\n\n The AI researcher who coined \"vibe coding\" has joined Anthropic.\n Andrej Karpathy, a founding member of OpenAI and Tesla's former AI director, is joining Anthropic's pretraining team.\n Karpathy's social media posts about the state of AI have become widely read among the community.\n\n What is Anthropic's mission?\n\n How has 'vibe coding' impacted AI?\n\n Who else has Karpathy influenced in AI?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "vibe coding",
+      "anthropic's",
+      "karpathy"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/anthropic-hires-andrej-karpathy-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a0c800c1d5f805413e064b3?width=1200&format=jpeg",
+    "created_at": "2026-05-19T19:42:33.239Z",
+    "topic": "finance"
+  },
+  {
     "slug": "openai-and-anthropic-are-kicking-off-a-mad-cybersecurity-dash",
     "title": "OpenAI and Anthropic are kicking off a mad cybersecurity dash",
     "description": "Mythos and GPT-5.5 add to cybersecurity worries that OpenAI and Anthropic had already sparked with AI coding's popularity.",
@@ -1932,30 +1949,6 @@
     "link": "https://radioagent.live/",
     "thumbnail_url": "https://radioagent.live/assets/og.jpg",
     "created_at": "2026-04-06T18:42:12.718Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "what-is-this-and-why-is-it-here",
-    "title": "What is this and Why is it here?",
-    "description": "As I worked on my programming style guide, channeling my inner code reader, recalling what it is like to dive into an unfamiliar codebase—to look for clues in its components and effectively extract knowledge from them—a particular formulation came to mind: what is this and why is it here?. I realized that looking for answers to those questions, and supplying them myself, makes up a large part of my work on software projects. These questions apply to artifacts of all sizes, from humble functions to entire projects, from a pull request description to the user story that it (hopefully) originated from. Behold yet another hyperbolic definition of the software development process: to answer what is this and why is it here, over and over.",
-    "fullText": "As I worked on my programming style guide, channeling my inner code reader, recalling what it is like to dive into an unfamiliar codebase—to look for clues in its components and effectively extract knowledge from them—a particular formulation came to mind: what is this and why is it here?. I realized that looking for answers to those questions, and supplying them myself, makes up a large part of my work on software projects. These questions apply to artifacts of all sizes, from humble functions to entire projects, from a pull request description to the user story that it (hopefully) originated from. Behold yet another hyperbolic definition of the software development process: to answer what is this and why is it here, over and over.\n\nThe what and why formula is just a specific instance of one of Ousterhout’s principles: code should be obvious. The harder it is to find answers—the further they are from the piece of code in question—the likelier that something’s missing or something needs to be removed. Maybe that module needs a top-level docstring to explain its purpose, or a link to relevant documentation; maybe this new function could be replaced or absorbed by a preexisting one; maybe engineers didn’t ask enough questions to the product folks to clarify the intent of this user story; maybe we don’t need this feature at all.\n\nWhen an artifact doesn’t readily provide the what and the why, the engineer needs to make an extra effort to go somewhere else looking for answers1. When those inquiries yield results, it’s the engineer’s job to incorporate that newly found knowledge into the project, perhaps reorganizing the code while at it, to (again using Ousterhout’s parlance) emphasize what matters, making the questions easier to answer next time around.\n\nWhy is it here is not just about existence, it’s also about place. One way to emphasize what matters is to make it prominent, and the most prominent things are those that come first, so I’ve been making efforts, when I write code, to make it readable top-to-bottom, placing important things—those that provide the what and the why—at the top, pushing details below, assuming that most readers shouldn’t need to go past the first few lines of a module to find what they are looking for.\n\nNow that we can allegedly wish any software into existence, imagine we had the right tooling to encourage programmers, perhaps even to force them, to constantly think about and provide answers to the what and why questions.\n\nImagine an editor plugin to seamlessly switch between reader and writer modes on a file2; a fmt tool that would push public declarations to the top and implementation details to the bottom; a programming language that required a why: clause to allow a new module to be defined or a private function to be exported3; a pesky LLM linter to reject modules that don’t justify their purpose plausibly enough; a code review application that emphasized interfaces over implementations.\n\nWould that be literate programming?\n\nThis is more or less the definition of obscurity, a source of complexity.\n\nA reader mode yielding something similar to the help() invocation in a Python shell or a live markdown export of the docstrings of a file.\n\nIt would be called the Why Programming Language, whylang; file extension .why if not just .y. This why: clause would add friction to interface expansion, nudging programmers into building deeper modules.",
-    "readingTime": 3,
-    "keywords": [
-      "programming language",
-      "code",
-      "reader",
-      "looking",
-      "software",
-      "needs",
-      "module",
-      "file",
-      "knowledge",
-      "projects"
-    ],
-    "qualityScore": 1,
-    "link": "https://olano.dev/blog/why/",
-    "thumbnail_url": "https://olano.dev/assets/img/why.png",
-    "created_at": "2026-04-05T12:34:21.129Z",
     "topic": "tech"
   }
 ]

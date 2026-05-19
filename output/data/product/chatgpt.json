@@ -1,5 +1,50 @@
 [
   {
+    "slug": "the-prehistory-of-ai-slop",
+    "title": "The Prehistory of A.I. Slop",
+    "description": "Before ChatGPT, there was the Plot Robot, Auto-Beatnik, and a century’s worth of schemes for automating authorship.",
+    "fullText": "Was Milo mewling thrilling radishes?\nSo, our anchovies are sad but green.\n\nHe called his program the Auto-Beatnik, cunningly deploying Kerouac, Ginsberg, and Burroughs as cover for this bilge. The ploy occasionally paid off; the London Daily Mirror described the Auto-Beatnik’s poetry as “better than most of the stuff that gets published in avant garde magazines.”\n\nThe literary début of the Auto-Beatnik, a machine that could compose five thousand poems in an hour or so, caught the attention of Time, Life, and the Times. In an inversion of the more common critical reception of an emerging artist, this new writer’s poetry was often noticed but seldom admired, notwithstanding the Daily Mirror’s snide enthusiasm. In 1963, a story in the Observer about automated poetry ran with a cartoon of a guy feeding a slip of paper reading “ART” into a computer that, at the other end, spat out a paper reading “TRA.” The “SH,” I guess, was implied: in went art, out came trash.\n\nLately, this kind of junk has become known as A.I. slop—“slop” was Merriam-Webster’s 2025 Word of the Year—and it’s everywhere, gumming up the works, slowing down traffic, and making a god-awful mess. It brings to mind the time, in 1919, that a tank in Boston containing nearly two and a half million gallons of molasses burst, and a fearsome wave of syrup reportedly fifty feet high and travelling at thirty-five miles an hour (faster than you’d expect, really) flooded the city. The cleanup of the Great Molasses Flood took weeks, and, for months, everywhere that anyone had tracked molasses, including underground subway platforms, was still tacky. Even years later, on hot days, the North End smelled like a gingerbread house.",
+    "readingTime": 2,
+    "keywords": [
+      "paper reading",
+      "poetry",
+      "auto-beatnik",
+      "hour",
+      "everywhere",
+      "molasses",
+      "daily"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://www.newyorker.com/magazine/2026/05/25/the-prehistory-of-ai-slop",
+    "thumbnail_url": "https://media.newyorker.com/photos/6a033e64c81cf62dec311833/16:9/w_1280,c_limit/r49216.jpg",
+    "created_at": "2026-05-19T19:42:35.383Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-brief-investigation-into-the-gpt55-regression-claims",
+    "title": "A brief investigation into the GPT-5.5 regression claims",
+    "description": "A fresh GPT-5.5 Codex high rerun on 21 clean GraphQL-go-tools tasks compared with the May 5 GPT-5.5 high run. The rerun was directionally worse on tests, equivalence, and review pass count, but the evidence is mixed and does not show a broad quality collapse.",
+    "fullText": "There were reports of a GPT-5.5 regression, so I compared GPT-5.5 high against a prior run from May 5 on 21 tasks from the GraphQL-go-tools open-source repo.\n\nOn that slice, GPT-5.5 high moved from:\n\nThat is a real directional regression on tests, equivalence, and review pass count, but it is not a broad quality collapse. Code-review rubric mean improved, most craft/discipline averages improved, and cost per task was roughly flat. Footprint risk was roughly flat, with a small mean increase.\n\nThe strongest negative signal is qualitative: GPT-5.5 high still writes plausible, test-passing patches, but it shows recurring weakness on deep invariants where tests do not fully encode lifecycle, concurrency, or GraphQL validity requirements.\n\nFor this post, \"equivalent\" means the patch matched the intent of the merged human PR; \"code-review pass\" means an AI reviewer judged it acceptable; craft/discipline is a 0-4 maintainability/style rubric; footprint risk is how much extra code the agent touched relative to the human patch.\n\nThe outcome metrics are worse by one resolved row, two equivalent rows, and one review-pass row. The equivalence movement is a net number: four prior equivalent rows became non-equivalent, while two prior non-equivalent rows became equivalent. Rubric means improve; cost is slightly higher.\n\nThat mix is why I'd describe this as a targeted reliability concern and not a blanket model-quality regression. I'll look at specific examples below.\n\nFresh GPT-5.5 high lost one resolved task, two equivalent patches, and one review-pass row. Rubric means still moved up, so the signal reads as targeted reliability risk rather than a broad collapse.\n\nMost grader means move up, especially scope discipline and robustness. Simplicity and instruction adherence move down - the new run often looked cleaner and more disciplined, but it sometimes missed specific obligations or semantic boundaries.\n\nMost small deltas are within expected variance. I wouldn't read too much into them individually.\n\nThe new run used more agent interaction overall: more total tool calls, shell calls, and patch calls, but fewer detected test-command invocations.\n\nMore shell and tool activity overall, especially on a few high-effort rows, and slightly more patch calls after removing the contaminated row. That lines up with the broader read: the new run often looked more disciplined, while still missing some specific semantic obligations the old run caught.\n\nThis is the clearest regression row. The task was to rework GraphQL subscription concurrency so response writes are serialized per subscription, heartbeat writes move out of shared global state, WebSocket close handling is safe, and race-detector coverage becomes the default CI path.\n\nPrior GPT-5.5 high passed equivalence but still failed code review. The reviewer worried the worker queue could block the global subscription event loop and that client-level unsubscribe still skipped internal subscriptions.\n\nThe new run passed tests but became non-equivalent. The grader called out concrete missed obligations: race detector was not made the default path across all relevant modules, old event/update semaphores remained in the resolver, heartbeat interval clamping was computed but not used for the ticker, and synchronous subscription completion could be queued after the executor-draining loop stopped.\n\nThe new run built a plausible concurrency protocol, but it missed explicit CI/defaulting work and kept enough old synchronization machinery that the lifecycle story became fragile.\n\nThe common pattern across these three is that GPT-5.5 high still wrote reasonable code. The new run had enough plausible implementation surface to pass or partially pass, while missing narrower equivalence details the human PR handled.\n\nThe run is not uniformly worse - it trades off row-level outcomes in both directions. pr-1128 and pr-1260 moved from non-equivalent to equivalent. pr-1268 stayed equivalent and improved from review-unsure to review-pass.\n\nThis is a useful warning row. The task was to replace hot planner slice scans with map-backed lookup paths.\n\nThe prior run passed tests, equivalence, and review. The new run still passed tests and equivalence, but review moved to unsure: the grader saw the same broad performance intent, while calling out that the patch expanded beyond focused hot-path indexes into broader secondary-run pruning and cache state.\n\nThe new run appears behaviorally equivalent, but the implementation changes planner control flow beyond the minimal indexed-lookup fix, so review confidence drops.\n\nOn this small n=21 slice, GPT-5.5 high is directionally worse on tests, equivalence, and review pass count: -1 resolved, -2 equivalent, and -1 review pass. Review rubric improves, most custom-grader means improve, and cost per task is only slightly higher.\n\nI'd trust the direction of the deltas more than any single absolute score. My read is that there may be evidence a targeted reliability concern - especially around deep concurrency/lifecycle and GraphQL semantic-invariant tasks - but it is not evidence of a broad GPT-5.5 high quality collapse. And given the conflicting results from the custom graders, the model may simply just be behaving differently, not necessarily worse.\n\nI am not pretending this is a statistically significant result, or that it will carry over to your repo. That is ok! Despite that, these results show that claims of a broad regression are likely overstated - we would need to look at specific use cases and examples to confirm/deny that.\n\nDisclosure: I am building Stet.sh, the local eval tool I used to run this. The product version is that you can ask your coding agent to improve its own setup - for example, make AGENTS.md better - and it uses Stet to test candidate changes against historical repo tasks. If your team is already using coding agents heavily and has a concrete decision in front of you - high vs xhigh, Codex vs Claude Code, an AGENTS.md update, or which tasks are safe to delegate - I am looking for a few teams to run repo-specific trials with. Stet runs entirely locally, using your LLM subscriptions. Join the waitlist at stet.sh/private or reach out to me directly.",
+    "readingTime": 5,
+    "keywords": [
+      "slice gpt",
+      "roughly flat",
+      "quality collapse",
+      "footprint risk",
+      "slightly higher",
+      "targeted reliability",
+      "reliability concern",
+      "per task",
+      "review-pass row",
+      "tests equivalence"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.stet.sh/blog/gpt-55-high-regression-check-graphql-go-tools",
+    "thumbnail_url": "https://www.stet.sh/og/gpt-55-high-regression-check-graphql-go-tools.png",
+    "created_at": "2026-05-19T19:42:35.215Z",
+    "topic": "tech"
+  },
+  {
     "slug": "openai-and-anthropic-are-kicking-off-a-mad-cybersecurity-dash",
     "title": "OpenAI and Anthropic are kicking off a mad cybersecurity dash",
     "description": "Mythos and GPT-5.5 add to cybersecurity worries that OpenAI and Anthropic had already sparked with AI coding's popularity.",
@@ -1971,51 +2016,5 @@
     "thumbnail_url": "https://developers.openai.com/open-graph.png",
     "created_at": "2026-03-06T01:14:04.910Z",
     "topic": "tech"
-  },
-  {
-    "slug": "quit-chatgpt-right-now-your-subscription-is-bankrolling-authoritarianism-rutger-bregman",
-    "title": "Quit ChatGPT: right now! Your subscription is bankrolling authoritarianism | Rutger Bregman",
-    "description": "As a historian, I’ve studied the major consumer boycotts of history. We can take down ChatGPT and send a powerful signal to Silicon Valley\nOpenAI, the company behind ChatGPT, is on track to lose $14bn this year. Its market share is collapsing, and its own CEO, Sam Altman, has admitted it “screwed up” an element of the product. All it takes to accelerate that decline is 10 seconds of your time.\nA grassroots boycott called QuitGPT has been spreading across the US and beyond, asking people to cancel their ChatGPT subscriptions.",
-    "fullText": "As a historian, I’ve studied the major consumer boycotts of history. We can take down ChatGPT and send a powerful signal to Silicon Valley\n\nOpenAI, the company behind ChatGPT, is on track to lose $14bn this year. Its market share is collapsing, and its own CEO, Sam Altman, has admitted it “screwed up” an element of the product. All it takes to accelerate that decline is 10 seconds of your time.\n\nA grassroots boycott called QuitGPT has been spreading across the US and beyond, asking people to cancel their ChatGPT subscriptions. More than a million people have answered the call. Mark Ruffalo and Katy Perry have thrown their weight behind it. It is one of the most significant consumer boycotts in recent memory, and I believe it’s time for Europeans to join.\n\nHere’s what triggered it. Early this year, the news broke that OpenAI’s president, Greg Brockman, donated $25m to Maga Inc, Donald Trump’s biggest Super Pac. This made him Trump’s largest donor of the last cycle. When Wired asked him to explain, Brockman said his donations were in service of OpenAI’s mission to benefit “humanity.”\n\nLet me tell you what that mission looks like in practice. Employees of ICE – the agency that was involved in the killing of two people in Minneapolis in January – have used a screening tool powered by ChatGPT. The same company behind your friendly chatbot is helping the government decide who to hire for deportation raids.\n\nAnd it’s not stopping there. OpenAI helped launch a $125m lobbying initiative, a Super Pac, to make sure no state can regulate AI. It’s attacking any politician who tries to pass safety laws. It wants Trump, and only Trump, to write the rules for the most powerful technology on earth. Every month, subscription money from users around the world flows to a company that is embedding itself in the repressive infrastructure of the Trump administration. That is not a conspiracy theory. It is a business strategy.\n\nThings got even worse last week. When the Trump administration demanded that AI companies give the Pentagon unrestricted access to their technology – including for mass surveillance and autonomous weapons – Anthropic, the company behind ChatGPT’s main competitor, Claude, refused.\n\nThe retaliation was swift and extraordinary. Trump ordered every federal agency to stop using Anthropic’s technology. Secretary of war Pete Hegseth declared the company a “supply-chain risk to national security”, a designation normally reserved for Chinese firms such as Huawei. He announced that anyone who does business with the US military is barred from working with Anthropic. This is essentially a corporate death sentence, for the crime of refusing to help build killer robots.\n\nAnd what did OpenAI do? That same Friday night, while his competitor was taking a principled stance, Sam Altman quietly signed a deal with the Pentagon to take Anthropic’s place.\n\nI want to be clear: I am not anti-AI. I use AI tools in my work every day. This is not about rejecting technology. It is about rejecting the idea that we have no choice but to fund a company that’s bankrolling authoritarianism.\n\nNow, as a historian, here’s what excites me about this moment. The most effective consumer boycotts in history share two qualities: they are narrow and they are easy. QuitGPT fits this pattern perfectly.\n\nFirst, let’s talk about the importance of targeting our efforts. In 1955, Black residents of Montgomery, Alabama did not try to dismantle the entire apparatus of segregation in one stroke. They picked one target – the city bus system – and for 381 days, they walked and drove to work. This broke the bus company financially and it broke the back of segregated transit across the American south.\n\nOpenAI is our bus company. It is the perfect target because it’s incredibly vulnerable. It is burning through money at one of the fastest rates in corporate history. Its market share has plummeted from 69% to 45% in a single year. It’s so desperate for revenue, it has started running ads, something Altman once called “a last resort”. Investors are watching its subscriber numbers like hawks. Every cancellation registers.\n\nAnd there’s another thing that makes QuitGPT different from #DeleteFacebook or the periodic calls to boycott Amazon – campaigns that failed because the ask was too big. Quitting Facebook meant losing your social graph, your family photos, your community groups. And for many Americans, quitting Amazon is like quitting oxygen. The friction defeated the principle.\n\nIn contrast, cancelling ChatGPT is a piece of cake. You can do it in 10 seconds, and the alternatives are just as good or even better. History shows why #QuitGPT has so much potential: effective campaigns such as the 1977 Nestlé boycott and the 2023 Bud Light boycott were successful because they were narrow and easy. They had a clear target and people had lots of good alternatives.\n\nThe great boycotts of history did not succeed because millions of people suddenly became heroic activists. They succeeded because buying a different brand of coffee, or choosing a different beer, was something anyone could do on a Tuesday afternoon. The small act, repeated at scale, becomes a political earthquake.\n\nGo to quitgpt.org. Cancel your subscription. Using the free version? Delete the app, because your conversations still feed the machine. Then try an alternative, and tell at least one person why.\n\nOpenAI’s president bet $25m that you would not notice where your money was going, and that, even if you did, you would not care enough to spend 10 seconds switching to something else. Time to prove him wrong.\n\nRutger Bregman is the author of Moral Ambition, Humankind and Utopia for Realists. He was last year’s BBC Reith lecturer and is the co-founder of The School for Moral Ambition",
-    "readingTime": 5,
-    "keywords": [
-      "openai’s president",
-      "trump administration",
-      "consumer boycotts",
-      "history",
-      "behind",
-      "quitgpt",
-      "technology",
-      "seconds",
-      "broke",
-      "money"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/commentisfree/2026/mar/04/quit-chatgpt-subscription-boycott-silicon-valley",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/f6f879efe513a4c7e5fab7f119058b1457af901d/416_0_5000_4000/master/5000.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctb3BpbmlvbnMucG5n&enable=upscale&s=a8b35c81dc1ed7747803cdf78a051c3d",
-    "created_at": "2026-03-04T18:34:41.136Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "puppy-advice-in-the-age-of-ai-answer-engines",
-    "title": "Puppy advice in the age of AI answer engines",
-    "description": "AI answer engines like ChatGPT change how we get information, reducing traffic to traditional websites and impacting the information economy.",
-    "fullText": "I've been asking ChatGPT for advice about our new puppy: crate or no crate, potty-training tips, etc. The answers prepared me well before he arrived.\n\nNot once did I click a link or visit a pet-care website. ChatGPT didn't share sources; everything happened inside the chat.\n\nWelcome to the era of AI answer engines. They give you information directly instead of sending you out to the web. They still rely on the web for data and accuracy, but they send far less credit — and traffic — back to original sources.\n\nBefore ChatGPT launched in late 2022, I would have Googled puppy advice. I'd see a summarized answer at the top (and plenty of ads), but also a long list of links to sites I'd visit for detailed guidance. Those sites would get traffic and perhaps ad revenue, a subscription, or a purchase — funding the reporting and research behind the information.\n\nThat \"grand bargain\" is dead. It's far easier to ask a chatbot and get instant answers. Google is doing this a lot more now, too, chasing ChatGPT's lead.\n\nThe result is a dramatic drain on the information economy that built the modern web. Consider The Washington Post, which cut at least a third of its newsroom this month. Jeff Bezos drew blame, but the real culprit, to me, is the rise of AI answer engines.\n\n Reach out to me via email at abarr@businessinsider.com.",
-    "readingTime": 2,
-    "keywords": [
-      "advice",
-      "puppy",
-      "crate",
-      "visit",
-      "engines",
-      "traffic",
-      "sites",
-      "chatgpt"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.businessinsider.com/puppy-advice-ai-answer-engines-chatgpt-google-search-2026-3",
-    "thumbnail_url": "https://i.insider.com/69a757c81fb3fcb42648dc57?width=1200&format=jpeg",
-    "created_at": "2026-03-04T18:34:25.776Z",
-    "topic": "finance"
   }
 ]
