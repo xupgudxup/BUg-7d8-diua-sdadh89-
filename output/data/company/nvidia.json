@@ -1,5 +1,29 @@
 [
   {
+    "slug": "jensen-huang-says-he-wouldnt-start-nvidia-again-if-he-knew-the-pain-ahead",
+    "title": "Jensen Huang says he wouldn't start Nvidia again if he knew the pain ahead",
+    "description": "The Nvidia CEO said running the semiconductor company required years of pressure, humiliation, near-bankruptcy scares, and personal sacrifice.",
+    "fullText": "Jensen Huang said Nvidia's rise came with years of humiliation and near-collapse.\n\nNvidia's CEO said he wouldn't found the company again, knowing the pain involved.\n\nHuang said surviving Nvidia's darkest years required \"forgetting yesterday.\"\n\nStarting Nvidia all over again? Jensen Huang says no chance.\n\nIn an interview on the \"How I Built This\" podcast with Guy Raz released on Monday, Huang reflected on the years of pressure, humiliation, near-bankruptcy scares, and personal sacrifice that came with turning Nvidia into the world's most valuable semiconductor company with a market cap of $5.3 trillion, and the dominant force behind the AI boom. Nvidia was founded in 1993 and went public in 1999.\n\n\"Suppose I knew everything then that I now know — how hard it is and all of the pain and suffering and all the embarrassment and humiliation and all the setbacks,\" Huang said, asking himself if he would start again? \"The answer, absolutely not.\"\n\nThe billionaire CEO said many founders understate the emotional toll of building a company because people only focus on the final outcome.\n\n\"If your question is knowing how Nvidia turned out, knowing the contribution we've made to the world, knowing the consequence of the company today, how it impacts so many different industries, all of the benefits that we have accrued as a result of our success, do I love those things? The answer is yes,\" Huang said. \"But that wasn't the question.\"\n\nHuang described periods in the mid-2010s when Nvidia's stock price collapsed while the company continued pouring money into CUDA, the software platform that later became foundational to modern AI systems.\n\nDuring the 2008 financial crisis, Nvidia shares dropped by about 85% from their late-2007 highs. At the time, many investors doubted the strategy.\n\n\"It was embarrassing. It was humiliating,\" Huang said. \"You're the only face that everybody hates. Your employees are probably embarrassed for you.\"\n\nNvidia also survived multiple existential crises during its early years, including failed chips, layoffs, and moments when Huang believed the company was only weeks away from running out of money.\n\nIn 1996, Nvidia almost went out of business after failing to deliver a graphics chip for Sega. Sega provided Nvidia with a $5 million investment that kept the company afloat.\n\n\"You'll be going out of business. You'll have to lay people off,\" Huang said, describing the reality of startup life.",
+    "readingTime": 2,
+    "keywords": [
+      "jensen huang",
+      "humiliation",
+      "again",
+      "nvidia",
+      "pain",
+      "money",
+      "business",
+      "you'll",
+      "nvidia's",
+      "sega"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/markets/stocks/articles/jensen-huang-says-wouldnt-start-111413161.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/vclwGzMrGBope_J3o3jt5w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/ea798f61c81f5cb3b2dfc7f40eeeaa2e",
+    "created_at": "2026-05-20T02:10:19.894Z",
+    "topic": "finance"
+  },
+  {
     "slug": "an-nvidia-executive-said-that-aigenerated-rsums-may-already-be-gaming-ai-recruiters-because-ai-likes-to-use-ai",
     "title": "An Nvidia executive said that AI-generated résumés may already be gaming AI recruiters because 'AI likes to use AI'",
     "description": "AI résumés might be favored by AI hiring systems, especially if you use the same LLM model as the recruiters, said Nvidia's Jonathan Ross.",
@@ -1891,29 +1915,5 @@
     "thumbnail_url": "https://i.insider.com/69a84653d3e2f1aef369f575?width=800&format=jpeg",
     "created_at": "2026-03-04T18:34:25.180Z",
     "topic": "finance"
-  },
-  {
-    "slug": "codeoffline",
-    "title": "Code-Offline",
-    "description": "A 100% local, containerized AI coding agent powered by pi and llama.cpp. Run private LLMs on CPU or NVIDIA GPU without external API dependencies. - opensecurity/code-offline",
-    "fullText": "A localized, containerized development environment for running the pi coding agent backed by llama.cpp. This stack lets you run local models and the agent without needing external API dependencies, keeping your code and data private. It supports both CPU and NVIDIA GPU setups via a unified interface.\n\nSettings are managed via the .env file. Copy the example file to get started:\n\nYou can change the Hugging Face repo and model file in .env to try different models. By default, it downloads the highly-capable Qwen 3.5 models using the preferred UD-Q4_K_XL quantization for the best balance of speed and precision.\n\nThe environment is managed through a Makefile. The default mode is CPU. To use GPU acceleration, just append MODE=gpu to any command.\n\nBuild the images before starting:\n\nIf you need to pull fresh base images and rebuild without cache:\n\nStart the llama.cpp server in the background. It will automatically download the models specified in your .env file to the local models directory on its first run.\n\nYou can check the download progress or server status by tailing the logs:\n\nOnce the LLM backend is up and running, you can drop into the interactive agent terminal. This spins up a temporary container that attaches to your current TTY and cleans itself up when you exit.\n\nTo spin down the background services:\n\nTo nuke all containers, networks, and volumes (this will not delete your downloaded models or workspace code):\n\nVolumes are mapped to your host machine for persistence:",
-    "readingTime": 2,
-    "keywords": [
-      "env file",
-      "models",
-      "agent",
-      "environment",
-      "llama.cpp",
-      "without",
-      "code",
-      "managed",
-      "default",
-      "images"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://github.com/opensecurity/code-offline",
-    "thumbnail_url": "https://opengraph.githubassets.com/772c8739ba5b900a2706fe6ab522cd58222519c22b0ff4d68e48a1babac004e8/opensecurity/code-offline",
-    "created_at": "2026-03-04T01:08:01.661Z",
-    "topic": "tech"
   }
 ]

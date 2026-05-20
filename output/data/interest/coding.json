@@ -1,5 +1,59 @@
 [
   {
+    "slug": "this-firefighter-hated-doubling-back-at-the-grocery-store-so-he-vibe-coded-an-app-to-fix-it",
+    "title": "This firefighter hated doubling back at the grocery store. So he vibe coded an app to fix it.",
+    "description": "Joe Poynton has never taken a coding course. Now, after picking up vibe coding, he's an app developer.",
+    "fullText": "You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n Read in app\n\n HOME",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.1,
+    "link": "https://www.businessinsider.com/firefighter-vibe-coded-app-to-make-grocery-shopping-easier-2026-4",
+    "thumbnail_url": "https://i.insider.com/6a0b2bfaecd7cc1332bb0b2e?width=1200&format=jpeg",
+    "created_at": "2026-05-20T02:10:26.899Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "here-are-the-5-biggest-takeaways-from-google-io",
+    "title": "Here are the 5 biggest takeaways from Google I/O",
+    "description": "Google AI chief Demis Hassabis discusses singularity at I/O 2026, showcasing AI innovations like Spark and Gemini amid coding challenges.",
+    "fullText": "Read in app\n\n Google showcased impressive new launches at its flagship I/O developer conference.\n Humanity now stands at the \"foothills of the singularity,\" its AI chief Demis Hassabis said.\n While Google is on a tear, it remains behind rivals on coding and is working hard to catch up.\n\n What is the \"singularity\" in AI?\n\n What advancements did Google showcase?\n\n How does Google plan to improve coding?\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "singularity",
+      "coding",
+      "google"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://www.businessinsider.com/google-io-2026-5-biggest-takeaways-ai-advances-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a0ce25a7684ba33f7380867?width=1200&format=jpeg",
+    "created_at": "2026-05-20T02:10:26.676Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "coding-is-solved-software-is-not",
+    "title": "Coding is solved? Software is not",
+    "description": "If coding is becoming solved, why does software still feel hard? A look at what AI agents change, and what they leave behind.",
+    "fullText": "Boris Cherny, the creator of Claude Code, said in a recent talk:\n\n…at this point, it’s safe to say that coding is largely solved - at least for the kind of programming that I do.\n\nHe described a workflow where Claude Code writes 100% of the code and Claude reviews every pull request, while humans still act as checkpoints for safety and quality.\n\nThe line works because AI coding tools can feel both magical and disappointing. A change that used to take an afternoon can arrive as a credible first draft in minutes, and then the team may still spend hours, sometimes days, deciding whether it was the right change to make.\n\nIf implementation is becoming abundant, why does building software still take so much time and effort?\n\n“Coding is solved” is a provocative statement. It is also an incomplete one.\n\nModels still hallucinate, and generated changes still need review. But the statement points at something real: for many software teams, writing code has stopped being the slowest part of building software.\n\nAnd yet, software development does not feel solved.\n\nBecause coding does not equal software development.\n\nCoding turns instructions into implementation. It remains important, and it is imperfect. But software development is larger than that: it turns ambiguous intent into a reliable system.\n\nNo matter what process a team follows, someone has to understand the problem before code exists. The team has to narrow the scope until “done” means something concrete.\n\nAfter code exists, someone has to prove that the change belongs in the system, ship it safely, and keep owning the consequences.\n\nThis is where the promise frays. Implementation gets dramatically faster; the rest of software development does not disappear.\n\nNot in the physics sense. But as a metaphor, it feels right.\n\nA new feature often starts as a messy request: “Can we add team invitations?” At that point, there may not be an implementation to compare. The team is still figuring out which product behavior the request implies.\n\nProduct thinking reduces the mess first. Maybe “team invitations” means a simple email invite into an existing organization. Maybe role assignment can wait. A vague request becomes a narrower bet.\n\nDesign gives that bet a shape. The team decides who can send an invite, what an existing user sees, and what happens when an invite expires. Now there is proposed behavior, not just a product wish.\n\nImplementation turns the behavior into a real change. Code gives the idea weight, but it also gives the team something new to distrust. The next question is no longer “can we build this?” It is “did we build the right thing, in the right way?”\n\nReview and deployment close the loop. The change has to survive contact with the rest of the product and with real users.\n\nAt each step, software development narrows a messy space of possibilities until there is a change the team can verify. In that loose sense, software development is entropy reduction: turning confusion into a verified change.\n\nThe diagram below shows the clean version of that journey: intent becoming a shipped change the team can stand behind.\n\nAt first, it feels like AI agents can own implementation. In more ambitious versions of the story, they may eventually own the whole loop. But in practice, we often find that agents are “too smart” for their own good.\n\nThe failure mode is subtle. A generated test suite can be large and still mostly confirm the implementation the agent already chose. A review thread can grow longer because the agent nitpicks around the core issue. A plan can sound thoughtful while leaving the actual product tradeoff undecided.\n\nThis is one form of “AI slop”: output that looks complete, but does not actually reduce the mess.\n\nAfter introducing AI agents, entropy can decrease in one part of the process and increase in another. The implementation arrives faster, but the team may spend more time reconstructing the agent’s intent and deciding how much of the evidence to trust.\n\nThe team produces code faster, but it does not necessarily trust the result sooner.\n\nOnce agents enter day-to-day work, the magic wears off a little. They start to feel more like capable junior teammates. The work starts to look more like mentoring:\n\nYou give them enough context to begin, then keep checking whether the work is heading toward the thing you meant.\n\nIn our team, the transition happened gradually.\n\nAt first, agents were personal assistants. They helped inside the developer’s existing loop, while the rest of the development process stayed mostly the same.\n\nThen developers started delegating larger parts of implementation. Instead of writing most of the code by hand, they became editors of an agent’s proposed change.\n\nThat worked surprisingly well. It also made the surrounding workflow feel heavier.\n\nReview started to include more archaeology. Context had to be repeated. Noisy tests had to be interpreted. Reviewers spent more time reconstructing what happened and why. None of it looked dramatic in isolation, but it changed the shape of the work.\n\nChat is useful while the task is still being discovered. But once a change needs review, the transcript becomes a poor source of truth: important decisions and concrete evidence are buried in the same stream as the back-and-forth that produced them.\n\nWhen humans wrote most of the code, we tolerated a lot of workflow friction because implementation itself took time. Now the code arrives sooner, so the surrounding workflow gets exposed, and in some places the problems get worse.\n\nThat does not mean “coding is solved” is wrong. It means the bottleneck has moved.\n\nFor us, four problems keep coming back: context, specs, verification, and human checkpoints.\n\nWe build and operate an auth product that manages millions of user identities. That makes us conservative about code written by agents. A change that looks local in the diff can still change who gets access to what, especially in a multi-tenant system.\n\nSo we cannot treat agents as a faster way to throw code over the wall.\n\nA lot of agent work succeeds or fails before the agent writes code.\n\nLarge context windows help, but more context is not automatically better. A bloated prompt can bury the one rule that actually matters.\n\nMost teams already have the needed context, but it is scattered across docs, old pull requests, chat, and things teammates remember.\n\nFor the invitation task, the useful context lives around membership and access: who can invite, where tenant boundaries are enforced, and whether an existing account accepts differently from a new one. Someone has to choose those pieces. If that choice stays in a developer’s head, the agent guesses. If it travels with the task, review starts from shared ground.\n\nThe context created during the work matters too. If a reviewer corrects the same mistake twice, that feedback should not stay buried in two separate pull requests. If a team introduces a new convention, future runs should be able to use it without every developer pasting the same reminder again.\n\nThat discipline helps agents. It helps the team too. The agent is just the pressure that makes the old context problem harder to ignore.\n\nA vague task used to be less dangerous than it is now.\n\nWhen a human engineer gets a vague task, they bring judgment with them. Sometimes that judgment shows up as a product question, a remembered edge case, or a refusal to implement the request as written.\n\nAn agent is much more willing to proceed. Give it a vague request, and it may still produce a full implementation. The result can look finished even when the interpretation was wrong.\n\nThat makes the spec matter more.\n\nThe invitation spec could still be short. An admin can invite someone by email. The invite expires after seven days. Existing users join after accepting. Role assignment waits for a later change, and cross-tenant access stays out of bounds. If review turns up a missing edge case, like a suspended user accepting an old invite, the spec should change before the agent keeps going.\n\nMost tasks only need enough shape for the risk involved. A small bug fix may only need the expected behavior and a reproduction case. As the risk goes up, the spec has to capture the boundaries that matter: user flow, permissions, constraints, and migration story.\n\nThe spec cannot disappear once the agent starts coding. The agent plans against it. The implementation is judged against it. If the team discovers a missing edge case, the spec changes and the agent continues with the updated intent.\n\nThat is the version of spec-in-the-loop we care about. The useful spec is the one that stays close enough to the work to argue with it.\n\nWhen code is cheap to generate, trust becomes the expensive part.\n\nAgents can write useful tests. They can also write tests that mostly confirm the implementation they already chose. Coverage goes up, while the reviewer still has to ask: did we actually prove the behavior we care about?\n\nVerification has to be visible enough for reviewers to know what the agent ran, what failed, and what changed after the failure. They also need to know whether the passing command was actually the right command for this task.\n\nLater, the reviewer should see evidence for those promises, not a generic wall of green checks. The run should show that admin and non-admin paths were exercised, expiry was covered, and acceptance worked for both a brand-new user and an existing account. The command or environment behind that evidence should be visible too.\n\nA small utility change may only need unit tests. A product flow is different: the real signal may come from exercising the experience end to end. For auth and permission changes, we usually want evidence from a reproducible environment, especially around database state and permissions.\n\nThe right checks vary by repo and team. What matters is that reviewers can inspect them. A reviewer should not have to dig through a long chat transcript to understand why the change is believed to be safe.\n\nAgents are good at sounding confident. The workflow has to produce evidence.\n\nHumans should not sit in every loop forever. That defeats the point.\n\nBut some moments still need judgment.\n\nBefore implementation, someone needs to check whether this is worth building. A missing constraint or wrong scope can send the agent toward the wrong answer very efficiently.\n\nThis is where the human checkpoint may matter before any code exists. Someone has to decide whether role assignment belongs in scope, whether both owners and admins can invite, and how to handle an email that already belongs to another tenant. If a human punts on those questions, the agent can still ship clean code for the wrong product decision.\n\nFor some tasks, this checkpoint may matter more than code review.\n\nClean code cannot rescue a bad spec.\n\nAfter implementation, the review shifts to the result. The question is whether the agent actually solved the problem in a way that fits the product. Test presence alone tells only part of the story; the tests have to mean something. Sometimes the risky part is a maintenance problem that appears later.\n\nThe depth of review should depend on risk. A copy update should not go through the same process as a permission change. As the system earns trust, some classes of work can run with less supervision. Others should stay tightly reviewed.\n\nThose boundaries should be part of the workflow.\n\nArcplane is our answer to that workflow gap.\n\nArcplane gives teams a place to run, review, and manage agentic software work on production codebases. It sits above tools like GitHub and gives agent-authored work a real lifecycle instead of leaving it as an unstructured chat-to-diff handoff.\n\nIn Arcplane, that same invitation task would begin with the chosen membership and permission context. The spec would stay with the run as it changes. The branch would carry evidence from checks that actually matched the behavior. Review would pause at the moments a human chose in advance, instead of hoping the important decisions survive in a chat transcript.\n\nThat is the workflow we want for our own team: agent work that can be reviewed as a real change, not decoded from a conversation.\n\nReusable instructions and agent skills help, but they are only ingredients.\n\nA skill can encode repeatable team practice, such as migration review or the way risky auth changes are tested. But that practice still needs a place in the run and in review.\n\nCode is getting easier to produce. The work now is making it hold up.\n\nIf this matches what you are seeing in your own team, subscribe below. We will share what we learn as we build.",
+    "readingTime": 11,
+    "keywords": [
+      "role assignment",
+      "mostly confirm",
+      "missing edge",
+      "existing account",
+      "chat transcript",
+      "invite expires",
+      "surrounding workflow",
+      "exists someone",
+      "invitation task",
+      "software development"
+    ],
+    "qualityScore": 1,
+    "link": "https://arcplane.ai/journal/software-is-not-solved",
+    "thumbnail_url": "https://arcplane.ai/social/software-is-not-solved.jpg",
+    "created_at": "2026-05-20T02:10:20.963Z",
+    "topic": "tech"
+  },
+  {
     "slug": "anthropic-just-scored-a-major-ai-hire-andrej-karpathy-the-former-tesla-ai-boss-who-coined-vibe-coding",
     "title": "Anthropic just scored a major AI hire: Andrej Karpathy, the former Tesla AI boss who coined 'vibe coding'",
     "description": "Andrej Karpathy, the OpenAI founding member who was formerly Tesla's AI boss, announced on Tuesday that he had joined Anthropic.",
@@ -1899,56 +1953,6 @@
     "link": "https://github.com/asamassekou10/ship-safe",
     "thumbnail_url": "https://opengraph.githubassets.com/b925534aa331159ff17671bb0344c895e857a69f3c93b258334f19f8ba56859b/asamassekou10/ship-safe",
     "created_at": "2026-04-07T01:21:08.470Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "agent-retro-postsession-retrospectives-for-coding-agents",
-    "title": "Agent Retro: post-session retrospectives for coding agents",
-    "description": "Session retrospective skill for AI coding agents — analyze conversations, identify friction, improve your workflow - giannimassi/agent-retro",
-    "fullText": "Compatibility: Claude Code only (for now). This skill reads Claude Code's JSONL session transcripts. Support for other agents (Gemini CLI, Codex, Cursor, etc.) is on the roadmap.\n\nA session retrospective skill for AI coding agents. Run /agent-retro at the end of a session to analyze what happened, identify friction, and get concrete suggestions for improving your skills, rules, and workflows.\n\nFollows the Agent Skills open standard.\n\n/agent-retro reads your session transcript from disk and produces a structured analysis:\n\nThe output is a markdown retro file plus an interactive walkthrough where you approve or defer each proposed action.\n\nEvery agent framework has inline reflection (retry loops, critic agents). None of them do post-session systemic reflection — looking across an entire conversation to find patterns of failure and proposing configuration changes to prevent them next time.\n\nThis is the equivalent of an agile sprint retrospective, but for a single AI session, producing machine-editable artifacts rather than sticky notes on a board. See references/design.md for the full design rationale and comparison with Reflexion, LangGraph, CrewAI, and others.\n\nRecommended (works with any Agent Skills-compatible tool):\n\nOr clone manually into your skills directory:\n\nThe Python extraction script can be used independently:\n\nThe extraction script (scripts/extract.py) minimizes token usage:\n\nSee examples/sample-retro.md for a retro from a real session.\n\nThis skill currently only works with Claude Code. The analysis steps (friction detection, root cause tracing, action proposals) are agent-agnostic — only the transcript reading is Claude-specific.\n\nContributions welcome — if you know where another agent stores its session data, open an issue.",
-    "readingTime": 2,
-    "keywords": [
-      "claude code",
-      "extraction script",
-      "session",
-      "agents",
-      "reads",
-      "retrospective",
-      "agent-retro",
-      "friction",
-      "transcript",
-      "analysis"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://github.com/giannimassi/agent-retro",
-    "thumbnail_url": "https://opengraph.githubassets.com/6097a4e5bcbea90340b6dcf902c5e9892979d4b88082fb0f42874307747bdc9a/giannimassi/agent-retro",
-    "created_at": "2026-04-06T18:42:13.289Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-cult-of-vibe-coding-is-insane",
-    "title": "The Cult of Vibe Coding Is Insane",
-    "description": "Bad software is a choice you make",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://bramcohen.com/p/the-cult-of-vibe-coding-is-insane",
-    "thumbnail_url": "https://substackcdn.com/image/fetch/$s_!93xj!,f_auto,q_auto:best,fl_progressive:steep/https%3A%2F%2Fbramcohen.substack.com%2Ftwitter%2Fsubscribe-card.jpg%3Fv%3D-1733548744%26version%3D9",
-    "created_at": "2026-04-06T18:42:12.777Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "a-local-lan-radio-station-that-gives-you-ambient-audio-awareness-of-your-agents",
-    "title": "A local LAN radio station that gives you ambient audio awareness of your agents",
-    "description": "A radio station for your AI coding session. Ambient music plays continuously. Voice announcements, ambient tones, and a web dashboard. Hear your build, don't watch it.",
-    "fullText": "Short sound effects layered under music. A chime when work starts, a resolved chord when it ships, brief dissonance on failure. No words.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://radioagent.live/",
-    "thumbnail_url": "https://radioagent.live/assets/og.jpg",
-    "created_at": "2026-04-06T18:42:12.718Z",
     "topic": "tech"
   }
 ]
