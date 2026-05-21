@@ -1,5 +1,42 @@
 [
   {
+    "slug": "multistream-llms-new-paper-on-parallelizingseparating-prompts-thinking-io",
+    "title": "Multi-Stream LLMs: new paper on parallelizing/separating prompts, thinking, I/O",
+    "description": "The continued improvements in language model capability have unlocked their widespread use as drivers of autonomous agents, for example in coding or computer use applications. However, the core of these systems has not changed much since early instruction-tuned models like ChatGPT. Even advanced AI agents function on message exchange formats, successively exchanging messages with users, systems, with itself (i.e. chain-of-thought) and tools in a single stream of computation.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://arxiv.org/abs/2605.12460",
+    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "created_at": "2026-05-21T19:42:48.322Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "openai-makes-breakthrough-on-80yearold-maths-problem",
+    "title": "OpenAI makes breakthrough on 80-year-old maths problem",
+    "description": "Company says work on Paul Erdős planar unit distance problem shows advance in AI reasoning\nOpenAI has claimed a further advance in AI reasoning after its technology successfully tackled an 80-year-old maths problem.\nThe company behind ChatGPT said it had made a breakthrough with a challenge first posed by Hungarian mathematician Paul Erdős in 1946: the planar unit distance problem.\n Continue reading...",
+    "fullText": "Company says work on Paul Erdős planar unit distance problem shows advance in AI reasoning\n\nOpenAI has claimed a further advance in AI reasoning after its technology successfully tackled an 80-year-old maths problem.\n\nThe company behind ChatGPT said it had made a breakthrough with a challenge first posed by Hungarian mathematician Paul Erdős in 1946: the planar unit distance problem.\n\nThe question posed by Erdős is simple to explain. If you take a sheet of paper and add some dots, how many pairs can be the same distance apart? Erdős proposed the number would rise only slightly faster than the number of dots themselves.\n\nOpenAI’s model concluded otherwise by drawing on different branches of mathematics to uncover a family of arrangements that break the limit in Erdős’s conjecture.\n\n“For nearly 80 years, mathematicians believed the best possible solutions looked roughly like square grids,” OpenAI wrote on X. “An OpenAI model has now disproved that belief, discovering an entirely new family of constructions that performs better.”\n\nWhile the work has excited mathematicians, the broader problem remains unsolved because the AI did not come up with a new answer for how fast the pairs of dots rise, but merely showed that the limit Erdős proposed was too low.\n\nOpenAI, which is preparing to float on the US stock market, said the calculations had been made by a general-purpose reasoning model – which breaks down problems into smaller steps – rather than a system trained specifically for mathematics.\n\nThe startup has been tripped up before by its attempts to solve Erdős’s problems, having hailed a supposed breakthrough last year that was in fact based on already existing literature absorbed by the model. This time, OpenAI’s work has been validated by mathematicians, including Thomas Bloom, a mathematician who maintains the Erdős problems website and criticised OpenAI’s prior Erdős claims.\n\nBloom co-authored a companion paper to OpenAI’s blog post flagging the Erdős achievement. Bloom wrote that the AI system had attained its results by “persevering down paths that a human may have dismissed as not worth their time to explore”.\n\nHowever, he added that humans had been involved in the AI’s work.\n\n“While the original proof produced by AI was completely valid, it was significantly improved by the human researchers at OpenAI and the many other mathematicians involved in the present paper. The human still plays a vital role in discussing, digesting and improving this proof, and exploring its consequences,” he wrote.\n\nMathematician Tim Gowers, also writing in the companion paper, described the result as “a milestone in AI mathematics”.\n\nAndrew Rogoyski, of the Institute for People-Centred AI at the University of Surrey, said the announcement showed AIs were giving humans new ways to look at problems.\n\n“It’s becoming clear that AI is impacting the world of creative thought and will become a fundamental tool of future scientific research,” he said.",
+    "readingTime": 3,
+    "keywords": [
+      "erdős proposed",
+      "planar unit",
+      "unit distance",
+      "companion paper",
+      "paul erdős",
+      "openai’s",
+      "model",
+      "mathematicians",
+      "reasoning",
+      "dots"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theguardian.com/technology/2026/may/21/openai-paul-erdos-maths-problem-breakthrough",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/ecbb6cb95ae2dab5c5835cff0dba641681d2c850/0_228_2283_1826/master/2283.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=0f8e4f2993cd710fc7e6c04a9b2d68ec",
+    "created_at": "2026-05-21T19:42:45.410Z",
+    "topic": "tech"
+  },
+  {
     "slug": "can-chatgpt-order-a-jumbo-breakfast-roll-without-messing-up",
     "title": "Can ChatGPT order a jumbo breakfast roll without messing up?",
     "description": "ChatGPT can display knowledge of Irish-English but doesn't fully capture the nuances for what it means to converse across the island of Ireland",
@@ -1983,53 +2020,5 @@
     "thumbnail_url": "/resources/images/article_assets/2026/03/Mar26_06_1061693972.jpg",
     "created_at": "2026-03-06T18:31:05.305Z",
     "topic": "business"
-  },
-  {
-    "slug": "llmdiscussion-a-local-app-for-multimodel-ai-consensus-325-lines-of-python",
-    "title": "LLM-discussion: a local app for multi-model AI consensus (325 lines of Python)",
-    "description": "AI tools don't always provide the correct answers, so I often find myself cross-referencing multiple models to get a wider range of perspectives.  Manually copy-pasting the same prompt into Claude, ChatGPT, and Gemini quickly gets tiresome.  The three main LLMs I use are Claude, ChatGPT, and Gemin",
-    "fullText": "AI tools don’t always provide the correct answers, so I often find myself cross-referencing multiple models to get a wider range of perspectives. Manually copy-pasting the same prompt into Claude, ChatGPT, and Gemini quickly gets tiresome.\n\nThe three main LLMs I use are Claude, ChatGPT, and Gemini. They all provide APIs that make this pretty easy to build an app.\n\nWorking with Claude Code, I built a small app that runs locally to ask all the LLMs the same question and have them discuss the answers and provide a consensus view. It’s similar to asking advice from a group chat of friends. Everything is stored locally on your computer.\n\nMy highly imaginative name for the app is llm-discussion.\n\nIt wasn’t too hard to build. Took a little time to set up the accounts correctly to get the API keys, but it wasn’t difficult. The whole thing is only about 325 lines of Python.\n\nI asked all three about a couple of topics like vitamins and cosmology. The discussion and consensus surprised me with how deep the answers went. Also, they are exceedingly, painfully polite to each other.\n\nThe consensus includes the key points, what they agree upon, and most interestingly, what they don’t agree upon.\n\nI put in a few options. You can choose the number of rounds of discussion and which LLMs you want included. Each round feeds the previous responses back to the models so they can critique or refine their answers.\n\nThe LLMs can be a bit verbose, so there’s a pulldown to choose concise, standard, or detailed answers.\n\nYou can save the discussions as well. All locally on your computer.\n\nThe code is on GitHub here: https://github.com/cruftbox/llm-discussion\n\nI use Windows but the code should run on macOS or Linux easily as the app is just basic Python scripting and Flask for the web UI. It would be easy to add other models like Deepseek, Llama, Mistral, or other API providers.\n\nThe tokens do cost money on Claude and ChatGPT, but it’s pennies. Gemini currently has a free API tier with a cap that I haven’t managed to hit yet.\n\nJust another example of using Claude Code ‘to scratch that itch’ and make small things in my nerd life easier.",
-    "readingTime": 2,
-    "keywords": [
-      "claude chatgpt",
-      "agree upon",
-      "claude code",
-      "models",
-      "locally",
-      "consensus",
-      "don’t",
-      "it’s",
-      "computer",
-      "wasn’t"
-    ],
-    "qualityScore": 1,
-    "link": "https://cruftbox.com/2026/03/06/getting-a-better-answer-by-asking-three-ais-at-once-llm-discussion/",
-    "thumbnail_url": "https://cruftbox.com/wp-content/uploads/2026/03/llm-discussion-sitting-02.png",
-    "created_at": "2026-03-06T18:31:02.412Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "chart-shows-claudes-dethroning-of-chatgpt-in-app-downloads-race",
-    "title": "Chart shows Claude's dethroning of ChatGPT in app downloads race",
-    "description": "Anthropic has dethroned OpenAI atop the US app stores on the heels of its CEO Dario Amodei's refusal to back down to the Pentagon.",
-    "fullText": "OpenAI is paying a price for its rushed deal with the Pentagon.\n\nOn Saturday, Anthropic's Claude dethroned ChatGPT to take the top spot in the US Apple App Store. Data obtained by Business Insider shows just how suddenly the tide turned in the fight for app downloads.\n\nData from Appfigures, an app intelligence firm, showed that Claude surpassed ChatGPT in the US for the first time on Saturday. Claude's US downloads were up 240% month-over-month in February, Appfigures estimated, to 1.1 million more than the previous month.\n\nClaude is now the No. 1 free iPhone app in five markets: the US, Canada, Germany, Ireland, and Luxembourg. An Anthropic spokesperson previously told Business Insider that as recently as a month ago, Claude didn't even rank in the top 40 of the US Apple App Store.\n\nAnthropic's Mike Krieger said on Tuesday that \"more than a million people are now signing up for Claude every day.\"\n\n\"To everyone choosing to make @claudeai part of how they work and think: welcome,\" Krieger wrote on X.\n\nOpenAI CEO Sam Altman has acknowledged that OpenAI's deal with the Pentagon was \"rushed.\" On Monday evening, he publicly released an internal message to employees in which he said that OpenAI had reopened the deal to obtain stronger protections.\n\nAltman has also conceded that the deal was bad \"optics,\" given that it occurred just hours after Anthropic was essentially blacklisted from the US government for not acquiescing to Defense Secretary Pete Hegseth's demands.\n\nHere is re-post of an internal post:\n\nWe have been working with the DoW to make some additions in our agreement to make our principles very clear.\n\n1. We are going to amend our deal to add this language, in addition to everything else:\n\n\"• Consistent with applicable laws,…\n\n\"One thing I think I did wrong: we shouldn't have rushed to get this out on Friday,\" Altman wrote in the memo. \"The issues are super complex, and demand clear communication. We were genuinely trying to de-escalate things and avoid a much worse outcome, but I think it just looked opportunistic and sloppy.\"\n\nAnthropic CEO Dario Amodei said that talks with the Pentagon fell apart because the DOD insisted on unfettered access to AI models. Anthropic wanted safeguards to ensure that its AI wasn't misused in the deployment of fully autonomous weapons or to allow for mass surveillance of American citizens.\n\nIn response to Amodei's refusal to yield, Hegseth said he intended to formally designate Anthropic as a supply chain risk, a label that the Defense secretary said would ban the AI startup not just from working with the government but also from doing business with any defense contractor.\n\nAmodei said that his company would fight such an action in court. In the meantime, Hegseth's potential actions could take a bite out of Anthropic's business with defense contractors and could scare away other companies weary of doing business with a firm on the outs with the Trump administration.\n\nDespite the negative headlines, ChatGPT remains far and away the worldwide leader for AI chatbots.\n\nThe same day OpenAI announced its Pentagon deal, the company touted that ChatGPT had more than 900 million weekly active users. In comparison, Google disclosed during its most recent earnings on February 4 that Gemini had 750 million monthly active users.\n\nAccording to Appfigures, as of the end of February, ChatGPT has been downloaded an estimated 8.7 million times in the US so far in 2026. In comparison, Claude has been downloaded an estimated 2.1 million times.\n\nNear the end of 2025, Altman declared a \"code red\" to marshal resources to ChatGPT amid concerns that Gemini's latest update had surpassed ChatGPT's capabilities.\n\nIt remains to be seen whether this current blunder will prove harder to bounce back from.\n\nAppfigures' estimates are based on firms' use of trained AI models that turn observed trends in the Apple App Store and the Google Play Store into estimated downloads. The estimates do not include re-installs or downloads across multiple devices by a single user account.",
-    "readingTime": 4,
-    "keywords": [
-      "apple app",
-      "app store",
-      "active users",
-      "defense secretary",
-      "doing business",
-      "business insider",
-      "deal",
-      "pentagon",
-      "downloads",
-      "estimated"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.businessinsider.com/claude-number-1-app-stores-chatgpt-apple-google-ai-2026-3",
-    "thumbnail_url": "https://i.insider.com/69a9f4d21fb3fcb4264902d5?width=1080&format=jpeg",
-    "created_at": "2026-03-06T12:31:51.682Z",
-    "topic": "finance"
   }
 ]

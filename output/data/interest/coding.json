@@ -1,5 +1,37 @@
 [
   {
+    "slug": "open-source-platform-for-automating-sandboxed-coding-agents",
+    "title": "Open source platform for automating sandboxed coding agents",
+    "description": "Open source background agents. Contribute to mistlehq/mistle development by creating an account on GitHub.",
+    "fullText": "Mistle is an open-source platform for running and automating sandboxed coding agents.\n\nYou can spin up Mistle easily, assuming you have Docker installed:\n\nOnce this succeeds, you can open the dashboard at http://localhost:3000. Note that for email OTP auth, you'll need to use the locally running Mailpit at http://localhost:8025 to retrieve the OTP.\n\nThis runs Mistle locally using Docker containers as sandboxes. Mistle also supports remote sandbox providers such as E2B.\n\nIf you want to wind down the stack, run:\n\nIf you want to remove the installation:\n\nRemember to delete the necessary Docker volumes, as well as images that were pulled.\n\nIf you want to run the dev stack locally, refer to CONTRIBUTING.md.",
+    "readingTime": 1,
+    "keywords": [
+      "mistle",
+      "docker",
+      "locally",
+      "http://localhost",
+      "stack"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://github.com/mistlehq/mistle",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1167164255/0fa1c8d7-a641-4845-83db-1eb5829056ce",
+    "created_at": "2026-05-21T19:42:49.412Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "multistream-llms-new-paper-on-parallelizingseparating-prompts-thinking-io",
+    "title": "Multi-Stream LLMs: new paper on parallelizing/separating prompts, thinking, I/O",
+    "description": "The continued improvements in language model capability have unlocked their widespread use as drivers of autonomous agents, for example in coding or computer use applications. However, the core of these systems has not changed much since early instruction-tuned models like ChatGPT. Even advanced AI agents function on message exchange formats, successively exchanging messages with users, systems, with itself (i.e. chain-of-thought) and tools in a single stream of computation.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://arxiv.org/abs/2605.12460",
+    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "created_at": "2026-05-21T19:42:48.322Z",
+    "topic": "tech"
+  },
+  {
     "slug": "this-firefighter-hated-doubling-back-at-the-grocery-store-so-he-vibe-coded-an-app-to-fix-it",
     "title": "This firefighter hated doubling back at the grocery store. So he vibe coded an app to fix it.",
     "description": "Joe Poynton has never taken a coding course. Now, after picking up vibe coding, he's an app developer.",
@@ -1915,44 +1947,5 @@
     "thumbnail_url": "https://i.insider.com/69d545451a512d0a63e733b8?width=1200&format=jpeg",
     "created_at": "2026-04-08T12:56:35.756Z",
     "topic": "finance"
-  },
-  {
-    "slug": "im-an-engineer-who-initially-felt-like-ai-was-taking-over-my-job-then-i-realized-my-job-was-bigger-than-coding",
-    "title": "I'm an engineer who initially felt like AI was taking over my job. Then, I realized my job was bigger than coding.",
-    "description": "Maahir Sharma said AI has caused him to rethink his role — and he feels optimistic about his job prospects.",
-    "fullText": "Maahir Sharma spent years coding, and felt a loss as AI began taking over parts of his work.\n He said his role now is more about about building products and requires more thought about the business.\n Sharma said he had to sharpen his communication skills and spends 20 hours a week learning new concepts.",
-    "readingTime": 1,
-    "keywords": [
-      "sharma"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/engineer-how-ai-changed-career-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cfd2c2c02a678bd7e47be3?width=738&format=jpeg",
-    "created_at": "2026-04-08T12:56:35.628Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "memory-poisoning-in-ai-coding-agents",
-    "title": "Memory poisoning in AI coding agents",
-    "description": "CLI security scanner built for the agentic era. Detects CI/CD misconfigs, agent permission risks, MCP tool injection, hardcoded secrets, and DMCA-flagged AI dependencies. - asamassekou10/ship-safe",
-    "fullText": "AI-powered application security platform for developers.\n\n19 security agents. 80+ attack classes. One command.\n\nShip Safe v7.0.0 is an AI-powered security platform that runs 19 specialized agents in parallel against your codebase, scanning for secrets, injection vulnerabilities, auth bypass, SSRF, supply chain attacks, memory poisoning, Supabase RLS misconfigs, Docker/Terraform/Kubernetes misconfigs, CI/CD pipeline poisoning, LLM/agentic AI security, MCP server misuse, RAG poisoning, PII compliance, vibe coding patterns, exception handling, AI agent config security, and more. Full OWASP Agentic AI Top 10 mapping (ASI01–ASI10) enriches every finding. Live OSV.dev advisory feed surfaces actively exploited CVEs within hours of disclosure. OWASP 2025 scoring with EPSS exploit probability. LLM-powered deep analysis verifies exploitability of critical findings. Secrets verification probes provider APIs to check if leaked keys are still active. Compliance mapping to SOC 2, ISO 27001, and NIST AI RMF. Built-in threat intelligence feed with offline-first IOC matching. CI integration with GitHub PR comments, threshold gating, and SARIF output.\n\nv7.0.0 highlights: New Memory Poisoning Agent — the first scanner purpose-built for instruction injection in AI agent memory files (.claude/memory/, .cursorrules, .cursor/rules/, .windsurfrules, and more). Live advisories command (ship-safe advisories .) queries OSV.dev in real time — no API key, no stale data. Deep watch mode (--deep) runs the full 19-agent orchestrator on every file change and persists results to .ship-safe/watch.json. OWASP Agentic AI Top 10 metadata (ASI01–ASI10) attached to every relevant finding. Trojanized package behavioral detection catches env-var harvesting, DNS exfiltration, and WebSocket C2 patterns inside node_modules. Expanded agent config discovery covers Gemini CLI, Cody, and Augment Code. Gemma 4 (--provider gemma4) supported as the default local model via Ollama structured output — zero JSON parse failures.\n\nOne command that runs everything and generates a full report:\n\nPost-processors: ScoringEngine (8-category weighted scoring with OWASP Agentic AI Top 10 enrichment), VerifierAgent (secrets liveness verification), DeepAnalyzer (LLM-powered taint analysis)\n\nShip Safe detects security issues in both major Claude Code forks from the March 2026 source leak.\n\nopenclaude (@gitlawb/openclaude) is a CLI tool that routes Claude Code's toolset through any OpenAI-compatible provider. Its only persistent file artifact is .openclaude-profile.json. Ship Safe flags:\n\nclaw-code (ultraworkers/claw-code) is a clean-room Rust + Python rewrite of Claude Code's agent harness. Its config lives in .claw.json, .claw/settings.json, and .claw/settings.local.json. Ship Safe flags:\n\nDrop-in CI action that blocks PRs introducing agent config vulnerabilities:\n\nScans openclaw.json, .cursorrules, CLAUDE.md, Claude Code hooks, and MCP configs. Checks against the bundled threat intelligence database for known ClawHavoc IOCs.\n\nNo API key required. Malware advisories (MAL-*) are sorted to the top. Results include EPSS exploit probability and remediation guidance.\n\nInstall ship-safe as real-time Claude Code hooks — secrets are blocked before they ever touch disk:\n\nOnce installed, two hooks activate automatically on every Claude Code session:\n\nHook scripts are copied to ~/.ship-safe/hooks/ at install time — a stable, user-owned location that survives npx cache rotations.\n\nUse Ship Safe directly inside Claude Code — no CLI needed:\n\nClaude interprets the results, explains findings in plain language, and can fix issues directly in your codebase.\n\nShip Safe caches file hashes and findings in .ship-safe/context.json. On subsequent runs, only changed files are re-scanned — unchanged files reuse cached results.\n\nThe cache is stored in .ship-safe/ which is automatically excluded from scans.\n\nWhen using AI classification (--no-ai to disable), results are cached in .ship-safe/llm-cache.json with a 7-day TTL. Repeated scans reuse cached classifications — reducing API costs significantly.\n\nShip Safe respects your .gitignore for build output, caches, and vendor directories — but always scans security-sensitive files even if gitignored:\n\nWhy? Files like .env are gitignored because they contain secrets — which is exactly what a security scanner should catch.\n\nShip Safe supports any AI provider for deep analysis and classification:\n\nAuto-detected from environment variables. Use --provider <name> to override. No API key required for scanning — AI is optional.\n\nStarts at 100. Each finding deducts points by severity and category, weighted by confidence level (high: 100%, medium: 60%, low: 30%) to reduce noise from heuristic patterns.\n\n8 Categories (with weight caps):\n\nWeights aligned with OWASP Top 10 2025 risk rankings.\n\nGrades: A (90-100), B (75-89), C (60-74), D (40-59), F (0-39)\n\nExit codes: 0 for A/B (>= 75), 1 for C/D/F — use in CI to fail builds.\n\nCreate .ship-safe.policy.json to enforce team-wide security standards:\n\nThe dedicated ci command is optimized for pipelines — compact output, exit codes, threshold-based gating:\n\nExport formats: --json, --sarif, --csv, --md, --html, --pdf\n\nInline: Add # ship-safe-ignore comment on a line:\n\nFile-level: Create .ship-safeignore (gitignore syntax):\n\nDrop-in security configs for Next.js, Supabase, and Firebase.\n\nCopy-paste security patterns: rate limiting, JWT, CORS, input validation.\n\nLLM security: prompt injection detection, cost protection, system prompt hardening.\n\nManual security audits: launch-day checklist, framework-specific guides.\n\nShow the world your project is secure. After running npx ship-safe audit . or npx ship-safe vibe-check . --badge, add one of these to your README:\n\nShip Safe practices what it preaches. Our own supply chain is hardened against the 2026 Trivy/CanisterWorm attack chain:\n\nVerify provenance on any Ship Safe release:\n\nSee CONTRIBUTING.md for guidelines.\n\nShip Safe is MIT-licensed and free forever. If it saves you time or helps you ship more securely, consider sponsoring — it helps keep the project maintained and growing.\n\nMIT - Use it, share it, secure your stuff.\n\nShip fast. Ship safe. — shipsafecli.com",
-    "readingTime": 5,
-    "keywords": [
-      "ship safe",
-      "epss exploit",
-      "owasp agentic",
-      "code hooks",
-      "safe flags",
-      "exploit probability",
-      "threat intelligence",
-      "category weighted",
-      "exit codes",
-      "supply chain"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/asamassekou10/ship-safe",
-    "thumbnail_url": "https://opengraph.githubassets.com/b925534aa331159ff17671bb0344c895e857a69f3c93b258334f19f8ba56859b/asamassekou10/ship-safe",
-    "created_at": "2026-04-07T01:21:08.470Z",
-    "topic": "tech"
   }
 ]
