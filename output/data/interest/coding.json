@@ -1,5 +1,70 @@
 [
   {
+    "slug": "codealta-a-terminal-workspace-for-agentic-coding",
+    "title": "CodeAlta – a terminal workspace for agentic coding",
+    "description": "Your efficient agentic AI coding CLI assistant. Contribute to CodeAlta/CodeAlta development by creating an account on GitHub.",
+    "fullText": "CodeAlta is a terminal workspace for agentic coding. It brings model-provider setup, project navigation, prompt attachments, threaded sessions, delegated work, and trusted local plugins behind the alta command.\n\nCodeAlta is pre-release software. Configuration, screenshots, and extension APIs may change before 1.0.\n\nInstall .NET 10, then install the CodeAlta global tool:\n\nUpdate an existing installation with:\n\nOn first launch, CodeAlta creates ~/.alta/config.toml. If no provider is enabled yet, the Model Providers dialog opens so you can configure Codex, Copilot, OpenAI-compatible APIs, Anthropic, Gemini/Vertex, or custom endpoints.\n\nCodeAlta is released under the BSD-2-Clause license.",
+    "readingTime": 1,
+    "keywords": [
+      "codealta",
+      "apis",
+      "install"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://github.com/CodeAlta/CodeAlta",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1166995215/a196ee73-0392-4afa-92a1-b78a2555c146",
+    "created_at": "2026-05-22T08:47:52.935Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "i-keep-bouncing-off-the-scheme-language",
+    "title": "I keep bouncing off the Scheme language",
+    "description": "I have a huge appreciation for the Scheme programming language. I just seem to be unable to get it to stick in my head. This seems like a huge revelation for someone who named their blog after the Scheme textbook, but there it is. This post is the public admission I need to make, to...",
+    "fullText": "I have a huge appreciation for the Scheme programming language. I just seem to be unable to get it to stick in my head. This seems like a huge revelation for someone who named their blog after the Scheme textbook, but there it is. This post is the public admission I need to make, to keep me accountable for trying again. And again.\n\nOne problem is that I’m an inconsistent LISPer. The first software I ever got paid for was an Emacs major mode for the GLE plotting language, which didn’t do much beyond syntax highlighting. But I didn’t really get deeply into Emacs customization or automation, so I still have to look at the manual or my outdated copy of Writing GNU Emacs Extensions whenever I want to do anything.\n\nI’m OK at reading Scheme. During my investigations of AI coding assistants for the project that became Chiron Codex, I created a Smalltalk-like live environment with a module browser for the Racket dialect. Obviously an LLM generated the code, but I felt comfortable following along and understood what it was doing, reading and Trusting the Tests. And when I look at Scheme that other people have written, I think I get what’s going on.\n\nMy difficulty is with thinking the way that lets me write Scheme. I have the ALGOL neurotype. When I think about a programming problem, I think in terms of the sequence of instructions I need the computer to do, and the memory locations that can hold the information the computer needs to track. After decades of working with OOP, I can quickly identify smaller computers that run smaller programs to make it easier, but only because I’ve got experience using the Simula-derived, neurologically ALGOL-based OOP strands like Java and Smalltalk-80.\n\nThis is, unfortunately, a failure that breeds failure. I’ve started two web app projects recently, including SE100, the reading list for the SICPers podcast. In each case, I’ve thought about using GNU Artanis but ultimately fallen back into my ALGOL mindset (the SE100 catalog uses the Go programming language, for example).\n\nI think Scheme makes for some powerful software that’s pleasant to read: when I use Linux, I use GNU Guix and GNU Shepherd. I want to contribute to that ecosystem, I just have to get over the hump that I know the other, more complex way better, and be willing to play junior developer with some unfamiliar tools. This is my admission. Check back in a while to hold me accountable to this.",
+    "readingTime": 3,
+    "keywords": [
+      "programming language",
+      "reading",
+      "i’ve",
+      "huge",
+      "admission",
+      "accountable",
+      "again",
+      "software",
+      "didn’t",
+      "look"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.sicpers.info/2026/05/i-keep-bouncing-off-the-scheme-language/",
+    "thumbnail_url": "https://www.sicpers.info/wp-content/uploads/2022/02/image.jpg",
+    "created_at": "2026-05-22T08:47:51.741Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "only-17-of-all-64bit-integers-are-products-of-two-32bit-integers",
+    "title": "Only 17% of all 64-bit Integers are products of two 32-bit integers",
+    "description": "In software programming, the product between two integers is often computed to a fixed number of bits with overflow. Consider 8-bit integers. If you multiply 127 by 127, you get back the number 1 as an 8-bit unsigned integer, with an overflow. The actual full product is 16129. To represent 16129, you typically use 16 … Continue reading Only 17% of all 64-bit Integers are products of two 32-bit integers",
+    "fullText": "In software programming, the product between two integers is often computed to a fixed number of bits with overflow. Consider 8-bit integers. If you multiply 127 by 127, you get back the number 1 as an 8-bit unsigned integer, with an overflow. The actual full product is 16129. To represent 16129, you typically use 16 bits of precision.\n\nThus we have the notion of the full product. The full product of two 32-bit integers is typically represented using 64 bits. The question that preoccupied me is what fraction of all 64-bit integers can be written as the product of two 32-bit integers.\n\nYou might wonder why you would care?\n\nWe often design hash functions: they are special functions that take an input and generate a random-looking output. Several years ago I designed a very fast hash function called clhash. It is a super-fast hash function for strings having a few hundred bytes or more. If you don’t know about clhash, check it out. It is interesting in its own right.\n\nThis clhash hash function uses a type of multiplication typical of cryptographic applications. I was trying to argue that our approach had benefits compared with techniques based on standard multiplications. Let me illustrate. A simple hash function for 32-bit integers could take the least significant bits and multiply them with the most significant bits.\n\nMaybe you’d want the hash function to be uniform: all possible 32-bit hash values should be equally probable. It is only possible in this instance if the hash function can produce all 32-bit hash values, which is not the case.\n\nThe great mathematician Erdös showed that the proportion of all 2n-bit values that can be generated by the product of two n-bit values goes to zero as n becomes large. This means that if you have, say, 10000000-bit integers multiplying 10000000-bit integers, you’d expect relatively few 100000000000000-bit integers to be produced. But what about practical cases like 32-bit integers or 64-bit integers?\n\nYou can just brute-force the problem easily up to the multiplication of 16-bit integers into 32-bit products. At that point, slightly one out of five 32-bit numbers is a product between two 16-bit integers. About 80% of all 32-bit integers are never produced by this hash. However, the running time grows exponentially, and brute force won’t scale all the way to 32 bits.\n\nSo what do we do about the 32-bit case? That is, what do you do when you multiply two 32-bit integers to produce a 64-bit product? What fraction of 64-bit values can the following function produce?\n\nWebster and his colleagues built the math to allow us to scale up the exact computation. He was kind enough to publish his code.\n\nThere are 3,215,709,724,700,470,902 64-bit (unsigned) integers that can be written as a product of two 32-bit integers. That’s about 17% of all possible values.\n\nWhat about actually computing a pair of integers given their product? One approach consists of computing its full prime factorization, and then using those factors to build all possible divisors that are strictly less than 2^32, starting with a set of candidates containing only 1 and iteratively multiplying existing candidates by each prime factor (only keeping products that stay below 2^32). We can avoid adding duplicates to our set by processing unique prime factors with their multiplicity. Finally, we select the maximum such candidate m as the largest divisor under 2^32, compute the corresponding leftover n / m, and report whether a valid split into two 32-bit factors exists. In general, the answer (if it exists) is not unique: this returns the pair where one value is maximized. In Python, the code might look as follows.\n\nYou might be able to come up with a more efficient algorithm. I find it interesting to consider that if you pick a value at random, it will usually fail! That is, most 64-bit integers cannot be written as the product of two 32-bit integers.\n\nDaniel Lemire, \"Only 17% of all 64-bit Integers are products of two 32-bit integers,\" in Daniel Lemire's blog, May 22, 2026, https://lemire.me/blog/2026/05/22/only-17-of-all-64-bit-integers-are-products-of-two-32-bit-integers/.\r\n [BibTeX]",
+    "readingTime": 4,
+    "keywords": [
+      "hash function",
+      "bit unsigned",
+      "bit integers",
+      "product",
+      "bits",
+      "multiply",
+      "clhash",
+      "produce",
+      "products",
+      "prime"
+    ],
+    "qualityScore": 1,
+    "link": "https://lemire.me/blog/2026/05/22/only-17-of-all-64-bit-integers-are-products-of-two-32-bit-integers/",
+    "thumbnail_url": "https://lemire.me/blog/wp-content/uploads/2026/05/Gemini_Generated_Image_pbz9q4pbz9q4pbz9-1024x559.png",
+    "created_at": "2026-05-22T08:47:50.940Z",
+    "topic": "tech"
+  },
+  {
     "slug": "open-source-platform-for-automating-sandboxed-coding-agents",
     "title": "Open source platform for automating sandboxed coding agents",
     "description": "Open source background agents. Contribute to mistlehq/mistle development by creating an account on GitHub.",
@@ -1901,51 +1966,6 @@
     "link": "https://www.businessinsider.com/openbuilder-pitch-deck-vibe-coding-2026-4",
     "thumbnail_url": "https://i.insider.com/69d557a3f36fd1a78c0519e1?width=1200&format=jpeg",
     "created_at": "2026-04-09T12:58:51.836Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "this-couple-vibe-coded-a-bot-to-call-20000-gas-stations-theyre-building-a-price-tracker-from-scratch",
-    "title": "This couple vibe coded a bot to call 20,000 gas stations. They're building a price tracker from scratch.",
-    "description": "A UK-based couple's project loops in several colliding trends: vibe-coding, rising gas prices, and how people interact with bots in the real world.",
-    "fullText": "A couple built a US gas price tracker using Claude Code and AI agents that called 20,000 stations.\n It stacks gas prices with regional delicacies — like Dunkin' coffees and college football tickets.\n The calls show how people react to AI in the wild. Most answer, some hesitate, and a few swear.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/couple-vibe-coded-national-gas-price-tracker-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d67aa1f36fd1a78c051ea9?width=1200&format=jpeg",
-    "created_at": "2026-04-09T12:58:51.612Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "i-quit-my-software-engineering-job-to-help-seniors-with-tech-i-assist-them-with-things-like-recovering-photos-and-bank",
-    "title": "I quit my software engineering job to help seniors with tech. I assist them with things like recovering photos and bank accounts.",
-    "description": "Adrian Amora left software engineering to help seniors use technology, finding more purpose in human connection than coding.",
-    "fullText": "Adrian Amora was a software engineer assigned to major projects, including government work.\n He didn't feel fulfilled and wanted to interact with regular people.\n Now, Amora helps residents of a senior living community understand how to use technology.",
-    "readingTime": 1,
-    "keywords": [
-      "amora"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/left-tech-career-for-meaning-helping-seniors-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d5535c1a512d0a63e73430?width=1200&format=jpeg",
-    "created_at": "2026-04-08T19:01:59.904Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "i-vibe-coded-timesaving-tools-for-boomers-like-my-parents-they-picked-up-on-ai-fast-and-its-made-their-lives-less",
-    "title": "I vibe coded time-saving tools for boomers like my parents. They picked up on AI fast, and it's made their lives less lonely and easier.",
-    "description": "Bill Atienza, 29, is helping older adults become more comfortable with AI and vibe coding tech, including an 80-year-old man with vision problems.",
-    "fullText": "Bill Atienza is helping older adults become more comfortable with AI and vibe coding tech.\n Atienza's startup, Hailo, provided tech support, which later led to AI education for older people.\n Atienza helped an older man with vision problems set up various AI technologies on his computer.",
-    "readingTime": 1,
-    "keywords": [
-      "older",
-      "tech",
-      "atienza"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/retirement-aging-ai-vibe-coding-chatgpt-openclaw-tech-gemini-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d545451a512d0a63e733b8?width=1200&format=jpeg",
-    "created_at": "2026-04-08T12:56:35.756Z",
     "topic": "finance"
   }
 ]
