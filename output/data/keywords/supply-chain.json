@@ -1,5 +1,22 @@
 [
   {
+    "slug": "laravellang-supply-chain-attack",
+    "title": "Laravel-Lang Supply Chain Attack",
+    "description": "Summary All tags in this repository have been rewritten to point to malicious commits. Anyone running composer require laravel-lang/http-statuses or composer update against any version constraint w...",
+    "fullText": "All tags in this repository have been rewritten to point to malicious commits. Anyone running composer require laravel-lang/http-statuses or composer update against any version constraint will pull a payload that exfiltrates CI/CD secrets to an attacker-controlled domain.\n\nThis is part of a coordinated campaign that also affected Laravel-Lang/http-statuses, Laravel-Lang/actions, and Laravel-Lang/attributes within a ~15 minute window on 2026-05-22.\n\nFor the complete analysis (kill chain, full IOC list, recovery steps for users and maintainers, evidence from a detonation in an instrumented runner), see the StepSecurity write-up which we will keep updated as we learn more:\n\nhttps://www.stepsecurity.io/blog/laravel-lang-supply-chain-attack\n\n— StepSecurity Threat Intelligence team",
+    "readingTime": 1,
+    "keywords": [
+      "composer",
+      "laravel-lang/http-statuses",
+      "stepsecurity"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://github.com/Laravel-Lang/http-statuses/issues/277",
+    "thumbnail_url": "https://opengraph.githubassets.com/56a6b47c4bb7d0fa9c0ce7eff7ee941afa87538ec3d6c528e3194c67fb7c9993/Laravel-Lang/http-statuses/issues/277",
+    "created_at": "2026-05-23T02:00:00.687Z",
+    "topic": "tech"
+  },
+  {
     "slug": "open-architecture-multibeam-ebl-for-sub10nm-sovereign-chip-manufacturing",
     "title": "Open architecture multi-beam EBL for sub-10nm sovereign chip manufacturing",
     "description": "Open architecture multi-beam direct-write electron-beam lithography — Morin 2026 v5. CC BY 4.0 papers + MIT code. Sub-10 nm capable, ~$37M/tool vs EUV $200-400M, multi-vendor supply chain, no paten...",

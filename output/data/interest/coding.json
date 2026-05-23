@@ -1,5 +1,29 @@
 [
   {
+    "slug": "nano-coding-agent-in-under-200-lines",
+    "title": "Nano: Coding agent in under 200 lines",
+    "description": "One file. Under 200 lines. Zero dependencies. It's a coding agent. - pnegahdar/nano",
+    "fullText": "The models got good enough that the harness doesn't matter anymore.\nSo we made the smallest one that proves it. One file. under 200 lines. Zero dependencies.\n\nThat's the whole thing. No, really.\n\n📂 Reads CLAUDE.md, AGENT.md, AGENTS.md, README.md — automatic repo context, same files the real agents use\n\n🧩 Discovers skill files — finds SKILL.md from .claude/skills, ~/.claude/skills, ~/.codex/skills, ~/.codex/plugins\n\n🛡️ Human-in-the-loop approvals — every command shows what and why before it runs\n\n🔁 200-step agentic loop — keeps going until the job is done, not until it gets bored\n\n💬 Interactive REPL — multi-turn sessions with persistent memory across turns\n\n⚡ Non-interactive CLI — ./nano.py \"fix the tests\" and walk away\n\n🔄 Session resume — ./nano.py -c picks up where you left off, zero local state (OpenAI stores the conversation)\n\nPlus: interactive REPL · one-shot mode · session resume (-c) · session picker (-s) · GPT-5.5 by default · any model via env var · multi-step tool chaining · approve-one / approve-all / deny · auto-approve mode · per-command cwd, timeout, and env · platform-aware system prompt · output capped at 12KB · forced 5-10 word command descriptions · session reset · zero dependencies · pure stdlib Python · one file you can read in 5 minutes\n\nMost coding agents are built on top of serious infrastructure — frameworks,\nruntimes, graph orchestrators, thousands of lines of glue.\n\nIt turns out you can get surprisingly far with a while loop, one shell tool,\nand a model that's good enough.\n\nnano.py is that loop. It sends context to GPT-5.5, lets it run shell commands,\nshows you what it wants to do, waits for your approval, and repeats until the job\nis done. Pure Python stdlib. Copy it into any repo and go.\n\nThat's the architecture diagram.\n\nThis gives a language model a shell on your computer.\n\nRead the command before you press y. It's under 200 lines — you can audit the whole thing over lunch.\n\nNo score is claimed here. But the shape is right. Same loop every agent runs:\nread repo, form hypothesis, run command, observe, repeat.\n\nWrap it in a harness, give it a budget, collect patches, and find out.\n\nIs this a joke?\n\nIt works. So no. But also a little bit yes.\n\nShould I use this in production?\n\nYes. Why not?\n\nWhy so small?\n\nThe models got good enough that the harness just doesn't need to be big anymore.\n\nCan I swap in Claude / Gemini / etc?\n\nThe Responses API is OpenAI-specific, but the pattern is universal. Port it in an afternoon.\n\nWhy not just use Claude Code / Codex?\n\nYou should. They're great. This is for the mass of developers who want to understand\nwhat's actually happening inside the black box — and for anyone who looked at a\nlarge agent framework and thought there has to be a simpler way.\n\nMIT. Copy it, fork it, vendor it into your monorepo.",
+    "readingTime": 3,
+    "keywords": [
+      "zero dependencies",
+      "session resume",
+      "command",
+      "loop",
+      "harness",
+      "that's",
+      "repo",
+      "nano.py",
+      "model",
+      "shell"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/pnegahdar/nano",
+    "thumbnail_url": "https://opengraph.githubassets.com/3fdc21f89b08d63aac27a16845dcd7f93601a5895e2827f1f6193a6a0909ed32/pnegahdar/nano",
+    "created_at": "2026-05-23T02:00:00.662Z",
+    "topic": "tech"
+  },
+  {
     "slug": "i-gave-my-openclaw-agent-a-physical-body",
     "title": "I Gave My OpenClaw Agent a Physical Body",
     "description": "The coding skills of AI models are about to make it much easier to build and deploy robots.",
@@ -1953,30 +1977,6 @@
     "link": "https://github.com/crapthings/nb-cli",
     "thumbnail_url": "https://opengraph.githubassets.com/552e2e1152f4fbc2ca13d029b1604489427168d445430e2f835a306ff1e1f3ee/crapthings/nb-cli",
     "created_at": "2026-04-09T12:59:30.427Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "vibetime-track-what-you-ship-in-ai-coding-sessions",
-    "title": "Vibetime – Track what you ship in AI coding sessions",
-    "description": "Track what you actually ship with AI. Contribute to iamnotstatic/vibetime development by creating an account on GitHub.",
-    "fullText": "Track what you actually ship with AI.\n\nVibetime wraps Claude Code, Codex, and Gemini and prints a session summary every time you're done. No config, no account, no daemon.\n\nAdds shell hooks that wrap claude, codex, and gemini. The tools work exactly the same — Vibetime tracks your git state while you code and prints the endcard when you're done.\n\nFish shell — vibe init writes bash/zsh syntax. Fish users should add hooks manually to ~/.config/fish/config.fish:\n\nEvery time you close a Claude Code, Codex, or Gemini session:\n\nSessions are scored by what happened in git:\n\nHow duration works — Vibetime polls your git state every 30 seconds. If no file changes, commits, or staging activity are detected for 30 minutes, the idle time is excluded from your session duration. Laptop sleep and background idle are automatically handled. Non-git projects use wall-clock time.\n\nRun vibe share to print your weekly card. Press h to open the HTML version — copy it, screenshot it, post it.\n\nStreaks track consecutive days you shipped. If you shipped yesterday but not yet today, your streak shows ⏳ — you still have time.\n\nVibetime wraps any AI CLI. To track a tool not listed above:\n\nSessions belong to the day they started — a session that runs past midnight appears under the previous day.\n\nvibe uninstall removes all shell hooks from your rc file. Your session data in ~/.vibe/ is preserved — delete it manually if you want a clean removal.\n\nVibetime has no telemetry, no network calls, and no account. Everything stays on your machine.\n\nIt reads git metadata only — commit counts, line counts, file counts. It never reads file contents, environment variables, API keys, or anything you type into the wrapped tool. The AI CLI's stdin/stdout are passed straight through via spawn with stdio: 'inherit'.\n\nAll data is stored locally in ~/.vibe/.",
-    "readingTime": 2,
-    "keywords": [
-      "claude code",
-      "code codex",
-      "vibetime wraps",
-      "you're done",
-      "shell hooks",
-      "session",
-      "file",
-      "track",
-      "gemini",
-      "counts"
-    ],
-    "qualityScore": 0.95,
-    "link": "https://github.com/iamnotstatic/vibetime",
-    "thumbnail_url": "https://opengraph.githubassets.com/68af460d90f6a9fd70dedbf0e620425b84a85aca79c1dd7b433659ca8de67e8b/iamnotstatic/vibetime",
-    "created_at": "2026-04-09T12:59:30.351Z",
     "topic": "tech"
   }
 ]
