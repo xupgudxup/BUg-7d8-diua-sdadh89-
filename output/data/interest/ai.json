@@ -1,5 +1,122 @@
 [
   {
+    "slug": "scan-any-codebase-in-3s-then-verify-what-your-ai-builds",
+    "title": "Scan any codebase in 3s, then verify what your AI builds",
+    "description": "Verified AI development. Ship with proof. Contribute to anatomia-dev/anatomia development by creating an account on GitHub.",
+    "fullText": "Anatomia is the engineering judgment your AI doesn't have. Four agents scope, plan, build, and verify every change. Contracts are sealed before code is written — typed assertions the verifier checks against the code, not Build's account of what it did. Every run produces a proof chain entry — what was asserted, what was found, what shipped. A fifth agent learns from that record and promotes what it finds to rules that shape future builds. Not opinion. Mechanical proof.\n\nNo install. One command. Here's what you'll see:\n\nLike what you see? Install globally to use the ana command directly:\n\nRequires Node.js 22+. To update: npm update -g anatomia-cli\n\nAfter updating the CLI, run ana init again to refresh scan data and skill detection. Your rules, context, and proof chain are preserved.\n\ninit runs scan automatically and works standalone — no Claude Code required.\nThe pipeline and setup require Claude Code.\n\nTell Ana what you want to build. It'll investigate the codebase, surface tradeoffs, and push back if the approach has problems. When the scope is right, it hands off to Plan, Build, and Verify.\n\nIf Anatomia created your CLAUDE.md (check git blame), remove that too. If you ran ana init commit, revert that commit: git revert <commit-hash>. Your source code is never modified — only infrastructure files.\n\nana scan reads your project and detects framework, database, auth, testing, services, conventions, and patterns. In monorepos, scan identifies each surface (package or app) and detects per-surface commands. Re-running ana init refreshes scan data without overwriting your edits.\n\nana init writes that intelligence to files agents read:\n\nSetup (claude --agent ana-setup) bridges the gap between what scan detects and what your team knows. A ~10 minute session that investigates your codebase, asks 2-3 questions, and writes enriched context. After setup, agents understand your product and decisions — not just your stack.\n\nEvery pipeline run writes a proof chain entry — here's one:\n\nEach entry adds to a proof chain. ana proof health tracks the trajectory across runs — first-pass verification rate, risks per run, hot spots where findings cluster, and what to fix next. When patterns recur, proof promote turns them into skill rules that reach the next build. proof audit groups active findings by file. proof stale flags findings whose files changed since discovery.\n\n| ana proof audit --new | Filter to findings since last learn session |\n| ana proof audit --since <date> | Filter to findings after ISO date |\n| ana proof stale | Show findings with staleness signals |\n| ana proof context <files...> | Query proof chain for file context |\n\nBuilt for Claude Code. The pipeline, agents, and skills are Claude Code native.\n\nScan output (AGENTS.md, CLAUDE.md) works with any AI tool that reads markdown.\n\nSee CONTRIBUTING.md for extension guides and ARCHITECTURE.md for the module map.\n\nThis project is built with Anatomia. The .ana/ directory is the proof — every feature was scoped, planned, built, and verified through the same pipeline this tool installs for you.",
+    "readingTime": 3,
+    "keywords": [
+      "chain entry",
+      "proof chain",
+      "proof audit",
+      "proof stale",
+      "ana init",
+      "claude code",
+      "scan",
+      "findings",
+      "context",
+      "pipeline"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/anatomia-dev/anatomia",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1137896945/b5127058-e693-4c34-8c06-e9c1dbe1d4d0",
+    "created_at": "2026-05-24T02:08:49.269Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-simple-ai-agent-in-java",
+    "title": "A simple AI agent in Java",
+    "description": "AI coding agent in Java. Contribute to machineswillrise/jagent development by creating an account on GitHub.",
+    "fullText": "An AI agent written in Java using LangChain4j. It works similarly to Claude Code if you have used that before.\n\nIt's completely free to use. To use it, You might need to put in a phone number to do the verification.\n\nIt generated a pretty good calculator app on the first try, so I'd say it works pretty well. I didn't need to make any changes to it.",
+    "readingTime": 1,
+    "keywords": [
+      "pretty"
+    ],
+    "qualityScore": 0.4,
+    "link": "https://github.com/machineswillrise/jagent",
+    "thumbnail_url": "https://opengraph.githubassets.com/9ed4cc8ac1b3b238cefc2d7f7befe5097a729e7102e04f0a52a81b9943f56a0b/machineswillrise/jagent",
+    "created_at": "2026-05-24T02:08:48.750Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "pedfs",
+    "title": "Pedfs",
+    "description": "Extract invoice & receipt data from PDFs with AI. Track expenses, export to Excel, CSV, or QuickBooks. Free plan with 5 PDFs/month.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://pedfs.com/",
+    "thumbnail_url": "https://pedfs.com/og-image.png",
+    "created_at": "2026-05-24T02:08:48.655Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "robotic-beehives-in-florida-claim-70-reduction-in-colony-collapse",
+    "title": "Robotic beehives in Florida claim 70% reduction in colony collapse",
+    "description": "A Florida community deploys AI-powered robotic beehives to protect declining bee populations that pollinate roughly 75% of the crops Americans eat.",
+    "fullText": "A Florida community has deployed AI-powered robotic beehives as declining bee populations continue raising concerns about the future of the US food supply, according to FOX 13 Tampa Bay.\n\nThe Angeline development in Land O’ Lakes recently became the first master-planned community to install Beewise’s automated BeeHome system, which uses robotics, sensors and artificial intelligence to monitor hive health and protect colonies from environmental threats.\n\nThe technology arrives as bee populations across the United States continue facing pressure from parasites, pesticides, disease and extreme weather conditions that experts say threaten agriculture nationwide.\n\n\"Bees pollinate roughly 75% of the crops we eat and about 80% of flowering plants around the word,\" Beewise Managing Director Steve Peck said. \"So, without those bees, our food supply is in jeopardy.\"\n\nUS AGRICULTURE INDUSTRY TESTS ARTIFICIAL INTELLIGENCE: 'A LOT OF POTENTIAL'\n\nThe community relies on bees to pollinate a 2.5-acre farm that helps supply produce used throughout the development.\n\nThe BeeHome system uses internal cameras, sensors and robotic components to inspect hives and identify problems that traditionally require manual beekeeper oversight.\n\n\"The robotics know where it is in the frame or where it is in the hive at any point,\" Peck said. \"It can pick it up just like a beekeeper would, inspect it, and report that back to technicians around the world.\"\n\nSOLAR-POWERED ROBOT ZAPS WEEDS WITHOUT CHEMICALS\n\nThe automated system monitors queen health, egg production and infestations from varroa mites, one of the leading causes of colony collapse among honeybee populations.\n\nPeck said the technology can also respond automatically when hive threats are detected.\n\n\"We can treat them within the hive by moving them to a new part of the home that raises the temperature,\" Peck said. \"It's enough to kill the mites, but not the bees. And there, we can prevent that colony collapse, and have shown, basically a 70% reduction to what we're seeing naturally around the world.\"\n\nWHITE HOUSE GETS AN UNEXPECTED BUZZ AS THOUSANDS OF BEES SWARM THE EXECUTIVE MANSION'S NORTH LAWN\n\nThe technology is already operating across hundreds of thousands of acres of agricultural land nationwide.\n\nProject officials emphasized that the system is designed to support — not replace — traditional beekeeping practices as environmental pressures continue threatening bee colonies.\n\n\"Every day, bees run the risk of being destroyed due to just the weather and elements and pesticides,\" Lisa Gibbings with Metro Development Group said.\n\nConcern over declining bee populations has drawn increasing national attention in recent years, including expanded beekeeping efforts at the White House. Fox News Digital previously reported that first lady Melania Trump added new bee colonies to the White House grounds as part of an expanded pollinator and honey production program.\n\nBee populations have become a growing concern for farmers and agricultural experts in recent years because pollinators play a critical role in food production and ecosystem stability across the U.S.",
+    "readingTime": 3,
+    "keywords": [
+      "beehome system",
+      "artificial intelligence",
+      "colony collapse",
+      "food supply",
+      "declining bee",
+      "bee populations",
+      "bee colonies",
+      "bees",
+      "hive",
+      "peck"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.foxnews.com/science/ai-robotic-beehives-installed-florida-community-claim-70-reduction-colony-collapse-threatening-crops",
+    "thumbnail_url": "https://static.foxnews.com/foxnews.com/content/uploads/2026/05/robot-bees-ai-florida.jpeg",
+    "created_at": "2026-05-24T02:08:48.344Z",
+    "topic": "science"
+  },
+  {
+    "slug": "characterization-of-machine-learning-compilers-for-llm-inference-on-nvidia-gpus",
+    "title": "Characterization of machine learning compilers for LLM inference on NVIDIA GPUs",
+    "description": "AI inference is conflicted between Performance, developer Productivity, and device Portability–the P3 problem. Machine learning compilers (MLCs) aim to address this, but their ecosystem is fragmented, with tools that each prioritize a different issue. This paper evaluates the deployment trade-offs of PyTorch-based LLMs on NVIDIA GPUs using four intertwined prominent MLC tools: torch.compile, TensorRT, XLA, and ONNX Runtime. A dual methodology is used, leveraging synthetic PyTorch models to isolate optimizations and end-to-end benchmarks with State-of-the-Art (SOTA) models (TinyLlama-1.",
+    "fullText": "Characterization of machine learning compilers for LLM inference on NVIDIA GPUs\n\n Open access\n\n Published: 15 May 2026\n\n Volume 82, article number 420, (2026)\n\n Cite this article\n\n You have full access to this open access article\n\n Download PDF\n\n The Journal of Supercomputing\n\n Aims and scope\n\n Submit manuscript",
+    "readingTime": 1,
+    "keywords": [
+      "access"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://link.springer.com/article/10.1007/s11227-026-08559-6",
+    "thumbnail_url": "https://media.springernature.com/m685/springer-static/image/art%3A10.1007%2Fs11227-026-08559-6/MediaObjects/11227_2026_8559_Fig1_HTML.png",
+    "created_at": "2026-05-24T02:08:47.593Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ssv-sparse-speculative-verification-for-efficient-llm-inference",
+    "title": "SSV: Sparse Speculative Verification for Efficient LLM Inference",
+    "description": "Speculative decoding and dynamic sparse attention are two complementary approaches for accelerating long-context LLM inference: the former amortizes target-model execution across multiple verifier queries, while the latter reduces each query's KV-cache working set. Directly combining them, however, exposes a structural mismatch: speculative verification relies on cross-query commonality, whereas dynamic sparse attention assigns query-specific sparse layouts. This mismatch limits KV-block reuse, amplifies NSA's branch-wise overheads, and makes verification strategy selection input- and regime-dependent. We present SSV, a sparse speculative-verification framework that turns dynamic sparse attention into a verification-oriented workload. SSV combines overlap-aware grouped-query execution, refresh/reuse-based NSA kernel fusion, and profile-guided prompt-adaptive orchestration to improve cross-query reuse, reduce selected-index and branch-fusion overheads, and select effective draft-verification strategies under user-specified precision classes.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://arxiv.org/abs/2605.19893",
+    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "created_at": "2026-05-24T02:08:46.689Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "fashion-designer-jeremy-scott-gets-a-huge-cheer-after-ripping-up-his-aiwritten-commencement-speech",
+    "title": "Fashion designer Jeremy Scott gets a huge cheer after ripping up his AI-written commencement speech",
+    "description": "Fashion designer Jeremy Scott told graduates that AI can't replicate their humanity during a commencement speech at the Kansas City Art Institute.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/jeremy-scott-fashion-graduation-speech-commencement-ai-student-backlash-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a1212687ff506e273e673c1?width=1200&format=jpeg",
+    "created_at": "2026-05-24T02:08:27.984Z",
+    "topic": "finance"
+  },
+  {
     "slug": "bespoke-ai-curriculum-to-become-ai-operator",
     "title": "Bespoke AI Curriculum to Become AI Operator",
     "description": "Only 5% of professionals are AI-fluent. Find out where you stand in 5 minutes. Free AI Operator Score™ across 100 operator skills, plus a personal learning plan from 300+ vetted courses.",
@@ -1728,118 +1845,5 @@
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KS3AY0C748994DFEV0SJH524/hero-image.fill.size_1200x675.png",
     "created_at": "2026-05-21T02:09:21.156Z",
     "topic": "tech"
-  },
-  {
-    "slug": "trump-to-sign-order-on-ai-oversight-as-security-fears-mount-among-supporters",
-    "title": "Trump to sign order on AI oversight as security fears mount among supporters",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/trump-to-sign-order-on-ai-oversight-as-security-fears-mount-among-supporters-4702720",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM4J1YG_L.jpg",
-    "created_at": "2026-05-21T02:09:19.771Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "jeff-bezos-says-software-engineers-shouldnt-be-afraid-of-ai-be-so-happy",
-    "title": "Jeff Bezos says software engineers shouldn't be afraid of AI: 'Be so happy!'",
-    "description": "Amazon founder Jeff Bezos compared giving AI to software engineers to giving a bulldozer to someone digging out a basement with a shovel.",
-    "fullText": "Read in app\n\n Jeff Bezos said software engineers should be excited about the prospects of AI.\n \"It's going to elevate all these people,\" he said in an interview on CNBC.\n Bezos compared giving workers AI to giving a bulldozer to someone digging out a basement with a shovel.\n\n What skills complement AI in tech?\n\n What are the economic impacts of AI?\n\n How can AI boost productivity?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "bezos"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/jeff-bezos-ai-software-engineers-shouldnt-be-afraid-of-ai-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0dbfb8be2e5e1daf890dfd?width=1200&format=jpeg",
-    "created_at": "2026-05-20T20:01:24.195Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "barnes-noble-ceo-is-fine-with-stocking-aiwritten-books-if-theyre-labeled-the-internet-had-thoughts",
-    "title": "Barnes & Noble CEO is fine with stocking AI-written books — if they're labeled. The internet had thoughts.",
-    "description": "As concerns around AI grow, Barnes & Noble CEO James Daunt's words have hit a nerve for some online.",
-    "fullText": "Read in app\n\n Barnes & Noble CEO James Daunt said he has \"no problem\" stocking AI-written books.\n However, this is only as long as there's consumer demand and the book is labeled as written by AI.\n Some users online have expressed anger at his suggestion, while others view it as realistic.\n\n How might AI impact the book industry?\n\n How could indie authors be affected by AI?\n\n What are the ethical concerns with AI books?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "books",
-      "book"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/ai-written-books-might-coming-to-your-barnes-and-noble-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0d9db4be2e5e1daf890d3a?width=1200&format=jpeg",
-    "created_at": "2026-05-20T20:01:24.177Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "openai-is-racing-to-go-public",
-    "title": "OpenAI is racing to go public",
-    "description": "OpenAI targets September IPO with Goldman Sachs and Morgan Stanley as advisors, a person familiar with the matter told Business Insider.",
-    "fullText": "Read in app\n\n OpenAI is racing toward its blockbuster IPO.\n The AI lab is targeting September for the listing, a person familiar with the matter said.\n Goldman Sachs and Morgan Stanley will steward the company through the process, the person said.\n\n What challenges do AI companies face in IPOs?\n\n What impact could OpenAI's IPO have on AI?\n\n How do investment banks assist IPOs?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "ipos"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/openai-ipo-racing-to-go-public-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0df7acce0a5b2f12d7debf?width=1200&format=jpeg",
-    "created_at": "2026-05-20T20:01:22.925Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "heres-what-mark-zuckerberg-said-about-future-layoffs-at-meta",
-    "title": "Here's what Mark Zuckerberg said about future layoffs at Meta",
-    "description": "Zuckerberg thanked departing Meta staff as morale takes a big hit. Meta is cutting 10% of its staff today to offset huge AI investments.",
-    "fullText": "Read in app\n\n Mark Zuckerberg posted a note to Meta staff as the tech giant cuts 10% of its workforce today.\n Zuckerberg said he doesn't expect more \"company-wide\" layoffs this year amid a major morale hit.\n The billionaire added that some staff appreciate having less bureaucracy and management to navigate.\n\n What is Zuckerberg's vision for AI?\n\n What impact do layoffs have on morale?\n\n How does Meta plan to reduce bureaucracy?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "meta",
-      "staff",
-      "layoffs",
-      "morale",
-      "bureaucracy",
-      "zuckerberg"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/heres-what-mark-zuckerberg-said-about-future-layoffs-at-meta-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0dee8c7684ba33f7380d6c?width=1200&format=jpeg",
-    "created_at": "2026-05-20T20:01:22.638Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-top-google-executive-says-silicon-valley-is-overstating-the-ai-jobs-apocalypse",
-    "title": "A top Google executive says Silicon Valley is overstating the AI jobs apocalypse",
-    "description": "Google SVP James Manyika says Silicon Valley has fueled fears of an AI jobs cuts — but the reality is more complicated.",
-    "fullText": "Read in app\n\n A Google executive said he'd bet that AI will not lead to mass layoffs.\n SVP James Manyika said AI will eliminate some jobs, create others, and change many more.\n He joins other tech executives pushing back on AI job-loss fears as public skepticism grows.\n\n What jobs might AI create?\n\n How can AI impact energy costs?\n\n Why is public skepticism on AI rising?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "jobs",
-      "create",
-      "skepticism"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/google-exec-james-manyika-silicon-valley-overstating-ai-jobs-apocalypse-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0dc17ace0a5b2f12d7dbcf?width=1200&format=jpeg",
-    "created_at": "2026-05-20T20:01:22.568Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "sam-altman-has-a-proposition-for-startup-founders-ai-tokens-for-equity",
-    "title": "Sam Altman has a proposition for startup founders: AI tokens for equity",
-    "description": "OpenAI offered $2 million in tokens in exchange for equity in Y Combinator-backed startups. Sam Altman celebrated the future of tokenmaxxing startups.",
-    "fullText": "Read in app\n\n OpenAI offered $2 million in tokens in exchange for equity in the current class of Y Combinator-backed startups.\n Sam Altman wrote on X that he was \"excited to see what will happen with tokenmaxxing startups.\"\n It's another sign of how AI has changed the economics of building a company.\n\n What are AI tokens used for?\n\n What is a SAFE agreement?\n\n How is AI changing startup economics?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "tokens",
-      "startups",
-      "economics"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/sam-altman-openai-offer-tokens-for-startup-equity-y-combinator-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0db4babe2e5e1daf890d96?width=1200&format=jpeg",
-    "created_at": "2026-05-20T20:01:22.501Z",
-    "topic": "finance"
   }
 ]
