@@ -1,5 +1,29 @@
 [
   {
+    "slug": "i-missed-networkmanager-on-windows-so-i-built-a-linux-equivalent",
+    "title": "I missed NETworkManager on Windows so I built a Linux equivalent",
+    "description": "A free Linux adaptation of NETworkManager (BornToBeRoot) — Python 3 + PySide6 - thongor77/nmlinux",
+    "fullText": "A free Linux adaptation of NETworkManager by BornToBeRoot.\n\nNMLinux brings the spirit of NETworkManager to Linux desktops, reimplemented from scratch in Python and PySide6 (Qt 6). It is not a port of the original C# code, but an independent rewrite inspired by the same idea: a single, unified GUI for the most common network tools a sysadmin or power user needs.\n\nBuilt with Claude Code (Anthropic) and the contribution of its author.\n\nInitial public release — 13 modules: Dashboard, Interfaces, Wi-Fi, Subnet Calculator, DNS Lookup, Ping Monitor, IP Scanner, Port Scanner, Nmap, Whois, SNMP, SNTP/NTP, SSH.\n\nMost are already present on a standard Linux install:\n\nAll dependencies (PySide6, ptyprocess, pyte, nmcli, …) are handled automatically.\n\nDownload the .whl from the latest release and install it:\n\nCopy the .desktop file to make NMLinux appear in your application launcher:\n\nThen edit the Exec= path in the file if needed.\n\nNMLinux uses QIcon.fromTheme() with fallback chains for every icon, so it\ndisplays correctly on KDE (Breeze), GNOME (Adwaita/Yaru), XFCE, and others.\nThe Qt style adapts to the running desktop automatically.\n\nThis project is an independent reimplementation. No code from NETworkManager was used or translated.",
+    "readingTime": 1,
+    "keywords": [
+      "networkmanager",
+      "pyside",
+      "port",
+      "independent",
+      "release",
+      "scanner",
+      "install",
+      "automatically",
+      "desktop",
+      "file"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://github.com/thongor77/nmlinux",
+    "thumbnail_url": "https://opengraph.githubassets.com/c98baf73148af96fb51a693270b3f96e2cdeac9d3bf317c07e55b837ec2d5a09/thongor77/nmlinux",
+    "created_at": "2026-05-24T12:58:49.562Z",
+    "topic": "tech"
+  },
+  {
     "slug": "export-mac-olm-to-outlook-for-windows-pst",
     "title": "Export Mac (OLM) to Outlook for Windows (PST)",
     "description": "PDS OLM to PST Converter Tool which can smoothly convert outlook (*.olm) emails files from Mac Outlook (*.olm) Files through PDS OLM Converter and nicely extract and export Outlook (*.olm) file from inaccessible OLM file database and Convert OLM emails, notes, contacts, calendars, tasks, inbox, outbox, sent items, draft etc. PDS OLM Converter software successfully runs on all Outlook version.",
