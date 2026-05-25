@@ -1,5 +1,29 @@
 [
   {
+    "slug": "sqlitevector-now-with-google-turboquant-for-a-38x-speedup",
+    "title": "SQLite-Vector now with Google TurboQuant for a 38x speedup",
+    "description": "SQLite-Vector is a cross-platform, ultra-efficient SQLite extension that brings vector search capabilities to your embedded database. - sqliteai/sqlite-vector",
+    "fullText": "Production-grade vector search inside SQLite.\n\n Exact search, SIMD distance kernels, and SIMD 2/3/4-bit TurboQuant scans — runs anywhere SQLite runs: mobile, browser, edge, server.\n\nFree managed instance → ·\n Docs ·\n Website ·\n Blog\n\nData:\n Vector ·\n Sync ·\n Columnar ·\n JS\n\n AI:\n AI ·\n Agent ·\n Memory ·\n MCP\n\nBuilding RAG or semantic search? SQLite-Vector ships as an extension you can drop into any SQLite app. Need it managed with sync and auth? SQLite Cloud free tier gives you 512 MB and 20 connections, no credit card.\n\nSQLite Vector is a cross-platform, ultra-efficient SQLite extension that brings vector search capabilities to your embedded database. It works seamlessly on iOS, Android, Windows, Linux, and macOS, using just 30MB of memory by default. With support for Float32, Float16, BFloat16, Int8, UInt8, 1Bit, and TurboQuant 2/3/4-bit quantization, plus highly optimized distance functions, it's the ideal solution for Edge AI applications.\n\nSQLite-Vector includes TurboQuant, a compact data-oblivious vector quantizer inspired by the Google Research paper TurboQuant: Online Vector Quantization with Near-Optimal Distortion Rate. It stores each vector as low-bit scalar codes plus one scale value, then scores directly from SIMD lookup-table kernels without reconstructing full vectors.\n\nUnlike other vector databases or extensions that require complex setup, SQLite-Vector just works with your existing database schema and tools.\n\nOr embed it directly into your application.\n\nYou can download the WebAssembly (WASM) version of SQLite with the SQLite Vector extension enabled from: https://www.npmjs.com/package/@sqliteai/sqlite-wasm\n\nTurboQuant can be selected with qtype=TURBO,qbits=N, where N is 2, 3, or 4. Shorthand aliases are also available: TURBO2, TURBO3, and TURBO4.\n\nThe following benchmark compares vector_full_scan() brute force against vector_quantize_scan() using TurboQuant on a synthetic dataset of 1,000,000 vectors, 768 dimensions, DOT distance, k=10, and 5 queries. The database was file-backed, with raw vectors stored in SQLite and quantized data preloaded for the scan. Recall is measured as overlap with exact brute-force top-10 results. These numbers were measured on macOS ARM64 using the NEON backend; timings vary by CPU, storage, cache settings, and allocator behavior.\n\nFor comparison, the raw FLOAT32 vectors alone are about 3.07 GB for 1M x 768 before SQLite row/page overhead. TurboQuant 4-bit reduces the scan representation to about 13% of that raw vector payload, TurboQuant 3-bit to about 10%, and TurboQuant 2-bit to about 7%. Actual resident memory depends on whether the database is in-memory or file-backed, SQLite cache settings, preloading, page cache behavior, and the host allocator.\n\nThe TurboQuant scan backend can be checked separately from the regular distance backend:\n\nFor edge deployments, vector_quantize_memory(table, column) estimates the quantized scan representation. TurboQuant stores each row as rowid + scale + packed_codes, roughly rows * (8 + 4 + ceil(dim * qbits / 8)) bytes before allocator and SQLite cache overhead. The synthetic benchmark in test/benchmark_turboquant.c also supports PRELOAD=0 to compare the lower-RAM, non-preloaded path.\n\nReal-dataset recall can be reproduced with test/recall_turboquant_real.py, which downloads Fashion-MNIST in the ANN-Benchmarks HDF5 format and compares TurboQuant against vector_full_scan() using L2 distance. Example run on macOS ARM64/NEON with 10,000 base vectors, 50 queries, and k=10:\n\nqbits=4 is the recommended starting point when recall matters. qbits=2 is useful for tighter edge memory budgets, but should be validated on the target embeddings because recall can drop significantly depending on the dataset.\n\nYou can add this repository as a package dependency to your Swift project. After adding the package, you'll need to set up SQLite with extension loading by following steps 4 and 5 of this guide.\n\nHere's an example of how to use the package:\n\nAdd the following to your Gradle dependencies:\n\nHere's an example of how to use the package:\n\nNote: Additional settings and configuration are required for a complete setup. For full implementation details, see the complete Android example.\n\nPython developers can quickly get started using the ready-to-use sqlite-vector package available on PyPI:\n\nFor usage details and examples, see the Python package documentation.\n\nAdd the sqlite_vector package to your project:\n\nFor a complete example, see the Flutter example.\n\nExtensive API documentation can be found in the API page.\n\nMore information about the quantization process can be found in the QUANTIZATION document.\n\nUnlike other SQLite vector extensions that rely on complex indexing algorithms such as DiskANN, HNSW, or IVF, which often require preprocessing steps that can take hours or even days, sqlite-vector works out of the box with your existing data. There’s no need to preindex your vectors—you can start performing fast, approximate or exact vector searches immediately.\n\nYou can store your vectors as BLOB columns in ordinary tables. Supported formats include:\n\nSimply insert a vector as a binary blob into your table. No special table types or schemas are required.\n\nOptimized implementations available:\n\nThese are implemented in pure C and optimized for SIMD when available, ensuring maximum performance on modern CPUs and mobile devices.\n\nVector search is the process of finding the closest match(es) to a given vector (a point in high-dimensional space) based on a similarity or distance metric. It is essential for AI and machine learning applications where data is often encoded into vector embeddings.\n\nIn the AI era, embeddings are everywhere – from language models like GPT to vision transformers. Storing and searching them efficiently is the foundation of intelligent applications.\n\nSQLite-Vector is designed with the Edge AI use case in mind:\n\nYou can deploy powerful similarity search capabilities right inside your app or embedded system – no cloud needed.\n\nFree Use in Open-Source Projects: You may use, copy, distribute, and prepare derivative works of the software — in source or object form, with or without modification — freely and without fee, provided the software is incorporated into or used by an open-source project licensed under an OSI-approved open-source license. Everything else is licensed under the Elastic License 2.0. You can use, copy, modify, and distribute it under the terms of the license for non-production use. For production or managed service use, please contact SQLite Cloud, Inc for a commercial license.\n\nDon't want to run it yourself? SQLite Cloud is the managed version of SQLite-Vector and the rest of the stack — with sync, backups, auth, edge functions, and multi-region support included.\n\nSQLite-Vector is one piece of a larger ecosystem that turns SQLite into a runtime for intelligent, distributed data:\n\nBuilt by SQLite AI. Questions? Contact us.",
+    "readingTime": 6,
+    "keywords": [
+      "applications sqlite-vector",
+      "turboquant bit",
+      "scan representation",
+      "search capabilities",
+      "cache settings",
+      "sqlite cache",
+      "vector search",
+      "edge ai",
+      "package",
+      "distance"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/sqliteai/sqlite-vector",
+    "thumbnail_url": "https://opengraph.githubassets.com/9473caba963de0631bcea1d3cd6fa7f6c8520d288c04815100c8c2fadbb8a966/sqliteai/sqlite-vector",
+    "created_at": "2026-05-25T14:32:53.787Z",
+    "topic": "tech"
+  },
+  {
     "slug": "google-wants-me-to-use-emojis-in-email-im-delighted-about-this",
     "title": "Google wants me to use emojis in email. I'm delighted about this.",
     "description": "You don't always get what you want. But I needed this and I got it: Now you can use emjoi replies in Gmail.",
@@ -1978,19 +2002,6 @@
     "link": "https://www.businessinsider.com/big-tech-earnings-winners-losers-ai-capex-cloud-meta-goog-2026-4",
     "thumbnail_url": "https://i.insider.com/69f3545279c9af599deecd1d?width=1200&format=jpeg",
     "created_at": "2026-04-30T19:05:39.054Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-key-takeaways-from-a-massive-day-of-tech-earnings",
-    "title": "The key takeaways from a massive day of tech earnings",
-    "description": "With four companies — Amazon, Google, Meta, and Microsoft —reporting in one day, there's a lot to unpack.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/big-tech-earnings-meta-google-microsoft-amazon-newsletter-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f3227c3a8599320969eb9d?width=1200&format=jpeg",
-    "created_at": "2026-04-30T13:19:21.226Z",
     "topic": "finance"
   }
 ]
