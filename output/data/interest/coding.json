@@ -1,5 +1,29 @@
 [
   {
+    "slug": "dangerouslyskippermissions-is-the-only-safe-mode",
+    "title": "Dangerously-skip-permissions is the only safe mode",
+    "description": "The permission prompts in AI coding agents make you _less_ safe. The only system that works is called _auth_, and --dangerously-skip-permissions forces you to use it.",
+    "fullText": "Claude Code has a flag called --dangerously-skip-permissions.\nDespite the name, I'm more nervous about engineers who don't use it.\nIf you run the default \"permissions\" mode, your Claude setup is probably unsafe.\n\n--dangerously-skip-permissions lets the agent do anything it wants on your machine.\nSounds dangerous.\nClaude could do real damage with the DATABASE_URL in your env files.\n\nrun a script, delete a file, make a network request.\nSounds sensible.\nThe human stays in the loop.\n\nNow watch what happens after a few minutes.\n\nClaude asks to write a script.\nWriting files is safe.\nApprove.\nClaude asks to run the script.\nThe script looks safe.\nApprove.\nThe script has a bug.\nClaude edits it and asks to re-run.\nRead the diff, approve.\n\nAfter a handful of these, it starts to feel like real work, and the last ten were fine.\nProbably fine. Approve.\n\nI'm now effectively in --dangerously-skip-permissions mode,\nexcept I have to sit at the keyboard to skip the permissions.\nThis is approval fatigue,\nand it's why the default mode is worse than --dangerously-skip-permissions.\n\nIf approval doesn't work, what does?\nAuth.\n\nThis is how we handle the same problem for humans at work.\nBob gets an access token.\nHe makes requests like \"give me this file\",\nand the service authorizes him against a policy like \"Bob owns this file\".\n\nBob's permissions balance two things:\nhe needs access to be productive,\nbut he can also make mistakes, turn disgruntled, or lose his laptop.\n\nBob writes and runs any scripts he likes on his machine.\nNo human reads or approves them.\nThe auth policy is enforced by the services his scripts talk to.\nAuth policies don't get tired.\n\nAgents have the same shape.\nThey can be helpful. They can also turn stupid or malicious or both.\nAnd we can't post a human behind every action.\n\nSo the equivalent of auth for Claude Code is auth.\nGive him credentials. Let him run whatever scripts he wants with them.\n\nSuppose you have two colleagues.\nBob runs Claude in regular permissions mode.\nAlice runs Claude with --dangerously-skip-permissions.\nWho is more likely to cause a production incident?\n\nBob makes me more nervous.\nHis discomfort with --dangerously-skip-permissions\nmeans he knows his machine holds credentials he doesn't trust Claude with.\nHe's trying to verify every action, and eventually he will slip.\n\nThat's why --dangerously-skip-permissions is the safer mode.\nIt forces you to give your agent a working permissions system:\nauth, not approval.",
+    "readingTime": 3,
+    "keywords": [
+      "safe approve",
+      "permissions mode",
+      "claude code",
+      "dangerously-skip-permissions",
+      "script",
+      "machine",
+      "file",
+      "human",
+      "approval",
+      "scripts"
+    ],
+    "qualityScore": 0.8,
+    "link": "https://www.granola.ai/blog/dangerously-skip-permissions-is-the-only-safe-mode",
+    "thumbnail_url": "https://www.granola.ai/api/og?title=--dangerously-skip-permissions+is+the+only+safe+mode&subtitle=The+permission+prompts+in+AI+coding+agents+make+you+_less_+safe.+The+only+system+that+works+is+called+_auth_%2C+and+--dangerously-skip-permissions+forces+you+to+use+it.",
+    "created_at": "2026-05-26T09:34:57.685Z",
+    "topic": "tech"
+  },
+  {
     "slug": "my-son-taught-me-ai-coding-at-73-i-was-scared-to-hit-enter-now-i-feel-free",
     "title": "My son taught me AI coding at 73. I was scared to hit 'enter' — now I feel free.",
     "description": "Carol Merlo wanted to build her own website without Weebly or Wix. She asked her son, Kevin Masterson, to help.",
@@ -1916,24 +1940,5 @@
     "thumbnail_url": "https://kennethreitz.org/og-image/essays/2026-04-12-write_it_first_then_let_ai_drive.png",
     "created_at": "2026-04-14T18:58:33.699Z",
     "topic": "tech"
-  },
-  {
-    "slug": "mark-zuckerberg-moved-his-desk-and-is-coding-again-meta-president-says",
-    "title": "Mark Zuckerberg moved his desk and is coding again, Meta president says",
-    "description": "\"I think he feels so strongly that he has to understand it at that level,\" Meta's president said about Zuckerberg's work with the AI team.",
-    "fullText": "Mark Zuckerberg moved his desk to be closer to Meta's AI team, according to the company's president and vice chairman.\n Zuckerberg went on a recruiting spree for AI researchers last year, forming the new Meta Superintelligence Labs division.\n The CEO is \"coding all day long\" and sits with MSL lead Alexandr Wang, Dina Powell McCormick said at a Semafor conference.\n\n What is Meta's AI strategy focus?\n\n How is Zuckerberg involved in AI at Meta?\n\n Why did Meta's stock jump recently?\n\n Who is Alexandr Wang at Meta?\n\n What is Muse Spark in AI?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "meta's ai",
-      "zuckerberg",
-      "meta",
-      "alexandr",
-      "wang"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://www.businessinsider.com/mark-zuckerberg-moved-desk-coding-again-sits-by-alexandr-wang-2026-4",
-    "thumbnail_url": "https://i.insider.com/69de4d4a899c9d3be05104f4?width=1200&format=jpeg",
-    "created_at": "2026-04-14T18:58:30.979Z",
-    "topic": "finance"
   }
 ]
