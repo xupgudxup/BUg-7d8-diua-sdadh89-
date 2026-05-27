@@ -1,5 +1,22 @@
 [
   {
+    "slug": "ais-impact-on-saas-will-be-uneven-heres-what-leaders-need-to-know",
+    "title": "AI’s Impact on SaaS Will Be Uneven. Here’s What Leaders Need to Know.",
+    "description": "The “SaaSpocalypse,” or early-2026 software selloff, has reinforced a tempting through-line for leaders: If AI can build or automate software, most SaaS should be rebuilt internally or shopped to a new vendor with a cost structure that reflects lower building costs with AI tools. But executives are overgeneralizing AI’s impact. Generative tools lower the cost of building deterministic, internally focused software, making many workflow and record‑lookup systems ripe for consolidation or in‑house replacement. But SaaS that combines pooled, proprietary data with predictive tasks is structurally different. These “operational intelligence” vendors embed judgment, not just documentation, capturing long‑tail edge cases that single‑firm data and frontier models cannot easily replicate.",
+    "fullText": "AI’s Impact on SaaS Will Be Uneven. Here’s What Leaders Need to Know. by Christopher StantonMay 27, 2026PostPostShareSavePrintSummary.   Leer en españolLer em portuguêsPostPostShareSavePrintFor two decades, software-as-a-service (SaaS) grew by digitizing workflows. Customer relationship management systems recorded sales activity. Field-service platforms scheduled jobs, retrieved customer histories, and fed upsell opportunities back into sales teams. The model created value by taking opaque or messy information and putting it in workers’ hands. Before AI coding tools, few buyers were positioned to build comparable feature sets in-house.",
+    "readingTime": 1,
+    "keywords": [
+      "saas",
+      "customer",
+      "sales"
+    ],
+    "qualityScore": 0.45,
+    "link": "https://hbr.org/2026/05/ais-impact-on-saas-will-be-uneven-heres-what-leaders-need-to-know",
+    "thumbnail_url": "/resources/images/article_assets/2026/05/May26_27_1469190144.jpg",
+    "created_at": "2026-05-27T14:53:23.035Z",
+    "topic": "business"
+  },
+  {
     "slug": "what-you-see-here-is-a-wetland-without-water-how-the-datacentre-boom-is-exacerbating-chiles-megadrought",
     "title": "‘What you see here is a wetland without water’: how the datacentre boom is exacerbating Chile’s mega-drought",
     "description": "The country is positioning itself as Latin America’s next technology hub, but communities are pushing back\nThe Andes mountains frame what was once a wetland – now a stretch of dry, yellowed grass. Rodrigo Vallejos, a final-year law student, noticed the change five years ago while observing the Quilicura wetland, on the northern outskirts of Santiago. One of Chile’s largest swamps, spanning 468.4 hectares (about 1,200 acres) and partially protected, was drying up right before his eyes.\n“What you see here is a wetland without water,” says Vallejos, who has investigated the causes alongside activists from the group Resistencia Socioambiental de Quilicura.",
@@ -2000,29 +2017,5 @@
     "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/itk4mwEw7qwo/v3/-1x-1.webp",
     "created_at": "2026-04-18T18:33:37.691Z",
     "topic": "finance"
-  },
-  {
-    "slug": "understanding-flocks-testing-and-development-program",
-    "title": "Understanding Flock's Testing and Development Program",
-    "description": "This article explains how Flock tests its technology in real-world environments, strengthens search safeguards, and addresses recent privacy questions about its development practices.",
-    "fullText": "Why Flock needs to have live testing partners:\n\nWe are constantly refining our machine learning to ensure we can accurately identify license plates and objects. Here’s a concrete example: when the Tesla Cybertruck came out, we had to build a whole new ML algorithm to identify it. Nothing had been seen like that before. This requires testing and training the models in real-world conditions.\n\nSimilarly, we have instituted a content moderation policy across one of our search features, FreeForm Search. FreeForm allows law enforcement to search for the objective evidence they need to solve a case in plain terms. LPR cameras can use Vehicle FreeForm, allowing police to search for things like “blue car spray-painted with yellow graffiti”. Video cameras have additional FreeForm capabilities that allow officers to search for characteristics on people, like “man wearing a cowboy hat”. *Note: LPR cameras never allow People FreeForm.\n\nWe have also designed and implemented a moderation policy to ensure First Amendment protections are baked in: freedom of speech, religion, and assembly.\n\nSome specific guardrails instituted in the moderation policy are:\n\nThe latter requires a complicated training protocol to ensure the moderation policy works as designed. For example, some vehicle bumper stickers contain words and symbols indicating religious affiliations or nationalities, and the moderation policy needs to recognize, flag, and block these searches.\n\nJust like vehicle identification, these algorithms need to be trained in the real world using real-life examples. Those might be training and demo searches for things like “Cross bumper sticker”, “Star of David,” or “Japanese flag”. These searches, if performed, should not return results.\n\nThis is the same principle behind testing in cybersecurity: you simulate the attack to prove the defense holds. If we don't test whether an antisemitic slur gets blocked, we can't guarantee it will be blocked when it matters.\n\nIn Dunwoody, a Flock employee performed a demo of this content moderation policy by searching for both “Star of David”, which our search moderation tool blocked, and “Cowboy hat,” which the search moderation tool allowed. The test logs from Dunwoody reflect exactly this. Authorized content moderation testing, conducted to verify that the system catches what it's supposed to catch.\n\nSimilarly, one of the benefits communities most value about Flock technology is the ability for law enforcement to directly access privately owned cameras, if and only if the organization allows them to, for crime-solving and security purposes. This is also a feature that must be tested and demoed, both to ensure we get everything right on the technical side and so other agencies and businesses understand how the sharing works.\n\nOur testing and demo partners provide us permission to demo these sharing connections.\n\nFair questions have been asked about conducting demos on cameras in sensitive locations when doing this very critical testing in the real-world. Last week, in the City of Dunwoody, questions were raised about a demo conducted as part of authorized activity approved under the city's demo partner agreement, on cameras at a local Jewish Community Center.\n\nAlthough the camera was only viewed once during a routine demo, we understand that this is a sensitive location for many. We have therefore determined that employees will be trained to only conduct demos in more public locations, like retail parking lots.\n\nWe take every concern about how our technology is used seriously, even when the underlying claims are wrong. That's why every search in the Flock system is permanently logged and auditable, data is deleted after 30 days by default, and local agencies - not Flock - control who can access their data.\n\nA full overview of our compliance tools is available at flock.com/trust.\n\nAccusing someone of spying on children is not a policy disagreement; it is a life-altering allegation. Claims of inappropriate conduct by our employees are false. The employees being named online are well-intentioned employees who accessed a camera network with the city's explicit permission, as part of their job. They are now being called predators for it.\n\nWhen false accusations this serious are used to win a political argument, real people pay the price, and transparent tools that actually solve crime get replaced with either no tools or less transparent technology.\n\nWe will continue to be transparent about how our technology works, how it's tested, and how it's governed, rather than letting false narratives go unchallenged. Safety is a fundamental right for every community.\n\nDiscover how communities across the country are using Flock to reduce crime and build safer neighborhoods.",
-    "readingTime": 4,
-    "keywords": [
-      "lpr cameras",
-      "law enforcement",
-      "cowboy hat",
-      "content moderation",
-      "moderation tool",
-      "moderation policy",
-      "search moderation",
-      "star of david",
-      "demo",
-      "testing"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.flocksafety.com/blog/understanding-flocks-testing-and-development-program",
-    "thumbnail_url": "https://cdn.prod.website-files.com/6823a65a40e8919f48f55a9d/69e1723e223612ca3779b6c7_AdobeStock_304615810.jpeg",
-    "created_at": "2026-04-18T06:56:10.234Z",
-    "topic": "tech"
   }
 ]
