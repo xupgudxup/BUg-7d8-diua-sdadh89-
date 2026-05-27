@@ -1,5 +1,29 @@
 [
   {
+    "slug": "two-ways-to-completely-remove-microsoft-copilot-from-windows-11",
+    "title": "Two Ways to Completely Remove Microsoft Copilot From Windows 11",
+    "description": "You can block AI services you didn't ask for.",
+    "fullText": "I don't mind using AI services once in a while, but I dislike it when companies try to shove these services everywhere, even though no one asked for them. Case in point: Microsoft Copilot, which is built into Windows. When I bought my Windows 11 license, it wasn't on my PC, but at some point, the company snuck it, and a host of AI features, onto my PC.\n\nMicrosoft has actually walked back this Copilot takeover, however, following pushback from users. The company has started removing \"unnecessary\" Copilot features from Windows, which is a step in the right direction. However, it's far from perfect, especially for anyone hoping for an AI off switch. If you're annoyed by all these AI features too, you don't have to deal with it. There are two methods you can try to remove Copilot from your PC, depending on your OS:\n\nWith the April 2026 Windows update, Microsoft began shipping a way to disable Copilot via its Group Policy Editor. This was first reported by the German blog Desk Modder, which also notes that this option may not appear for everyone. It shows up if you have Windows 11 Pro or higher, both the Microsoft 365 Copilot and standard Copilot apps, and if you didn't install the Copilot app on your PC yourself. The option won't appear if you launched Copilot anytime in the past 28 days. If you're not sure whether or not you qualify, check the steps below to see if the option appears for you.\n\nPress Win-R on your keyboard, type \"gpedit.msc,\" and hit Enter. This will open the Group Policy Editor. Now, you can navigate to Local Computer Policy > User Configuration > Administrative Templates > Windows Components > Windows AI (also spotted by Desk Modder). Double-click the option labeled Remove Microsoft Copilot App, and set it to Enabled. Click OK, and Windows will remove Copilot from your PC.\n\nYou can also turn off Copilot without removing the app using the Group Policy Editor. Go to Local Computer Policy > User Configuration > Administrative Templates > Windows Components > Windows Copilot, and double-click Turn off Windows Copilot. Set it to Enabled, click OK, and you're done.\n\nIf these group policy entries are unavailable on your PC, you can also try a script that removes all AI features from Windows—including Copilot. You'll need to go to the GitHub page of RemoveWindowsAI, and copy the command listed under \"How to use.\" (As this script may change, I won't list it here. Check the GitHub page directly for the most up-to-date script.) Once you copy the command, open Powershell on your PC, paste the command, and run it. You'll have the option to choose which AI services you want to kill, including Copilot, but also features like Recall. The script will automatically remove Copilot from every possible app on your PC, and you'll be free of Microsoft's AI push for good (or at least until the company decides to shove it into more apps).\n\nThis should work on any version of Windows 11, though the developer, zoicware, warns that some anti-virus programs may block the script if they mistakenly detect it as malware. You should always exercise caution before running scripts from the internet, even GitHub, but you can review this script's documentation here",
+    "readingTime": 3,
+    "keywords": [
+      "user configuration",
+      "configuration administrative",
+      "administrative templates",
+      "github page",
+      "computer policy",
+      "templates windows",
+      "windows components",
+      "remove copilot",
+      "copilot app",
+      "microsoft copilot"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/completely-remove-microsoft-copilot-from-windows-11?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KSN18AP0W23MHH64S7C8119Q/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-05-27T19:58:52.185Z",
+    "topic": "tech"
+  },
+  {
     "slug": "clipmon-menubar-clipboard-manager-for-macos",
     "title": "Clipmon – Menubar Clipboard Manager for macOS",
     "description": "Clipboard mega-manager for Mac, Windows and Linux that can sync with Android and iOS - C9-Labs/clipmon",
