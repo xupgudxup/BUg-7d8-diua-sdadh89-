@@ -1,5 +1,29 @@
 [
   {
+    "slug": "a-saas-tagline-critic-that-runs-in-the-browser",
+    "title": "A SaaS tagline critic that runs in the browser",
+    "description": "A fine-tuned model rates SaaS hero taglines 0–100, entirely client-side. Plus an optional reasoning-model brainstorm.",
+    "fullText": "A fine-tuned model rates SaaS hero taglines 0–100 — entirely client-side. No server, no API key, no data leaves your tab.\n\nMost SaaS taglines are forgettable category labels — \"the all-in-one platform for modern teams.\" I wanted something that could tell a sharp, ownable hero line from buzzword filler. This page is that model, running on your CPU in the browser.\n\nThe one line under a company's name — the hero line at the top of a landing page. A good one is a tight, ownable promise you couldn't paste on a competitor's site (\"Wake up an expert.\"). A bad one just names the category or stacks buzzwords (\"an all-in-one platform for teams\"). The model scores exactly that difference — try it below.\n\nIt's intfloat/e5-large-v2 fine-tuned end-to-end with a pairwise ranking loss on a few hundred rubric-rated SaaS taglines plus hand-picked hard negatives (category labels, buzzword soup, body-text fragments, prompt/role leakage). Held-out pairwise accuracy ≈ 0.90 — fine-tuning the whole embedding body, not just a frozen linear head, is what broke past the ~0.80 ceiling. It's exported to int8 ONNX (~336 MB) and run by transformers.js on the WASM backend. You type a line → it's embedded (mean-pooled, L2-normalized) → a one-row linear head turns the 1024-dim vector into a score → mapped to a percentile against the training set. Downloaded once, then fully offline.\n\nRating is the easy part. Generating great taglines is hard — and the real lesson was that you can't cheaply train a small model to write great ones: great taglines are a taste / creative-leap problem, not a capacity problem. So instead of a generator, the optional brainstorm connects your own OpenRouter key via PKCE OAuth (100% client-side — no app registration, no backend) and lets a reasoning model brainstorm. Paste a URL and OpenRouter's agentic web tools fetch and read the page server-side. As the model thinks, candidate lines are mined from the stream and rated live by the local classifier. Cloud brainstorm, local curation — no backend on either side.\n\nThe classifier can't manufacture a great line, but it reliably clears the floor: it buries imperative formulas (\"Stop X. Start Y.\"), bare category labels, and literal feature-lists, and floats the punchy, differentiated ones. A good-enough critic plus a strong brainstormer beats trying to train a great generator. Model and data are open on Hugging Face: standd/tagline-quality-e5-ranker.",
+    "readingTime": 2,
+    "keywords": [
+      "saas taglines",
+      "all-in-one platform",
+      "category labels",
+      "model",
+      "hero",
+      "page",
+      "it's",
+      "backend",
+      "brainstorm",
+      "fine-tuned"
+    ],
+    "qualityScore": 1,
+    "link": "https://standd-tagline-rater.static.hf.space/index.html",
+    "thumbnail_url": "https://standd-tagline-rater.static.hf.space/og.png",
+    "created_at": "2026-05-28T15:25:20.664Z",
+    "topic": "tech"
+  },
+  {
     "slug": "nbaleague-to-use-ai-for-objective-calls-silver-says",
     "title": "NBA-League to use AI for objective calls, Silver says",
     "description": "NBA Commissioner Adam Silver said the league will use AI to automate a ‌category of calls such as out-of-bounds decisions to speed ‌up games and reduce disputes over possession.  Silver compared the system to Hawk-Eye technology ​used in tennis, where electronic line-calling quickly determines whether a ball has landed in or out.  \"We're going to move to a system like that where that whole category of calls will be ‌automatic,\" Silver said on ⁠ESPN's the Pat McAfee Show on Wednesday.",
@@ -2000,29 +2024,5 @@
     "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/b6aa00777751075b832b25330d2bebf9",
     "created_at": "2026-04-20T13:05:08.370Z",
     "topic": "finance"
-  },
-  {
-    "slug": "cold-case-breakthrough-solves-teen-killing-after-suspect-lived-free-for-decades-better-be-afraid",
-    "title": "Cold case breakthrough solves teen killing after suspect lived free for decades: 'Better be afraid'",
-    "description": "Michigan State Police say DNA technology solved the 1983 cold case murder of 16-year-old Sheri Jo Elliott, identifying Roni Collins as the killer.",
-    "fullText": "Michigan authorities have identified the man responsible for the murder of 16-year-old Sheri Jo Elliott, putting an end to a four-decades-old cold case and marking the latest crime to be solved using advanced DNA technology.\n\nRoni Collins, a 75-year-old resident of Grand Blanc, has been named as Elliott’s killer, according to the Michigan State Police.\n\nOn Nov. 16, 1983, Elliott left her home in Flint to walk to the bus stop and was never seen again.\n\nShe was reported missing several hours later when she failed to return home from school.\n\nGenetic Genealogy That Caught Notorious Killers Now Used In Nancy Guthrie Case\n\nAuthorities searched alongside Elliott’s family for several days in an agonizing effort to locate their missing loved one.\n\n\"It was terrible. But we went and passed missing signs to everybody you know in the neighborhood and in town and stores would put the missing in the windows,\" Elliott’s aunt, Judy Sika, told FOX 66.\n\nFour days after her disappearance, Elliott’s body was discovered in a ditch in nearby Saginaw County.\n\nAn autopsy revealed she had been sexually assaulted and shot multiple times, according to authorities.\n\nFollow The Fox True Crime Team On X\n\n\"You just don't know what a terrible thing it is in your mind when they tell you they found her body,\" Sika told FOX 66. \"That was awful.\"\n\nHowever, a break in the case came after the MSP reopened the investigation in 2023 alongside the Western Michigan University Cold Case Program to take a fresh look at the evidence.\n\n\"The students assisted in reorganizing and digitizing decades of investigative material, providing critical support to the renewed investigation,\" MSP said in a statement.\n\nThe newly reexamined evidence led police to Collins, but he died by suicide in January of this year before authorities could obtain a voluntary DNA sample.\n\nUsing DNA collected from Collins’ autopsy, investigators \"analyzed and conclusively matched evidence recovered from Elliott in 1983, identifying him as the individual responsible for the crime,\" MSP said.\n\nThe case is only the latest to use forensic genetic genealogy to lead investigators to the individual responsible for a long-unsolved murder.\n\nLISTEN TO THE NEW 'CRIME & JUSTICE WITH DONNA ROTUNNO' PODCAST\n\n\"They worked up logical family members, and that can be a thousand people that you have to vet and verify who could probably be related to this person,\" Tom Myers, a retired FBI forensic agent, told Fox News Digital.\n\n\"Then you start to develop who's the likely person,\" Myers added. \"It'll usually come down to three or five people like that. Or sometimes, maybe it's one person who stands out and then when you crosscut that with somebody who's been a bad boy their entire life then that's a good chance that that's who your person is.\"\n\nLike What You're Reading? Find More On The True Crime Hub\n\nAccording to Myers, the reality of testing cold case evidence also comes with the possibility that samples may have been damaged or degraded over time. However, the implementation of genetic genealogy has made it easier for investigators to do more, with less.\n\n\"They now can get DNA from a single hair strand, versus a strand of hair with a follicle,\" Myers said. \"In the 1980s to 1990s, it was a nickel-sized stain down to a dime. Now, it’s three to five skin cells – you can't even see it. That's the DNA.\"\n\nIn light of yet another cold case being solved by genetic genealogy testing, Myers insists the new technology will likely act as a deterrent for aspiring criminals who may rethink their crimes due to the increased possibility of being caught.\n\n\"Investigative genealogy is more comprehensive and, of course, a bigger thing,\" Myers told Fox News Digital. \"But if [investigators are] on top of their game, you better be afraid, because they'll get it.\"\n\nOriginal article",
-    "readingTime": 4,
-    "keywords": [
-      "individual responsible",
-      "genetic genealogy",
-      "authorities",
-      "cold",
-      "elliott’s",
-      "missing",
-      "evidence",
-      "investigators",
-      "michigan",
-      "murder"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.yahoo.com/news/articles/cold-case-breakthrough-solves-teen-140038791.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/2QsW.uityHuU3CuBBbWVYg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/fox_news_text_979/2531477b0891877dd28265cc456ea790",
-    "created_at": "2026-04-20T07:50:17.558Z",
-    "topic": "news"
   }
 ]
