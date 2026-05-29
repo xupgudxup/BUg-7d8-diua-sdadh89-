@@ -1,5 +1,45 @@
 [
   {
+    "slug": "official-coudet-banned-after-his-sendingoff-in-the-final",
+    "title": "🚨 Official: Coudet banned after his sending-off in the final",
+    "description": "Eduardo Coudet received the Disciplinary Committee’s ruling this Thursday for his actions in River’s final against Belgrano, where he ended up being sent off. According to reports, the coach rece...",
+    "fullText": "Eduardo Coudet received the Disciplinary Committee’s ruling this Thursday for his actions in River’s final against Belgrano, where he ended up being sent off.\n\nAccording to reports, the coach received a two-match suspension and a financial fine, so he will not be present for the Millonarios’ first two matches in the Clausura tournament.\n\nFalcón Pérez’s report indicates that Coudet allegedly called him “a disgrace, you’re a thief” after entering the field following the opponent’s third goal.\n\nThis article was translated into English by Artificial Intelligence. You can read the original version in 🇪🇸 here.",
+    "readingTime": 1,
+    "keywords": [
+      "received",
+      "coudet"
+    ],
+    "qualityScore": 0.55,
+    "link": "https://sports.yahoo.com/articles/official-coudet-banned-sending-off-013700542.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/onefootball_articles_802/0ad839db9ad6321464f6e7e8154498ff",
+    "created_at": "2026-05-29T02:06:53.123Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "i-built-an-androidlike-os-that-runs-in-the-browser",
+    "title": "I built an Android-like OS that runs in the browser",
+    "description": "Structured environment state enables verifiable evaluation (vs. 10.2% VLM-judge misjudgment) and scalable online training (single-machine batch-parallel GRPO). 28 apps, 416 parameterized task templates, +40.7 pt Sim-to-Real.",
+    "fullText": "MobileGym is a verifiable and highly parallel simulation platform for mobile GUI agent research — the first to make online RL training and deterministic evaluation feasible on real-world daily apps, long a structural blind spot of real-device pipelines. It covers 28 mobile apps (12 daily + 16 system) in the browser. Across the released validation suite, programmatic state judges show no false accept/reject cases over 416 parameterized task templates (vs. 10.2% misjudgment when the same real-device trajectories are scored by a VLM), giving a clean RL reward signal; structured state replication (∼400 MB per browser instance) makes single-machine batch-parallel GRPO cheap. Sim-to-Real: GRPO fine-tuning of Qwen3-VL-4B lifts overall simulation SR by +12.8 pt (9.4%→22.2%); on the 59-task real-device-runnable signal-bucket subset, the +42.8 pt simulation gain is preserved as +40.7 pt on the real device — 95.1% retention.\n\nEach app is a faithful in-browser re-implementation in React/TypeScript, with Android-style task stacks, Intent routing, ContentProviders, and permission flows. Hover a row to pause.\n\nAll registered via manifest auto-discovery — adding a new app needs zero changes to the OS or benchmark layer. ~3–4 person-days per daily app, <1 day per system app.\n\nThat's why benchmarks quietly avoid WeChat, Alipay, and 12306 — and why online RL on the apps users actually live in has barely been attempted at scale. Three structural walls in the real-device pipeline:\n\nDid the transfer go to the right \"Mom\" — or the other contact with the same nickname? Did the cart settle on the SKU the user wanted, or the lookalike variant? Is the post actually live on the server, or stuck as a local draft? adb and the accessibility tree see what's on screen — never the encrypted DBs, in-memory caches, or server records behind it.\n\nTask state lives in encrypted local DBs, in-memory caches, and the cloud. AVD file snapshots reach none of it. GRPO needs N rollouts from one identical state — impossible if you can't restore it even once.\n\nA transfer moves real money. Account deletion is permanent. A \"test\" message reaches a real friend. You can't roll a real device through millions of training trajectories — at any price.\n\nAnd it gets worse. GUI agents — and the VLM judges that grade them — observe the world as discrete screenshots sampled at intervals, not continuous video. A success toast captured at exactly the wrong frame turns a failed transfer into a passing test; a half-rendered loading spinner can swing the verdict either way. The screen isn't just a summary — it's an unreliable witness.\n\nMobileGym answers all three with the same primitive: the entire environment is structured JSON. State is\n readable (judges inspect the structure directly — no VLM, no screenshots),\n writable (snapshot, fork, and restore in milliseconds; hundreds of identical rollouts on one machine), and\n consequence-free (every transfer, deletion, and purchase lives in a sandbox). Payment, ticketing, and account management — long skipped by real-device pipelines — become benchmarkable and trainable.\n\nThe whole stack runs in a single browser tab on top of React + TypeScript + Vite. The figure below shows what MobileGym covers and how each phone view is produced.\n\nWe evaluate 9 representative agents on the test set. L1-L4 are diagnostic strata calibrated jointly on the reference panel's mean SR and PR; L1 is relatively saturated, while L4 captures frontier-level tasks. SR is overall Success Rate.\n\nEven Gemini 3.1 Pro reaches only 21.9 on L4, indicating substantial remaining headroom for future mobile GUI agents. Difficulty bins are calibrated jointly on the reference panel's mean SR and PR; calibration excludes Qwen3-VL-4B and its fine-tuned variants.\n\nReinforcement-fine-tuning Qwen3-VL-4B with GRPO on a single 3×RTX Pro 6000 node (10 training steps, 96 parallel browser instances) lifts overall simulation SR from 9.4% → 22.2% (+12.8 pt). On the 59-task real-device-runnable signal-bucket subset, simulation SR rises from 33.9% → 76.7% (+42.8 pt) and the real-device pass rate rises from 32.2% → 72.9% (+40.7 pt) — a 95.1% retention of the simulation gain:\n\nThe gains are not only aggregate: the trained model also recovers from an out-of-distribution real-device constraint. On Reddit_CreatePostToCommunity, the real-device community requires a flair tag on every post — a constraint the simulator does not enforce. The base model loops on a greyed-out \"Post\" button for the full 60-step budget; the trained model, after two failed clicks, notices the asterisk on the flair selector, picks a flair, and submits successfully.\n\nThe flair-required behavior is unique to the real-device community and is absent from the simulator's training distribution. Recovery is driven by visual reasoning over the greyed button + asterisk cue, a concrete example of the behavior that online RL on a controllable substrate can induce. Full trace and verbatim think-trace in the paper appendix.\n\nSingle-instance, headless, measured against a Docker AndroidWorld setup (no KVM). MobileGym uses roughly one-tenth the memory and less than one-hundredth the disk footprint of the emulator baseline. Its structured JSON state can be restored and forked directly, which enables GRPO-style same-initial-state parallel sampling at single-machine scale.\n\nHeadless / single instance, measured against Docker AndroidWorld (no KVM); see paper Appendix for measurement details.",
+    "readingTime": 5,
+    "keywords": [
+      "dbs in-memory",
+      "structured json",
+      "mobile gui",
+      "gui agents",
+      "real-device-runnable signal-bucket",
+      "signal-bucket subset",
+      "in-memory caches",
+      "calibrated jointly",
+      "reference panel's",
+      "paper appendix"
+    ],
+    "qualityScore": 1,
+    "link": "https://mobilegym.dev/",
+    "thumbnail_url": "https://mobilegym.dev/figures/poster.jpg",
+    "created_at": "2026-05-29T02:06:44.957Z",
+    "topic": "tech"
+  },
+  {
     "slug": "us-judge-declines-to-block-trumps-mailin-voting-executive-order",
     "title": "US Judge declines to block Trump's mail-in voting executive order",
     "description": "A U.S. judge on Thursday declined to immediately block President Donald Trump's executive order tightening rules on mail-in voting, but left the door open for the",
@@ -2170,46 +2210,5 @@
     "thumbnail_url": "https://i.insider.com/69dd01af899c9d3be050ff7d?width=1200&format=jpeg",
     "created_at": "2026-04-13T19:00:44.276Z",
     "topic": "finance"
-  },
-  {
-    "slug": "i-asked-metas-new-muse-spark-ai-to-judge-my-lunch-and-give-me-recipes-for-dinner-and-it-mostly-delivered",
-    "title": "I asked Meta's new Muse Spark AI to judge my lunch and give me recipes for dinner, and it mostly delivered",
-    "description": "Muse Sparks rated my lunch a 7.5 out of 10, told me to watch my sodium intake, and gave me dinner recipes that helped me get rid of leftovers.",
-    "fullText": "I asked Meta's new personal AI to rate the nutritional value of my lunch and suggest dinner recipes.\n Muse Spark rated my lunch a 7.5 out of 10 and told me to watch my sodium intake.\n Muse Spark gave me unexpected dinner recipes that helped me use up leftover ingredients.",
-    "readingTime": 1,
-    "keywords": [
-      "dinner recipes",
-      "muse spark",
-      "lunch"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/used-meta-muse-spark-ai-rate-lunch-suggest-dinner-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d836bc05c9b303c4e76d11?width=1200&format=jpeg",
-    "created_at": "2026-04-12T18:33:02.183Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "judge-embarrasses-pentagon-pete-after-sneaky-trick-exposed",
-    "title": "Judge Embarrasses Pentagon Pete After Sneaky Trick Exposed",
-    "description": "A federal judge has admonished the Pentagon for defying his previous court order, issuing a humiliating ruling against Secretary of Defense Pete Hegseth. Hegseth, 45, announced strict new rules last O...",
-    "fullText": "A federal judge has admonished the Pentagon for defying his previous court order, issuing a humiliating ruling against Secretary of Defense Pete Hegseth.\n\nHegseth, 45, announced strict new rules last October that allowed the Pentagon to revoke journalists’ press passes. Under the revised rules, journalists would be allowed access to the Pentagon only with government escorts and would be moved from a dedicated workspace inside the building to an external library. Many news outlets surrendered their passes rather than agreeing to Hegseth’s demands.\n\nThe New York Times journalist Julian E. Barnes filed a lawsuit in December that claimed Hegseth’s selective media policy violated the First Amendment, Fifth Amendment, and due process provision of the Constitution.\n\nLast month, Friedman agreed with the publication that the policy did violate the First Amendment. He overruled some of Hegseth’s key restrictions on the media, including one provision that said journalists who “solicit” classified or sensitive information from military staff could be deemed a security risk and have their press pass revoked.\n\nThe judge also struck off a section in Hegseth’s changes that referred to access to the Pentagon as a “privilege,” not a “right.” Friedman had ruled that while the court understood the importance of national security, “it is more important than ever that the public have access to information from a variety of perspectives about what its government is doing.”\n\nThat March 20 ruling forced the Pentagon to release a “revised” press policy three days later, which was met with as much criticism as the original.\n\nOn Thursday, Friedman ruled that the Pentagon had failed to comply with his March orders and said the revised policy had new wording but remained unlawful.\n\nFriedman’s ruling also addressed the Pentagon’s “inducement of unauthorized disclosure” provision, which attempted to restrict journalists from soliciting information, classified or unclassified, that was not approved for release.\n\nThe judge said the Pentagon’s revision on the issue was still unconstitutionally vague.\n\n“The Department cannot simply reinstate an unlawful policy under the guise of taking ‘new’ action and expect the Court to look the other way,” Friedman wrote. “Nor can the Department take steps to circumvent the Court’s injunction and expect the Court to turn a blind eye.”\n\nFriedman ordered the Pentagon to return the credentials of seven reporters from the Times and said the closure of the “Correspondents’ Corridor” workspace inside the Pentagon, along with Hegseth’s insistence on journalistic access only with escorts, were “not security measures” but rather “transparent attempts to negate the impact of this court’s order.”\n\n“The court has no choice but to conclude that the Department’s abrupt closure of the Correspondents’ Corridor and its ban on credentialed journalists traveling unescorted through the Pentagon are not security measures or efforts to make good on prior commitments but rather transparent attempts to negate the impact of this court’s order,” Friedman wrote in his ruling Thursday.\n\nThe judge’s fiery ruling also aimed a personal salvo at Hegseth.\n\n“The Court cannot conclude this Opinion without noting once again what this case is really about: the attempt by the Secretary of Defense to dictate the information received by the American people, to control the message so that the public hears and sees only what the Secretary and the Trump Administration want them to hear and see,” Friedman said. “The Constitution demands better. The American public demands better, too.”\n\nThe judge, who was appointed by former President Bill Clinton, continued: “The curtailment of First Amendment rights is dangerous at any time, and even more so in a time of war. Suppression of political speech is the mark of an autocracy, not a democracy — as the Framers recognized when they drafted the First Amendment.”\n\nA spokesperson for The New York Times told the Daily Beast that the court’s decision “upholds our constitutional rights again and sends a clear message to the Pentagon. Compliance with a lawful order of a court is not optional; it is required in a democracy committed to the rule of law.”\n\nThe statement added, “We are pleased that Judge Friedman saw the revised policy issued by the Pentagon after his last decision for what it was: a poorly disguised attempt to continue to violate the constitutional rights of The Times and its journalists.”\n\nThe Pentagon referred the Daily Beast to a statement from Pentagon spokesman Sean Parnell, who said they “disagree” with the Court’s ruling and intend to appeal.\n\n“The Department has at all times complied with the Court’s Order — it reinstated the PFACs (Pentagon Facilities Alternative Credentials) of every journalist identified in the Order and issued a materially revised policy that addressed every concern the Court identified in its March 20 Opinion.\"\n\nParnell continued, “The Department remains committed to press access at the Pentagon while fulfilling its statutory obligation to ensure the safe and secure operation of the Pentagon Reservation.”\n\nThe Daily Beast has contacted the White House for comment.",
-    "readingTime": 5,
-    "keywords": [
-      "workspace inside",
-      "transparent attempts",
-      "rather transparent",
-      "constitutional rights",
-      "security measures",
-      "revised policy",
-      "the department",
-      "correspondents corridor",
-      "first amendment",
-      "daily beast"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.yahoo.com/news/articles/judge-embarrasses-pentagon-pete-sneaky-015330775.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/NhmRr2LdsD_uCpKGPfj8Pg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/thedailybeast.com/3369b729596a1ec9caa02b4e89ab6e94",
-    "created_at": "2026-04-11T12:33:45.832Z",
-    "topic": "news"
   }
 ]
