@@ -1,5 +1,42 @@
 [
   {
+    "slug": "vibe-coding-is-not-a-metric",
+    "title": "\"Vibe coding\" is not a metric",
+    "description": "Web Development, Technology",
+    "fullText": "Web Development\n\n Technology\n\nAnthropic's new Claude Opus 4.8 outperforms all other publicly available technologies on vibe coding, which is when A.I. technologies create software in response to prompts written in conversational English.\n\n- Anthropic Tops OpenAI to Become the World’s Most Valuable A.I. Start-Up. The New York Times[1]\n\nI facepalmed after reading that sentence in a recent article from the Business section of the New York Times.\n\n\"Vibe coding\" is not a metric, as in you cannot measure it. AI models can generate computer code, and code quality is subjective. More isn't necessarily better. Less isn't necessarily better.\n\nA quick example comes to mind: a programmer might intentionally choose to make a section of code \"less efficient\" in order to make it easier to read. Is this better or worse?\n\nSaying that Opus 4.8 outperforms other models at vibe coding is lazy reporting. It'd be like saying that Argentina is better at \"sporting\" than France.[2] Which sport? At what age range? During what years?\n\nAI companies are currently raising more money than God. (A real metric.) They are also consuming significant finite resources in the form of energy and water.\n\nAs investors and the public weigh these costs, journalists should not be handing these companies freebie metrics that sound impressive but mean nothing. If a product is better, or indeed good at all, they should have to prove it.",
+    "readingTime": 2,
+    "keywords": [
+      "opus outperforms",
+      "isn't necessarily",
+      "vibe coding",
+      "code",
+      "technologies",
+      "section",
+      "metric",
+      "models",
+      "less",
+      "saying"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://www.coreyguitar.com/blog/18/vibe-coding/",
+    "thumbnail_url": "https://www.coreyguitar.com/media/social_media_meta_card.png",
+    "created_at": "2026-05-29T20:07:35.040Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "zig-president-says-ai-coding-contributions-are-invariably-garbage-so-he-banned-them",
+    "title": "Zig president says AI coding contributions are 'invariably garbage,' so he banned them",
+    "description": "Zig, an open-source programming language bans contributors from using AI. Its president said that the these submissions have \"no value whatsoever.\"",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/zig-programming-language-ai-rules-2026-5",
+    "thumbnail_url": "https://i.insider.com/6a19ac41b4fb977f359819f3?width=1200&format=jpeg",
+    "created_at": "2026-05-29T20:07:19.692Z",
+    "topic": "finance"
+  },
+  {
     "slug": "i-built-an-ai-content-tool-for-creators-that-hit-50000-in-revenue-in-6-weeks-heres-what-it-takes-to-vibe-code",
     "title": "I built an AI content tool for creators that hit $50,000 in revenue in 6 weeks. Here's what it takes to vibe code successfully.",
     "description": "Vitalii Dodonov and his cofounder, John, spent 14 days locked in a flat, vibe coding an AI tool called Stanley for their business, Stan.",
@@ -1906,43 +1943,6 @@
     "link": "https://www.theregister.com/2026/04/20/lovable_denies_data_leak/",
     "thumbnail_url": "https://regmedia.co.uk/2026/04/20/shutterstock_in_denial_broken_heart.jpg",
     "created_at": "2026-04-21T01:26:32.802Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "neofeudalism-with-good-ux-handful-of-ai-companies-became-land-we-all-work-on",
-    "title": "Neo-Feudalism With Good UX – handful of AI companies became land we all work on",
-    "description": "A handful of AI companies now control the core infrastructure for thinking, searching, writing, coding, teaching, deciding.They do not just sell tools. They become the terrain.That is where neo-feudalism starts to make sense as a frame.In old feudalism, the lord owned the land.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.gailweiner.com/post/neo-feudalism-with-good-ux-how-a-handful-of-ai-companies-became-the-land-we-all-work-on",
-    "thumbnail_url": "https://static.wixstatic.com/media/9ce583_6410cdf12f8d4a1aacabf30cf656abd4~mv2.png/v1/fill/w_1000,h_667,al_c,q_90,usm_0.66_1.00_0.01/9ce583_6410cdf12f8d4a1aacabf30cf656abd4~mv2.png",
-    "created_at": "2026-04-19T12:36:49.040Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "engram-context-spine-for-ai-coding-agents-88-proven-token-savings",
-    "title": "Engram – context spine for AI coding agents, 88% proven token savings",
-    "description": "The context spine for AI coding agents. 8 providers, 88% proven token savings, 5 IDE integrations (Claude Code, Continue.dev, Cursor, Zed, Aider). Hook-based Read interception, HTTP API, tree-sitte...",
-    "fullText": "Install ·\n Quickstart ·\n Benchmark ·\n IDE Integrations ·\n HTTP API ·\n ECP Spec ·\n Contributing\n\nengram intercepts every file read your AI agent makes and replaces it with a pre-assembled context packet — structure, decisions, git history, library docs, and known issues — from 8 providers, delivered in a single ~500-token response. The agent gets what it needs without reading the file. You stop paying for context you've already paid for.\n\nThis is not a tool the agent calls. It hooks at the Claude Code tool boundary. Every Read, Edit, Write, and cat is intercepted automatically.\n\nThat's the full setup. The next Claude Code session starts with a project brief already loaded, file reads intercepted, and a live HUD showing cumulative savings.\n\nMeasured across 10 structured coding tasks against a baseline of reading the relevant files directly. No synthetic data. No cherry-picked queries.\n\nRun the benchmark yourself: engram bench or engram stress-test for the full suite.\n\nengram sits between your AI agent and the filesystem. When the agent reads a file, engram checks its knowledge graph. If the file is covered with sufficient confidence, it blocks the read and injects a compact context packet instead. The packet is assembled from up to 8 providers in parallel, all pre-cached at session start.\n\nExternal providers cache into SQLite at SessionStart. Per-read resolution is a cache lookup, not a live call. If a provider is unavailable it is skipped silently — you always get at least the structural summary.\n\nTen safety invariants enforced at runtime:\n\nRequires Node.js 20+. Zero native dependencies. No build tools. Local SQLite via sql.js WASM — no Rust, no Python, no system libs.\n\nOpen a Claude Code session. When the agent reads a well-covered file you will see a system-reminder with the structural summary instead of file contents. After the session:\n\nFull recommended setup (one-time per project):\n\nExperience tiers — each works standalone:\n\nPer-IDE setup guides are in docs/integrations/.\n\nproviders.json (optional — auto-detection works for most setups):\n\nKill switch (if anything goes wrong):\n\nAdd --extra-cmd=\"engram hud-label\" to your statusLine command to see live savings:\n\nStart the server with engram server --http (default port 7337).\n\nAll responses are JSON. The server is local-only by default — bind address is 127.0.0.1.\n\nShell wrapper (for Bash-based agents):\n\nengram v1.0 ships the first draft of the Engram Context Protocol (ECP v0.1) — an open specification for how AI coding tools should package and exchange structured context packets.\n\nThe spec defines the wire format, provider negotiation, budget constraints, and confidence scoring used by engram internally. Any tool can implement the spec to produce or consume engram-compatible context packets.\n\nLicense: CC-BY 4.0\n\nSpec: docs/specs/ecp-v0.1.md\n\nSupported languages (AST): TypeScript, JavaScript, Python, Go, Rust, Java, C, C++, Ruby, PHP.\n\nEverything runs locally. No data leaves your machine. No telemetry. No cloud dependency. The only network call is npm install. Prompt content is never logged (asserted in 579 tests).\n\nIssues and PRs welcome at github.com/NickCirv/engram.\n\nRun engram init on a real codebase and share what it got right and wrong. The benchmark suite (engram bench) is the fastest way to see the difference on your own code.",
-    "readingTime": 3,
-    "keywords": [
-      "code session",
-      "structural summary",
-      "context packets",
-      "context packet",
-      "agent reads",
-      "engram bench",
-      "suite engram",
-      "claude code",
-      "file",
-      "benchmark"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/NickCirv/engram",
-    "thumbnail_url": "https://opengraph.githubassets.com/11d7518cd6e418d3f2a8b3ee37bba3656a9d6c23ab12888ed351fd06c4733cfa/NickCirv/engram",
-    "created_at": "2026-04-17T07:18:58.618Z",
     "topic": "tech"
   }
 ]

@@ -1,5 +1,29 @@
 [
   {
+    "slug": "google-chrome-just-rolled-out-a-major-new-security-feature",
+    "title": "Google Chrome Just Rolled Out a Major New Security Feature",
+    "description": "The browser now essentially blocks hackers from bypassing two-factor authentication.",
+    "fullText": "Traditional security practices are excellent tools for protecting your digital life. If you use a unique password for each of your accounts and set up two-factor authentication (2FA) for any that support it, hackers will have a hard time getting at your data. However, even 2FA isn't foolproof: Hackers still have tools to bypass your security measures and worm their way into your online spaces, through zero fault of your own.\n\nLuckily, Google is now rolling out a new security measure that should reduce these vulnerabilities. As long as you're running the latest version of Chrome, people looking to break into your accounts should now face a steeper uphill battle.\n\nAs reported by Bleeping Computer, Google officially rolled out \"Device Bound Session Credentials\" (DBSC) for Chrome this week. To understand DBSC, however, you have to understand how session cookies work. When you sign into a website on your browser, that site issues you a unique ID. This ID is stored as a small file on your device—this is the session cookie. The idea is to allow the website to keep track of you as you use it, including when you browse its various web pages.\n\nThere are a number of uses for session cookies, including for shopping carts and websites with multiple pages, but for the purposes of this explanation, the important thing to know is that they're used to maintain your login session. The website can use the session cookie to \"remember\" that you're logged in—sort of like giving you a wristband when you enter a ticketed event. That way, you don't have to reauthenticate every single time you access the site: You can enter your password, and even a 2FA code once, and be able to return to the website without repeating the process (at least until the session cookie expires).\n\nWhile session cookies are only supposed to live on the device that created them (and temporarily at that), they're a prime target for hackers. If someone is able to steal your session cookies, they can impersonate your login on their device—even if the website in question uses 2FA for extra security. Typically, such websites would ask for your username, password, and a 2FA code before allowing a login to proceed. But if a hacker steals your session cookie, they can trick the website into thinking they're you on the device you already authenticated yourself on. In other words, they've stolen your wristband and put it on their own wrist. A bouncer won't know they stole it; they'll only see they have it, and assume their ticket was already checked.\n\nDBSC works by ensuring that your session cookies are stored somewhere challenging for hackers to access. Going forward, all session cookies generated in Chrome (and on other Chromium-based browsers) will be stored to your PC's Trusted Platform Module, or your Mac's Secure Enclave. These chips are designed to hold sensitive data and protect it with encryption. Only the security chip has the keys to decrypt the information there. That means even if hackers successfully infect your Mac or PC with malware, they'll have an exceedingly difficult time breaking into the security chip and stealing your session cookies.\n\nGoogle has been beta testing DBSC since April, after first announcing it back in 2024. Now, it's available to virtually all Chrome users, including Workspace and Enterprise users, as well as those with personal accounts. While Google's original announcement only explicitly indicates the feature is available in Chrome for Windows, its DBSC help page notes it's also available for Mac.\n\nGoogle says that DBSC is enabled by default for all Workspace Chrome users, and that administrators cannot turn it off. The company doesn't specify whether that applies to personal accounts as well, though chances are, it does. I've reached out to Google for clarification, and will update this article if I hear back.\n\nGoogle doesn't appear to be retroactively adding DBSC to all Chrome versions, however. According to the DBSC help page, the feature is available in Chrome version 146 or later on Windows, and Chrome version 148 or later on Mac. To make sure you're running DBSC, you'll want to install the latest version of Chrome on your end, just to be safe.\n\nTo update, click the three dots in the top right, then choose Help > About Google Chrome. Allow Chrome to look for the latest update, and, if one's available, choose \"Relaunch\" to install it.",
+    "readingTime": 4,
+    "keywords": [
+      "chrome users",
+      "personal accounts",
+      "chrome version",
+      "latest version",
+      "security chip",
+      "session cookies",
+      "session cookie",
+      "dbsc",
+      "website",
+      "hackers"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/google-chrome-just-rolled-out-a-major-new-security-feature?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KST4KXX1Z28XK0WJX4N0NZCX/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-05-29T20:07:18.625Z",
+    "topic": "tech"
+  },
+  {
     "slug": "a-full-stack-platform-for-edge-ai-from-google",
     "title": "A full stack platform for Edge AI from Google",
     "description": "Open-source platform for edge AI accelerator chip development",
@@ -1902,24 +1926,6 @@
     "link": "https://www.businessinsider.com/openai-loses-head-private-equity-google",
     "thumbnail_url": "https://i.insider.com/69fa3f8b405e0cf89dc874b6?width=1200&format=jpeg",
     "created_at": "2026-05-06T01:50:41.657Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "alphabets-record-canadian-debt-deal-weighs-on-bond-spreads",
-    "title": "Alphabet’s Record Canadian Debt Deal Weighs on Bond Spreads",
-    "description": "Alphabet Inc.’s C$8.5 billion ($6.24 billion) bond deal is driving corporate and provincial spreads wider in Canada as investors’ enthusiasm for the hyperscaler’s debt tests the market’s ability to absorb it.",
-    "fullText": "MarketsBy Chunzi XuSaveAlphabet Inc.’s C$8.5 billion ($6.24 billion) bond deal is driving corporate and provincial spreads wider in Canada as investors’ enthusiasm for the hyperscaler’s debt tests the market’s ability to absorb it.The Google parent is selling the debt in four-parts of loonie-denominated bonds maturing from five to 30 years. It’s Alphabet’s first loonie-denominated debt deal and the biggest Canadian bond market offering on record. Order books had grown to around C$19 billion to C$20 billion by mid-morning, according to people familiar with the matter, who asked not to be identified discussing private matters.",
-    "readingTime": 1,
-    "keywords": [
-      "debt",
-      "bond",
-      "deal",
-      "loonie-denominated"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.bloomberg.com/news/articles/2026-05-05/alphabet-s-record-canadian-debt-deal-weighs-on-bond-spreads",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i0_2tQo1KMK0/v0/1200x829.jpg",
-    "created_at": "2026-05-05T19:04:30.703Z",
     "topic": "finance"
   }
 ]
