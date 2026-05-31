@@ -1,5 +1,29 @@
 [
   {
+    "slug": "completionkit-stop-guessing-whether-your-prompt-change-helped",
+    "title": "CompletionKit – stop guessing whether your prompt change helped",
+    "description": "Prompt evaluation for AI apps. Run prompts against real inputs, score outputs 1-5 with an LLM judge, ship only what improved. Free on Cloud, or self-host.",
+    "fullText": "Open source · Hosted Cloud, standalone app, or Rails engine\n\nEvery change to your AI is a guess until you test it. CompletionKit runs it against real inputs, scores the outputs, and shows you what improved and what broke before it ships.\n\nFree + self-hostable · OpenAI · Anthropic · Ollama · 100+ via OpenRouter\n\nRead the docs · Browse the blog · API reference\n\n\"Seems better\" isn't a metric you can ship behind — but without the right tools, it's usually all you've got.\n\nWithout numbers, \"looks right\" is the bar — and \"looks right\" depends entirely on which inputs you happened to test.\n\nA one-line tweak to a string literal doesn't show up in review as \"prompt change.\" Behavior shifts in prod, and nobody can point to when or why.\n\nv4 nails the case that prompted the change. The inputs you didn't think to retest? They might be worse — and you'd never know.\n\nA run is the unit of work — reproducible by prompt, dataset, model, metrics.\n\nTemplate with {{vars}}. Upload a CSV of real inputs. CompletionKit merges them, one prompt per row.\n\nOpenAI, Anthropic, Ollama, or any of 100+ via OpenRouter. Same dataset, any number of models in parallel.\n\nAn LLM judge scores each output 1–5 on the metrics you define. Empathy, clarity, policy — whatever good means for you.\n\nEdit and the prompt forks a new version. Ask CompletionKit to suggest one, grounded in the judge's feedback on your data.\n\nGot outputs already — production logs, another model, hand-curated examples? Skip steps 1 and 2: a judge-only run grades any column in your dataset against your metrics, no generation needed.\n\nREST, MCP, the standalone Bench — same shape. Plug Claude Code or Cursor into the MCP server and tell it to make a prompt better. It does.\n\nDefine the metrics and the score a prompt has to clear. That judgment is yours; it's the one part of the loop the agent can't do for you.\n\nPoint Claude Code or Cursor at the MCP server. It revises the prompt, runs it on your dataset, and re-scores, pass after pass, with no babysitting.\n\nIt stops at the first version that clears your bar and hands it back. Review the diff and ship it, or send it round again.\n\nEvery tool here is doing real work. CompletionKit is the shape we kept needing.\n\nCloud is the fastest start. The standalone app is for self-hosting on your own infra. The engine is a Ruby gem you mount into an existing Rails app. Same code underneath — pick the deployment that fits.\n\nSign up, paste your provider keys, run your first eval in under five minutes.\n\nBundled Rails app · deploy it yourself\n\nSame webapp, your infra. Clone the repo, point at a Postgres, run web + worker.\n\nMount in your existing Rails 8 app\n\nAdd the gem, mount the engine, run the migrations — shares your app's auth and DB.\n\nOpenAI, Anthropic, Ollama (or any OpenAI-compatible local endpoint), and 100+ models via OpenRouter.\n\nNo. CompletionKit Cloud is the hosted version with a free tier — sign up and you're running. If you'd rather host it yourself, you've got two flavors: deploy the bundled standalone app on your own infra, or mount the Rails engine inside an existing Rails app. Same product on every path; you bring the provider keys.\n\nEach published prompt has a versioned URL. Your app calls it, gets the template and model, and runs the LLM the way it already does. No SDK required — it's just JSON over HTTP.\n\nUse a judge-only run. Drop the outputs into a column of your dataset, point the run at that column, define your metrics — the LLM judge scores every row against your rubric. No prompt, no generation step. Same scoring, same per-row review you'd get from a full run. Great for grading production logs, comparing a different model's outputs, or auditing hand-written examples.\n\nYes — free for any use, including in production and inside your own commercial product. Source-available under BSL 1.1; the only carve-out is offering CompletionKit itself to third parties as a hosted or managed service. Auto-converts to GPL-3 after three years. Versions 0.2.x and earlier remain MIT.",
+    "readingTime": 4,
+    "keywords": [
+      "openai anthropic",
+      "anthropic ollama",
+      "via openrouter",
+      "llm judge",
+      "claude code",
+      "mcp server",
+      "existing rails",
+      "rails engine",
+      "rails app",
+      "provider keys"
+    ],
+    "qualityScore": 1,
+    "link": "https://completionkit.com/",
+    "thumbnail_url": "https://completionkit.com/og.png",
+    "created_at": "2026-05-31T02:28:27.065Z",
+    "topic": "tech"
+  },
+  {
     "slug": "us-judge-orders-review-of-trumps-irs-lawsuit-settlement",
     "title": "US judge orders review of Trump’s IRS lawsuit settlement",
     "description": null,
@@ -2180,29 +2204,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/km2HJuXRaAIYHg2nOELPTw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/ap.org/157700b81e5b72e675909401d64a66b6",
     "created_at": "2026-04-14T18:58:28.169Z",
     "topic": "news"
-  },
-  {
-    "slug": "wisden-editor-slams-orwellian-cricket-authorities-for-being-beholden-to-indias-ruling-party",
-    "title": "Wisden editor slams ‘Orwellian’ cricket authorities for being beholden to India’s ruling party",
-    "description": "Lawrence Booth says ‘cricket has become an important piece on BJP’s geopolitical chessboard’",
-    "fullText": "The editor of Wisden Cricketers’ Almanack has called out India’s cricket board for aligning closely with Narendra Modi’s right-wing government.\n\nLawrence Booth, editor of the annual publication dubbed the Bible of Cricket, pointed to the growing influence of Indian politics on the sport in his latest editorial and said that the BCCI’s connection with the ruling Hindu nationalist BJP was no longer subtle.\n\n“It was obvious long before this latest grandstanding that the BCCI were the sporting adjunct of India’s ruling BJP,” he wrote.\n\n“But the relationship became explicit when India captain Suryakumar Yadav dedicated the first of his side’s three Asia Cup wins over Pakistan to the armed forces.”\n\nIn April last year, militants killed 26 people, mostly tourists, in the restive Himalayan region of Kashmir, triggering a four-day military conflict between India and Pakistan. The fighting kicked off when the Indian military launched airstrikes on what it alleged was terrorist infrastructure across the border, calling it “Operation Sindoor”.\n\nPakistan reported that Indian missiles had struck multiple civilian locations, including a mosque in the province of Punjab, resulting in casualties, and carried out retaliatory strikes.\n\nAlthough the fighting was halted by a ceasefire brokered by the US, tensions continued to simmer and overshadowed the cricket matches between the two sides at the Asia Cup in September as well as the T20 World Cup earlier this year.\n\n“The idea that cricket was now a legitimate proxy for more lethal activity was hammered home on X by India’s prime minister, Narendra Modi, after his country beat Pakistan in the final: ‘Operation Sindoor on the games field. Outcome is the same – India wins!’” Mr Booth wrote. “The real-world Operation Sindoor had left dozens dead, on both sides of the border. Now it was being equated with a game of T20. Suryakumar lapped it up, suggesting that ‘it feels good when the country’s leader himself bats on the front foot – it felt like he took the strike and scored runs’.”\n\n“If India were so appalled by Pakistan, they should simply have refused to play them. Instead, they opted for humiliation. But it was all performative: before the public snub, the captains had shaken hands in private,” he added. “And when the two nations’ Under-21 hockey teams met soon after in Malaysia, the game ended with hugs and high-fives.”\n\nIndian and Pakistani hockey players did not shake hands before their Under-21 Sultan of Johor Cup match last October, but they did exchange high-fives. A viral video showed the Pakistan team lining up as the Indian players went down the row, greeting each of them with high-fives before taking their positions for the game in Johor Bahru.\n\nAfter the Asia Cup final in Dubai, Yadav said India were denied the chance to hoist the trophy as it was removed from the presentation ceremony following the team’s refusal to accept it from Mohsin Naqvi, chairman of the Asian Cricket Council and interior minister of Pakistan.\n\n“Cricket has become an important piece on the BJP’s geopolitical chessboard and the Asia Cup descended into tit-for-tat farce, with players on both sides making tasteless gestures about fighter planes, and India refusing to take the stage to receive the trophy from Naqvi,” Mr Booth wrote.\n\n“At the time of writing, the trophy is thought to be under lock and key in the UAE, a neat symbol of international cricket’s dysfunction.”\n\nAt the T20 World Cup, Yadav and Salman Agha, the captain of Pakistan, skipped the customary handshake, walking past each other without any gesture.\n\nThe Independent has contacted the BCCI for comment.\n\nIn his editorial, Mr Booth also cited the case of Bangladeshi bowler Mustafizur Rahman, who was bought by the Kolkata Knight Riders team to play in the Indian Premier League but subsequently dropped under pressure from the BCCI.\n\n“It was retaliation for the murder of Hindu men in Bangladesh, and a shot across the bows of KKR’s Bollywood owner Shah Rukh Khan, a Muslim, and a regular target of Hindu nationalists,” Mr Booth wrote. “The fate of Mustafizur confirmed cricket’s descent into the hands of its political masters, just as Suryakumar embodied its acquiescence.”\n\nThe exclusion of Rahman spiralled into a diplomatic crisis, with Bangladesh pulling out of the 2026 Men’s T20 World Cup after the International Cricket Council refused its request to move matches outside India.\n\nMr Booth contrasted this with the Champions Trophy in 2025 when India’s demand for a neutral venue was accommodated. “Faced with a similar situation in 2025, when India refused to visit Pakistan for the Champions Trophy, and insisted on playing all their games in Dubai, the ICC had bent over backwards to accommodate them. But Bangladesh were kicked out of the tournament, despite their request to move games to co-hosts Sri Lanka,” he wrote.\n\n“Indian apologists were quick to deny the equivalence, arguing that the BCCI had given the ICC more notice than the Bangladesh board, as if that deserved a pat on the back,” he added.\n\n“The sport’s governance grows ever more Orwellian, pretending that Indian exceptionalism comes without consequence, and blaming those lower down the food chain for lashing out,” he concluded. “Predictably, almost no prominent voices in the Indian game addressed the root cause of the carnage: the politicisation of a sport that, whatever Naqvi may say, has never been untouched by the real world, yet never more poisoned by it either.”",
-    "readingTime": 5,
-    "keywords": [
-      "cricket council",
-      "asia cup",
-      "mr booth",
-      "operation sindoor",
-      "champions trophy",
-      "india’s",
-      "game",
-      "hindu",
-      "games",
-      "refused"
-    ],
-    "qualityScore": 1,
-    "link": "https://sports.yahoo.com/articles/wisden-editor-slams-orwellian-cricket-123121702.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/the_independent_us_sports_articles_270/eef96853de0c61af9cec138add189168",
-    "created_at": "2026-04-14T13:01:41.233Z",
-    "topic": "sports"
   }
 ]

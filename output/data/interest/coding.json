@@ -1,5 +1,29 @@
 [
   {
+    "slug": "geblang-static-typed-interpreted-language-written-in-go",
+    "title": "Geblang – static typed, interpreted language written in Go",
+    "description": "The Geblang programming language and interpreter. Contribute to dwgebler/geblang development by creating an account on GitHub.",
+    "fullText": "Geblang is a statically-typed scripting language implemented in Go.\nCurrent version: 1.5.1. It combines the ergonomics of PHP and\nPython with strong static typing, generics, decorators, async, and\nruntime reflection.\n\nTypes are checked statically. any is opt-in for dynamic boundaries\n(parsed JSON, untyped foreign data); most code is typed end-to-end.\n\nThe full language and stdlib reference is in\ndocs/user/ - start with\n01-getting-started.md. The\nrelease notes are at\ndocs/user/17-release-notes.md.\n\nAfter make docker-build, the binary at ./build/geblang runs\nstandalone; if you relocate it away from the bundled stdlib/,\nset GEBLANG_STDLIB to point at the moved directory.\n\nDouble-quoted strings evaluate escape sequences. Single-quoted\nstrings keep backslashes literal. // is integer division, not a\ncomment.\n\nTagged enums destructure inside match, so the payload binds with\nits declared type. Missing variants fail static analysis at\ngeblang check time.\n\nlist<T>.push returns a new list, so type-safe chaining works\nnaturally. dict<K, V> and set<T> are generic in the same way.\nPass a callable parameter for predicate / mapper functions.\n\nstreams.IOStream is the typed wrapper around files, stdin /\nstdout / stderr, in-memory buffers, sockets, and pipes; every\nread returns ?string or ?bytes so the type system forces an\nEOF check at the call site.\n\nChildren spawned inside scope.scope are awaited at scope exit.\nA failing child cancels its siblings and rethrows after the\ngroup drains - no orphan goroutines. async.race, async.all,\nand async.timeout provide single-shot variants for simpler\ncases.\n\nsockets.Server and the per-connection streams.IOStream are\ntyped; the inbound raw[\"stream\"] boundary is the only any\ncrossing in the example.\n\nRun with geblang --allow-ffi 'libm.so.*' script.gb, or declare\nthe allow-list in geblang.yaml under permissions.ffi. The\ndispatch is in-process - no IPC overhead - and covers primitive\nintegers, floats, pointers, C strings, and bytes. Use it for\nnumeric kernels and library bindings; for sandboxed extensions,\nthe subprocess ext protocol is the better fit.\n\nThe web stack is the one common place dict<string, any> shows up\nin user code, since HTTP requests and responses are inherently\ndynamic over the wire:\n\nThe handler keeps dict<string, any> to the framework boundary\nand uses typed locals (User u, int id) inside. For larger\ntyped-binding apps with controllers, validation, and DI, see the\nWebSocket and web.middleware chapters in the manual.",
+    "readingTime": 2,
+    "keywords": [
+      "typed",
+      "geblang",
+      "strings",
+      "inside",
+      "language",
+      "static",
+      "dynamic",
+      "code",
+      "stdlib",
+      "variants"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/dwgebler/geblang",
+    "thumbnail_url": "https://opengraph.githubassets.com/db7fc79745afca4393a9a1a29318604d60176e67d220862e0eaddbee6e28478c/dwgebler/geblang",
+    "created_at": "2026-05-31T02:28:27.453Z",
+    "topic": "tech"
+  },
+  {
     "slug": "vibe-coding-is-not-a-metric",
     "title": "\"Vibe coding\" is not a metric",
     "description": "Web Development, Technology",
@@ -1920,29 +1944,5 @@
     "thumbnail_url": "https://i.guim.co.uk/img/media/8b76cd535f9261667234196c7c74829155acbcea/340_173_1012_810/master/1012.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=0301d9f589ace0a98cb7a3a90c250103",
     "created_at": "2026-04-21T12:59:42.722Z",
     "topic": "gaming"
-  },
-  {
-    "slug": "vibe-coding-upstart-lovable-denies-data-leak-throws-hackerone-under-the-bus",
-    "title": "Vibe coding upstart Lovable denies data leak, throws HackerOne under the bus",
-    "description": ": A lesson in how not to respond to vulnerability reports",
-    "fullText": "Vibe-coding platform Lovable is pooh-poohing a researcher’s finding that anyone could open a free account on the service and read other users' sensitive info, including credentials, chat history, and source code. However, the company’s story keeps changing: First it attributed the publicly exposed info to \"intentional behavior\" and \"unclear documentation,\" then threw bug-bounty service HackerOne under the bus.\n\nThe drama appears to be the latest example of an AI firm, in this case a startup that claims a $6.6 billion valuation, shirking responsibility for security flaws in its products. Companies including Uber, Zendesk, and Deutsche Telekom all use Lovable's vibe coding AI tool, according to its latest funding announcement.\n\n\"Lovable has a mass data breach affecting every project created before November 2025,\" a researcher who goes by @weezerOSINT on X posted on Monday. \"I made a Lovable account today and was able to access another user's source code, database credentials, AI chat histories, and customer data are all readable by any free account.\"\n\nThe researcher said they reported the flaw 48 days ago, and that Lovable labeled it a \"duplicate submission,\" and left it open. The researcher then sent a bug report to HackerOne, and screen shots show a March 3 submission date. Subsequent posts show the AI leaking secrets and personal data in chats.\n\nThe leak stems from a Broken Object Level Authorization (BOLA) vulnerability, which occurs when an API exposes endpoints that allow users to access or modify sensitive data belonging to other users due to missing ownership validation.\n\nAccording to the bug hunter, no offensive hacking is needed to trigger the bug. They say they made five API calls from a free account and gained access to another user's profile, their public projects, and source code, and then extracted database credentials from the source code.\n\nLovable didn't reply to The Register's inquiries. In X posts later on Monday, however, the AI coding company first said it was \"made aware of concerns regarding the visibility of chat messages and code on Lovable projects with public visibility settings,\" and added: \"To be clear: We did not suffer a data breach.\"\n\nThe company then went on to blame its documentation – specifically \"our documentation of what 'public' implies was unclear, and that's a failure on us.\" It also noted that chat messages for public projects \"used to be visible,\" but that is no longer the case.\n\nAnd then it offered this head-scratching message about intentionally making prompts and source code visible:\n\nWhen it comes to code of public projects: That is intentional behavior. We have experimented with different UX for how the build history is surfaced on public projects, but the core behavior has been consistent and by design.\n\nSo it's by design – unless you're an enterprise customer, that is. For this group of users, \"being able to set visibility to public for new projects has been disabled since May 25, 2025.\"\n\nLater on Monday, Lovable issued a new statement on X, apologizing that its earlier post \"didn't properly address our mistake,\" explaining how it got into this public-versus-private-project mess in the first place, and then blaming its bug bounty partner, HackerOne, for its failure to fix the flaw.\n\nUsers, the startup said, can select a \"public\" or \"private\" option for projects.\n\n\"A public project meant the entire project was public, both chat and code,\" Lovable explained. \"Over time, we realized this was confusing. Many users thought 'public' just meant others could see their published app, not the chat of an unpublished project. That's reasonable.\"\n\nEarly free-tier users didn't get an option to create private projects. They had to upgrade to a paid plan if they wanted to do that – until May 2025, when Lovable started letting free-tier users make private projects, and disabled the public setting for enterprise customers altogether.\n\nIn December 2025, the company switched to private by default across all tiers.\n\n\"We also retroactively patched our API so public project chats couldn't be accessed, no matter what,\" according to the company’s mea culpa. \"Unfortunately, in February, while unifying permissions in our backend, we accidentally re-enabled access to chats on public projects.\"\n\nThis was the security issue that WeezerOSINT reported Lovable via HackerOne. Chaos ensued.\n\n\"Unfortunately, the reports were closed without escalation because our HackerOne partners thought that seeing public projects' chats was the intended behaviour,\" Lovable wrote. \"Upon learning this, we immediately reverted the change to make all public projects' chats private again.\"\n\nHackerOne declined to comment initially, pending further review. \"Given the nature of customer programs and the need to review details carefully, we're not able to comment further right now,” the company told The Register. “We want to ensure anything we share is accurate and responsible. We'll follow up once we've completed that review.\"\n\nLovable noted it appreciates the researchers who uncovered this mess. \"We understand that pointing to documentation issues alone was not enough here,\" it said. \"We'll do better.\" ®",
-    "readingTime": 5,
-    "keywords": [
-      "another user's",
-      "intentional behavior",
-      "database credentials",
-      "free account",
-      "chat messages",
-      "free-tier users",
-      "code lovable",
-      "projects chats",
-      "documentation",
-      "access"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theregister.com/2026/04/20/lovable_denies_data_leak/",
-    "thumbnail_url": "https://regmedia.co.uk/2026/04/20/shutterstock_in_denial_broken_heart.jpg",
-    "created_at": "2026-04-21T01:26:32.802Z",
-    "topic": "tech"
   }
 ]

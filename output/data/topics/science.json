@@ -1,5 +1,29 @@
 [
   {
+    "slug": "lance-unified-multimodal-modeling-by-multitask-synergy",
+    "title": "Lance: Unified Multimodal Modeling by Multi-Task Synergy",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+    "fullText": "Fengyi Fu*,\n Mengqi Huang*,✉,\n Shaojin Wu*,\n Yunsheng Jiang*,\n Yufei Huo,\n Jianzhu Guo✉,§\n\n Hao Li,\n Yinghang Song,\n Fei Ding,\n Qian He,\n Zheren Fu,\n Zhendong Mao,\n Yongdong Zhang\n\n ByteDance\n\n * Equal contribution   \n ✉ Corresponding authors   \n § Project lead\n\nNote: Lance is a research project rather than a polished product model. The released checkpoint was trained with up to 128 A100 GPUs, with training conducted up to 768x768 image generation and 480p, 12 FPS video generation. Our goal is to share a research artifact for studying unified image/video understanding, generation, and editing under a relatively small model and limited compute budget. Output quality may vary across prompts, resolutions, duration, motion complexity, and editing scenarios, and we see further opportunities to improve the post-training recipe. We appreciate constructive feedback from the community as we continue improving the project.\n\nLance is a 3B native unified multimodal model that supports image and video understanding, generation, and editing within a single framework.\n\nWe are actively updating and improving this repository. If you find any bugs or have suggestions, please feel free to open an issue or submit a pull request (PR) 💖.\n\nWe have tested the following dependency combinations on NVIDIA A100:\n\nThe default installation commands use the PyTorch 2.8.0 + cu126 setup. For other GPU models, please choose and validate a PyTorch build and a matching flash-attn version according to your driver, CUDA runtime, Python version, and GPU architecture.\n\nNote: If installing flash-attn from source fails, you can install a prebuilt wheel instead. The wheelhouse below is from a third-party repository and is provided for reference only; please verify that any wheel you install matches your Python, PyTorch and CUDA versions.\n\nThen, download the model weights from Lance-3B on Hugging Face and place them in the downloads/ directory:\n\nYou can configure the following hyperparameters at the top of the inference_lance.sh script:\n\nYou can launch the local Gradio demo for video/image generation, editing, and understanding:\n\n† indicates methods that use LLM rewriters for prompt rewriting before generation.\n\n† indicates methods that use LLM rewriters for prompt rewriting before generation.\n\nReady-to-run benchmark scripts are provided under benchmarks/:\n\nWe would like to thank the contributors of BAGEL, Qwen2.5-VL-3B-Instruct, and Wan2.2 for their open research and contributions.\n\nIf you find Lance useful for your project or research, welcome to 🌟 this repo and cite our work using the following BibTeX:\n\nFor questions, issues, or collaborations, please contact Mengqi Huang and Jianzhu Guo.",
+    "readingTime": 3,
+    "keywords": [
+      "mengqi huang",
+      "jianzhu guo",
+      "llm rewriters",
+      "indicates methods",
+      "prompt rewriting",
+      "understanding generation",
+      "project",
+      "research",
+      "model",
+      "editing"
+    ],
+    "qualityScore": 1,
+    "link": "https://huggingface.co/bytedance-research/Lance",
+    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/bytedance-research/Lance.png",
+    "created_at": "2026-05-31T02:28:29.160Z",
+    "topic": "science"
+  },
+  {
     "slug": "the-supernova-that-sparked-the-original-scientific-revolution",
     "title": "The Supernova That Sparked the Original Scientific Revolution",
     "description": "The Supernova That Sparked the Original Scientific Revolution: Centuries before we started debating the transformative effect of AI on science, a new light in the sky shone the way",
@@ -2104,23 +2128,5 @@
     "thumbnail_url": "https://i.insider.com/6994adaca645d118818974a0?width=1200&format=jpeg",
     "created_at": "2026-02-18T01:13:43.614Z",
     "topic": "finance"
-  },
-  {
-    "slug": "ai-is-transforming-science-more-researchers-need-access-to-these-powerful-tools-for-discovery",
-    "title": "AI is transforming science – more researchers need access to these powerful tools for discovery",
-    "description": "Five years ago, our AlphaFold AI system solved the 50-year grand challenge of protein structure prediction. But that's not the whole story.",
-    "fullText": "Sir Demis Hassabis is Co-Founder and CEO of Google DeepMind. He has won many prestigious international awards for his research work including the 2025 Nobel Prize in Chemistry for protein structure prediction.\n\nAs SVP for Research, Labs, Technology & Society, James Manyika focuses on advancing Google and Alphabet’s most ambitious innovations in AI, computing and science and on areas with potential for beneficial impact on society. James served as Vice Chair of the US National AI Advisory Committee and Co-Chair of the UN Secretary-General’s AI Advisory Body.",
-    "readingTime": 1,
-    "keywords": [
-      "society james",
-      "research",
-      "advisory",
-      "google"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://fortune.com/2026/02/16/google-deepmind-ceo-demis-hassabis-james-manyika-transforming-sciecne-alphafold/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/02/demis-hassabis.png?resize=1200,600",
-    "created_at": "2026-02-16T18:30:01.619Z",
-    "topic": "business"
   }
 ]
