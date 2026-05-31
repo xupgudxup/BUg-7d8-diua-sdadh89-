@@ -1,5 +1,29 @@
 [
   {
+    "slug": "palo-alto-globalprotect-vpn-auth-bypass-flaw-now-exploited-in-attacks",
+    "title": "Palo Alto GlobalProtect VPN auth bypass flaw now exploited in attacks",
+    "description": "Palo Alto Networks is warning that hackers are now exploiting a PAN-OS GlobalProtect authentication bypass flaw, tracked as CVE-2026-0257, in attacks attempting to breach corporate networks.",
+    "fullText": "Palo Alto Networks is warning that hackers are now exploiting a PAN-OS GlobalProtect authentication bypass flaw, tracked as CVE-2026-0257, in attacks attempting to breach corporate networks.\n\nThe company fixed the CVE-2026-0257 flaw earlier this month, warning that it could be used to establish unauthorized VPN connections on the device.\n\n\"GlobalProtect portal and gateway of Palo Alto Networks PAN-OS® software allows the attacker to bypass security restrictions and establish an unauthorized VPN connection,\" reads Palo Alto's advisory.\n\nThe flaw received a Medium severity rating because it requires devices to be configured with authentication override cookies enabled and a specific certificate configuration.\n\nHowever, on Friday, Palo Alto Networks updated the advisory to warn that the flaw was now being actively exploited in attacks against unpatched devices, raising the severity rating to High.\n\n\"Palo Alto Networks has become aware of limited exploit attempts on unpatched PAN-OS devices without mitigations applied,\" reads the update.\n\nThis update comes after Rapid7 warned that it had observed the flaw being exploited against numerous customers starting on May 17.\n\n\"Rapid7 MDR identified successful exploitation across numerous customers, however we did not observe any indication of successful lateral movement from the devices. The earliest date for observed exploitation was May 17, 2026,\" explains Rapid7.\n\n\"As of May 29, 2026,  this vulnerability has been added to the CISA KEV.\"\n\nAccording to Rapid7, the attacks began with hackers authenticating to GlobalProtect gateways using forged authentication override cookies that targeted the local administrator account.\n\nThe company first observed exploitation on May 18 from infrastructure hosted by Vultr, with a second wave of attacks detected on May 21 originating from Dromatics Systems.\n\nIn some cases, attackers were able to connect to the device via VPN using forged cookies, granting them access to internal networks. However, Rapid7 says that in many incidents, even though the appliance accepted the forged cookie, they were unable to establish a full VPN session.\n\nRapid7's investigation into affected customers found that the impacted devices had GlobalProtect authentication override cookies enabled and were configured in a way that allowed attackers to forge valid authentication cookies.\n\nThe researchers say the flaw stems from PAN-OS's validation of authentication override cookies.\n\nA GlobalProtect VPN device decrypts these types of cookies using a configured private key and then trusts the decrypted contents without performing any signature verification.\n\nIf the same certificate is reused for both HTTPS services and authentication override cookies, attackers can obtain the corresponding public key via the HTTPS session and then use it to create forged cookies that the device will accept as legitimate.\n\nRapid7 developed a proof-of-concept exploit that demonstrates how an attacker can retrieve the public certificates exposed by a GlobalProtect portal or gateway, generate a forged authentication override cookie for an arbitrary user, and authenticate without knowing valid credentials. Using this PoC, the researchers successfully authenticated to an unpatched GlobalProtect gateway.\n\nOrganizations using GlobalProtect VPN devices should immediately install the latest security updates to patch the flaws.\n\nAdmins can also mitigate the flaw by turning off the authentication override feature or utilizing a different certificate for this feature and not sharing it with other services on the device.\n\nCISA has now added the flaw to its Known Exploited Vulnerability catalog, ordering federal agencies to mitigate the flaw by June 1, 2026.\n\nAutomated pentesting tools deliver real value, but they were built to answer one question: can an attacker move through the network? They were not built to test whether your controls block threats, your detection rules fire, or your cloud configs hold.\n\nThis guide covers the 6 surfaces you actually need to validate.",
+    "readingTime": 3,
+    "keywords": [
+      "palo alto",
+      "alto networks",
+      "unauthorized vpn",
+      "globalprotect portal",
+      "severity rating",
+      "numerous customers",
+      "observed exploitation",
+      "authentication override",
+      "cookies enabled",
+      "forged authentication"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.bleepingcomputer.com/news/security/palo-alto-globalprotect-vpn-auth-bypass-flaw-now-exploited-in-attacks/",
+    "thumbnail_url": "https://www.bleepstatic.com/content/hl-images/2024/10/09/Palo-Alto-Networks.jpg",
+    "created_at": "2026-05-31T08:33:48.889Z",
+    "topic": "tech"
+  },
+  {
     "slug": "remembering-the-life-and-work-of-jonathan-clements-masters-in-business",
     "title": "Remembering the Life and Work of Jonathan Clements: Masters in Business",
     "description": "Barry sits down with Jason Zweig and William Bernstein. They discuss \"Money and Me\" the last book of author and journalist Jonathan Clements. Jason and William also examine Clements's approach to personal finance and impact to financial journalism.",
@@ -1691,18 +1715,5 @@
     "thumbnail_url": "https://i.insider.com/6a06b61594eb4c909fb2cbbd?width=1200&format=jpeg",
     "created_at": "2026-05-15T08:37:56.472Z",
     "topic": "finance"
-  },
-  {
-    "slug": "the-ackman-act",
-    "title": "The Ackman Act",
-    "description": "The ACKMAN Act Against Corporate Kickbacks, Monopolies, And Nonsense A comprehensive reform platform to end Wall Street extraction and restore accountability to American financial markets.   Policy #1 - Management Fee Penalty Tax THE MECHANIC Fund managers charge an annual fee - typically 2% - on...",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://docs.google.com/document/d/1EDezDWvB4wsgfhldNc23dNnSc0cZZfK9GZabjVvkyhg/edit?usp=sharing",
-    "thumbnail_url": "https://lh7-us.googleusercontent.com/docs/AHkbwyIScw9G3_oFHqP7SpqqGtq46VLHSe0UCp8nLQKQsfp1zSvl1KCFiDm0U8d9HaMLWAW27LlNB4NXWCZKwRGedfGIBhaRV3th83YwDyzKByHqbCiC3oc=w1200-h630-p",
-    "created_at": "2026-05-14T13:28:48.769Z",
-    "topic": "tech"
   }
 ]

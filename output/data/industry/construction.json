@@ -1,5 +1,44 @@
 [
   {
+    "slug": "african-development-bank-allots-650-million-for-uganda-railroad",
+    "title": "African Development Bank Allots $650 Million for Uganda Railroad",
+    "description": "Uganda said the African Development Bank has tentatively allocated about $650 million to partly fund the construction of a railway linking the capital, Kampala, to Malaba at the Kenyan border.",
+    "fullText": "MarketsBy Fred OjamboSaveUganda said the African Development Bank has tentatively allocated about $650 million to partly fund the construction of a railway linking the capital, Kampala, to Malaba at the Kenyan border.Abdul Kamara, the bank’s vice president in charge of regional development, integration and business delivery, announced the pledge at a meeting with a Ugandan delegation at the lender’s annual meeting in Brazzaville, in the Republic of Congo, Uganda’s Finance Ministry said on X. The final project financing arrangement will be concluded during a mission appraisal next month, it said.",
+    "readingTime": 1,
+    "keywords": [
+      "development"
+    ],
+    "qualityScore": 0.15,
+    "link": "https://www.bloomberg.com/news/articles/2026-05-31/african-development-bank-allots-650-million-for-uganda-railroad",
+    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iJ0lTsYbJNuM/v1/1200x800.jpg",
+    "created_at": "2026-05-31T08:34:04.663Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "looking-for-paid-reviewer-of-custom-sealed-sender-construction",
+    "title": "Looking for paid reviewer of custom Sealed Sender construction",
+    "description": "secure messaging app. Contribute to pontusva/spectre development by creating an account on GitHub.",
+    "fullText": "Spectre is an end-to-end-encrypted messenger built for people for whom\nmetadata is the threat — activists, journalists, and their sources. It\npairs the Signal Protocol (Double Ratchet, X3DH) with an in-house Sealed\nSender layer so a relay operator learns only who is receiving and how many\nbytes, never who sent what to whom — including on first contact.\n\nSpectre is not ready to protect real people yet. Do not deploy it for\nat-risk users.\n\nThe Sealed Sender layer is a bespoke cryptographic construction (the Dart\nSignal port ships no sealed-sender primitive, so it was built in-house on\nX25519 / HKDF / ChaCha20-Poly1305 / Ed25519). It has had an internal +\nmulti-agent review and is unit-tested, but it has not yet been reviewed by an\nindependent cryptographer — which is a hard requirement before anyone relies\non it. The full review package, threat model, and open questions are in\nSEALED_SENDER_REVIEW.md.\n\nThe most important caveat: the relay is also the certificate authority for\nsender certificates, so a malicious relay could forge sender attribution. The\nonly defense against that is out-of-band safety-number verification — so\nalways verify the safety number (see below). Treat an unverified contact's\nidentity as unconfirmed.\n\nRequires the Flutter SDK and (for the relay) Go.\n\nFirst run / after a schema change:\n\nThen: ⚙ → copy your ID on each device, paste it into ＋ new\nconversation on the other. Adding a peer sends them a connection request\n(a \"wants to connect\" message that lands in their REQUESTS inbox) — they\nlong-press → Accept, and you're chatting. Then verify the safety number\nbefore trusting the contact. Full step-by-step:\nSEALED_SENDER_TEST.md.\n\nIn a chat, tap the verification bar at the top to open the peer screen —\nthat's where you verify the safety number and set a nickname (the\n\"nickname (local only)\" row → [ EDIT ]). Incoming requests appear under\nREQUESTS; long-press to Accept or Block.\n\n--dart-define=SPECTRE_RELAY_URL=ws://<host>:8080/ws configures the relay\nendpoint; there is no hardcoded server.\n\nFunctional end-to-end on Linux/macOS desktop with sealed sender, verification,\nreplay protection, and persistent history. Before any real-world use: the\nexternal cryptographer review, the H3/H4 construction-hardening decisions, and\nan anonymous upload channel (see SEALED_SENDER_REVIEW.md / SPECTRE_DEVLOG.md).\n\nNot affiliated with Signal / Open Whisper Systems. Uses the Signal Protocol.",
+    "readingTime": 2,
+    "keywords": [
+      "signal protocol",
+      "sender layer",
+      "relay",
+      "verification",
+      "verify",
+      "safety",
+      "threat",
+      "in-house",
+      "contact",
+      "cryptographer"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/pontusva/spectre",
+    "thumbnail_url": "https://opengraph.githubassets.com/8035f4b36d4c469bd0f4f74d0934400235d3f26be670fa23f2e462004e287cd3/pontusva/spectre",
+    "created_at": "2026-05-31T08:33:49.581Z",
+    "topic": "tech"
+  },
+  {
     "slug": "russia-and-kazakhstan-will-sign-nuclear-power-deal-during-putin-trip-kremlin-says",
     "title": "Russia and Kazakhstan will sign nuclear power deal during Putin trip, Kremlin says",
     "description": "Russian President Vladimir Putin will oversee the signing of a deal outlining parameters for the construction of a nuclear power plant in Kazakhstan",
