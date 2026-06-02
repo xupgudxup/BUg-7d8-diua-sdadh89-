@@ -1,5 +1,29 @@
 [
   {
+    "slug": "terse-typescript-first-workflow-builder",
+    "title": "Terse, TypeScript First Workflow Builder",
+    "description": "Typescript Workflow builder, optimized for use in Coding Agents - TerseAI/Terse",
+    "fullText": "Workflow building for the coding agent era.\n\nA code-first AI workflow platform for developers and coding agents.\n\n Connect your tools, generate a typed SDK from your workspace, and deploy serverless workflows that mix deterministic tool calls with agentic loops.\n\nQuickstart ·\n SDK ·\n CLI ·\n Sign up\n\nAI agents are fast to build but make mistakes. Deterministic workflows are reliable but slow to set up. Terse lets you mix both in the same workflow: call tools directly when you need precision, hand off to an agent when you need judgment.\n\nGet a workflow live in under 5 minutes — full guide at docs.useterse.ai/quickstart.\n\nThat's it. terse deploy ships to the Terse Cloud data plane — no infra to stand up.\n\nTerse has two planes you can place independently. Most users pick one of the named tiers below.\n\nnpx create-terse clones the repo, mints secrets, brings up Postgres in Docker, runs migrations, starts the app, and writes the env so terse-cli already points at your self-hosted control plane.\n\nA Terse workflow is a single TypeScript file. The job below watches a repo for new pull requests, posts a deterministic Slack message announcing the PR, then threads a Block Kit summary under it:\n\nThe skills passed to generateText are the only surface the model can reach: it can post in one Slack channel and read this one repo, nothing else. The deterministic toolbox.slack.sendMessage call returns a typed result you can thread on directly, and generateText picks up the GitHub and Slack tools without further wiring.\n\nFirst-class, typed integrations for the tools you already use:\n\nThis is the Terse monorepo — the platform code Terse runs in production, plus the public packages used to author workflows.\n\nIssues and PRs welcome. If you're picking up something non-trivial, open an issue first so we can sanity-check the approach. See CONTRIBUTING.md for the full guide and SECURITY.md for the private disclosure process.\n\nWorking on the SDK, CLI, or frontend? Clone the repo and:\n\nThe frontend and CLI talk to the hosted Terse backend at api.useterse.ai by default, so most SDK/CLI/frontend work doesn't need a local backend. Override with TERSE_BACKEND_URL if you're pointing at a self-hosted instance.\n\nBackend work needs Postgres and the credentials backend integrations expect — see docs.useterse.ai/self-hosting.\n\nTerse is source-available under the Sustainable Use License v1.0. You can read it, fork it, modify it, and self-host it for non-commercial or internal business use. You can't redistribute it commercially or run it as a competing hosted product. The license text in LICENSE.md is authoritative.",
+    "readingTime": 3,
+    "keywords": [
+      "workflow",
+      "tools",
+      "deterministic",
+      "repo",
+      "backend",
+      "typed",
+      "workflows",
+      "terse",
+      "coding",
+      "agent"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/TerseAI/Terse",
+    "thumbnail_url": "https://opengraph.githubassets.com/8dbb371ea1b00c502b805f46f20c9d41e3fc53b95af2874d6adc073059b131cf/TerseAI/Terse",
+    "created_at": "2026-06-02T15:58:11.166Z",
+    "topic": "tech"
+  },
+  {
     "slug": "why-janet",
     "title": "Why Janet?",
     "description": "I never thought it could happen to me. I mean, parentheses? In this day and age? But for the past couple years, my go-to programming language for fun side projects has been a little Lisp dialect called Janet.\n(print \"hey janet\")\nI like Janet so much that I wrote an entire book about it, and put it on The Internet for free, in the hopes of attracting more Janetors to the language.",
@@ -1930,25 +1954,6 @@
     "link": "https://www.businessinsider.com/disney-ai-adoption-dashboard-tokens-tokenmaxxing-claude-cursor-josh-damaro-2026-4",
     "thumbnail_url": "https://i.insider.com/69e92eca3fecbb42897a2dd3?width=1200&format=jpeg",
     "created_at": "2026-04-23T01:30:03.965Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "inside-the-ai-startup-elon-musk-is-betting-60-billion-on",
-    "title": "Inside the AI startup Elon Musk is betting $60 billion on",
-    "description": "The 4-year-old startup just propelled SpaceX in the AI coding race.",
-    "fullText": "SpaceX is willing to pay $60 billion for AI coding startup Cursor.\n Meet Cursor's founders, investors, and customers, which include Nvidia and Stripe.\n Cursor's valuation has climbed even as competition in the AI coding space heats up.\n\n Who are Cursor's key investors?\n\n How does SpaceX benefit from this deal?\n\n What challenges does Cursor face in the market?\n\n What sets Cursor apart from competitors?\n\n Why did SpaceX choose to invest in Cursor?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "spacex",
-      "coding",
-      "investors",
-      "cursor",
-      "cursor's"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/ai-coding-startup-cursor-elon-musk-60-billion-spacex-deal-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e857943fecbb42897a27bc?width=1200&format=jpeg",
-    "created_at": "2026-04-22T07:19:45.546Z",
     "topic": "finance"
   }
 ]
