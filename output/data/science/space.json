@@ -1,5 +1,18 @@
 [
   {
+    "slug": "scalable-concurrent-queues-for-gpu",
+    "title": "Scalable Concurrent Queues for GPU",
+    "description": "Concurrent queues can significantly impact supercomputing performance by being critical bottlenecks for task distribution, load balancing, and resource utilization. As HPC systems move beyond 10-million processor cores, the ability to rapidly move items between producer and consumer threads without excessive locking is essential for efficient queues, preventing idle cores, maximizing utilization, and achieving high parallel speedup. While concurrent queues are well studied on CPUs, they remain largely unexplored on modern GPUs, where SIMT execution, massive parallelism, and atomic contention reshape the design space. We present three linearizable GPU concurrent queues spanning from lock-free to wait-free guarantees: (1) G-WFQ-YMC, an adaptation of Yang and Mellor-Crummey's wait-free queue using preallocated segments; (2) G-LFQ, a bounded lock-free queue that uses wave-batched fast paths to maximize throughput; and (3) G-WFQ, a bounded wait-free queue that packs shared state into 64-bit compare-and-swap operations while preserving linearizability and bounded memory.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://arxiv.org/abs/2606.01693",
+    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "created_at": "2026-06-03T20:46:44.487Z",
+    "topic": "tech"
+  },
+  {
     "slug": "entanglement-builds-spacetime-now-magic-gives-it-gravity",
     "title": "Entanglement Builds Space-Time. Now \"Magic\" Gives It Gravity",
     "description": "In holographic theories, physicists may have traced the pliability of space-time to its quantum roots: a measure of quantumness known as “magic.”",
@@ -1847,20 +1860,5 @@
     "thumbnail_url": "https://cdn.arstechnica.net/wp-content/uploads/2026/04/55092272338_83965929d0_o-2560x1440-1776275323.jpg",
     "created_at": "2026-04-15T19:00:07.832Z",
     "topic": "tech"
-  },
-  {
-    "slug": "a-woman-turned-her-dated-2000s-kitchen-into-a-cozy-modern-space-for-150000",
-    "title": "A woman turned her dated 2000s kitchen into a cozy, modern space for $150,000",
-    "description": "Meg Leonard spent $150,000 to transform her kitchen into a traditional, coastal-inspired space filled with decorative touches.",
-    "fullText": "Meg Leonard renovated her kitchen a few years after buying her home in Annapolis, Maryland.\n She replaced the dark, early 2000s decor with white cabinetry and brass finishes.\n Leonard also created a cozy nook that serves as a dining and entertaining space.",
-    "readingTime": 1,
-    "keywords": [
-      "leonard"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/woman-renovated-dated-kitchen-photos-budget-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d3e5c2e762ed6cfe44a9cd?width=1200&format=jpeg",
-    "created_at": "2026-04-15T12:59:25.083Z",
-    "topic": "finance"
   }
 ]
