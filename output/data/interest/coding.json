@@ -1,5 +1,18 @@
 [
   {
+    "slug": "codings-great-reckoning-inside-the-months-software-engineering-changed-forever",
+    "title": "Coding's great reckoning: Inside the months software engineering changed forever",
+    "description": "In the space of a few weeks, OpenAI, Anthropic, and Google released new AI models. Now, coders are rethinking their jobs — and what comes next.",
+    "fullText": "Your browser does not support the video element.\n\n By Hugh Langley \n\n You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n Read in app\n\n HOME",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.businessinsider.com/ai-coding-agents-tools-software-engineering-jobs-future-2025-6",
+    "thumbnail_url": "https://i.insider.com/6a1ecc712ab5f9757add7f08?width=1200&format=jpeg",
+    "created_at": "2026-06-03T10:41:54.179Z",
+    "topic": "tech"
+  },
+  {
     "slug": "running-an-ainative-engineering-org-claude",
     "title": "Running an AI-native engineering org – Claude",
     "description": "How the Claude Code engineering team’s processes and structure changed once agentic coding became the default way of working.",
@@ -1943,30 +1956,6 @@
     "link": "https://adspthepodcast.com/2026/04/17/Episode-282.html",
     "thumbnail_url": "https://www.adspthepodcast.com/assets/img/pexels/adsp2.png",
     "created_at": "2026-04-24T07:48:05.524Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-quiet-standardization-of-ai-agent-skills",
-    "title": "The Quiet Standardization of AI Agent Skills",
-    "description": "How SKILL.md became the de facto standard for AI coding agent customization across Claude Code, Codex CLI, Gemini CLI, Cursor, and OpenClaw — without a formal standards process.",
-    "fullText": "Anthropic, OpenAI, Google, GitHub, and a growing list of independent developers have all converged on the same file format for customizing AI agent behavior — without any formal standards body, working group, or coordination.\n\nThe format is called SKILL.md. Originally created by Anthropic for Claude Code, it has been independently adopted by Codex CLI, Gemini CLI, GitHub Copilot, Cursor, OpenClaw, and 20+ other agents. The same file works across all of them without modification.\n\nIn early 2025, Anthropic shipped Claude Code with a simple customization mechanism: drop a markdown file called SKILL.md into a directory, and the agent reads it as instructions for a specific task. YAML frontmatter with a name and description. Markdown body with instructions. That's the whole format.\n\nIt was not designed as a standard. It solved a specific problem: users wanted to teach their agent recurring workflows without repeating themselves every session.\n\nThen OpenClaw implemented the same format. Then Codex CLI. Then Cursor. Then Gemini CLI. Each implementation was independent — teams read Anthropic's format, found it sufficient, and adopted it rather than inventing something new.\n\nThis is unusual. Developer tool ecosystems almost never converge without a formal spec process or a charismatic evangelist pushing adoption. SKILL.md spread because there's nothing to argue about. It's a markdown file with a few YAML fields.\n\nThe format war that didn't happen. Compare with YAML vs TOML vs JSON, Terraform vs Pulumi vs CloudFormation, or GGUF vs ONNX vs SafeTensors. Every adjacent space has competing formats. SKILL.md won by being first and simple enough that building an alternative wasn't worth the effort.\n\nGenuine portability. A skill written for Claude Code works in OpenClaw, Codex CLI, Cursor, and Gemini CLI. The instructions are plain English, so there's no agent-specific API to abstract over. Copy the folder, it works.\n\nAn interesting question about agent intelligence. If the difference between a mediocre code review and a thorough one is a 20-line markdown file, how much of what we attribute to model capability is actually just better prompting?\n\nDiscovery is fuzzy — skills activate based on natural language matching, and the agent sometimes loads the wrong one. There's no versioning or dependency management. Cross-agent features (Claude Code's context forking, Codex CLI's openai.yaml sidecar) don't translate.\n\nAnd there's no trust layer. GitHub has hundreds of thousands of SKILL.md files with no verification. Researchers have already found skills with hidden prompt injection and data exfiltration patterns.\n\nThe ecosystem is at the \"npm circa 2012\" stage. The format exists and adoption is growing, but the infrastructure (discovery, trust, distribution) is still being built.\n\nThings I'm watching: MCP integration letting agents pull skills on demand instead of reading local files. Skill composition (one skill invoking another). And a formal specification — 20+ agents have adopted the format but there's still no spec beyond Anthropic's docs.\n\nDisclosure: I built Agensi, a curated marketplace for SKILL.md skills with security scanning. So I'm biased on the distribution question. But the convergence itself is what I find genuinely interesting.\n\nThe SKILL.md format reference is at agensi.io/learn/skill-md-format-reference. A curated skill catalog is at agensi.io/skills.",
-    "readingTime": 3,
-    "keywords": [
-      "gemini cli",
-      "codex cli",
-      "markdown file",
-      "claude code",
-      "format",
-      "agent",
-      "there's",
-      "without",
-      "skills",
-      "formal"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.agensi.io/learn/the-quiet-standardization-of-ai-agent-skills",
-    "thumbnail_url": "https://www.agensi.io/og-image.png",
-    "created_at": "2026-04-23T12:59:52.999Z",
     "topic": "tech"
   }
 ]
