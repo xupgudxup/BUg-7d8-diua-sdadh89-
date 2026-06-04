@@ -1,5 +1,31 @@
 [
   {
+    "slug": "mellum2-technical-report",
+    "title": "Mellum2 Technical Report",
+    "description": "We present Mellum 2, an open-weight 12B-parameter Mixture-of-Experts (MoE) language model with 2.5B active parameters per token. Mellum 2 is a general-purpose language model specialized in software engineering, spanning code generation and editing, debugging, multi-step reasoning, tool use and function calling, agentic coding, and conversational programming assistance, and it is the successor to the completion-focused 4B dense Mellum model. The architecture builds on the Mixture-of-Experts (64 experts, 8 active) and combines Grouped-Query Attention with 4 KV heads, Sliding Window Attention on three of every four layers, and a single Multi-Token Prediction head that doubles as both an auxiliary pre-training objective and a built-in draft model for speculative decoding; each choice was validated by ablation with inference efficiency on commodity GPUs as a design constraint. Pre-training spans approximately 10.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://arxiv.org/abs/2605.31268",
+    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "created_at": "2026-06-04T14:33:07.228Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "walmart-says-token-limit-on-employee-ai-tool-is-about-cutting-down-on-duplicative-vibe-coding",
+    "title": "Walmart says token limit on employee AI tool is about cutting down on duplicative vibe coding",
+    "description": "Walmart placed a token limit on its internal vibe coding tool, Code Puppy, reflecting the retailer's cost-conscious approach to AI.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/walmart-ai-coding-tool-limit-duplicative-requests-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a208401b4fb977f3598429b?width=1200&format=jpeg",
+    "created_at": "2026-06-04T14:33:03.985Z",
+    "topic": "finance"
+  },
+  {
     "slug": "vibe-codings-notsonew-management-problem",
     "title": "Vibe coding's not-so-new management problem",
     "description": "Coding's great reckoning is underway as Corporate America pushes out managers, and that's a recipe for disaster.",
@@ -1918,42 +1944,5 @@
     "thumbnail_url": "https://substackcdn.com/image/fetch/$s_!SX0r!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8c1e9496-9474-402b-9d4c-17d683ef93fa_2730x1536.jpeg",
     "created_at": "2026-04-26T07:16:36.226Z",
     "topic": "tech"
-  },
-  {
-    "slug": "a-cli-to-use-any-model-in-your-coding-agent",
-    "title": "A CLI to use any model in your coding agent",
-    "description": "Aivo is a lightweight CLI that lets you run any model in Claude Code, Codex, and other coding agents. It translates between protocols automatically, so you can use DeepSeek, MiniMax, Kimi or locally running models in any supported agent.",
-    "fullText": "Install aivo with script or package managers.\n\nStart with the built-in free provider — no API key needed. Add your own when you're ready.\n\nLaunch a coding agent with any provider or model you want.\n All extra arguments are passed through to the underlying tool.\n\nWithout a tool name, aivo run remembers your last key and tool selection,\n so next time it skips the prompts and goes straight to launching.\n\nAdd your own API keys from providers you trust.\n You can maintain multiple keys from different providers, switch between them as needed.\n Aivo encrypts and securely stores your keys locally.\n\nPick ChatGPT, Claude, or Gemini from the provider picker to sign in with your existing subscription.\n Multiple accounts are supported — sign in again to add another, each saved under its email.\n\nIf you have a GitHub Copilot subscription,\n you can add it as a provider in aivo.\n (Be aware of the GitHub Copilot charges by request count, not by token usage)\n\nWith aivo, you can easily connect to Ollama and use models from your local machine or its cloud service.\n If the model is not present, aivo asks to pull it first before use.\n\nYou can use other tools like LM Studio or llama.cpp\n\nOnce you add a provider and set up the key,\n you can use the models command to see the available models the provider offers.\n Most providers provide the model list through API, so aivo fetches it on demand and caches it for later use.\n\nIf a model name is too long, you can give it a short alias.\n\nTalk to any model directly from your terminal. Full-screen TUI for conversations,\n or one-shot mode for quick answers and shell pipelines.\n\nInteractive chat in your terminal with streaming and markdown rendering.\n The selected model is remembered per saved key.\n\nSend a single prompt and exit. When -x has a message, piped stdin is appended as context.\n When -x has no message, the entire stdin becomes the prompt.\n\nPipe anything into aivo. It reads stdin, adds your prompt, and sends it to the model.\n\nRun Claude and Codex side by side and let them read each other's work.\n Ask one — \"what's the reviewer working on?\" — and it pulls the live session through aivo.\n No copy-paste, no exports. You can also hand a finished thread from one agent to another, or just browse recent sessions across all your tools.\n\naivo context lists recent sessions across Claude, Codex, Gemini, OpenCode, and Pi for the current project.\n Sessions are derived on demand from each tool's native storage.\n\nPair with aivo run to fold a past session into the next launch.\n Great for handing a Codex thread over to Claude (or vice versa).\n\nRun two CLIs side by side and have them read each other's work.\n Every launch auto-registers over MCP under its tool name\n (claude, codex, …), numbered on collision.\n--as renames it to something you'll actually reference.\n\nFrom inside Claude or Codex, just ask — \"what's coder working on?\",\n or \"pull the reviewer's last turn\". The agent reaches through aivo's MCP\n to find the session and read it. No copy-paste, no exporting transcripts.\n Pi, Gemini, and OpenCode show up as read-only peers.\n\nExpose your active provider as a local OpenAI-compatible endpoint.\n Any tool that speaks the OpenAI API can use it — VS Code extensions, Cursor,\n Python scripts, anything.\n\nIf a request hits a rate limit (429) or server error (5xx), aivo retries with the next saved key automatically.\n\nLog every request and response. Pipe to jq for readable output, or write to a file.\n\nEvery request is logged to a local SQLite database — chat, agent launches, serve.\n Token counts, models, response times, errors. All queryable from the command line.\n\nNarrow by source, tool, or text. --errors shows only failures.\n\nTail logs in real time. New entries appear as they happen.\n\nAggregates token counts from aivo chat, Claude Code, Codex, Gemini, OpenCode, and Pi\n by reading each tool's native data files.\n\naivo update detects whether you installed via Homebrew, npm, or the install script and updates accordingly.\n Failed updates are rolled back automatically; a manual rollback is available if a new version misbehaves.\n\nEncrypted in ~/.config/aivo/. Requests go straight from your machine to the provider — aivo never proxies or logs them.\n\nNo. Prompts, responses, and usage stay between your machine and the provider. Aivo runs no servers and collects no telemetry.\n\nAny endpoint speaking OpenAI, Anthropic, or Gemini. OpenRouter, DeepSeek, MiniMax, Kimi, Groq, Vercel AI Gateway, GitHub Copilot, Ollama, and Cloudflare work out of the box. You can also sign in with a ChatGPT, Claude, or Gemini subscription — multiple accounts per provider are supported.\n\nYes. Point a key at any local endpoint, or run aivo keys add ollama. Missing Ollama models are pulled automatically.\n\nClaude Code, Codex, Gemini CLI, OpenCode, and Pi. Extra flags pass through untouched.\n\nOpen an issue on GitHub or email yuanchuan23@gmail.com.",
-    "readingTime": 5,
-    "keywords": [
-      "code codex",
-      "claude code",
-      "gemini opencode",
-      "tool's native",
-      "sessions across",
-      "token counts",
-      "provider aivo",
-      "github copilot",
-      "model",
-      "models"
-    ],
-    "qualityScore": 1,
-    "link": "https://getaivo.dev/",
-    "thumbnail_url": "https://getaivo.dev/og.png",
-    "created_at": "2026-04-25T07:02:59.919Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "im-the-senior-director-of-a-5-billion-data-company-heres-how-a-mix-of-programming-and-leadership-courses-skyrocketed-my",
-    "title": "I'm the senior director of a $5 billion data company — here's how a mix of programming and leadership courses skyrocketed my career since college",
-    "description": "I've taken 25 online courses in everything from machine learning to management. Focusing on different strengths helped me advance faster in my career.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/guides/learning/leadership-management-coursera-edx-linkedin-learning-online-courses",
-    "thumbnail_url": "https://i.insider.com/6841ee3c9d73a0031e8df999?width=1200&format=jpeg",
-    "created_at": "2026-04-25T01:22:45.004Z",
-    "topic": "finance"
   }
 ]
