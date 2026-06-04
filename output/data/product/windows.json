@@ -1,5 +1,42 @@
 [
   {
+    "slug": "coreutils-for-windows-overview-microsoft-learn",
+    "title": "Coreutils for Windows Overview – Microsoft Learn",
+    "description": "A set of UNIX-style core utilities for Windows that lets developers run the same commands and scripts they already use on Linux, macOS, and WSL.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://learn.microsoft.com/en-us/windows/core-utils/overview",
+    "thumbnail_url": "https://learn.microsoft.com/en-us/media/open-graph-image.png",
+    "created_at": "2026-06-04T09:42:44.696Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "grep-this-microsoft-grafts-most-linux-commands-onto-windows",
+    "title": "Grep this: Microsoft grafts (most) Linux commands onto Windows",
+    "description": "Coreutils serves over 75 Unix commands in Windows and PowerShell command lines",
+    "fullText": "Coreutils serves over 75 Unix commands in Windows and PowerShell command lines\n\nSteve Ballmer’s darkest fear has come to pass: Linux has worked itself into the deepest innards of Microsoft Windows itself.\n\nAt the company’s annual Build developer conference this week, Microsoft released coreutils, a Rust-built multi-call binary file for Windows that serves over 75 Unix commands directly in the Windows CMD and PowerShell command lines – including favorites such as cat, ls, grep, and head. They join Linux favorites curl and sudo which were earlier added to the Microsoft command lines.\n\n“Grep in full glory is now available for full Windows access,” enthused Microsoft CEO Satya Nadella yesterday during his Build keynote. Grep (Global Regular Expression Print) provides a way to search through all the files in a given space – it’s essential for searching through gargantuan log files for instance.  It is one of the many commands memorized by the daily Linux user.\n\nMicrosoft’s stated motivation in evoking Linux powers is an effort to standardize user commands across the multiverse of platforms it supports so that developer scripts work the same way across containers, PowerShell, Macs, the Windows Subsystem for Linux (WSL), and the DOS-era CMD command line.\n\nUnix was built on the philosophy of small programs that can be easily piped together to build larger workflows, so that, say, the output of grep can be combined with other material through the cat (concatenate) command.  As a result, developers, admins, and now AI agents write scripts that incorporate these commands.\n\nThe adoption is also good news for Linux expats who occasionally work in the Windows CMD: They will no longer need to remember the standard “ls” command for listing the contents doesn’t work in Windows, and that they have to type the DOS-era “dir” command instead. Now both work.\n\nThat said, the devil is in the details for many of these ported commands. Several long-time Linux commands conflict with existing CMD and PowerShell commands of the same names, such as date and rmdir. In these cases, the user must suss out which identical command takes precedence, which can depend on the shell, the PATH order, or the alias table if you are using PowerShell.\n\nOne X poster noted that Coreutils relieves a repeated “frustration of looking up the PowerShell equivalent syntax” for grep. “Useful functionality over ‘not invented here’ is a huge win!” they wrote.\n\nOne could run Grep before on Windows through third-party packages such as Cygwin, though Coreutils has the speed of native functionality, thanks to its implementation in Rust.\n\nMicrosoft built Coreutils from the uutils open source effort of rewriting Linux core commands in Rust, for the purposes of memory safety and cross-platform portability. No doubt, it also helped Microsoft that this package was written under the permissive MIT open source license, thereby sidestepping the sticky GNU GPL requirements that so spooked Ballmer.\n\nThere are some Unix/Linux commands that this project won’t touch, such as dd, the byte-by-byte copying (“Perhaps useful in the future,” the documentation wryly notes). A few other commands – original DOS Sort and Find – were integrated into their Linux equivalents so they would work in both contexts.\n\nAnd because Windows uses ACLs to assign file ownership, rather than POSIX permission bits, none of the Linux permission-setting commands (chcon, chgrp, chmod, chown, chroot, groups) make any sense to Windows, so any scripts changing file permissions still must be massaged (Linus Torvalds created Linux to adhere to the POSIX standards that define the Unix commands).\n\nYou can download and install Coreutils, which is only about 4.6MB, through CMD WinGet (“winget install Microsoft.Coreutils”). The download is worth it for grep alone, which is the undisputed champion rifling through all the files in an overloaded directory.\n\nWhen Windows was king at Microsoft, Linux was public enemy number one. But times have changed now that Microsoft has larger competitive threats to worry about than open source – namely the frontier AI labs threatening to disrupt the entire enterprise software market.\n\nLinux has been, for several years now, the most popular operating system on the company’s Azure cloud service. And last month, few graybeards even batted an eye when Microsoft released its own Linux distribution, Azure Linux.\n\nNadella’s newfound love for grep probably has more to do with its recent popularity as an agent tool for finding the needles in the haystack.\n\nAt Build, Microsoft relied heavily on its trusted playbook of commoditizing the competitor, revealing a host of new features and services to help developers integrate AI into their own applications. The message was clear: The developer is still in charge, and they can integrate the best of what commercial LLM suppliers could provide with Microsoft’s enterprise-focused platform.\n\nAfter all, it’s a long way from impressing Richard Dawkins with displays of artificial intelligence to building something genuinely useful for Frank in accounting that doesn’t upset the security team.\n\nAt this show, Microsoft released a version of the popular OpenClaw agent builder that runs in Windows, and hence inherits the ecosystem of permissions and security guardrails that come with the Microsoft enterprise ecosystem. This package relies on the newly-released Microsoft Execution Containers (MXC), a policy layer for describing agent containment requirements that can be enforced by Windows. Earlier this year, Microsoft issued a warning about the security problems of running OpenClaw unfettered on Windows.\n\nIn fact, agents may work best within the confines of established software, the ‘Softies argued. At the event, the company revealed the new CoPilot for GitHub, which was expanded from offering only in-line assistance to a full developer environment and orchestrator for multiple agents that can autocomplete the more mundane tasks of pushing code to GitHub.\n\nFor Office 365, Microsoft introduced a new set of prefabricated OpenClaw-based agents, called AutoPilots, that inherit the developer’s environment. \"These are autonomous, long running agents with full enterprise compliance that run in your tenant.\" Nadella said.\n\nHe introduced the first of these personalized agents, called Scout, which runs in Microsoft Teams, and can dip into the user’s chats, email, calendar, and contacts to run errands.\n\nThe company also introduced to the audience a bevy of in-house models that devs can implement directly into their own apps to lessen their reliance on OpenAI or Anthropic API. They cover reasoning (MAI-Thinking-1) coding (MAI-Code-1-Flash), image creation (MAI-Image-2.5), voice transcription (MAI-Transcribe-1.5) and speech generation (MAI-Voice-2)\n\nPerhaps most ambitiously, the company launched Project Solara, a platform for ambient computing, in order to bring AI to portable single-purpose devices. \"The next computer is not one device, it is all these devices working together as one system, with agents showing up closer to where and when you need them,\" Microsoft Technical Fellow Steve Bathiche told the Microsoft Build crowd. This hearkened back to Nadella's kickoff remarks in his keynote, where he reminded developers that  \"the amount of compute at the edge is actually astounding. Think about every NPU, GPU, CPU, even every PC. If you aggregate that, that's a lot of compute power.\"\n\nProject Solara follows in the steps of Anthropic, which recently released its own blueprint for building agent-enhanced portable devices, called the Claude Desktop Buddy. ®",
+    "readingTime": 6,
+    "keywords": [
+      "unix commands",
+      "powershell command",
+      "microsoft released",
+      "windows cmd",
+      "project solara",
+      "grep",
+      "agents",
+      "linux",
+      "developer",
+      "file"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/os-platforms/2026/06/03/grep-this-microsoft-grafts-most-linux-commands-onto-windows/5250796",
+    "thumbnail_url": "https://image.theregister.com/5250857.jpg?imageId=5250857&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+    "created_at": "2026-06-04T09:42:44.576Z",
+    "topic": "tech"
+  },
+  {
     "slug": "ai-agents-enable-adaptive-computer-worms",
     "title": "AI Agents Enable Adaptive Computer Worms",
     "description": "A computer worm is malware that spreads on a network by replicating itself from one machine to another. Traditional worms, like WannaCry, exploited predetermined vulnerabilities, and their spread can be halted by patching those vulnerabilities. Here we show that artificial intelligence (AI) agents enable a fundamentally new threat: a worm that generates tailored attack strategies to each target it encounters. The worm parasitically uses compromised machines to run open-weight large language models (LLMs) to sustain its reasoning, or extend its reach for further attacks. Deployed on a network of machines spanning Linux, Windows, and IoT (Internet of Things) devices, the worm propagated by exploiting common, real-world corporate network vulnerabilities.",
@@ -2014,31 +2051,5 @@
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KED0B1D345J0CD6WR4GPNT45/hero-image.fill.size_1200x675.png",
     "created_at": "2026-01-08T00:58:01.672Z",
     "topic": "tech"
-  },
-  {
-    "slug": "microsoft-exec-dismisses-mass-layoff-report-100-made-up",
-    "title": "Microsoft Exec Dismisses Mass Layoff Report: \"100% Made Up\"",
-    "description": "If you spend any time on social media, whether that be Bluesky or X, you may have seen some reports going around that Microsoft is preparing to cut tens of thousands of jobs amidst the rising costs of artificial intelligence. Whether true or not, Microsoft's lead communications officer has come forward to refute the claims.\nA report on the site TipRanks said that Microsoft is \"considering massive layoffs\" this month, with the plan to cut anywhere between 11,000 and 22,000 jobs on the Azure Cloud, Xbox, and global sales teams. After circulating on Bluesky and X for a while, Windows Central editor Jez Corden purported that the news was \"false\" on Xbox's side of things. Not long after this, Microsoft CCO Frank X.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.gamespot.com/articles/microsoft-exec-dismisses-mass-layoff-report-100-made-up/1100-6537261/?ftag=CAD-01-10abi2f",
-    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1578/15789366/4631872-xboximage.jpg",
-    "created_at": "2026-01-08T00:58:00.900Z",
-    "topic": "gaming"
-  },
-  {
-    "slug": "wolfenstein-3-is-in-the-works-multiple-reports-say",
-    "title": "Wolfenstein 3 Is In The Works, Multiple Reports Say",
-    "description": "MachineGames is working on a third new Wolfenstein game to follow 2014's Wolfenstein: The New Order and 2017's Wolfenstein II: The New Colossus. This is according to reports from Windows Central and Kotaku, both of which said the game is happening but had no other details to share.\nThis would be the first new Wolfenstein game since Wolfenstein: Youngblood and the VR game Wolfenstein: Cyberpilot, both of which were released in 2019.\nIn September 2025, MachineGames creative director Axel Torvenius said he wanted to continue the story of William \"B.J.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.gamespot.com/articles/wolfenstein-3-is-in-the-works-multiple-reports-say/1100-6537258/?ftag=CAD-01-10abi2f",
-    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1179/11799911/4631863-screenshot2026-01-07at2.10.22%E2%80%AFpm.png",
-    "created_at": "2026-01-08T00:58:00.411Z",
-    "topic": "gaming"
   }
 ]
