@@ -1,5 +1,53 @@
 [
   {
+    "slug": "rag-without-persona-modeling-fails-patient-clinical-relevance",
+    "title": "RAG Without Persona Modeling Fails Patient Clinical Relevance",
+    "description": "HPPIE fuses persona modeling into the RAG pipeline to deliver patient-specific health content. 2nd of 300+ at a Global AI Hackathon.",
+    "fullText": "All health platforms ship a RAG pipeline that answers medical questions. None of them know who is asking.\n\nA system that cannot match the answer to the patient has not solved relevance. It has automated a liability.\n\nAt a Global AI Hackathon, HPPIE (Hyper-Personalized Patient Insights Engine) was built to test whether integrating persona modeling at the retrieval stage closes the clinical relevance gap. HPPIE placed 2nd of 300+.\n\nPatients receive results without the system knowing their medical history. If two users produce the same cosine similarity, they are the same patient to the pipeline.\n\nThis was described as \"fragmented awareness,\" where a lack of persistent profiles capturing medications, allergies, or conditions across sessions creates friction. Each interaction starts cold. The patient filters the results themselves, using the clinical judgment they came to the platform to get help with.\n\nA three-stage pipeline of Context Aware Clinical RAG architecture on FastAPI, Qdrant, and Ollama, each targeting a specific failure mode.\n\nAbove: Context Aware Clinical RAG Architecture\n\nBefore retrieval, HPPIE models a patient persona from structured clinical attributes: age, sex, active medications, diagnosed conditions, allergies, and health goals. This persona reshapes the embedding space before the query hits the vector store.\n\nMost RAG systems treat personalization as post-retrieval reranking: retrieve top-k, then filter. The architecture rejected that because post-retrieval filtering from a 20-document pool will never surface a document ranked 47th in a generic query.\n\nHPPIE injects the persona into the query embedding. The vector space processes a distinct query for each persona.\n\nEmbedding similarity misses hard keyword dependencies in the medical domain. HPPIE integrates three components: embedding cosine similarity from Qdrant (w: 0.5), BM25 keyword matching weighted toward clinical terms (0.3), and a behavioral relevance score from the persona model (0.2).\n\nEmbeddings capture semantics. Keywords prevent clinical misses. Behavioral scoring is where the persona earns its value.\n\nA compliance decision, not a performance one. Dockerized Ollama models run on-prem. The moment a persona-modified query containing a medication list leaves the local network, a BAA with the inference provider is required.\n\nThe tradeoff: a 7B model will not match GPT-4 on clinical summarization. This was accepted because sending enriched patient data to third-party APIs renders the system undeployable in regulated healthcare.\n\nHPPIE pre-seeded Qdrant with curated medical data, then created summaries linked to specific personas. A 35-year-old runner querying \"chest pain\" received musculoskeletal content. A 65-year-old with hypertension received cardiac risk assessment.\n\nDifferent retrieval sets because the query was different, not because a filter was applied after. 2nd of 300+, evaluated on AI innovation, technical architecture, clinical applicability, and production readiness.\n\nClinical relevance is an identity problem. The patient is a clinical context that should reshape retrieval before it begins. Pipelines that treat the patient as a downstream filter are solving the wrong problem at the wrong stage.\n\nThe persona model depends on structured clinical input. Incomplete data produces a distorted persona, and the system returns confidently wrong results. That failure mode is worse than generic RAG because the patient trusts personalized output.\n\nThis remains an open challenge. A production deployment needs a persona validation layer and systematic evaluation across comorbidity complexity tiers.\n\nCan persona-modified retrieval outperform post-retrieval reranking at scale?\nIn the prototype, yes. At production scale with millions of documents and thousands of concurrent personas, the computational cost has not been benchmarked.\n\nDoes local inference constrain clinical utility?\n7B models produce shorter summaries than 70B+ cloud models. For patient education, acceptable. For clinical decision support requiring exhaustive differential analysis, insufficient.\n\nHow does this connect to identity infrastructure?\nHPPIE treats a patient persona as an identity primitive that governs what the system does.\n\nCitation format: Sharma, Riddhi Mohan. \"HPPIE: RAG Without Persona Modeling Fails Patient Clinical Relevance.\" Riddhimohan.com, March 2026. https://riddhimohan.com/blog/hppie-rag-without-persona-modeling-fails-patient-clinical-relevance\n\nVersion history: March 29, 2026: Initial case study published. Expanded from a Global AI Hackathon entry (2025).\n\nThis research is open for academic citation and peer-review. Established to support the advancement of AI Governance and Industrial Ethics.\n\nIdentity integration starts post-close. That is not the problem. The problem is whether the platform was built for serial acquisition before the first deal closed.\n\nBuilding this portfolio offered a live use-case of Ethical Hyper-Velocity. The focus is on a three-tier governance architecture that manages the automation of pre-build guardrails pertaining to consistent, reliable standards, performance budgets, and the professional integrity of the builders.\n\nEHV is not a 'policy framework' but a Governance-Aware JIT Compiler that eliminates the 'Governance Latency' inherent in ISO 42001 and human-in-the-loop audits. By compiling governance directly into the inference stack, we move from reactive compliance to proactive, sub-millisecond enforcement.\n\nThe next era of neurotechnology is not about surgical restoration, but preemptive prediction. Non-invasive BCIs, powered by deep learning, offer a safe, scalable pathway to a ~$6B market, shifting the focus from treating paralysis to forecasting and managing neurological and mental health conditions.\n\nEngineering Leader. Global Identity Architecture. M&A Technology Integration. AI Strategy.\n\nEngineering Leader specializing in Global Digital Identity Architecture and M&A Technology Integration. Track record across multi-million dollar P&L, AI strategy, healthcare compliance (GDPR/HIPAA), and Identity platforms scaled to 3.5M+ users.\n\nDisclaimer:The views, frameworks, and architectures presented here (including Architecture Is Policy / Ethical Hyper-Velocity and HPPIE) are my personal thoughts and original syntheses. They are inspired by and draw lessons from my broad enterprise-scale research and experience in healthcare identity, M&A integration, and AI governance. They do not represent the views, policies, or practices of my employer and are not based on any specific proprietary information, internal systems, code, metrics, or confidential details from my current or past roles. All examples and implementations are generalized or self-hosted on this personal site.",
+    "readingTime": 5,
+    "keywords": [
+      "ethical hyper-velocity",
+      "engineering leader",
+      "context aware",
+      "m&a technology",
+      "technology integration",
+      "aware clinical",
+      "failure mode",
+      "cosine similarity",
+      "post-retrieval reranking",
+      "rag architecture"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.riddhimohan.com/blog/hppie-rag-without-persona-modeling-fails-patient-clinical-relevance",
+    "thumbnail_url": "https://www.riddhimohan.com/uploads/rag-without-persona-modeling-fails-patient-clinical-relevance.webp",
+    "created_at": "2026-06-05T02:14:00.384Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "dalai-lama-90-to-seek-knee-treatment-in-new-delhi",
+    "title": "Dalai Lama, 90, to seek knee treatment in New Delhi",
+    "description": "NEW DELHI, June 4 (Reuters) - The Dalai Lama will receive medical treatment on his left knee in New Delhi this month, his office said on Thursday, as the 90-year-old deals with a series of health",
+    "fullText": "NEW DELHI, June 4 (Reuters) - The Dalai Lama will receive medical treatment on his left knee in New Delhi ‌this month, his office said on Thursday, as the ‌90-year-old deals with a series of health issues.\n\nThe spiritual head of Tibetan Buddhists is ​due to travel to the Indian capital on Friday from his home-in-exile in the Himalayan town of Dharamshala. His followers, concerned about his health in recent years, typically hold elaborate prayers ahead of any ‌planned medical procedures.\n\n\"He will ⁠undergo medical treatment on his left knee,” the Dalai Lama's office said on X, adding that he ⁠was expected to travel to India’s Ladakh region by the end of June for an extended stay.\n\nThe Nobel Peace Prize winner had surgery ​on ​the same knee in New York ​in 2024, though he ‌told Reuters months later it was \"nothing serious\", despite walking gingerly with the help of aides. He now uses a golf cart for longer distances within his compound.\n\nThe 14th Dalai Lama said last year he hoped to live beyond 130 years, extending his earlier prediction, ‌and has reassured followers that he ​will be reincarnated after his death.\n\nThe longest-serving head ​of Tibetan Buddhism has ​lived in Dharamshala since fleeing Tibet in 1959 following ‌a failed uprising against Chinese ​rule.\n\nChina, which seeks ​to consolidate its control over Tibet, regards the Dalai Lama as a separatist and says it must approve his successor, ​citing a centuries-old ritual. ‌The Dalai Lama has urged his followers to reject ​anyone chosen by Beijing.",
+    "readingTime": 2,
+    "keywords": [
+      "medical treatment",
+      "dalai lama",
+      "knee",
+      "followers",
+      "june",
+      "reuters",
+      "health",
+      "travel",
+      "delhi",
+      "tibetan"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://www.yahoo.com/news/world/articles/dalai-lama-90-seek-knee-074442126.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/4a7a68827f6fa78f9987fd22f9ded36e",
+    "created_at": "2026-06-05T02:13:57.241Z",
+    "topic": "news"
+  },
+  {
     "slug": "boost-your-gutbrain-connection-with-these-smart-strategies",
     "title": "Boost Your Gut-Brain Connection With These Smart Strategies",
     "description": "Almost 40% of Americans say their daily lives are affected by their bowel habits so Dr. Trisha Pasricha, author and a director of gut-brain research, joins TODAY to break down why gut health is so imp...",
@@ -2062,36 +2110,6 @@
     "link": "https://www.businessinsider.com/charlie-javice-gps-ankle-bracelet-jpmorgan-fraud-appeal-2026-4",
     "thumbnail_url": "https://i.insider.com/69f25451eac306af891f4a57?width=1200&format=jpeg",
     "created_at": "2026-04-30T13:19:21.234Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "this-dog-dna-test-helped-me-figure-out-what-breed-my-rescue-dog-is-and-what-health-conditions-to-watch-out-for",
-    "title": "This dog DNA test helped me figure out what breed my rescue dog is and what health conditions to watch out for",
-    "description": "We used Embark's dog DNA test to figure out the breed of our rescue dog, as well as health risks, projected weight and size, and other fun facts.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/guides/pets/embark-dog-dna-test-review",
-    "thumbnail_url": "https://i.insider.com/69ef9b29367066d7c29718cf?width=1200&format=jpeg",
-    "created_at": "2026-04-30T01:56:24.657Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-simple-health-habits-of-top-longevity-doctors-and-scientists-who-follow-the-science-not-trends",
-    "title": "The simple health habits of top longevity doctors and scientists, who follow the science not trends",
-    "description": "Top longevity doctors, scientists, and investors share the simple, evidence-backed habits they use to stay healthy — from sleep and diet to exercise.",
-    "fullText": "Business Insider's Rising Stars of Longevity 2026 keep it simple when it comes to staying healthy.\n They stick to the basics like eating and sleeping well.\n One said exercise is more powerful than any supplement stack.\n\n What are common longevity myths?\n\n What is the role of diet in longevity?\n\n Who are the Rising Stars of Longevity?\n\n How does sleep affect longevity?\n\n Why is exercise crucial for longevity?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "rising stars",
-      "longevity",
-      "exercise"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/longevity-experts-health-aging-hacks-2026-4",
-    "thumbnail_url": "https://i.insider.com/69ef9865a98bc8fdc096f550?width=1200&format=jpeg",
-    "created_at": "2026-04-29T13:21:19.907Z",
     "topic": "finance"
   }
 ]
