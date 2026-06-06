@@ -1,5 +1,29 @@
 [
   {
+    "slug": "sidekick-the-zot-coding-agent-one-click-away-on-macos",
+    "title": "Sidekick – The zot coding agent, one click away on macOS",
+    "description": "A macOS menu bar app that provides quick access to zot from anywhere on your system. - patriceckhart/zot-sidekick",
+    "fullText": "A macOS menu bar app that provides quick access to zot from anywhere on your system.\n\nLet zot sidekick whip up your emails:\n\nLet zot sidekick give your code a glow-up:\n\nNote on subscription login. The OAuth client IDs used are the ones published in Anthropic's Claude Code CLI, OpenAI's Codex CLI, and the Kimi Code CLI device-code flow. Reusing them from a third-party tool may be against their terms of service and may be revoked at any time. Use it at your own risk; the API-key flow is the safe default.\n\nThe zot binary is baked into the app bundle, downloaded from the\nofficial GitHub releases. No separate\nzot install is required, and the app never uses any zot on your system PATH.\n\nOn launch the app checks the\nzot-sidekick releases\nand compares the latest tag with its own version (AppUpdater.swift). When a\nnewer release exists, a small primary \"Update\" button appears in the panel top\nbar (after Settings and Sessions) that opens the latest release page.\n\nThe app manages its own copy of the zot binary in Application Support and\nupdates it entirely in Swift (ZotUpdater.swift):\n\nNo shell script is involved at runtime.\n\nscripts/bundle-zot.sh is a pre-release helper to refresh the binary that\nships inside the app bundle. It is not part of the running app and does not\naffect the in-app update path.\n\nThe panel remembers the position and size you drag it to across hide/show.\nIt resets to the default centered position only when you quit and relaunch.\n\nProviders that support subscriptions (Anthropic Claude, ChatGPT, Kimi) offer a\n\"Log in with subscription\" button. This runs the same OAuth flow as the zot CLI:\n\nTokens are written to the bundled binary's ZOT_HOME/auth.json, so the\nembedded zot uses your subscription with no extra setup. API keys are stored\nthe same way. Use \"Sign Out\" to remove stored credentials for a provider.\n\nThe model picker shows models from every provider you are logged into, grouped\n\nzot rpc query (ZotModelFetcher). Choosing a model from a different provider\nswitches the active provider and restarts the bridge with its credentials.\n\nThe app icon is an Icon Composer bundle (Icon.icon). Because the CI runner's\nactool can crash compiling .icon, the catalog is precompiled on a Mac with\na recent Xcode into prebuilt-icon/Assets.car (plus Icon.icns) via\nscripts/compile-icon.sh, committed, and injected into the built app by the\nworkflow. Re-run that script and commit prebuilt-icon/ whenever the icon or\nasset catalog changes. The classic AppIcon.appiconset remains as a fallback\nfor pre-26 macOS.\n\n.github/workflows/build-dmg.yml builds the app on macos-latest (pinned to\nthe latest Xcode) on every push and on manual dispatch. It:\n\nReleases are notarized Developer ID builds, so they launch without Gatekeeper\nwarnings. If the signing secrets are absent, the workflow falls back to an\nad-hoc signature; such builds require a right-click \"Open\" on first launch and\nre-prompt for Accessibility on every launch.\n\nThis app bundles the zot binary and spawns it as a child process that reads\nand writes files anywhere and runs developer tools. That model requires the\nsandbox to be off (ENABLE_APP_SANDBOX = NO) and is therefore distributed as\na notarized, Developer ID-signed build outside the Mac App Store, the same as\nthe zot CLI itself. The Mac App Store requires a sandbox that would prevent\nthe embedded agent from doing its job, so it is not a target for this app.\n\nFor release: archive in Xcode, sign with your Developer ID (deep-signing the\nembedded zot-bin), notarize with notarytool, then staple and ship the\n.dmg.",
+    "readingTime": 3,
+    "keywords": [
+      "notarized developer",
+      "code cli",
+      "app store",
+      "mac app",
+      "zot cli",
+      "zot sidekick",
+      "zot binary",
+      "app bundle",
+      "developer id",
+      "launch"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/patriceckhart/zot-sidekick",
+    "thumbnail_url": "https://opengraph.githubassets.com/dbc973f39a6a429b919f5fd6ce69d27eb8947fa57d8c6d89c17ca3286738a601/patriceckhart/zot-sidekick",
+    "created_at": "2026-06-06T08:23:32.535Z",
+    "topic": "tech"
+  },
+  {
     "slug": "openai-and-anthropics-next-lockin-play-databases-of-coding-intent",
     "title": "OpenAI and Anthropic's next lock-in play: Databases of coding intent",
     "description": "Samuel Colvin, CEO of Pydantic, sees the top AI frontier labs creating databases of coding intent.",
@@ -1930,19 +1954,6 @@
     "link": "https://www.williamangel.net/blog/2026/04/27/offline-agentic-coding.html",
     "thumbnail_url": "https://www.williamangel.net/blog/2026/04/27/2026-04-27-offline_agentic_coding.png",
     "created_at": "2026-04-28T01:54:42.222Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "coding-agents-ignore-their-own-budgets",
-    "title": "Coding agents ignore their own budgets",
-    "description": "Coding agents ignore their own budgets",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://twitter.com/RampLabs/status/2046624992956146158",
-    "thumbnail_url": "https://pbs.twimg.com/media/HGVTdXNbAAEn0ja.jpg:large",
-    "created_at": "2026-04-27T01:46:57.330Z",
     "topic": "tech"
   }
 ]

@@ -1,5 +1,65 @@
 [
   {
+    "slug": "verilator-binary-for-windows-without-wsl-or-vm-or-osscad-suite-or-perl-wrapper",
+    "title": "Verilator Binary for Windows Without WSL or VM or OSS-CAD Suite or Perl Wrapper",
+    "description": "Native Prebuilt Latest Verilator binaries for Windows  - withlimon/verilator-windows",
+    "fullText": "Native Prebuilt Latest Verilator binaries for Windows.\n\nRun Verilator binary in Windows without WSL or VM.\nThis releases auto builded everyday to keep up-to-date with verilator.\n\nDownload Verilator Windows 64bit Binaries\n\nNative Prebuilt Latest Verilator binaries for Windows\n\nThere was an error while loading. Please reload this page.\n\nThere was an error while loading. Please reload this page.\n\nThere was an error while loading. Please reload this page.",
+    "readingTime": 1,
+    "keywords": [
+      "native prebuilt",
+      "prebuilt latest",
+      "loading please",
+      "please reload",
+      "latest verilator",
+      "verilator binaries",
+      "error",
+      "page",
+      "windows"
+    ],
+    "qualityScore": 0.5,
+    "link": "https://github.com/withlimon/verilator-windows",
+    "thumbnail_url": "https://opengraph.githubassets.com/5602833b1266327c3730a2e4f16337ca44e017bcaf874a276a190aa47c26490f/withlimon/verilator-windows",
+    "created_at": "2026-06-06T08:23:31.934Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "azure-linux-desktop",
+    "title": "Azure Linux Desktop",
+    "description": "A nifty Windows app that boots a full Linux desktop in a window, wiring together the wslc container API, WinUI Reactor, Azure Linux 4.0, .NET 10, with a pinch of nostalgia.",
+    "fullText": "I wanted to try out some of the cool stuff that came out of Microsoft Build 2026.\n\nAzure Linux \"Desktop\" is a small Windows app that boots a full Linux desktop in a window. It opens, starts an embedded Linux container, and a few seconds later you are looking at a themed XFCE desktop running on Azure Linux 4.0, with working audio, GPU acceleration, copy and paste, and a display that resizes with the window. No buttons, no setup wizard, no terminal. You launch the app and you are at a Linux desktop.\n\nI was inspired in part by Craig Loewen's Herbert demo. I had to take it a bit further because I have a problem.\n\nI will say this up front. It is a toy. The build steps require compiling unstable WSL from main to get the container runtime early, it shoves Fedora desktop packages onto a server distribution that was never meant to have them, and it leans on an early source build of a WinUI experiment.\n\nFour things from Build 2026 do the work here. Each one is interesting on its own. Together they make the demo.\n\nwslc is the new Linux container runtime for Windows. I wrote about it separately, but tl;dr it runs OCI containers natively in Windows, with a CLI and an API. This app uses the API directly: it creates a session, loads an image, creates a container with a port mapping, and starts it.\n\nwslc has not landed in WSL yet. It will, in a few weeks. through wsl.exe --update --pre-release before it goes stable in WSL. The code is already in WSL though, which is open source, so you can build it from main and use it early if you want. YMMV.\n\nThe app is a Microsoft UI Reactor app. Reactor is new a code-first way to build WinUI 3 interfaces: you write the UI as composable functions and state hooks in C#, the way you would in React, instead of authoring XAML and code-behind. There is not a single .xaml file in this project. Thankfully.\n\nThe whole interface is built in App.cs from Reactor factories: a title bar, a boot page, and the desktop surface, switched by state. The boot screen and the embedded desktop are both Reactor elements.\n\nAzure Linux 4.0 is the base image. It is Microsoft's Linux distribution, and version 4.0 is built from a snapshot of Fedora Linux 43. That detail matters for this project, because Azure Linux ships no desktop or GUI packages. It is a general purpose server and container distribution.\n\nBecause it is a Fedora 43 snapshot under the hood, you can point at Fedora 43 repositories and pull XFCE in from there, and...it mostly works. This is a bad hack and I would not do it in anything real, but it is a good illustration of what a shared package lineage buys you. Yay open source, again.\n\nThe app targets .NET 10 and WinUI 3, packaged through the Windows App SDK. dotnet run launches it with package identity, ReadyToRun precompiles for a faster cold start, and a single publish command produces an x64 or ARM64 build. The whole thing is one .slnx you build with dotnet build.\n\nThe flow is short. The app opens to a boot screen with the Azure Linux logo and a spinner. Behind that page it makes sure the desktop image exists, building it on first run, then asks wslc to start the container. The container runs XFCE behind an XRDP server. The app connects to that server over loopback, parks the Windows RDP client over the window, and when the session is on screen it unmounts the boot page. The window becomes the desktop.\n\nThe RDP client signs in automatically and fills everything below the title bar. From the outside it looks like the app simply is a Linux desktop. There is no visible container, no visible RDP prompt, no visible plumbing.\n\nThe interesting parts are where these pieces did not fit together cleanly. A few of my favorites.\n\nThe Windows-style boot circle on the loading page is six dots orbiting a center, and they bunch and spread the way the real OS boot spinner does. It is built as raw composition visuals: each dot is a sprite shape whose offset runs a looping Vector3 keyframe animation sampled from an eased sweep, with each dot lagged in time so they trail. It starts on mount, loops forever on the compositor, and runs no managed code per frame.\n\nThe desktop surface is the Windows RDP client ActiveX control, mstscax.dll. Really. Getting it to paint inside a WinUI window took...work. Its DirectX presenter never paints when the control is reparented under a WinUI DesktopChildSiteBridge, and the control crashes outright if you create it hidden or restyle it as layered.\n\nSo it does not live inside the WinUI tree at all. It lives in a borderless WinForms window that is owned by the main window, parked off-screen until it is ready, then glued over a placeholder rectangle by a tracking timer that follows the window as it moves and resizes. Reactor draws the window and the boot UI, the owned form carries the RDP surface, and a timer keeps them lined up. It is not elegant, but it works.\n\nThe container clock already tracks the host through Hyper-V time synchronization. The launcher converts the host's Windows timezone ID to its IANA name and re-points /etc/localtime at container start, so the desktop clock matches the host without touching the clock itself.\n\nSome hard-won facts from building the container image. Verify before assuming any of them still hold.\n\nFor nostalgia, the XFCE desktop wears a recreation of the Bluecurve theme, the look Red Hat shipped in 2002. IYKYK. The image also installs Visual Studio Code and PowerShell, because a desktop needs an editor and a shell.\n\nThis is Azure Linux, after all.\n\nThe repository has the full steps, but the shape is this. Clone with submodules, run the setup script to get the prerequisites (.NET 10 SDK, the Visual Studio components, CMake), then build and install WSL from the bundled source so you have wslc early. Build the Azure Linux XRDP image, flip EnableWslcSdk to true in the app project, then dotnet build and dotnet run.\n\nBuilding WSL from main replaces your installed WSL with a fresh build. You should probably not do this on a machine you need WSL to stay rock-solid stable on. It is a one-off. The point was to take the pieces Microsoft showed at Build 2026 and see what happens when you wire them together.\n\nA Linux desktop, in a window, from a container, on Windows, with no XAML in sight.",
+    "readingTime": 6,
+    "keywords": [
+      "visual studio",
+      "rdp client",
+      "title bar",
+      "xfce desktop",
+      "azure linux",
+      "windows app",
+      "boot screen",
+      "container runtime",
+      "boot page",
+      "desktop surface"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.boxofcables.dev/azure-linux-desktop-a-build-2026-mashup-of-wslc-winui-reactor-and-azure-linux-4-0/",
+    "thumbnail_url": "https://www.boxofcables.dev/content/images/size/w1200/2026/06/Screenshot-2026-06-06-031238.png",
+    "created_at": "2026-06-06T08:23:31.573Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "built-gopeek-for-firefox",
+    "title": "Built GoPeek for Firefox",
+    "description": "Download GoPeek for Firefox. Open links in live mini browser windows without creating new tabs.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://addons.mozilla.org/en-US/firefox/addon/gopeek/",
+    "thumbnail_url": "https://addons.mozilla.org/user-media/previews/full/378/378438.png?modified=1780728560",
+    "created_at": "2026-06-06T08:23:15.061Z",
+    "topic": "tech"
+  },
+  {
     "slug": "you-can-now-use-imessage-on-windows-with-some-serious-limitations",
     "title": "You Can Now Use iMessage on Windows (With Some Serious Limitations)",
     "description": "Phone Link allows you to send and receive Apple Messages on your PC.",
@@ -1994,60 +2054,5 @@
     "thumbnail_url": "https://regmedia.co.uk/2022/11/22/question_shutterstock.jpg",
     "created_at": "2026-01-11T18:16:36.139Z",
     "topic": "tech"
-  },
-  {
-    "slug": "winborg-a-beautiful-alternative-to-vorta-for-borgbackup",
-    "title": "WinBorg, a beautiful alternative to Vorta for BorgBackup",
-    "description": "Borg GUI for Windows . Contribute to robotnikz/WinBorg development by creating an account on GitHub.",
-    "fullText": "robotnikz\n\n /\n\n WinBorg\n\n Public\n\n Borg GUI for Windows \n\n License\n\n MIT license\n\n 1\n star\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n robotnikz/WinBorg",
-    "readingTime": 1,
-    "keywords": [
-      "star",
-      "license"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://github.com/robotnikz/WinBorg",
-    "thumbnail_url": "https://opengraph.githubassets.com/9c51b169452316354966cb96e46720f99047fbc1768dd52fda17e74dd4cb57d0/robotnikz/WinBorg",
-    "created_at": "2026-01-11T06:18:38.550Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "desktop-weather-widget-for-windows-with-shortterm-rain-nowcasting",
-    "title": "Desktop weather widget for Windows with short-term rain nowcasting",
-    "description": "🌤️ Beautiful desktop weather widget for Windows - Better than Microsoft's built-in! - malkosvetnik/desktop-weather-widget",
-    "fullText": "malkosvetnik\n\n /\n\n desktop-weather-widget\n\n Public\n\n 🌤️ Beautiful desktop weather widget for Windows - Better than Microsoft's built-in!\n\n License\n\n MIT license\n\n 4\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n malkosvetnik/desktop-weather-widget",
-    "readingTime": 1,
-    "keywords": [
-      "license"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://github.com/malkosvetnik/desktop-weather-widget",
-    "thumbnail_url": "https://opengraph.githubassets.com/0df8a65c8bb5bd28fe79d7b6e0f284c9a98682bc034d445380906fab5f821e7f/malkosvetnik/desktop-weather-widget",
-    "created_at": "2026-01-11T01:03:38.721Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "champions-league-winner-who-jose-mourinho-rates-reveals-he-couldve-joined-manchester-united",
-    "title": "Champions League winner who Jose Mourinho rates reveals he could’ve joined Manchester United",
-    "description": "Manchester United have brought in some of the most legendary players ever to play the game, but they’ve also seen plenty of big names slip through their fingers during transfer windows. Manchester United are linked with plenty of potential signings every year, and 2026 is no different.",
-    "fullText": "Manchester United have brought in some of the most legendary players ever to play the game, but they’ve also seen plenty of big names slip through their fingers during transfer windows.\n\nManchester United are linked with plenty of potential signings every year, and 2026 is no different.\n\nWith the January window open, United haven’t been quick to make any new signings. Ineos appears content to wait until summer for their main targets.\n\nThey missed out on Antoine Semenyo, who joined Manchester City earlier this week.\n\nIn midfield, Carlos Baleba was a failed target from Brighton and most of the other midfielders they are looking at aren’t available yet.\n\nIf anyone does end up leaving during the season, United may look to bring someone in. Joshua Zirkzee and Manuel Ugarte have both been mentioned as potential departures as they look for more playing time ahead of the 2026 World Cup.\n\nUnited have had several big near misses when it comes to transfers.\n\nFrom Wesley Sneijder and Thiago Alcantara to Ronaldinho and Patrick Kluivert, United have missed out on many top players down the years.\n\nJavier Zanetti, who spent 19 seasons with Inter Milan, has now shared his experience of turning down an approach from Sir Alex Ferguson. Speaking to the Daily Mail, the Argentina legend recalled:\n\n“We met at an airport,” said Zanetti. “He told me that he wanted me to go to Manchester United and I thanked him.”\n\n“Manchester United is one of the most important clubs in the world and Ferguson one of the most important coaches in the history of football,” he added. “But I told him that my footballing life would be through Inter, I wanted to play for them until the end of my career. And he understood that.”\n\nZanetti stayed loyal to Inter throughout his career, becoming a club icon much like how Ferguson valued loyalty within his own squads.\n\nZanetti won five consecutive Serie A titles with Inter from 2005/06 to 2009/10. The club also lifted the Champions League trophy in 2010 under Jose Mourinho, along with a FIFA Club World Cup title.\n\nMourinho clearly valued their time together too. When he picked his all-time best XI from players he’d managed, Zanetti was named as his right-back:\n\nZanetti ranks Mourinho highly among the managers he played for during his career.\n\nUnder Mourinho, Inter achieved a historic treble in 2010, featuring one of the strongest squads in the club’s history.\n\nWhen asked about Mourinho, Zanetti described him as one of the best he’d worked with.\n\nHe said: “We won everything with him but beyond winning it was his personality, his ability, his intelligence, his capacity as a coach. He was very important in my career.”",
-    "readingTime": 3,
-    "keywords": [
-      "manchester united",
-      "career",
-      "players",
-      "zanetti",
-      "plenty",
-      "potential",
-      "signings",
-      "missed",
-      "look",
-      "history"
-    ],
-    "qualityScore": 1,
-    "link": "https://sports.yahoo.com/articles/champions-league-winner-jose-mourinho-120700183.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/hitc_articles_832/7e8fb67c02b5d505673e31478a684e4c",
-    "created_at": "2026-01-10T12:21:55.264Z",
-    "topic": "sports"
   }
 ]
