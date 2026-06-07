@@ -1,5 +1,83 @@
 [
   {
+    "slug": "deepfake-detector-robustness-testing",
+    "title": "Deepfake Detector Robustness Testing",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+    "fullText": "This repository is publicly accessible, but you have to accept the conditions to access its files and content.\n\nAn evaluation benchmark released under CC BY-NC 4.0 for research evaluation only, not for training detection models or commercial use. Optional: tell me what you work on, and opt in below if you want a heads-up when datasets like this drop. I plan the next dataset around what people actually need.\n\nLog in or \n\nVersion: v1.0.0 · License: CC BY-NC 4.0 (research evaluation only)\n\nDetector accuracy on clean lab test sets does not predict in-the-wild performance. Social\nplatforms re-encode every uploaded image: platform-specific JPEG, resize, chroma subsampling,\nmetadata stripped. This benchmark lets detector authors and procurers measure robustness under\ndocumented, paired, demographically-balanced conditions instead of blunt lab proxies.\n\nA companion blog post and white paper cover the methodology, statistics, and findings in full.\nThis card describes what the dataset is, how it is built at a high level, and how to use it.\n\nIt is not training data. It is small by design (2,400 base images), paired by construction\n(every condition evaluates the same images), and the platform pipelines are calibrated\napproximations of each platform's mean re-encode behaviour, not pixel-faithful platform\nreproductions (see Limitations).\n\nAll configurations share the same column schema. Key columns: image, label\n(real/generated), cell_skin_tone, cell_gender, media_id (stable across\nconfigurations for pairing), perturbation_slug, perturbation_layer, and the\nmeasured-encoding fields.\n\nThe clean baseline and all 12 lab configurations are uniform at 100 images per cell per\nlabel (6 skin tones × 2 genders × real/generated). The 4 platform configurations re-crop the\nlaundered output back to a 256×256 face crop for comparability; all real-side cells retain\n100/100, while a small fraction of synthetic-face crops do not survive re-detection (~2,342–2,344\nrows per platform config). That concentration is itself a finding, analyzed in the white paper.\n\nThe full calibration procedure, preregistered hypotheses, statistics, and caveats are documented\nin the companion white paper.\n\nBaseline accuracy, per-cell fairness, and per-platform robustness deltas are reported in the\ncompanion blog post and white paper, not in this card.\n\nScale is smaller than prior work by design. This is an evaluation benchmark, not training data.\n\nA companion paper is in preparation; this citation will be updated with the DOI on publication.",
+    "readingTime": 2,
+    "keywords": [
+      "research evaluation",
+      "companion blog",
+      "white paper",
+      "evaluation benchmark",
+      "platform",
+      "configurations",
+      "training",
+      "images",
+      "conditions",
+      "dataset"
+    ],
+    "qualityScore": 1,
+    "link": "https://huggingface.co/datasets/danb21/social-media-robustness-sdxl-instantid",
+    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/danb21/social-media-robustness-sdxl-instantid.png",
+    "created_at": "2026-06-07T02:31:57.134Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "gaia2-benchmarking-llm-agents-on-dynamic-and-asynchronous-environments",
+    "title": "Gaia2: Benchmarking LLM Agents on Dynamic and Asynchronous Environments",
+    "description": "We introduce Gaia2, a benchmark for evaluating large language model agents in realistic, asynchronous environments. Unlike prior static or synchronous evaluations, Gaia2 introduces scenarios where environments evolve independently of agent actions, requiring agents to operate under temporal constraints, adapt to noisy and dynamic events, resolve ambiguity, and collaborate with other agents. Each scenario is paired with a write-action verifier, enabling fine-grained, action-level evaluation and making Gaia2 directly usable for reinforcement learning from verifiable rewards. Our evaluation of state-of-the-art proprietary and open-source models shows that no model dominates across capabilities: GPT-5 (high) reaches the strongest overall score of 42% pass@1 but fails on time-sensitive tasks, Claude-4 Sonnet trades accuracy and speed for cost, Kimi-K2 leads among open-source models with 21% pass@1. These results highlight fundamental trade-offs between reasoning, efficiency, robustness, and expose challenges in closing the \"sim2real\" gap.",
+    "fullText": "arXivLabs is a framework that allows collaborators to develop and share new arXiv features directly on our website.\n\nBoth individuals and organizations that work with arXivLabs have embraced and accepted our values of openness, community, excellence, and user data privacy. arXiv is committed to these values and only works with partners that adhere to them.\n\nHave an idea for a project that will add value for arXiv's community? Learn more about arXivLabs.",
+    "readingTime": 1,
+    "keywords": [
+      "arxivlabs",
+      "arxiv",
+      "community"
+    ],
+    "qualityScore": 0.4,
+    "link": "https://arxiv.org/abs/2602.11964",
+    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "created_at": "2026-06-07T02:31:56.274Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "tokenomics-quantifying-where-tokens-are-used-in-agentic-software-engineering",
+    "title": "Tokenomics: Quantifying Where Tokens Are Used in Agentic Software Engineering",
+    "description": "LLM-based Multi-Agent (LLM-MA) systems are increasingly applied to automate complex software engineering tasks such as requirements engineering, code generation, and testing. However, their operational efficiency and resource consumption remain poorly understood, hindering practical adoption due to unpredictable costs and environmental impact. To address this, we conduct an analysis of token consumption patterns in an LLM-MA system within the Software Development Life Cycle (SDLC), aiming to understand where tokens are consumed across distinct software engineering activities. We analyze execution traces from 30 software development tasks performed by the ChatDev framework using a GPT-5 reasoning model, mapping its internal phases to distinct development stages (Design, Coding, Code Completion, Code Review, Testing, and Documentation) to create a standardized evaluation framework. We then quantify and compare token distribution (input, output, reasoning) across these stages.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://arxiv.org/abs/2601.14470",
+    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "created_at": "2026-06-07T02:31:56.259Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "trump-posts-video-of-aigenerated-characters-from-around-the-world-chanting-they-love-donald-trump",
+    "title": "Trump posts video of AI-generated characters from around the world chanting, 'They love Donald Trump'",
+    "description": "President Trump shared an AI-generated video on Truth Social on Saturday depicting characters from across the world chanting \"they love Donald Trump.\"",
+    "fullText": "President Trump shared an AI-generated video on Truth Social on Saturday — the 82nd anniversary of the D-Day landings in Normandy — featuring an auto-tuned chant of \"they love Donald Trump\" set against AI-generated characters from around the world.\n\nThe one-minute clip cycles through depictions of people the song frames as being from Mexico, Italy, the Middle East, Africa, China and India, with each verse ending in the refrain \"They love Donald, Donald Trump.\" One part of the video shows Trump riding a camel; another shows Trump riding a motorcycle in India.\n\n\"Everywhere I go, they love Donald Donald Trump,\" the auto-tuned vocal track repeats. The voice closes out the video singing, \"I gotta say, I love Donald Donald Trump. Might be president one day, just like Donald Donald Trump.\"\n\nThe depictions, particularly those representing African and Indigenous people, lean on stereotypical tribal imagery — including face paint, beadwork and feathered headdresses against an American flag backdrop.\n\nAnother part of the video shows an AI-generated man with gold grills that say \"Trump.\"\n\nThe post is the latest in a flurry of AI-generated content Trump has shared on Truth Social in recent weeks. Earlier this week, the president posted mockups of a so-called \"DronePort\" he wants installed on top of the planned White House ballroom, and last month he shared an AI-generated image of Iran's military assets being destroyed. In February, the White House backtracked after Trump's account shared an AI video depicting former President Barack Obama and former first lady Michelle Obama as apes.",
+    "readingTime": 2,
+    "keywords": [
+      "love donald",
+      "trump riding",
+      "truth social",
+      "ai-generated",
+      "shared",
+      "auto-tuned",
+      "depictions",
+      "another",
+      "president",
+      "india"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://www.yahoo.com/news/politics/article/trump-posts-video-of-ai-generated-characters-from-around-the-world-chanting-they-love-donald-trump-175004159.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/2lQaf61qpYFXytibf_aVPA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NTA7Y2Y9d2VicA--/https://d29szjachogqwa.cloudfront.net/images/user-uploaded/screenshot-2026-06-06-at-13652-pm_4746.png",
+    "created_at": "2026-06-07T02:31:55.220Z",
+    "topic": "politic"
+  },
+  {
     "slug": "we-should-not-have-to-sacrifice-new-york-could-become-first-state-to-temporarily-ban-large-datacenters",
     "title": "‘We should not have to sacrifice’: New York could become first state to temporarily ban large datacenters",
     "description": "Kristen Gonzalez, a state senator who authored the bill, said moratorium would target ‘hyperscale’ datacenters over 20MW\nNew York moved closer toward becoming the first US state to enact a moratorium on large datacenters this week. On Thursday, the state legislature approved a one-year ban on the facilities powering the AI boom.\nThe measure now heads to Kathy Hochul, the governor, who will decide whether to sign it into law. The Guardian spoke to a state senator in the wake of the historic vote about authoring the bill and the wider US backlash against datacenters.\n Continue reading...",
@@ -1578,58 +1656,6 @@
     "link": "https://www.businessinsider.com/ray-dalio-china-ai-policy-different-from-the-us-2026-6",
     "thumbnail_url": "https://i.insider.com/6a203af22e5a80cfe0502bce?width=1200&format=jpeg",
     "created_at": "2026-06-04T02:38:40.572Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "citi-says-fears-of-trilliondollar-megaipos-overwhelming-the-market-are-overblown",
-    "title": "Citi says fears of trillion-dollar mega-IPOs overwhelming the market are overblown",
-    "description": "Citi analysts say that the market can handle SpaceX, OpenAI, and Anthropic IPOs as concerns grown about the impacts on structure and liquidity.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/spacex-ipo-anthropic-openai-stock-spcx-ai-index-026-6",
-    "thumbnail_url": "https://i.insider.com/6a203580b4fb977f35983b25?width=1200&format=jpeg",
-    "created_at": "2026-06-04T02:38:40.563Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-software-engineer-created-a-90day-ai-course-to-help-workers-across-departments-build-the-tech-they-want",
-    "title": "A software engineer created a 90-day AI course to help workers across departments build the tech they want",
-    "description": "Flexport's AI training was built in-house to give employees automation and vibe-coding skills crucial to modern supply chain management.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/flexport-upskilling-ai-employee-program-product-engineering-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a1f07f6b4fb977f35983586?width=1200&format=jpeg",
-    "created_at": "2026-06-04T02:38:40.553Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ai-spending-from-4-tech-giants-will-exceed-the-gdp-of-japan-through-2030-goldman-says",
-    "title": "AI spending from 4 tech giants will exceed the GDP of Japan through 2030, Goldman says",
-    "description": "AI capex spending from Meta, Microsoft, Amazon, and Alphabet is expected to reach $5.3 trillion over the next few years, Goldman estimated.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/ai-capex-boom-meta-microsoft-amazon-alphabet-goldman-sachs-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a2050372ab5f9757add881f?width=1200&format=jpeg",
-    "created_at": "2026-06-04T02:38:40.436Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "sam-altman-says-openais-top-token-spender-uses-100-billion-tokens-a-month-and-theyre-not-even-the-world-leader",
-    "title": "Sam Altman says OpenAI's top token spender uses 100 billion tokens a month — and they're not even the world leader",
-    "description": "Sam Altman said AI budgeting has recently become a \"huge issue\" for some companies, something that \"never came up\" earlier this year.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/sam-altman-openai-top-token-spender-ai-costs-issue-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a2040ecb4fb977f35983b6e?width=1200&format=jpeg",
-    "created_at": "2026-06-04T02:38:40.320Z",
     "topic": "finance"
   }
 ]

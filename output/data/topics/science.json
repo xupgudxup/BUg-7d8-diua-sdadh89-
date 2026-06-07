@@ -1,5 +1,29 @@
 [
   {
+    "slug": "deepfake-detector-robustness-testing",
+    "title": "Deepfake Detector Robustness Testing",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+    "fullText": "This repository is publicly accessible, but you have to accept the conditions to access its files and content.\n\nAn evaluation benchmark released under CC BY-NC 4.0 for research evaluation only, not for training detection models or commercial use. Optional: tell me what you work on, and opt in below if you want a heads-up when datasets like this drop. I plan the next dataset around what people actually need.\n\nLog in or \n\nVersion: v1.0.0 · License: CC BY-NC 4.0 (research evaluation only)\n\nDetector accuracy on clean lab test sets does not predict in-the-wild performance. Social\nplatforms re-encode every uploaded image: platform-specific JPEG, resize, chroma subsampling,\nmetadata stripped. This benchmark lets detector authors and procurers measure robustness under\ndocumented, paired, demographically-balanced conditions instead of blunt lab proxies.\n\nA companion blog post and white paper cover the methodology, statistics, and findings in full.\nThis card describes what the dataset is, how it is built at a high level, and how to use it.\n\nIt is not training data. It is small by design (2,400 base images), paired by construction\n(every condition evaluates the same images), and the platform pipelines are calibrated\napproximations of each platform's mean re-encode behaviour, not pixel-faithful platform\nreproductions (see Limitations).\n\nAll configurations share the same column schema. Key columns: image, label\n(real/generated), cell_skin_tone, cell_gender, media_id (stable across\nconfigurations for pairing), perturbation_slug, perturbation_layer, and the\nmeasured-encoding fields.\n\nThe clean baseline and all 12 lab configurations are uniform at 100 images per cell per\nlabel (6 skin tones × 2 genders × real/generated). The 4 platform configurations re-crop the\nlaundered output back to a 256×256 face crop for comparability; all real-side cells retain\n100/100, while a small fraction of synthetic-face crops do not survive re-detection (~2,342–2,344\nrows per platform config). That concentration is itself a finding, analyzed in the white paper.\n\nThe full calibration procedure, preregistered hypotheses, statistics, and caveats are documented\nin the companion white paper.\n\nBaseline accuracy, per-cell fairness, and per-platform robustness deltas are reported in the\ncompanion blog post and white paper, not in this card.\n\nScale is smaller than prior work by design. This is an evaluation benchmark, not training data.\n\nA companion paper is in preparation; this citation will be updated with the DOI on publication.",
+    "readingTime": 2,
+    "keywords": [
+      "research evaluation",
+      "companion blog",
+      "white paper",
+      "evaluation benchmark",
+      "platform",
+      "configurations",
+      "training",
+      "images",
+      "conditions",
+      "dataset"
+    ],
+    "qualityScore": 1,
+    "link": "https://huggingface.co/datasets/danb21/social-media-robustness-sdxl-instantid",
+    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/danb21/social-media-robustness-sdxl-instantid.png",
+    "created_at": "2026-06-07T02:31:57.134Z",
+    "topic": "tech"
+  },
+  {
     "slug": "researchers-say-this-new-trump-rule-could-destroy-american-science-as-we-know-it-theyre-fighting-back",
     "title": "Researchers say this new Trump rule could destroy American science as we know it. They’re fighting back",
     "description": "Scientists across multiple disciplines are raising the alarm after the White House proposed taking greater control over how scientific research gets funded and allowing political appointees to decide ...",
@@ -2084,29 +2108,5 @@
     "thumbnail_url": "https://i.insider.com/6998786c156648bc16a894e8?width=1200&format=jpeg",
     "created_at": "2026-02-22T12:26:20.281Z",
     "topic": "finance"
-  },
-  {
-    "slug": "legendary-sf-author-harlan-ellison-had-nothing-but-harsh-words-about-star-wars",
-    "title": "Legendary SF Author Harlan Ellison Had Nothing but Harsh Words About Star Wars",
-    "description": "Harlan Ellison is one of the most influential voices in science-fiction history, and he was vocally not a fan of Star Wars.",
-    "fullText": "We may receive a commission on purchases made from links.\n\nMost stories one reads about the legendary sci-fi author Harlan Ellison tend to be about how cranky and/or litigious he was. Harlan Ellison hated Hollywood. The stories about his dissatisfaction with \"Star Trek\" are legendary, and he often took other writers and/or studios to court, claiming they had ripped off his idea. He once sued the makers of the obscure 1970s sci-fi cop show \"Future Cop,\" and he famously (and successfully) sued James Cameron over \"The Terminator.\" He sued the movie \"In Time\" for \"borrowing\" one of his ideas. And in interviews, Ellison remained cantankerous. A notable 1979 interview with the Comics Journal revealed the man's open hatred for studios' habit of stealing other authors' ideas and claiming them as their own.\n\nIn 1989, Ellison published a book of reviews and essays called \"Harlan Ellison's Watching,\" which compiled 25 years of his ancillary nonfiction writing output. He weighed in on various pop sci-fi films and TV shows, adding his two acidic cents to the otherwise genteel conversation. It was never a secret that Harlan Ellison hated George Lucas' 1977 sci-fi opera \"Star Wars,\" as he would make passing mention of it in ancillary interviews, but in \"Watching,\" he got to lay his opinions bare in an essay entitled \"Luke Skywalker Is A Nerd And Darth Vader Sucks Runny Eggs.\" As one can tell, Ellison was not about to launch into a paean about the glories of Lucas' Skywalker saga. He was about to lay out, in explicit detail, just how much he hated \"Star Wars\" and why.\n\nIn brief, Ellison felt that \"Star Wars\" was shallow and thoughtless, not interested in anything complex or adult. Because it was a mere adventure, it didn't fully exploit the depths of its own genre.\n\nThe Grailrunner website printed some passages from Harlan Ellison's essay, and boy howdy are they harsh. Ellison hated that sci-fi, a genre he associated with imagination, ambition, and philosophy, was being wielded to tell a mere swashbuckling adventure pic. He called \"Star Wars\" \"some half-wit wild west adventure in outer space.\" He said that Hollywood doesn't know the difference between making a sci-fi movie and making any other genre. Sci-fi is \"just another shoot-'em-up with laser rifles.\" He wrote:\n\n\"For all of its length, for all of its astonishing technical expertise, its headlong plunge and its stunning effects, at no time can one discern the passage of a thought. It is all bread and circuses. The human heart is never touched, the lives unexamined, the characters are comic strip stereotypes.\"\n\nAnd he does have a point. The first \"Star Wars,\" taken independently from its many, many sequels, most closely resembles the 1930s sci-fi adventure serials that George Lucas watched as a kid. The characters are quite deliberately archetypal and even a little arch and artificial. The original \"Star Wars\" is using modern special effects and 1970s filmmaking tech to link up contemporary cinema with older, squarer filmic traditions from decades previous. There is no moral nuance or complexity to \"Star Wars.\" It's an adventure novel, a \"heroes and villains\" story. Ellison seemingly felt that devoting all that time and all those cinematic resources to a story about comic book stereotypes was a waste of time.\n\nSci-fi was, as Ellison wrote, a \"what if\" genre that probes the possibilities of broad, high-concept ideas. What if we were all psychic? What if we met aliens? There is, one might agree, no \"what if\" quality to \"Star Wars.\" It's a caper film.\n\nHarlan Ellison was keen to recommend sci-fi movies that he felt did explore the genre in interesting ways. He liked the movie \"Charly.\" He liked \"1984,\" of course. He also recommended L.Q. Jones' 1975 film \"A Boy and His Dog\" ... which is based on one of his own short stories. Ellison was famously not fond of Stanley Kubrick's seminal sci-fi text \"2001: A Space Odyssey,\" as he felt it was too focused on its visuals, and not its humanity. He wrote:\n\n\"[A]ll the films that we thought were great, like '2001,' become, in retrospect, merely exercises in special effects. There are damned few 'people' stories that deal with what science fiction at its best and most valuable handles better than any other kind of story: the effects on human beings of technology, unusual happenings and the future.\"\n\nOne of Ellison's biggest issues with \"Star Wars\" was how uncritical the public seemed to be. He hated that NASA scientists were singing its praises, and that a friend, author Ben Bova, dared to give it a good review. He saw no dissenting voices among the rising tide of what would come to be known as \"the fandom.\" He wrote:\n\n\"I sincerely hope that science and scientists differ from science fiction and its practitioners. Heaven help us if they don't: we may be headed for a very boring world indeed. Strip 'Star Wars' of its often striking images and its highfalutin scientific jargon, and you get a story, characters, and dialogue of overwhelming banality ... trite characters and paltry verbiage ... Still, 'Star Wars' will do very nicely for those lucky enough to be childish or unlucky enough never to have grown up.\"",
-    "readingTime": 5,
-    "keywords": [
-      "star wars",
-      "wars it's",
-      "science fiction",
-      "ellison hated",
-      "harlan ellison",
-      "george lucas",
-      "sci-fi",
-      "adventure",
-      "genre",
-      "stories"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.slashfilm.com/2104889/sci-fi-author-harlan-ellison-harsh-words-star-wars/",
-    "thumbnail_url": "https://www.slashfilm.com/img/gallery/legendary-sci-fi-author-harlan-ellison-had-nothing-but-harsh-words-about-star-wars/l-intro-1771463295.jpg",
-    "created_at": "2026-02-21T12:24:51.584Z",
-    "topic": "entertainment"
   }
 ]
