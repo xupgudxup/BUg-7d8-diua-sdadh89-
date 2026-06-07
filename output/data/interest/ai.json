@@ -1,5 +1,77 @@
 [
   {
+    "slug": "mbodi-ai-yc-p25-is-hiring-founding-machine-learning-engineer-robotics",
+    "title": "Mbodi AI (YC P25) Is Hiring Founding Machine Learning Engineer (Robotics)",
+    "description": "About...",
+    "fullText": "Mbodi is building embodied AI platform that makes robots learn and operate like humans, with natural language. Our software lets anyone teach robots new skills by talking to them and execute the learned skills reliably in production, in minutes. We are pioneering the next wave of robotics, where advanced generative models, agentic systems, and real world automation come together.\n\nWe are backed by top investors, part of YC X25, and working with global industrial partners including ABB and Fortune 100 customers across manufacturing, logistics, and labs.\n\nOur founders bring experience from Google and robotics research at UPenn GRASP, and we are building a small, senior team focused on one of the hardest problems in AI: bringing intelligence into the physical world.\n\nAs one of our early engineers, you’ll be responsible for developing and deploying cutting-edge ML models and agentic AI systems that power robot learning and behavior. As a founding team member, you’ll play a critical role in shaping our technology, culture, and mission from the ground up.\n\nThis is a chance to work on one of the hardest and most important problems in AI: bringing intelligence into the physical world.\n\nYou will work directly with the founders and help shape the core platform, from agent architecture and robot learning to production deployment with global industrial customers.\n\nWe are building a small, senior team that wants to solve hard problems with real world stakes.",
+    "readingTime": 2,
+    "keywords": [
+      "robot learning",
+      "senior team",
+      "platform",
+      "robots",
+      "skills",
+      "production",
+      "robotics",
+      "models",
+      "agentic",
+      "systems"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://www.ycombinator.com/companies/mbodi-ai/jobs/WYAcNkX-founding-machine-learning-engineer",
+    "thumbnail_url": "https://bookface-images.s3.amazonaws.com/logos/bb1239ee67e01455546fe8a413724b572346e680.png?1745870357",
+    "created_at": "2026-06-07T08:44:17.413Z",
+    "topic": "jobs"
+  },
+  {
+    "slug": "bgbgone-local-mac-background-remover-cli-mit",
+    "title": "Bgbgone – local Mac background remover CLI – MIT",
+    "description": "The ultimate UNIX-style background remover for macOS. AI-driven via Apple's on-device Vision framework. No API keys. No cloud. No network.",
+    "fullText": "A UNIX-style background remover for macOS. Image in, image out — Apple Vision masks plus Core Image, zero dependencies, 100% on-device, 100% scriptable.\n\nmacOS 26+, ~3 MB binary, no Xcode needed. From \n\nEvery example below is one of these four forms with a --filter chain added. Each is also a byte-identical HTTP request — see Server mode.\n\nThree originals drive every example below. Each is shown once here; later sections reuse the same fixtures.\n\nThe default: remove the background, emit a PNG with alpha. The checkerboard shows transparency.\n\n--channels alpha emits the mask itself as a grayscale silhouette — the matte for downstream compositing.\n\nComposite the cutout onto a flat colour. JPEG output works because alpha is flattened away.\n\nAny image works as the background. Here, the Flaming Star Nebula (Chuck Ayoub, CC0).\n\nBackground goes black-and-white, the subject keeps its colour — bg:grayscale over the photo's own background.\n\nSilky background blur, subject razor-sharp — bg:blur=60.\n\nCrop to the subject, then add a hard white outline on the transparent cutout. Two steps: outlining the raw photo would leave the original background showing outside the border.\n\nRadial zoom-blur behind a person — --type person selects the human-segmentation model.\n\nmask:feather=N softens the matte edge by N pixels. The close-up shows three values on one fixture: default hard edge, feather=24 (soft glow), and feather=80 (extreme halo).\n\n49 Core Image filters, layered onto bg / fg / all / mask / composite.\n\nbgbgone --server exposes the same Config and pipeline over local HTTP. Every flag has an HTTP twin with byte-identical output, verified in Tests/integration/run-server-parity.sh (19 cases, all green).\n\nFull walkthrough (every example mirrored as curl): SERVER-README.md. Wire contract: docs/server/README.md. Security: docs/server/security.md.\n\nOn-device, no network, single process per batch. Inputs are strict-PD Wikimedia fixtures (JPG, 95 KB–665 KB) cycled into batches; output bytes are verified identical across every invocation, so timings reflect real work — not caching.\n\nReproduce: make load-test-table, or per scale make perf-100 / make perf-1000 / make perf-10000.\n\nCLI args → ConfigParser (pure Swift) → BgBgOne pipeline → Algorithms/ (Vision: vn-mask / person / saliency) + FilterPipeline (49 Core Image filters) + Compositor (mask + bg) → Output (PNG / JPG / HEIC / AVIF / TIFF / ZIP). NetworkGuard hard-blocks all sockets at runtime. CLI and --server resolve to the same Config and run the same pipeline. Details: docs/design.md.\n\nWorking agreement: DEVELOPMENT.md. Per-AI-session rules: CLAUDE.md.\n\nEvery fenced bash block in this README and under docs/ is executed against the installed binary on every make test (scripts/test-doc-blocks.sh). Every image link is checked (scripts/lint-doc-images.sh), and every visual-demo block must be paired with an image (scripts/lint-block-pairing.sh).\n\nAll 26 test fixtures are public-domain or CC0, plus one CC BY 4.0 own-work portrait. One row per file in Tests/fixtures/LICENSES.md, enforced 1:1 by scripts/lint-fixtures.sh.",
+    "readingTime": 3,
+    "keywords": [
+      "core image",
+      "background",
+      "output",
+      "fixtures",
+      "alpha",
+      "mask",
+      "subject",
+      "perf",
+      "macos",
+      "plus"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/Arthur-Ficial/bgbgone",
+    "thumbnail_url": "https://opengraph.githubassets.com/f42d9febe0ec1c29b591f0d400c3e7fcfb7b0277a74f3e0f2da95f81b669d812/Arthur-Ficial/bgbgone",
+    "created_at": "2026-06-07T08:44:15.390Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "doubleline-oaktree-brace-for-potential-ai-pain",
+    "title": "DoubleLine, Oaktree Brace for Potential AI Pain",
+    "description": "(Bloomberg) -- Credit heavyweights like DoubleLine Capital LP and Oaktree Capital Management are buying debt now that can perform well if the artificial intelligence boom turns into a credit bust.Most Read from BloombergTrump Says He, Not Congress, Is in Charge of Kennedy Center in ReversalWhy Oil’s Not at $200 After the Biggest Supply Shock in HistoryBecerra Advances for California Governor as Hilton Fights SteyerSpaceX Inks $30 Billion Computing Power Deal With GoogleUS Forces See Nearly 1,000",
+    "fullText": "(Bloomberg) -- Credit heavyweights like DoubleLine Capital LP and Oaktree Capital Management are buying debt now that can perform well if the artificial intelligence boom turns into a credit bust.\n\nTrump Says He, Not Congress, Is in Charge of Kennedy Center in Reversal\n\nWhy Oil’s Not at $200 After the Biggest Supply Shock in History\n\nBecerra Advances for California Governor as Hilton Fights Steyer\n\nSpaceX Inks $30 Billion Computing Power Deal With Google\n\nUS Forces See Nearly 1,000 Hormuz Crossings Since Ceasefire\n\nWhile prices and valuations on bonds aren’t yet frothy, the market will undoubtedly reach those levels in the coming months or years as technology companies pour trillions of dollars into AI, said Robert Cohen, portfolio manager at DoubleLine.\n\nInvesting in debt tied to AI is difficult because many of the securities for sale now will not mature for decades, when current technology may be obsolete. Data centers face a heightened risk of overbuilding because the properties take a long time to construct and many projects are launching at once, Cohen said.\n\n“You have to think about what credit will survive a deep cycle,” Cohen said, speaking at the Bloomberg Global Credit Forum on Wednesday. “You want credits that either through structure or just a very strong balance sheet will survive.”\n\nAt the same time, companies are flooding the market with so much debt that money managers cannot afford to ignore them. The big US tech firms known as hyperscalers have sold more than $155 billion of unsecured bonds globally, already up more than 45% from their entire issuance last year, according to a May 21 report by Barclays.\n\nAnd there’s additional debt beyond hyperscaler notes. This week alone, Hut 8 Corp., a data center company, sold around $4 billion of high-grade bonds to fund a project in Texas, while a $36 billion bond sale to purchase chips for Anthropic, an AI model developer, is moving closer to completion.\n\nPlenty more borrowing is coming. Bloomberg Intelligence estimates that companies will spend around $5 trillion on capital expenditure for AI over the next five years, much of which will come from debt.\n\nOaktree invests as if there could potentially be speculative excess in the future, even if it doesn’t know whether there will be. The market is in the early stages of data center financing, said Christina Lee, co-portfolio manager in private credit at Oaktree.\n\n“We need to be selective because we really don’t know yet who the winners and losers of this competitive set will be,” Lee said. “Data center financing is a really large and growing opportunity set. We’re just in the early innings of it.”",
+    "readingTime": 3,
+    "keywords": [
+      "center financing",
+      "debt",
+      "capital",
+      "bonds",
+      "market",
+      "technology",
+      "manager",
+      "sale",
+      "survive",
+      "credit"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://finance.yahoo.com/markets/stocks/articles/doubleline-oaktree-brace-potential-ai-190000976.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/aoJq1eMsLXWqXAO2RuilWg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/bloomberg_holding_pen_162/6b2ad0f8c9becd24c6cf81daf3455f43",
+    "created_at": "2026-06-07T08:44:10.835Z",
+    "topic": "finance"
+  },
+  {
     "slug": "deepfake-detector-robustness-testing",
     "title": "Deepfake Detector Robustness Testing",
     "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
@@ -1617,45 +1689,6 @@
     "link": "https://www.investing.com/news/analyst-ratings/rbc-capital-raises-broadcom-stock-price-target-on-ai-demand-93CH-4725999",
     "thumbnail_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
     "created_at": "2026-06-04T09:42:33.884Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "truist-raises-crowdstrike-stock-price-target-to-750-on-ai-demand",
-    "title": "Truist raises CrowdStrike stock price target to $750 on AI demand",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/analyst-ratings/truist-raises-crowdstrike-stock-price-target-to-750-on-ai-demand-93CH-4725995",
-    "thumbnail_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
-    "created_at": "2026-06-04T09:42:33.883Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "bank-of-america-accepted-less-than-1-of-internship-applicants-this-year-but-ai-isnt-shrinking-the-class",
-    "title": "Bank of America accepted less than 1% of internship applicants this year, but AI isn't shrinking the class",
-    "description": "AI is changing Wall Street internships, but Bank of America says entry-level hiring remains a priority despite automation.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/bank-of-america-summer-interns-wall-street-ai-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a1edb37b4fb977f359833d1?width=1200&format=jpeg",
-    "created_at": "2026-06-04T02:38:40.810Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "billionaire-investor-ray-dalio-breaks-down-how-chinas-philosophy-on-ai-differs-from-the-us",
-    "title": "Billionaire investor Ray Dalio breaks down how China's philosophy on AI differs from the US",
-    "description": "The billionaire investor visited China in April and met with members of the country's leadership.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/ray-dalio-china-ai-policy-different-from-the-us-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a203af22e5a80cfe0502bce?width=1200&format=jpeg",
-    "created_at": "2026-06-04T02:38:40.572Z",
     "topic": "finance"
   }
 ]

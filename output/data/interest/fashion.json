@@ -1,5 +1,29 @@
 [
   {
+    "slug": "bgbgone-local-mac-background-remover-cli-mit",
+    "title": "Bgbgone – local Mac background remover CLI – MIT",
+    "description": "The ultimate UNIX-style background remover for macOS. AI-driven via Apple's on-device Vision framework. No API keys. No cloud. No network.",
+    "fullText": "A UNIX-style background remover for macOS. Image in, image out — Apple Vision masks plus Core Image, zero dependencies, 100% on-device, 100% scriptable.\n\nmacOS 26+, ~3 MB binary, no Xcode needed. From \n\nEvery example below is one of these four forms with a --filter chain added. Each is also a byte-identical HTTP request — see Server mode.\n\nThree originals drive every example below. Each is shown once here; later sections reuse the same fixtures.\n\nThe default: remove the background, emit a PNG with alpha. The checkerboard shows transparency.\n\n--channels alpha emits the mask itself as a grayscale silhouette — the matte for downstream compositing.\n\nComposite the cutout onto a flat colour. JPEG output works because alpha is flattened away.\n\nAny image works as the background. Here, the Flaming Star Nebula (Chuck Ayoub, CC0).\n\nBackground goes black-and-white, the subject keeps its colour — bg:grayscale over the photo's own background.\n\nSilky background blur, subject razor-sharp — bg:blur=60.\n\nCrop to the subject, then add a hard white outline on the transparent cutout. Two steps: outlining the raw photo would leave the original background showing outside the border.\n\nRadial zoom-blur behind a person — --type person selects the human-segmentation model.\n\nmask:feather=N softens the matte edge by N pixels. The close-up shows three values on one fixture: default hard edge, feather=24 (soft glow), and feather=80 (extreme halo).\n\n49 Core Image filters, layered onto bg / fg / all / mask / composite.\n\nbgbgone --server exposes the same Config and pipeline over local HTTP. Every flag has an HTTP twin with byte-identical output, verified in Tests/integration/run-server-parity.sh (19 cases, all green).\n\nFull walkthrough (every example mirrored as curl): SERVER-README.md. Wire contract: docs/server/README.md. Security: docs/server/security.md.\n\nOn-device, no network, single process per batch. Inputs are strict-PD Wikimedia fixtures (JPG, 95 KB–665 KB) cycled into batches; output bytes are verified identical across every invocation, so timings reflect real work — not caching.\n\nReproduce: make load-test-table, or per scale make perf-100 / make perf-1000 / make perf-10000.\n\nCLI args → ConfigParser (pure Swift) → BgBgOne pipeline → Algorithms/ (Vision: vn-mask / person / saliency) + FilterPipeline (49 Core Image filters) + Compositor (mask + bg) → Output (PNG / JPG / HEIC / AVIF / TIFF / ZIP). NetworkGuard hard-blocks all sockets at runtime. CLI and --server resolve to the same Config and run the same pipeline. Details: docs/design.md.\n\nWorking agreement: DEVELOPMENT.md. Per-AI-session rules: CLAUDE.md.\n\nEvery fenced bash block in this README and under docs/ is executed against the installed binary on every make test (scripts/test-doc-blocks.sh). Every image link is checked (scripts/lint-doc-images.sh), and every visual-demo block must be paired with an image (scripts/lint-block-pairing.sh).\n\nAll 26 test fixtures are public-domain or CC0, plus one CC BY 4.0 own-work portrait. One row per file in Tests/fixtures/LICENSES.md, enforced 1:1 by scripts/lint-fixtures.sh.",
+    "readingTime": 3,
+    "keywords": [
+      "core image",
+      "background",
+      "output",
+      "fixtures",
+      "alpha",
+      "mask",
+      "subject",
+      "perf",
+      "macos",
+      "plus"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/Arthur-Ficial/bgbgone",
+    "thumbnail_url": "https://opengraph.githubassets.com/f42d9febe0ec1c29b591f0d400c3e7fcfb7b0277a74f3e0f2da95f81b669d812/Arthur-Ficial/bgbgone",
+    "created_at": "2026-06-07T08:44:15.390Z",
+    "topic": "tech"
+  },
+  {
     "slug": "kentucky-derby-winner-golden-tempo-faces-a-pace-challenge-in-the-belmont-stakes",
     "title": "Kentucky Derby winner Golden Tempo faces a pace challenge in the Belmont Stakes",
     "description": "The front-running horses in the Kentucky Derby last month completed the first quarter-mile in under 23 seconds and a half-mile in under 47 seconds.  Five weeks later, the Cherie DeVaux-trained colt is among the top contenders in the 158th rendition of the Belmont Stakes at Saratoga Race Course on Saturday, even if there does not appear to be as much early speed in the field.  “We just have to hope that a pace materializes with his running style,” DeVaux said.",
@@ -1947,30 +1971,6 @@
     "link": "https://sports.yahoo.com/articles/manchester-united-plot-casemiro-style-062000854.html",
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/LYoFf7Ja73oUvM9_N1bDZA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/madrid_universal_articles_561/73303da1e49135ee8ecd36c0a8fadd63",
     "created_at": "2026-05-02T07:19:12.408Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "is-the-dodgers-next-manager-already-in-the-clubhouse",
-    "title": "Is the Dodgers’ Next Manager Already in the Clubhouse?",
-    "description": "Could Miguel Rojas succeed Dave Roberts as the next Dodgers manager? We dive into his leadership style, his connection to the roster, and the case for a player-to-manager transition.",
-    "fullText": "Recent reports that Dodgers shortstop Miguel Rojas could be reconsidering his decision to retire after the 2026 season, which he said was intended to let him spend more time with his children.\n\nBut whether 2026 or 2027 is his last season as a player, it might not be his last in a Dodgers uniform, according to Dodgers Nation’s Doug McKain.\n\nMcKain said when manager Dave Roberts, who’s 53 years old and in his 11th season with the Dodgers, eventually decides to step away, Rojas would be the team’s best choice.\n\n“If I had to have my pick, I’m taking Miguel Rojas all day, every day, twice on Sunday, and on Game 7, too, because I think Miguel Rojas, he has this special ability to communicate with everyone. Superstars like Sho[hei Ohtani], young players like Roki [Sasaki], you see him on the on the top deck, dancing with Roki’s bobblehead, cool with Kike Hernandez,” McKain said.\n\n“This guy’s got a magnetic personality. Also, baseball IQ off the charts. So that’s my pick to be the successor of Dave Roberts one day. I want to see Miguel Rojas go down as the Dodgers manager that takes on that torch because he’s great with the media, he’s great with his teammates.”\n\nMcKain goes on to explain that the playing careers of Rojas and Roberts share some facets.\n\n“Dave Roberts was not a a top-level prospect. He had to fight and claw to stay in the show. And then what is Dave Roberts always going to be known for? The steal, 2004, the ALCS steal against the Yankees,” McKain said. “What is Miguel Rojas always going to be known for? The home run Game 7 of the World Series. Both had these improbable postseason moments that you can’t take away from them. And that’s what I like about Miggy Ro. “\n\nOf course, it’s worth noting that Rojas’ candidacy to replace Roberts would be greatly enhanced by some managerial experience before taking over one of the premier franchises in sports.\n\nBut for players who do make that transition, the key often is playing for the team they later manage.\n\nRoberts had some coaching and front-office experience with the San Diego Padres before coming to LA, but he’d previously played for the Dodgers from 2002 to 2004.\n\nAaron Boone is managing the New York Yankees now, but he didn’t have managerial experience before his hiring ahead of the 2018 season.\n\nInstead, he’d been a broadcaster for eight seasons. But what experience he did have was as a Yankees player in 2003.\n\nAnother manager, Craig Counsell of the Chicago Cubs, managed the Milwaukee Brewers for nine seasons before heading to the Windy City.\n\nHe didn’t have any coaching experience before that, instead working in the Brewers front office and as a part-time broadcaster for the team.\n\nWhat he did have, though, was experience as a player with the Brewers.\n\nHe spent six seasons in Milwaukee over two stints, first in 2004 and then from 2007 to 2011.\n\nIs Rojas the next player to transition quickly into managing? If franchises value playing experience for the team the way they seem to, Rojas will be a strong candidate.\n\nDo you think Miguel Rojas would be a good manager for the Dodgers?\n\nJanai Williams contributed to this report.",
-    "readingTime": 3,
-    "keywords": [
-      "miguel rojas",
-      "managerial experience",
-      "dave roberts",
-      "season",
-      "player",
-      "team",
-      "seasons",
-      "dodgers",
-      "away",
-      "pick"
-    ],
-    "qualityScore": 1,
-    "link": "https://sports.yahoo.com/articles/dodgers-next-manager-already-clubhouse-183658413.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/dodgers_nation_articles_337/70f25666e74dfc1f35ab45403718ad40",
-    "created_at": "2026-05-01T18:57:04.241Z",
     "topic": "sports"
   }
 ]
