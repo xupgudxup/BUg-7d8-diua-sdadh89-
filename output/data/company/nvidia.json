@@ -1,5 +1,31 @@
 [
   {
+    "slug": "dan-loeb-says-5-trillion-nvidia-is-still-undervalued",
+    "title": "Dan Loeb says $5 trillion Nvidia is still undervalued",
+    "description": "Nvidia shares have surged nearly 14-fold since the start of 2023, making it one of Wall Street's biggest winners of the AI era.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/dan-loeb-third-point-nvidia-stock-price-earnings-potential-undervalued-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a262fed2e5a80cfe0504500?width=1200&format=jpeg",
+    "created_at": "2026-06-08T10:16:01.894Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "the-100000-visa-fee-isnt-stopping-openai-anthropic-and-nvidia-as-they-battle-for-ai-talent",
+    "title": "The $100,000 visa fee isn't stopping OpenAI, Anthropic, and Nvidia as they battle for AI talent",
+    "description": "Anthropic, OpenAI, and Nvidia increase H-1B visa applications as other tech giants cut back, highlighting the AI talent demand.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/h-1b-visa-filings-rise-for-anthropic-openai-nvidia-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a21a356b4fb977f35984679?width=1200&format=jpeg",
+    "created_at": "2026-06-08T10:16:01.893Z",
+    "topic": "finance"
+  },
+  {
     "slug": "nvidia-clinches-deals-with-south-korean-giants-include-sk-group-to-advance-ai-boom",
     "title": "Nvidia clinches deals with South Korean giants include SK Group to advance AI boom",
     "description": null,
@@ -1731,53 +1757,5 @@
     "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/04/GettyImages-2155472264-1-e1775242140453.jpg?resize=1200,600",
     "created_at": "2026-04-07T01:20:44.358Z",
     "topic": "business"
-  },
-  {
-    "slug": "nemotron-ocr-v2-by-nvidia",
-    "title": "Nemotron OCR v2 by NVIDIA",
-    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
-    "fullText": "Nemotron OCR v2 is a state-of-the-art multilingual text recognition model designed for robust end-to-end optical character recognition (OCR) on complex real-world images. It integrates three core neural network modules: a detector for text region localization, a recognizer for transcription of detected regions, and a relational model for layout and structure analysis.\n\nThis model is optimized for a wide variety of OCR tasks, including multi-line, multi-block, and natural scene text, and it supports advanced reading order analysis via its relational model component. Nemotron OCR v2 supports multiple languages and has been developed to be production-ready and commercially usable, with a focus on speed and accuracy on both document and natural scene images.\n\nNemotron OCR v2 is part of the NVIDIA NeMo Retriever collection, which provides state-of-the-art, commercially-ready models and microservices optimized for the lowest latency and highest throughput. It features a production-ready information retrieval pipeline with enterprise support. The models that form the core of this solution have been trained using responsibly selected, auditable data sources. With multiple pre-trained models available as starting points, developers can readily customize them for domain-specific use cases, such as information technology, human resource help assistants, and research and development assistants.\n\nThis model is ready for commercial use.\n\nThe use of this model is governed by the NVIDIA Open Model License Agreement and the use of the post-processing scripts are licensed under Apache 2.0.\n\nHugging Face (this repo): nvidia/nemotron-ocr-v2 \n\nBuild.Nvidia.com 04/15/2026 via https://build.nvidia.com/nvidia/nemotron-ocr-v2 \n\nNGC 04/15/2026 via https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo-microservices/containers/nemoretriever-ocr-v2\n\nNemotron OCR v2 is designed for high-accuracy and high-speed extraction of textual information from images across multiple languages, making it ideal for powering multimodal retrieval systems, Retrieval-Augmented Generation (RAG) pipelines, and agentic applications that require seamless integration of visual and language understanding. Its robust multilingual performance and efficiency make it an excellent choice for next-generation AI systems that demand both precision and scalability across diverse real-world content.\n\nArchitecture Type: Hybrid detector-recognizer with document-level relational modeling\n\nNemotron OCR v2 is available in two variants:\n\nBoth variants share the same three-component architecture:\n\nAll components are trained jointly in an end-to-end fashion, providing robust, scalable, and production-ready OCR for diverse document and scene images.\n\nNetwork Architecture: RegNetX-8GF\n\nThe two variants share an identical detector and relational architecture but differ in recognizer capacity:\n\nv2_multilingual (from v2_multilingual/):\n\nOur AI models are designed and/or optimized to run on NVIDIA GPU-accelerated systems. By leveraging NVIDIA’s hardware (e.g. GPU cores) and software frameworks (e.g., CUDA libraries), the model achieves faster training and inference times compared to CPU-only solutions.\n\nThe model requires torch, and the custom code available in this repository.\n\nCreate and activate a Python 3.12 environment (optional)\n\nRun the following command to install the package:\n\nRun the example end-to-end without installing anything on the host (besides Docker, docker compose, and NVIDIA Container Toolkit):\n\nOutput is saved next to your input image as <name>-annotated.<ext> on the host.\n\nUse nemotron_ocr.inference.pipeline_v2.NemotronOCRV2. With no arguments, checkpoints are downloaded from Hugging Face: by default the v2 multilingual bundle (nvidia/nemotron-ocr-v2 / v2_multilingual/). Use lang=\"en\" for the English v2 build (nvidia/nemotron-ocr-v2 / v2_english/), or pass model_dir to load from disk (any complete checkpoint folder; lang is then ignored).\n\nSupported Hardware Microarchitecture Compatibility:\n\nPreferred/Supported Operating System(s):\n\nThe model is trained on a large-scale, curated mix of real-world and synthetic OCR datasets spanning multiple languages, scripts, and document types.\n\nReal-world datasets (~680K images): Natural scene text, multilingual scene text, arbitrary-shaped text, chart and infographic text, table images with bilingual annotations, and handwritten document pages. These cover diverse layouts, languages, and document types.\n\nSynthetic datasets (~11M+ images): Rendered multilingual document pages in six languages (English, Japanese, Korean, Russian, Chinese Simplified, and Chinese Traditional) and synthetic historical document crops covering archaic characters with degradation effects.\n\nData Collection Method by dataset: Hybrid (Automated, Human, Synthetic)\n\nLabeling Method by dataset: Hybrid (Automated, Human, Synthetic)\n\nProperties: Includes scanned documents, natural scene images, charts, tables, infographics, handwritten documents, and synthetic rendered pages in multiple languages and scripts.\n\nNemotron OCR v2 is evaluated on OmniDocBench, a comprehensive document OCR benchmark covering English, Chinese, and mixed-language content across diverse document categories.\n\nData Collection Method by dataset: Hybrid (Automated, Human, Synthetic)\n\nLabeling Method by dataset: Hybrid (Automated, Human, Synthetic)\n\nProperties: Benchmarks include challenging scene images, documents with varied layouts, and multi-language data.\n\nTables below are reference metrics from NVIDIA’s benchmark runs (OmniDocBench, SynthDoG). Reproducing them requires datasets and scripts that are not checked into this Hugging Face repository.\n\nNormalized Edit Distance (NED) sample_avg on OmniDocBench (lower = better). Results follow OmniDocBench methodology (empty predictions skipped). All models evaluated in crop mode. Speed measured on a single A100 GPU.\n\nColumn key: pages/s is throughput using the v2 batched pipeline where measured; EN = English, ZH = Simplified Chinese, Mixed = English/Chinese mixed, White/Single/Multi = background type, Normal/Rotate90/Rotate270/Horizontal = text orientation.\n\nNormalized Edit Distance (NED) page_avg on SynthDoG generated benchmark data (lower = better):\n\nThe model demonstrates robust multilingual performance on complex layouts, noisy backgrounds, and challenging real-world scenes. Reading order and block detection are powered by the relational module, supporting downstream applications such as chart-to-text, table-to-text, and infographic-to-text extraction.\n\nInference\n\nAcceleration Engine: PyTorch\n\nSupported Hardware: H100 PCIe/SXM, A100 PCIe/SXM, L40S, L4, A10G, H200 NVL, B200, RTX PRO 6000 Blackwell Server Edition\n\nNVIDIA believes Trustworthy AI is a shared responsibility and we have established policies and practices to enable development for a wide array of AI applications. When downloaded or used in accordance with our terms of service, developers should work with their internal model team to ensure this model meets requirements for the relevant industry and use case and addresses unforeseen product misuse. \n\nThe integration of foundation and fine-tuned models into AI systems requires additional testing using use-case-specific data to ensure safe and effective deployment. Following the V-model methodology, iterative testing and validation at both unit and system levels are essential to mitigate risks, meet technical and functional requirements, and ensure compliance with safety and ethical standards before deployment. \n\nPlease make sure you have proper rights and permissions for all input image and video content; if image or video includes people, personal health information, or intellectual property, the image or video generated will not blur or maintain proportions of image subjects included. \n\nFor more detailed information on ethical considerations for this model, please see the Explainability, Bias, Safety & Security, and Privacy sections below. \n\nPlease report security vulnerabilities or NVIDIA AI Concerns here.",
-    "readingTime": 6,
-    "keywords": [
-      "normalized edit",
-      "edit distance",
-      "distance ned",
-      "supported hardware",
-      "labeling method",
-      "dataset hybrid",
-      "hybrid automated",
-      "automated human",
-      "collection method",
-      "synthetic labeling"
-    ],
-    "qualityScore": 1,
-    "link": "https://huggingface.co/nvidia/nemotron-ocr-v2",
-    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/nvidia/nemotron-ocr-v2.png",
-    "created_at": "2026-04-03T18:33:31.261Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "chinese-chipmakers-claim-nearly-half-of-local-market-as-nvidias-lead-shrinks",
-    "title": "Chinese chipmakers claim nearly half of local market as Nvidia's lead shrinks",
-    "description": "(Corrects to clarify attribution) By Che Pan and Laurie Chen BEIJING, April 1 (Rtrs) - Chinese GPU and AI chip makers captured nearly 41% of China's AI accelerator server market last year, eroding",
-    "fullText": "(Corrects to clarify attribution)\n\nBEIJING, April 1 (Rtrs) - Chinese GPU and AI chip makers captured nearly 41% of China's ‌AI accelerator server market last year, eroding Nvidia's once-dominant position in ‌one of its most important overseas markets, according to data from an IDC report reviewed by ​Reuters.\n\nThe gains come as Beijing grows increasingly cautious about dependence on foreign chips, pushing government agencies and companies to adopt domestic alternatives after successive waves of U.S. export controls cut China off from Nvidia’s most advanced products.\n\nTotal shipments of AI ‌accelerator cards by Nvidia, ⁠AMD, and Chinese chipmakers reached approximately 4 million units in China in 2025, the data showed.\n\nNvidia remained the market leader, ⁠shipping around 2.2 million cards and holding a 55% share. But that figure marks a significant retreat for the U.S. chipmaker, which held a dominant market share ​in China's ​AI chip market. AMD carved out a ​modest presence, shipping roughly 160,000 ‌cards for a 4% share, the IDC data showed.\n\nChinese vendors collectively shipped 1.65 million cards, accounting for 41% of the total market — a milestone that underscores how aggressively domestic players have moved to fill the void left by tightening U.S. export controls.\n\nHuawei Technologies emerged as the runaway leader among Chinese vendors, ‌shipping around 812,000 AI chips, roughly half of ​all domestically branded shipments. Alibaba's chip design ​unit T-Head claimed second place, ​shipping approximately 265,000 cards.\n\nBaidu's Kunlunxin and Cambricon each shipped around ‌116,000 cards, ranking them jointly third among ​Chinese vendors.\n\nHygon, GPU ​startups MetaX and Iluvatar CoreX accounted for 5%, 4% and 3% of total Chinese vendor shipments, respectively.\n\nIn 2025, the central government launched a ​new wave of AI infrastructure ‌spending, with local governments accelerating intelligent computing centers across provinces, many ​of which carried implicit directives to \"buy Chinese.\"",
-    "readingTime": 2,
-    "keywords": [
-      "u.s export",
-      "chinese vendors",
-      "among chinese",
-      "export controls",
-      "china's ai",
-      "cards",
-      "market",
-      "shipping",
-      "chip",
-      "shipments"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/sectors/technology/articles/chinese-chipmakers-claim-nearly-half-091441757.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/b5a1855077a4fc136daec3d6ed2b77e7",
-    "created_at": "2026-04-01T18:45:17.764Z",
-    "topic": "finance"
   }
 ]

@@ -1,5 +1,29 @@
 [
   {
+    "slug": "tinytasktree-behaviortreestyle-task-orchestration-for-llm-agents",
+    "title": "Tinytasktree – Behavior-tree-style task orchestration for LLM agents",
+    "description": "A tiny async task-tree orchestrator library for Python, behavior-tree inspired and LLM-ready. - orion-arm-ai/tinytasktree",
+    "fullText": "A tiny async task-tree orchestrator library for Python, behavior-tree inspired and LLM-ready.\n\nAlpha. Expect breaking changes until the API is stabilized.\n\n⚠️ Warning: This is currently only at ALPHA STAGE, and future API changes may introduce breaking changes.\n\nSave traces into the same directory that the backend serves, for example:\n\nRuns a sync/async function. Returns OK(data) for non-Result return values, or passes through a Result.\n\nLogs a message into the trace. Always returns OK(None).\n\nA placeholder node that always returns OK(None).\n\nReturns the current blackboard in OK(b).\n\nWrites the previous node's result into the blackboard, and returns OK(data).\n\nChecks a boolean condition and returns OK(True) or FAIL(False).\n\nRuns another tree, optionally with a custom blackboard factory.\n\nParses JSON from the last result or from a blackboard source, and returns the parsed object.\n\nIf json_repair is installed, no extra code is needed for tolerant parsing:\n\nCalls an LLM via openai-python and returns the output text. Supports streaming,\nAPI key factories, and OpenAI-compatible base URLs for custom LLM gateways.\n\nLLMNode supports tool definitions out of the box: it sends Tool schemas to the model,\nthen executes returned tool calls in order. The node still performs exactly one model call;\nuse an outer While if the model should see tool results and answer in a later LLM call.\n\nThe LLM node returns an LLMRunRecord containing final text, full messages, emitted\nassistant/tool messages, requested tool calls, and tool results. Streaming tool call deltas\nare accumulated before execution. Use on_llm_message to persist each emitted message as it\nis produced.\n\nWhen chat_transcript is a list of messages, trace nodes are marked with has_chat=True;\nthe trace UI can then show the node as a chat-capable step and render user, assistant,\nassistant tool call, and tool result messages together.\n\nRuns children in order. Returns FAIL on first failure, otherwise OK(last_child_data).\n\nRuns children in order until one succeeds. Returns the first OK, else FAIL.\n\nSelector is the typical choice for the fallback chain pattern:\n\nRuns children concurrently. Returns OK only if all children succeed.\n\nRuns multiple subtrees with their own blackboards and returns a list of results.\n\nRandomizes the child order (optionally weighted) and returns the first OK.\n\nConditional branch. If the condition is false and no else branch exists, returns OK(None).\n\nOr uses only If (without Else):\n\nForces the result status to OK, optionally with a custom data factory.\n\nOr a ForceOk overriding the result:\n\nForces the result status to FAIL, optionally with a custom data factory.\n\nPreserves child status but replaces data with a factory result.\n\nInverts child status while keeping data.\n\nRetries a child on failure for up to max_tries with optional sleeps.\n\nRepeats child while condition is true, returns the last successful result.\n\nRuns a child with a time limit. On timeout, runs the fallback child if provided.\n\nCaches child results in a key-value store. Optional value_validator invalidates stale cache.\n\ntinytasktree itself does not depend on Redis, but redis.asyncio.Redis can be used directly as the store:\n\nWith a value_validator, the cache is only considered a hit if this\nvalue matches the one stored during the cache set. This is useful for invalidating cache when dependent logic or state changes:\n\nRuns a child while polling a store key for termination. Optionally runs a fallback.\n\nWraps a child with a custom async context manager.",
+    "readingTime": 3,
+    "keywords": [
+      "returns ok(none",
+      "child status",
+      "tool",
+      "optionally",
+      "custom",
+      "node",
+      "blackboard",
+      "factory",
+      "messages",
+      "children"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/orion-arm-ai/tinytasktree",
+    "thumbnail_url": "https://opengraph.githubassets.com/2d50dd34ad3b40d33e676c4b1ced61659caa7823aea2f3e5d0716d61efa84063/orion-arm-ai/tinytasktree",
+    "created_at": "2026-06-08T10:15:47.885Z",
+    "topic": "tech"
+  },
+  {
     "slug": "hamilton-vows-to-chase-down-f1-leader-antonelli-for-rest-of-season",
     "title": "Hamilton vows to chase down F1 leader Antonelli for rest of season",
     "description": "Lewis Hamilton has warned Kimi Antonelli that he is ready to “chase him down for the rest of the year” after becoming the Italian teenager’s closest rival for the world championship. Antonelli, 19 years and nine months, delivered a statement performance on Sunday to usurp Hamilton as the youngest winner of a Monaco Grand Prix, which ended in dramatic fashion following two safety cars, one red flag for track repairs and six pit-lane speeding penalties.",
@@ -1955,29 +1979,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/r3v6etqw5EcplBWk7lL.vA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/bulinews_articles_290/51c64b4cc7b846f2eaf0d1430cdf2771",
     "created_at": "2026-05-03T07:47:30.074Z",
     "topic": "sports"
-  },
-  {
-    "slug": "2-teens-dead-10-injured-in-texas-apartment-mass-shooting-police-say",
-    "title": "2 teens dead, 10 injured in Texas apartment mass shooting, police say",
-    "description": "Police said people tried to enter an apartment hosting a party and opened fire using what officials described as a \"rifle-style weapon.\"",
-    "fullText": "A mass shooting at a Texas apartment complex left two teens dead and 10 people injured, police said.\n\nEarly on May 2, Amarillo police responded to a reported shooting at an apartment, where juveniles and young adults had gathered at a party, according to a department news release. The party began at another location and moved to the apartment.\n\nPolice said preliminary information indicated several people were asked to leave the original location but later showed up at the apartment complex. They tried to enter the apartment and opened fire using what police described as a “rifle-style weapon.”\n\n1 DEAD, 9 INJURED in an overnight shooting at the Westminster Apartments (2415 Coulter Street)\n\nABC 7 News photojournalist Steve Douglass, who lives several blocks away, was woken up by what he described as \"machinegun fire\" followed by dozens more shots.https://t.co/ViO13U0LSC pic.twitter.com/alFK2QQALo\n\n— ABC 7 Amarillo (@ABC7Amarillo) May 2, 2026\n\nTwo boys, ages 17 and 16, died in the shooting, police said. Ten people, whose ages weren't listed, sustained injuries.\n\nPolice said the investigation is ongoing. No arrests have been made, but investigators believe there are two suspects. Amarillo Police Chief Thomas Hover said investigators believe the suspects had an \"affiliation with the targeted location\" and one of the occupants at the party knew them.\n\nPolice recovered a Glock 9mm handgun on a nearby landing, but investigators believe suspects used multiple weapons based on cartridge casings recovered in an alley near the apartment complex.\n\nAmarillo, a Texas Panhandle city of about 200,000 people, had 16 homicides in 2025, according to the police department. There have been 10 homicides, including the two teens killed, so far in 2026.\n\nThis story was updated with new information.\n\nThis article originally appeared on USA TODAY: Amarillo, Texas, mass shooting leaves 2 teens dead at apartment",
-    "readingTime": 2,
-    "keywords": [
-      "amarillo texas",
-      "teens dead",
-      "mass shooting",
-      "amarillo police",
-      "apartment complex",
-      "party",
-      "location",
-      "investigators",
-      "suspects",
-      "department"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.yahoo.com/news/articles/2-dead-multiple-injured-texas-172705473.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/1YJ1tinNw0VWEqOUL.hRsw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_news_641/990a00fd90ce58fc0cb7b9688c85de38",
-    "created_at": "2026-05-03T01:50:21.002Z",
-    "topic": "news"
   }
 ]
