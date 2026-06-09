@@ -1,5 +1,127 @@
 [
   {
+    "slug": "250m-iphone-settlement-proposed-in-apple-lawsuit-over-misrepresented-ai",
+    "title": "$250M iPhone Settlement Proposed in Apple Lawsuit over Misrepresented AI",
+    "description": "A $250M iPhone settlement aims to resolve a lawsuit that alleged Apple misleadingly advertised AI features in its new iPhone 16 and 15 models.",
+    "fullText": "Filed: March 19, 2025 ◆§ 5:25-cv-02668\n\nA $250M iPhone settlement resolves a lawsuit that alleged Apple misleadingly advertised AI features in its new iPhone 16 and 15 models.\n\nFlorida Deceptive and Unfair Trade Practices Act\n\nTechnology Retail False Advertising Fraud Class Action Settlement\n\nNew to ClassAction.org? Read our Newswire Disclaimer\n\nApple has agreed to a proposed $250 million settlement to resolve a class action lawsuit that alleged the tech behemoth falsely advertised artificial intelligence-enhanced Siri features for certain iPhone 16 and 15 models before the features were available.\n\nGet class action lawsuit and class action settlement news sent to your inbox – org’s free weekly newsletter.\n\nThe $250 million Apple iPhone class action settlement awaits preliminary approval from the court. If preliminary approval is granted, the deal will cover U.S. residents who purchased the iPhone 16, iPhone 16e, iPhone 16 Plus, iPhone 16 Pro, iPhone 16 Pro Max, iPhone 15 Pro or iPhone 15 Pro Max in the United States for purposes other than resale from June 10, 2024 to March 29, 2025.\n\nClassAction.org will update this page when the Apple iPhone settlement website—SmartphoneAISettlement.com—is live.\n\nUnder the proposed deal, Apple iPhone settlement class members who submit a timely, valid claim form can receive a cash payment of approximately $25 per eligible device they purchased.\n\nThe class action settlement agreement notes that the final amount of the per-device cash payout may be adjusted up or down on a pro rata (equal-share) basis, depending on the total number of valid claims submitted, but cash payments will be capped at $95 per device.\n\nClassAction.org will update this page with information on how to submit an Apple iPhone settlement claim form as it is released by the settlement administrator.\n\nAdditionally, the settlement agreement states that Apple anticipates delivering Siri Apple Intelligence features in future software updates at no additional cost to consumers.\n\nThe court will determine whether to grant the Apple iPhone 16 settlement final approval following a hearing scheduled for a later date. Compensation will begin to be distributed to class members only after final approval has been granted and any appeals have been resolved.\n\nThe Apple iPhone class action lawsuit claimed that the tech company violated consumer protection laws by failing to timely deliver certain advertised Apple Intelligence features for iPhone 16 and 15 models. The suit alleged that consumers were fraudulently induced to pay for the desired features and did not receive the benefits.\n\nDid you know that some class action settlements require no proof to submit a claim? Check out the latest class action settlements.\n\nIf your child suffers from video game addiction — including Fortnite addiction or Roblox addiction — you may be able to take legal action. Gamers 18 to 22 may also qualify.\n\nLearn more:Video Game Addiction Lawsuit\n\nAnyone who has used 7-OH kratom products and suffered a serious injury, such as overdose, heart attack or addiction, may be able to take legal action.\n\nDid you know there's usually nothing you need to do to join, \n\nRead more here: How Do I Join a Class Action Lawsuit?\n\nNew cases and investigations, settlement deadlines, and news straight to your inbox.",
+    "readingTime": 3,
+    "keywords": [
+      "intelligence features",
+      "preliminary approval",
+      "iphone pro",
+      "game addiction",
+      "final approval",
+      "apple iphone",
+      "action settlements",
+      "legal action",
+      "settlement agreement",
+      "class action"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.classaction.org/news/250m-iphone-16-settlement-resolves-apple-lawsuit-over-allegedly-misrepresented-ai-features",
+    "thumbnail_url": "https://www.classaction.org/media/twitter-newswire-default.png",
+    "created_at": "2026-06-09T14:22:42.944Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "apple-container-hits-10",
+    "title": "Apple Container Hits 1.0",
+    "description": "🎂 container is one year old!\nTry out the new container machine feature and let us know what you think!\nNoteThe UserProperty-backed system settings have been replaced by a TOML configuration file. S...",
+    "fullText": "apple\n\n /\n\n container\n\n Public\n\n 1.0.0\n\n 🎂 container is one year old!\nTry out the new container machine feature and let us know what you think!\nNoteThe UserProperty-backed system settings have been replaced by a TOML configuration file. See the tutorial for details.\n\nHighlights\n⌨️ denotes breaking CLI changes.\n👩‍💻 denotes breaking API changes.\n\nCore\n\ncontainer machine for long-lived Linux environments with tight host integration.\n⌨️ A TOML configuration file replaces UserDefault-backed system properties, removing the container system property get and set subcommands.\n⌨️ Cleaned up structured (JSON, YAML, TOML) output shape for container, image, network, and volume ls and inpect.\nFixed container help subcommand...\nFixed output formatting for several commands\nAdd --stop-signal option for container run\n👩‍💻 Removed compatibility with application major version 0 XPC APIs. A subsequent release will introduce a version on the API itself so that clients and server can check compatibility.\n\nNetwork\n\nUse XPC-connection-as-lease to fix IP address leaks\n\nStorage\n\nAdd container cp command\nFixed accounting errors in system df\n\nWhat's Changed\n\nTests/CLITests: drain stdout/stderr concurrently in CLITest.run by @mvanhorn in #1471\nBuild output should just be tags/paths. by @jglogan in #1478\nUse NetworkResource for network management in API server. by @jglogan in #1421\nUse SystemPath for HostDNSResolver. by @jglogan in #1480\nUpdate documents with note about container-to-host networking. by @jglogan in #1482\nSort networks by ID in API server list(). by @jglogan in #1487\nCLI: Support --shm-size by @dcantah in #1488\nImprove integration test speed by @noah-thor in #1489\nSimplify the serial suite trait by @katiewasnothere in #1497\nSwitch NetworksService, VolumesService, EntityStore to FilePath. by @jglogan in #1493\n[scripts]: add prompt for updating container with unsigned package by @saehejkang in #1468\nChange PR build to generate coverage and comment it by @noah-thor in #1474\nDeps: Bump CZ to 0.32.0 by @dcantah in #1498\nMove to TOML configuration for defaults by @noah-thor in #1425\ndocs: fix typos and polish README wording by @12ya in #1499\nDe-duplicate building during testing by @noah-thor in #1507\nCentralize utilities for configuration loading and path parsing by @noah-thor in #1448\nUse SystemPath for PacketFilter. by @chrisgeo in #1518\nswift-configuration decoder by @noah-thor in #1447\nFix PR coverage comment never posting by @noah-thor in #1541\nUse SystemPath for DirectoryWatcher. by @chrisgeo in #1522\nAdds XPC sessions with disconnect handlers. by @jglogan in #1524\nUse allocate with session to automatically clean up IPs. by @jglogan in #1544\nUse SystemPath for ContainerResource.Filesystem. by @chrisgeo in #1523\nAdd support for layered and plugin configurations by @noah-thor in #1543\nBump containerization to 0.32.1 by @JaewonHur in #1549\nRemove IP allocation from API server. by @jglogan in #1545\nAdd variant Support by @ajemory in #1548\nci: bump actions/labeler from 6.0.1 to 6.1.0 in the github-actions group by @dependabot[bot] in #1550\nRelax host-only network test. by @jglogan in #1552\nFix inconsistent volume createdAt JSON encoding by @realrajaryan in #1556\nFix: image list align with other commands when use format should ignore quiet by @tico88612 in #1553\nReject conflicting DNS flags by @LeSingh1 in #1559\nReject conflicting volume delete flags by @realrajaryan in #1560\nValidate container system logs --last flag by @realrajaryan in #1561\nEnsure read-only user config removed on every startup. by @jglogan in #1567\nRename config file to config.toml. by @jglogan in #1568\nMake inspect error handling for missing resources consistent by @realrajaryan in #1564\nAdd container copy/cp command for host-container file transfer by @simone-panico in #1190\n[images]: convert save to use FilePath by @saehejkang in #1574\n[images]: fix image load error to write to stderr and use FilePath by @saehejkang in #1570\nReorganize runtime targets for scalable plugin support by @ajemory in #1577\nAdd more tests for container copy by @JaewonHur in #1579\nUpdate container copy to use FilePath by @JaewonHur in #1580\nAdd notes regarding --log-root to the command reference. by @jglogan in #1582\ncli: Add support for --stop-signal by @dcantah in #1462\nfix: clamp ProgressBar barLength to non-negative value to avoid crash by @ErwanLegrand in #1525\nAdds vertical space between groups in help. by @jglogan in #1585\nRefine custom init how-to and BUILDING documentation. by @jglogan in #1586\nImprove readability of progress bar width computation. by @jglogan in #1584\nBump containerization to 0.33.1 by @dkovba in #1601\nUse FilePath for app, install, and log roots. by @jglogan in #1558\nSupport use of custom app root with system config in CLI commands by @katiewasnothere in #1600\nAdd shmSize to management flag's init by @katiewasnothere in #1603\ncli: resolve subcommand path in container help by @0xMH in #1587\nAdd ability to configure integration test list at command line by @katiewasnothere in #1608\nAlign JSON output with shape for container resource. by @jglogan in #1611\nUse ManagedResource for volumes in CLI commands by @katiewasnothere in #1607\nFix potential integer math crash on PublishPort. by @jglogan in #1612\nReorganize Swift package targets for network plugin. by @jglogan in #1615\n[how-to]: fix documentation example by @saehejkang in #1596\nRemove XPC compatibility code, simplify network model. by @jglogan in #1616\nUse FilePath for PublishSocket by @chrisgeo in #1594\nFix system df to count content blobs and deduplicate shared storage by @realrajaryan in #1555\nCreate ImageResource conforming to ManagedResource by @katiewasnothere in #1619\nUse a consistent container CLI path in integration tests by @zdk in #1621\nNormalize JSON output for network and volume resources. by @jglogan in #1624\nFix TestCLIVersion build-type check for release CI by @zdk in #1627\nAdd NOTICE entry for swift-configuration-toml by @katiewasnothere in #1629\nkill: Wait for container to exit after sigkill by @dcantah in #1589\nAdd an error message for dockerfile >= 16KB until #735 is resolved by @katiewasnothere in #1634\nWrite log/error output from commands to stderr. by @jglogan in #1632\nAdd docs on using container system configurations by @katiewasnothere in #1636\nFix make test SIGSEGV on Swift 6.2 by @ajemory in #1638\nFix type in memory size format for config docs by @katiewasnothere in #1639\nUse name instead of id in NetworkConfiguration. by @jglogan in #1648\nMake pre-commit hook installation and execution work in git worktrees by @harshitsinghbhandari in #1643\n[Actions] Use commit sha for imported gh actions by @katiewasnothere in #1649\nRearrange shape of JSON output for images by @katiewasnothere in #1652\nFix --format yaml and toml output by @realrajaryan in #1653\nUpdate command ref and how to docs by @realrajaryan in #1654\nAuto-install hawkeye in ensure-hawkeye-exists.sh by @harshitsinghbhandari in #1644\n[images]: fix image load/save to use FilePathOps utility by @saehejkang in #1590\nOmit hash scheme from image.id. by @jglogan in #1658\nRemove duplicated image name in image JSON output by @katiewasnothere in #1655\nConform containers to ManagedResource by @ajemory in #1656\nIncrease CI timeout to 75 minutes by @realrajaryan in #1663\nAdd container machine for managing persistent Linux environments by @realrajaryan in #1662\nAdd backward compat for ContainerConfig cpuOverhead. by @jglogan in #1665\n\nNew Contributors\n\n@12ya made their first contribution in #1499\n@chrisgeo made their first contribution in #1518\n@LeSingh1 made their first contribution in #1559\n@ErwanLegrand made their first contribution in #1525\n@0xMH made their first contribution in #1587\n@harshitsinghbhandari made their first contribution in #1643\n\nFull Changelog: 0.12.3...1.0.0",
+    "readingTime": 6,
+    "keywords": [
+      "linux environments",
+      "reject conflicting",
+      "bump containerization",
+      "toml configuration",
+      "api server",
+      "json output",
+      "cli commands",
+      "images fix",
+      "configuration file",
+      "integration test"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/apple/container/releases/tag/1.0.0",
+    "thumbnail_url": "https://opengraph.githubassets.com/6085077f241d7ebbd1c23d9d3ed16682359ee9b537e8ffa29589c6a3e7cb26e0/apple/container/releases/tag/1.0.0",
+    "created_at": "2026-06-09T14:22:40.489Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "apples-siri-ai-announcement-wasnt-that-flashy-it-didnt-need-to-be",
+    "title": "Apple's Siri AI announcement wasn't that flashy. It didn't need to be.",
+    "description": "Siri got its long-awaited AI upgrade at Apple's big annual developer conference. Is it too little too late?",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/apple-siri-ai-announcement-iphone-camera-app-wwdc-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a272e500421ca48aa59ff31?width=1200&format=jpeg",
+    "created_at": "2026-06-09T14:22:30.369Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "all-signs-point-to-trump-pushing-ai-growth",
+    "title": "All signs point to Trump pushing AI growth",
+    "description": "Also: Anthropic advocates for a ‘pause’ on AI advancement – days after filing to go public on the US stock market\nHello, and welcome to TechScape. I’m your host, Blake Montgomery, the US tech editor at the Guardian. Today we’re discussing Donald Trump’s neediness for AI and the contradictions of Anthropic’s safety-first posture.\nOpenAI confidentially files for initial public offering on US stock market\nApple debuts revamped ‘Siri AI’ and new child safety features for iPhones and iPads\nThe Guardian view on children and the internet: rolling back big tech’s untrammelled power | Editorial\nSilicon Valley including Meta has embraced Maga politics, says Nick Clegg\nBernie Sanders’ AI sovereign wealth fund plan is good. But we think this is better | Nathan E Sanders and Bruce Schneier\nMajority of US’s new AI datacenters to be built on drought-hit land\nBillions spent and hypothetical returns: the AI boom explained with six charts\n‘A driver of political violence’: how the breakneck AI boom is fueling anti-tech extremism\n Continue reading...",
+    "fullText": "Also: Anthropic advocates for a ‘pause’ on AI advancement – days after filing to go public on the US stock market\n\nHello, and welcome to TechScape. I’m your host, Blake Montgomery, the US tech editor at the Guardian. Today we’re discussing Donald Trump’s neediness for AI and the contradictions of Anthropic’s safety-first posture.\n\nAny prediction that Donald Trump will rein in the rapid development of artificial intelligence for safety reasons is laughable at this point.\n\n He issued a watered-down executive order on model review last week and another demanding the US military accelerate AI adoption.\n\n Rather than restrain growth, he’s discussing buying stock.\n\nTrump said last week that his administration would “look into” taking financial stakes in the US’s leading artificial intelligence companies. Sam Altman has reportedly participated in discussions of such stock purchases with senior White House officials, indicating the discussions are somewhat serious.\n\nIn typical vague but confirmatory fashion, Trump told reporters on Friday: “There’s something very interesting about it, where it almost becomes a partnership with the American public. We’ll ​look into that.”\n\nA US stake in AI companies could cut two ways. Trump could use the government’s leverage as a major shareholder to restrict AI development and align it with safety incentives more than financial ones.\n\nOr he could encourage AI firms to grow as lucrative and large as possible so the federal government can cash out like a venture capital firm. My money is on the latter.\n\nShould Trump push the growth approach, it does not seem likely he would press AI startups in the US to slow things down in the name of safety, whether in the form of constraining models’ capabilities or halting the construction of hyperscale datacenters. He’ll want his money’s worth.\n\nTwo of Trump’s executive orders issued last week likewise point to a continuation of his growth-at-all-costs approach. One executive order sought but did not mandate a government review of AI models 30 days before their releases.\n\nHe had postponed signing the order in late May, telling reporters: “We’re leading China, we’re leading everybody, and I don’t want to do anything that’s gonna get in the way of that lead.” The previous version of the order reportedly would have enforced stricter standards: mandatory review, 90 days in advance.\n\nTrump’s second executive order directed the defense department to accelerate AI adoption, particularly with regards to national cybersecurity. In it, he put into writing the now obvious core aspect of his stance on AI, asserting that the US leads in AI “because we refuse to stifle this innovation with overly burdensome regulation”.\n\nDon’t expect his posture to change any time soon, and don’t look to him for a check on the headlong expansion of the US’s AI giants. The only check or balance we seem to have on that is Anthropic’s own conscience.\n\nOpenAI confidentially files for initial public offering on US stock market\n\nApple debuts revamped ‘Siri AI’ and new child safety features for iPhones and iPads\n\nThe Guardian view on children and the internet: rolling back big tech’s untrammelled power | Editorial\n\nSilicon Valley including Meta has embraced Maga politics, says Nick Clegg\n\nBernie Sanders’ AI sovereign wealth fund plan is good. But we think this is better | Nathan E Sanders and Bruce Schneier\n\nAnthropic said the world should have the option to “pause” AI development.\n\n It also filed to go public on the US stock market. \n\n A freeze would be very good for the company, which is leading the AI race.\n\nLast week, Anthropic advocated for a possible “temporary pause” on advancing the capabilities of AI, saying it would convene policymakers to discuss the risks of the cutting-edge technology. In the same post, the company said its progress developing its chatbot Claude would someday soon lead to “recursive self-improvement”, a model with the capability to make better and more powerful versions of itself.\n\nA few days prior, Anthropic confidentially filed for an initial public offering on the US stock market, cementing its status as more valuable than OpenAI for now. A freeze on AI development as the company, valued at some $965bn, overtakes OpenAI, its main rival in the AI race, worth roughly $850bn, would be quite convenient.\n\nWho would that freeze apply to – competitors only, perhaps? – and would outwardly ethical labs – Anthropic, perhaps? – be exempted?\n\nThe company has mastered the posture of proclaiming its own fright at just how powerful its technology is, implying by the strength of its own executives’ reactions that its model Claude is, in fact, mighty.\n\nAnthropic’s branding as a lab populated by an army of coding Victor Frankensteins, so brilliant but so afraid of their own creations, has been successful. It poses as the more thoughtful counterweight to a reckless OpenAI, hellbent on releasing new products no matter their consequences, but competes on a similar product release schedule. The company’s slow rollout of its Mythos cybersecurity product only to trusted partners does signal a desire to responsibly roll AI out, but OpenAI followed the same playbook with its cybersecurity-focused product.\n\nThe question I keep coming back to, though, is this: with all this hand-wringing over AI safety, why keep developing AI? It’s not a compulsory service. Go do something else if you’re so afraid. But that seems unlikely, and you wouldn’t get rich from one of the stock market’s biggest debuts ever if you walked away now, and so I don’t think we need to accept the calls for a “pause” at face value.\n\nMajority of US’s new AI datacenters to be built on drought-hit land\n\nBillions spent and hypothetical returns: the AI boom explained with six charts\n\n‘A driver of political violence’: how the breakneck AI boom is fueling anti-tech extremism",
+    "readingTime": 5,
+    "keywords": [
+      "artificial intelligence",
+      "we’re leading",
+      "stock market",
+      "safety",
+      "openai",
+      "pause",
+      "development",
+      "executive",
+      "don’t",
+      "anthropic’s"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theguardian.com/technology/2026/jun/08/trump-ai-growth-anthropic",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/e7b1649fcf3212da2f965f9630befaad2a119265/38_0_3252_2603/master/3252.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=f8fdc2fe50afa2fed2deac44332e3861",
+    "created_at": "2026-06-09T14:22:28.052Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "apples-new-ai-features-will-only-work-on-these-macbooks",
+    "title": "Apple's New AI Features Will Only Work on These MacBooks",
+    "description": "You'll be able to run these AI features on an M1, but some of the most advanced features may require newer hardware.",
+    "fullText": "WWDC 2026 was Apple's chance to show how it plans to use AI to improve existing Apple products. If you have the right Mac, you'll be able to try new Apple Intelligence features this fall, including Apple's brand new Siri AI assistant. Unfortunately, though, not every MacBook will get Apple's latest and greatest features. If you want to try them, you'll need one of these machines first.\n\nWhile all of the Macs below will get the new macOS 27 \"Golden Gate,\" some advanced AI features will work better on the most powerful models, which will require M3 chips and 12GB+ RAM.\n\nMacBook Pro 14-inch (M1 Pro/Max, 2021)\n\nMacBook Pro 16-inch (M1 Pro/Max, 2021)\n\nAll M2, M3, M4 MacBook Pro models\n\nAll M2, M2 Pro, M4, and newer Mac mini models\n\nMac Studio (M1 Max/Ultra, 2022)\n\nMacOS 27 Golden Gate will bring updates across Spotlight, Safari, Photos, Shortcuts, and other apps. You will get a lot of the same upgrades from Siri AI that iPhones will get, like more conversational responses, context-aware follow-up questions, personalized assistance, cross-device conversation syncing, etc. The biggest upgrades on the MacOS will be coming from inside Spotlight, like asking questions about files, comparing documents, searching, and acting from one interface. There will also be Safari updates like AI tab management, page monitoring, AI-generated extensions, better integration with Passwords, and easier automations where you can describe what you want in plain English.",
+    "readingTime": 2,
+    "keywords": [
+      "golden gate",
+      "inch pro/max",
+      "macos golden",
+      "pro inch",
+      "macbook pro",
+      "siri ai",
+      "apple's",
+      "features",
+      "models",
+      "you'll"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://lifehacker.com/tech/apples-new-ai-features-will-only-work-on-these-macbooks?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KTMQJWW7RMGAV5069CZEDD9E/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-06-09T14:22:27.471Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "bernstein-reiterates-apple-stock-outperform-rating-after-wwdc-event",
+    "title": "Bernstein reiterates Apple stock Outperform rating after WWDC event",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/analyst-ratings/bernstein-reiterates-apple-stock-outperform-rating-after-wwdc-event-93CH-4733375",
+    "thumbnail_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
+    "created_at": "2026-06-09T14:22:26.356Z",
+    "topic": "finance"
+  },
+  {
     "slug": "due-to-dma-siri-ai-delayed-in-eu-for-ios-27-and-ipados-27",
     "title": "Due to DMA, Siri AI delayed in EU for iOS 27 and iPadOS 27",
     "description": "Due to the Digital Markets Act, Apple will not be able to ship Siri AI in the European Union with the release of iOS 27 and iPadOS 27.",
@@ -2017,130 +2139,5 @@
     "thumbnail_url": "https://archive.org/download/apple-scrapped-wwdc-14-video/apple-scrapped-wwdc-14-video.thumbs/Apple scrapped WWDC14 video_000032.jpg",
     "created_at": "2026-04-28T01:54:43.174Z",
     "topic": "tech"
-  },
-  {
-    "slug": "incoming-apple-ceo-john-ternus-tells-gen-z-an-early-mistake-taught-him-an-important-lesson-the-care-you-put-into-your",
-    "title": "Incoming Apple CEO John Ternus tells Gen Z an early mistake taught him an important lesson: ‘The care you put into your work really matters’",
-    "description": "John Ternus, the incoming CEO of Apple, advises Gen Z college graduates to pour themselves into work, build skills, and always assume they’re not the smartest in the room.",
-    "fullText": "College graduates are stepping out of the classroom and into corporate offices, uncertain of how to excel in an AI-enabled world of work. However, in the pursuit of success, incoming Apple CEO John Ternus advises young professionals that putting in 100% effort matters most.\n\n“The care that you put into your work really matters,” Ternus told the University of Pennsylvania’s engineering graduates in 2024.\n\nWhat mindset does Ternus recommend for workplace success?\n\nHow did Ternus rise to become Apple CEO?\n\nWhat lessons did Ternus learn from Apple projects?\n\nWhat career advice does John Ternus give graduates?\n\nThe longtime company insider, set to take Apple’s top role on Sept. 1, first learned this lesson when he started working at the tech giant in 2001. After joining the product design team, his first project was to create a large plastic desktop monitor called Cinema Display. After months of toiling over the build, the supplier facility produced a version of the product, but on the back of the display, 35 grooves were installed instead of 25. Ternus knew the mistake would be out of sight to most observers, but he couldn’t bear the thought of letting his design go to market with an issue.\n\n“I distinctly remember stepping back for a minute and thinking to myself, ‘What the hell am I doing? Is this normal?’” Ternus recalled. “I realized it might not be normal, but it’s right, because I’d already spent months working on that product. And if you’re going to spend that much time on something, you should put in your very best effort.”\n\nTernus said that whether a customer notices the extra grooves or not, he would always know. And since he and his team had meticulously planned every detail—from the display screen to the concentric steel grooves that shimmered like a CD—they wanted their very best work reflected in the final product. That dedication may come across as intense, but it’s always worth it to go the extra mile rather than do the satisfactory minimum.\n\n“Make no mistake—it’s hard to put that much of yourself into something,” Ternus advised. “It’s stressful, it requires sacrifice, but it’s worth it because our time is finite.”\n\nTernus was just 26 years old when he joined Apple. It was his second job out of college, and at the turn of the 21st century, technology was innovating at breakneck speed. The incoming CEO told graduates that there will be many times in their careers when they have to take on something new, and uncertainty is bound to creep in. But there’s a trick he’s mastered to push through the doubt.\n\n“Always assume you’re as smart as anyone else in the room, but never assume that you know as much as they do,” Ternus told the Gen Z engineering graduates. “With this mindset, you’ll find the confidence you need to push forward, but more importantly, the humility to ask questions and learn.”",
-    "readingTime": 3,
-    "keywords": [
-      "apple ceo",
-      "engineering graduates",
-      "product",
-      "it’s",
-      "ternus",
-      "grooves",
-      "college",
-      "stepping",
-      "success",
-      "incoming"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/sectors/technology/articles/incoming-apple-ceo-john-ternus-152513380.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/an2AzdPsTBNXnin4ET9Lrg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/fortune_175/9a90bd08e0d212b49559fd8c2d0883d5",
-    "created_at": "2026-04-28T01:54:28.180Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "my-favorite-apple-accessory-airport-express",
-    "title": "My favorite Apple accessory – AirPort Express",
-    "description": "What I’d have chosen in Upgrade’s Apple at 50 Draft.",
-    "fullText": "April 27, 2026 at 11:42 AM by Dr. Drang\n\nI meant to write this last week, shortly after I finished listening to Episode 612 of Upgrade. But things didn’t work out the way I hoped, so now I’m rushing to finish these few paragraphs before this week’s episode comes out (they’re recording as I type). I have nothing to say about the Tim Cook/John Ternus news that hasn’t already been said. I want to focus on Jason and Myke’s choices—made and unmade—in their Apple at 50 Draft.\n\nMy favorite picks were the oddballs, the products that weren’t Macs, iPhones, iPads, iPods, or Apple IIs. In other words: the accessories. I was particularly pleased with Jason’s picks of the LaserWriter, the Apple Disk II, the Apple Watch Sport Band, and the second generation Apple Pencil. I confess I was a little disappointed in Myke’s choice of the first generation Pencil, but he more than made up for it by later choosing the Magic Trackpad.\n\nThose of you who weren’t around in the 80s and 90s may think Jason went overboard in putting the LaserWriter in as his third pick, but you’d be wrong. It was both a great product and incredibly important to Apple. Similar comments apply to the Apple Disk II. I never had one—I never owned an Apple II—but I did have its successor, the Integrated Woz Machine, in all of my early Macs.\n\nMy oddball entry would have been the AirPort Express. This is not in the “I can’t believe you didn’t pick” category1 because it’s an oddball even among oddballs, but for a short period of time for a specific subset of users, it was a great accessory.\n\nIf you were a business traveler during those few years in the mid-00s when hotels had wired internet access in their rooms but hadn’t yet outfitted themselves with WiFi, the first generation AirPort Express was one of the best things you could pack. It was about the same size as the wall wart power supply that came with your Apple notebook, and it set up a little WiFi network that gave you the freedom to work (or play) anywhere in your room. Even after hotel WiFi became common, I still packed my AirPort Express because it gave me a faster and more reliable wireless network.\n\nI should also mention that “AirPort” was one of Apple’s best product names. Too bad they don’t have any reason to bring it back.\n\nI’m trying to avoid Jason’s wrath here. ↩",
-    "readingTime": 3,
-    "keywords": [
-      "apple disk",
-      "airport express",
-      "generation",
-      "wifi",
-      "didn’t",
-      "picks",
-      "oddballs",
-      "weren’t",
-      "jason’s",
-      "laserwriter"
-    ],
-    "qualityScore": 1,
-    "link": "https://leancrew.com/all-this/2026/04/my-favorite-apple-accessory/",
-    "thumbnail_url": "https://leancrew.com/all-this/images2026/20260427-AirPort%20Express.jpg",
-    "created_at": "2026-04-27T19:03:35.322Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "palmer-luckey-dug-up-an-old-tech-relic-with-ties-to-apples-new-ceo",
-    "title": "Palmer Luckey dug up an old tech relic with ties to Apple's new CEO",
-    "description": "Before Apple, incoming CEO John Ternus worked at a small VR company. Palmer Luckey found an old Virtual Research product from Ternus' time there.",
-    "fullText": "John Ternus, Apple's new CEO, has a background in hardware engineering.\n Oculus inventor Palmer Luckey unearthed a VR headset from Ternus's time at Virtual Research in the '90s.\n Ternus left the small VR company in 2001 before joining Apple the same year.\n\n Who is Palmer Luckey?\n\n How did Ternus influence Apple's hardware?\n\n What is the future of VR at Apple?\n\n What was Virtual Research's impact on VR?\n\n Why did Vision Pro receive a lukewarm response?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "hardware",
-      "ternus",
-      "apple's",
-      "palmer",
-      "luckey",
-      "virtual",
-      "apple"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/palmer-luckey-found-vr-relic-with-ties-apple-new-ceo-2026-4",
-    "thumbnail_url": "https://i.insider.com/69ef7551367066d7c297178a?width=1200&format=jpeg",
-    "created_at": "2026-04-27T19:03:29.997Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "i-ported-omniaid-image-detection-model-to-apples-neural-engine",
-    "title": "I ported OmniAID image detection model to Apple's Neural Engine",
-    "description": "Download Slop Or Not - AI Fake Detector by Numen Technologies Limited on the App Store. See screenshots, ratings and reviews, user tips, and more apps like Slop…",
-    "fullText": "The developer, Numen Technologies Limited, indicated that the app’s privacy practices may include handling of data as described below. \n\nThe developer does not collect any data from this app.\n\nThe developer indicated that this app supports the following accessibility features. Learn More",
-    "readingTime": 1,
-    "keywords": [
-      "developer",
-      "indicated"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://apps.apple.com/us/app/slop-or-not-ai-fake-detector/id6744578596",
-    "thumbnail_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/40/f0/69/40f0699d-7081-35fb-fcfd-313351b369fd/Placeholder.mill/1200x630wa.jpg",
-    "created_at": "2026-04-27T13:16:28.713Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "1b-in-20b-out-apple-stays-out-of-the-war",
-    "title": "1B in, 20B out. Apple stays out of the war",
-    "description": "A contrarian thesis on Apple's true position in the AI era — Apple keeps 5 third-party frontier model suppliers (OpenAI free / Google Gemini $1B / Anthropic walked away / China's Alibaba+Baidu / training compute on Google TPU) while collecting Google's ~$20B/yr Safari TAC, leaving net inflows at +$18-19B/yr; Mac mini / Mac Studio is the only consumer device that combines silicon + OS + your everyday data into a household compute + data hub; Codex Mac Computer Use was rated 'the best so far' by MacStories; Apple 2026 capex $14B vs. five hyperscalers' combined $660-690B; smart glasses launching 2027, benchmarked against Meta Ray-Ban's 7M units.",
-    "fullText": "The common simplified narrative is \"Apple pays Google $1B to use Gemini.\" Reality is much more layered: along the AI axis, Apple simultaneously maintains 5 third-party suppliers + 2 in-house layers + 1 training-compute supplier, and almost none of those relationships involve cash going out. The table below maps the entire 2026 stack.\n\nThe OpenAI relationship is a non-cash barter — neither side pays, but OpenAI monetizes via ChatGPT Plus conversions. Anthropic Claude quoted Apple in the \"billions per year\" range for the Siri job and was rejected; Claude has nonetheless reached the Apple developer ecosystem via Xcode 26.3. The China market requires a local model to obtain generative-AI regulatory approval, so Apple picked Alibaba as primary and Baidu as secondary.\n\nMac's true position in 2026 isn't \"cheap hardware that can run big models\" — it's the physical base inside the home that holds both compute and data. The truly scarce input for an AI agent has never been the model; it's your everyday data: 14 years of family in Photos, 12 years of conversations in Messages, tens of thousands of contracts and attachments in Mail, every event in Calendar, every draft in Notes, every contract in Files, every health trace in Health. Apple has been quietly accumulating this for almost two decades — distributed across roughly 1.4 billion iPhones and ~150 million Macs globally, synced via iCloud, with the local copy always present.\n\nTo say it plainly: in the consumer market, only one player has all five pieces — silicon + operating system + your daily data + privacy-default architecture + on-device inference framework. That player is Apple.\n\nMainstream 2026 Apple Silicon configurations · M4 Ultra has not yet shipped, the flagship remains M3 Ultra (819 GB/s). Equivalent 70B inference on the x86 path requires an H100 ($30K+ per card) and 5-10× the power.\n\nCPU / GPU / Neural Engine share the same RAM pool, so model weights don't need to be ferried over PCIe. M4 Pro 273 GB/s, M4 Max 546 GB/s, M3 Ultra 819 GB/s — data-center-GPU-class memory bandwidth, packed into a desktop, ~30W-idle chassis.\n\nlaunchd daemons let agents start at boot (before any user login) with auto-restart on crash; Tailscale mesh VPN lets your iPhone / iPad / out-of-home MacBook connect directly to the Mac mini at home with zero exposed ports and zero public IP. Caffeinate / pmset to prevent sleep is a known engineering issue, not a blocker. The full \"Mac mini + Tailscale + launchd\" home-server stack has been the dominant configuration on r/selfhosted and Hacker News in the first half of 2026.\n\nThe Apple Foundation Model on-device version is ~3B parameters with 2-bit QAT + LoRA adapters; the server version uses PT-MoE on Apple's own M-silicon data centers (Private Cloud Compute, encrypted memory, no human visibility). App Intents let any third-party app expose features, entities, and queries to Siri / Apple Intelligence — from iOS 26.4, Personal Context already spans the six system domains of Calendar / Files / Mail / Messages / Notes / Photos.\n\nThis isn't the \"Mac inference is cheap\" story. This is the first time household compute and household data have been collected by a single system.\n\nOn 2026-04-16, OpenAI shipped the largest update ever to its Codex Mac client — adding Computer Use: Codex can see the screen, control the cursor, and click and type across any macOS app. MacStories' Federico Viticci, in his first-hand review, gave the verdict directly: \"the best computer use feature I've ever tested\".\n\nThat same week OpenAI also upgraded the underlying model to GPT-5.5, with SWE-bench Verified at 88.7%, Terminal-Bench 2.0 at 82.7%, and a hallucination rate down 60% from GPT-5.4. In other words, Computer Use as a capability has — for the first time — both a model layer that's strong enough and a system layer that's smooth enough.\n\nThe macOS Accessibility framework was designed for screen readers, automation, and assistive input — VoiceOver, Switch Control, and Dictation all rely on it, and the API surface has been stable for twenty years. The cost of getting screen semantics for an agent is far lower than the pixel + OCR scaffolding required on Windows.\n\nFrom AppleScript in 1993 to Shortcuts in 2018, a system-level automation layer has always been present. Codex / Claude Code can have an agent invoke Shortcuts the user has already written rather than simulate clicks by hand. Windows has no equivalent.\n\nCodex / Claude Code / Cursor / Zed — this generation of agent clients is all Mac first: not \"also supports Mac\" but \"Mac is priority one.\" The reason is simple: the engineers writing these tools all use Macs themselves. A capability as interaction-heavy as Computer Use naturally gets polished on macOS first.\n\nmacOS's window model is relatively unified (one main window per app, a global menu bar) and Mission Control's hierarchy is visually clear; Windows still mixes MDI / SDI / floating panels / taskbar paradigms, making UI-tree parsing harder for an agent. Linux desktops are even more fragmented.\n\nRunning CLIP / SigLIP / GPT-4V-class visual encoders on Apple Silicon is within consumer-hardware budgets. The screenshot → element-recognition step in Computer Use, if billed as cloud vision tokens, would spiral; on a Mac, most of it can run locally.\n\nThe macOS sandbox, the Privacy & Security pane, and the TCC (Transparency, Consent, Control) framework — explicitly granting an agent capability over a specific app or directory is OS-native. On Windows that takes additional policy plumbing; on Linux it's stitched together with capabilities + AppArmor.\n\nIn 2026, the five hyperscalers' combined capex lands in the $660–690B range, with ~75% tied directly to AI infrastructure (GPUs, halls, power). Apple's capex the same year is $14B (about 3.4% of revenue), off by an order and a half.\n\nAmazon leads at $200B, with Alphabet $180B, Microsoft $120B+, Meta $125B, and Oracle $50B close behind; Apple at $14B is the obvious outlier in this cohort — just 7% of Amazon's.\n\nData-center depreciation runs 5-6 years, so Amazon's $200B capex implies $33–40B in new annual depreciation hitting the income statement; rolled forward to 2028, the depreciation line alone eats tens of billions of profit.\n\nApple chose another route: $1B/yr to license Gemini. If foundation models continue to commoditize (price wars, open-source catch-up, falling inference costs), Apple is the buyer, with maximum negotiating leverage; the hyperscalers are the sellers who already poured the cash into concrete and can only spread it across scale.\n\nThis matches Apple's historical posture on hardware: don't make panels (buy OLED from Samsung / LG), don't make basebands (buy 5G modems from Qualcomm for years), don't make NAND (buy from Kioxia / Micron) — only do system integration + the entry point + the brand. LLMs now go in the same drawer.\n\nIn 2025, Meta Ray-Ban smart glasses shipped 7M+ units for the year, taking 82% of the global smart-glasses market — large enough that Apple made a reverse decision in October 2025: pause Vision Air (the lightweight headset), redeploy engineers onto smart glasses, target 2027 launch, with a possible end-of-2026 first cut.\n\nForm factor benchmarked to Ray-Ban Meta: camera + microphone + health tracking + Apple chip, leaning on the iPhone for compute. Fashion-accessory route, multiple materials and frame styles. Repeatedly confirmed by Bloomberg / Gurman.\n\nOriginally slated post-2030 but pulled forward after Meta released Ray-Ban Display in 2025. Adds a micro-OLED single- or dual-eye HUD that can show notifications, navigation arrows, and Siri / Gemini visual answers.\n\nHeadset form factor preserved, continuing in the high-ASP professional content / spatial computing / enterprise segment. The M5 refresh strengthens eye-tracking, gesture recognition, and spatial-content creation. Vision Pro doesn't retreat; smart glasses launch alongside it.\n\nWhen AirPods launched in 2016, they were mocked as \"expensive wireless earbuds.\" Three years in, they took 60%+ of the category and contributed more than half of Wearables revenue. Smart glasses sit in a similar position — but their entry-point properties are even stronger:\n\nThis combination of hardware + entry-point distribution is something Google / OpenAI / Anthropic cannot buy with any amount of capex.\n\nStack the four observations together and Apple's position in the 2026 AI ecosystem can be described as follows:\n\nApp Store + default search + Apple Intelligence routing — control of all three entry-point layers is unchanged. Foundation models become a licenseable component; a $1B/yr access fee is just 1% of Services' $109B base.\n\nThe Mac is simultaneously the home's compute (M3 Ultra at 819 GB/s runs 600B+ on one box; Mac mini M4 Pro runs 70B on a desktop) and its data foundation (Photos / Messages / Mail / Notes / Health all local). The only player with all five — silicon + OS + your data + privacy architecture + on-device framework — is Apple. This isn't a model story; it's a structural story.\n\nCodex / Claude Code / Cursor / Zed are all Mac first; Accessibility + Shortcuts + the sandbox model make agents stable and usable on macOS — other systems are still chasing.\n\n$14B vs $660B+ — an order-of-magnitude gap. Outsource depreciation pressure to the shareholders of Google / Microsoft / Amazon; keep buyer-side leverage for yourself. Once foundation models commoditize, this position is the most comfortable in the room.\n\nSmart glasses 2027 + Vision Pro 2 in 2026 + AirPods continuing. 1.4 billion iPhones as the install base + Apple Intelligence + first-party distribution — a hardware + entry-point combination nobody else can buy.\n\nEveryone else is racing on GPUs, on data centers, on frontier models. Apple isn't. It's doing something slower but more structural:\n\n$1B in, $20B out, $14B capex, 1.4B installs — this combination is one of the few \"win without burning cash\" positions inside the 2026 AI capital cycle.",
-    "readingTime": 9,
-    "keywords": [
-      "cursor zed",
-      "code cursor",
-      "claude code",
-      "codex claude",
-      "ultra gb/s",
-      "mac mini",
-      "architecture on-device",
-      "layer that's",
-      "smart glasses",
-      "hardware entry-point"
-    ],
-    "qualityScore": 1,
-    "link": "https://alphasense.cc/signals/apple-ai/",
-    "thumbnail_url": "https://alphasense.cc/og.png",
-    "created_at": "2026-04-26T12:41:04.561Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "tim-cook-built-apple-into-a-4-trillion-company-then-his-greatest-strength-became-his-biggest-liability",
-    "title": "Tim Cook built Apple into a $4 trillion company. Then his greatest strength became his biggest liability",
-    "description": "The instincts that make a CEO great are often the same that eventually hold them back. Cook's departure is the most public example in corporate history.",
-    "fullText": "Andrea Petrone is an executive coach and advisor to CEOs, known as The CEO Whisperer. For 20+ years across seven countries, he has advised and coached 250+ CEOs and C-suite leaders through career-defining moments at companies including Shell, Unilever, Goldman Sachs, Takeda, and EssilorLuxottica. His first book, Reinvention at the Top, will be published by Wiley in October 2026. He hosts The World Class Leaders Show, a top 5% global podcast featuring guests including Amy Edmondson, Gary Hamel, and Adam Bryant. He is based in London.",
-    "readingTime": 1,
-    "keywords": [
-      "leaders",
-      "ceos"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://fortune.com/2026/04/25/leadership-tim-cook-apple-ceo-identity-leadership-outgrow-success/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/04/GettyImages-2256932535_bd54c9-e1777005944954.jpg?resize=1200,600",
-    "created_at": "2026-04-26T01:44:22.486Z",
-    "topic": "business"
   }
 ]
