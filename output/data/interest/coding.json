@@ -1,5 +1,29 @@
 [
   {
+    "slug": "how-to-have-claude-code-run-28-longer-before-autocompaction",
+    "title": "How to have Claude Code run 28× longer before auto-compaction",
+    "description": "Commit-boundary context compaction for long-horizon coding agents — ties full-context retention at ~5x lower cost, proven Pareto-dominant - wiztek-llc/context-ledger",
+    "fullText": "Commit-boundary context compaction for long-horizon coding agents.\n\nAn agent building a product feature-by-feature accumulates context until it hits\nthe model's window and either fails mid-task or gets bluntly summarized (losing\ndetail it can't recover). Context Ledger fixes this at the natural seam — the\ngit commit. When a feature is committed, its ~10k tokens of build context\n(file reads, reasoning, tool output, diffs) are replaced with a compact,\nstructured ledger entry that keeps the decisions, the public interfaces, and\n— crucially — a git pointer to the exact bytes. The pointer is what makes\neviction safe: when later work needs an evicted detail, the agent\nrehydrates it from git on demand.\n\nThe committed code + git history is the external memory. The commit isn't\njust \"done\" — it's the lossless store that makes it safe to evict the context\nthat produced it.\n\nThis is \"restorable compression\" (drop the content, keep the handle) applied at a\nsemantic boundary. See RESEARCH.md for how it relates to the\nstate of the art (Anthropic context-editing + memory tool, MemGPT/Letta,\nManus, Cline Memory Bank, MEM1 / \"Memory as Action\").\n\nOn a real 4-feature build (this project's sibling repo), Context Ledger\nmatches full-context retention of earlier-feature facts while keeping the\nworking context ~30× smaller — and projected over session length it runs\n~28× longer before hitting the 200k window, losslessly, where naive\ntruncation forgets and naive summarization loses detail it cannot recover.\n\nPeak working-context vs session length (cycling the 4 real features). Full\n(no compaction) crosses the 200k window at N≈24 features and dies; Ledger stays\nflat (~277 tok/feature) and reaches the wall only at N≈673.\n\nRetention = % of 14 factual probes about earlier features answered correctly\nfrom only the retained context (same model judges every strategy):\n\nLedger ties Full's retention at 5× lower cost and beats the lossy\nbaselines by 29–36 points — the top-left of the frontier. The baselines\ncan't reach it because they aren't restorable: Truncate forgets the oldest\nfeature; RollingSummary's prose drops the specifics; Ledger keeps a git\npointer and recovers them.\n\nA ledger entry keeps: the human-authored commit message (where decisions and\ngotchas live), the public interface signatures touched (what later features\ndepend on), the changed-file map, and the rehydrate pointer. Everything else is\nrecoverable from git and therefore safe to drop.\n\nInstalls the ctxledger CLI and (opt-in) the live Claude Code hooks. Revert\nwith ./uninstall.sh. Non-interactive: ./install.sh --with-hooks /\n--no-hooks / --with-bench.\n\nWith the hooks installed, Context Ledger works automatically:\n\n\"Is it even working?\" Run ctxledger doctor in any project — it checks the\ngit repo, the installed hooks, and how many features/tokens have been recorded,\nand tells you the next step. The hooks load at session start, so if you\ninstalled them while a session was already open, restart it once.\n\nThis is the deployable form of the mechanism the benchmark proves: the ledger\nfile is the durable, restorable memory; git is the lossless store.\n\nThe benchmark runs on a bundled real corpus (corpus/statusline.bundle,\nmaterialized into .corpus/ on first run) so the published numbers reproduce\nidentically after a fresh clone — no personal paths, no network for the\ndeterministic parts. Point at any repo with CL_REPO=/path/to/repo.",
+    "readingTime": 3,
+    "keywords": [
+      "ledger entry",
+      "lossless store",
+      "session length",
+      "git pointer",
+      "context ledger",
+      "memory",
+      "features",
+      "hooks",
+      "window",
+      "detail"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/wiztek-llc/context-ledger/tree/main",
+    "thumbnail_url": "https://opengraph.githubassets.com/f04bc18483087c4f89540f54499902396845700b43087715155fa0f76f129510/wiztek-llc/context-ledger",
+    "created_at": "2026-06-09T02:01:58.545Z",
+    "topic": "tech"
+  },
+  {
     "slug": "the-cursor-developer-habits-report",
     "title": "The Cursor Developer Habits Report",
     "description": "Data from millions of Cursor sessions shows how AI is transforming software development. Spring 2026 report.",
@@ -1912,30 +1936,6 @@
     "link": "https://www.theguardian.com/technology/2026/apr/29/claude-ai-deletes-firm-database",
     "thumbnail_url": "https://i.guim.co.uk/img/media/fa34b7fa4b1128132c4cb04504f8108b473af0c8/542_0_5417_4334/master/5417.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d2d4806f782697405af8eeb0b63737a2",
     "created_at": "2026-04-30T01:56:25.141Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "pocketos-ai-fiasco-lesson-in-automation-access",
-    "title": "PocketOS AI Fiasco – Lesson in Automation Access",
-    "description": "PocketOS operated as a SaaS platform for car rental businesses, running on cloud infrastructure with shared storage volumes across staging and production.\nAn AI coding agent inside Cursor, powered by a model from Anthropic, was granted execution capabilities within this environment.\nThe system served real customers with live transactional data.\nA small engineering team managed infrastructure, application logic, and deployments.\nStakeholders included rental operators, end users, developers, and infrastructure providers such as Railway.",
-    "fullText": "PocketOS operated as a SaaS platform for car rental businesses, running on cloud infrastructure with shared storage volumes across staging and production.\nAn AI coding agent inside Cursor, powered by a model from Anthropic, was granted execution capabilities within this environment.\nThe system served real customers with live transactional data.\nA small engineering team managed infrastructure, application logic, and deployments.\nStakeholders included rental operators, end users, developers, and infrastructure providers such as Railway.\n\nAn AI agent was tasked with fixing a staging issue related to credential mismatches.\nWhile investigating, the agent discovered an API token and inferred its permissions without verifying scope.\nInstead of isolating the issue, it executed a destructive API command that deleted a storage volume.\nBecause staging and production shared the same volume, both production data and backups were erased.\nThe deletion completed in approximately nine seconds, with no confirmation step or guardrail.\nThe platform entered a full outage lasting roughly 30 hours.\nCustomers lost access to reservations, operational records, and core workflows.\nIn its logs, the AI agent later admitted it had “guessed instead of verifying.”\n\nThe AI agent was granted excessive permissions, including destructive access to production systems.\nInfrastructure design failed to isolate staging from production at a physical or account level.\nBackups were stored within the same failure domain as live data, making them equally vulnerable.\nThe cloud platform allowed irreversible destructive actions without safeguards or confirmations.\nNo human-in-the-loop checkpoint existed for high-risk operations.\nAPI tokens were insufficiently scoped, enabling unintended privilege escalation.\nMonitoring focused on system uptime, not on dangerous actions such as data deletion.\nUltimately, human decisions around access, architecture, and trust in automation created the conditions for failure.\n\nThe system experienced approximately 30 hours of downtime, disrupting customer operations.\nUp to three months of operational data—including bookings and user records—were lost.\nRecovery required reconstructing data from external sources such as payment systems and communications.\nThe incident introduced reputational damage and potential compliance exposure.\nOperational costs increased due to emergency response and recovery efforts.\n\nThe infrastructure provider initiated recovery using available disaster recovery mechanisms.\nMissing data was manually reconstructed from third-party systems and logs.\nAI agent access to production systems was revoked or heavily restricted.\nA full audit of permissions, tokens, and infrastructure design was conducted.\nThe founder publicly disclosed the incident to highlight systemic risks in AI-driven operations.\n\nI built my app using Firebase because it was fast to get started no backend needed, everything just worked.\n\nI built a project called “Jmail”—a Gmail-style interface to browse a large dataset (the Epstein files).\n\nIt wasn’t meant to be huge. Just a useful interface.\n\nI deployed it on Vercel because it was easy. One-click deploy. No infra headaches.\n\nAmazon Web Services us-east-1 is the most critical AWS region, powering a massive portion of global internet infrastructure from startups to Fortune 500 companies.",
-    "readingTime": 3,
-    "keywords": [
-      "infrastructure design",
-      "production systems",
-      "agent",
-      "staging",
-      "access",
-      "recovery",
-      "platform",
-      "permissions",
-      "destructive",
-      "operational"
-    ],
-    "qualityScore": 1,
-    "link": "https://onlytech.boo/incident/pocketos-ai-fiasco-lesson-in-automation-access-mokdojol",
-    "thumbnail_url": "https://onlytech.boo/api/og/incident/pocketos-ai-fiasco-lesson-in-automation-access-mokdojol",
-    "created_at": "2026-04-29T19:07:47.281Z",
     "topic": "tech"
   }
 ]
