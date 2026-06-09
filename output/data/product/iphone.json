@@ -1,5 +1,29 @@
 [
   {
+    "slug": "ios-27-finally-lets-you-set-separate-volume-levels-for-alarms-alerts-and-phone-calls",
+    "title": "iOS 27 Finally Lets You Set Separate Volume Levels for Alarms, Alerts, and Phone Calls",
+    "description": "You can mute notification sounds without affecting the volume for phone calls.",
+    "fullText": "I keep my iPhone on silent all the time because I hate repeated alerts from messaging apps, but I worry I'll miss important phone calls in doing so. I'd love to keep my ringtone volume up to hear these, while lowering the volume for those annoying message notifications. That just hasn't been possible on iPhone—at least, until iOS 27. As spotted by eagle-eyed Reddit users, you can now set up custom volume levels for different types of alerts in Apple's upcoming iPhone update. Here's how.\n\nTo set this up right away, you're going to have to install the iOS 27 developer beta, as iOS 27 won't be out until the fall. I don't recommend this for most people, and instead suggest waiting until iOS 27 is released to the general public, or at least until Apple releases the public beta next month. If you proceed with installing the developer beta, be prepared to deal with an unstable version of iOS, and the risk of bricking your phone or losing all data. Once you're on iOS 27, however, follow these steps:\n\nGo to Settings > Sounds & Haptics on your iPhone.\n\nUnder \"Alarms and Timers,\" turn off Match Ringtone Volume. This lets you set a custom volume level for alarms and timers.\n\nUse the volume slider below this option to set your desired level. Note that moving the slider all the way to the left reduces the volume of alerts significantly, but it does not mute alerts entirely.\n\nNext, under \"Alerts and System Sounds,\" turn off Match Ringtone Volume. This will delink notification sounds from the system volume level.\n\nUse the slider under this button to set your preferred volume level for notification sounds.\n\nAt the top of this page, you can use the slider to set a custom volume for your ringtone, too.\n\nWith these changes, you can set volume levels individually for the three types of alerts. Unfortunately, Apple hasn't yet introduced per-app volume controls in iOS 27. If you want to set a louder volume level specifically for YouTube or Netflix and a softer one for WhatsApp, you're out of luck. I hope Apple has per-app volume controls in the roadmap, as it's the next stage for the feature I've covered here.",
+    "readingTime": 2,
+    "keywords": [
+      "match ringtone",
+      "developer beta",
+      "notification sounds",
+      "custom volume",
+      "per-app volume",
+      "volume controls",
+      "match ringtone volume this",
+      "slider",
+      "iphone",
+      "you're"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/ios-27-finally-lets-you-set-separate-volume-levels-for-alarms-alerts-calls?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KTPDFFMVADWSHY34S84PW1DN/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-06-09T19:55:39.612Z",
+    "topic": "tech"
+  },
+  {
     "slug": "250m-iphone-settlement-proposed-in-apple-lawsuit-over-misrepresented-ai",
     "title": "$250M iPhone Settlement Proposed in Apple Lawsuit over Misrepresented AI",
     "description": "A $250M iPhone settlement aims to resolve a lawsuit that alleged Apple misleadingly advertised AI features in its new iPhone 16 and 15 models.",
@@ -2192,30 +2216,6 @@
     "link": "https://lifehacker.com/tech/10-chrome-hacks-for-ios-and-android?utm_medium=RSS",
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KKZRQA4HVXRY066PQ5Y1YXPM/hero-image.fill.size_1200x675.jpg",
     "created_at": "2026-03-20T18:33:38.552Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "update-your-iphone-to-protect-yourself-against-darksword-malware",
-    "title": "Update Your iPhone to Protect Yourself Against 'DarkSword' Malware",
-    "description": "The chances of being a target are slim, but you should protect yourself.",
-    "fullText": "If you have an iPhone, listen up: There's a new security risk that hackers have been actively exploiting since at least November. While you're not likely to be the target of such an attack, your iPhone is nevertheless vulnerable, unless you take the following (albeit simple) action: update your iPhone.\n\nGoogle Threat Intelligence Group (GTIG) identified the new \"full-chain exploit,\" in partnership with security firms Lookout and iVerify. The exploit, called \"DarkSword,\" takes advantage of six zero-day vulnerabilities to compromise iPhones. GTIG says, as of November, it observed \"multiple commercial surveillance vendors and suspected state-sponsored actors\" using DarkSword in malware campaigns. As of now, those targets have been in Saudi Arabia, Turkey, Malaysia, and Ukraine.\n\nDarkSword can attack iPhones running iOS 18.4 through iOS 18.7, according to GTIG (though iVerify and Lookout say the exploit they tested ends at iOS 18.6.2). The chain uses three malware families (GHOSTBLADE, GHOSTKNIFE, and GHOSTSABER), and is similar to a previously-discovered malware kit named Coruna. As it happens, Apple recently issued patches for Coruna exploits for older iPhones.\n\nDarkSword is designed to quickly and stealthily scrape credentials and personal information off your device, including passwords, keys, documents, emails, crypto wallets, usernames, photos, among other data points. This is done in seconds or minutes, so it doesn't take long for DarkSword to work. An attack works like this: You're browsing a website in Safari embedded with a malicious iframe. Once Safari encounters it, DarkSword can breakout of the WebContent sandbox, which typically prevents unauthorized services from running in areas of iOS they're not supposed to. As such, it quickly gives itself permission to access privileged processes, and gains access to sensitive parts of iOS.\n\nThis is concerning, since the malware only requires the user to visit a malicious website to work. You don't need to be tricked into downloading a malicious file; just clicking the wrong link seals the deal. That's how GTIG initially discovered DarkSword: Hackers targeted users in Saudi Arabia with a fake Snapchat website called \"Snapshare,\" which brought the user to a legitimate Snapchat site while silently stealing their information in the background. In another example, a group suspected of working with the Russian government targeted users in Ukraine with malicious versions of official Ukrainian government and news sites.\n\nLuckily, GTIG reported DarkSword to Apple back in late 2025, and since then, Apple has fully patched the exploits involved. The company didn't issue the patches all at once, however; rather, Apple ran individual patches through various updates, releasing the final fixes with iOS 26.3 and iOS 18.7.3. As such, you need to be running at least those versions of either iOS 26 or iOS 18 in order to protect yourself from this malware kit.\n\nUpdating your iPhone isn't hard, and it makes it easier that Apple doesn't require you to update to the most recent version (i.e. iOS 26) in order to patch your device. However, there are many iPhones in this world, and getting everyone to update to the proper version isn't easy. According to Apple, 66% of iPhones in the world run iOS 26, while 24% still run iOS 18. While we can't know for sure which of those iPhones are running iOS 26.3 or iOS 18.7.3 or newer, it's safe to say many are running outdated versions of each. There could be millions of iPhones at risk.\n\nThat risk, in my view, is quite low: Based on the current reports, these threat actors are targeting users in limited areas, and are being run by sophisticated networks, including those funded by governments. If you don't have reason to be in the crosshairs of a government agency, especially one that would target users in Saudi Arabia, Turkey, Malaysia, and Ukraine, you're not likely to be a victim of DarkSword.\n\nStill, why take the risk, however small? If DarkSword continues to spread, perhaps its affects will as well. When the solution is as simple as updating your iPhone, what's the harm?",
-    "readingTime": 4,
-    "keywords": [
-      "turkey malaysia",
-      "arabia turkey",
-      "targeted users",
-      "malware kit",
-      "iphones",
-      "apple",
-      "iphone",
-      "risk",
-      "malicious",
-      "you're"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/update-to-ios-26-to-protect-yourself-against-this-malware?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KM3MBFAGF3NMQVQ6ACHHDF7M/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-03-20T01:10:13.357Z",
     "topic": "tech"
   }
 ]
