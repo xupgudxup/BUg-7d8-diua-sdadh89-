@@ -1,5 +1,55 @@
 [
   {
+    "slug": "we-leaked-75-aws-keys-to-see-who-watches-private-repos-turn-public",
+    "title": "We leaked 75 AWS keys to see who watches private repos turn public",
+    "description": "We made 75 GitHub repos public on a timer and logged who came. The internet finds a public repo in 6 minutes, and without enterprise tools, you'd never know it flipped.",
+    "fullText": "Make a private repo public and it stays undiscovered for 6 minutes. Past that, the internet is reading it. We put a live AWS key in 75 throwaway repos, made each public for one of five timed windows from 60 seconds to 12 hours, 15 repos per window, and logged every use. The key was just a tripwire. What we wanted to know is how long it takes anyone watching to notice, and what their intent is once they have.\n\nWhat follows are the answers, and then the part that matters more for most teams: without enterprise tooling, the repo could go public and nobody would reliably hear of it.\n\nEach dot in the chart below is one time something touched a key, placed by how long after the repo went public it landed, on a log scale. Hover any dot for the detail.\n\nTwo things are visible. First, the earliest action on a newly public repo came at 6 minutes, and most first visits landed around minute 8. Second, keys are used even after the repos were hidden again, so going private is not enough to undo the exposure.\n\nThe parties that showed up split three ways. Only one went further than the rest and probed the account behind the key. Most did nothing but check, over and over, that the key still worked. And one was not an outside party at all: AWS, locking the key down on a signal from GitHub.\n\nOutside parties used the keys 139 times. 5 of those came from a single host running the AWS SDK for Python. It called DescribeInstances to list EC2 machines and ListTables to list DynamoDB tables, mapping out the account rather than just confirming the key worked. That was the only hands-on activity in the whole run, and it touched just 2 repos.\n\nThe moment a repo went public, GitHub’s free, built-in secret scanning kicked in and reported the exposed secret to AWS. AWS then attached a quarantine policy that strips the key of its dangerous permissions. That lockdown, the green dots in the chart, did not land until 4.5 to 9 hours after exposure. Because the catch is GitHub’s own, even the 60-second repos had their keys quarantined, the ones no outside party ever reached.\n\nWhoever showed up, the exposure was the same. A repo goes public, the internet starts reading at minute 6, and the source sits exposed beside the key. And the flip isn’t always an accident: turning a private repo public is a recognized way to exfiltrate code, watched for by detection rules and catalogued by MITRE. You can rotate a key; you can’t un-share code.\n\nGitHub logs the flip and tells you nothing, the same as branch protection coming off, a check dropped, a reviewer removed, or scanning switched off. Tools that catch it do exist. The security-posture platforms big companies run will flag it, but they assume a security team to run them and a budget to match, so a smaller team that only wants to know when a repo setting changes has nothing built for it.\n\nThat’s what we’re building Codatus for: a read-only install that watches the settings this post is about, a repo going public, branch protection coming off, a check or reviewer dropped, scanning switched off, and tells you the moment one changes. We’re planning to launch at $99/month, with early users locked in at that rate.",
+    "readingTime": 3,
+    "keywords": [
+      "branch protection",
+      "outside party",
+      "scanning switched",
+      "repo",
+      "repos",
+      "keys",
+      "exposure",
+      "check",
+      "minutes",
+      "internet"
+    ],
+    "qualityScore": 1,
+    "link": "https://codatus.com/blog/we-leaked-75-aws-keys-to-see-who-watches-public-repos/",
+    "thumbnail_url": "https://codatus.com/og/we-leaked-75-aws-keys-to-see-who-watches-public-repos.png",
+    "created_at": "2026-06-10T14:52:07.820Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "in-internal-meeting-amazon-cloud-executive-asked-employees-to-recruit-laid-off-meta-workers",
+    "title": "In internal meeting, Amazon cloud executive asked employees to recruit laid off Meta workers",
+    "description": "AWS Chief Marketing Officer Julia White discussed efforts to fill open roles and curb attrition, according to a recording of the meeting.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/aws-executive-asked-staff-recruit-laid-off-meta-employees-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a2848f9208d75cc7b7926ef?width=1200&format=jpeg",
+    "created_at": "2026-06-10T14:51:39.896Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "as-companies-rethink-ai-roi-replits-ai-chief-calls-token-leaderboards-very-dystopian",
+    "title": "As companies rethink AI ROI, Replit's AI chief calls token leaderboards 'very dystopian'",
+    "description": "As Amazon and others rethink AI-use rankings, Replit's AI head said it was a poor measure of employee performance.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/ai-token-leaderboards-dystopian-replit-ai-chief-tokenmaxxing-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a29345f59f798e5451f5657?width=1200&format=jpeg",
+    "created_at": "2026-06-10T14:51:39.481Z",
+    "topic": "finance"
+  },
+  {
     "slug": "twitch-ceo-social-media-has-become-antisocial-and-cant-match-the-shared-human-connection-of-livestreaming",
     "title": "Twitch CEO: Social media has become ‘antisocial’ and can’t match the shared, human connection of livestreaming",
     "description": "Dan Clancy, CEO of the Amazon-owned company, spoke at Fortune Brainstorm Tech in Aspen on Monday.",
@@ -1790,60 +1840,5 @@
     "thumbnail_url": "https://i.insider.com/682df5d3ac40ae2b0c9ea8c1?width=1200&format=jpeg",
     "created_at": "2026-04-21T01:26:19.501Z",
     "topic": "tech"
-  },
-  {
-    "slug": "amazons-new-kindle-lineup-features-its-first-color-ereader-a-faster-paperwhite-and-more-heres-how-to-preorder",
-    "title": "Amazon's new Kindle lineup features its first color e-reader, a faster Paperwhite, and more — here's how to preorder",
-    "description": "Amazon just announced its 2024 lineup of Kindles, refreshing the entire collection. Here's what to expect from each new device.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/guides/tech/amazon-kindle-colorsoft-release-date-features-specs",
-    "thumbnail_url": "https://i.insider.com/6470ca15085acb0018fea233?width=1200&format=jpeg",
-    "created_at": "2026-04-21T01:26:18.354Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "california-says-amazon-pressured-retailers-to-boost-prices-on-their-websites-to-not-undercut-it",
-    "title": "California says Amazon pressured retailers to boost prices on their websites to not undercut it",
-    "description": "Amazon used its market leverage to get companies such as Walmart to increase prices on their websites so the e-commerce giant would not be undercut by its competitors, according to a filing unsealed Monday in an ongoing lawsuit by California’s attorney general.  Attorney General Rob Bonta sued Amazon in San Francisco Superior Court in 2022 accusing the company of violating the state’s antitrust and unfair competition laws.  The lawsuit is scheduled to go to trial next year but Bonta is asking the judge to order Amazon to cease its practices immediately.",
-    "fullText": "Amazon used its market leverage to get companies such as Walmart to increase prices on their websites so the e-commerce giant would not be undercut by its competitors, according to a filing unsealed Monday in an ongoing lawsuit by California’s attorney general.\n\nAttorney General Rob Bonta sued Amazon in San Francisco Superior Court in 2022 accusing the company of violating the state’s antitrust and unfair competition laws. The lawsuit is scheduled to go to trial next year but Bonta is asking the judge to order Amazon to cease its practices immediately.\n\nHow did Amazon allegedly pressure Walmart and other retailers?\n\nWhat evidence supports California's antitrust case against Amazon?\n\nWhat price fixing scheme is Amazon accused of?\n\nWhat are the potential consequences if Amazon loses this lawsuit?\n\nAccording to the filing, the alleged price fixing scheme generally begins with the Seattle-based company demanding vendors to fix or look into prices of products on other websites and request that those prices be increased or else face penalties such as promotion restrictions or even removal of products from Amazon's site.\n\nFor example, the filing alleges that Amazon, apparel company Levi Strauss & Co. and Walmart agreed to fix prices on khaki pants. Amazon sent the denim retailer links to pants that were priced lower on Walmart.com, saying it “hop(ed) these can get resolved over the next few days.”\n\nThe next day, Levi Strauss reported having talked to Walmart to increase prices back to $29.99, according to the filing.\n\n“This is about protecting Californians from paying more than they should for everyday products, especially at a time when affordability feels farther and farther out of reach,” Bonta, a Democrat, said Monday at a virtual news conference.\n\nIn a statement, a spokesperson for Amazon dismissed Bonta's motion as “a transparent attempt to distract from the weakness of its case” with “supposedly ‘new’” evidence.\n\n“Amazon is consistently identified as America’s lowest-priced online retailer, and we’re proud of the low prices customers find when shopping in our store. Amazon looks forward to responding in court at the appropriate time,” the statement said.\n\nA Walmart spokesperson said in an email that it does \"not comment on litigation in which we are not a party. We will always work hard on behalf of our customers to keep our prices low.”\n\nLevi Strauss did not immediately respond to a request for comment.\n\nBonta said that his office is focused on Amazon because “the unlawful conduct stems from and originates from Amazon” but reserved the right to go after other retailers and vendors in the future.\n\nThe alleged price fixing involves a wide assortment of goods, including home decor, garden products and pet care, according to the filing.\n\nThe hearing for the motion for a preliminary injunction is in July.",
-    "readingTime": 3,
-    "keywords": [
-      "fixing scheme",
-      "levi strauss",
-      "walmart",
-      "filing",
-      "amazon",
-      "products",
-      "lawsuit",
-      "increase",
-      "websites",
-      "antitrust"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/economy/policy/articles/california-says-amazon-pressured-retailers-195046406.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/Pkd2jaBjkDvriwSAPf.rgw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/ap.org/c16ac8cfa2d13e1930b0225c41315a74",
-    "created_at": "2026-04-21T01:26:15.937Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "walmart-is-racing-to-become-amazon-before-amazon-can-become-walmart",
-    "title": "Walmart is racing to become Amazon before Amazon can become Walmart",
-    "description": "Walmart has the edge in delivery speed for daily essentials, while Amazon has the larger selection. Both giants are borrowing ideas from one another.",
-    "fullText": "Walmart has the edge in delivery speed for daily essentials, while Amazon has the larger selection.\n Lately, both giants have been borrowing key strategies from one another.\n The race is on to see if Walmart can become Amazon before Amazon becomes Walmart.\n\n How does delivery speed affect sales?\n\n Why are AI-powered warehouses important?\n\n What challenges do supercenter formats face?\n\n What are third-party marketplaces?\n\n How do store redesigns impact sales?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "delivery speed",
-      "amazon",
-      "sales",
-      "walmart"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/walmart-amazon-racing-to-win-retail-ecommerce-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e65afaa98bc8fdc096c7e9?width=1200&format=jpeg",
-    "created_at": "2026-04-20T18:51:29.647Z",
-    "topic": "finance"
   }
 ]
