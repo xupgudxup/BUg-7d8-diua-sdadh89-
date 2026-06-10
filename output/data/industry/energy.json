@@ -1,5 +1,79 @@
 [
   {
+    "slug": "why-a-gastax-holiday-wont-bring-relief-to-warweary-consumers-according-to-an-economist",
+    "title": "Why a gas-tax holiday won't bring relief to war-weary consumers, according to an economist",
+    "description": "A tax holiday would extend meager savings to drivers while boosting the federal deficit, an economist says. Fuel costs have surged during the Iran war.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/economist-trump-lower-gas-prices-gas-tax-holiday-economy-iran-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a2978a3b19390180e4cf0f2?width=1200&format=jpeg",
+    "created_at": "2026-06-10T20:10:30.102Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "dementia-care-consumed-our-lives-for-months-were-still-learning-how-to-cope",
+    "title": "Dementia care consumed our lives for months. We're still learning how to cope.",
+    "description": "Helping my sister-in-law through dementia strained our marriage, drained our energy, and forced us to make painful decisions.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/caring-for-sister-in-law-dementia-marriage-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a19b3382e5a80cfe0500b34?width=1200&format=jpeg",
+    "created_at": "2026-06-10T20:10:29.916Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "stochastc-unit-commmitment-using-genetic-algorithm",
+    "title": "Stochastc Unit Commmitment Using Genetic Algorithm",
+    "description": "stochastic unit commitment - core energy simulation - bellpesce/succes",
+    "fullText": "Stochastic Unit Commitment for Core Energy Simulation — a power market\nsimulator for 15 European bidding zones that uses no MILP, no LP, no\ncommercial solver. Dispatch is found by a genetic algorithm; prices come from\npure merit order: the last dispatched unit sets the market clearing price.\n\nStatus: research code / show-and-tell. This is a working experiment, not\na production tool. It runs, it converges, it produces plausible January-2024\nprices for several zones and implausible ones for others — and it is honest\nabout which is which. See Limitations.\n\nA full run of the January 2024 example —\n\n— completes in ~17 minutes of solve time on a consumer desktop (8 Julia\nthreads). Zero scarcity hours. Startup costs land at 2.9% of total\nfuel+startup, inside the realistic 1–3% band for European markets.\n\nNot because MILP is bad — it's the industry standard for a reason, and it\ngives you optimality bounds this approach cannot. The trade is:\n\nA GA evaluates the actual nonconvex problem directly. CVaR objectives,\nper-scenario Bernoulli outages, nonlinear penalty structures, and\nmerit-order price formation are simply computed in the fitness function —\nnothing has to be linearised, no big-M constraints, no scenario decomposition\nmachinery. The cost is that you get a good solution with no certificate of\nhow good. For a market simulator validated against observed market\noutcomes (rather than a cost-minimisation tool), that trade seemed worth\nexploring. This repo is the exploration.\n\nWind and solar are handled as net-load pre-subtraction (\"Approach A\"):\ntheir output is computed deterministically from ERA5 capacity factors and\nsubtracted from gross demand, so the GA chromosome covers thermal + hydro\nonly. The chromosome is one fraction f ∈ [0,1] per free unit per hour;\nf > 0.10 means committed, f × max_cap is the dispatch target. Ramp\nconstraints are enforced hour-by-hour within each window.\n\nOutputs land next to the example: an interactive HTML report (prices,\ndispatch, flows, penalty breakdown per window) and a JSON with every number\nin it.\n\nThe repo ships the derived ERA5 capacity-factor profiles\n(data/era5_202401_profiles.npz, ~440 KB) so the example runs out of the\nbox. The raw ERA5 NetCDF files are not committed; data/era5_fetch.py\nre-downloads them with a free Copernicus CDS account if you want to build\nprofiles for other months.\n\nJanuary 2024 mean day-ahead prices, model vs. real (EUR/MWh):\n\nThe cluster of too-low zones shares one root cause: French nuclear is\nmodelled at ~39 GW where real January 2024 availability was 35–38 GW, and\nthe surplus exports suppress every CWE neighbour. It's a known, documented\ncalibration issue (one constant in the example file), deliberately left\nas-is for this release — the point of the repo is the method, not a\ncalibrated price forecast.\n\nRead these before quoting any number from this repo.\n\nThere's a CITATION.cff in the repo root — GitHub's \"Cite this repository\"\nbutton gives you BibTeX. If this code or its ideas end up in your work, a\nreference is all I ask.\n\nApache 2.0 — see LICENSE and NOTICE. Commercial use welcome; the NOTICE\nfile must travel with redistributions.",
+    "readingTime": 3,
+    "keywords": [
+      "market simulator",
+      "repo",
+      "january",
+      "zones",
+      "dispatch",
+      "european",
+      "milp",
+      "code",
+      "tool",
+      "land"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/bellpesce/succes",
+    "thumbnail_url": "https://opengraph.githubassets.com/f505ec87b67c406dce892cb27d29e510fc0bc08734d73c9218ead275f328d3ae/bellpesce/succes",
+    "created_at": "2026-06-10T20:10:28.576Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "seattle-enacts-yearlong-ban-on-new-ai-datacenters",
+    "title": "Seattle enacts year-long ban on new AI datacenters",
+    "description": "Home city of Amazon and Microsoft passes moratorium as backlash against energy-guzzling AI infrastructure grows\nSeattle has passed a year-long moratorium on the construction of new datacenters. The city council voted unanimously in favor of the temporary ban on Tuesday.\nA major tech hub whose metro area is home to Amazon and Microsoft, Seattle is the largest US city to have passed such a moratorium as the backlash against AI infrastructure grows across the country.\n Continue reading...",
+    "fullText": "Home city of Amazon and Microsoft passes moratorium as backlash against energy-guzzling AI infrastructure grows\n\nSeattle has passed a year-long moratorium on the construction of new datacenters. The city council voted unanimously in favor of the temporary ban on Tuesday.\n\nA major tech hub whose metro area is home to Amazon and Microsoft, Seattle is the largest US city to have passed such a moratorium as the backlash against AI infrastructure grows across the country.\n\nLawmakers have framed the pause as an opportunity to draft regulations specifically targeting the electricity-hungry datacenters being built nationwide to serve the AI sector, and to protect local residents from environmental risks and rising electricity bills.\n\nAccording to Seattle’s mayor, Katie Wilson, the moratorium will also let city officials determine whether datacenters are a “good use of urban land”, and potentially impose new stipulations on their approval, such as requiring developers to invest in local transit and housing initiatives in exchange for construction permits.\n\n“There are times when public pressure forces elected officials to do something they don’t want to do, but in other cases, public pressure just supports and helps to spur on elected officials to do things that they already want to do,” said Wilson. “I think this was one of those latter cases.”\n\nAfter the Seattle Times reported in April that five proposed datacenters could consume up to a third of the city’s current demand for electricity, lawmakers quickly moved to impose a moratorium. Local tech workers, including activist groups such as Amazon Employees for Climate Justice, met with policymakers on the topic and mounted a letter-writing campaign that sent nearly 100,000 emails to local lawmakers.\n\nAccording to Ben Jones, a spokesperson for the climate-activist group 350 Seattle, a “huge number” of tech workers organized against the data centers because AI is “synonymous with people losing their jobs”. Amazon and Microsoft have laid off thousands of local workers over the past year as they spend a projected $390bn on AI investments in 2026.\n\nAn amendment to the moratorium that passed unanimously last week allows existing datacenters in Seattle to apply for expansions requiring up to 20 megawatts of additional power during the year-long pause. Activists are concerned that the provision may lead to a spike in datacenters’ demand for power while the moratorium is in place, and may undermine the premise of the pause.\n\nLawmakers justified the amendment as a way to differentiate between the datacenters that already exist in Seattle and serve a civic purpose, like those powering health facilities and emergency-call systems, from large-scale centers designed to serve the AI sector.\n\nSeattle activists are now working with other organizations in Washington state to help more groups mount similar campaigns against the bipartisanly unpopular datacenters, including in Spokane, the state’s second-largest city, and Walla Walla, in an agricultural corner of south-eastern Washington.\n\nWilson said her administration will push for state-level regulation of datacenters during the Washington state government’s next legislative session.",
+    "readingTime": 3,
+    "keywords": [
+      "tech workers",
+      "amazon and microsoft",
+      "datacenters",
+      "moratorium",
+      "city",
+      "lawmakers",
+      "pause",
+      "seattle",
+      "backlash",
+      "infrastructure"
+    ],
+    "qualityScore": 0.7,
+    "link": "https://www.theguardian.com/us-news/2026/jun/09/seattle-ai-datacenters-ban",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/d95014f829b570930b70e3b287ca806f253c67e4/492_0_3511_2811/master/3511.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=4c2b1ae6e8561c187bd2b13fafc3c146",
+    "created_at": "2026-06-10T20:10:24.882Z",
+    "topic": "tech"
+  },
+  {
     "slug": "bps-new-ceo-meg-oneill-rips-up-the-energy-giants-playbookand-the-green-era-with-it",
     "title": "BP’s new CEO Meg O’Neill rips up the energy giant’s playbook—and the ‘green’ era with it",
     "description": "O’Neill, who took over on April 1, is the only woman to serve as CEO of a traditional Big Oil supermajor in Europe or the U.S.",
@@ -1828,60 +1902,5 @@
     "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/ad290c4ebb27417af92f561019f10f54",
     "created_at": "2026-05-22T19:22:30.414Z",
     "topic": "news"
-  },
-  {
-    "slug": "cuisinart-2in1-indooroutdoor-electric-grill-review-is-it-worth-200",
-    "title": "Cuisinart 2-in-1 indoor/outdoor electric grill review: Is it worth $200?",
-    "description": "Can a $200 electric grill replace gas or charcoal? Our review tests the Cuisinart 2-in-1 indoor/outdoor grill on heating, sticking, and versatility.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/guides/kitchen/cuisinart-2-in-1-electric-grill-review",
-    "thumbnail_url": "https://i.insider.com/6a0f7535b1025a62a5c85cc3?width=1200&format=jpeg",
-    "created_at": "2026-05-22T19:22:30.163Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "plains-oil-pipeline-partly-shut-down-after-rupture-in-east-los-angeles-company-says",
-    "title": "Plains oil pipeline partly shut down after rupture in East Los Angeles, company says",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/commodities-news/oil-pipeline-ruptured-in-east-los-angeles-fire-dept-says-flow-stopped-4707071",
-    "thumbnail_url": "https://i-invdn-com.investing.com/news/LYNXMPEA680A2_M.jpg",
-    "created_at": "2026-05-22T19:22:30.005Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "guardiola-explains-decision-to-leave-man-city",
-    "title": "Guardiola explains decision to leave Man City",
-    "description": "Pep Guardiola says the club needs a new manager and new energy after he announced his decision to leave Manchester City at the end of the season.",
-    "fullText": "Guardiola explains decision to leave Man City91Pep Guardiola says the club needs a new manager and new energy after he announced his decision to leave Manchester City at the end of the season.",
-    "readingTime": 1,
-    "keywords": [
-      "decision",
-      "guardiola"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.bbc.com/sport/football/videos/cp3p2vlz3w0o?at_medium=RSS&at_campaign=rss",
-    "thumbnail_url": "https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/9fcd/live/eeda4630-55e5-11f1-8b8c-6d33e1d5abb6.jpg",
-    "created_at": "2026-05-22T19:22:28.208Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "these-triathlete-twins-manage-their-metabolism-differently-here-are-their-top-3-tips-for-burning-fat-and-boosting-energy",
-    "title": "These triathlete twins manage their metabolism differently. Here are their top 3 tips for burning fat and boosting energy.",
-    "description": "A pair of twins competed in triathletes together and learned to improve metabolism for performance. Then they founded a health tech company.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/tips-improve-metabolism-performance-from-triathlete-twins-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0de8abce0a5b2f12d7de7b?width=1200&format=jpeg",
-    "created_at": "2026-05-22T14:14:48.811Z",
-    "topic": "finance"
   }
 ]
