@@ -1,5 +1,29 @@
 [
   {
+    "slug": "prclinked-spies-hid-inside-medical-and-military-networks-for-more-than-a-year",
+    "title": "PRC-linked spies hid inside medical and military networks for more than a year",
+    "description": "Google says the intruders were on the hunt for everything from drone tech to pathogens",
+    "fullText": "Google says the intruders were on the hunt for everything from drone tech to pathogens\n\nChinese government spies remained hidden in the networks of multiple North American medical and military research organizations for more than a year, deploying custom malware and snooping through Gmail inboxes and stealing sensitive data.\n\nThis PRC-nexus espionage crew, which Google tracks as UNC6508, used some particularly noteworthy search terms as they were scanning for data to steal. They included such esoteric topics as drone technology and a viral disease that spreads from mosquitoes to humans.\n\n“It’s one of the most interesting grocery shopping lists of things to collect that I’ve seen from a state-sponsored actor,” Luke McNamara, deputy chief analyst at Google Threat Intelligence Group, told The Register.\n\n“We have defense-related activity, which was a significant bulk of the different terms, or emails related to defense platform systems or companies,” McNamara said. “Some of those were looking for any emails that were coming in or going out that used @ and then a big defense name. Others were specific email addresses of individuals at more niche defense companies.”\n\nWhile most of the terms related to defense and technology, the intruders also searched for some medical research facilities – and the very specific pathogen, “Chikungunya,” a viral disease transmitted to humans from mosquitoes that was responsible for an outbreak in China's Guangdong province in July 2025.\n\nGoogle won’t say how many organizations were compromised in this campaign. A Monday report said the operation targeted several national, state, and private medical entities.\n\n“These organizations comprise world-renowned clinical providers, premier academic centers, North American military health institutions, professional advocacy groups, and health regulatory bodies,” according to the report. “Their research areas span a broad spectrum of modern medicine, from molecular discovery and clinical drug trials to state-level public health policy and military readiness.”\n\nMcNamara told us that the tech company’s incident responders notified all the victims they identified, “and we suspect there's probably even more.”\n\nIncident responders first detected this campaign in early 2025, but told us it dates back to at least 2023. And all of these attacks began with the digital intruders somehow exploiting externally facing REDCap (Research Electronic Data Capture) servers. These servers are primarily used by universities, hospitals, and research institutions to build and manage online databases and surveys, and to store sensitive clinical research data.\n\nThe earliest known intrusion happened in September 2023, when UNC6508 compromised a REDCap server belonging to a North American medical research institution. McNamara told us that all of the intrusions followed this same pattern.\n\nAfter three months, the snoops silently deployed custom malware named InfiniteRed to capture legitimate REDCap login credentials.\n\nThe malware includes three modular components. The first allows it to maintain persistent remote access by injecting its code into new REDCap versions after intercepting the upgrade process. Then it injects a credential harvester into the authentication system file to compromise user accounts. Finally, it functions as a backdoor with custom hooks that executes on every REDCap page load.\n\nGoogle’s threat intelligence team identified “multiple” US and Canada-based organizations infected with InfiniteRed, and offered assistance with removing the malware.\n\nAfter remaining undetected for more than a year, UNC6508 used the stolen credentials to access admin accounts and the victims’ internal network. Finally, the attackers added sneaky domain content compliance rules for data theft.\n\nContent compliance rules are legitimate features in many cloud-based enterprise productivity suites - like Google Workspace - to exfiltrate specific email communications. Administrators can create these rules to manage messages that contain predefined sets of words or phrases, and these rules apply to all of the users in an organizational unit.\n\nUNC6508 created a compliance rule named \"Patroit\" (yes, they misspelled “Patriot”) to match keywords and email address patterns in sent or received emails.\n\nThese messages were then silently BCC-forwarded to an attacker-controlled Gmail address, BebitaBarefoot774[@]gmail[.]com, delivering a steady stream of geo-strategic policy, military strategy, advanced technology, and medical research emails to the PRC-linked crew. The search terms also included professional email addresses and phone numbers for members of organizations in these spaces.\n\nGTIG disabled the Gmail account to prevent further data exfiltration.\n\n“One of the questions that we've had internally around this is: We're seeing this show up primarily at medical research institutions,” McNamara said. “Why are they searching for things like unmanned drones and unmanned vehicles? Why would you expect to find that there?”\n\nOne theory, he said, is that this particular threat group was tasked with collecting data across different categories of national-security-related terms and information. “Maybe they were copy-and-pasting this across multiple victims, including ones outside of this medical research space?”\n\nPlus, some of the targeted institutions were likely working on research with a military or government agency connection. “So there was a potential that they could be in correspondence with someone where one of these terms showed up, and the actors were casting a very wide net,” McNamara said.®",
+    "readingTime": 5,
+    "keywords": [
+      "american medical",
+      "viral disease",
+      "incident responders",
+      "threat intelligence",
+      "content compliance",
+      "email addresses",
+      "custom malware",
+      "compliance rules",
+      "medical research",
+      "research institutions"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/research/2026/06/15/google-says-prc-linked-spies-hid-in-medical-research-networks-for-more-than-a-year/5254547",
+    "thumbnail_url": "https://image.theregister.com/1681600.jpg?imageId=1681600&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+    "created_at": "2026-06-15T16:55:18.025Z",
+    "topic": "health"
+  },
+  {
     "slug": "ukrainian-national-who-completed-air-force-officer-training-convicted-in-ghost-gun-3d-printing-operation",
     "title": "Ukrainian national who completed Air Force officer training convicted in ghost gun 3D printing operation",
     "description": "Yaroslav Vishnevski convicted on five federal counts after authorities found ghost gun 3D printing operation and illegal silencers from China.",
@@ -1918,23 +1942,5 @@
     "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/e9487f73d8b663b0b509df1eb3575a23",
     "created_at": "2026-05-28T15:25:17.437Z",
     "topic": "news"
-  },
-  {
-    "slug": "are-robots-nearing-their-chatgpt-moment-podcast",
-    "title": "Are robots nearing their ChatGPT moment? – podcast",
-    "description": "Last month at Beijing’s half marathon, a robot named Lightning beat the human world record by nearly seven minutes. It’s the latest in a string of AI-powered milestones that have got people wondering whether robots are about to enter our everyday lives, just as chatbots have. And the country leading the charge is China, where the government has pledged to invest more than £100bn in robotics over the next 20 years. To find out how robots are already entering the workforce, and what needs to happen to get them cleaning our homes and weeding our gardens, Ian Sample hears from the Guardian’s senior China correspondent, Amy Hawkins, and from Nathan Lepora, professor of robotics and AI at Bristol University, who researches how robots can achieve human-like dexterity\nClips: Global News, BBC, CGTN\n Continue reading...",
-    "fullText": "Are robots nearing their ChatGPT moment? – podcast00:00:0000:00:00Last month at Beijing’s half marathon, a robot named Lightning beat the human world record by nearly seven minutes. It’s the latest in a string of AI-powered milestones that have got people wondering whether robots are about to enter our everyday lives, just as chatbots have. And the country leading the charge is China, where the government has pledged to invest more than £100bn in robotics over the next 20 years. To find out how robots are already entering the workforce, and what needs to happen to get them cleaning our homes and weeding our gardens, Ian Sample hears from the Guardian’s senior China correspondent, Amy Hawkins, and from Nathan Lepora, professor of robotics and AI at Bristol University, who researches how robots can achieve human-like dexterityClips: Global News, BBC, CGTN\n Inside China’s robotics revolution\n Humanoid robots show rapid advances as they race past humans in Beijing half marathon\nSupport the Guardian: theguardian.com/sciencepodExplore more on these topicsScienceScience WeeklyRobotsAI (artificial intelligence)China",
-    "readingTime": 1,
-    "keywords": [
-      "half marathon",
-      "robots",
-      "robotics",
-      "china"
-    ],
-    "qualityScore": 0.35,
-    "link": "https://www.theguardian.com/science/audio/2026/may/28/are-robots-nearing-their-chatgpt-moment-podcast",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/9563770e0eb8e4628031614d3f9a6bac8d63a2e5/417_0_4167_3333/master/4167.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=2932612002a4504c3123bdc403e57639",
-    "created_at": "2026-05-28T09:43:53.072Z",
-    "topic": "science"
   }
 ]

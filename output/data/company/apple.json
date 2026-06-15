@@ -1,5 +1,18 @@
 [
   {
+    "slug": "15-actors-who-transformed-themselves-into-reallife-tech-company-ceos-and-founders",
+    "title": "15 actors who transformed themselves into real-life tech company CEOs and founders",
+    "description": "The micro-genre of tech CEO biopics is only growing, with companies like Facebook, Uber, WeWork, and Apple getting their own on-screen origin stories.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/actors-who-played-startup-founders-tech-ceos",
+    "thumbnail_url": "https://i.insider.com/6a2c7427a462940611898b95?width=1200&format=jpeg",
+    "created_at": "2026-06-15T16:55:10.815Z",
+    "topic": "finance"
+  },
+  {
     "slug": "upgrading-my-apple-ii-serial-setup",
     "title": "Upgrading my Apple II serial setup",
     "description": "Replacing my Apple II ad-hoc bunch of generic cables and generic switchboxes with a custom-made switchbox that integrates everything I need.",
@@ -2106,30 +2119,6 @@
     "link": "https://lifehacker.com/tech/tasker-vs-apple-shortcuts?utm_medium=RSS",
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KQWCX8ET0NW3WXG73YJV7SE6/hero-image.fill.size_1200x675.jpg",
     "created_at": "2026-05-05T19:04:18.497Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "mtplx-224x-faster-tps-the-native-mtp-inference-engine-for-apple-silicon",
-    "title": "Mtplx – 2.24x faster TPS – The native MTP inference engine for Apple Silicon",
-    "description": "Native MTP Speculative Decoding On Apple Silicon | 2x - 2.5x decode TPS increase at temp 0.6 | MLX-native, OpenAI API/Anthropic-compatible serving, no external drafter. - youssofal/MTPLX",
-    "fullText": "~2.24× over no-MTP AR at temp=0.6 on Qwen3.6-27B · math-correct rejection sampling · MLX-native · zero external drafter\n\nMultiplier is hardware-independent. Absolute tok/s scales with memory bandwidth — current public record on M5 Max: 63.056 / 62.886 tok/s D3, Youssofal/Qwen3.6-27B-MTPLX-Optimized-Speed.\n\nPermissive open source. MTPLX is Apache-2.0: you can use it, modify it, and ship it commercially. If you redistribute MTPLX, keep the license and NOTICE attribution; for public projects and research, visible credit or citation is strongly appreciated.\n\nMTPLX runs the model's own built-in MTP heads as a speculative drafter, with exact probability-ratio acceptance + residual correction — not the greedy-argmax trick most fast-decode tools use at T>0. That means real coding settings (temperature=0.6, top_p=0.95, top_k=20) actually get the speculative speedup and keep the target model's distribution.\n\nThis is not DFlash, DDTree, llama-spec, or an external-drafter system. It's a native-MTP runtime built around MLX, Apple Silicon, and a real OpenAI/Anthropic-compatible serving surface.\n\nThe Homebrew installer sets up the mtplx command in /opt/homebrew/bin and bootstraps the Python runtime under /opt/homebrew/var/mtplx. Python users can also run python3 -m pip install --pre mtplx.\n\nThat's it. The wizard handles the default speed model (Youssofal/Qwen3.6-27B-MTPLX-Optimized-Speed), runtime mode, and surface (browser chat at 127.0.0.1:8000/ or terminal chat) on first run. On every subsequent run it asks \"same as last time?\" so you're one keypress from chatting.\n\nPreview honesty. The cold path is verified at the ~2.24× multiplier above. Sustained no-fan long-context throughput is currently in a worse lane on Flappy 10k versus the v0.2 target — the v0.1 release ships with this gap explicit. Closing it is the v0.2 deliverable; see Roadmap.\n\nPower-user shortcuts (any of these skip the wizard):\n\nHomebrew writes a durable launcher so mtplx works from a normal new Terminal tab. The older script installer remains available if you prefer a user-local venv:\n\nFor Python-only installs, PyPI is also available. Preview 1 is packaged as 0.1.0rc1, so use:\n\nMost \"fast decode on Apple Silicon\" projects fall into one of three buckets:\n\nThe math-correctness wedge is real. At temperature=0.6, the difference between \"rejected because the draft argmax disagrees\" and \"rejected via the Leviathan/Chen rejection-sampling theorem\" is the difference between a benchmark trick and a runtime your code editor can trust. MTPLX does the latter, including residual correction (p − q)+ for the cases where the draft was rejected.\n\nVerified evidence (current public default Youssofal/Qwen3.6-27B-MTPLX-Optimized-Speed):\n\nNo second model, no greedy hack, no external drafter, no silent distribution drift.\n\nPicked by mtplx start, or set explicitly via --profile. Every mode preserves exactness; the difference is the runtime path and whether MTPLX touches your fans.\n\nMax requires ThermalForge. mtplx max --install installs it from source into ~/.mtplx/bin/thermalforge, sets up a passwordless sudoers rule scoped to that one binary, and verifies fans actually ramp before declaring success. One sudo prompt, end-to-end. Crash safety covers SIGINT, SIGTERM, SIGHUP, terminal close, and kill -9 via a detached sidecar process.\n\nv0.1 ships verified Qwen3.6-27B via Youssofal/Qwen3.6-27B-MTPLX-Optimized-Speed, with public served model id mtplx-qwen36-27b-optimized-speed. The compatibility registry already detects DeepSeek V3 / V3.2, GLM-4 MoE / MoE-Lite, MiMo, and MiniMax M2 — unsupported runtime families stay behind explicit compatibility gates rather than silently running.\n\nRun mtplx doctor --summary, mtplx doctor --deep --json, or mtplx doctor --bundle before filing a bug. Bundles are redacted by default under ~/.mtplx/reports/.\n\nEvery command has --json for machine-readable output and --help for context-specific docs.\n\nThe architectural achievement is a single-model native-MTP runtime that's mathematically exact at temperature, with a real serving surface bolted on. There is no second drafter, no greedy hack, and no \"drop in a fast-decode library\" wrapper. Four layers, drawn the way they actually run.\n\nMTPLX is not a thin wrapper over stock MLX — the speed lane sits on top of an MLX source fork plus a small set of custom Metal kernels registered as primitives. Stock mlx-lm cannot reproduce the multiplier above; the runtime layer is what makes the speculative cycle in §2 tractable on Apple Silicon.\n\nWhat we changed at the MLX source level (fork: mlx-mtplx-0.31.2-qmm, commit 2377a99f \"Tune small-M qmv for MTPLX 60TPS path\"):\n\nCustom Metal kernels we shipped on top of the fork:\n\nRuntime knobs that ship on by default in performance-cold:\n\nNumerical hygiene (these are correctness fixes, not speed):\n\nThe target model and the drafter are the same checkpoint. Qwen3.6-27B ships native MTP heads; MTPLX uses them as the speculative drafter. Zero RAM cost for a second model, zero distillation, zero \"we trained a drafter\" handoff. The trunk's KV cache obeys a committed-history contract (verified against the vLLM CUDA reference at cosine > 0.9998 through D5) so recursive draft depth holds together — that's what lets D2/D3/D4 acceptance reach the 90s instead of collapsing.\n\nPer cycle: the MTP head drafts K tokens, the target verifies all K in parallel via one batched forward, probability-ratio acceptance (Leviathan–Chen) decides per-position, residual correction (p − q)+ emits a clean replacement on rejection, and a bonus token falls out for free when all K accept. Verify cost is paid by capture_commit + the linear-gdn-from-conv-tape GDN kernel + a GraphBank of compiled verify shapes; the math is exact at any temperature.\n\nThe runtime is wrapped in a real serving surface so you can point Open WebUI / Claude Code / Cline / Continue / curl / openai-python / anthropic-python at it. Engine sessions keep per-chat state; the Session Bank preserves warm-prefix exact state across turns (verified logits_max_abs_diff = 0.0 against fresh forwards) so multi-turn TTFT doesn't collapse the way a stateless shim would.\n\nThe CLI (mtplx start / pull / doctor / inspect / max) is the on-ramp to all of the above and not the architectural story — it lazy-imports MLX so --help, doctor, inspect, init, setup work on a fresh venv with no GPU/Apple-Silicon stack installed.\n\nMTPLX builds on MLX and the Qwen3-Next model family. The speculative-sampling math follows Leviathan & Chen 2023 (\"Fast Inference from Transformers via Speculative Decoding\") and the MTP heads ship with Qwen. Design and diagnostics are informed by vLLM speculative decoding, vLLM-Metal (issues #188 and #281), DFlash-MLX, DDTree-MLX, and DeepSeek V3.2's mx.depends precedent. Optional fan control via ThermalForge. Model weights and licenses remain governed by their upstream model cards.\n\nMTPLX is released under the Apache License 2.0: you can use it, modify it, and ship it commercially. If you redistribute MTPLX or derivative works, preserve the Apache license and the attribution notices from NOTICE as required by Apache-2.0.\n\nIf MTPLX powers a public project, product, benchmark, article, or research result, please include clear credit in your README, docs, paper, or public writeup:\n\nhttps://github.com/youssofal/mtplx\n\nFor academic or technical writing, cite the repository using CITATION.cff.\n\n— Built by Youssof Altoukhi. Contributions, bug reports, and benchmark replications welcome via Issues.",
-    "readingTime": 6,
-    "keywords": [
-      "metal kernels",
-      "greedy hack",
-      "probability-ratio acceptance",
-      "residual correction",
-      "doctor inspect",
-      "external drafter",
-      "native-mtp runtime",
-      "second model",
-      "redistribute mtplx",
-      "speculative drafter"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/youssofal/MTPLX",
-    "thumbnail_url": "https://opengraph.githubassets.com/4729755c297f7eb13f6c4f8649950e46242e715f859d6e953bc5d08daebd1c40/youssofal/MTPLX",
-    "created_at": "2026-05-05T01:52:22.957Z",
     "topic": "tech"
   }
 ]

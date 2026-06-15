@@ -1,5 +1,53 @@
 [
   {
+    "slug": "prclinked-spies-hid-inside-medical-and-military-networks-for-more-than-a-year",
+    "title": "PRC-linked spies hid inside medical and military networks for more than a year",
+    "description": "Google says the intruders were on the hunt for everything from drone tech to pathogens",
+    "fullText": "Google says the intruders were on the hunt for everything from drone tech to pathogens\n\nChinese government spies remained hidden in the networks of multiple North American medical and military research organizations for more than a year, deploying custom malware and snooping through Gmail inboxes and stealing sensitive data.\n\nThis PRC-nexus espionage crew, which Google tracks as UNC6508, used some particularly noteworthy search terms as they were scanning for data to steal. They included such esoteric topics as drone technology and a viral disease that spreads from mosquitoes to humans.\n\n“It’s one of the most interesting grocery shopping lists of things to collect that I’ve seen from a state-sponsored actor,” Luke McNamara, deputy chief analyst at Google Threat Intelligence Group, told The Register.\n\n“We have defense-related activity, which was a significant bulk of the different terms, or emails related to defense platform systems or companies,” McNamara said. “Some of those were looking for any emails that were coming in or going out that used @ and then a big defense name. Others were specific email addresses of individuals at more niche defense companies.”\n\nWhile most of the terms related to defense and technology, the intruders also searched for some medical research facilities – and the very specific pathogen, “Chikungunya,” a viral disease transmitted to humans from mosquitoes that was responsible for an outbreak in China's Guangdong province in July 2025.\n\nGoogle won’t say how many organizations were compromised in this campaign. A Monday report said the operation targeted several national, state, and private medical entities.\n\n“These organizations comprise world-renowned clinical providers, premier academic centers, North American military health institutions, professional advocacy groups, and health regulatory bodies,” according to the report. “Their research areas span a broad spectrum of modern medicine, from molecular discovery and clinical drug trials to state-level public health policy and military readiness.”\n\nMcNamara told us that the tech company’s incident responders notified all the victims they identified, “and we suspect there's probably even more.”\n\nIncident responders first detected this campaign in early 2025, but told us it dates back to at least 2023. And all of these attacks began with the digital intruders somehow exploiting externally facing REDCap (Research Electronic Data Capture) servers. These servers are primarily used by universities, hospitals, and research institutions to build and manage online databases and surveys, and to store sensitive clinical research data.\n\nThe earliest known intrusion happened in September 2023, when UNC6508 compromised a REDCap server belonging to a North American medical research institution. McNamara told us that all of the intrusions followed this same pattern.\n\nAfter three months, the snoops silently deployed custom malware named InfiniteRed to capture legitimate REDCap login credentials.\n\nThe malware includes three modular components. The first allows it to maintain persistent remote access by injecting its code into new REDCap versions after intercepting the upgrade process. Then it injects a credential harvester into the authentication system file to compromise user accounts. Finally, it functions as a backdoor with custom hooks that executes on every REDCap page load.\n\nGoogle’s threat intelligence team identified “multiple” US and Canada-based organizations infected with InfiniteRed, and offered assistance with removing the malware.\n\nAfter remaining undetected for more than a year, UNC6508 used the stolen credentials to access admin accounts and the victims’ internal network. Finally, the attackers added sneaky domain content compliance rules for data theft.\n\nContent compliance rules are legitimate features in many cloud-based enterprise productivity suites - like Google Workspace - to exfiltrate specific email communications. Administrators can create these rules to manage messages that contain predefined sets of words or phrases, and these rules apply to all of the users in an organizational unit.\n\nUNC6508 created a compliance rule named \"Patroit\" (yes, they misspelled “Patriot”) to match keywords and email address patterns in sent or received emails.\n\nThese messages were then silently BCC-forwarded to an attacker-controlled Gmail address, BebitaBarefoot774[@]gmail[.]com, delivering a steady stream of geo-strategic policy, military strategy, advanced technology, and medical research emails to the PRC-linked crew. The search terms also included professional email addresses and phone numbers for members of organizations in these spaces.\n\nGTIG disabled the Gmail account to prevent further data exfiltration.\n\n“One of the questions that we've had internally around this is: We're seeing this show up primarily at medical research institutions,” McNamara said. “Why are they searching for things like unmanned drones and unmanned vehicles? Why would you expect to find that there?”\n\nOne theory, he said, is that this particular threat group was tasked with collecting data across different categories of national-security-related terms and information. “Maybe they were copy-and-pasting this across multiple victims, including ones outside of this medical research space?”\n\nPlus, some of the targeted institutions were likely working on research with a military or government agency connection. “So there was a potential that they could be in correspondence with someone where one of these terms showed up, and the actors were casting a very wide net,” McNamara said.®",
+    "readingTime": 5,
+    "keywords": [
+      "american medical",
+      "viral disease",
+      "incident responders",
+      "threat intelligence",
+      "content compliance",
+      "email addresses",
+      "custom malware",
+      "compliance rules",
+      "medical research",
+      "research institutions"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/research/2026/06/15/google-says-prc-linked-spies-hid-in-medical-research-networks-for-more-than-a-year/5254547",
+    "thumbnail_url": "https://image.theregister.com/1681600.jpg?imageId=1681600&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+    "created_at": "2026-06-15T16:55:18.025Z",
+    "topic": "health"
+  },
+  {
+    "slug": "dozens-walk-out-as-google-boss-pichai-addresses-stanford-graduates",
+    "title": "Dozens walk out as Google boss Pichai addresses Stanford graduates",
+    "description": "Some students were protesting against the company's controversial work with the US government on artificial intelligence.",
+    "fullText": "Several students walked out of their Stanford University graduation ceremony as Google CEO Sundar Pichai took the stage to deliver a keynote address.\n\nVideo filmed by the BBC shows dozens of people protesting against the company's controversial work with the US government. One sign read \"ICE spies with Google AI\".\n\nThis follows other recent campus protests against tech leaders, but those have largely focused on artificial intelligence and concerns about jobs.\n\nPichai largely sidestepped the issue of AI in his remarks, though he appeared to make light of the expected protests. \"People thought it would be really difficult for me,\" he said. \"It is the last two letters of my last name, after all.\"\n\nPichai, a Stanford alum, did not respond to the BBC's request for comment.\n\nThe exact number of students who walked out of the graduation remains unclear, though SFGate estimated it was around 200.\n\nIt is also not clear if all the students who left were motivated by the same cause, as some were seen waving Palestinian flags.\n\nThe protests against graduation speakers in the US this year showed the broader unease on campuses about AI: Speakers who mention AI are increasingly being met with hostility from students.\n\nFormer Google CEO Eric Schmidt was booed by students as he spoke about the rise of AI during his speech at the University of Arizona's graduation ceremony in May, underscoring growing anxiety over AI's impact on jobs.\n\n\"I know what many of you are feeling about that. I can hear you,\" Schmidt told graduates as jeers rang out at the venue during remarks comparing today's AI boom to the rise of computers four decades ago.\n\nGloria Caulfield, a real estate executive, saw a similar reception at the University of Central Florida: \"The rise of artificial intelligence is the next industrial revolution,\" she said as the crowd booed.\n\nAt the mention of AI at Middle Tennessee State University commencement, Scott Borchetta, CEO of Big Machine Records, was also met with jeers.\n\nHis response to graduates: \"Deal with it, like I said, it's a tool.\"\n\nAdditional reporting by Lily Jamali\n\nFormer Google CEO Eric Schmidt booed by graduates at mention of AI",
+    "readingTime": 2,
+    "keywords": [
+      "eric schmidt",
+      "ceo eric",
+      "google ceo",
+      "artificial intelligence",
+      "graduation ceremony",
+      "students",
+      "protests",
+      "mention",
+      "booed",
+      "rise"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.yahoo.com/news/politics/articles/dozens-walk-google-boss-pichai-144432143.html",
+    "thumbnail_url": "https://s.yimg.com/os/en/bbc_us_articles_995/0ddc00d184af2c22f0dbeffe49dafb01",
+    "created_at": "2026-06-15T16:55:07.460Z",
+    "topic": "politic"
+  },
+  {
     "slug": "sundar-pichai-chooses-optimism-over-ai-and-boos-for-his-stanford-graduation-speech",
     "title": "Sundar Pichai chooses 'optimism' over AI (and boos) for his Stanford graduation speech",
     "description": "New grads have booed graduation speakers who talk about AI. So Google CEO Sundar Pichai played it safe during his at Stanford on Sunday.",
@@ -1776,46 +1824,5 @@
     "thumbnail_url": "https://i.insider.com/6a0c31b2abc4e9d88574b500?width=1200&format=jpeg",
     "created_at": "2026-05-19T19:42:32.955Z",
     "topic": "finance"
-  },
-  {
-    "slug": "google-isnt-releasing-its-next-big-ai-model-yet-drawing-groans-at-its-io-conference",
-    "title": "Google isn't releasing its next big AI model yet, drawing groans at its I/O conference",
-    "description": "Google's Gemini 3.5 Pro AI model will launch next month, announces CEO Sundar Pichai at I/O 2026—disappointing attendees.",
-    "fullText": "Read in app\n\n Google CEO Sundar Pichai announced that Gemini 3.5 Pro will launch next month.\n Google I/O 2026 attendees groaned at the model coming out later than they'd expected.\n Google unveiled other products, including Spark and Gemini 3.5 Flash AI models, at I/O.\n\n Why the wait for Gemini 3.5 Pro?\n\n How does Gemini 3.5 Flash differ?\n\n What are Spark's unique features?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "gemini",
-      "google",
-      "flash"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://www.businessinsider.com/google-io-2026-gemini-3-5-pro-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0cacf1ce0a5b2f12d7d7dc?width=1200&format=jpeg",
-    "created_at": "2026-05-19T19:42:32.855Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "google-just-announced-a-bunch-of-workspace-features-at-io-2026",
-    "title": "Google Just Announced a Bunch of Workspace Features at I/O 2026",
-    "description": "Google Workspace is doubling down on AI capabilities.",
-    "fullText": "Google Workspace is getting a slew of AI-related updates, including a brand new app called Google Pics, which can generate and edit images for you. Many of these updates will be available to those who use Gmail, Google Docs, Google Drive, and other Google Workspace apps, the company announced during the Google I/O 2026 keynote. This includes conversational features that will allow you to control Gmail, Docs, and Keep; a new AI inbox that aims to help you stay on top of your email; and a personal AI agent called Gemini Spark that can integrate with Google Workspace apps to get things done for you.\n\nHere are all the major Google Workspace updates unveiled during Google I/O 2026. These features are rolling out for Google AI subscribers and paying Google Workspace users. This means that you won't be able to try much if you're on the free tier of Google services.\n\nGoogle Pics is a new app built with the company's latest Nano Banana AI image generation model, and allows you to create and edit photos using AI. Google claims this tool makes useful image editing tools more accessible, highlighting examples such as modifying and translating text, as well as transforming specific elements in an image (e.g., changing a sweater's color or turning a dog into a cat). You can also generate an image with a text prompt, but the real highlight seems to be granular editing.\n\nLike every other AI-related image generation tool, Google Pics also raises ethical questions about the nature of an image. It's not hard to imagine how tools like these could be misused to manipulate and deceive. One can only hope that Google has guardrails in place to clearly identify images edited with Google Pics, and to prevent misuse. This app is available to \"Trusted Testers\" today, and will be rolling out globally to Google AI Pro and Ultra subscribers (and in preview to Google Workspace business users) this summer.\n\nGoogle is adding new voice features to Gmail, Google Docs, and Google Keep. The email service is getting a feature called Gmail Live, which will search your inbox to answer your questions. For instance, you could ask something like, \"What's going on at my kid's school this week?\" The service will then search your inbox and find all the emails from your child's school. The idea is to ask questions with natural language, which is what makes it \"conversational.\"\n\nThe next new feature is Docs Live, which acts as your partner and co-writer, according to Google. You can talk to Docs Live, and it will help you brainstorm ideas, organize your thoughts, and structure your document. Google says the feature can even pull information from Gmail, Google Drive, Google Chat, and the web with your permission. You can think of Docs Live as an outlining tool that can gather a bunch of information quickly, making the writing process quicker for those who struggle to get started with a blank document.\n\nFor Google Keep users, the new conversational features can turn your \"brain dump\" into organized notes and lists. You can say everything you want noted down, and the AI assistant will do the sorting and organizing for you. Like Google Pics, all of these conversational features will be rolling out to Google AI Pro and Ultra subscribers (and in preview to Google Workspace business users) this summer.\n\nGmail's AI Inbox, which offers AI-powered summaries, suggestions, and proofreading, is getting a few new tricks too. During I/O 2026, Google announced that AI Inbox will get personalized draft replies, instant file access, and streamlined task management. AI Inbox will be able to generate a contextual draft for you when it detects that an email requires an urgent response, the company claims. With instant file access, AI Inbox can find and display a link to a document from Google Docs, Sheets, or Slides when you need it, which could make it easier to find the right document in email threads. The feature also lets you mark all emails in a certain topic as read. These features will be available to Google AI Plus and Pro subscribers in the U.S. starting today.\n\nThe final Workspace-related update today is a new AI agent called Gemini Spark. The company says Spark transforms Gemini from an assistant that answers your questions to one that gets things done with your permission. Once you enable this feature, Google says Gemini Spark can perform tasks such as sending emails on your behalf, and adding events to your calendar. The company adds that it will always ask your permission before performing these actions. Gemini Spark will be rolling out to Google Workspace business users in the coming week, and it'll be available through the Gemini app.",
-    "readingTime": 4,
-    "keywords": [
-      "google workspace",
-      "ultra subscribers",
-      "workspace apps",
-      "workspace business",
-      "instant file",
-      "file access",
-      "business users",
-      "google drive",
-      "conversational features",
-      "google pics"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/google-just-announced-a-bunch-of-workspace-features-at-io-2026?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KS0640XPS547EJB0WM3PB9YR/hero-image.fill.size_1200x675.webp",
-    "created_at": "2026-05-19T19:42:31.304Z",
-    "topic": "tech"
   }
 ]

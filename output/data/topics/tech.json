@@ -1,5 +1,70 @@
 [
   {
+    "slug": "prclinked-spies-hid-inside-medical-and-military-networks-for-more-than-a-year",
+    "title": "PRC-linked spies hid inside medical and military networks for more than a year",
+    "description": "Google says the intruders were on the hunt for everything from drone tech to pathogens",
+    "fullText": "Google says the intruders were on the hunt for everything from drone tech to pathogens\n\nChinese government spies remained hidden in the networks of multiple North American medical and military research organizations for more than a year, deploying custom malware and snooping through Gmail inboxes and stealing sensitive data.\n\nThis PRC-nexus espionage crew, which Google tracks as UNC6508, used some particularly noteworthy search terms as they were scanning for data to steal. They included such esoteric topics as drone technology and a viral disease that spreads from mosquitoes to humans.\n\n“It’s one of the most interesting grocery shopping lists of things to collect that I’ve seen from a state-sponsored actor,” Luke McNamara, deputy chief analyst at Google Threat Intelligence Group, told The Register.\n\n“We have defense-related activity, which was a significant bulk of the different terms, or emails related to defense platform systems or companies,” McNamara said. “Some of those were looking for any emails that were coming in or going out that used @ and then a big defense name. Others were specific email addresses of individuals at more niche defense companies.”\n\nWhile most of the terms related to defense and technology, the intruders also searched for some medical research facilities – and the very specific pathogen, “Chikungunya,” a viral disease transmitted to humans from mosquitoes that was responsible for an outbreak in China's Guangdong province in July 2025.\n\nGoogle won’t say how many organizations were compromised in this campaign. A Monday report said the operation targeted several national, state, and private medical entities.\n\n“These organizations comprise world-renowned clinical providers, premier academic centers, North American military health institutions, professional advocacy groups, and health regulatory bodies,” according to the report. “Their research areas span a broad spectrum of modern medicine, from molecular discovery and clinical drug trials to state-level public health policy and military readiness.”\n\nMcNamara told us that the tech company’s incident responders notified all the victims they identified, “and we suspect there's probably even more.”\n\nIncident responders first detected this campaign in early 2025, but told us it dates back to at least 2023. And all of these attacks began with the digital intruders somehow exploiting externally facing REDCap (Research Electronic Data Capture) servers. These servers are primarily used by universities, hospitals, and research institutions to build and manage online databases and surveys, and to store sensitive clinical research data.\n\nThe earliest known intrusion happened in September 2023, when UNC6508 compromised a REDCap server belonging to a North American medical research institution. McNamara told us that all of the intrusions followed this same pattern.\n\nAfter three months, the snoops silently deployed custom malware named InfiniteRed to capture legitimate REDCap login credentials.\n\nThe malware includes three modular components. The first allows it to maintain persistent remote access by injecting its code into new REDCap versions after intercepting the upgrade process. Then it injects a credential harvester into the authentication system file to compromise user accounts. Finally, it functions as a backdoor with custom hooks that executes on every REDCap page load.\n\nGoogle’s threat intelligence team identified “multiple” US and Canada-based organizations infected with InfiniteRed, and offered assistance with removing the malware.\n\nAfter remaining undetected for more than a year, UNC6508 used the stolen credentials to access admin accounts and the victims’ internal network. Finally, the attackers added sneaky domain content compliance rules for data theft.\n\nContent compliance rules are legitimate features in many cloud-based enterprise productivity suites - like Google Workspace - to exfiltrate specific email communications. Administrators can create these rules to manage messages that contain predefined sets of words or phrases, and these rules apply to all of the users in an organizational unit.\n\nUNC6508 created a compliance rule named \"Patroit\" (yes, they misspelled “Patriot”) to match keywords and email address patterns in sent or received emails.\n\nThese messages were then silently BCC-forwarded to an attacker-controlled Gmail address, BebitaBarefoot774[@]gmail[.]com, delivering a steady stream of geo-strategic policy, military strategy, advanced technology, and medical research emails to the PRC-linked crew. The search terms also included professional email addresses and phone numbers for members of organizations in these spaces.\n\nGTIG disabled the Gmail account to prevent further data exfiltration.\n\n“One of the questions that we've had internally around this is: We're seeing this show up primarily at medical research institutions,” McNamara said. “Why are they searching for things like unmanned drones and unmanned vehicles? Why would you expect to find that there?”\n\nOne theory, he said, is that this particular threat group was tasked with collecting data across different categories of national-security-related terms and information. “Maybe they were copy-and-pasting this across multiple victims, including ones outside of this medical research space?”\n\nPlus, some of the targeted institutions were likely working on research with a military or government agency connection. “So there was a potential that they could be in correspondence with someone where one of these terms showed up, and the actors were casting a very wide net,” McNamara said.®",
+    "readingTime": 5,
+    "keywords": [
+      "american medical",
+      "viral disease",
+      "incident responders",
+      "threat intelligence",
+      "content compliance",
+      "email addresses",
+      "custom malware",
+      "compliance rules",
+      "medical research",
+      "research institutions"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/research/2026/06/15/google-says-prc-linked-spies-hid-in-medical-research-networks-for-more-than-a-year/5254547",
+    "thumbnail_url": "https://image.theregister.com/1681600.jpg?imageId=1681600&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+    "created_at": "2026-06-15T16:55:18.025Z",
+    "topic": "health"
+  },
+  {
+    "slug": "new-tech-and-tactics-are-giving-ukraine-rare-momentum-against-russia",
+    "title": "New tech and tactics are giving Ukraine rare momentum against Russia",
+    "description": "Ukraine has new tech and momentum that's letting it make the kind of progress it hasn't seen in years.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/ukraine-starting-new-phrase-russia-war-with-tech-tactics-progress-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a2aa180457accd9f7cea856?width=1200&format=jpeg",
+    "created_at": "2026-06-15T16:55:11.451Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "15-actors-who-transformed-themselves-into-reallife-tech-company-ceos-and-founders",
+    "title": "15 actors who transformed themselves into real-life tech company CEOs and founders",
+    "description": "The micro-genre of tech CEO biopics is only growing, with companies like Facebook, Uber, WeWork, and Apple getting their own on-screen origin stories.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/actors-who-played-startup-founders-tech-ceos",
+    "thumbnail_url": "https://i.insider.com/6a2c7427a462940611898b95?width=1200&format=jpeg",
+    "created_at": "2026-06-15T16:55:10.815Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "the-pros-and-cons-of-continually-assessing-performance",
+    "title": "The Pros and Cons of Continually Assessing Performance",
+    "description": "As AI rapidly changes the division of labor between people and machines, organizations need ways of understanding employee capabilities that are more dynamic than just job titles, résumés, and periodic reviews. Continuous-assessment systems use signals generated during everyday work to track how skills are applied, how tasks are shifting to AI, and where new capabilities are emerging. Implemented well, these systems can improve staffing decisions, accelerate learning, and help companies adapt in real time by linking assessment directly to coaching, reskilling, and workforce planning. But they also carry significant risks, including surveillance concerns and incentives to optimize for narrow metrics. Their success ultimately depends less on technology than on transparent governance that supports development rather than control.",
+    "fullText": "The Pros and Cons of Continually Assessing Performance by Sangeet Paul Choudary and John WinsorJune 15, 2026PostPostShareSavePrintSummary.   As AI rapidly changes the division of labor between people and machines, organizations need ways of understanding employee capabilities that are more dynamic than just job titles,moreLeer en españolLer em portuguêsPostPostShareSavePrintFor much of aviation history, pilot training programs were geared toward two outcomes: the accumulation of a prescribed number of hours in the cockpit, and certification to fly a certain kind of aircraft. Airlines treated those outcomes as hard-earned evidence of competence.",
+    "readingTime": 1,
+    "keywords": [
+      "outcomes"
+    ],
+    "qualityScore": 0.15,
+    "link": "https://hbr.org/2026/06/the-pros-and-cons-of-continually-assessing-performance",
+    "thumbnail_url": "/resources/images/article_assets/2026/06/Jun26_13_685022564.jpg",
+    "created_at": "2026-06-15T16:55:09.656Z",
+    "topic": "business"
+  },
+  {
     "slug": "meet-the-22-investors-to-know-in-robotics-and-physical-ai",
     "title": "Meet the 22 investors to know in robotics and physical AI",
     "description": "Investors focus on robotics and physical AI, raising $23 billion this year, as technology evolves from software to real-world applications.",
@@ -1804,82 +1869,6 @@
     "link": "https://www.theguardian.com/technology/2026/jun/03/as-the-tech-mega-ipo-race-hots-up-has-openai-missed-its-moment",
     "thumbnail_url": "https://i.guim.co.uk/img/media/ed4ac100234e68f74025df71141a725cafb36a2e/366_0_4590_3673/master/4590.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=f51b35c954d2ba65c953075eb0163a9d",
     "created_at": "2026-06-03T10:41:56.641Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "sydney-academic-used-ai-to-write-smh-opinion-piece-urging-students-to-avoid-using-tech-to-cut-corners",
-    "title": "Sydney academic used AI to write SMH opinion piece urging students to avoid using tech to ‘cut corners’",
-    "description": "Sydney Morning Herald removes piece by Cath Ellis, despite Western Sydney University saying her use of AI was...",
-    "fullText": "Sydney Morning Herald removes piece by Cath Ellis, despite Western Sydney University saying her use of AI was ‘appropriate’\n\nFollow our Australia news live blog for latest updates\n\nGet our breaking news email, free app or daily news podcast\n\nA top Sydney academic used AI to write an opinion piece that urged students to “do the work” and not cut corners by using such technology, with the Sydney Morning Herald removing the “unacceptable” piece from its website.\n\nWestern Sydney University’s pro vice-chancellor for quality and integrity, Prof Cath Ellis, had an opinion piece published in the Sydney Morning Herald last month, in response to an article from the academic Kylie Moore-Gilbert.\n\nMoore-Gilbert had written that she had advised her stepdaughter to think twice before enrolling in university as students could easily outsource their learning to AI, saying students were “being graded on who can write the best AI prompts”.\n\nIn response, Ellis wrote in her piece that the “AI problem is real”, but students should still go to university and study properly.\n\n“Don’t cut corners. Don’t outsource your thinking, however tempting that may be. If the system is as fragile as some claim, then genuine effort will not be hidden. It will stand out,” she wrote.\n\nHowever, the column, when submitted to AI-detector service Pangram, came up as AI-generated.\n\nIn response to questions from Guardian Australia, the university said Ellis had used AI in writing the column.\n\n“To write her opinion article, Prof. Ellis uploaded 40,000 words of her own original materials into a Copilot Large Language Model (LLM). The model summarised her extensive base of knowledge, providing prompts,” the spokesperson said.\n\n“This was the basis of the early drafts, reflecting Prof. Ellis’s own thinking, ideas and opinions built up over more than a decade of dedicated work as a global leader in this field.”\n\nThe spokesperson said the use of an LLM to draw on her own expertise and experience “demonstrates a sophisticated and appropriate use” of generative AI.\n\n“Programs like Pangram can detect AI use, but they cannot determine whether that use was appropriate or inappropriate,” the spokesperson said. “The University believes the AI use in this case was appropriate.”\n\nEllis’s opinion piece did not declare the use of generative AI to write the article as of Wednesday morning.\n\nThe editorial policy for Nine, parent company of the Sydney Morning Herald, allows writers to use AI for initial research and prompt ideas but states: “AI will not be used to write stories for publication.”\n\nThe policy states where AI-generated material is published, it will be clearly labelled, but says “the use of assistive AI does not require declaration”.\n\nNine did not respond to questions from Guardian Australia. But in a subsequent article published on Wednesday, the Sydney Morning Herald’s editor, Jordan Baker, said the article did not meet its editorial guidelines and had been removed.\n\n“The Herald was not informed of the use of AI in the compilation of the article by either the author or Western Sydney University,” Baker said.\n\n“Clearly this is unacceptable and we are investigating further.”\n\nAs generative AI tools become more embedded in workplaces across the globe, incidents of media outlets publishing output from AI without disclosure are becoming more common. Crikey removed a series of articles from one writer in March after it was revealed the author had used AI to assist with the proofing of the copy.\n\nAlso in March, a freelance journalist admitted to using AI for a book review that echoed elements of one published in the Guardian, leading the New York Times to cut ties with him.\n\nSpeakers at university graduations who have praised AI have faced boos from students in recent weeks, amid concerns about their job prospects being dashed as companies replace graduate positions with AI.",
-    "readingTime": 4,
-    "keywords": [
-      "morning herald",
-      "western sydney",
-      "cut corners",
-      "sydney university",
-      "piece",
-      "students",
-      "appropriate",
-      "published",
-      "response",
-      "generative"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/australia-news/2026/jun/03/sydney-academic-used-ai-opinion-piece-urging-students-to-avoid-using-it-ntwnfb",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/4a6e567063ed76897094c356959f115332f7fce8/333_0_6827_5464/master/6827.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=8b833f113d9bc4af7d8246480111e8b9",
-    "created_at": "2026-06-03T10:41:56.600Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "i-graduated-from-harvard-with-no-fulltime-job-a-ticking-visa-clock-and-a-big-tech-dream-heres-how-i-found-my-way-to",
-    "title": "I graduated from Harvard with no full-time job, a ticking visa clock, and a Big Tech dream. Here's how I found my way to Google.",
-    "description": "A Harvard MBA graduate secured a Google role by leveraging networking after facing job search challenges as an international student.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/graduated-from-harvard-no-full-time-job-landed-at-google-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a1f03712e5a80cfe05025e5?width=1200&format=jpeg",
-    "created_at": "2026-06-03T10:41:54.376Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "i-left-the-alan-turing-institute-to-join-gamechanger-ai-lab",
-    "title": "I left the Alan Turing Institute to join 'game-changer' AI lab",
-    "description": "Mark Girolami, a co-founder of the national institute for data science and AI, says his new venture will prototype the technology that Britain needs",
-    "fullText": "Why I left the Alan Turing Institute to join ‘game-changer’ AI lab\n Mark Girolami, a co-founder of the national institute for data science and AI, says his new venture will prototype the technology that Britain needs\n\n Previous Article\n\n Next Article",
-    "readingTime": 1,
-    "keywords": [
-      "institute"
-    ],
-    "qualityScore": 0.1,
-    "link": "https://www.thetimes.com/business/technology/article/alan-turing-institute-new-ai-lab-nskdppnjb",
-    "thumbnail_url": "https://www.thetimes.com/imageserver/image/39e0d7d5-5481-4117-8991-1d65d9ecc32e.jpg?strip=all&format=webp&crop=4617px%2C2597px%2C0px%2C320px&resize=1200",
-    "created_at": "2026-06-03T02:44:27.354Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "trump-signs-executive-order-seeking-early-access-to-new-ai-releases",
-    "title": "Trump signs executive order seeking early access to new AI releases",
-    "description": "Under new rules, tech companies will be asked to share AI models with government for review before public release\nDonald Trump signed an executive order to create a voluntary framework for the federal government to vet powerful new AI models before they are released. Tuesday’s highly anticipated order represents an attempt by the president to tighten his grip on cybersecurity and national security threats posed by AI, tacking against his earlier deregulatory stance. But the voluntary nature of the framework shows that, while Trump has toed a more cautious line on AI than when he first took office last year, he is still reluctant to impose regulations on the tech industry.\nUnder the new guidelines, tech companies would be asked to share their AI models with the government for a voluntary review, up to 30 days before a public release. The Trump administration says doing so will allow them to improve national security, particularly with regards to cybersecurity.",
-    "fullText": "Under new rules, tech companies will be asked to share AI models with government for review before public release\n\nDonald Trump signed an executive order to create a voluntary framework for the federal government to vet powerful new AI models before they are released. Tuesday’s highly anticipated order represents an attempt by the president to tighten his grip on cybersecurity and national security threats posed by AI, tacking against his earlier deregulatory stance. But the voluntary nature of the framework shows that, while Trump has toed a more cautious line on AI than when he first took office last year, he is still reluctant to impose regulations on the tech industry.\n\nUnder the new guidelines, tech companies would be asked to share their AI models with the government for a voluntary review, up to 30 days before a public release. The Trump administration says doing so will allow them to improve national security, particularly with regards to cybersecurity.\n\nThe executive order stops short of imposing mandatory review requirements on tech companies building AI models, a rumored feature of earlier versions of the executive order. Some of Trump’s more hardline Maga supporters had been pushing him for a stricter process, while tech industry supporters advocated for keeping the reins loose.\n\nTrump quietly signed Tuesday’s long-awaited executive order after postponing the original plan – worried that its initial text would have been too restrictive on tech companies. An earlier version of the order reportedly requested the models 90 days before their release. The postponement in late May was in part the result of Silicon Valley leaders’ influence on the White House, according to reports from multiple news outlets. Tech billionaires including Elon Musk, Mark Zuckerberg and former White House “AI czar” David Sacks had personally pushed Trump to reverse course in private phone calls.\n\n“I didn’t like certain aspects of it, I postponed it,” Trump said in the Oval Office on 21 May. “We’re leading China, we’re leading everybody, and I don’t want to do anything that’s gonna get in the way of that lead.”\n\nThe final executive order states that the US “continues to lead the world in AI” and that it “refuse[s] to stifle this innovation with overly burdensome regulation”. That declaration – and the lack of a mandate – suggests Trump is prioritizing innovation over regulation, and returning closer to his initial stronger pro-growth stance. One of his first actions as president was to revoke a Biden-era executive order that established standards for safely developing AI.\n\n“Nothing in this section shall be construed to authorize the creation of a mandatory governmental licensing, preclearance, or permitting requirement for the development, publication, release, or distribution of new AI models, including frontier models,” Tuesday’s executive order reads.\n\nUnder the new guidelines, developers would be able to engage the federal government to determine how risky their model may be, and whether it would benefit from the framework. If officials deem the model would, tech companies would provide the federal government with access to these models for a period of up to 30 days before public release.\n\nThe new guardrails come amid rising fears that the latest AI models can be dangerous, especially in the wrong hands. Anthropic’s Mythos, a model with advanced cybersecurity capabilities, has raised concerns among AI safety experts, governments and tech companies, for its ability to exploit vulnerabilities at an unprecedented scale in widely used software.\n\nLast month, the Trump administration struck a deal with Microsoft, Google DeepMind and xAI to review early models of their new AI models before they are released. (The federal government recently removed details of that agreement from its website, although it’s unclear why.) The Center for AI Standards and Innovation (CAISI), part of the US Department of Commerce, already has similar deals with OpenAI and Anthropic. The federal government says this kind of information sharing is standard practice and important for national security, although some free speech advocates have warned that too much government control could lead to censorship.\n\nThe National Security Agency and the Department of Defense will help determine which AI models need government scrutiny, and the treasury department will play a key role in finding vulnerabilities in AI models. The Trump administration also directed the government to hire more cybersecurity and AI professionals, and ensure there are stronger cybersecurity systems at institutions running key infrastructure, like rural hospitals, community banks and local utilities. The executive order also mentions speeding up and prioritizing “the cyber defense of civilian federal government information systems” and establishing or expanding “federal programs and cybersecurity services that enhance AI-enabled defensive tools”.\n\nTrump announced another AI-focused executive order in December aimed at preventing states from regulating AI, which created a federal taskforce to challenge states’ AI laws.",
-    "readingTime": 4,
-    "keywords": [
-      "trump administration",
-      "we’re leading",
-      "tech industry",
-      "the trump",
-      "models",
-      "executive",
-      "federal",
-      "cybersecurity",
-      "release",
-      "review"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/us-news/2026/jun/02/trump-executive-order-ai-voluntary-review",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/c5cba33af1567905ced9113cb0b1db454b271b04/287_0_3334_2667/master/3334.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=b73a1c2d88a299afd0cbc3c49983e613",
-    "created_at": "2026-06-02T20:34:11.956Z",
     "topic": "tech"
   }
 ]
