@@ -1,5 +1,18 @@
 [
   {
+    "slug": "spacex-is-buying-ai-coding-startup-cursor-for-60-billion",
+    "title": "SpaceX is buying AI coding startup Cursor for $60 billion",
+    "description": "Elon Musk's rocket company announced on Tuesday that it had exercised its option to buy AI coding startup Cursor for $60 billion.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/spacex-confirms-cursor-acquisition-60-billion-ai-coding-startup-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a312db29ab49a5611720323?width=1200&format=jpeg",
+    "created_at": "2026-06-16T16:22:06.996Z",
+    "topic": "finance"
+  },
+  {
     "slug": "the-quiet-galactic-ambitions-of-cursor-ceo-michael-truell",
     "title": "The quiet, galactic ambitions of Cursor CEO Michael Truell",
     "description": "How the hottest AI coding company navigated its situationship with Anthropic and hitched its fate to Elon Musk's chaotic rocket.",
@@ -1913,30 +1926,6 @@
     "link": "https://tech.yahoo.com/science/articles/inside-chinas-top-computer-science-040102412.html",
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/inMNwLyJa4eN6yQubIFT9A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/6d63133ee6009c06a6779e136c8e3583",
     "created_at": "2026-05-01T18:56:31.134Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "keep-your-coding-agent-on-track",
-    "title": "Keep your coding agent on track",
-    "description": "Governance guardrails and insights for AI coding agents - algorismo-au/lanekeep",
-    "fullText": "English ·\n 简体中文 ·\n 日本語 ·\n Español ·\n 한국어 ·\n Português ·\n Deutsch ·\n Français ·\n Русский ·\n Türkçe ·\n العربية ·\n Tiếng Việt ·\n Italiano ·\n हिन्दी\n\nLaneKeep allows your AI coding agent to run within boundaries that you control.\n\nEvery policy and rule is controlled by you.\n\nSupports Claude Code CLI on Linux, macOS, and Windows (via WSL or Git Bash). Other platforms coming soon.\n\nAdd bin/ to your PATH permanently:\n\nDetects your shell and writes to your rc file. Idempotent.\n\nOr for the current session only:\n\nCreates lanekeep.json, .lanekeep/traces/, and installs hooks in .claude/settings.local.json.\n\nDenied actions show a reason. Allowed actions proceed silently. View decisions in the dashboard (lanekeep ui) or from the terminal with lanekeep trace / lanekeep trace --follow.\n\nlanekeep init registers hooks automatically, but you can manage hook registration independently:\n\nRestart Claude Code after enable or disable for changes to take effect.\n\nenable writes three hooks (PreToolUse, PostToolUse, Stop) into your Claude Code\nsettings file: project-local .claude/settings.local.json if it exists, otherwise\n~/.claude/settings.json. disable removes them cleanly.\n\nHooks alone work: every tool call is evaluated inline. The sidecar adds a\npersistent background process for faster evaluation and the web dashboard:\n\nThere are two levels of \"disable\":\n\nTo pause a single policy and re-enable it:\n\nTo disable LaneKeep entirely and bring it back:\n\nSee Configuration to override, extend, or disable anything.\n\nLaneKeep protects itself and the agent's own governance files from modification\n\ncould disable enforcement, tamper with audit logs, or bypass budget limits.\n\nWrites are blocked by the governance_paths policy (Write/Edit tools).\nReads of the active configuration (lanekeep.json, .lanekeep/ state files)\nare blocked by rules sec-039 and sec-040. Exposing the ruleset would let\nthe agent reverse-engineer match patterns and craft evasions. LaneKeep source\ncode (bin/, lib/) remains readable; security of the engine is open, but the\nactive configuration is opaque to the governed agent. See REFERENCE.md for details.\n\nHooks into the PreToolUse hook and runs every tool call through a tiered pipeline before it executes. First deny stops the pipeline.\n\nThe Semantic evaluator reads the task goal from TaskSpec. Set it with\nlanekeep serve --spec DESIGN.md or write .lanekeep/taskspec.json directly.\nSee REFERENCE.md for details.\n\nSee CLAUDE.md for detailed tier descriptions and data flow.\n\nEverything is configurable: built-in defaults, user-defined rules, and\ncommunity-sourced packs all merge into a single policy. Override any default,\nadd your own rules, or disable what you don't need.\n\nConfig resolves: $PROJECT_DIR/lanekeep.json -> $LANEKEEP_DIR/defaults/lanekeep.json.\nConfig is hash-checked at startup; mid-session modifications deny all calls.\n\nEvaluated before rules. 20 built-in categories, each with dedicated extraction\nlogic (e.g. domains parses URLs, branches extracts git branch names).\nCategories: tools, extensions, paths, commands, domains,\nmcp_servers, and more. Toggle with lanekeep policy or from the Governance tab in the dashboard.\n\nPolicies vs Rules: Policies are structured, typed controls for predefined\ncategories. Rules are the flexible catch-all: they match any tool name + any\nregex pattern against the full tool input. If your use case doesn't fit a policy\ncategory, write a rule instead.\n\nTo temporarily disable a policy (e.g. to update CLAUDE.md):\n\nOrdered first-match-wins table. No match = allow. Match fields use AND logic.\n\nYou don't need to copy the full defaults. Use \"extends\": \"defaults\" and add your rules:\n\nRules can also be added, edited, and dry-run in the Rules tab of the dashboard, or test from the CLI first:\n\nWhen you install a new version of LaneKeep, new default rules become active automatically. Your customizations (extra_rules, rule_overrides, disabled_rules) are never touched.\n\nOn the first sidecar start after an upgrade, you'll see a one-time notice:\n\nUsing a monolithic config? (no \"extends\": \"defaults\") New default rules won't be\nmerged automatically. Run lanekeep migrate to convert to the layered format and keep\nall your customizations intact.\n\nSet via LANEKEEP_PROFILE env var or \"profile\" in lanekeep.json.\n\nSee REFERENCE.md for rule fields, policy categories, settings,\nand environment variables.\n\nSee REFERENCE.md: CLI Reference for the full command list.\n\nSee exactly what your agent is doing while it builds: live decisions, token usage, file activity, and audit trail in one place.\n\nLive input/output token counters, context window usage %, and budget progress bars. Catch sessions heading off the rails before they burn time and money. Set hard caps on actions, tokens, and time that auto-enforce when hit.\n\nLive decision feed, denial trends, per-file activity, latency percentiles, and a decision timeline across your session.\n\nOne-click config validation, plus a coverage map linking rules to regulatory frameworks (PCI-DSS, HIPAA, GDPR, NIST SP800-53, SOC2, OWASP, CWE, AU Privacy Act), with gap highlighting and rule impact analysis.\n\nEvery file your agent reads or writes, with per-file token sizes to see what's eating your context window. Plus operation counts, denial history, and an inline editor.\n\nConfigure enforcement profiles, toggle policies, and tune budget limits, all from the dashboard. Changes take effect immediately without restarting the sidecar.\n\nLaneKeep runs entirely on your machine. No cloud, no telemetry, no account.\n\nSee SECURITY.md for vulnerability reporting.\n\nSee CLAUDE.md for architecture and conventions. Run tests with\nbats tests/ or lanekeep selftest. Cursor adapter included (untested).\n\nAI agent guardrails, AI agent governance, AI coding agent security, agentic AI\nsecurity, vibe coding security, AI agent policy engine, governance sidecar, AI\nagent firewall, AI agent audit trail, AI agent least privilege, AI agent\nsandboxing, prompt injection prevention, MCP security, MCP guardrails, Claude\nCode security, Claude Code guardrails, Claude Code hooks, Cursor guardrails,\nCopilot governance, Aider guardrails, AI agent monitoring, AI agent\nobservability, AI coding assistant safety, policy-as-code, governance-as-code,\nAI agent runtime security, AI agent access control, AI agent permissions, AI\nagent allowlist denylist, OWASP agentic top 10, NIST AI risk management, SOC2\nAI compliance, HIPAA AI compliance, EU AI Act compliance tools, PII detection,\nsecrets detection, AI agent budget limits, token budget enforcement, AI agent\ncost control, shadow AI governance, AI development guardrails, DevSecOps AI, AI\nagent command blocking, AI agent file access control, defense in depth AI, zero\ntrust AI agents, fail-closed security, append-only audit log, deterministic\nguardrails, rule engine AI, compliance automation AI, AI agent behavior\nmonitoring, AI agent risk management, open source AI governance, CLI guardrails\ntool, shell-based policy engine, no-cloud AI security, zero network calls, AI\ncoding tool audit log\n\nWe are looking for ambitious engineers to help us extend the capabilities of LaneKeep.\n\nIs this you? Get in touch → info@algorismo.com",
-    "readingTime": 6,
-    "keywords": [
-      "context window",
-      "risk management",
-      "guardrails claude",
-      "extends defaults",
-      "active configuration",
-      "budget limits",
-      "audit trail",
-      "audit log",
-      "claude code",
-      "lanekeep trace"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/algorismo-au/lanekeep",
-    "thumbnail_url": "https://opengraph.githubassets.com/bd50e6fb18888474cb440827aae5fd6606b2665d6538929f8b8680ed1fa62248/algorismo-au/lanekeep",
-    "created_at": "2026-05-01T12:54:29.980Z",
     "topic": "tech"
   }
 ]
