@@ -1,5 +1,29 @@
 [
   {
+    "slug": "infinite-query-your-ga4stripeposthog-data-locally-on-your-machine",
+    "title": "Infinite – query your GA4/Stripe/PostHog data locally, on your machine",
+    "description": "Self-hosted, local-first growth analytics. Connect GA4, PostHog, Stripe, Meta, Shopify & X — then ask your data anything in plain English. - Infinite-Labs-AI/infinite-os",
+    "fullText": "Your growth data, on your own machine — ask it anything in plain English.\n\nInfinite OS is a self-hosted, local-first growth-analytics runtime. It connects your data sources — Google Analytics 4, PostHog, Stripe, Meta, Shopify, and read-only X public post metrics — into a Postgres database on your own machine, keeps it synced, and lets you ask questions like \"how many page views in the last 7 days?\" or \"which channels drove the most traffic?\" and get real answers from governed, source-accurate metrics.\n\n🌐 Site: infinite.fast\n   ·  \n 𝕏 Project: @InfiniteOS_\n   ·  \n Maker: @RiverKhan\n\nIt is not a broad agent runtime, skill platform, or generic SQL tool. For natural-language questions it forwards your prompt to your own Claude or Codex account using your own credentials; it executes no tools or shell commands. Your data never leaves your machine unless you send it somewhere.\n\nEverything runs locally as one small stack:\n\nYou connect a source once, sync it, then ask questions. Answers come from a typed metric layer with authority/provenance rules — not free-form SQL — so a number is either source-accurate or honestly reported as unavailable.\n\nOnce a source is connected and synced, just ask — in plain English:\n\nInfinite figures out the right metric, runs it against your synced data, and answers with the numbers + a short read — citing the source and flagging anything it can't verify (it won't guess).\n\nInstall with one command (macOS / Linux). It checks you have git, Node ≥ 20, and pnpm (it won't install or change them for you), puts Infinite at ~/.infinite/app, drops an infinite command on your PATH, and runs setup:\n\nsetup installs/builds the workspace if needed, configures model auth, and starts the bundled Docker stack.\n\nConnectable: Google Analytics 4 · PostHog · Stripe · Meta · Shopify · X (read-only public post metrics). Deeper attribution and content analysis are on the roadmap.\n\nGA4 and PostHog only start collecting data once their tracking tag is on your website. After infinite setup connects an analytics source, install the tag into your own site's repo with our published npm package, infinite-tag — it uses only your public keys, auto-detects your framework, and writes idempotent, fully reversible changes:\n\ninfinite setup prints a ready-to-paste npx infinite-tag install … command with your Measurement ID / PostHog key and workspace id already filled in (and saves your public keys to ~/.infinite/artifacts/, so a bare npx infinite-tag install discovers them automatically). See packages/instrument/README.md for all flags and the supported frameworks (Next.js, Vite + React, static HTML).\n\ninfinite setup writes your config and secrets into a gitignored .growth-os/ directory; connector credentials are encrypted at rest. Your data stays on your machine — nothing is sent anywhere unless you do it. See SECURITY.md for the trust model and the full variable list.\n\nSee docs/local-and-docker-quickstart.md for the Docker path, CONTRIBUTING.md to contribute, and SECURITY.md to report a vulnerability.",
+    "readingTime": 3,
+    "keywords": [
+      "plain english",
+      "stripe meta",
+      "meta shopify",
+      "google analytics",
+      "posthog stripe",
+      "npx infinite-tag",
+      "infinite-tag install",
+      "infinite setup",
+      "machine",
+      "metrics"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/Infinite-Labs-AI/infinite-os",
+    "thumbnail_url": "https://opengraph.githubassets.com/66d82f339fc552f116f055db6889d6ad3aeadd37ce5a3abcd830316eaaf29427/Infinite-Labs-AI/infinite-os",
+    "created_at": "2026-06-17T14:49:41.352Z",
+    "topic": "tech"
+  },
+  {
     "slug": "people-are-abandoning-news-sites-for-social-media",
     "title": "People are abandoning news sites for social media",
     "description": "Facebook for news is on the rebound, impartial news isn't dead, and other findings from RISJ's 2026 Digital News Report",
@@ -1874,29 +1898,5 @@
     "thumbnail_url": "https://i.insider.com/6a0a054594eb4c909fb2d544?width=1200&format=jpeg",
     "created_at": "2026-05-18T14:52:58.148Z",
     "topic": "finance"
-  },
-  {
-    "slug": "revealed-facebook-ai-accounts-spreading-fake-political-good-news",
-    "title": "Revealed: Facebook AI accounts spreading fake political 'good news'",
-    "description": "Exclusive: Posts which ‘weaponise empathy’ are garnering hundreds of thousands of reactions online – as fact checkers warn false narratives are being ‘churned out at an industrial scale’",
-    "fullText": "Suited and booted while crouching down on a step, Nigel Farage can be seen gently patting an adorable dog, who is wrapped in a blue cape.\n\nThe photo, posted on Facebook, is accompanied by a heartwarming story about how the Reform UK leader and his partner Laure Ferrari heroically recused 47 dogs after buying an entire shelter that was on the verge of closure.\n\nIt reads: “Forty-seven lives saved. No spotlight. Just heart.”\n\nThe viral post has around 4,000 comments, including one who writes: “Nigel this will increase your credibility on the political front.” Another commented: “Many people will vote for a person who shows compassion to animals.”\n\nBut the story is not true – and the picture is not real.\n\nIn fact, the post is just one of a spate of fake AI-generated content which has flooded social media in recent weeks.\n\nExperts say the posts are part of a new trend offering bogus “good news” stories about high-profile figures in a bid to “weaponise empathy” and drive engagement.\n\nInvestigators from charity Full Fact have uncovered around 100 similar posts from a number of accounts. In total, the posts have prompted more than 380,000 total reactions – suggesting many are falling for false narratives which they say are being “churned out at an industrial scale”.\n\nAnother example includes a story claiming Mr Farage had donated millions to open homeless support centres across Kent. Another post claimed he had saved abandoned baby twins and given up his first-class plane seat to a military veteran.\n\nFormer prime minister Rishi Sunak was also the focus of one post and falsely claimed he was recovering in hospital. Restore Britain leader and MP Rupert Lowe, and Reform’s home affairs spokesman Zia Yusuf are also the subject of bogus posts.\n\nFull Fact also found that while many of the pages had names mentioning the UK – such as ‘Britain Awakens’, ‘British Affairs Review’ and ‘Political Brief UK’ – most were managed by profiles which appear to be based in Vietnam.\n\nThere is no suggestion that any of the pages are associated with Reform UK or Mr Farage.\n\nThe accounts were taken down when reported to Meta. But Steve Nowottny, editor of Full Fact, warned that AI tools are making it “easier than ever for fictional slop to be churned out”.\n\n“What’s striking about these posts is that they are offering fake ‘good news’ stories, leveraging empathy and positivity rather than outrage to drive engagement,” he said.\n\n“The fact the posts we saw have had hundreds of thousands of reactions shows that many are falling for these false narratives.\n\n“Accessible AI tools are making it easier than ever for fictional slop to be churned out on an industrial scale – potentially allowing content creators to profit as a result.\n\n“So while it’s welcome that Meta has taken action against the accounts we identified, we can’t simply play misinformation whack-a-mole – we need sustained action from social media companies to ensure that AI content is identified more smartly.”\n\nA spokesperson for Meta said: “We have clear community standards that prohibit harmful misinformation and inauthentic behaviour and we have removed these accounts for violating our policies.”\n\nIt is unclear who is behind the pages, but Full Fact found some 10 of the 11 pages found sharing fake stories were managed by at least one account based in Vietnam, sometimes alongside an account from another country, such as the US or Hong Kong.\n\nSam Stockwell, senior research associate at the Centre for Emerging Technology and Security at the Alan Turing Institute, said the posts are “weaponising empathy rather than hate”.\n\n“Overseas content creators are now using AI to craft heartwarming fakes, knowing that social media algorithms prioritise content which trigger strong emotive reactions,” he said.\n\nProfessor Martin Innes, co-director of Cardiff University's Crime and Security Research Institute, said he is seeing content creators “churning out” misleading posts “at scale”, often generating revenue off the back of it.\n\n“Where these kinds of visual disinformation and distortion used to take a reasonable amount of input, that is not the case anymore,” he said. “And as for the emotional register they are pitched in, that is just a way of trying to secure views in a noisy and cluttered attention order.”\n\nThe Independent has contacted Reform UK, and a spokesperson told Full Fact the claims made in the posts were false and stressed the party is not affiliated with any of the pages.\n\nJoin thought-provoking conversations, follow other Independent readers and see their replies",
-    "readingTime": 4,
-    "keywords": [
-      "drive engagement",
-      "fictional slop",
-      "social media",
-      "industrial scale",
-      "full fact",
-      "content creators",
-      "reform uk",
-      "posts",
-      "pages",
-      "accounts"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.independent.co.uk/news/uk/politics/facebook-ai-post-nigel-farage-full-fact-b2977352.html",
-    "thumbnail_url": "https://static.independent.co.uk/2026/04/19/09/e4e1588c4a116e4bae5a18487d18e780Y29udGVudHNlYXJjaGFwaSwxNzc2NTQ3MTE2-2.41898774.jpg?width=1200&height=800&crop=1200:800",
-    "created_at": "2026-05-18T14:52:56.352Z",
-    "topic": "politic"
   }
 ]
