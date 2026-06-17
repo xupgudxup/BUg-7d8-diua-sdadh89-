@@ -1,5 +1,81 @@
 [
   {
+    "slug": "anthropics-ipo-pitch-has-a-new-problem-the-government-can-shut-it-down",
+    "title": "Anthropic’s IPO pitch has a new problem: The government can shut it down",
+    "description": "“Heck yeah there’s regulatory risk,” said David Linthicum, a longtime cloud analyst.",
+    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
+    "readingTime": 1,
+    "keywords": [
+      "fortune"
+    ],
+    "qualityScore": 0.1,
+    "link": "https://fortune.com/2026/06/16/anthropic-mythos-fable-trump-ipo-risk/",
+    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/06/GettyImages-2256659162_e6c3c2-e1781621630901.jpg?resize=1200,600",
+    "created_at": "2026-06-17T02:40:36.953Z",
+    "topic": "business"
+  },
+  {
+    "slug": "metas-cto-says-morale-is-almost-the-worst-its-ever-been",
+    "title": "Meta's CTO says morale is almost 'the worst it's ever been'",
+    "description": "Meta recently faced layoffs and AI shifts. CTO Andrew Bosworth acknowledged low morale, though he said it was worse during Cambridge Analytica.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/meta-cto-andrew-bosworth-addresses-morale-after-layoffs-ai-shift-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a31a205564c774507cd31e1?width=1200&format=jpeg",
+    "created_at": "2026-06-17T02:40:36.492Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "building-a-stateful-ai-agent",
+    "title": "Building a Stateful AI Agent",
+    "description": "Memory-native OpenCode fork with Centri core, event-spine memory, verbatim recall, and Hermes integration. - surya17495/centri",
+    "fullText": "A memory-first coding agent. One durable memory spine remembers everything you\nand your tools have done, so every new turn starts warm instead of cold.\n\nAgents forget. Context windows fill, sessions end, and every new chat starts\nfrom scratch — so you re-explain decisions you already made and watch the agent\nre-propose approaches you already rejected. Centri inverts this: an append-only\nevent spine is the source of truth, memory is a derived index that can be\nthrown away and re-derived, and every per-turn context is assembled fresh by a\ndeterministic curation function that attaches a receipt to every line. The\ncontext window is a cache, not storage.\n\nThree parts share one durable memory:\n\nThe event spine is the source of truth; the memory graph is a derived,\nre-derivable index over it. Centri is a fork of the MIT-licensed\nOpenCode project — upstream attribution\nis preserved in LICENSE-OPENCODE,\nupstream/opencode/, FORK-NOTES.md, and\ndocs/centri-app.md.\n\nEvents are the source of truth; memory is a derived, re-derivable index over them.\n\nSee docs/README.md for the full index, or\ndocs/architecture.md,\ndocs/memory-architecture.md, and\ndocs/event-contract.md for detail.\n\nThe API listens on 127.0.0.1:8760 by default. Health checks:\n\nAll configuration is environment-driven — copy .env.example to\n.env and fill in your keys. Nothing is committed; .env and *.db are\ngitignored. Centri is BYOK (bring your own keys) and model-agnostic:\n\nThe reference deployment runs two services sharing one memory DB\n(~/.centri/state.db):\n\nFull deployment guide (systemd, Caddy/TLS, ports): docs/DEPLOY.md.\nThe xdg-open ENOENT line in the opencode.service logs is harmless — OpenCode\ntries to auto-open a browser on a headless box and keeps running after the spawn\nfails.\n\nCentri also ships as a Hermes memory.provider. A thin plugin\n(CentriMemoryProvider) translates Hermes memory calls into the core's HTTP API:\nprefetch → POST /memory/recall, sync_turn / on_memory_write → batched\nPOST /events/import. The deployable plugin lives at\ndeploy/hermes-plugin/centri/.\n\nRestart Hermes after any plugin change. Full guide:\ndocs/HERMES-INTEGRATION.md.\n\nA fresh install imports your existing coding-agent histories so memory is\ncomplete from day one. Discover what's available, then bootstrap once (idempotent\n— re-running imports nothing new):\n\nAfter bootstrap, the ambient tail keeps pulling new history each scheduler tick.\n\ncentri-bench is a falsifiable head-to-head: each engine assembles a per-turn\nbrief from the same seeded history, scored on brief completeness, re-proposal\nrate, next-step correctness, and stale-fact handling. Native Centri is run\nagainst a real Letta server (v0.16.8, pgvector archival) — both a\ndeterministic rubric and an LLM judge agree Centri wins, the gap entirely on\nstale-fact supersession.\n\nLetta is a benchmark comparison only, not a runtime dependency — Centri runs\nwithout it. Run it yourself:\n\nMethodology: docs/centri-bench.md; raw results:\ndocs/bench-results/.\n\nThe core, memory graph, curation, ACP coding loop, tool contract, and history\ningest are covered by a 385-test suite (cd core && python -m pytest tests/).\nThe unit suite runs green offline; integration tests that need a live core, BYOK\nmodel keys, the opencode binary, or a real Letta server are environment-gated\nand skip cleanly when those are absent.\n\nThe OpenCode fork web app builds and typechecks. The roadmap lives in\ndocs/ROADMAP.md; the full docs index is\ndocs/README.md.\n\nCentri is licensed under the MIT License — see LICENSE. The\nOpenCode app shell in packages/opencode/ is a fork of the\nMIT-licensed OpenCode project; its\nupstream license is preserved at LICENSE-OPENCODE and the\noriginal upstream README is kept at upstream/opencode/.\nRuntime dependencies are permissively licensed (MIT/BSD/Apache-2.0);\nletta-client is bench-only tooling, not a product dependency.",
+    "readingTime": 3,
+    "keywords": [
+      "letta server",
+      "opencode project",
+      "event spine",
+      "derived re-derivable",
+      "re-derivable index",
+      "durable memory",
+      "memory graph",
+      "truth memory",
+      "mit-licensed opencode",
+      "context"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/surya17495/centri",
+    "thumbnail_url": "https://opengraph.githubassets.com/fc42888b2aadfb5484b8327323032708a117c611254da3469ba2c64fd56b9e28/surya17495/centri",
+    "created_at": "2026-06-17T02:40:35.701Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "revised-rules-of-engineering-leadership",
+    "title": "Revised Rules of Engineering Leadership",
+    "description": "From early 2014 through late 2020, I was working in hypergrowth environments,\nwhich are challenging, but also educational. The most valuable feature of hypergrowth is that\nyour mistakes reveal themselves next month rather than next year, because things go wrong very loudly when you’re moving fast.\nI’ve been thinking a lot about hypergrowth recently, because Imprint’s business is growing quickly and we did a large batch\nof hiring last year, but also because the AI-tooling shift has changed the pace at which it’s possible to work.",
+    "fullText": "From early 2014 through late 2020, I was working in hypergrowth environments,\nwhich are challenging, but also educational. The most valuable feature of hypergrowth is that\nyour mistakes reveal themselves next month rather than next year, because things go wrong very loudly when you’re moving fast.\nI’ve been thinking a lot about hypergrowth recently, because Imprint’s business is growing quickly and we did a large batch\nof hiring last year, but also because the AI-tooling shift has changed the pace at which it’s possible to work.\n\nThis post documents the new rules I’ve revised my approach to engineering leadership around,\nand then talks through the specific projects I’ve worked on over the past year that caused\nme to believe in these rules.\n\nMigrations can be done by an individual rather than a team.\nEven complex, large changes can be 95% owned by the driving individual or team, and done in 10% of the time.\nAs the initial cost of migrations goes down, the reward/penalty of each migration’s quality goes up:\neven small sharp edges will break your colleagues’ mental models about the software you co-maintain.\nThe impact of individual judgment on your company has never been higher.\n\nWhile 1st-pass code is nearly free, the cost of working code depends on your development harness, and is not free.\nWe’re in an era when many companies say that everyone should be writing code, however our experience\nis that writing code that works well, while avoiding messy edgecases, remains difficult.\nJust how difficult remains a factor of your development harness, e.g. your tests, CI/CD,\nvalidation environments, preview-ability of changes, and so on.\nWhile I personally don’t imagine it’s valuable for most folks at a company to be contributing code,\nI suspect that most disagreement about that topic is actually a miscommunication:\neven at a company where “everyone codes”, the marketing team isn’t reducing allocations in your servers,\ninstead it’s about whether there is a safe boundary where they can participate.\n(Much like a SaaS product that allows customization by writing software.)\n\nThe good news is that this means the things that were most valuable to speed up engineering two years ago\nare still the things that are most valuable to speed them up today.\n\nOptimize the base-case of process for agents.\nMost steps of most processes can be fully automated in most cases.\nWith the right harnesses, the right controls, domain context, and good judgment in their designers,\nyou can fully automate the base-case of most processes\nin modern technology companies. For example, the base case of code review from a human\nis slower and less effective than a good harness’ code review.\nOf course, the harness will miss things, but so will human reviewers, and most areas\nare relatively safe to make changes. Of course, there are some higher risk areas, where\nthis doesn’t hold true.\n\nintroducing risk. By failing to capture these distinctions, we’ll create innumerable problems\nfor ourselves.\n\nAs a corollary, I think most planning processes like weekly or bi-weekly sprints are operating at\ntoo low an altitude. Humans planning together still matters, but should be operating at a higher level.\n\nDurable, high-ownership teams with domain-context are even more important.\nOne of my biggest lessons at Uber was that persistent, durable teams work magic\n\nof ownership over an area as they continue to work in it.\nEven in an era where specifically doing something is much cheaper, you still have to do the right thing,\nwhich has gotten a bit easier but not much easier, and structural improvements help address this.\n(As a recent example of that, we had an issue in production where the necessary data to optimize it simply wasn’t being\ncaptured at all, so the harness’ ideas to solve it were reasonable but wrong, since the only real path forward was\ninstrumenting the missing information.)\n\nAs a specific disagreement, there’s a prevailing idea that AI-first companies will be run by a small number of\ngenius engineers who create perfect versions of things one by one, doing such a good job that there’s nothing\nto maintain. This is a very compelling vision, but I don’t see it happening. High judgment individuals can\nwander across a company doing remarkable things, but at some point they do get hemmed in by lack of domain context,\nwhich is why durable teams are the fundamental building block, even in this era.\n\nQuick, good, and durable decision-making is a prerequisite to meaningfully benefit from AI.\nBeing able to replace a legal review with automation only works if Legal can commit to that change,\nwhich depends on designing the automation thoughtfully, and also the teams’ willingness to collaborate.\nImplementing a new feature is only valuable if you can decide to launch that feature.\n\nYour team and company can only benefit from this increased pace of execution if you can make durable decisions\nquickly, and those decisions are good. This is the primary reason, in my opinion, why the average CTO role has\nnecessarily become substantially more technical and less bureaucratic than a year ago.\nIn many cases, I am the only person who can make binding decisions when teams disagree on the path forward,\nand that means I am making decisions constantly in this new world in order to maintain the pace.\n(That’s not an argument that executives are better decision makers, just that binding executive decisions\nare uniquely powerful to the extent that the executives themselves are aligned enough to honor those decisions.)\n\nSo, I genuinely believe the above rules based on my experiences over the past year, and let me try to\nconnect them to specific projects we’ve worked on that have convinced me of them:\n\nThese are just representative examples, we’ve done a lot more than these. The aperture of what’s possible has continued\nto expand every month this year, but the things holding us back haven’t changed all that much: organizational misalignment,\nlack of clarity, and poor technical architecture.\nIt’s a wild time to be working in technology.",
+    "readingTime": 5,
+    "keywords": [
+      "domain context",
+      "path forward",
+      "development harness",
+      "code review",
+      "durable teams",
+      "decisions",
+      "valuable",
+      "it’s",
+      "hypergrowth",
+      "feature"
+    ],
+    "qualityScore": 1,
+    "link": "https://lethain.com/revised-rules-of-engineering-leadership/",
+    "thumbnail_url": "https://lethain.com/static/author.png",
+    "created_at": "2026-06-17T02:40:35.178Z",
+    "topic": "tech"
+  },
+  {
     "slug": "the-more-ai-this-marketing-chief-exec-uses-the-less-scared-he-gets",
     "title": "The more AI this marketing chief exec uses, the less scared he gets",
     "description": "A marketing exec says he uses AI-built apps and voice tools to streamline work, travel, and creativity — not replace humans.",
@@ -1709,57 +1785,5 @@
     "thumbnail_url": "https://opengraph.githubassets.com/f9b24127ef354043913ba3a457cffac746cae91d38eafe8e1f3b59e56caf7697/IssunDB/issun-db",
     "created_at": "2026-06-13T13:23:58.764Z",
     "topic": "tech"
-  },
-  {
-    "slug": "i-went-to-one-of-mamdanis-coge-hearings-new-yorkers-didnt-talk-much-about-budget-cuts",
-    "title": "I went to one of Mamdani's COGE hearings. New Yorkers didn't talk much about budget cuts.",
-    "description": "The Mamdani administration is hosting COGE hearings across NYC. I went to one — and heard residents testify about AI, efficiency, and city spending.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/what-nyc-thinks-of-zohran-mamdani-efficiency-effort-coge-savings-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a2c1c7024b3540ad29c28d2?width=1200&format=jpeg",
-    "created_at": "2026-06-13T13:23:52.818Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ai-leaders-are-shifting-how-they-talk-about-ais-job-impact-after-sparking-fears-of-a-whitecollar-wipeout",
-    "title": "AI leaders are shifting how they talk about AI's job impact after sparking fears of a white-collar wipeout",
-    "description": "OpenAI CEO Sam Altman said the focus on maintaining the \"human\" part of roles means the AI job wipeout some expected is going to happen.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/ai-job-impact-losses-shifting-sam-altman-mustafa-suleyman-comments-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a2b285a50aa6577af871ab5?width=1200&format=jpeg",
-    "created_at": "2026-06-13T13:23:52.816Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "disney-is-pushing-tech-employees-to-move-faster-with-ai-but-avoid-tokenmaxxing",
-    "title": "Disney is pushing tech employees to move faster with AI — but avoid 'tokenmaxxing'",
-    "description": "Disney is leans into AI under CEO Josh D'Amaro but wants tech staffers to avoid \"tokenmaxxing,\" or wasting tokens.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/disney-ai-push-increase-velocity-tech-employees-tokenmaxxing-josh-damaro-2026-6",
-    "thumbnail_url": "https://i.insider.com/69fc9fe23cfefc31768d6919?width=1200&format=jpeg",
-    "created_at": "2026-06-13T13:23:52.407Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "i-cant-afford-a-home-in-the-san-francisco-housing-market-im-hopeful-its-a-phase-but-its-emotionally-exhausting-getting",
-    "title": "I can't afford a home in the San Francisco housing market. I'm hopeful it's a phase, but it's emotionally exhausting getting outbid.",
-    "description": "The AI boom is inflating Bay Area home prices, pushing a prospective homebuyer to expand her budget and search outside the city for a property.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/i-cant-afford-home-san-francisco-i-make-a-lot-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a28779d59f798e5451f541a?width=1200&format=jpeg",
-    "created_at": "2026-06-13T13:23:52.321Z",
-    "topic": "finance"
   }
 ]

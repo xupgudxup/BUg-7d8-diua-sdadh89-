@@ -1,5 +1,29 @@
 [
   {
+    "slug": "revised-rules-of-engineering-leadership",
+    "title": "Revised Rules of Engineering Leadership",
+    "description": "From early 2014 through late 2020, I was working in hypergrowth environments,\nwhich are challenging, but also educational. The most valuable feature of hypergrowth is that\nyour mistakes reveal themselves next month rather than next year, because things go wrong very loudly when you’re moving fast.\nI’ve been thinking a lot about hypergrowth recently, because Imprint’s business is growing quickly and we did a large batch\nof hiring last year, but also because the AI-tooling shift has changed the pace at which it’s possible to work.",
+    "fullText": "From early 2014 through late 2020, I was working in hypergrowth environments,\nwhich are challenging, but also educational. The most valuable feature of hypergrowth is that\nyour mistakes reveal themselves next month rather than next year, because things go wrong very loudly when you’re moving fast.\nI’ve been thinking a lot about hypergrowth recently, because Imprint’s business is growing quickly and we did a large batch\nof hiring last year, but also because the AI-tooling shift has changed the pace at which it’s possible to work.\n\nThis post documents the new rules I’ve revised my approach to engineering leadership around,\nand then talks through the specific projects I’ve worked on over the past year that caused\nme to believe in these rules.\n\nMigrations can be done by an individual rather than a team.\nEven complex, large changes can be 95% owned by the driving individual or team, and done in 10% of the time.\nAs the initial cost of migrations goes down, the reward/penalty of each migration’s quality goes up:\neven small sharp edges will break your colleagues’ mental models about the software you co-maintain.\nThe impact of individual judgment on your company has never been higher.\n\nWhile 1st-pass code is nearly free, the cost of working code depends on your development harness, and is not free.\nWe’re in an era when many companies say that everyone should be writing code, however our experience\nis that writing code that works well, while avoiding messy edgecases, remains difficult.\nJust how difficult remains a factor of your development harness, e.g. your tests, CI/CD,\nvalidation environments, preview-ability of changes, and so on.\nWhile I personally don’t imagine it’s valuable for most folks at a company to be contributing code,\nI suspect that most disagreement about that topic is actually a miscommunication:\neven at a company where “everyone codes”, the marketing team isn’t reducing allocations in your servers,\ninstead it’s about whether there is a safe boundary where they can participate.\n(Much like a SaaS product that allows customization by writing software.)\n\nThe good news is that this means the things that were most valuable to speed up engineering two years ago\nare still the things that are most valuable to speed them up today.\n\nOptimize the base-case of process for agents.\nMost steps of most processes can be fully automated in most cases.\nWith the right harnesses, the right controls, domain context, and good judgment in their designers,\nyou can fully automate the base-case of most processes\nin modern technology companies. For example, the base case of code review from a human\nis slower and less effective than a good harness’ code review.\nOf course, the harness will miss things, but so will human reviewers, and most areas\nare relatively safe to make changes. Of course, there are some higher risk areas, where\nthis doesn’t hold true.\n\nintroducing risk. By failing to capture these distinctions, we’ll create innumerable problems\nfor ourselves.\n\nAs a corollary, I think most planning processes like weekly or bi-weekly sprints are operating at\ntoo low an altitude. Humans planning together still matters, but should be operating at a higher level.\n\nDurable, high-ownership teams with domain-context are even more important.\nOne of my biggest lessons at Uber was that persistent, durable teams work magic\n\nof ownership over an area as they continue to work in it.\nEven in an era where specifically doing something is much cheaper, you still have to do the right thing,\nwhich has gotten a bit easier but not much easier, and structural improvements help address this.\n(As a recent example of that, we had an issue in production where the necessary data to optimize it simply wasn’t being\ncaptured at all, so the harness’ ideas to solve it were reasonable but wrong, since the only real path forward was\ninstrumenting the missing information.)\n\nAs a specific disagreement, there’s a prevailing idea that AI-first companies will be run by a small number of\ngenius engineers who create perfect versions of things one by one, doing such a good job that there’s nothing\nto maintain. This is a very compelling vision, but I don’t see it happening. High judgment individuals can\nwander across a company doing remarkable things, but at some point they do get hemmed in by lack of domain context,\nwhich is why durable teams are the fundamental building block, even in this era.\n\nQuick, good, and durable decision-making is a prerequisite to meaningfully benefit from AI.\nBeing able to replace a legal review with automation only works if Legal can commit to that change,\nwhich depends on designing the automation thoughtfully, and also the teams’ willingness to collaborate.\nImplementing a new feature is only valuable if you can decide to launch that feature.\n\nYour team and company can only benefit from this increased pace of execution if you can make durable decisions\nquickly, and those decisions are good. This is the primary reason, in my opinion, why the average CTO role has\nnecessarily become substantially more technical and less bureaucratic than a year ago.\nIn many cases, I am the only person who can make binding decisions when teams disagree on the path forward,\nand that means I am making decisions constantly in this new world in order to maintain the pace.\n(That’s not an argument that executives are better decision makers, just that binding executive decisions\nare uniquely powerful to the extent that the executives themselves are aligned enough to honor those decisions.)\n\nSo, I genuinely believe the above rules based on my experiences over the past year, and let me try to\nconnect them to specific projects we’ve worked on that have convinced me of them:\n\nThese are just representative examples, we’ve done a lot more than these. The aperture of what’s possible has continued\nto expand every month this year, but the things holding us back haven’t changed all that much: organizational misalignment,\nlack of clarity, and poor technical architecture.\nIt’s a wild time to be working in technology.",
+    "readingTime": 5,
+    "keywords": [
+      "domain context",
+      "path forward",
+      "development harness",
+      "code review",
+      "durable teams",
+      "decisions",
+      "valuable",
+      "it’s",
+      "hypergrowth",
+      "feature"
+    ],
+    "qualityScore": 1,
+    "link": "https://lethain.com/revised-rules-of-engineering-leadership/",
+    "thumbnail_url": "https://lethain.com/static/author.png",
+    "created_at": "2026-06-17T02:40:35.178Z",
+    "topic": "tech"
+  },
+  {
     "slug": "pizza-hut-overtaken-by-the-arrival-of-delivery-culture-will-be-sold-for-27-billion",
     "title": "Pizza Hut, overtaken by the arrival of delivery culture, will be sold for $2.7 billion",
     "description": "Pizza Hut, the 68-year-old chain that has long struggled with growing competition and outdated restaurants, will be sold for $2.7 billion by parent company Yum Brands.  Yum Brands said Tuesday that the private equity firm LongRange Capital will buy Pizza Hut, excluding the mainland China business, for about $1.5 billion.  In mainland China, Pizza Hut will be purchased by Yum China Holdings Inc.",
@@ -1578,18 +1602,5 @@
     "thumbnail_url": "/resources/images/article_assets/2026/06/Jun26_03_80190331.jpg",
     "created_at": "2026-06-03T16:15:53.885Z",
     "topic": "science"
-  },
-  {
-    "slug": "gm-developed-its-hummer-ev-in-20-months-it-wants-that-speed-to-be-routine",
-    "title": "GM developed its Hummer EV in 20 months. It wants that speed to be routine.",
-    "description": "GM's chief product designer, Sterling Anderson, tells Business Insider that the automaker is targeting a two-year development cycle for new models.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/gm-interview-ai-prototypes-design-cars-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a1ee0efb4fb977f3598340a?width=1200&format=jpeg",
-    "created_at": "2026-06-03T10:41:54.543Z",
-    "topic": "finance"
   }
 ]
