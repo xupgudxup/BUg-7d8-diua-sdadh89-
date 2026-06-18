@@ -1,5 +1,167 @@
 [
   {
+    "slug": "anthropic-ban-forces-investor-rethink-of-political-risk",
+    "title": "Anthropic Ban Forces Investor Rethink of Political Risk",
+    "description": "Investors in the ever-hotter AI stock rally must suddenly consider a risk with the potential to be even more damaging than high valuations and big spending: Politics getting in the way.",
+    "fullText": "TechnologyBy Jan-Patrick Barnert, Michael Msika, Matthew Griffin, and Abhishek VishnoiSaveInvestors in the ever-hotter AI stock rally must suddenly consider a risk with the potential to be even more damaging than high valuations and big spending: Politics getting in the way.The US administration’s move to block foreign nationals from accessing Anthropic PBC’s most advanced models over security fears was an unprecedented intervention in the affairs of a leading AI lab. In response, Anthropic disabled all access to the two models for everyone.",
+    "readingTime": 1,
+    "keywords": [
+      "models",
+      "anthropic"
+    ],
+    "qualityScore": 0.35,
+    "link": "https://www.bloomberg.com/news/articles/2026-06-18/anthropic-ban-forces-investors-to-reckon-with-political-risk",
+    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i9LA9G1kMEPw/v1/1200x676.jpg",
+    "created_at": "2026-06-18T14:45:44.163Z",
+    "topic": "politic"
+  },
+  {
+    "slug": "big-techs-ai-spending-spree-is-making-stock-buybacks-disappear",
+    "title": "Big Tech’s AI Spending Spree Is Making Stock Buybacks Disappear",
+    "description": "The artificial-intelligence race is becoming so expensive that it’s snuffing out one of the key forces that has helped keep Big Tech stocks soaring for years: steady share buybacks.",
+    "fullText": "MarketsBy Jeran WittensteinSaveThe artificial-intelligence race is becoming so expensive that it’s snuffing out one of the key forces that has helped keep Big Tech stocks soaring for years: steady share buybacks.Of the four biggest AI spenders — Alphabet Inc., Microsoft Corp., Meta Platforms Inc. and Amazon.com Inc. — only Microsoft bought back shares in the first quarter. And its $3.4 billion in repurchases was the lowest total among the group in nearly a decade, according to data compiled by Bloomberg.",
+    "readingTime": 1,
+    "keywords": [
+      "microsoft"
+    ],
+    "qualityScore": 0.45,
+    "link": "https://www.bloomberg.com/news/articles/2026-06-18/big-tech-s-ai-spending-spree-is-making-stock-buybacks-disappear",
+    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i5O8Dcu.ar4A/v6/1200x800.jpg",
+    "created_at": "2026-06-18T14:45:31.559Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "layr-a-modular-ux-and-product-constraint-system-for-aibuilt-interfaces",
+    "title": "Layr – a modular UX and product constraint system for AI-built interfaces",
+    "description": "A modular UX, design, and product optimisation system for turning AI-built interfaces into production-grade apps, turning proven principles into enforceable constraints that reduce friction, build ...",
+    "fullText": "A modular production system for turning AI-built interfaces into production-grade apps. Layr turns proven UX, design, accessibility, security, performance, SEO, CRO, marketing, and copywriting principles into enforceable constraints that reduce friction, build trust, and drive action.\n\nWorks with Claude, Cursor, and other agentic development tools.\n\nTurn typical AI output into a clearer, more usable, more production-ready interface.\n\nStart with Option 1. If your tool cannot read GitHub URLs, use Option 2.\n\nUse this when your tool can read GitHub URLs.\n\nCopy this prompt, paste it into your tool, then replace the task line with your own request:\n\nUse this when your tool works best with local files or cannot reliably read GitHub URLs.\n\nThis is optional.\nUse it when you want stronger product and brand fit.\n\nDo not edit modules/, methods/, or RUN.md.\n\nThis is optional.\nUse it for important screens where precision matters.\n\n“Create a dashboard for a project management app”\n\n→ Layr selects the relevant modules and improves the output against production rules.\n\nLayr is a rule-based production system for AI-built software.\n\nIt gives agentic tools a structured way to select the right product modules, apply proven methods, score the result, and improve weak areas before the output ships.\n\nMost tools know these ideas. Layr makes them operational.\n\nAI can generate working screens quickly, but working is not the same as production-ready.\n\nWithout a system, AI output often has:\n\nBuild with real production standards, not AI guesses.\n\nLayr should never block on missing context unless the missing detail would materially change the product direction.\n\nIf context is missing, Layr should infer it and state assumptions briefly.\n\nSYSTEM.md is Layr's central operating layer.\n\nIt defines how the system selects surface types, loads playbooks, applies hard gates, resolves method conflicts, and keeps recommendations tied to evidence.\n\nThe kernel improves consistency across tasks by requiring every recommendation to connect to at least one of:\n\nThis keeps Layr science backed, evidence driven, and focused on production quality rather than taste.\n\nSurface playbooks make Layr practical for common production work.\n\nThey define the required modules, recommended methods, hard gates, production rules, failure patterns, and evidence requirements for each major surface.\n\nSurface scorecards in scorecards/ make scoring more specific and consistent for each surface.\n\nLayr started with UX and Design because that is where AI-built products usually break first: unclear flows, weak hierarchy, messy screens, and interfaces that work but do not feel production-ready.\n\nLayr now works as a broader production layer for AI-built software.\n\nActive modules cover UX, Design, Accessibility, Security, Performance, Analytics, QA, AI Product, CRO, SEO, Marketing, and Copywriting.\n\nAI Search is supported through the SEO module when the task involves AI answers, retrieval visibility, GEO, ChatGPT search, Copilot visibility, or answer-engine discoverability.\n\nThe system is designed so new modules can be added without making Layr harder to use.\n\nLayr chooses the relevant active modules automatically, so you don't have to understand the whole system.\n\nSee ROADMAP.md for the planned module direction.\n\nUse this system to build, review, or improve generated product work until it is clearer, safer, faster, more accessible, more measurable, and more production-ready.\n\nIf your tool can read GitHub URLs, copy this prompt and paste it into your tool:\n\nIf your tool cannot read GitHub URLs, download or clone this repo into your project root as layr.\n\nThen copy this prompt and paste it into your tool:\n\nIf your tool cannot read GitHub URLs reliably, use the local folder option.\n\nReplace the example task with what you want the AI to build, fix, review, or improve.\n\nFor better product fit, copy layr.config.example.md, rename the copy to layr.config.md, and fill only what you know.\n\nThis is optional. Layr still works without it.\n\nFor important screens, copy layr/screens/screen-template.md, rename the copy, and fill only what matters.\n\nThis is optional. Layr should infer missing screen context from the task and codebase.\n\nSee CHANGELOG.md for version history.\n\nFree to use in personal and commercial projects.\n\nNot allowed to resell or redistribute this as a standalone product.\n\nBuild with real production standards, not AI guesses.",
+    "readingTime": 4,
+    "keywords": [
+      "design accessibility",
+      "ai-built software",
+      "accessibility security",
+      "security performance",
+      "urls copy",
+      "optional layr",
+      "active modules",
+      "production rules",
+      "production standards",
+      "github urls"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/layr-hq/layr",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1223781441/71d477d3-c295-45b8-b317-bcb2d378071d",
+    "created_at": "2026-06-18T14:45:22.517Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "trellis-ai-yc-w24-hiring-a-product-lead-to-build-agents-for-healthcare-access",
+    "title": "Trellis AI (YC W24)  hiring a product lead to build agents for healthcare access",
+    "description": "About...",
+    "fullText": "Trellis builds and deploys AI agents that help patients access life-saving therapies.\n\nOur platform automates the complex administrative workflows that stand between patients and treatment, including document intake, prior authorizations, appeals, reimbursement research, and coverage determination. Today, our self-improving AI agents process billions of dollars in therapies annually and support patients across all 50 states.\n\nFounded out of the Stanford AI Lab, Trellis combines cutting-edge AI with deep healthcare expertise to solve one of the largest operational challenges in healthcare: getting patients the care they need, faster. We work with leading healthcare organizations to streamline operations, reduce administrative burden, and accelerate access to treatment at scale.\n\nWe’re backed by leading investors including General Catalyst, YC, Telesoft Partners, and executives from Google and Salesforce. Over the past year, we’ve experienced exceptional growth, scaling revenue rapidly while expanding our footprint across specialty healthcare markets.\n\nJoining Trellis means working at the intersection of AI, healthcare, and company-building. You’ll partner directly with the founders, help shape the next phase of growth, and see the real-world impact of your work in the number of patients who receive critical treatment because of the systems we build.\n\nAs Product Lead, you'll drive product development from concept through launch and iteration. You'll work directly with customers, engineers, and leadership to identify opportunities, validate solutions, and bring new products to market.\n\nYou'll own major product initiatives end-to-end, leading 0→1 product development while ensuring existing products continue to evolve alongside customer needs and advances in AI capabilities.\n\nYou'll work closely with the CEO and leadership team to shape company strategy, product direction, and go-to-market priorities.\n\nYou will spend significant time with customers across healthcare organizations, including executives, operations teams, and technical stakeholders.",
+    "readingTime": 2,
+    "keywords": [
+      "product development",
+      "healthcare organizations",
+      "patients",
+      "treatment",
+      "across",
+      "leading",
+      "agents",
+      "access",
+      "therapies",
+      "administrative"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.ycombinator.com/companies/trellis-ai/jobs/Cg94htp-product-lead",
+    "thumbnail_url": "https://bookface-images.s3.amazonaws.com/logos/d681b1370ee5c0b4d24b781aa8bc8a11b2c1d375.png?1746931057",
+    "created_at": "2026-06-18T14:45:14.934Z",
+    "topic": "jobs"
+  },
+  {
+    "slug": "goldman-sachs-says-buy-these-16-tech-stocks-positioned-to-win-as-an-aicapex-supercycle-juices-earnings",
+    "title": "Goldman Sachs says buy these 16 tech stocks positioned to win as an AI-capex supercycle juices earnings",
+    "description": "\"A capex supercycle is taking hold,\" Peter Oppenheimer, the bank's chief global equity strategist, said in a client note on Tuesday.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/stocks-to-buy-ai-capex-beneficiaries-tech-investing-goldman-sachs-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a32af762bbd1d834ef249a5?width=1200&format=jpeg",
+    "created_at": "2026-06-18T14:45:13.865Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "her-daughters-were-ceos-of-youtube-and-23andme-her-advice-for-parents-in-the-ai-era-send-your-kids-to-college",
+    "title": "Her daughters were CEOs of YouTube and 23andMe. Her advice for parents in the AI era? Send your kids to college.",
+    "description": "Esther Wojcicki, \"The Godmother of Silicon Valley,\" raised Susan and Anne Wojcicki the former CEOs of YouTube and 23andMe. She doesn't think AI can replace a college education.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/esther-susan-anne-wojcicki-youtube-23andme-ceos-college-ai-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a33cb622bbd1d834ef25585?width=1200&format=jpeg",
+    "created_at": "2026-06-18T14:45:13.620Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "lessons-from-chinese-ai-firms-on-owning-customers-habits",
+    "title": "Lessons from Chinese AI Firms on Owning Customers’ Habits",
+    "description": "As U.S. AI firms compete in an escalating race for superior models, bigger benchmarks, and more advanced features, Chinese companies are pursuing a fundamentally different strategy: embedding AI into users’ everyday habits. The authors argue that this “habit moat” approach may prove more durable than competing on raw capability alone. Whereas Western firms position AI as a destination consumers consciously visit, companies like Alibaba integrate AI into existing routines such as shopping, payments, food delivery, and travel booking, reducing friction until using AI becomes automatic behavior.",
+    "fullText": "Lessons from Chinese AI Firms on Owning Customers’ Habits by Yuanyuan Gina Cui, Patrick van Esch and Jan KietzmannJune 18, 2026PostPostShareSavePrintSummary.   As U.S. AI firms compete in an escalating race for superior models, bigger benchmarks, and more advanced features, Chinese companies are pursuing a fundamentally different strategy: embedding AImoreLeer en españolLer em portuguêsPostPostShareSavePrintEarlier this year, Chinese and U.S. tech giants launched two very different campaigns to support their new AI offerings.",
+    "readingTime": 1,
+    "keywords": [
+      "chinese",
+      "firms"
+    ],
+    "qualityScore": 0.45,
+    "link": "https://hbr.org/2026/06/lessons-from-chinese-ai-firms-on-owning-customers-habits",
+    "thumbnail_url": "/resources/images/article_assets/2026/06/Jun26_17_AI.jpg",
+    "created_at": "2026-06-18T14:45:12.693Z",
+    "topic": "business"
+  },
+  {
+    "slug": "the-strongest-teams-of-ai-agents-will-be-built-using-different-models",
+    "title": "The Strongest Teams of AI Agents Will be Built Using Different Models",
+    "description": "Agentic AI is so prevalent that some business leaders now count AI agents as part of their regular workforce. Yet, without attention to the diversity of this burgeoning agentic workforce, business leaders are likely to find that many of the promised benefits of agentic AI—increased productivity, innovation, creativity—fail to fully materialize. In fact, an emerging body of research now points to significant performance improvements from diversity in agentic systems. One study, for instance, showed that agent teams selected with diversity in mind were 25% better at resolving software engineering problems than agents acting individually, mainly due to the blending of different skills and knowledge sets. Another study showed that just two diverse agents can “match or exceed the performance of 16 homogeneous agents.",
+    "fullText": "The Strongest Teams of AI Agents Will be Built Using Different Models by Mark PurdyJune 18, 2026PostPostShareSavePrintSummary.   Agentic AI is so prevalent that some business leaders now count AI agents as part of their regular workforce. Yet, without attention to the diversity of this burgeoning agentic workforce,moreLeer en españolLer em portuguêsPostPostShareSavePrintThe agentic workforce is on the march.",
+    "readingTime": 1,
+    "keywords": [
+      "agentic",
+      "agents",
+      "workforce"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://hbr.org/2026/06/the-strongest-teams-of-ai-agents-will-be-built-using-different-models",
+    "thumbnail_url": "/resources/images/article_assets/2026/06/Jun26_18_5723171.jpg",
+    "created_at": "2026-06-18T14:45:12.670Z",
+    "topic": "business"
+  },
+  {
+    "slug": "why-arent-newsrooms-covering-this-ai-speech",
+    "title": "Why Aren’t Newsrooms Covering This AI Speech?",
+    "description": "Mark...",
+    "fullText": "A.G. Sulzberger urges the media to unite and fight back.\n\nThe publisher of The New York Times recently made an extraordinary speech about AI, journalism, and the public square that’s received surprisingly little public reaction. What makes A.G. Sulzberger’s speech extraordinary is that it was unabashedly crusading, and crusading is a stance New York Times publishers have rarely if ever adopted over the newspaper’s 175-year history. What makes the scant reaction surprising is that the speech’s audience—fellow leaders of some of the world’s most powerful news organizations—have a commercial self-interest in the crusade Sulzberger is advocating for. What’s more, the accusations Sulzberger made, the plainspoken language he used, the alleged villains he called out by name—Google, Meta, OpenAI—are the stuff of high drama.\n\nSulzberger’s core argument when addressing the annual WAN-IFRA World News Media Conference on June 1 was that Big Tech is stealing the news media’s property and undermining democracy, and that the only solution is for news organizations to work together to resist them.\n\nBig Tech’s “hijacking of the public square is made possible by the original sin that animates their AI products—a brazen theft of intellectual property that has occurred at an unprecedented scale,” Sulzberger argued. “Tech giants strip-mine news websites without permission or compensation. They repackage these stolen goods as their own, siphoning off the audiences and revenue that otherwise would go to the news organizations that created this work.”\n\nIf such stealing is allowed to continue, he continued, we risk a “future where a crucial wellspring of a healthy society and a stable democracy—the truth, understanding and accountability provided by original journalism—continues to dry up…. The news industry’s only path to counteracting [Big Tech’s machinations]…is by working together” to protect the industry’s property rights, including through lawsuits. (The Times, he noted, has spent $20 million on such lawsuits.)\n\nIn sum, the publisher of one of the world’s most influential newspapers has accused some of the richest, most powerful companies on Earth of being criminals, of building their vast fortunes on a foundation of lies and theft at grand scale. And he urged the rest of the media to join the Times in fighting back, not only for the sake of their own commercial survival but for the survival of a free press and the democracy it nourishes.\n\nBravo to Le Monde, Variety, and Press Gazette for writing about the speech, and to The Seattle Times for publishing excerpts on its opinion page. But given the big names, enormous sums, and profound stakes involved, why has there been so little other coverage? Why are those outlets the exceptions?\n\nHere’s a hint: The Times itself didn’t report on the speech. Instead, the business side of the paper issued a press release containing the text. But there was no mention of the speech in the news, business, opinion, or other sections of the paper. That absence reflects a view long held by newsroom traditionalists: We (almost) never report on ourselves. The corollary—nor do we report on our competitors—likely explains why the rest of the media has been silent.\n\nPerhaps such coverage is still to come; certainly Sulzberger’s call to arms warrants the attention of any specialist outlet focused on the news media. And maybe there are executive conversations taking place right now that will result in other newsrooms joining Sulzberger’s movement. After all, his speech did invite journalists and news executives to get in touch, offer their own ideas, and explore possible collaborations.\n\nCovering Climate Now welcomes this opportunity, and we urge fellow journalists around the world to consider pursuing it as well. We find Sulzberger’s analysis of the dangers facing our industry and our society persuasive, and highly pertinent to our core concern of how journalism reports on the climate emergency and its solutions.\n\nAI, in case it isn’t obvious, is bad for the climate because its data centers demand gargantuan amounts of scarce water and costly electricity, but it is also bad because building AI chatbots, among other things, sucks away revenue that rightfully belongs to news outlets. That theft is one reason why, as Sulzberger noted, the US has “lost 75 percent of its journalists and more than 3,000 newspapers” over the last two decades. That’s 3,000 newspapers that will never tell the climate story.\n\nEven for news outlets that remain in business, shrunken revenue makes it challenging to cover even routine subjects, much less a story like climate change. AI is no friend to a free press or a livable climate, and it’s time journalists grapple with how we respond.\n\nWith the midterm elections now firmly upon us, the question is whether Democratic candidates will do more than merely occupy ballot lines as mild alternatives to the red-hot crisis that is Donald Trump.\n\nAs Trump spends over $1 billion a day on a globally destabilizing war on Iran and admits that he doesn’t “think about Americans’ financial situation,” millions across the country are struggling with the surging costs of essentials. Democrats must seize this moment and advance bold, small-“d” populist ideas—not settle for cynical caution that once again snatches defeat from the jaws of victory.\n\nThe Nation elevates progressive ideas, movements, and elected officials achieving real change across the country into the national conversation. At the same time, our journalists are exposing how crypto and AI-funded super PACs are spending hundreds of millions of dollars to knock out candidates they oppose, reporting on the devastating impact of the Supreme Court’s evisceration of the Voting Rights Act, and sounding the alarm on attempts by red states to quickly redraw electoral maps, disenfranchising Southern Black voters.\n\nWe can play this critical role because of support from readers like you. This June, we’re raising $20,000 to power The Nation’s independent journalism in the run-up to November’s immensely consequential elections.\n\nIt’s in our power to build a more just society, and your support at this critical moment brings us closer to that bold vision. I hope you’ll donate today.\n\nOnward, \n\nKatrina vanden Heuvel\nEditor and Publisher, The Nation",
+    "readingTime": 5,
+    "keywords": [
+      "free press",
+      "big tech’s",
+      "the times",
+      "speech",
+      "media",
+      "journalists",
+      "publisher",
+      "journalism",
+      "property",
+      "theft"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.thenation.com/article/archive/why-arnt-newsrooms-covering-this-ai-speech/",
+    "thumbnail_url": "https://www.thenation.com/wp-content/uploads/2018/03/nytimes-building-ap-img.jpg",
+    "created_at": "2026-06-18T14:45:11.724Z",
+    "topic": "politic"
+  },
+  {
     "slug": "a-google-veteran-who-founded-characterai-is-jumping-to-openai",
     "title": "A Google veteran who founded Character.AI is jumping to OpenAI",
     "description": "Noam Shazeer, a co-lead at Gemini and the founder of Character.AI is leaving Google to join OpenAI in the latest AI talent war move.",
@@ -1610,174 +1772,5 @@
     "thumbnail_url": "https://i.insider.com/6a2fc7be0b873a3c9460cabb?width=1200&format=jpeg",
     "created_at": "2026-06-15T16:55:10.825Z",
     "topic": "finance"
-  },
-  {
-    "slug": "citadel-securities-says-soaring-costs-are-a-reality-check-for-the-markets-ai-trade",
-    "title": "Citadel Securities says soaring costs are a reality check for the market's AI trade",
-    "description": "Citadel Securities and Citrini Research agree that 'tokenomics' is reshaping the way the stock market's biggest hyperscalers trade.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/citadel-surging-ai-costs-trade-citrini-tokenomics-stocks-msft-amzn-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a2c236224b3540ad29c293d?width=1200&format=jpeg",
-    "created_at": "2026-06-15T16:55:10.698Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "how-ai-companies-can-pay-fair-rates-for-the-content-they-need",
-    "title": "How AI Companies Can Pay Fair Rates for the Content They Need",
-    "description": "Frontier AI models are trained on the accumulated digital output of humanity, which AI companies acquired essentially for free. This is a problem for both AI companies and content creators. For AI companies, future training will require new, high-quality human data. For creators, they face a choice between modest one-off licensing deals and copyright litigation, neither of which offers reasonable compensation. Yet AI companies already produce the two data sets required for pricing content, as a matter of course, every time a model is trained: data mixture and scaling laws capture how to divide the pie and how big it is.",
-    "fullText": "How AI Companies Can Pay Fair Rates for the Content They Need by E. Glen Weyl and Raul Castro FernandezJune 15, 2026PostPostShareSavePrintSummary.   Frontier AI models are trained on the accumulated digital output of humanity, which AI companies acquired essentially for free. This is a problem for both AI companies and content creators. For AImoreLeer en españolLer em portuguêsPostPostShareSavePrintThe fight over the data that trains artificial intelligence has become one of the defining economic conflicts of the decade. Publishers, authors, and visual artists argue that their work was taken without permission or payment. AI companies counter that training on available data constitutes fair use and that even if a market in data were desirable, compensating millions of creators is technically impossible: the cost of figuring out what any given piece of data is worth, researchers have argued, would swallow most of the value that data creates in the first place.",
-    "readingTime": 1,
-    "keywords": [
-      "fair",
-      "creators",
-      "content"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://hbr.org/2026/06/how-ai-companies-can-pay-fair-rates-for-the-content-they-need",
-    "thumbnail_url": "/resources/images/article_assets/2026/06/Jun26_14_664263282.jpg",
-    "created_at": "2026-06-15T16:55:09.885Z",
-    "topic": "business"
-  },
-  {
-    "slug": "help-employees-get-betternot-just-fasterwith-ai",
-    "title": "Help Employees Get Better—Not Just Faster—with AI",
-    "description": "As AI makes generating polished work easier, the scarce skill is becoming judgment: knowing what to trust, question, and refine. Yet most organizations train employees to use AI tools, not to think critically with them. A four-step process can help professionals collaborate with AI more effectively while strengthening their own capabilities through reflection, evaluation, and deliberate learning. And it can help managers become more effective coaches.",
-    "fullText": "Help Employees Get Better—Not Just Faster—with AI by David S. Duncan and Tyler AndersonJune 15, 2026PostPostShareSavePrintSummary.   As AI makes generating polished work easier, the scarce skill is becoming judgment: knowing what to trust, question, and refine. Yet most organizations train employees to use AI tools, not tomoreLeer en españolLer em portuguêsPostPostShareSavePrintImagine you’re early in your career, and your manager asks you to craft a difficult email to a major customer explaining why the project your team is working on is delayed.",
-    "readingTime": 1,
-    "keywords": [
-      "employees"
-    ],
-    "qualityScore": 0.35,
-    "link": "https://hbr.org/2026/06/help-employees-get-better-not-just-faster-with-ai",
-    "thumbnail_url": "/resources/images/article_assets/2026/06/Jun26_13_1436977576.jpg",
-    "created_at": "2026-06-15T16:55:09.684Z",
-    "topic": "business"
-  },
-  {
-    "slug": "the-pros-and-cons-of-continually-assessing-performance",
-    "title": "The Pros and Cons of Continually Assessing Performance",
-    "description": "As AI rapidly changes the division of labor between people and machines, organizations need ways of understanding employee capabilities that are more dynamic than just job titles, résumés, and periodic reviews. Continuous-assessment systems use signals generated during everyday work to track how skills are applied, how tasks are shifting to AI, and where new capabilities are emerging. Implemented well, these systems can improve staffing decisions, accelerate learning, and help companies adapt in real time by linking assessment directly to coaching, reskilling, and workforce planning. But they also carry significant risks, including surveillance concerns and incentives to optimize for narrow metrics. Their success ultimately depends less on technology than on transparent governance that supports development rather than control.",
-    "fullText": "The Pros and Cons of Continually Assessing Performance by Sangeet Paul Choudary and John WinsorJune 15, 2026PostPostShareSavePrintSummary.   As AI rapidly changes the division of labor between people and machines, organizations need ways of understanding employee capabilities that are more dynamic than just job titles,moreLeer en españolLer em portuguêsPostPostShareSavePrintFor much of aviation history, pilot training programs were geared toward two outcomes: the accumulation of a prescribed number of hours in the cockpit, and certification to fly a certain kind of aircraft. Airlines treated those outcomes as hard-earned evidence of competence.",
-    "readingTime": 1,
-    "keywords": [
-      "outcomes"
-    ],
-    "qualityScore": 0.15,
-    "link": "https://hbr.org/2026/06/the-pros-and-cons-of-continually-assessing-performance",
-    "thumbnail_url": "/resources/images/article_assets/2026/06/Jun26_13_685022564.jpg",
-    "created_at": "2026-06-15T16:55:09.656Z",
-    "topic": "business"
-  },
-  {
-    "slug": "anthropic-and-us-officials-meeting-monday-to-resolve-dispute-over-export-curbs-administration-official-says",
-    "title": "Anthropic and US officials meeting Monday to resolve dispute over export curbs, administration official says",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/anthropic-and-us-officials-meeting-monday-to-resolve-dispute-over-export-curbs--administration-official-says-4742693",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM5E1DM_L.jpg",
-    "created_at": "2026-06-15T16:55:09.191Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "employers-want-entrylevel-workers-with-seniorlevel-skills-in-the-age-of-ai-a-huge-pwc-analysis-found",
-    "title": "Employers want entry-level workers with senior-level skills in the age of AI, a huge PwC analysis found",
-    "description": "PwC looked at over 1 billion jobs worldwide, and 2.4 million entry-level roles in the US for its 2026 AI jobs barometer.",
-    "fullText": "AI is changing what skills employers want from their junior workers.\n\nA major PwC survey found that employers want junior employees to have \"traditionally senior\" skills.\n\nPwC's global jobs barometer analyzed over a billion job listings worldwide and millions in the US.\n\nAI is raising the bar for entry-level jobs, according to a new PwC analysis of global job ads.\n\nEmployers in AI-exposed fields are increasingly looking for entry-level workers to have the skills that they previously expected from senior workers, including emotional intelligence, judgment, and leadership.\n\nThe findings come from PwC's 2026 AI jobs barometer, released on June 15, which analyzed over 1 billion job advertisements globally.\n\nAnalysis of 2.4 million entry-level roles in the US found that AI-exposed roles are seven times more likely to list \"traditionally senior\" skills than they were in 2019.\n\nThe skills now expected of less experienced staff include motivational leadership, team building, people and stakeholder management, process management, mentorship, and data-driven decision-making.\n\nPwC defined a skill as \"traditionally senior\" if it appeared more than 50 times in experienced, non-entry-level, high AI exposure job postings in 2019, but fewer than five times in entry-level, high AI exposure postings in 2019.\n\n\"The good news is that many junior workers will be spared years of drudgery on basic, repetitive tasks. The tough news is that those same workers need to quickly step up to demonstrate skills like leadership and strategic thinking,\" PwC said in the report.\n\nAI has become increasingly capable of performing repetitive, data-intensive tasks that once made up much of junior white-collar work. That shift has contributed to an overall slowdown in entry-level hiring.\n\nGlobally, PwC's AI jobs barometer found that entry-level roles highly exposed to AI have flatlined. PwC itself has reduced hiring for entry-level workers by a third over the next three years in the US, Business Insider reported in August.\n\nIn the US job market, the report found that not all AI-exposed junior roles are shrinking: Those with higher skill expectations are thriving.\n\nAI-exposed entry-level jobs that had been \"seniorized\" — meaning they added more than 10 traditionally senior skills — grew 35% between 2019 and 2025. Comparable AI-exposed entry-level roles that had not been seniorized fell 10%.\n\nThe changing nature of the work is also pushing companies to overhaul their training and people programs to help young workers adapt.",
-    "readingTime": 2,
-    "keywords": [
-      "traditionally senior",
-      "jobs barometer",
-      "ai-exposed entry-level",
-      "senior skills",
-      "entry-level roles",
-      "junior workers",
-      "employers",
-      "leadership",
-      "changing",
-      "analyzed"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/economy/policy/articles/employers-want-entry-level-workers-130805794.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/Wz3mx5pDT.LHiXGdf1_d_g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/e39572cbc114b07bbc0efb5c10e8bcb8",
-    "created_at": "2026-06-15T16:55:07.964Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "dozens-walk-out-as-google-boss-pichai-addresses-stanford-graduates",
-    "title": "Dozens walk out as Google boss Pichai addresses Stanford graduates",
-    "description": "Some students were protesting against the company's controversial work with the US government on artificial intelligence.",
-    "fullText": "Several students walked out of their Stanford University graduation ceremony as Google CEO Sundar Pichai took the stage to deliver a keynote address.\n\nVideo filmed by the BBC shows dozens of people protesting against the company's controversial work with the US government. One sign read \"ICE spies with Google AI\".\n\nThis follows other recent campus protests against tech leaders, but those have largely focused on artificial intelligence and concerns about jobs.\n\nPichai largely sidestepped the issue of AI in his remarks, though he appeared to make light of the expected protests. \"People thought it would be really difficult for me,\" he said. \"It is the last two letters of my last name, after all.\"\n\nPichai, a Stanford alum, did not respond to the BBC's request for comment.\n\nThe exact number of students who walked out of the graduation remains unclear, though SFGate estimated it was around 200.\n\nIt is also not clear if all the students who left were motivated by the same cause, as some were seen waving Palestinian flags.\n\nThe protests against graduation speakers in the US this year showed the broader unease on campuses about AI: Speakers who mention AI are increasingly being met with hostility from students.\n\nFormer Google CEO Eric Schmidt was booed by students as he spoke about the rise of AI during his speech at the University of Arizona's graduation ceremony in May, underscoring growing anxiety over AI's impact on jobs.\n\n\"I know what many of you are feeling about that. I can hear you,\" Schmidt told graduates as jeers rang out at the venue during remarks comparing today's AI boom to the rise of computers four decades ago.\n\nGloria Caulfield, a real estate executive, saw a similar reception at the University of Central Florida: \"The rise of artificial intelligence is the next industrial revolution,\" she said as the crowd booed.\n\nAt the mention of AI at Middle Tennessee State University commencement, Scott Borchetta, CEO of Big Machine Records, was also met with jeers.\n\nHis response to graduates: \"Deal with it, like I said, it's a tool.\"\n\nAdditional reporting by Lily Jamali\n\nFormer Google CEO Eric Schmidt booed by graduates at mention of AI",
-    "readingTime": 2,
-    "keywords": [
-      "eric schmidt",
-      "ceo eric",
-      "google ceo",
-      "artificial intelligence",
-      "graduation ceremony",
-      "students",
-      "protests",
-      "mention",
-      "booed",
-      "rise"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.yahoo.com/news/politics/articles/dozens-walk-google-boss-pichai-144432143.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/bbc_us_articles_995/0ddc00d184af2c22f0dbeffe49dafb01",
-    "created_at": "2026-06-15T16:55:07.460Z",
-    "topic": "politic"
-  },
-  {
-    "slug": "exclusive-the-researchers-who-built-aigenerated-dna-just-raised-50-million-to-reinvent-biology",
-    "title": "Exclusive: The researchers who built AI-generated DNA just raised $50 million to reinvent biology",
-    "description": "Radical Numerics is betting that the future of bio-defense and AI drug discovery lies in understanding entire biological systems—not individual molecules.",
-    "fullText": "Eric Nguyen was a perpetual student, much to his parents’ chagrin.\n\nAfter receiving a master’s of engineering at Cornell and doing a stint training AI to interpret and understand the visual world, Nguyen enrolled in a Stanford bioengineering PhD program specifically to find a problem worth fighting for.\n\nWhat is Radical Numerics' AI technology approach?\n\nWhat commercial partnerships has the company established?\n\nHow much funding did Radical Numerics raise?\n\nWhat are the dual-use risks of genomics AI?\n\n“I basically went back to the PhD to look for purpose,” he told Fortune. “I wanted to find something that I thought I could contribute to, that if I didn’t work on it, nobody else would.” He found it in DNA.\n\nNguyen’s startup Radical Numerics emerged from stealth with a $50 million seed round led by Emergence Capital, Fortune learned exclusively. Obvious Ventures, Triatomic Capital, Factory, and First Spark Ventures also participated. Patrick Collison, the CEO of Stripe and cofounder of the Arc Institute, backed the company at pre-seed.\n\nRadical Numerics teaches AI to read, write, and reason in the language of biology—not just DNA, but RNA, proteins, and every other molecule that makes living systems work, all at once, in a single model.\n\nThe company’s founding team—Nguyen, Michael Poli (chief AI scientist), Stefano Massaroli (president), and Armin Thomas (chief technology officer)—are among the researchers who created the field of generative genomics. Three of the four previously built core technology at Liquid AI, an MIT-spinout designing new AI model designs.\n\nTogether they built Evo and Evo 2, the first AI models capable of generating DNA at scale, trained on the genomes of more than 100,000 species. Last September, researchers using Evo’s open-source weights produced the world’s first fully AI-designed functional virus (it was harmless to humans). That milestone is what pushed the team to build a company.\n\n“It still wasn’t being picked up in the way we thought it would,” Nguyen said of the academic work. “So we basically said: we have to show the recipe.”\n\nThe overall AI drug discovery market is projected to reach $25 billion by 2035, and competitor Ginkgo Bioworks recently signed a five-year AI platform deal with Google Cloud.\n\nBut most AI biology companies today are single-modality like Isomorphic Labs for proteins or Inceptive for RNA (which just signed a deal with Alnylam potentially worth $2 billion). Radical Numerics is instead betting that the bottleneck in drug development is about understanding how they behave inside an entire biological system.\n\n“Getting the drug made won’t be the bottleneck forever,” Nguyen said. “You have to understand the whole system.”",
-    "readingTime": 3,
-    "keywords": [
-      "radical numerics",
-      "technology",
-      "drug",
-      "understand",
-      "worth",
-      "genomics",
-      "ventures",
-      "proteins",
-      "model",
-      "chief"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/sectors/healthcare/articles/exclusive-researchers-built-ai-generated-120000788.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/mZln7S_vX2TfDrKVujjMyw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04NTQ-/https://media.zenfs.com/en/fortune_175/3e40190e9800d460bba3fac15da031a4",
-    "created_at": "2026-06-15T16:55:07.000Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "andrew-hastie-compares-ai-to-coldwar-nuclear-arms-race-and-warns-australia-may-fall-behind",
-    "title": "Andrew Hastie compares AI to cold-war nuclear arms race and warns Australia may fall behind",
-    "description": "Liberal MP says Australia risks sovereignty and strategic independence being ‘constrained by the AI superpowers reshaping the global...",
-    "fullText": "Liberal MP says Australia risks sovereignty and strategic independence being ‘constrained by the AI superpowers reshaping the global order’\n\nGet our breaking news email, free app or daily news podcast\n\nLiberal MP Andrew Hastie says Australia should dramatically scale up investment in artificial intelligence to preserve strategic independence and warns the country risks being “a supplicant state” tethered to the US in an era of possible hot conflict with China.\n\nIn a major address to Liberal members in Sydney on Monday night, the shadow minister for industry and sovereign capability likened the development of AI to the nuclear arms race of the cold-war era and proposed Australia position itself as a technology hub in the southern hemisphere.\n\nDelivering the annual Tom Hughes Oration, Hastie called for a new AI ambassador to be appointed and said the education system should be overhauled “so we can unleash Australian hearts and minds on AI”.\n\nHe said prime ministers, including Robert Menzies and John Gorton, had wrestled with the question of Australia pursuing nuclear capability, but ultimately aligned our security settings with Washington.\n\n“Last century, Australia missed the opportunity to become a nuclear power,” he said.\n\n“As a result, we live under the nuclear umbrella of the United States. Our sovereignty and strategic independence have been constrained as a consequence.\n\n“This century, Australia risks missing the opportunity to become an AI power. And the risk is that our sovereignty and strategic independence will be further constrained by the AI superpowers reshaping the global order.”\n\nFailing to properly invest will leave Australia with less agency over our own future, he argues.\n\nOutlining the stakes of a growing arms race between the US and major AI companies including Anthropic, Google, Meta and OpenAI, Hastie said “techbros” in Silicon Valley had strong influence within Donald Trump’s administration and were fighting new regulation.\n\nHe said Australia is caught between our closest security partner, the US, and our biggest trading partner, China, as the two superpowers pursue global AI dominance, including production of semiconductor chips in Taiwan.\n\nWhatever happens, Australia will be involved in a conflict in the Taiwan Strait “whether we like it or not”, he said.\n\n“I don’t think it’s an exaggeration to say that a hot war between the US and China over AI dominance and advanced chips in Taiwan would be infinitely worse than a hot war in the Middle East.\n\n“We won’t be able to escape it, which is why we must work hard to prevent it.”\n\nThe speech comes as the federal government considers how best to deal with AI.\n\nFormer industry minister Ed Husic had argued for new guardrails and consideration of a major new AI act, but he was dumped from cabinet in 2025. His successor, Tim Ayres, is in favour of a lighter touch approach.\n\nHastie warned AI posed massive economic implications for the Australian economy and said many blue and white collar jobs would be replaced by automation, with divisions already opening in the labour market, as middle income jobs are replaced.\n\n“If AI potentially starves people of work, we can expect great social upheaval.\n\n“If we strip from people the meaning that comes from creative and productive work, we can expect a revolt.”\n\nHastie is considered a future Liberal leader, whose policy contributions are closely watched across the party. He opted not to challenge Sussan Ley in January, before Ley was ultimately ousted by Angus Taylor.\n\nBut the opposition’s dire polling has continued under Taylor.\n\nOn Monday, a Resolve poll published in the Age and Sydney Morning Herald put the Coalition’s primary vote on a record low 20%, behind Labor on 28% and One Nation on 29%.\n\nThe figures point to an electoral wipeout for the Liberals and Nationals.\n\nHastie used the speech hosted by colleague Julian Leeser to warn a backslide in educational standards over the past 25 years was leaving school students, including those from disadvantaged families, poorly prepared.\n\n“And if we fail in education, AI will entrench economic and social disadvantage here in Australia, and we will fall behind as a country on the world stage.”",
-    "readingTime": 4,
-    "keywords": [
-      "century australia",
-      "arms race",
-      "australia risks",
-      "superpowers reshaping",
-      "hot war",
-      "strategic independence",
-      "nuclear",
-      "sovereignty",
-      "constrained",
-      "conflict"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/australia-news/2026/jun/15/andrew-hastie-ai-artificial-intelligence-power-cold-war-nuclear-arms-race-comparison-australia",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/fcf718c822f5b914247cb985836dc460501e4aab/390_0_4421_3537/master/4421.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=c6b48c340632255eedc2a6873ee7b5ad",
-    "created_at": "2026-06-15T11:44:13.320Z",
-    "topic": "tech"
   }
 ]
