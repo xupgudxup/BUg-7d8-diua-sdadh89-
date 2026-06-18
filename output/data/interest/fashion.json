@@ -1,5 +1,42 @@
 [
   {
+    "slug": "i-tried-on-tshirts-at-gap-banana-republic-and-old-navy-my-favorite-option-was-flattering-and-affordable",
+    "title": "I tried on T-shirts at Gap, Banana Republic, and Old Navy. My favorite option was flattering and affordable.",
+    "description": "I tried on similar black T-shirts at Old Navy, Gap, and Banana Republic. I compared them based on the fit, material, style, price, and overall value.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/trying-t-shirts-old-navy-gap-banana-republic-review-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a2c55f124b3540ad29c2c81?width=1200&format=jpeg",
+    "created_at": "2026-06-18T20:10:47.225Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "i-built-imgcli-to-make-ffmpeg-for-images",
+    "title": "I built imgcli to make FFmpeg for images",
+    "description": "Dependency-free command-line image conversion & processing in C — convert, resize, crop, filter, and composite PNG/JPEG/BMP/TGA/GIF via an ffmpeg-style filtergraph. A tiny ImageMagick/ffmpeg al...",
+    "fullText": "converts, resizes, crops, filters, and composites images — PNG, JPEG, BMP, TGA,\nGIF, PPM, QOI — driven by an ffmpeg-style filtergraph. No system libraries;\ncompiles anywhere a C11 compiler exists.\n\n⚡ ~8× faster than ImageMagick on common resize/filter ops, in a 232 KB\nsingle binary (~470× smaller) — see the benchmarks. A lightweight\nalternative to ImageMagick convert or ffmpeg for still images.\n\nWhat it does: format conversion · resize / scale · crop · pad · rotate · flip ·\nbrightness / contrast / saturation / gamma / hue · grayscale · sepia · invert ·\nthreshold · box & Gaussian blur · sharpen · Sobel edge detect · emboss · custom\nconvolution kernels · alpha-composite overlay · draw boxes · solid fills.\n\nDesign: the same paradigm as ffmpeg — decode → normalize to one common frame\nformat (RGBA) → run a comma-separated filtergraph → encode by output extension.\n\nimgcli vs ImageMagick on an Apple Silicon Mac (single-threaded, warm cache).\nReproduce with make && bench/bench.sh — see bench/RESULTS.md\nfor the full method and caveats.\n\nlean 8-bit pipeline that wins on speed, size, and startup — the shape that\nmatters when an agent or script spawns one process per task.\n\nThe default build is dependency-free — a single binary that links only the\nsystem C library (libc). Decoding/encoding is handled by the bundled,\npublic-domain stb and\nqoi single-header libraries, compiled\ndirectly in. Nothing to apt install, no shared libraries, no version hell.\n\nThe \"zero dependencies\" claim applies to the default build, and always will —\nopt-in format libraries are never compiled into it. A build that enables such\na flag is, by definition, no longer dependency-free, and that trade-off is\nstated at the point you opt in.\n\nCodecs come from the public-domain stb\nsingle-header libraries (third_party/). They're bundled, not linked, so the\ntool stays portable and self-contained while still reading/writing the formats\nthe world actually uses — the same trade-off ffmpeg makes by leaning on codec\nlibraries instead of reinventing them.\n\nAn MCP server wraps imgcli so AI agents can\ncall convert_image, probe_image, and list_filters directly — see\nmcp/.\n\nColours accept #rgb, #rrggbb, #rrggbbaa, 0x…, r-g-b[-a], or names\n(red, white, transparent, …). No commas, so they're safe inside a graph.\n\nGeometry — scale=W:H[:nearest|bilinear|bicubic|lanczos] (-1 keeps aspect;\nbicubic/lanczos are high-quality separable resamplers that anti-alias on\ndownscale and stay sharp on upscale — bilinear is the default),\ncrop=W:H[:X:Y], pad=W:H[:X:Y[:color]], hflip, vflip,\ntranspose=90|180|270, rotate=DEG[:color] (arbitrary angle, canvas expands).\n\nColour — grayscale, invert, sepia, solarize, brightness=V, temperature=V,\ncontrast=V, saturation=V, gamma=V, hue=DEG, threshold=V, opacity=V, tint=color.\n\nConvolution — blur=R (box), gblur=SIGMA (separable Gaussian),\nsharpen[=AMOUNT], edge (Sobel), emboss, convolution=K[:DIV:BIAS]\n(custom N×N kernel, e.g. convolution=0 -1 0 -1 5 -1 0 -1 0).\n\nComposite / draw — overlay=X:Y[:INDEX] (alpha \"over\" compositing of\nanother -i input), fill=color, drawbox=X:Y:W:H:color[:fill|thickness].\n\nimgcli is built to be a reliable tool in an automated pipeline: one\nself-contained binary, no dependencies, deterministic, non-interactive, and\nmachine-readable. See AGENTS.md for a token-economical recipe sheet.\n\nimgcli decodes untrusted image files in C, so memory safety is taken seriously.\nThe codebase has been audited against the OWASP Top 10, common C/CWE classes, and\nffmpeg's historical vulnerability classes. Highlights:\n\nFull threat model, OWASP/CWE mapping, ffmpeg-CVE-class analysis, and dependency\npolicy: SECURITY.md.\n\nContributor setup, validation targets, filter-registry guidance, and PR expectations live in CONTRIBUTING.md.\n\nHave a question or idea? Use Discussions. For bugs and feature/format requests, open an issue — the templates will guide you.\n\nIf imgcli is useful to you, consider sponsoring its development — it funds new formats, security hardening, and maintenance. See SPONSORS.md.\n\nThe imgcli source is yours to use freely (MIT). The vendored stb\nheaders are public domain (or MIT, at your option) and the vendored qoi.h is\nMIT-licensed; full third-party notices are in\nTHIRD_PARTY_NOTICES.md.",
+    "readingTime": 4,
+    "keywords": [
+      "public-domain stb",
+      "single-header libraries",
+      "imgcli",
+      "imagemagick",
+      "binary",
+      "ffmpeg",
+      "format",
+      "convolution",
+      "default",
+      "images"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/swperb/imgcli",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1269733727/faa8c67b-b9aa-4424-9439-6fe53487b1b5",
+    "created_at": "2026-06-18T20:10:28.946Z",
+    "topic": "tech"
+  },
+  {
     "slug": "how-michelle-obamas-style-has-evolved-from-her-first-lady-days-to-postwhite-house-life",
     "title": "How Michelle Obama's style has evolved, from her first lady days to post-White House life",
     "description": "Michelle Obama's fashion has changed a lot during her years in the public eye, with the former first lady moving from simple dresses to bold suits.",
@@ -1891,42 +1928,5 @@
     "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/6474/live/0eb39880-4bb9-11f1-9fc1-69bab7136531.jpg",
     "created_at": "2026-05-09T18:43:35.490Z",
     "topic": "sports"
-  },
-  {
-    "slug": "progress-remains-slow-for-nc-state-softball",
-    "title": "Progress remains slow for NC State softball",
-    "description": "NC State’s softball season came to an unpleasant end in the ACC tournament earlier this week—the Wolfpack gave up a pair of runs in the bottom of the seventh to lose in walk-off fashion to Louisville. Thus concluded a 27-26 (7-16) campaign, and the third year for head coach Lindsay Leftwich. It’s been 11 years […]",
-    "fullText": "NC State’s softball season came to an unpleasant end in the ACC tournament earlier this week—the Wolfpack gave up a pair of runs in the bottom of the seventh to lose in walk-off fashion to Louisville. Thus concluded a 27-26 (7-16) campaign, and the third year for head coach Lindsay Leftwich.\n\nIt’s been 11 years since NC State made the NCAA tournament, and 11 years since the team was even or better in league play. The results since 2015 are ugly and point to the futility of existence that underlies all things. What was I talking about? Oh, right.\n\nLeftwich inherited a mess here and has done well in the time since to stop the bleeding and improve the program’s recruiting substantially. That hasn’t resulted in a breakthrough on the field, but there have been many small frustrations along the way, the ACC tournament game against Louisville being just the latest.\n\nShe’s put together back-to-back recruiting classes that are very good, and the first of those did deliver on the field: three of the team’s four best hitters this season were freshmen. (The fourth is a sophomore.) That includes two-way phenom Morgan Talley, who was fourth on the team in OPS while leading the team in innings pitched. If Leftwich’s hit rate on this incoming class is similar—and the best player in the class is a pitcher—then there is good reason for optimism.\n\nBut. In this era, the big question is retention, and NC State has endured difficult portal departures over the last couple of years. If Leftwich can keep her young core together, then she should have a team capable of a breakthrough sooner than later. Just getting back to NCAA-caliber would represent an incredible accomplishment. It’s an important offseason ahead.",
-    "readingTime": 2,
-    "keywords": [
-      "acc tournament",
-      "nc state",
-      "team",
-      "season",
-      "recruiting",
-      "breakthrough",
-      "field",
-      "together",
-      "fourth",
-      "class"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://sports.yahoo.com/articles/progress-remains-slow-nc-state-013242874.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/skhSkvWyuZeb8L8yNO.JYw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/05eb03bb960d6df39d27d58e5727d10a",
-    "created_at": "2026-05-09T01:54:49.590Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "heres-the-best-street-style-we-spotted-at-the-new-york-city-ballets-spring-gala-2026",
-    "title": "Here's the best street style we spotted at the New York City Ballet's Spring Gala 2026",
-    "description": "The New York City Ballet hosted its annual Spring Gala at Lincoln Center. Art lovers, philanthropists, and celebrities were all in attendance.",
-    "fullText": "You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n HOME",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.1,
-    "link": "https://www.businessinsider.com/new-york-city-ballet-spring-gala-street-style-status-symbols-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fe0628c9dd4cb81cda88f9?width=1200&format=jpeg",
-    "created_at": "2026-05-09T01:54:18.827Z",
-    "topic": "finance"
   }
 ]
