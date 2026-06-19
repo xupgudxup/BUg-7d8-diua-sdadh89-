@@ -1,5 +1,29 @@
 [
   {
+    "slug": "selfimproving-agents-still-need-humans",
+    "title": "Self-improving agents still need humans",
+    "description": "Terminal-bench-style scores are tempting progress numbers and very easy to overfit. Used carefully, though, they are a pile of bug reports. goose's Harbor tooling made it cheap to run, pull, compare and explain failures, which led to two small fixes: turn awareness and reading images from disk again.",
+    "fullText": "Goodhart's law is the benchmarker's curse: when a measure becomes a target, it stops being a good measure. Coding-agent benchmarks are almost designed to trigger it. The tasks are public, the result is one number and the leaderboard inevitably fills up with harnesses that are, often without meaning to be, overfit to the benchmark.\n\nThat does not make the go-to standard Terminal-bench useless, but it does change how the goose team uses it. The leaderboard is a noisy measure of general agent ability. The signal is a pattern of failures: places where goose keeps getting stuck or where goose fails and another harness succeeds.\n\nThat is also why we usually benchmark with Sonnet rather than the strongest model available. We are not trying to get the largest possible number. We want enough failures left on the table to see what support the agent is missing.\n\nSelf-improving agents are all the rage, but the version we trust requires humans for now. The loop is to run the benchmark, have goose compare a task where one harness succeeded and another failed and ask it to explain the difference in concrete terms. A human then looks across a few of those failures, decides what the general lesson is and asks goose to implement that broader improvement.\n\nThe human step keeps the loop from collapsing into benchmark tricks. Without it, self-improving agents might choose to just write one Skill per task; agents are just as lazy as humans. With it, the goal is to turn a failure on one task into a capability that should help on tasks we have not seen yet.\n\nThe tooling for this lives in evals/harbor in the goose repo. The main entry point is ./evals/harbor/cmd.py, a little Python command with subcommands for run, list, show, task, compare and pull. It wraps Harbor around a particular goose binary, model and set of extensions, then leaves a directory full of per-task JSON and logs.\n\nThis is a place where Python works really well. cmd.py is a PEP 723 uv script, so the dependencies sit at the top of the file. There is no packaging ceremony, no new repo and no remembering which virtualenv was blessed. You ask an agent to add a subcommand, instrument a value or make the output table less terrible, and it just does it. The script becomes both the control surface and the documentation of the experiment. This is where vibe coding shines: small tools that express what needs to be done and where it really doesn't matter if they are coded elegantly.\n\nThe actual benchmark runs happen on a remote Linux machine, because a full run is slow, parallel and Docker-heavy work. But the analysis does not have to stay there. cmd.py pull tbench@...:/path/to/goose rsyncs the run directories back down and then the local tool can list runs, inspect one task or compare two jobs. That matters more than it sounds. If every question requires SSHing into the benchmark box and spelunking through logs by hand, you ask fewer questions.\n\nThe comparison recipes in PR #9637 implement the step where goose looks at the result. They read two runs for the same task, the agent trajectories, the verifier output and the reference solution. The useful output explains the mechanism: \"A noticed the image, B never opened it\" or \"A stopped after the correct file existed, B kept rewriting it until it broke.\"\n\nHere are two findings from recent work. First, goose would sometimes keep exploring after it had enough information to finish. It would be near the answer, but instead of concluding, it would keep poking and eventually run out of turns, failing the benchmark. The same thing can happen in a normal conversation: if goose does not know how far it is into the exchange, it has no real reason to stop exploring and steer toward a solution. PR #9636 added turn count awareness to MoIM, the context goose injects to keep the model oriented. So now goose knows when it is time to call it a day.\n\nSecond, goose had lost the ability to read images from disk. Originally, when you dragged an image into a goose conversation, we inserted the path to that image and gave the model a tool to read it. That was clunky, so we replaced it with proper image loading in the conversation. In the process, we accidentally deleted the disk image tool too. In the benchmark this showed up as goose using PIL to inspect an image instead of using the visual abilities of the model. The comparison recipe made the failure obvious because the successful run looked at the image and the failing run worked around it.\n\nThanks to the loop, we found two real weaknesses in goose and fixed them. The benchmark improved, which is nice, but more importantly, both fixes should make goose better in normal use: less likely to drift when it should finish and able again to look at an image file sitting on disk.\n\nThat is when a benchmark is useful: when it stops being a leaderboard and starts being a bug report.",
+    "readingTime": 5,
+    "keywords": [
+      "self-improving agents",
+      "goose",
+      "benchmark",
+      "task",
+      "model",
+      "measure",
+      "leaderboard",
+      "failures",
+      "loop",
+      "compare"
+    ],
+    "qualityScore": 1,
+    "link": "https://douwe.com/blog/2026/0619/",
+    "thumbnail_url": "/blog/2026/0619/thumb.png",
+    "created_at": "2026-06-19T19:24:49.924Z",
+    "topic": "tech"
+  },
+  {
     "slug": "sivo-scores-hattrick-as-leeds-flatten-warrington",
     "title": "Sivo scores hat-trick as Leeds flatten Warrington",
     "description": "Maika Sivo scores his fifth hat-trick of the Super League season as Leeds Rhinos win the top-of-the-table match against Warrington in emphatic fashion.",
@@ -1910,23 +1934,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/IihBDRoXk.mJl_55BaAEAQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/fox_news_text_979/f5b90250efe630f6d595033e907b425a",
     "created_at": "2026-05-10T12:53:40.031Z",
     "topic": "news"
-  },
-  {
-    "slug": "ai-creates-a-fearsome-coldwarstyle-dilemma",
-    "title": "AI creates a fearsome cold-war-style dilemma",
-    "description": "America and China are weighing co-operation and competition",
-    "fullText": "WHEN XI JINPING and Donald Trump meet in Beijing on May 14th-15th, they may discuss such vexing problems as war in the Middle East, trade imbalances and the status of Taiwan. Add to that cheering list artificial intelligence. Elites in both Beijing and Washington are unnerved by the technology’s rapid advance. The smarter AI models become, the more vital they are for prosperity at home and geopolitical heft abroad. But the risks they pose grow alongside. Not since the creation of the atomic bomb have great powers faced such a dilemma.\n\nThis article appeared in the China section of the print edition under the headline “Co-operation or competition?”\n\nDiscover stories from this section and \n\nA state-owned enterprise may have to walk the plank\n\nIt sees Donald Trump as both symptom and accelerant of the decline\n\nXi Jinping’s chief of staff handles his security, schedule and more\n\nThe financial hub abounds with precious wares\n\nState media are singing the praises of home-grown canines\n\nA new campaign to put down phones and pick up classics",
-    "readingTime": 1,
-    "keywords": [
-      "section",
-      "donald",
-      "trump",
-      "beijing"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://www.economist.com/china/2026/05/07/ai-creates-a-fearsome-cold-war-style-dilemma",
-    "thumbnail_url": "https://www.economist.com/content-assets/images/20260509_CND001.jpg",
-    "created_at": "2026-05-10T01:53:50.310Z",
-    "topic": "tech"
   }
 ]

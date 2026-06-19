@@ -1,5 +1,79 @@
 [
   {
+    "slug": "ai-versus-the-china-shock",
+    "title": "AI versus the China Shock",
+    "description": "Lessons, right and wrong",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://agglomerations.eig.org/p/ai-versus-the-china-shock",
+    "thumbnail_url": "https://substackcdn.com/image/fetch/$s_!kE8v!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F470d78db-7d73-470e-b3aa-7aa652fbdae1_1640x750.png",
+    "created_at": "2026-06-19T19:24:50.314Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "pipelineparallel-llm-inference-across-gpus-on-separate-machines",
+    "title": "Pipeline-parallel LLM inference across GPUs on separate machines",
+    "description": "Pipeline-parallel LLM inference across GPUs on separate machines. - leyten/shard",
+    "fullText": "Pipeline-parallel LLM inference across GPUs on separate machines. A model too\nlarge for any single card is split into contiguous blocks of layers — one shard\nper GPU — and a request is served by streaming activations through the shards in\norder. No datacenter, no single host, and no node ever holds the whole model.\n\nShard is the inference engine for c0mpute.\n\nA 744-billion-parameter frontier model, served at ~30 tok/s across seven\nprosumer Blackwell GPUs in six US states — over WAN, greedy, deterministic.\nGLM-5.2 (NVFP4, 78 layers) is split 13 layers per node across 6× RTX PRO 6000;\nno single card holds it, six do. Each node loads only its own block. A coordinator\nholds no model layers — just the token embedding/head and a small CUDA-graphed\nGLM-4-9B draft that proposes tokens, which the distributed 744B verifies.\n\nEvery run emits a verifiable receipt — distinct GPU UUIDs / public IPs / regions,\nmeasured WAN edge RTTs (22–75 ms), the output token hash, and a lossless-optimization\ncheck. This run's receipt: docs/receipts/glm52-nvfp4-wan-20260618.json\n(see docs/PROOF.md for how a skeptic checks it).\n\nThat is the whole thesis in one line: a frontier-size model, far too big for any\nsingle card, served across machines on different networks — activations crossing\nthe country on every traversal — at a speed that is actually usable.\n\nPlain pipeline decode over WAN is latency-bound: one round-trip per token, ~1–2\ntok/s, unusable. The path to 30 was a sequence of measured steps, each committed:\n\nThe key insight: over WAN the round-trip is the scarce resource, not compute —\nso speculative decoding, marginal in a datacenter, becomes the whole game. A small\ndraft proposes K tokens; the distributed 744B verifies them in a single pipeline\ntraversal; greedy acceptance commits the verified prefix. Then two compounding wins:\n\nAsync pipelining over the ring. Because the ring is direct-return, multiple\nverify chunks can be in flight at once. The coordinator drafts a continuous stream\nand pumps overlapping chunks into the pipeline without waiting — so the loop runs at\nthe pipeline's throughput, not its latency. The WAN, which dominated every prior\nattempt, drops to ~5% of the loop.\n\nCUDA-graphed draft. Once the WAN is hidden, the GLM-4-9B draft (single-token\ndecode, launch-overhead-bound) becomes 94% of the loop. Capturing it as a CUDA graph\ncuts it 3.8× (49.7→13.1 ms/tok). The hard part was making the static KV cache honor\nspeculative rollback under graph capture — solved by driving the write slot through a\nstatic-address position tensor; the result is byte-identical to the eager path, so\nthe optimization is provably lossless. (research/glm_swarm_nvfp4_cg.py,\nresearch/glm_swarm_nvfp4_cg_diff.py.)\n\nA transformer is a stack of layers. Shard splits the stack into contiguous blocks,\none block per GPU. A token is produced by passing activations through the blocks in\norder; each node keeps a KV-cache for its own layers.\n\nThe coordinator (entry node) holds no 744B layers — only the draft and a thin\ndriver. Each round: the draft proposes K tokens; the coordinator ships [cur, d₁..dₖ]\ninto stage 0, which embeds them; the chain verifies all K+1 in one forward traversal;\nthe tail returns the argmaxes straight to the coordinator (one hop, not relayed back);\nthe coordinator greedy-accepts the longest matching prefix. Many such chunks are in\nflight at once (the pipeline), and the draft replays a captured CUDA graph against a\nstatic KV cache.\n\nSplitting a model across co-located GPUs is well understood. Doing it across machines\non the open internet, fast enough to be usable, is not — and that is the part Shard\nowns.\n\nShard is c0mpute infrastructure, held to its three guarantees:\n\n120B (MXFP4, 36 layers) across 3 scattered RTX 4090s in different US states + a\ncoordinator, ~40 tok/s (peak ~42), greedy, exact. This is the rig the permissionless\nwork (Phase 3+) is built on — plain 24GB consumer cards, the hardware a real volunteer runs.\nThis run's verifiable receipt (distinct GPU UUIDs / IPs / states, WAN edge RTTs, output\nhash, sync-vs-pipelined token match): docs/receipts/gpt-oss-120b-wan-20260619.json.\n\nThe climb from a latency-bound ~18 tok/s, each step measured:\n\nThe last step is the one nobody looks for: the cheapest node in the system — the\nlayer-less coordinator — was sitting a continent away from the swarm, paying two long\nround-trips on every token. Putting it next to the stages, on the same scattered nodes,\nwas a ~40% latency cut for free. Full record:\ndocs/research/wan-speculative-decoding.md.\n\nGLM-5.2 (above) remains the frontier-size flagship — 6× the parameters at 744B;\ngpt-oss-120B is the faster, consumer-card build target the network is bootstrapped on.\n\nFull detail, pass/fail criteria, and risks: docs/ROADMAP.md.\n\nApache License 2.0 © 2026 leyten",
+    "readingTime": 4,
+    "keywords": [
+      "edge rtts",
+      "cuda graph",
+      "distinct gpu",
+      "glm-4-9b draft",
+      "wan edge",
+      "per gpu",
+      "contiguous blocks",
+      "proposes tokens",
+      "distributed verifies",
+      "verifiable receipt"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/leyten/shard",
+    "thumbnail_url": "https://opengraph.githubassets.com/93d67dab7b7db86c8a2d543e74650103317f43e0b066ca820aa368d892502ee1/leyten/shard",
+    "created_at": "2026-06-19T19:24:49.089Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "goldman-sachs-says-buy-these-16-tech-stocks-positioned-to-win-as-an-aicapex-supercycle-juices-earnings",
+    "title": "Goldman Sachs says buy these 16 tech stocks positioned to win as an AI-capex supercycle juices earnings",
+    "description": "\"A capex supercycle is taking hold,\" Peter Oppenheimer, the bank's chief global equity strategist, said in a client note on Tuesday.",
+    "fullText": "Goldman Sachs says the capex supercycle fueled by AI investment is just kicking off.\n\nHyperscalers' AI spending is expected to hit $757B this year, and $920B in 2027.\n\nThe bank shared 16 US-based tech stocks set to benefit from the spending spree.\n\nDespite investors' fears last year that all of the AI capex from hyperscaler firms was getting long in the tooth, Goldman Sachs says the spending spree is just kicking off.\n\n\"A capex supercycle is taking hold,\" Peter Oppenheimer, the bank's chief global equity strategist, said in a client note on Tuesday.\n\nHyperscalers are expected to spend $757 billion this year, up 84% from last year, followed by another $920 billion in 2027, the bank said.\n\nThe spending glut has significantly boosted earnings for companies positioned to benefit from the AI buildout — which has been worth its weight in gold in the current market environment, the bank said.\n\n\"In a higher cost-of-capital environment where multiple expansion is more limited, this combination of earnings growth and positive revisions remains a key driver of outperformance,\" Oppenheimer wrote.\n\nTo take advantage of the ongoing trend, the bank listed dozens of stocks around the world that are capex beneficiaries, as measured by the correlation between their sales performance and global spending rates.\n\nBelow are the 16 US tech-sector stocks, along with their industry groups, market capitalizations, and their forward next-12-months price-to-earnings ratios.\n\nIndustry: Computer Hardware\nMarket Cap: $4,275.9 billion\nNTM P/E: 31.0x\n\nIndustry: Computer Hardware\nMarket Cap: $22.6 billion\nNTM P/E: 15.5x\n\nIndustry: Consumer Digital Services\nMarket Cap: $58.5 billion\nNTM P/E: N/A\n\nIndustry: Electronic Components\nMarket Cap: $189.2 billion\nNTM P/E: 30.0x\n\nIndustry: Electronic Components\nMarket Cap: $61.4 billion\nNTM P/E: 17.2x\n\nIndustry: Production Technology Equipment\nMarket Cap: $458.7 billion\nNTM P/E: 46.3x\n\nIndustry: Production Technology Equipment\nMarket Cap: $450.4 billion\nNTM P/E: 38.2x\n\nIndustry: Semiconductors\nMarket Cap: $1,817.7 billion\nNTM P/E: 23.2x\n\nIndustry: Semiconductors\nMarket Cap: $834.2 billion\nNTM P/E: 50.6x\n\nIndustry: Semiconductors\nMarket Cap: $203.5 billion\nNTM P/E: 30.2x\n\nIndustry: Semiconductors\nMarket Cap: $77.0 billion\nNTM P/E: 19.0x\n\nIndustry: Semiconductors\nMarket Cap: $51.6 billion\nNTM P/E: 28.5x\n\nIndustry: Software\nMarket Cap: $529.6 billion\nNTM P/E: 22.5x",
+    "readingTime": 2,
+    "keywords": [
+      "computer hardware",
+      "electronic components",
+      "production technology",
+      "technology equipment",
+      "industry computer",
+      "industry semiconductors",
+      "hardware market",
+      "market cap",
+      "p/e industry",
+      "capex supercycle"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/technology/ai/articles/goldman-sachs-says-buy-16-091502248.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/xfLVMhxJ0GxVuh5D6UKOtg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/a2c8fd1360e3d06939ca792ca49de842",
+    "created_at": "2026-06-19T19:24:47.543Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "one-chart-shows-ais-jobs-impact-and-how-it-compares-to-other-tech-advances",
+    "title": "One chart shows AI's jobs impact — and how it compares to other tech advances",
+    "description": "Yale Budget Lab researchers said AI usage has \"no connection\" to unemployment rates in the US right now.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/ai-jobs-employment-compared-to-internet-and-computers-chart-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a356175c7a58f814f0d48c8?width=1200&format=jpeg",
+    "created_at": "2026-06-19T19:24:46.766Z",
+    "topic": "finance"
+  },
+  {
     "slug": "temporary-cloudflare-accounts-for-ai-agents",
     "title": "Temporary Cloudflare Accounts for AI Agents",
     "description": "The moment an agent needs to deploy something, it slams face-first into a wall built for humans. Today we're rolling out Temporary Accounts on Cloudflare Workers. Any agent can now run wrangler deploy — temporary and get a live Worker in seconds.",
@@ -1646,58 +1720,6 @@
     "link": "https://www.businessinsider.com/more-big-tech-execs-join-army-reserve-as-senior-officers-2026-6",
     "thumbnail_url": "https://i.insider.com/6a305350a4629406118997ea?width=1200&format=jpeg",
     "created_at": "2026-06-16T16:22:06.929Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-le-chaton-fat-meme-techies-cant-stop-talking-about",
-    "title": "The 'Le Chaton Fat' meme techies can't stop talking about",
-    "description": "A viral fake AI model called \"Le Chaton Fat\" took on a life of its own after Mistral rebranded its chatbot Le Chat as Vibe.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/what-is-le-chaton-fat-mistral-meme-explained-ai-model-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a31670373f469f2923c653a?width=795&format=jpeg",
-    "created_at": "2026-06-16T16:22:06.795Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "this-ai-robot-startup-thinks-humanoids-are-overrated",
-    "title": "This AI robot startup thinks humanoids are overrated",
-    "description": "While rivals chase humanoids, Genesis AI is betting the robot future will roll on wheels instead.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/genesis-ai-unveils-robot-with-no-head-or-legs-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a30918ca462940611899a5a?width=1200&format=jpeg",
-    "created_at": "2026-06-16T16:22:05.913Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-people-warning-us-about-ai-are-also-building-it",
-    "title": "The people warning us about AI are also building it",
-    "description": "Anthropic pushed for better safety protocols on AI. Now it's getting a firsthand view of the impact that can have on a business.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/anthropic-ai-safety-protocols-white-house-mythos-fable-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a306a909ab49a5611720051?width=1200&format=jpeg",
-    "created_at": "2026-06-16T16:22:05.904Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-new-weapons-in-the-newsletter-wars-are-claude-and-chatgpt",
-    "title": "The new weapons in the newsletter wars are Claude and ChatGPT",
-    "description": "Newsletter platform Beehiiv is rolling out a new tool that allows users to do much of their drafting in chatbots like Claude or ChatGPT.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/the-newsletter-wars-are-heading-to-claude-and-chatgpt-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a3066cb9ab49a5611720000?width=1200&format=jpeg",
-    "created_at": "2026-06-16T16:22:05.896Z",
     "topic": "finance"
   }
 ]
