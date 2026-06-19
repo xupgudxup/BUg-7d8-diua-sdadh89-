@@ -1,5 +1,68 @@
 [
   {
+    "slug": "tutorial-python-mcp-internal-api-llm",
+    "title": "Tutorial: Python MCP Internal API > LLM",
+    "description": "Wrap a corporate REST API in three typed tools using FastMCP, inspect them locally, and connect them to Claude Desktop—without ever exposing credentials to the model.",
+    "fullText": "Wrap a corporate REST API in three typed tools using FastMCP, inspect them locally, and connect them to Claude Desktop—without ever exposing credentials to the model.\n\nA Python MCP server using FastMCP that wraps a corporate REST API as three structured tools—search_customers, get_order, and create_support_ticket. Any MCP-compatible client (Claude Desktop, Cursor, custom agents) can call your API with full type safety, without the model ever seeing credentials or constructing raw URLs.\n\nmcp[cli] installs the mcp CLI used for local inspection. httpx handles async HTTP to your backend.\n\nCreate .env for local credentials — add it to .gitignore now:\n\nmcp.run() defaults to stdio transport, which is what Claude Desktop and most local clients expect — the client spawns your server as a subprocess and talks JSON-RPC over stdin/stdout.\n\nBefore touching any LLM, validate the wiring in a browser UI:\n\nThis starts your server and opens the MCP Inspector (the URL is printed in your terminal). Navigate to Tools — you'll see all three tools with auto-generated input forms matching your Python signatures. Call search_customers with query = \"alice\" and confirm a JSON response or a typed upstream error.\n\nTip: Set API_BASE_URL=https://httpbin.org temporarily to exercise the async/auth plumbing without a live internal API. You'll get a 404 back, which correctly surfaces as an httpx.HTTPStatusError tool error.\n\nAdd your server entry. Use absolute paths — Claude Desktop spawns a clean, non-login shell that won't activate your virtualenv:\n\nRestart Claude Desktop, then in a new conversation:\n\n\"Search for customers named 'smith', then open a high-priority support ticket for the first result explaining their order is delayed.\"\n\nClaude will call search_customers, inspect the output, then call create_support_ticket — tool calls appear inline in the UI with their arguments and responses visible.\n\nInspector: After mcp dev server.py, the Tools tab lists all three tools with correct schemas and no import errors in the terminal.\n\nClaude Desktop: Open Settings → Developer. Your server appears as internal-api with a green connected indicator. If it shows an error state, restart Claude Desktop after editing the config.\n\nSchema sanity-check — confirm FastMCP generated correct schemas without starting a full client:\n\nYou should see each tool name alongside its JSON Schema inputSchema dict.\n\nModuleNotFoundError: No module named 'mcp' — Claude Desktop uses a clean shell; your virtualenv isn't activated. Confirm \"command\" points to the venv interpreter: /path/to/.venv/bin/python, not the system python.\n\nTools don't appear in Claude Desktop — Run mcp dev server.py first; import errors or missing env vars appear there immediately. Also check ~/Library/Logs/Claude/ on macOS — Claude Desktop writes a per-server log file named after your server key (internal-api).\n\nKeyError: 'API_BASE_URL' — The env block in claude_desktop_config.json replaces the shell environment entirely; load_dotenv() won't read your .env from there. Set all required keys explicitly in the JSON config.\n\nhttpx.ReadTimeout — Your backend is slow. Raise timeout=30.0, or restructure long-running operations to return an AsyncGenerator and use yield to stream partial results back to the client.\n\nMariana covers the fast-moving world of machine learning and generative AI, with a particular focus on how these technologies are reshaping development workflows. When she isn't stress-testing the latest foundation models, she's usually at a local hackathon.\n\nSign in or create an account to comment and vote.",
+    "readingTime": 3,
+    "keywords": [
+      "corporate rest",
+      "restart claude",
+      "dev server.py",
+      "correct schemas",
+      "import errors",
+      "claude desktop",
+      "mcp dev",
+      "rest api",
+      "client",
+      "fastmcp"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.devclubhouse.com/a/ship-an-mcp-server-in-python-that-exposes-your-internal-api-to-llms",
+    "thumbnail_url": "https://d248rg1ip2rrz8.cloudfront.net/articles/ship-an-mcp-server-in-python-that-exposes-your-internal-api-to-llms.webp?v=1781372659",
+    "created_at": "2026-06-19T02:53:46.774Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "new-details-emerge-on-fatal-private-jet-crash-on-texas-highway",
+    "title": "New Details Emerge on Fatal Private Jet Crash on Texas Highway",
+    "description": "Investigators are searching for clues after a private business jet crashed onto a busy Laredo, Texas, highway on Tuesday, killing a tech CEO. Officials say the Austin-bound plane departed Mexico and r...",
+    "fullText": "Investigators are searching for clues after a private business jet crashed onto a busy Laredo, Texas, highway on Tuesday, killing a tech CEO. Officials say the Austin-bound plane departed Mexico and reported being low on fuel before veering off course two miles south of the airport. NBC's Tom Costello reports for TODAY.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://www.yahoo.com/news/videos/details-emerge-fatal-private-jet-113830946.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/afbefb33484a95be7c164e02287607d55dd781afd5886cb2f3ca00aedf43101c/lightyear_networkapi/resizefill_w1200;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fnbcu_713%2Fdce16dcb6c036dd69d1d875936b19de5",
+    "created_at": "2026-06-19T02:53:41.832Z",
+    "topic": "news"
+  },
+  {
+    "slug": "how-a-longshot-facebook-plea-helped-an-88yearold-fan-and-his-family-see-knicks-history",
+    "title": "How a long-shot Facebook plea helped an 88-year-old fan — and his family — see Knicks history",
+    "description": "Winston Lord, 88, and family watched the Knicks parade from Business Insider's office, celebrating a historic NBA championship in New York.",
+    "fullText": "You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n Read in app\n\n HOME",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.1,
+    "link": "https://www.businessinsider.com/knicks-fans-championship-parade-family-highlight-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a3459a60e60dfb3f373f5ef?width=1200&format=jpeg",
+    "created_at": "2026-06-19T02:53:41.170Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "japan-airlines-ceo-got-a-pay-cut-after-worker-misconduct-thats-not-so-unusual-in-japan",
+    "title": "Japan Airlines' CEO got a pay cut after worker misconduct. That's not so unusual in Japan.",
+    "description": "Japan Airlines CEO Mitsuko Tottori took a pay cut after misconduct by two employees, reflecting a standard practice in Japan's corporate culture.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/japan-airlines-ceo-pay-cut-workers-misconduct-japan-corporate-culture-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a34741ec7a58f814f0d464d?width=1200&format=jpeg",
+    "created_at": "2026-06-19T02:53:41.060Z",
+    "topic": "finance"
+  },
+  {
     "slug": "trump-has-used-taxpayer-money-to-purchase-stakes-in-dozens-of-companies-congress-is-about-to-make-it-easier",
     "title": "Trump Has Used Taxpayer Money To Purchase Stakes in Dozens of Companies. Congress Is About to Make It Easier.",
     "description": "Lawmakers should be blocking Trump's corporate socialism, not making it a permanent fixture.",
@@ -1554,65 +1617,5 @@
     "thumbnail_url": "https://i.insider.com/6a22cb9cb4fb977f35984b85?width=1200&format=jpeg",
     "created_at": "2026-06-05T19:30:47.519Z",
     "topic": "finance"
-  },
-  {
-    "slug": "elon-musk-plans-to-pitch-spacexs-terafab-chip-moonshot-to-employees-at-europes-biggest-tech-company",
-    "title": "Elon Musk plans to pitch SpaceX's Terafab chip moonshot to employees at Europe's biggest tech company",
-    "description": "Elon Musk will participate in a virtual chat at a private ASML conference  next Thursday, according to internal documents seen by Business Insider.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/elon-musk-pitch-spacex-terafab-chip-moonshot-asml-employees-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a22d909b4fb977f35984bd9?width=1200&format=jpeg",
-    "created_at": "2026-06-05T19:30:47.414Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "finding-your-new-strategic-center",
-    "title": "Finding Your New Strategic Center",
-    "description": "In this issue of the HBR Executive Agenda, Columbia Business School professor Rita McGrath previews her upcoming article that argues that traditional strategy frameworks are no longer fit for the world of business where competitive boundaries are dissolving rapidly. McGrath’s alternative, “strategic centering,” asks leaders to deliberately choose an organizing principle that gives strategy coherence.",
-    "fullText": "Executive Agenda NewsletterFinding Your New Strategic Center by Adi IgnatiusJune 5, 2026PostPostShareSavePrintSummary.   In this issue of the HBR Executive Agenda, Columbia Business School professor Rita McGrath previews her upcoming article that argues that traditional strategy frameworks are no longer fit for themoreLeer en españolLer em portuguêsPostPostShareSavePrintWelcome to the HBR Executive Agenda for June 4, 2026.",
-    "readingTime": 1,
-    "keywords": [
-      "executive agenda",
-      "hbr executive"
-    ],
-    "qualityScore": 0,
-    "link": "https://hbr.org/2026/06/finding-your-new-strategic-center",
-    "thumbnail_url": "/resources/images/article_assets/2026/06/06_04_Agenda_Centering_2151725701.jpg",
-    "created_at": "2026-06-05T19:30:46.571Z",
-    "topic": "business"
-  },
-  {
-    "slug": "photos-show-the-lobbies-of-goldman-sachs-and-morgan-stanley-decked-out-in-spacex-gear-ahead-of-ipo",
-    "title": "Photos show the lobbies of Goldman Sachs and Morgan Stanley decked out in SpaceX gear ahead of IPO",
-    "description": "SpaceX's IPO business brings both prestige and lucrative fees to the banks. Both Goldman Sachs and Morgan Stanley updated their lobbies to celebrate.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/spacex-ipo-goldman-sachs-morgan-stanley-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a21bada2e5a80cfe050383a?width=1200&format=jpeg",
-    "created_at": "2026-06-05T14:23:53.247Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "what-a-fragmenting-digital-economy-means-for-global-competition",
-    "title": "What a Fragmenting Digital Economy Means for Global Competition",
-    "description": "Digitalization has reshaped the global economy for 25 years, but emerging forces—from U.S.–China tech rivalry and geopolitics to AI’s uneven impacts—are fragmenting what was once a more unified digital landscape. The 2026 Digital Evolution Index reveals that digital progress is now shaped as much by power competition, regulation, and computing capacity as by markets and technology. As a result, business leaders must rethink where and how digital value will be created, building strategic optionality to navigate divergent digital trajectories, rapid technological leaps, and declining global trust.",
-    "fullText": "What a Fragmenting Digital Economy Means for Global Competition by Bhaskar Chakravorti, Abidemi Adisa, Christina Filipovic and Xue NiuJune 5, 2026PostPostShareSavePrintSummary.   Digitalization has reshaped the global economy for 25 years, but emerging forces—from U.S.–China tech rivalry and geopolitics to AI’s uneven impacts—are fragmenting whatmoreLeer en españolLer em portuguêsPostPostShareSavePrintDigitalization has been a defining force of the past 25 years. As leaders set a course for what’s ahead, urgent questions loom: How might the U.S.-China technology rivalry reshape markets? Are digital accessibility gaps a perpetual drag on demand or a growth opportunity? Will the unprecedented investments in AI and mega-IPOs of frontier AI labs pay off or lead to a bust? Will the AI boom widen inequality and concentrate power or lower catch-up cost for challengers? The bets placed now will shape where the next generation of digital value is created and captured and how companies engage globally.",
-    "readingTime": 1,
-    "keywords": [
-      "digital",
-      "fragmenting",
-      "economy",
-      "rivalry"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://hbr.org/2026/06/what-a-fragmenting-digital-economy-means-for-global-competition",
-    "thumbnail_url": "/resources/images/article_assets/2026/06/Jun26_05_1054857.jpg",
-    "created_at": "2026-06-05T14:23:52.287Z",
-    "topic": "business"
   }
 ]

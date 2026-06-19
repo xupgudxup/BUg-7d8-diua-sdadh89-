@@ -1,5 +1,29 @@
 [
   {
+    "slug": "deepswe-v11",
+    "title": "DeepSWE v1.1",
+    "description": "DeepSWE measures frontier coding agents on original, long-horizon software engineering tasks.",
+    "fullText": "DeepSWE v1.1 keeps the same long-horizon engineering tasks as v1, but updates how agents are executed and scored by grading their committed code in a clean, isolated environment, making results easier to reproduce, audit, and analyze. We also fixed dependency drift and removed flaky tests on some tasks.\n\nWith the updated setup, now including Claude Fable 5 and Kimi K2.7 Code, aggregate pass rates and model ordering remain close to v1.\n\nNote: 73 of Claude Fable 5's 2,260 trials did not complete due to access being suspended by a US government directive partway through our sweep. Pass rates are computed over the completed trials.\n\nWall-clock time is no longer reported as it is highly dependent on external variables like host machine performance and provider load, making it an inconsistent metric.\n\nView the benchmark on GitHub, browse every rollout behind the numbers above, or run your own agent against the benchmark.\n\nBrowse trajectoriesRun DeepSWEGitHub\n\nTo elaborate on the git environment: one concern with our previous environment construction method was that if an implementation similar to a task had been merged upstream, the agent could potentially cheat by finding it through git log. We conducted a sweep of the tasks' upstream repos to check whether any had implementations similar to our tasks as of June 5th. We found no such instances, meaning results from v1.0 remain free of this form of cheating.\n\nTogether, these changes make tasks harder to game. Because we grade only the committed patch in a separate container, some easier shortcuts no longer work: an agent can't monkey-patch the test framework, and because the CTRF report records each task-defining test by name, dropping tests or forcing an early exit shows up as missing or failed results rather than a pass.\n\nThe chart below compares each model's pass rate under v1 and v1.1. Scores stay close: the ordering at the top is unchanged, and most configurations land within a few points of their v1 result.\n\nThe 10 configurations run in both versions. Hollow dot is v1, filled dot is v1.1; the change in points is at right.\n\nNew frontier models are added to the DeepSWE leaderboard as they're released.",
+    "readingTime": 2,
+    "keywords": [
+      "claude fable",
+      "tasks",
+      "environment",
+      "agent",
+      "committed",
+      "code",
+      "easier",
+      "tests",
+      "rates",
+      "ordering"
+    ],
+    "qualityScore": 1,
+    "link": "https://deepswe.datacurve.ai/blog/deepswe-v1-1",
+    "thumbnail_url": "https://deepswe.datacurve.ai/og/deepswe-card.webp",
+    "created_at": "2026-06-19T02:53:45.946Z",
+    "topic": "tech"
+  },
+  {
     "slug": "position-coding-benchmarks-are-misaligned-with-agentic-software-engineering",
     "title": "Position: Coding Benchmarks Are Misaligned with Agentic Software Engineering",
     "description": "Coding agents have become a major mode of software engineering, but the benchmarks we use to compare them were designed in a pre-agent era: they collapse model, harness, and environment into a single end-to-end score, typically computed against one reference solution, with no component-level signal for iteration. We argue that current coding benchmarks are misaligned with agentic software engineering. A coding agent in practice is not a model: it is a system harness -- a composite of models, harnesses, contexts, environments, and feedback signals, any one of which can move the benchmark score by margins comparable to those between adjacent model generations. We discuss three symptoms: (i) benchmark scores conflate the model with the rest of the harness; (ii) grading against a single reference solution penalises equally valid alternatives; and (iii) the absence of signal at the level of individual harness components makes the end-to-end system score difficult to iterate on.",
@@ -1912,30 +1936,6 @@
     "link": "https://lisyarus.github.io/blog/posts/making-your-own-programming-language.html",
     "thumbnail_url": "/blog/media/making-your-own-programming-language/cover.png",
     "created_at": "2026-05-06T19:20:34.350Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ctx-persistent-memory-for-claude-code-cursor-and-ai-coding-tools",
-    "title": "Ctx – Persistent Memory for Claude Code, Cursor, and AI Coding Tools",
-    "description": "ctx: do you remember? — a single-binary, local-first, convergent memory system for humans and machines. - ActiveMemory/ctx",
-    "fullText": "A lightweight, file-based system that enables AI coding assistants to persist,\nstructure, and rehydrate project context across sessions.\n\nctx works with any AI tool that can read files; no model or\nvendor lock-in.\n\nCreation, not code. Context, not prompts. Verification, not vibes.\n\nctx is infrastructure for preserving intent under scale. Without durable\ncontext, intelligence resets. With ctx, creation compounds.\n\nRead the full Manifesto | ctx.ist/manifesto\n\nContext as State: A Persistence Layer for Human-AI Cognition\n\nAI-assisted development systems assemble context at prompt time using heuristic\nretrieval from mutable sources. These approaches optimize relevance at the moment\nof generation but provide no mechanism for persistence, verification, or\naccumulated learning across sessions. ctx treats context as deterministic state.\n\nMost LLM-driven development fails not because models are weak: They fail because\ncontext is ephemeral. Every new session starts near zero:\n\nctx treats context as infrastructure:\n\nHere's what that looks like in practice:\n\nThat's the whole point: Temporal continuity across sessions.\n\nDownload pre-built binaries from the\nreleases page, or build from\n\ninstructions.\n\nctx activate emits export CTX_DIR=... for your shell; one-shot\ncallers can prefix the binding inline as CTX_DIR=<abs-path> ctx ....\nThe value must be an absolute path with .context as its basename;\nrelative paths and other names are rejected on first use. A small\nallowlist (init, activate, deactivate, version, help,\nsystem bootstrap, doctor, guide, why, config switch/status,\nhub *) runs without CTX_DIR declared; every other command exits\nwith a next-step hint when it is unset.\n\nThis README is a map, not the territory. The full documentation\nlives at ctx.ist and carries the recipes,\nrunbooks, threat model, and design rationale that this file\nintentionally doesn't try to fit. If you're past install and\nwondering \"how do I actually use this in a real session,\" the\nrecipes are the right next stop.\n\nContributions welcome. See CONTRIBUTING.md for guidelines.\n\nAll commits must be signed off (git commit -s) to certify the\nDCO.\n\nOpen source is better together.\n\nJoin the community to ask questions, share feedback, and connect with\nother users:",
-    "readingTime": 2,
-    "keywords": [
-      "across sessions",
-      "ctx treats",
-      "treats context",
-      "system",
-      "model",
-      "creation",
-      "verification",
-      "infrastructure",
-      "without",
-      "development"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/ActiveMemory/ctx",
-    "thumbnail_url": "https://repository-images.githubusercontent.com/1138059317/4ac67fcc-c98a-4c88-b162-25cc62239553",
-    "created_at": "2026-05-05T01:52:21.547Z",
     "topic": "tech"
   }
 ]
