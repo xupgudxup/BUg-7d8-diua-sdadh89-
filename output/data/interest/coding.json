@@ -1,5 +1,38 @@
 [
   {
+    "slug": "my-router-said-sonnet-the-invoice-said-fable",
+    "title": "My router said sonnet. The invoice said fable",
+    "description": "ax watches every session your coding agent runs, spots the mistakes it repeats, and turns them into small, repo-specific fixes you review and apply - one at a time. Local-first, typed, AGPL-3.0.",
+    "fullText": "Built because we got tired of guessing what actually works.\n\nax watches every session your coding harness runs, spots the mistakes it repeats, and turns them into small, repo-specific fixes you review and apply — one at a time.\n\npaste it - your agent installs ax, labels your skills, and tells you which ones to actually use✓ Copied - paste into your coding agent for the guided setup\n\nEvery session lands in one local graph your agent can reach back into — to catch a repeat mistake, replay a clean run, recover the moment a test fails, or grade the harness itself. Same loop, whatever you run it in.\n\nthe pipeline · what feeds the graph\n\nevery event → typed graph → ranked interventions. local SurrealDB at 127.0.0.1. see /features for the schema →six forms: skill · guidance · subagent · hook · automation · harness_check",
+    "readingTime": 1,
+    "keywords": [
+      "agent",
+      "graph",
+      "session",
+      "coding",
+      "harness",
+      "paste"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://ax.necmttn.com",
+    "thumbnail_url": "https://ax.necmttn.com/og.png",
+    "created_at": "2026-06-19T14:41:42.705Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "can-ai-have-taste-that-was-the-hot-topic-at-replits-nyc-vibecoding-conference",
+    "title": "Can AI have taste? That was the hot topic at Replit's NYC vibe-coding conference.",
+    "description": "Reading the vibes at Replit's NYC vibe-coding conference: Taste, taste, and more taste. BI brings you inside a day at Vibecon.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/inside-replit-vibe-coding-conference-and-party-in-nyc-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a342f490e60dfb3f373f304?width=1200&format=jpeg",
+    "created_at": "2026-06-19T14:41:36.243Z",
+    "topic": "finance"
+  },
+  {
     "slug": "i-live-next-to-a-major-airport-and-vibecoded-a-plane-tracker-that-turns-my-ceiling-into-a-live-flight-map",
     "title": "I live next to a major airport, and vibe-coded a plane tracker that turns my ceiling into a live flight map",
     "description": "A software engineer explains how he set up a one-of-a-kind flight tracker in his home in under two hours via vibe coding.",
@@ -1882,49 +1915,6 @@
     "link": "https://www.businessinsider.com/ai-tokenmaxxing-fails-as-productivity-strategy-jellyfish-2026-5",
     "thumbnail_url": "https://i.insider.com/69fb9291c9dd4cb81cda7cc7?width=1200&format=jpeg",
     "created_at": "2026-05-07T13:27:08.985Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "claude-code-creator-boris-cherny-is-sick-of-the-phrase-vibe-coding",
-    "title": "Claude Code creator Boris Cherny is sick of the phrase 'vibe coding'",
-    "description": "The creator of Claude Code spoke with Business Insider at Anthropic's developer conference in San Francisco on Wednesday.",
-    "fullText": "Boris Cherny, the head of Claude Code, told BI that he wants a new term for \"vibe coding.\"\n Anthropic's Code with Claude conference took place on Wednesday in San Francisco.\n Cherny is an evangelist for AI-driven coding, recently saying for him, coding is \"solved.\"\n\n What is \"vibe coding\"?\n\n What are the alternatives to \"vibe coding\"?\n\n What's the impact of AI on software development?\n\n How does Cherny define coding as \"solved\"?\n\n How has AI evolved in coding?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "vibe coding",
-      "solved",
-      "cherny",
-      "claude",
-      "code"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/claude-code-creator-boris-cherny-vibe-coding-anthropic-ai-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fbd14bc9dd4cb81cda7ec0?width=1200&format=jpeg",
-    "created_at": "2026-05-07T01:54:56.207Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "recondo-logging-proxy-for-coding-agents-claude-code-codex-gemini",
-    "title": "Recondo – Logging Proxy for Coding Agents (Claude Code, Codex, Gemini)",
-    "description": "AI governance gateway. Wire-level LLM observability — every prompt, every tool call, every response. - recondodev/recondo",
-    "fullText": "The visibility and control layer for coding-agent traffic.\n\nOn-prem gateway. Multi-vendor. Zero touch.\n\nRecondo sits on the network path between coding agents (Claude Code, Codex, Cursor, Aider, Gemini-based agents) and their LLM providers. Every request and response flows through it — visible in one place, controllable at the wire. Cap spend per team, redact secrets before they leave the network, route or block by provider, model, or developer.\n\nUnder the hood, it's a transparent TLS-intercepting proxy: traffic is captured, hashed, compressed, and stored in a content-addressable object store, then structured into sessions, turns, and tool calls. No SDKs, no instrumentation, no developer workflow change.\n\nLanguage: Rust (gateway + CLI), TypeScript (API + dashboard)\nStorage: SQLite (dev) / PostgreSQL (prod)\nObject Store: Local filesystem (dev) / S3 with Object Lock (prod)\nEncryption: KMS customer-managed keys (prod)\nInfrastructure: Terraform (AWS), Docker Compose (local dev)\n\nOperational tables (alerts, GDPR deletion requests, agent baselines, session risk, export schedules, attachments, heartbeats, policies, registered keys, compliance frameworks) are defined in api/migrations/.\n\nturns and tool_calls are append-only — a PostgreSQL trigger refuses any UPDATE or DELETE on either table (api/migrations/003_triggers-indexes.sql), so capture content cannot be silently rewritten after the fact.\n\nNODE_EXTRA_CA_CERTS adds the gateway CA to Node.js's bundled trust list (Node.js does not read the OS trust store by default). Do not use NODE_TLS_REJECT_UNAUTHORIZED=0 — it disables all certificate validation and defeats the purpose of running a CA.\n\nNote: The proxy URL is http:// — the CONNECT handshake is plain HTTP; TLS happens inside the tunnel. NODE_TLS_REJECT_UNAUTHORIZED=0 tells Node.js to trust the gateway's self-signed MITM cert. Codex uses CODEX_CA_CERTIFICATE instead.\n\nRecondo includes a built-in CLI for inspecting captured data.\n\nBoth recipes run fmt + clippy + lint-arch first, so they're full pre-merge\ngates rather than bare nextest invocations. just ci and just ci-all are\naliases for the matching test recipe.\n\nIntegration tests that need PostgreSQL or S3 spawn their own ephemeral\ncontainers via testcontainers-rs — there\nis no just dev-infra prerequisite. The only requirements for just test-all\nare a running Docker daemon and cd api && npm ci having been run once (the\nPG fixture shells out to npm run migrate for schema setup).\n\nFor development with PostgreSQL and S3 emulation:\n\nPostgreSQL connection: localhost:5432, database recondo, user recondo, password recondo_dev.\n\nThe deploy/terraform/aws/ module provisions:\n\nIf your network re-signs TLS certificates (Zscaler, Blue Coat, Palo Alto, etc.):\n\nThe gateway logs Loaded extra CA certificates for upstream TLS on startup when detected.\n\nOperational properties of the capture pipeline:",
-    "readingTime": 3,
-    "keywords": [
-      "object store",
-      "postgresql",
-      "gateway",
-      "recondo",
-      "network",
-      "prod",
-      "trust",
-      "traffic",
-      "agents",
-      "codex"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/recondodev/recondo",
-    "thumbnail_url": "https://opengraph.githubassets.com/ef0ee8ad4d63a75565010aeaea8fe830dcae47471ec2f15cb875e192d073660a/recondodev/recondo",
-    "created_at": "2026-05-06T19:20:37.396Z",
     "topic": "tech"
   }
 ]
