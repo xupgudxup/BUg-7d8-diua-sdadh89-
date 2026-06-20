@@ -1,5 +1,29 @@
 [
   {
+    "slug": "tiny-a-bytecode-vm-written-in-go-with-inline-go-native-functions",
+    "title": "Tiny – A bytecode VM written in Go with inline Go native functions",
+    "description": "A lightweight programming language built with Go. Contribute to confh/Tiny development by creating an account on GitHub.",
+    "fullText": "A high-performance, concurrent bytecode virtual machine and language written in Go.\n\nTiny combines the development speed of dynamic coding with a robust, multi-threaded runtime engine.\n\nTiny is a concurrent programming language and runtime system. It compiles source files into compact, stack-based bytecode instructions (.tbc) which run on a highly optimized virtual machine using slot-based local storage.\n\nThe runtime engine features a multi-tiered execution model: an efficient interpreter for general logic and a Just-In-Time (JIT) compiler for performance-critical code. Key features include direct OS-level parallel threading, host-mirrored packed arrays, a chainable schema validation library, native WebAssembly extensions, and a built-in Language Server (LSP).\n\nRead the full documentation at tiny-lang-docs.github.io, or check out the examples to see Tiny in action.\n\nPrecompiled binaries are available on the release page:\n\nFor compilation from source instructions, see the online documentation.\n\nTiny is dynamically typed by default. You can write untyped code for rapid prototyping, or apply optional static type hints to variables, parameters, and function returns. The type system supports unions and generics.\n\nTiny uses structural typing (shape-based validation). Objects are validated against interfaces at runtime based on their properties and methods. The JIT engine optimizes these checks by tracking object shapes and utilizing linear memory field offsets.\n\nTiny supports object and array destructuring for both let and const declarations. This includes support for nested patterns, default values, and property renaming.\n\nTiny emphasizes composition over deep inheritance. The embed keyword allows a class to delegate behavior to another class instance. If a method or field is missing on the parent, it is automatically resolved from the embedded instance.\n\nThe match block provides branch dispatching with support for literal values, variables, enums, union patterns, and guards. It is the primary way to extract data from enum variants.\n\nThe defer statement schedules a function call to execute immediately before the current surrounding function scope exits, regardless of early returns or thrown errors.\n\nTiny executes parallel operations using OS-level multi-threading. The spawn keyword starts a new execution routine on an isolated VM state space. Unlike event-loop models, Tiny runs tasks concurrently across all available CPU cores.\n\nShared state can be coordinated using mutexes and native lock blocks. The compiler guarantees that the mutex is automatically released when execution leaves the block, preventing deadlocks.\n\nTiny includes a multi-function JIT compilation engine that translates hot bytecode paths into native WebAssembly.\n\nThe compiler automatically identifies hot loops in top-level code and function bodies, outlining them into specialized JIT regions. This ensures that even scripts and timed benchmarks run at native speed without manual function encapsulation.\n\nFor arrays containing objects of uniform shape, the JIT implements host-memory mirroring. It utilizes field-column pointer tables to access object properties directly in linear memory, bypassing the host-call overhead typically associated with VM-to-Native interop. Packed arrays now support dynamic growth and Wasm-side optimization.\n\nThe JIT automatically selects eligible functions. For maximum performance:\n\nFor logic requiring specific Go packages, Tiny allows writing Go code directly in the source file using native fn. These blocks are compiled to WebAssembly via TinyGo and loaded at runtime.\n\nA chainable API for defining and enforcing data schemas. Supports objects, arrays, unions, and transformations.\n\nSupport for execution delays, performance measurement, and managed timers.\n\nNative operations for array manipulation, including find, filter, map, reduce, sort, flat, and findIndex.\n\nFully concurrent web server and client. The server supports route-based multiplexing and optimized JSON serialization.\n\nLightweight desktop containers using HTML/CSS/JS with direct bindings to Tiny functions.\n\nWraps native interfaces for automating keyboard, mouse, and clipboard interactions.\n\nRun tiny lsp for integration with editors like VS Code. Features include:",
+    "readingTime": 3,
+    "keywords": [
+      "native webassembly",
+      "virtual machine",
+      "linear memory",
+      "packed arrays",
+      "runtime engine",
+      "the jit",
+      "function",
+      "execution",
+      "supports",
+      "automatically"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/confh/Tiny",
+    "thumbnail_url": "https://opengraph.githubassets.com/b8d6137122e55a8c4b8d4c732c9dd5f9adb4f65858bd360c426b69ba753c9e91/confh/Tiny",
+    "created_at": "2026-06-20T19:08:42.412Z",
+    "topic": "tech"
+  },
+  {
     "slug": "agide-index-rank-and-refactor-your-repos-worst-code",
     "title": "Ag.ide Index, rank, and refactor your repo's worst code",
     "description": "Indexes your whole repo locally and ranks the worst code, so AI coding agents fix it instead of adding slop. Offline, on your machine — pairs with any model, including local LLMs like Qwen.",
@@ -1894,26 +1918,6 @@
     "link": "https://www.businessinsider.com/lovable-offering-a-10-raise-on-your-first-work-anniversary-2026-5",
     "thumbnail_url": "https://i.insider.com/69fdc169c9dd4cb81cda86c6?width=1200&format=jpeg",
     "created_at": "2026-05-08T13:06:42.903Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "airbnbs-ceo-says-ai-writes-60-of-the-companys-code-and-makes-managers-get-their-hands-dirty",
-    "title": "Airbnb's CEO says AI writes 60% of the company's code — and makes managers get their hands dirty",
-    "description": "CEO Brian Chesky added that managers are also getting their hands dirty with coding or using Claude Code.",
-    "fullText": "Airbnb's CEO Brian Chesky sees his company changing significantly with AI.\n He said nearly 60% of the company's code is now written by AI.\n He added that managers are also getting their hands dirty with coding or using Claude Code.\n\n How is Claude Code impacting Airbnb?\n\n How does AI-generated code affect innovation?\n\n How does Airbnb's AI use compare to rivals?\n\n What skills do managers need in AI-driven firms?\n\n What are the challenges of AI in coding?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "ai he",
-      "managers",
-      "coding",
-      "code",
-      "airbnb's",
-      "claude"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/airbnb-ceo-ai-write-majority-company-code-managers-hands-on-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fd6607c9dd4cb81cda860d?width=1200&format=jpeg",
-    "created_at": "2026-05-08T07:15:11.593Z",
     "topic": "finance"
   }
 ]

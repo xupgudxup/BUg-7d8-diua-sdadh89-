@@ -1,5 +1,71 @@
 [
   {
+    "slug": "email-client-focused-on-reducing-phishing-risk-and-inbox-overload",
+    "title": "Email client focused on reducing phishing risk and inbox overload",
+    "description": "Unified inbox + AI agent with human approval. Scams blocked, replies drafted, nothing sent without you.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://clutterstrike.com/",
+    "thumbnail_url": "/clutter-icon.svg",
+    "created_at": "2026-06-20T19:08:42.510Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "neuromorphic-computing-with-sound-waves-cuts-power-use",
+    "title": "Neuromorphic Computing with Sound Waves Cuts Power Use",
+    "description": "Acoustic synapses outperform standard, electronic AI hardware",
+    "fullText": "IEEE Spectrum is the flagship publication of the IEEE — the world’s largest professional organization devoted to engineering and applied sciences. Our articles, videos, and infographics inform our readers about developments in technology, engineering, and science.",
+    "readingTime": 1,
+    "keywords": [
+      "engineering",
+      "ieee"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://spectrum.ieee.org/neuromorphic-computing-acoustic-chips",
+    "thumbnail_url": "https://spectrum.ieee.org/media-library/image.jpg?id=66947854&width=1200&height=600&coordinates=0%2C50%2C0%2C50",
+    "created_at": "2026-06-20T19:08:41.704Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ai-in-games-the-impact-on-sales",
+    "title": "AI in Games: The Impact on Sales",
+    "description": "Explore how AI influences game success on Steam. This data-driven analysis uncovers the link between AI usage and sales performance, revealing whether AI-generated content in Steam games is impacting purchase decisions.",
+    "fullText": "In part 1 of this series on generative AI on Steam we showed how AI disclosure is accelerating rapidly, with ~21% of games released in 2025  declaring some form of AI use (as of November). In this blog, we'll be tackling the second and more tricky part of our analysis: how is the use of AI impacting sales?\n\nThere are a bunch of questions we can ask here all fuelled by assumptions around how players perceive AI and the impact of the technology on game quality. Do players actively avoid games with AI disclosures? Are players oblivious to the use of AI? Does using AI inherently reduce the quality of games, impacting sales? Is generative AI only used by inexperienced or under-resourced teams, biasing the impact on sales in the first place?\n\nAll of these questions are incredibly complicated. We're going to try and address this with a very thoughtful statistical analysis where we'll take a lot of care to make sure we're not biasing our results. Fundamentally we're going to focus on one clear question: \"If a developer uses AI, how many reviews will their game get compared to if they didn't use AI?\"\n\nYou might immediately ask \"Wait? Reviews? I thought we're talking about sales here?\". Unfortunately, the number of sales is only known by the developer and therefore we will be focusing on the number of reviews, which is a good proxy for the number of sales; this proxy is used across the industry, has been written about at length, and is summarised in our blog about how you can estimate Steam sales.\n\nTo answer our question in full we're going to have to make a lot of tricky decisions, so lets lay it all out so you understand our assumptions going into this:\n\nEven after deciding on the assumptions above, we then had to think really deeply about what we could measure and how we would analyse the total effect using AI has on the total reviews a game receives. The best way to do this is to draw out a diagram. In statistics we call this a Causal Graph.\n\nOne look at our diagram above and you're probably thinking \"oh, I get it, so you had a mental break right?\". But please stick with us...\n\nOur causal diagram is just a visual way of saying \"here is what we think impacts sales and also impacts whether a developer uses AI\". Each arrow is saying \"I assume X has some causal effect on Y\". The orange circle represents whether AI was used in development or not and the green circle is the outcome i.e. the total number of reviews received in the first month post-release.\n\nWe think using AI will impact the average rating a game gets and the total number of reviews. Whether someone uses AI will be influenced by:\n\nThe total reviews is influenced by a number of factors:\n\nOkay, so we have this complex diagram that describes all our assumptions, but how do we actually answer our question?\n\nWithout turning this into a statistics lecture, a Causal Graph like this allows us to use a logical framework called \"do-calculus.\" This tool helps us identify the minimum number of factors we must measure to remove bias from our results.\n\nThis is crucial because of confounders: outside factors that influence both whether a developer uses AI and how many reviews they get. If we don't account for these, our estimates will be wrong. Our analysis revealed that to get a fair comparison between declaring AI and not declaring AI, we must control for Developer Experience, Publisher Backing, Type of Game, and Month of Release.\n\nSo, our complex math problem simplifies into a clear question:\n\nOne last thing for full transparency. We cannot explicitly measure developer experience, we simply do not have the data. However, what we can do is measure how many games a developer has released on Steam (TPR), which is a nice proxy for experience.\n\nThis, like anything in a statistical study, is not perfect because of course there are exceptions. Take the Sokpop Collective for example – a band of developers that has historically published ~1 game per month by working together on their releases – they're not producing slop, they just have a uniquely brilliant business strategy. They're an outlier though and for the purpose of this analysis we want to focus on the majority. Overall we removed 1932 titles from our analysis from developers with an unusually high publication rate and bizarre initial prices.\n\nAfter filtering out spam and focusing on purely commercial releases between January and October 2025 we had 9879 games for analysis. Amongst these games, 17.9% had an AI declaration.\n\nBefore we dive into the results of our statistical model, a quick visual analysis shows that using AI is correlated with slightly lower total reviews, a higher proportion of 0 reviews and a higher proportion of less than 100 reviews:\n\nThe same pattern can be seen for followers (our proxy for wishlists) where the median number of followers for a Steam game using AI is half that of games that do not use AI.\n\nWhat about player reception? Well, when focusing on games that receive at least 100 reviews (to ensure that review scores are somewhat reliable) the median % of positive reviews is 84.6% for games using AI compared to 88.3% of games not using AI.\n\nAll of this implies that using AI is at least correlated with poorer performance on Steam.\n\nWe don't want to simply talk about correlations though, we want to know for certain whether using AI is impacting sales. To answer our specific question, we took our control variables from before (developer experience, publisher backing, type of game, and month of release) and we built a statistical model to ask:\n\nFor the same type of games, released within the same month, and with the same publisher backing status and developer experience, what is the total impact of using AI on the number of reviews received in the first month after launch?\n\nOur results were huge. If you took two developers (A & B in the infographic below), each producing the same type of game, with the same publisher backing or true 'indie' status, with the same level of experience and releasing their game in the same month, you could expect a 52.6% (47.69% - 57.63%) decrease in total reviews for the developer that used AI compared to the developer that did not. That means if the developer that didn't use AI (developer A) got 100 reviews for their game we would expect the developer that did use AI (developer B) to only get 47 reviews despite making a similar game under similar circumstances.\n\nThe results here really surprised us, after our initial visual exploration we expected some impact, but a developer expecting half the number of reviews (and therefore sales) due to AI use is dramatic.\n\nOur model explained some other reassuring, and pretty obvious effects, such as developer experience and publisher backing having a large positive impact on total reviews. The type of game created could also slightly increase/decrease total reviews, and to a lesser extent the time of the year that the game was released. For example, there is a small dip for games released in the summer.\n\nBut the biggest effect was the use of AI, second to only one other thing: noise. Our model was pretty noisy. Remember before in our causal diagram that we mentioned the influence of \"marketing & awareness\". We also said up-front that our measure of developer experience is imperfect. All of this creates unmeasured variance which could bias our results.\n\nYou would be right to be sceptical. We all know that some games just have an \"X-factor\" or find themselves in the right place at the right time. We also know that some games do everything right and the developer is just incredibly unlucky. We  created our model with this \"X-factor\" in mind and chose something called a \"Negative Binomial\" model. This kind of model can measure the amount of randomness our data cannot capture — we will call this \"alpha\".\n\nIn our model results, alpha was positive (0.23, to be exact) which means there is quite a bit of randomness that we can't explain. If our model was perfect and we knew everything about a game, alpha would be close to zero. Essentially, this confirms that two games can look identical on paper (same genre, same AI use, same publisher status), yet one might get 10 reviews and the other 1,000 with no apparent explanation.\n\nWhat does this mean for our results? Well, if that \"X-factor\" happens to be something that is correlated with using AI, for example studio resources, it would bias our results. Say for example developers using AI just so happen to have a low budget and a tight schedule, then it would look like AI is negative influencing sales when in fact the game just suffered due to the low budget and time pressures which then caused lower sales. There are a bunch of unmeasured things that could explain the reduced sales in fact:\n\nAll is not lost though. There is a special type of tool called \"sensitivity analysis\" which allows us test whether our result of a ~53% reduction in sales due to AI is robust or is just a result of all these other complex factors.\n\nEssentially, what we do is simulate a world where we can measure the impact of some unmeasured \"X-factor\" and then we test how our estimated impact of AI on sales changes in these new hypothetical worlds. You can think of this \"X-factor\" as the mixed effect of all the stuff we can't measure: marketing, skill, luck etc.\n\nOn the heatmap below we have two axes describing the effect of our \"X-factor\":\n\nEach cell shows the new effect AI would have on the total number of reviews as a percentage if we lived in these hypothetical worlds.\n\nWe've presented a lot here and we know there is a lot to unpack. We must also stress, that due to the unmeasured effects of marketing, skill, resources, and experience, our results could still be biased. But we are certain of one thing, for many developers the effect of using AI is currently a net negative.\n\nWe also know this flies in the face of some reports of certain AI games performing really well3 and we don't want to dismiss those success stories. Examples like The Finals4, Suck Up!5, and The Great Rebellion6 show that AI games can be commercially successful.  However, they also highlight the nuance around how AI is used. In each of these titles AI usage served a clear gameplay function rather than just cutting costs or was used in a way that improved core gameplay and was unnoticeable after polish. This brings us to a clear limitation in our study; we couldn't include how AI is used. AI can be used well, or it can be sloppy, and that matters. You only need look at the controversy around COD Black Ops 7 and Jurassic World Evolution 3 to see how 'ungraceful' AI adoption can hurt a brand7,8.\n\nOur analysis leaves us confident that AI use, on average, has a negative impact on sales for games that would have been a success regardless of whether AI was used or not. What exactly causes that negative impact? We don't know. Some might be inclined to quickly jump to conclusions and claim it's consumer backlash, with players actively rejecting games that disclose using AI. But there are plenty of other factors at play.\n\nUsing AI for game development might be a symptom of some wider mechanism that is impacting the quality of games. Why does a studio choose to use AI? The narrative seems to be that AI is used due to social and economic pressure, to cut costs, and to ship faster. We have yet to see a convincing example of AI making games \"better\" than those that are created purely by human engineers and artists. It seems fair to assume then that using AI is simply correlated with other decisions that lead to a poorly crafted game, i.e. trying to take shortcuts.\n\nSpeaking personally, as a data scientist and someone that has been toying with stats, data, models, and \"AI\" for nearly a decade now. My guess would be that it is the way AI is used that matters most. I would hope that AI is ultimately a force for good. A tool that frees game developers from some of the brunt work so they can focus more on the important creative decisions, but maybe more importantly, so they can escape \"crunch\" culture and gain a better work-life balance. So far, it seems that AI is increasing our work, not decreasing it. AI is being used as an excuse to cut costs, cut teams, and bring deadlines forwards, and maybe that is what makes the end product suffer.\n\nSo what is our conclusion? AI is a tool, it should not be avoided. Would you avoid using a hammer to build a shed? No, of course not. Just don't go around hitting everything with it. Approach AI with caution. Use it gracefully. It is not a replacement for hard work, it's just there to lighten the load.",
+    "readingTime": 12,
+    "keywords": [
+      "higher proportion",
+      "hypothetical worlds",
+      "marketing skill",
+      "players actively",
+      "publisher backing",
+      "causal diagram",
+      "statistical model",
+      "impacting sales",
+      "reviews received",
+      "negative impact"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.game-oracle.com/blog/ai-part2",
+    "thumbnail_url": "https://game-oracle-public.s3.us-east-2.amazonaws.com/ai-part2/og-image.png",
+    "created_at": "2026-06-20T19:08:41.060Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "the-math-behind-silicon-valleys-millionaire-factory",
+    "title": "The math behind Silicon Valley's  millionaire factory",
+    "description": "How stock awards at OpenAI, Anthropic, and SpaceX grew into life-changing fortunes.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/spacex-anthropic-openai-engineers-filthy-rich-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a3471e00e60dfb3f373f733?width=1200&format=jpeg",
+    "created_at": "2026-06-20T19:08:28.984Z",
+    "topic": "finance"
+  },
+  {
     "slug": "granta-stops-publishing-short-story-award-winners-over-ai-controversy",
     "title": "Granta stops publishing short story award winners over AI controversy",
     "description": "Literary magazine will no longer engage in ‘external publishing partnerships’ after Commonwealth prize furore\nThe prominent literary magazine Granta will no longer publish the winning entries of the annual Commonwealth short story prize after one of this year’s winners drew widespread accusations of AI use.\nThe magazine said it would no longer be involved in “external publishing partnerships” in which it had no editorial control.\n Continue reading...",
@@ -1666,75 +1732,5 @@
     "thumbnail_url": "https://i.insider.com/6a2bedcc6588b2a09a7c721f?width=1200&format=jpeg",
     "created_at": "2026-06-17T14:49:36.615Z",
     "topic": "finance"
-  },
-  {
-    "slug": "the-biggest-winners-and-losers-from-us-restrictions-on-anthropics-ai",
-    "title": "The biggest winners and losers from US restrictions on Anthropic's AI",
-    "description": "Anthropic's AI restrictions could boost Mistral and DeepSeek while raising concerns about US AI providers.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/anthropic-restrictions-mythos-fable-winners-losers-mistral-deepseek-openai-china-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a326be44074dae0e204484d?width=1200&format=jpeg",
-    "created_at": "2026-06-17T14:49:36.395Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "meet-your-new-ai-coworkers-convey-raises-38-million-led-by-a16z-to-take-repetitive-work-off-employees-plates",
-    "title": "Meet your new AI coworkers: Convey raises $38 million led by a16z to take repetitive work off employees' plates.",
-    "description": "Convey, a startup founded last year that builds AI \"teammates,\" has raised $38 million in Series A funding led by Andreessen Horowitz,.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/convey-raises-38-million-a16z-to-automate-repetitive-office-work-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a31b08f564c774507cd32bd?width=1154&format=jpeg",
-    "created_at": "2026-06-17T14:49:36.391Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "3-forces-are-redefining-the-transition-from-manager-to-leader",
-    "title": "3 Forces Are Redefining the Transition from Manager to Leader",
-    "description": "The seven shifts that define the move from functional to enterprise leadership remain similar to those introduced in a classic 2012 HBR article. But today’s dynamic business environment means that the shifts now require different capabilities. Generative AI, geopolitical instability, and a compressed leadership pipeline have made organization-spanning jobs more complex, forcing leaders to exercise judgment amid algorithmic uncertainty, regulatory volatility, and less preparation. As a result, they must do more than broaden their business perspective: they must govern human-AI decision systems, practice dynamic rather than static strategy, design hybrid operating models, and cut through noise to set a few priorities. Organizations must also change their development and assessment practices to give high potentials more exposure to AI governance, geopolitical complexity, and enterprise-level trade-offs.",
-    "fullText": "3 Forces Are Redefining the Transition from Manager to Leader by Michael D. WatkinsJune 17, 2026PostPostShareSavePrintSummary.   The seven shifts that define the move from functional to enterprise leadership remain similar to those introduced in a classic 2012 HBR article. But today’s dynamic business environmentmoreLeer en españolLer em portuguêsPostPostShareSavePrintThe transition from functional leader to enterprise leader has always been difficult. But the nature of the difficulty has both changed and increased. The executives I work with today face challenges that barely existed a decade ago: governing AI systems they only partially understand, operating across borders where the regulatory and political ground shifts quarter to quarter, and arriving in enterprise roles with fewer of the preparatory experiences that once eased the leap. The skills that matter most in these transitions have quietly but substantially shifted.",
-    "readingTime": 1,
-    "keywords": [
-      "leader",
-      "enterprise",
-      "transition",
-      "shifts",
-      "functional",
-      "quarter"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://hbr.org/2026/06/3-forces-are-redefining-the-transition-from-manager-to-leader",
-    "thumbnail_url": "/resources/images/article_assets/2026/06/Jun26_17_VasyaKolotusha.jpg",
-    "created_at": "2026-06-17T14:49:35.749Z",
-    "topic": "business"
-  },
-  {
-    "slug": "googles-new-ai-information-agents-can-send-you-alerts-on-topics-you-care-about",
-    "title": "Google's New AI 'Information Agents' Can Send You Alerts on Topics You Care About",
-    "description": "Information agents in Google AI Mode can now bring you information without you having to search for it. At least that's the idea.",
-    "fullText": "Google's efforts to transform online search and the ways we find information on the web continue, and there's now a new feature available in AI Mode: information agents. This new feature will keep tabs on news for you and ping you when needed. (At least, that's the idea.)\n\nThe update was announced at Google I/O 2026 back in May, but it's now appearing for those with a Google AI Ultra subscription (that's the $99.99 or $199.99 per month one). Google's Robby Stein says that more people will be getting access in the summer.\n\nGoogle hasn't been any more specific than that, but presumably this will filter down to the other paid plans in the next few months, and eventually to everyone. I'm making use of my Ultra subscription here to get these information agents running.\n\nHere's the idea: You look up, say, news on the next James Bond movie. Then AI Mode can keep tabs on the web and ping you whenever there's news on a casting decision, a release date, or a trailer. It saves you having to run multiple searches because the information comes to you (it's a bit like the old Google Alerts, if you remember those). These updates appear both in the AI Mode section of Google search and in the Google app on your phone. Or at least they're supposed to.\n\nTo set up your information agents, you can head to Google search on the web, then switch to AI Mode via the button in the search box. You then launch your search like you would if you were chatting to Gemini—something like \"tell me who the main stars are in the upcoming Christopher Nolan film The Odyssey.\"\n\nAfter you've got your answer, which is hopefully hallucination-free, you might get asked at the end if you want to set up an information agent to keep you updated on whatever it is you've searched for. If you don't get asked, you can put in the request anyway: Tell Google to \"keep you updated\" or words along those lines.\n\nYou'll receive a confirmation message, and then whenever new information appears online, you'll get pinged about it. Updates appear as notifications in the Google app on mobile, and as new entries in the original AI Mode conversation—so if you delete the chat, you stop getting updates (you can access your previous chats via the AI Mode history button on the left.\n\nGoogle doesn't say how often you'll get updates, but in my experience it was... not at all. I set up an information agent to keep me updated on the latest World Cup scores and group standings, which I thought was a fairly straightforward task, but my Google app stayed stubbornly silent and the AI Mode chats stayed static over a whole day as the goals went in and the matches went by.\n\nLooking around the web, it seems that AI Mode information agents are working for other people, so this appears to be an isolated bug that may well get ironed out in a few days—but it's frustrating to have these features launch and then not work properly. I've had the same experience with Gemini Omni too, so maybe it's just me.\n\nWhat did work was telling the information agents to give me a daily summary at a specific time. When I did this, I did indeed get a delivery of the latest World Cup news and everything that had happened in the tournament over the past 24 hours, both in the Google app and as an update to my conversation with AI Mode.\n\nIn fact, this might be a better way to use this rather than expecting updates at random times throughout the day. I can definitely see myself using it for big news topics I'm interested in, and to pick up stories I might otherwise miss, though it doesn't seem to be set up for important breaking news.",
-    "readingTime": 4,
-    "keywords": [
-      "ultra subscription",
-      "ai mode",
-      "google app",
-      "google search",
-      "world cup",
-      "agents",
-      "updates",
-      "it's",
-      "you'll",
-      "online"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/google-ai-mode-information-agents?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KVAWKZYVPW7WJ8CV6V9MJKFW/hero-image.fill.size_1200x675.png",
-    "created_at": "2026-06-17T14:49:34.159Z",
-    "topic": "tech"
   }
 ]
