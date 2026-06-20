@@ -1,5 +1,42 @@
 [
   {
+    "slug": "agide-index-rank-and-refactor-your-repos-worst-code",
+    "title": "Ag.ide Index, rank, and refactor your repo's worst code",
+    "description": "Indexes your whole repo locally and ranks the worst code, so AI coding agents fix it instead of adding slop. Offline, on your machine — pairs with any model, including local LLMs like Qwen.",
+    "fullText": "If your team's output tripled this year and your codebase feels worse than it did in January, you are not imagining it.\n\nTechnical debt used to accumulate in months. With coding agents, it accumulates in days. Models optimize locally — one function at a time, blind to the system around it. Nobody is doing the refactoring pass that used to follow. The debt compounds in silence, and there is no PR that surfaces it.\n\nAgents write good individual functions. They can't see that those functions are pulling the system apart. Coupling grows. Duplication spreads. The architecture drifts — commit by commit, silently.\n\nDeliberate refactoring — the kind that keeps a codebase coherent — requires seeing the whole. No agent in your current workflow does this. So the pass doesn't happen, and the debt compounds.\n\nContinuous refactoring, automated. AG.IDE finds the worst technical debt, gives your agent the context to fix it, and loops. The debt gets paid down while you ship features.\n\nAG.IDE — Cobra getCompletions · code heatmap",
+    "readingTime": 1,
+    "keywords": [
+      "technical debt",
+      "debt compounds",
+      "refactoring",
+      "codebase",
+      "agents",
+      "system",
+      "functions",
+      "commit",
+      "agent",
+      "ag.ide"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://agide.dev/",
+    "thumbnail_url": "https://agide.dev/og.png",
+    "created_at": "2026-06-20T13:26:07.349Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "forget-prompt-engineering-loop-engineering-is-all-the-rage-now",
+    "title": "Forget prompt engineering: 'Loop engineering' is all the rage now",
+    "description": "Claude Code creator Boris Cherny says he doesn't \"write the prompt anymore.\" Here's how loop engineering is changing coding.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/what-are-loops-ai-engineering-tips-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a3436cb0e60dfb3f373f364?width=1200&format=jpeg",
+    "created_at": "2026-06-20T13:25:57.347Z",
+    "topic": "finance"
+  },
+  {
     "slug": "my-router-said-sonnet-the-invoice-said-fable",
     "title": "My router said sonnet. The invoice said fable",
     "description": "ax watches every session your coding agent runs, spots the mistakes it repeats, and turns them into small, repo-specific fixes you review and apply - one at a time. Local-first, typed, AGPL-3.0.",
@@ -1878,43 +1915,5 @@
     "thumbnail_url": "https://i.insider.com/69fd6607c9dd4cb81cda860d?width=1200&format=jpeg",
     "created_at": "2026-05-08T07:15:11.593Z",
     "topic": "finance"
-  },
-  {
-    "slug": "agentctl-a-local-control-plane-for-coding-agents",
-    "title": "Agentctl, a local control plane for coding agents",
-    "description": "agentctl is a focused v1 control layer for coding agents. It gates a small set of high-risk actions, records structured traces for every decision, and replays prior sessions against a different pol...",
-    "fullText": "agentctl is a local control plane for coding agents. It gates a small set of risky actions, records a trace for every decision, and can replay prior sessions against a different policy.\n\nagentctl stores all of its state under ~/.agentctl/:\n\nThere is no repo-local policy file and no HTTP server.\n\nAttach to a supported agent. attach bootstraps ~/.agentctl/ and writes a default policy if one does not exist yet.\n\nEverything else stays out of the control path.\n\nagentctl loads exactly one policy file: ~/.agentctl/policy.yaml.\n\nDefault policy written by attach:\n\nallowed_domains: [] means deny all outbound calls. Omitting allowed_domains means no domain restriction.\n\nRecord a session under a stable session ID:\n\nReplay that session against the current global policy:\n\nOr replay against an alternate policy file:",
-    "readingTime": 1,
-    "keywords": [
-      "policy file",
-      "default policy",
-      "agentctl",
-      "attach",
-      "session",
-      "allowed_domains",
-      "replay"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://github.com/chocks/agentctl",
-    "thumbnail_url": "https://opengraph.githubassets.com/ca16511709fed155d9f027bc837b8966ee6327d0ef249204ec8e1308bb9d62a6/chocks/agentctl",
-    "created_at": "2026-05-08T02:00:45.877Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "consuming-too-much-ai-can-be-bad-data-on-tokenmaxxing-reveals-a-better-way",
-    "title": "Consuming too much AI can be bad. Data on 'tokenmaxxing' reveals a better way",
-    "description": "Jellyfish data shows that while AI \"tokenmaxxing\" boosts coding output, extreme token use delivers diminishing returns for companies.",
-    "fullText": "Heavy AI token consumption yields limited returns, Jellyfish found in a recent study.\n Jellyfish data shows top AI users consume 10 times as much, and output only doubles.\n Jellyfish AI head Nicholas Arcolano advises balanced AI use for productivity.\n\n What is \"tokenmaxxing\"?\n\n Why is AI efficiency critical now?\n\n How can AI use affect productivity?\n\n How does AI token pricing work?\n\n What are pull requests in coding?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "token",
-      "productivity",
-      "jellyfish"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/ai-tokenmaxxing-fails-as-productivity-strategy-jellyfish-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fb9291c9dd4cb81cda7cc7?width=1200&format=jpeg",
-    "created_at": "2026-05-07T13:27:08.985Z",
-    "topic": "tech"
   }
 ]
