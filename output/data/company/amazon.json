@@ -1,5 +1,29 @@
 [
   {
+    "slug": "exploring-a-more-pythonic-aws-sdk",
+    "title": "Exploring a More Pythonic AWS SDK",
+    "description": "Modern AWS SDK for Python. Contribute to kap-sh/aws-sdk-python development by creating an account on GitHub.",
+    "fullText": "Modern AWS SDK for Python — async-native, fully typed, and generated from official Smithy models.\n\nWarning\nThe API should be mostly stable, but some breaking changes may occur as the SDK is still in early development. We strongly recommend pinning the version before the first major release.\n\nThis repository ships standalone packages for each service.\n\nFor now, we don't have all the packages published to PyPi, we'll do that once we figure out the best way to distribute them without violating https://aws.amazon.com/trademark-guidelines/, and under which namespace we should publish them. For now, you can install the packages directly from GitHub:\n\nAll the services have both async and sync client. The async client is simply prefixed with Async (e.g. AsyncS3Client).\n\nSync usage is the same, just without the Async prefix and without await:\n\nNo matter how nested the input types are, you don't need to import any additional classes. All input and output types are fully typed via TypedDicts.\n\nThe output types are also TypeDicts, we do this to make the input/output types interchangeable. You can pass the output member to another operation that accepts the same type as input.\n\nThe SDK raises exceptions for errors returned by the API. Catch them to handle failures gracefully.\n\nNote that the service errors (errors returned by AWS) might have additional data of any shape stored in the data attribute, which is a TypedDict. You can access it to get more information about the error.\n\nIf the operation's input is a streaming blob, you can pass any AsyncIterator[bytes] or just a bytes object.\n\nOr, if you don't want to load the entire blob into memory, you can pass an AsyncIterator[bytes]:\n\nAs you might have noticed, we also passed the content_length. That's an AWS requirement when using streaming inputs; it must always know the length of the blob before sending it to AWS.\n\nNote that the stream can be any iterator of bytes; it need not be the file's content. You can stream any data you want, for example, directly from the HTTP response of another service, or from a database, etc.\n\nThe output as mentioned before also can be a stream, in such case, the operation will return a context manager that yield the response, ensuring that the resource is properly closed after the response is consumed.\n\nThe event streaming operations are similar, but instead of using AsyncIterator[bytes], they use AsyncIterator[Event], where Event is a TypedDict that represents the event type.\n\nWaiters poll an operation until a resource reaches a desired state. If the operation supports waiters it will have a wait_until_ prefixed method.\n\nSome operations in this SDK support pagination. If the operation supports pagination it will have an iter_ prefixed method that returns an async iterator.\n\nSome operations support presigning, which generates a URL that can be used without credentials. Use the presigned_ prefixed method on the client to get a presigned URL.\n\nNote\nSmithy models don't indicate which operations support presigning, so presigned methods are added by maintainers rather than the code generator. If you notice an operation that should support presigning but has no presigned_ method, please open an issue.\n\nThe SDK retries failed operations automatically. Retry behaviour follows the Smithy specification: errors are retried based on their is_retryable and is_throttling_error attributes. Throttling errors use a longer base delay. Network-level failures (connection errors and timeouts) are also retried. Non-retryable errors, such as client errors without the @retryable trait, are raised immediately without further attempts.\n\nThe number of attempts defaults to 3 and can be changed at the client level via retry_max_attempts, or per call via config_overrides.",
+    "readingTime": 3,
+    "keywords": [
+      "smithy models",
+      "fully typed",
+      "prefixed method",
+      "operation supports",
+      "errors returned",
+      "the sdk",
+      "without",
+      "operations",
+      "don't",
+      "input"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/kap-sh/aws-sdk-python",
+    "thumbnail_url": "https://opengraph.githubassets.com/7121b298dbfcbc72bef58a8e387307d7a56502748628974ce88770945cb83ae5/kap-sh/aws-sdk-python",
+    "created_at": "2026-06-21T13:47:19.655Z",
+    "topic": "tech"
+  },
+  {
     "slug": "the-best-4k-wireless-tv-streamers-for-more-choice-with-no-aerial-required",
     "title": "The best 4K wireless TV streamers for more choice – with no aerial required",
     "description": "Want to prolong the life of your TV? A wireless TV box could be the answer. Our expert put top devices – from Freely streamers to Sky and Amazon Fire – through their paces\n• Do you really need a new TV? Simple ways to upgrade your current...",
@@ -1803,19 +1827,6 @@
     "link": "https://www.businessinsider.com/amazon-sellers-top-frustrations-ad-payments-challenges-eommerce-2026-4",
     "thumbnail_url": "https://i.insider.com/69eba861367066d7c2970b56?width=1200&format=jpeg",
     "created_at": "2026-04-26T12:40:59.547Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "amazonbacked-xenergy-climbs-27-after-102-billion-us-ipo",
-    "title": "Amazon-Backed X-Energy Climbs 27% After $1.02 Billion US IPO",
-    "description": "X-Energy Inc. shares closed 27% above their IPO price, after the nuclear energy firm raised $1.02 billion in an upsized US initial public offering.",
-    "fullText": "GreenNew EnergyBy Monique Mulima and Will WadeSaveX-Energy Inc. shares closed 27% above their IPO price, after the nuclear energy firm raised $1.02 billion in an upsized US initial public offering.Shares of the Rockville, Maryland-based company backed by Amazon.com Inc. ended their first trading session at $29.20 each on Friday, versus an IPO price of $23. The listing priced above the marketed $16 to $19 range.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.3,
-    "link": "https://www.bloomberg.com/news/articles/2026-04-24/amazon-backed-x-energy-climbs-31-after-1-02-billion-us-ipo",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ivlkG0XpclHs/v0/1200x800.jpg",
-    "created_at": "2026-04-25T01:23:41.403Z",
     "topic": "finance"
   }
 ]

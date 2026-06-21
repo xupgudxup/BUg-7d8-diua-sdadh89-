@@ -1,5 +1,29 @@
 [
   {
+    "slug": "taste-turns-your-git-history-into-enforceable-coding-judgment",
+    "title": "Taste turns your Git history into enforceable coding judgment",
+    "description": "taste - Zero-config session-taste packer for AI agents - dvcoolarun/taste-ai",
+    "fullText": "Zero-config. Auto-learns. Just works.\n\n97% smaller context · Auto-learns your style · Works with any agent\n\n Compresses AI agent context from 56K tokens to 1.9K tokens. Learns your coding patterns from git history and session logs. Results vary by project size and session history.\n\nThe most effort taste will ever ask of you:\n\nLazy, not negligent: validation, error handling, security, and accessibility patterns are never skipped.\n\ntaste learns both positive patterns (what to do) and negative patterns (what NOT to do). Banned patterns are extracted from user corrections, past mistakes, and feedback.\n\nYou know the problem. You start an AI agent session. It reads your entire project: session logs, git diffs, READMEs, config files. It writes code that doesn't match your style. It wastes tokens and produces generic, bloated code.\n\ntaste puts a stop to that. It learns your patterns. It compresses your context. It makes your agents write code like you do.\n\nYou ask for a rate limiter. Your agent reads 56K tokens of context, installs a library, writes a generic implementation, and asks about your Redis setup.\n\nFive metrics, one goal: make your agents write better code with less context.\n\n97% smaller context, auto-learns your style, and works with any agent. Every pattern taste learns is marked in the code with confidence scores. Reproduce it yourself: run taste learn in any project. Method and raw numbers: benchmarks/. Real-world examples: examples/.\n\nThat is the byproduct, not the pitch. These are average numbers, and they vary by project. Larger projects with more session history see better compression. Smaller projects with less history see smaller savings. And all of this is iterative: each time you run taste learn, it learns more patterns, which makes the next compression better. The rule was never \"fewest tokens.\" It is: learn only what the project needs, and never skip validation, error handling, security, or accessibility. The context ends up small because it is necessary, not trimmed, and that is the part that stays useful. Better code quality is a side effect of learning your style, and that is the part that matters.\n\ntaste: Analyzing last 3 sessions...\ntaste: Collecting session data...\ntaste: Summary created: 18818 bytes\ntaste: Calling opencode for analysis...\n\nLEARNED PATTERNS (last 3 sessions):\n\nUpdated: TASTE.md, .agent-taste.json\n\nPriority: --model flag > TASTE_MODEL env > default\n\nCreate ~/.config/taste/base.json for global settings:\n\nCreate .agent-taste.json in your project root:\n\nAfter running taste learn, banned patterns are automatically populated:\n\nDoes it need a config file?\nNo. An optional .agent-taste.json or TASTE.md can be created, but nothing is required. taste works with zero configuration.\n\nWhat if I really need that 120-line cache class?\nYou don't. Insist anyway and taste will learn your pattern. Slowly. Correctly. While looking at you.\n\nDoes it scale?\nThe context you never waste scales infinitely. Zero tokens wasted, zero generic code, 100% style matching since forever.\n\nWhy \"taste\"?\nYou know exactly why.\n\nContributions are welcome! Please feel free to submit a Pull Request.\n\nMIT. The shortest license that works.",
+    "readingTime": 3,
+    "keywords": [
+      "context auto-learns",
+      "validation error",
+      "error handling",
+      "handling security",
+      "session logs",
+      "banned patterns",
+      "session history",
+      "smaller context",
+      "taste learn",
+      "taste learns"
+    ],
+    "qualityScore": 0.8,
+    "link": "https://github.com/dvcoolarun/taste-ai",
+    "thumbnail_url": "https://opengraph.githubassets.com/dc2deb197caf4c3741fc636003a3b56378e03af585c0398ab1f590aa96f5c238/dvcoolarun/taste-ai",
+    "created_at": "2026-06-21T13:47:18.925Z",
+    "topic": "tech"
+  },
+  {
     "slug": "tiny-a-bytecode-vm-written-in-go-with-inline-go-native-functions",
     "title": "Tiny – A bytecode VM written in Go with inline Go native functions",
     "description": "A lightweight programming language built with Go. Contribute to confh/Tiny development by creating an account on GitHub.",
@@ -1902,22 +1926,5 @@
     "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
     "created_at": "2026-05-08T19:03:07.979Z",
     "topic": "tech"
-  },
-  {
-    "slug": "lovables-new-way-to-keep-staff-a-10-raise-on-your-first-work-anniversary",
-    "title": "Lovable's new way to keep staff: a 10% raise on your first work anniversary",
-    "description": "The Vibe-coding startup  is offering full-time employees a 10% pay rise every year on their work anniversary, in a bid to retain talent.",
-    "fullText": "Lovable is offering employees a 10% annual pay rise on their work anniversaries to retain talent.\n The announcement sparked conversations online about Europe's tech salaries and talent wars.\n It also generated buzz due to the contrast between this policy and benefits rollbacks elsewhere.\n\n How do tech salaries in Europe compare?\n\n Why are companies reducing benefits?\n\n What retention strategies are effective?\n\n What are tech talent wars?\n\n How does AI impact tech hiring?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "talent wars",
-      "tech salaries",
-      "benefits"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/lovable-offering-a-10-raise-on-your-first-work-anniversary-2026-5",
-    "thumbnail_url": "https://i.insider.com/69fdc169c9dd4cb81cda86c6?width=1200&format=jpeg",
-    "created_at": "2026-05-08T13:06:42.903Z",
-    "topic": "finance"
   }
 ]
