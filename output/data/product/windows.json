@@ -1,5 +1,29 @@
 [
   {
+    "slug": "yazses-offline-holdtotalk-dictation",
+    "title": "YazSes – offline hold-to-talk dictation",
+    "description": "Local, offline hold-to-talk voice dictation for Linux, macOS & Windows — hold a key, speak, release, and it types into any app. On-device faster-whisper STT plus voice commands & macros. No...",
+    "fullText": "Hold a key → speak → release. On-device voice dictation that types into any app, plus voice commands and macros — entirely offline. No cloud. No API key. No subscription.\n\nYazSes is an open-source, offline voice-dictation daemon for Linux, macOS, and Windows. It transcribes your speech locally with faster-whisper and types the result into whatever window has focus. Use it when you want hands-free dictation and editor/terminal voice commands without sending audio to Google, Apple, or Microsoft.\n\nThis repo holds one product with two implementations — not two separate apps, but two generations of the same idea. The one you install and run is Part 1 (Python), on this main branch.\n\nBottom line: if you want YazSes, use Part 1 (this branch) — an offline dictation + voice-command daemon. The Rust branch is kept only for reference; nothing on main builds, installs, or depends on it. The Rust effort aimed at a more ambitious agentic HCI layer but was left in early stages — revisiting it is a deliberate future decision, not part of day-to-day work here.\n\nStep 1 — Install (see all install options for every platform)\n\nStep 3 — Use it — hold the hotkey, speak, release. The text is typed into the focused app.\n\nRelease the key — YazSes transcribes and acts within about a second.\n\nFirst time on macOS? v0 builds are unsigned: right-click the app → Open (Gatekeeper), then grant Accessibility + Microphone when prompted.\n\nFirst time on Windows? If SmartScreen warns you, click More info → Run anyway.\n\nFirst time on Linux? Run sudo usermod -aG input \"$USER\" and re-login before starting.\n\nHold the key and just talk — by default everything you say is typed at the cursor. YazSes also recognises a set of voice commands (a fast regex grammar; an optional ~0.5B SLM router catches phrasings the grammar misses) that map to editor/terminal key sequences instead of being typed:\n\nYou can also define multi-step macros and a personal vocabulary of mis-heard words — see the CLI reference.\n\nEverything runs on your CPU — no GPU, no network. Transcription uses faster-whisper (int8). A fast regex grammar classifies each utterance as dictation or a command; when its confidence is low, an optional ~0.5B SLM router takes a second look. The result appears in the focused window within about a second on a modern laptop.\n\nPrefer yazses features / yazses hotkey / yazses vocab to edit config safely (they preserve comments). Essential settings:\n\nSee the CLI reference and examples/config.example.toml for all options.\n\nIf YazSes does nothing and the log shows Silent audio -- discarding, your speech is below the VAD threshold:\n\nYazSes (Part 1) is a Python project managed with uv:\n\nThe early-stage Rust rewrite lives on the archive/rust-hci-v1 branch, not on\nmain. It is not built or installed by anything here — see Two versions of\nYazSes above for what it does and doesn't have. To look at it:\n\nIf YazSes is useful to you, a ⭐ on GitHub and a mention in your project, blog, or talk is the best way to support continued development.",
+    "readingTime": 3,
+    "keywords": [
+      "optional slm",
+      "slm router",
+      "cli reference",
+      "fast regex",
+      "speak release",
+      "regex grammar",
+      "voice commands",
+      "the rust",
+      "if yazses",
+      "dictation"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/MSKazemi/yazses",
+    "thumbnail_url": "https://opengraph.githubassets.com/1382bdf6f627a96f1ca95a043e26dea0a7d15fb43738d0adf15a651509f8400e/MSKazemi/yazses",
+    "created_at": "2026-06-22T20:33:07.344Z",
+    "topic": "tech"
+  },
+  {
     "slug": "microsoft-activation-scripts-activate-windows-office-esus",
     "title": "Microsoft Activation Scripts – Activate Windows / Office / ESUs",
     "description": "Open-source Windows and Office activator featuring HWID, Ohook, TSforge, and Online KMS activation methods, along with advanced troubleshooting. - massgravel/Microsoft-Activation-Scripts",
@@ -2027,22 +2051,6 @@
     "link": "https://www.phoronix.com/news/Steam-Play-Proton-10.0-4",
     "thumbnail_url": "https://www.phoronix.net/image.php?id=steamos-35-benchmarks&image=steamos_35_4",
     "created_at": "2026-01-27T01:02:07.272Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "cinnamon-group-windows-by-application-macosstyle-alttab-for-linux-mint",
-    "title": "Cinnamon: Group Windows by Application (macOS-Style Alt+Tab for Linux Mint)",
-    "description": "Group windows by application in Cinnamon (Alt+Tab like macOS) - b3rs3rk1ng/cinnamon-group-windows-by-app",
-    "fullText": "b3rs3rk1ng\n\n /\n\n cinnamon-group-windows-by-app\n\n Public\n\n Group windows by application in Cinnamon (Alt+Tab like macOS)\n\n License\n\n MIT license\n\n 1\n star\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n b3rs3rk1ng/cinnamon-group-windows-by-app",
-    "readingTime": 1,
-    "keywords": [
-      "star",
-      "license"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://github.com/b3rs3rk1ng/cinnamon-group-windows-by-app",
-    "thumbnail_url": "https://opengraph.githubassets.com/b508b8bca008d86907729b763d785a5af5006694a70a358df9fff12f840eef37/b3rs3rk1ng/cinnamon-group-windows-by-app",
-    "created_at": "2026-01-27T01:02:07.105Z",
     "topic": "tech"
   }
 ]

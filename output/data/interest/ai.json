@@ -1,5 +1,29 @@
 [
   {
+    "slug": "local-translate-cli-for-mac-mit",
+    "title": "Local Translate CLI for Mac [MIT]",
+    "description": "On-device translator for macOS Tahoe — UNIX filter + drop-in HTTP server compatible with DeepL, LibreTranslate, and Google v2. 100% on-device, no cloud, no LLM, no API keys. - Arthur-Ficial/translate",
+    "fullText": "A deterministic, on-device translator for macOS. A UNIX-style command and a drop-in HTTP server for DeepL, LibreTranslate, and Google v2 — all running 100% on-device using Apple's Translation framework.\n\ntranslate is a tiny macOS CLI built as a UNIX filter: stdin in, stdout out, stderr for errors and optional progress. It uses Apple's on-device Translation framework on macOS Tahoe, auto-detects the source language with NaturalLanguage, reuses a single translation session per run, and batches work wherever possible. With --serve it exposes the same engine over HTTP, byte-compatible with DeepL /v2/*, LibreTranslate /translate /detect /languages, and Google /language/translate/v2/* — so existing client libraries point at it unchanged.\n\nNo cloud calls, no API keys, no telemetry, no LLMs, no third-party translation libraries. Apple's Translation framework is a deterministic neural translation engine — same input, same output, every time.\n\nmake install copies the release binary to /usr/local/bin/translate and creates the short alias /usr/local/bin/ueb.\n\nDrop-in for DeepL clients (Python deepl, Node deepl-node):\n\nDrop-in for LibreTranslate clients (libretranslatepy, raw requests):\n\nDrop-in for the v2 REST API. Override the base URL in your client.\n\nOn-device translation keeps source text local, reduces latency, works offline after models are installed, and needs no API key, account, usage quota, proxy, or billing setup. It is also easier to script safely: the same input, model version, and flags produce byte-stable output without a remote service changing behavior between runs.\n\nFor scripts, prevent automatic model preparation:\n\nIf the model is missing, the command exits with code 4.\n\ntranslate does not translate fenced code blocks, inline backtick spans, URLs, or email addresses. Those spans pass through unchanged.\n\nThe unit suite drives every codec and every endpoint via real loopback HTTP. The real-client suite proves drop-in compatibility with three production translation APIs.\n\nSee EXAMPLE.md for end-to-end CLI and server scenarios.\n\nReference targets on Apple silicon with installed low-latency models:",
+    "readingTime": 2,
+    "keywords": [
+      "translation framework",
+      "on-device translation",
+      "apple's translation",
+      "macos",
+      "model",
+      "deterministic",
+      "command",
+      "server",
+      "engine",
+      "client"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://github.com/Arthur-Ficial/translate",
+    "thumbnail_url": "https://opengraph.githubassets.com/bffc298e42decb6b56ca19ba513014586c286a7f7689b177fbbeaf0eae9347ee/Arthur-Ficial/translate",
+    "created_at": "2026-06-22T20:33:06.469Z",
+    "topic": "tech"
+  },
+  {
     "slug": "i-tracked-llm-pricing-for-8-weeks-heres-what-the-data-shows",
     "title": "I Tracked LLM Pricing for 8 Weeks. Here's What the Data Shows",
     "description": "Real pricing data from 1,111 AI models across 33 providers, tracked daily since April 24, 2026. The spread, the movers, and what it means for your infrastructure bill.",
@@ -1803,18 +1827,5 @@
     "thumbnail_url": "https://github.githubassets.com/assets/github-mcp-registry-8a3e5775c048.png",
     "created_at": "2026-06-19T02:53:45.198Z",
     "topic": "tech"
-  },
-  {
-    "slug": "midjourney-wants-to-map-your-body-in-60-seconds-and-then-send-you-to-a-sauna",
-    "title": "Midjourney wants to map your body in 60 seconds and then send you to a sauna",
-    "description": "Midjourney, the AI lab known for generating images, is entering the health and wellness industry. Its new tech is inspired by dolphins.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/midjourney-medical-scanner-health-care-spa-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a3412c9c7a58f814f0d3fd5?width=1200&format=jpeg",
-    "created_at": "2026-06-19T02:53:41.227Z",
-    "topic": "health"
   }
 ]

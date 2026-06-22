@@ -1,5 +1,29 @@
 [
   {
+    "slug": "local-translate-cli-for-mac-mit",
+    "title": "Local Translate CLI for Mac [MIT]",
+    "description": "On-device translator for macOS Tahoe — UNIX filter + drop-in HTTP server compatible with DeepL, LibreTranslate, and Google v2. 100% on-device, no cloud, no LLM, no API keys. - Arthur-Ficial/translate",
+    "fullText": "A deterministic, on-device translator for macOS. A UNIX-style command and a drop-in HTTP server for DeepL, LibreTranslate, and Google v2 — all running 100% on-device using Apple's Translation framework.\n\ntranslate is a tiny macOS CLI built as a UNIX filter: stdin in, stdout out, stderr for errors and optional progress. It uses Apple's on-device Translation framework on macOS Tahoe, auto-detects the source language with NaturalLanguage, reuses a single translation session per run, and batches work wherever possible. With --serve it exposes the same engine over HTTP, byte-compatible with DeepL /v2/*, LibreTranslate /translate /detect /languages, and Google /language/translate/v2/* — so existing client libraries point at it unchanged.\n\nNo cloud calls, no API keys, no telemetry, no LLMs, no third-party translation libraries. Apple's Translation framework is a deterministic neural translation engine — same input, same output, every time.\n\nmake install copies the release binary to /usr/local/bin/translate and creates the short alias /usr/local/bin/ueb.\n\nDrop-in for DeepL clients (Python deepl, Node deepl-node):\n\nDrop-in for LibreTranslate clients (libretranslatepy, raw requests):\n\nDrop-in for the v2 REST API. Override the base URL in your client.\n\nOn-device translation keeps source text local, reduces latency, works offline after models are installed, and needs no API key, account, usage quota, proxy, or billing setup. It is also easier to script safely: the same input, model version, and flags produce byte-stable output without a remote service changing behavior between runs.\n\nFor scripts, prevent automatic model preparation:\n\nIf the model is missing, the command exits with code 4.\n\ntranslate does not translate fenced code blocks, inline backtick spans, URLs, or email addresses. Those spans pass through unchanged.\n\nThe unit suite drives every codec and every endpoint via real loopback HTTP. The real-client suite proves drop-in compatibility with three production translation APIs.\n\nSee EXAMPLE.md for end-to-end CLI and server scenarios.\n\nReference targets on Apple silicon with installed low-latency models:",
+    "readingTime": 2,
+    "keywords": [
+      "translation framework",
+      "on-device translation",
+      "apple's translation",
+      "macos",
+      "model",
+      "deterministic",
+      "command",
+      "server",
+      "engine",
+      "client"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://github.com/Arthur-Ficial/translate",
+    "thumbnail_url": "https://opengraph.githubassets.com/bffc298e42decb6b56ca19ba513014586c286a7f7689b177fbbeaf0eae9347ee/Arthur-Ficial/translate",
+    "created_at": "2026-06-22T20:33:06.469Z",
+    "topic": "tech"
+  },
+  {
     "slug": "the-path-to-a-frontier-ai-job-according-to-a-top-google-deepmind-engineer",
     "title": "The path to a frontier AI job, according to a top Google DeepMind engineer",
     "description": "Google DeepMind distinguished engineer Vladimir Feinberg has some blunt advice for those seeking a job at a top AI lab — \"work like a dog.\"",
@@ -1782,29 +1806,5 @@
     "thumbnail_url": "https://i.insider.com/6a0e106d7684ba33f7380e5c?width=1200&format=jpeg",
     "created_at": "2026-05-21T02:09:22.951Z",
     "topic": "finance"
-  },
-  {
-    "slug": "these-google-search-alternatives-actually-let-you-control-your-ai-experience",
-    "title": "These Google Search Alternatives Actually Let You Control Your AI Experience",
-    "description": "If you're tired of AI in your results, these search engines can help.",
-    "fullText": "It's no secret that Google, like most big tech companies, has gone all-in on AI. The company believes it is the future, and, as such, has injected the technology into every one of its products, none more visibly than Google Search. Over the past two years, Google has introduced AI summaries that seek to answer your questions, pulling the information from websites that fewer and fewer users are actually visiting and reading for themselves.\n\nGiven this trend, it should hardly come as a surprise that during I/O 2026, Google announced \"a new era for AI Search.\" This \"era\" essentially marks an expansion of its investment in AI in Search: In addition to rolling out its new Gemini 3.5 Flash model to Search, Google is making it even easier to use its AI-generated results (or, perhaps, harder to avoid them). You can now expand an AI Overview to continue the conversation in AI Mode, and keep receiving answers without engaging with any primary sources yourself. Google will also soon offer select users access to Search \"agents,\" which can take actions on your behalf on the web.\n\nGoogle's goal is to make Search synonymous with AI, which will no doubt please Google's investors, but will also alienate some users. Many of still search Google seeking good results for our queries, and not AI-generated summaries and chats. Personally, I'm not interested in \"continuing the conversation\" with Google's AI: I want to find relevant websites to read and explore. As such, I went looking for Google Search alternatives that either don't use AI, or let you disable all AI features entirely. Here are five of your best options.\n\nKagi is a favorite among tech fans who want more control over their search experience. It includes perks like ad-free search and a high level of customization, but the real benefit for this discussion concerns its AI features: Kagi has them, and you can use them if you want to, but you can also avoid them entirely—and even use the browser to fight back against AI results on the web.\n\nKagi not only allows you to return to a simpler time of endless blue links and zero AI-generated answers, but it actively works to block any known AI content from entering your feed. The only downside is that Kagi isn't free: With other search engines, you pay for your use by being shown ads, but with Kagi, you pay with actual money. Your first 100 searches are free, and paid plans start at $5 per month.\n\nStartpage's shtick is all about user privacy. According to the company, this search engine removes your personally identifying information each time you search. Rather than sending your request from you directly, Startpage will anonymously send the query to its search providers on your behalf and return the results to you without sharing your data. The search engine doesn't save your search history, and its measures should prevent your searches from being tracked across sites.\n\nThese privacy perks aside, Starpage has few AI features to worry about. By default, you shouldn't have to deal with them at all on the web app, but you can check under settings for any that may appear—Startpage says it has an optional Summary feature that uses AI to generate result synopses, but I don't even have the option in my Startpage settings. (Summary appears to be separate from Startpage's Instant Answer feature, which doesn't seem to use AI, but which can also be turned off in settings.) It's a similar story on mobile: If you're using the iOS app, the company says it offers optional AI features, but I don't see them in my settings there either. The company also offers a private AI app called Vanish, but that's unrelated to its search engine.\n\nStartpage isn't as feature-filled as other search engines, but that might be to its benefit. In my experience, it offers a standard search experience out of the box, without much (if any) AI.\n\nQwant, as far as I can tell, has only one AI feature to speak of, called Flash Answer. Like other search engine, this feature uses AI to offer a summary of whatever it is you're asking about. Luckily, if you're looking to use a search engine free of AI, it's quite easy to disable.\n\nThe first time you use Qwant—at least, in my experience—Flash Answer will appear if Qwant's AI deems it appropriate. You'll see the option at the top of the search results window, complete with stars that denote its AI abilities. Click \"Flash Answer,\" then choose \"Deactivated,\" rather than \"Activated by Qwant\" (the default), or \"Always activated.\" Unfortunately, it doesn't look like you can strip away the option itself, so you'll always have to stare at the \"Flash Answer\" button, but at least you can quickly scroll down to view your straightforward links.\n\nDuckDuckGo has long been a go-to option for users looking for a privacy-focused search engine. However, in recent years, the company has taken a bit of a headfirst approach to AI, adding new features and chatbot integrations to keep up with the rest of the industry. If you use DuckDuckGo's defaults, you'll indeed see \"Search Assist,\" its version of AI Overviews, and you'll be invited to try Duck.ai, the company's original chatbot. Fortunately, like other entries on this list, you can disable these options for the most part, and keep the focus on the links.\n\nIn DuckDuckGo's search engine, click the three lines to find the site's Settings. Here, choose \"AI Features,\" where you'll see all of DuckDuckGo's AI options. Disable Duck.ai, then set Search Assist to \"Never.\" Finally, you can choose to hide AI-generated images, if you really want a search engine experience devoid of AI.\n\nEcosia has long been the choice for eco-conscious web surfers. The company uses its ad revenue to plant trees all over the world, which makes for an engaging pitch: If you're not going to use Google anyway, perhaps you should use a search engine that makes the world a better (or at least greener) place.\n\nWhile Ecosia's main mission hasn't changed, it has added new AI features to the mix. Notably, there are now Overviews, which are Ecosia's AI-generated summaries, as well as AI Chat, which uses models from OpenAI to run. While Overviews are enabled by default, you can disable them at any time from Ecosia's settings (which you'll find at the bottom of any given search results). However, Ecosia doesn't let you disable its AI Chat button, even if you aren't using the feature. That might not be a dealbreaker for you, since the feature isn't engaged unless you click the button, but it's a bit disappointing that Ecosia forces you to look at an invitation to use AI Chat every time you search.",
-    "readingTime": 6,
-    "keywords": [
-      "ai-generated summaries",
-      "search engines",
-      "search engine",
-      "ai chat",
-      "search experience",
-      "search assist",
-      "you'll",
-      "kagi",
-      "it's",
-      "users"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/google-search-alternatives-to-control-your-ai-experience?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KS3AY0C748994DFEV0SJH524/hero-image.fill.size_1200x675.png",
-    "created_at": "2026-05-21T02:09:21.156Z",
-    "topic": "tech"
   }
 ]
