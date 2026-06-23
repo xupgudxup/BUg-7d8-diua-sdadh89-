@@ -1,5 +1,29 @@
 [
   {
+    "slug": "what-happens-when-okf-runs-inside-an-ai-tool",
+    "title": "What happens when OKF runs inside an AI tool",
+    "description": "We ran Google's Open Knowledge Format through PrecisionMemBench to test the runtime access pattern: markdown files available to an AI tool, model-directed file inspection, and belief-level retrieval scoring.",
+    "fullText": "The failures showed up where memory systems usually fail: scope, supersession, type routing, and\n session drift. These are not markdown problems. They are state problems.\n\nScope disambiguation had 12 cases and only 4 passed. Mean precision was 0.21. This is the classic\n Redis problem. If Redis appears in a code context and a writing context, the model has to know\n which one belongs in the current request. A folder of files can expose both meanings, but it does\n not enforce which one is valid for this turn.\n\nSupersession was even sharper. The run had three supersession chain exclusion cases, and none\n passed. Again, that is not because markdown cannot store an old belief and a new belief. It can.\n The issue is that the runtime has to know which belief is current and which belief must be excluded.\n A stale file sitting next to a current file is still accessible unless the retrieval layer knows the\n difference.\n\nType routing and open questions had 0.20 mean precision. Fuzzy matching and prefix guards landed\n at 0.25. Budget eviction and capacity landed at 0.13. This is where the difference between a knowledge\n format and a memory system becomes very obvious. OKF can describe the knowledge. It does not decide\n how much of that knowledge should enter the model request.\n\nThe bundle made knowledge inspectable. It did not make retrieval governed. That is the gap.",
+    "readingTime": 2,
+    "keywords": [
+      "belief",
+      "knowledge",
+      "supersession",
+      "memory",
+      "scope",
+      "routing",
+      "markdown",
+      "cases",
+      "precision",
+      "context"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://tenureai.dev/writing/open-knowledge-format-ai-memory-benchmark/",
+    "thumbnail_url": "https://tenureai.dev/og-image.png",
+    "created_at": "2026-06-23T08:57:30.452Z",
+    "topic": "tech"
+  },
+  {
     "slug": "local-translate-cli-for-mac-mit",
     "title": "Local Translate CLI for Mac [MIT]",
     "description": "On-device translator for macOS Tahoe — UNIX filter + drop-in HTTP server compatible with DeepL, LibreTranslate, and Google v2. 100% on-device, no cloud, no LLM, no API keys. - Arthur-Ficial/translate",
@@ -1788,23 +1812,5 @@
     "thumbnail_url": "https://www.usatoday.com/gcdn/authoring/authoring-images/2026/05/20/USAT/90180918007-getty-images-1205193642.jpg?crop=2231,1255,x0,y0&width=2231&height=1255&format=pjpg&auto=webp",
     "created_at": "2026-05-21T08:54:51.992Z",
     "topic": "tech"
-  },
-  {
-    "slug": "heres-why-google-deepminds-ceo-thinks-the-singularity-is-closer-than-ever",
-    "title": "Here's why Google DeepMind's CEO thinks the singularity is closer than ever",
-    "description": "Demis Hassabis, Google's AI chief, shares why society is nearing the AI singularity, highlighting AI's potential at the I/O conference.",
-    "fullText": "Read in app\n\n Humanity is standing \"on the foothills of the singularity,\" Demis Hassabis said at I/O on Tuesday.\n The DeepMind CEO's remark stunned the audience. Hassabis shared on Wednesday why he felt that way.\n Building video games late at night with AI convinced Hassabis that humanity is entering a new era.\n\n What is the AI singularity?\n\n How might AI impact healthcare?\n\n Who is Demis Hassabis?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "humanity",
-      "singularity",
-      "hassabis",
-      "demis"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/deepmind-ceo-demis-hassabis-predicts-ai-singularity-google-io-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0e106d7684ba33f7380e5c?width=1200&format=jpeg",
-    "created_at": "2026-05-21T02:09:22.951Z",
-    "topic": "finance"
   }
 ]
