@@ -1,5 +1,29 @@
 [
   {
+    "slug": "bigquery-emulator-bqemulator",
+    "title": "BigQuery Emulator (Bqemulator)",
+    "description": "Local emulator for Google BigQuery. DuckDB-backed, SQLGlot-powered. Drop-in replacement for the real service in dev, CI, and offline replicas. - jjviscomi/bqemulator",
+    "fullText": "A local, drop-in emulator for Google BigQuery.\n\nDuckDB-backed, SQLGlot-powered, and tested against the real service. Point the official Google Cloud client libraries at it and run your BigQuery code on your laptop or in CI — no real project, no billing, no network.\n\nDocumentation\n· Quickstart\n· Examples\n· Compatibility matrix\n· Changelog\n\nTesting code against real BigQuery is slow (network + service latency), expensive (every query is billable), and dangerous (no rollback in shared environments). The alternatives — mocks, fakes, and shared sandboxes — drift from the real service the moment you stop chasing them.\n\nbqemulator is a process you can run locally that speaks BigQuery's actual wire protocol (REST + gRPC), backs onto a real analytical SQL engine (DuckDB), and translates GoogleSQL → DuckDB SQL with a rule-based, ADR-grounded translator (SQLGlot). The official google-cloud-bigquery, @google-cloud/bigquery, cloud.google.com/go/bigquery, com.google.cloud:google-cloud-bigquery, and bq CLI clients all work against it unchanged — only the endpoint differs.\n\nBoth pip and the published image bundle the same emulator. The image exposes REST on 9050 and gRPC on 9060 by default — see configuration reference to change them.\n\nWindows users: install Docker Desktop for Windows with the WSL2 backend (default since Docker Desktop 4.x); the published Linux image runs natively under WSL2 with no Windows-specific configuration. Native Windows-container variants of the image are explicitly out of scope for v1.0 — see docs/reference/out-of-scope.md#native-windows-containers for the rationale.\n\nbqemulator ships a pytest plugin via the pytest11 entry point. Installing the package is all the wiring you need — your conftest.py stays empty.\n\nThe bqemu_server fixture is session-scoped (one emulator per test session); the bqemu_client fixture is function-scoped and returns a pre-configured bigquery.Client. See the pytest fixture guide and the python/pytest-integration example for a complete Flask app with integration tests.\n\nSee the Node.js quickstart and the nodejs/nestjs-app example.\n\nSee the Go quickstart and the go/beam-pipeline example.\n\nSee the Java quickstart and the java/spring-boot example.\n\nSee the bq CLI guide and the bq-cli-quickstart example.\n\nSee the docker-compose/full-stack example for app + emulator + Prometheus + Grafana.\n\nbqemulator is at v1.3.0 — third minor on the production-stable\nline. SemVer applies: breaking changes ship only in MAJOR,\ndeprecations live ≥2 MINOR or 6 months. The compatibility matrix is auto-generated from the conformance corpus on every CI run; the conformance coverage matrix breaks down support by surface item.\n\nConformance corpus depth (the conformance coverage matrix carries the live, auto-generated breakdown):\n\nPlus 10 non-deterministic items (RAND, CURRENT_*, SESSION_USER, GENERATE_UUID, TABLESAMPLE, FOR SYSTEM_TIME AS OF <expression>) that are excluded from the conformance corpus by ADR 0022 and exercised in unit / property / integration tiers instead — bringing the full inventory to 419 surface items across 20 categories, backed by a 1,288-fixture conformance corpus (1,213 SQL + 49 HTTP + 26 gRPC) under tests/conformance/.\n\nWe follow a no-deferral principle: features either ship complete or are excluded with documented rationale. There is no \"TODO for v1.1.\" Scope boundaries are catalogued in docs/reference/out-of-scope.md.\n\nThe full documentation lives at jjviscomi.github.io/bqemulator. Key entry points:\n\nEvery example under docs/examples/ is a complete, runnable project with its own make test validated by CI:\n\nbqemulator is at v1.3.0 — third minor on the production-stable\nline. SemVer applies: breaking changes ship only in MAJOR\nversions, preceded by ≥1 MINOR with deprecation warnings;\ndeprecated APIs remain for ≥2 MINOR versions or 6 months.\n\nSee CHANGELOG.md for the complete release-by-release inventory.\n\nWe welcome contributions of all sizes. Start with CONTRIBUTING.md for the mechanics; AGENTS.md captures the project's day-to-day conventions; and docs/architecture/overview.md is the canonical architectural reference.\n\nPull requests are squash-merged into main with a Conventional Commits subject; commits carry a DCO sign-off (git commit -s). The full review policy lives in GOVERNANCE.md.\n\nbqemulator is released under the Apache License 2.0.",
+    "readingTime": 4,
+    "keywords": [
+      "semver applies",
+      "compatibility matrix",
+      "conformance corpus",
+      "docker desktop",
+      "bqemulator",
+      "emulator",
+      "fixture",
+      "service",
+      "grpc",
+      "pytest"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/jjviscomi/bqemulator",
+    "thumbnail_url": "https://opengraph.githubassets.com/3031eab08bd029b8437888e39233b0d263d25f39b4ebb0f54c10e2230bd2d55e/jjviscomi/bqemulator",
+    "created_at": "2026-06-24T14:05:18.070Z",
+    "topic": "tech"
+  },
+  {
     "slug": "ai-in-the-classroom-prompts-tide-of-concern-from-us-parents-and-experts",
     "title": "AI in the classroom prompts tide of concern from US parents and experts",
     "description": "While tech companies and Trump have been pushing teachers to use AI in the classroom, many argue that there is little evidence that it would actually help children\nIn October, Kelly Clancy’s son received an assignment in sixth grade at a middle school in Brooklyn, New York, to create a science experiment and then ask Google Gemini, an artificial intelligence chatbot, for feedback, she said.\nClancy, who has three children in New York City public schools, told the teacher that the bot “is something that just teaches kids that they can have machines do the thinking for them”, instead of suggesting: “Let’s talk to your partners. What about the science experiment could you improve?”\n Continue reading...",
@@ -1789,18 +1813,5 @@
     "thumbnail_url": "https://i.insider.com/6a10c628b1025a62a5c866fa?width=1200&format=jpeg",
     "created_at": "2026-05-23T01:59:54.196Z",
     "topic": "finance"
-  },
-  {
-    "slug": "searching-for-disregard-breaks-google",
-    "title": "Searching for 'Disregard' Breaks Google",
-    "description": "On Tuesday, Google held its I/O developer event, and introduced an AI-forward version of Google Search that the company described as an \"intelligent search box\" powered by the newest version of Gemini. It turns out Google's all-new version of search semi-breaks when you search for the word \"disregard\". Typing \"disregard\" into Google Search results in Google's AI interpreting it as a system-style instruction instead of a search query. \"Understood.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.macrumors.com/2026/05/22/google-search-disregard/",
-    "thumbnail_url": "https://images.macrumors.com/t/d5G2QJvA4yN6Tvr2J1c4mTYRK0A=/1600x/article-new/2026/05/google-ai-overview-disregard.jpg",
-    "created_at": "2026-05-22T19:22:33.464Z",
-    "topic": "tech"
   }
 ]
