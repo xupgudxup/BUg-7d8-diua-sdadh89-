@@ -1,5 +1,29 @@
 [
   {
+    "slug": "github-is-becoming-a-giant-ai-code-dump",
+    "title": "GitHub Is Becoming a Giant AI Code Dump",
+    "description": "630M repos, half of new code is AI-written, but trust dropped from 77% to 60%. CMU found 6M fake stars. CodeRabbit: AI code has 1.7x more serious issues than human-written. 63% of developers say fixing AI code takes longer than writing from scratch.",
+    "fullText": "GitHub has 630 million repos. Nearly half of all new code is written by AI.\n\nSounds like a productivity explosion, right?\n\nBut there's another number in that same report: developer trust in AI code dropped from 77% to 60%. More people are using it. Fewer people believe in it.\n\nCarnegie Mellon University found 6 million fake stars on GitHub. Security firm Socket uncovered 370,000 \"fix stars\" directly tied to scams. That vibe coding project with thousands of stars? Probably half are fabricated.\n\nThat's not even the scary part.\n\nCodeRabbit scanned 470 PRs. AI-written code had 1.7x more critical issues than human-written code. 45% of AI code ships with OWASP Top 10 vulnerabilities. 63% of developers say fixing AI code takes longer than writing it from scratch.\n\nBut here's the most mind-bending finding.\n\nMeter ran a randomized controlled trial. The result: AI users were actually 19% slower, but they thought they were 20% faster.\n\nWhen they showed the participants the data, they still insisted they were faster.\n\nThat's the real horror. You're getting slower, and you have no idea.\n\nLook at what major projects are doing:\n\nOpen source isn't being destroyed by hackers. It's being drowned to death by garbage AI-generated PRs from vibe coders.\n\nHere's the most ironic part of the whole chain:\n\nYou ask AI to write code → AI searches GitHub for references → It finds code written by other AIs → Garbage in, garbage out. What do you think comes out?\n\nGitHub used to be a code repository. It's turning into a giant AI code dump.\n\nAI writing code isn't the problem. The problem is: nobody is auditing what AI does.\n\nThe core premise of vibe coding is \"accept everything AI generates — don't review, don't modify.\" That works for a TODO app. For production code, it's planting time bombs.\n\nBut asking humans to line-by-line review AI code isn't realistic either. If 63% of devs say fixing is slower than writing, reviewing is even slower.\n\nThe real solution isn't \"stop using AI\" or \"review everything manually.\" It's automated governance between AI code and production:\n\nUn-governed AI code doesn't go faster. It just crashes faster.\n\nThe projects banning AI submissions — curl, Ghost, Tailscale — aren't anti-AI. They're saying the same thing: \"We welcome AI assistance. We won't accept garbage without quality control.\"\n\nMAREF is that quality control layer. Not between you and AI. Between garbage code and your production environment.\n\nYou can still vibe code. You can still have AI write your code. But before it deletes your database, someone will stop it.\n\nYou're getting slower? No. You're finally seeing what you're actually shipping.\n\n📊 Sources: GitHub Octoverse Report, Carnegie Mellon fake star study, Socket security report, CodeRabbit 470 PR analysis, Meter RCT trial, curl/BT/Ghost/Tailscale official announcements. MAREF is an open-source agent governance operating system. Get started in 5 minutes.",
+    "readingTime": 3,
+    "keywords": [
+      "carnegie mellon",
+      "say fixing",
+      "vibe coding",
+      "code isn't",
+      "slower",
+      "faster",
+      "it's",
+      "stars",
+      "review",
+      "production"
+    ],
+    "qualityScore": 1,
+    "link": "https://maref.cc/en/blog/vibe-coding-crisis/",
+    "thumbnail_url": "https://maref.cc/images/og-image.svg",
+    "created_at": "2026-06-24T08:52:31.231Z",
+    "topic": "tech"
+  },
+  {
     "slug": "a-stranger-offered-to-pay-for-the-world-cup-trip-i-promised-my-sons-but-couldnt-afford-i-thought-it-was-a-scam",
     "title": "A stranger offered to pay for the World Cup trip I promised my sons, but couldn't afford. I thought it was a scam.",
     "description": "After writing about being unable to afford a World Cup trip he'd promised his sons for years, a father received an unexpected message from a stranger.",
@@ -1880,30 +1904,6 @@
     "link": "https://www.manning.com/books/writing-for-developers",
     "thumbnail_url": "https://images.manning.com/book/6/4e43c0b-fe7b-4295-aa2c-7c9d74c6455f/Dunlop-HI.png",
     "created_at": "2026-03-18T18:44:34.742Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "a-mermaid-planning-tool-for-ai",
-    "title": "A Mermaid Planning Tool for AI",
-    "description": "The practice of writing code has been changing fast. Really fast. I–and a large portion of the industry–write code …",
-    "fullText": "The practice of writing code has been changing fast. Really fast. I–and a large\nportion of the industry–write code in a completely different way from a year\nago. And by that I mean that I largely manage a sophisticated coding machine\nthat does the work. Writing code is now a process very similar to some of my\nprevious experience as VP of Architecture at\nCommunity: I help co-design an architecture that will\nsupport the desired implementation, and then I help supervise the plan to do\nso. I review PRs, and suggest changes. I ensure docs and patterns are up to\ndate. It’s a familiar role.\n\nAs I’ve become more adept at coding with AI, I’ve found that what worked well\nfor teams of developers works well for AI. And, one of those things is that\nstarting with a diagram-focused discussion is a lot easier. In person this\noften starts at a whiteboard. In remote teams it’s often some cobbled together\ncombination of other tools. Some years ago now, thanks to Community.com\nbeing 100% remote, my brother Jeffrey Matthias\nintroduced me to Mermaid and its\nimplementation of sequence diagrams. I was (and remain) impressed by the\nsimplicity of that diagram and how easily the most important interactions are\nmade clear.\n\nSome months back, Tom Patterer and I started\nasking Claude Code to generate Mermaid diagrams for when exploring existing\ncode, and when creating implementation plans. And, it turns out, as a fantastic\ntool in debugging.\n\nThis evolved into flipping the order around: on most projects we just start\nwith the diagram. That diagram can codify an awful lot of thinking: it’s a\nreally dense carrier of meaning. Once you have that, and if you have good rules\nin your AGENTS.md/CLAUDE.md file, you will get a very good plan, and likley a\nclean implementation. We learned to always include the diagram in the plan, so\nthat it is not lost in the context of the planning session. When I get a plan\nfrom the agent, I usually clear the context and have it compare the plan to the\ndiagram a second time to catch any errors or oversights. I rarely catch major\nissues in plans or implementation now.\n\nBut now you have another problem: collaborating on a diagram is somewhat\npainful. Certain IDEs enable collaboration on a file with auto-reloading, but\nthat requires that you are editing in an IDE and it has the necessary plugins.\nThe few of you reading this who know me may also know that I am a 35 year vi\nand vim user and not a fan of most IDEs. I co-wrote an O’Reilly book (with\nSean Kane) in vim. I don’t want to use an IDE,\nneovim + Claude Code is enough. Further\nand in the mermaid.live tool, looking at an actual\ndiagram of any size is not great. If you have this tooling and prefer it,\ngreat.\n\nBut for my preferences, I decided to write a tool that would allow us to\ncollaborate on a diagram in a way that is more natural to AI. And which is more\nnatural to programmers. It does include an editor, so that I can directly edit\nthe diagram, but for the most part it’s the ability to push and pull diagrams\nfrom the agent that is the biggest win. I has both an MCP server and a CLI tool\nto interact with it, so take your pick. Both allow the agent to directly push\nupdates. It supports going entirely full screen with the diagram, too.\n\nMost of the rest of the Mozi team are now using this tool.\nI am pretty sold on this workflow at the moment. And it’s fun how it harkens\nback to the way we all talked about designing software in the aughts, back when\nwe thought we might largely generate code from diagrams, as Todd\nSundsted pointed out to me awhile back. The\ncode generator is just a lot more sophisticated these days.\n\nIt’s a pretty simple app, but I tried to polish it up enough to make it nice to\nuse. Other co-workers have now contributed to it as well. I’m a light-mode guy\nbut co-workers are not all, so there is a dark mode as well. vim bindings are\nsupported but not required.\n\nOn Linux and Windows, it’s a server and opens the browser to the diagram. On\nmacOS, it’s a desktop app that opens the diagram. It can also open .mmd files\nin the event you want to review previous work.\n\nIf you are serious about improving your AI workflow, I encourage you to try it\nout.",
-    "readingTime": 4,
-    "keywords": [
-      "ai and",
-      "claude code",
-      "diagram",
-      "it’s",
-      "implementation",
-      "plan",
-      "tool",
-      "diagrams",
-      "back",
-      "agent"
-    ],
-    "qualityScore": 1,
-    "link": "https://relistan.com/mermaid-tool-for-ai",
-    "thumbnail_url": "http://localhost:4000/images/bio-photo.png",
-    "created_at": "2026-03-18T18:44:34.036Z",
     "topic": "tech"
   }
 ]
