@@ -1,5 +1,18 @@
 [
   {
+    "slug": "zoox-to-ramp-up-production-of-up-to-100-newly-upgraded-robotaxis-a-week",
+    "title": "Zoox to ramp up production of up to 100 newly upgraded robotaxis a week",
+    "description": "Amazon's Zoox unveiled an upgraded robotaxi design as it prepares to ramp production to 100 vehicles a week and expand service in the US.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/amazon-zoox-robotaxi-production-upgraded-design-100-vehicles-week-expansion-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a3c3a12360acd489560a919?width=1200&format=jpeg",
+    "created_at": "2026-06-25T02:10:44.738Z",
+    "topic": "auto"
+  },
+  {
     "slug": "the-cannes-lions-deal-the-ad-industry-is-buzzing-about-and-what-it-means",
     "title": "The Cannes Lions deal the ad industry is buzzing about — and what it means",
     "description": "Walmart scored the deal everyone's talking about at Cannes Lions this year. Buying Vibe.co signals its intent to rival Meta, Google, and Amazon.",
@@ -1798,29 +1811,5 @@
     "thumbnail_url": "https://i.insider.com/69f0f4693b4f7c3af2b7aadf?width=1200&format=jpeg",
     "created_at": "2026-04-29T01:57:05.075Z",
     "topic": "finance"
-  },
-  {
-    "slug": "survey-of-iac-tools-used-to-manage-aws",
-    "title": "Survey of IaC Tools Used to Manage AWS",
-    "description": "What are people using to manage their AWS infrastructure? A recent survey tells us.",
-    "fullText": "Below is a graph of the share of IaC tools that are used to manage AWS (2026 data).\n\nThese results were surprising to me in a few ways.\n\nFirst, Ansible is #4 on the list, when it's arguably not an IaC tool. Can Ansible provision things? Sure, but should it?\n\nI'd argue against that Ansible is just not built for that. It can be used for a lot and it can be used to provision infrastructure resources, but Terraform/OpenTofu's model is much better at provisioning such resources. And then managing them.\n\nThat said, Ansible and TF are better together in the environments where they're needed. For example, using Ansible to setup EC2 instances, after TF has provisioned the instance and its surrounding environment, is a good option. (Of course, you could use Packer or containers to avoid managing machines like pets altogether. Lots of ways to peel the banana!)\n\nAnother surprise was CDKTF being over DOUBLE the usage compared to Crossplane (we tried Crossplane and decided against it).\n\nAnd yet, HashiCorp canned CDKTF in spite of that usage. I find that super interesting.\n\nFinally, OpenTofu being at 23% shows that it is gaining traction. We've migrated hundreds of thousands of resources alone at Masterpoint. We'll see this number go up over the coming year, I'm sure. And OpenTofu was the top choice for IaC retention.\n\nThe graph I included above shows usage, but there’s also surveys of retention, awareness and interest. The top answer is different for each, indicating a healthy, competitive IaC ecosystem. You can also check out the demographics of respondents.\n\nJust for kicks, I went and looked at the 2025 results, and was shocked that Winglang is on the list. That company is dead as far as I know. Yet one short year ago, it still managed to get on the board. Good for them, I guess?\n\nHere’s the 2026 survey results again. It closed in February, but you can \n\nMay you never provision infrastructure with Ansible,\n\nPS If you want to chat about which results surprised you, grab some time on my calendar here. If you’ve found this newsletter helpful, please forward it to a friend. Or if you want to share on your company slack, here’s the archive of all my newsletters.",
-    "readingTime": 2,
-    "keywords": [
-      "provision infrastructure",
-      "resources",
-      "usage",
-      "graph",
-      "ways",
-      "list",
-      "sure",
-      "managing",
-      "cdktf",
-      "crossplane"
-    ],
-    "qualityScore": 1,
-    "link": "https://newsletter.masterpoint.io/p/survey-of-iac-tools-used-to-manage-aws",
-    "thumbnail_url": "https://beehiiv-images-production.s3.amazonaws.com/uploads/asset/file/d310a6f4-235f-40fb-aa26-d429c9609f73/facebook_banner.png?t=1731793502",
-    "created_at": "2026-04-28T13:27:37.747Z",
-    "topic": "tech"
   }
 ]
