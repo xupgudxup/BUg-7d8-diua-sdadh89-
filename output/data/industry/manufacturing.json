@@ -1,5 +1,29 @@
 [
   {
+    "slug": "former-new-jersey-middle-school-teacher-indicted-on-new-charges-including-manufacturing-child-abuse-material",
+    "title": "Former New Jersey middle school teacher indicted on new charges including manufacturing child abuse material",
+    "description": "Former NJ middle school teacher Ashley Fisler indicted on new charges including manufacturing child sexual abuse material and sexual assault of a minor.",
+    "fullText": "A former New Jersey middle school teacher accused of having a sexual relationship with a student was indicted Wednesday on new charges, including manufacturing child sexual abuse material, prosecutors said.\n\nAshley Fisler, 36, of Washington Township, now faces a 12-count indictment that also includes sexual assault of a minor and a pattern of official misconduct, according to the Gloucester County Prosecutor's Office.\n\nAccording to prosecutors, the alleged victim, who is now an adult, told police he had an unlawful sexual relationship with Fisler while he was a minor and she was his teacher at Orchard Valley Middle School.\n\nProsecutors said the victim described multiple sexual encounters that allegedly took place in Fisler's vehicle and classroom in 2021.\n\nNew Jersey Middle School Teacher Charged With Child Sex Assault After Alleged Sexual Relationship With Student\n\nInvestigators said they recovered text messages that allegedly demonstrated the unlawful nature of the relationship.\n\nAccording to NJ Advance Media, prosecutors allege Fisler continued exchanging thousands of often sexually explicit text messages with the victim after he entered high school.\n\nIn one of the exchanges included in a tranche of roughly 7,500 pages of text messages collected by investigators, the former student wrote that the teacher left him mentally broken, the outlet reported.\n\nNew Jersey Teacher Who Slept With Students At Family Bagel Shop Learns Prison Sentence\n\nDefense attorney Rocco Cipparone has argued prosecutors lack evidence to support the allegations, saying the text messages cited by investigators were taken out of context.\n\n\"The selective, salacious texts that were recited by the prosecution lack context,\" Cipparone previously argued in court.\n\nFisler was arrested in March and initially charged with six counts of first-degree sexual assault of a minor, one count of second-degree endangering the welfare of a child and one count of second-degree official misconduct.\n\nHigh School Teacher Charged With Sexually Assaulting Former Teen Student At Her Home\n\nThe superseding indictment added charges of second-degree pattern of official misconduct, first-degree manufacturing child sexual abuse material, third-degree possession of child sexual abuse material, and third-degree distribution of obscenity to a minor.\n\nIf convicted, each first-degree charge carries a maximum sentence of 20 years in prison. The second-degree charges carry a maximum sentence of 10 years, while each third-degree charge carries a maximum sentence of five years.\n\nFisler taught social studies in the Washington Township school district from 2014 until June 2023, according to an online resume.\n\nShe is no longer employed by the Washington Township School District or any other school district, according to officials.\n\nFox News Digital's Landon Mion contributed to this report.\n\nOriginal article",
+    "readingTime": 3,
+    "keywords": [
+      "jersey middle",
+      "middle school",
+      "teacher charged",
+      "charge carries",
+      "township school",
+      "abuse material",
+      "carries maximum",
+      "text messages",
+      "maximum sentence",
+      "manufacturing child"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.yahoo.com/news/us/articles/former-jersey-middle-school-teacher-052339212.html",
+    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/AY52LGhm3kzoRlOJJ4_lZQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/fox_news_text_979/d6629aa47a6e9a20aacb226d81d27649",
+    "created_at": "2026-06-25T08:46:33.284Z",
+    "topic": "news"
+  },
+  {
     "slug": "my-dad-and-grandpa-were-toy-inventors-i-had-to-find-my-own-way-into-the-industry",
     "title": "My dad and grandpa were toy inventors. I had to find my own way into the industry.",
     "description": "Alex Kessler says three generations of his family have built businesses around invention, manufacturing, and toys.",
@@ -1837,29 +1861,5 @@
     "thumbnail_url": "https://i.insider.com/69b45f734d65ec517529fdec?width=1200&format=jpeg",
     "created_at": "2026-03-20T18:33:40.681Z",
     "topic": "finance"
-  },
-  {
-    "slug": "ai-coding-factory",
-    "title": "AI Coding Factory",
-    "description": "Contribute to jaksa76/ai-coding-factory development by creating an account on GitHub.",
-    "fullText": "Autonomous AI agents that pull issues from a task manager, implement them, and push code — continuously. Inspired by AI Coding Factories.\n\nWorkers poll a task manager for unassigned issues, claim one, clone the repo, invoke an AI agent to implement it, commit and push the result, then loop back for the next issue. The task manager is the single source of truth — no local task store.\n\nThe task management backend is pluggable via the TASK_MANAGER environment variable (default: jira).\n\nClone the repository and run the setup script:\n\nRe-run setup.sh at any time to update credentials or change the agent.\n\nAll configuration is passed via environment variables. setup.sh writes these to an env file for you, but you can also set them manually.\n\nThe default backend is jira. Provide your Jira credentials:\n\nPROJECT is the canonical target passed to loop --project:\n\nClaude (subscription): log in with claude login first, then import your credentials (see below). Or set them manually from ~/.claude/.credentials.json:\n\nThere are three ways to run workers: directly, via Docker, or via the factory.\n\nRun the loop script directly on your machine (no Docker required):\n\nThis uses whatever agent script is on your PATH (set by setup.sh) and the environment variables in your current shell. Useful for development and testing.\n\nBuild a worker image and run it with your env file:\n\nUse factory to manage multiple Docker workers at once:\n\nThis uses the worker-claude image by default. Override with FACTORY_WORKER_IMAGE=<image>. Images are automatically built or rebuilt when missing or outdated.\n\nYou can also set the env file globally:\n\nFor lower-level control (e.g. a specific image):\n\nTo run workers on AWS ECS Fargate instead of local Docker, create a runtime symlink in the factory directory pointing to runtime-aws:\n\nThen set the required AWS variables:\n\nAll other factory commands (factory workers, factory status, factory logs, etc.) work the same way.\n\nTo open a PR per issue instead of pushing directly to the default branch:\n\nOr add a needs-branch label to individual Jira issues. The worker creates feature/<ISSUE-KEY>, pushes it, opens a PR, posts a comment with the PR URL, and attempts to transition the issue to In Review.\n\nIndividual issues can opt out with the skip-branch label (takes precedence over FEATURE_BRANCHES=true).\n\nIf you use a Claude subscription, OAuth tokens expire periodically. After running claude login to refresh them, import the new credentials into your env file with:\n\nThis reads ~/.claude/.credentials.json and updates the CLAUDE_* variables in your env file in place.\n\nIf your workflow requires a planning step before implementation, run planner workers alongside your regular workers. Planners claim issues, generate a written plan, commit it to plans/<ISSUE-KEY>.md in the repo, and move on. A human reviews the plan; once approved, a regular implementation worker picks the issue up.\n\nThis uses the planner-claude image by default. Override with FACTORY_PLANNER_IMAGE=<image>.\n\nTo require planning for all issues by default, set:\n\nIndividual issues can bypass planning with the skip-plan label (takes precedence over PLAN_BY_DEFAULT=true).",
-    "readingTime": 3,
-    "keywords": [
-      "claude subscription",
-      "claude login",
-      "default override",
-      "task manager",
-      "env file",
-      "environment variables",
-      "credentials",
-      "docker",
-      "agent",
-      "loop"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/jaksa76/ai-coding-factory",
-    "thumbnail_url": "https://opengraph.githubassets.com/4cf70529cdd1199d46ef641e261a8bf4b39736a5fab68cd1f27a0685e281ee88/jaksa76/ai-coding-factory",
-    "created_at": "2026-03-19T06:44:35.782Z",
-    "topic": "tech"
   }
 ]
