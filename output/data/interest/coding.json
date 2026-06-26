@@ -1,5 +1,29 @@
 [
   {
+    "slug": "mypi-codingagent",
+    "title": "My-Pi Coding-Agent",
+    "description": "Composable pi coding agent with MCP, LSP, agent chains, prompt presets, and local eval telemetry - spences10/my-pi",
+    "fullText": "My curated Pi distribution: a ready-to-run\ncoding-agent CLI with MCP, LSP, skills, recall, redaction, telemetry,\nteam mode, prompt presets, and other handy extensions prewired.\n\nBuilt on the\n@earendil-works/pi-coding-agent\nSDK. Use the full distribution directly, or install individual\n@spences10/pi-* packages into your own Pi setup.\n\nUse my-pi if you want the complete, opinionated setup:\n\nThis is its own CLI wrapper around Pi. Do not install the root package\nwith pi install npm:my-pi.\n\nMost extensions in this repo are also published as normal Pi packages:\n\nUse this path if you already have your own Pi setup and only want\nselected features. Package READMEs are the source of truth for install\ninstructions, commands, configuration, and runtime behavior.\n\nmy-pi uses native node:sqlite through context, telemetry, and\nobservability packages. The CLI suppresses Node's expected\nnode:sqlite ExperimentalWarning; standalone package/API consumers\nown their process warning policy until Node marks it stable.\n\nPi handles model authentication natively. For provider-specific model\nexamples, see the Pi docs and the relevant extension/package README.\n\nUmans.ai is available as a built-in provider. Run /login, choose API\nkey auth, then choose Umans; select models like umans/umans-coder or\numans/umans-flash. The provider can also read UMANS_API_KEY and\ncan be disabled with --no-umans-provider.\n\nOpenRouter Fusion is configured by default: my-pi injects a\nnon-Anthropic Fusion panel/judge only for openrouter/fusion.\nConfigure it in ~/.pi/agent/my-pi-settings.json under\nopenRouterFusion, e.g.\n{\"openRouterFusion\":{\"analysisModels\":[\"deepseek/deepseek-v3.2\"],\"judgeModel\":\"~openai/gpt-latest\",\"force\":false}}.\nFusion is forced by default with tool_choice: \"required\"; set\nforce: false to let OpenRouter decide whether deliberation is\nneeded. Env vars MY_PI_FUSION_ANALYSIS_MODELS,\nMY_PI_FUSION_JUDGE_MODEL, and MY_PI_FUSION_FORCE still work as\noverrides. Disable with --no-openrouter-fusion-config.\n\nInstall the full distribution with pnpx my-pi@latest, or install\nselected extensions into vanilla Pi:\n\nShared helper packages such as @spences10/pi-child-env,\n@spences10/pi-project-trust, @spences10/pi-settings, and\n@spences10/pi-tui-modal are published as dependencies and are not\npackages to install via pi install.",
+    "readingTime": 2,
+    "keywords": [
+      "install",
+      "packages",
+      "distribution",
+      "extensions",
+      "setup",
+      "my-pi",
+      "telemetry",
+      "published",
+      "selected",
+      "node:sqlite"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/spences10/my-pi",
+    "thumbnail_url": "https://opengraph.githubassets.com/fa166a7a3144d93c627651e218b8fe5d6d8bfc3f77bbe31d80ebc594d56f31fd/spences10/my-pi",
+    "created_at": "2026-06-26T19:27:44.617Z",
+    "topic": "tech"
+  },
+  {
     "slug": "ai-is-writing-almost-all-startup-code-thats-creating-a-new-problem",
     "title": "AI is writing almost all startup code. That's creating a new problem.",
     "description": "Business Insider surveyed dozens of founders to understand how coding has changed with AI. Speed is a double-edged sword because there is so much slop.",
@@ -1867,29 +1891,5 @@
     "thumbnail_url": "https://i.insider.com/6a062dd5ecd7cc1332bafda5?width=1200&format=jpeg",
     "created_at": "2026-05-15T02:06:14.896Z",
     "topic": "finance"
-  },
-  {
-    "slug": "perl-versus-java-the-moving-finger-2025",
-    "title": "Perl versus Java – The Moving Finger (2025)",
-    "description": "This article is an opinionated comparison between the Perl and Java programming languages.  Full disclosure: I am biased towards Perl as...",
-    "fullText": "Full disclosure: I am biased towards Perl as I have been programming in Perl since January 1995 and am a Perl veteran. While working as a Perl Programmer at Accenture Federal Services, writing applications to process veteran's benefits for the VA, I raised the question — Why Java? Why not Perl?\n\nIn this article, I try to be as objective as possible, using practical considerations and engineering trade-offs.\n\nThough I have contrasted Java specifically with Perl here, Ruby and Python could also stand in for Perl, as the same reasoning applies to those open source scripting languages.\n\nPlease remember to think for yourself, and do tell me what you think, so I may round out and balance the comparison. Let's make this article a useful technical resource for all.\n\nPerl helps the world at large, and is maintained in public by the community founded by Larry Wall.\n\nPerl became popular on its own merit, and gained wide commercial support later.\n\nJava was hyped by corporate interests, namely Sun Microsystems, IBM, and Oracle Corp.\n\nPerl is free of cost and requires no closed tools.\n\nJava requires fancy IDEs and heavy tooling which cost money.\n\nPerl ( like LISP, and some other languages of the time ) could run on multiple platforms, and had automatic memory management much before Java.\n\nJava was marketed as though “write once, run everywhere” and “automatic garbage collection” were new features it introduced.\n\nPerl is multi-paradigm, OOP optional, and fluid.\nPerl ( like C++, Ruby, Python, and Raku ) lets you mix and match programming paradigms to suit the solution you are building.\n\nJava is hung up on OOP, and therefore rigid.\nJava mono-maniacally got carried away with Object-Oriented Programming and Java programmers spend a whole lot of time and effort hammering everything in the problem-space into objects, before a solution can be built using only objects.\n\nPerl is DWIM ( do what I mean ).\n\nJava is tell-me-exactly-what-to-do-or-else.\n\nIn Perl, you get out of the car.\n\nIn Java, you have to disembark the 4-wheeled automotive vehicle that your physical body is currently occupying.\n\nPerl requires finesse, which comes from a love of learning, experimenting, and creating.\n\nJava was a commodity vocational skill for the masses.\n\nIn Perl, the variable name can be skipped.\nPerl knows you are referring to the default variable ( $_ ), so you need not spell it out by name.\n\nIn Java, variable names are so monstrously long, that you need multiple wide monitors side-by-side, to be able to read them.\nGerman programmers are used to long words, and are usually emotionally reserved, but Java variable names cause them to fall to their knees and weep incontrollably, before rising up with steely rage and resolve, swearing to take California and improve it with German engineering.\n\nPerl and Java are largely equivalent, especially for a domain like server-side web application development.\n\nErrors are directly proportional to the number of lines.\n\nComprehension is inversely proportional to the number of lines.\n\nPerl is for hackers ( think Jedi ).\n\nJava is for Business Application Developers ( think Stormtroopers ).\n\nPerl projects have low headcounts and therefore low management overheads.\n\nJava projects have huge headcounts and require a lot of management, further adding to the project complexity and cost.\n\nPerl lets you whip up a working application fast.\n\nJava projects take an order of magnitude more time to deliver.\n\nGiven two equivalent, correct programs, one in Perl and the other in Java,\n\nPerl is clearer, and more concise than Java.\n\nJava is faster than Perl, usually.\n\nPerl projects can be maintained long term, because the source code is public.\n\nJava projects are tied to one company – Oracle.\nWhen ( not if ) Oracle goes out of business, as closed source vendors do, Java projects will be jeopardized.\n\nGiven that the same project can be delivered much faster in Perl than in Java, the time-to-delivery factor far outweighs the runtime speed.\n\nThe cost of hardware keeps dropping, so the speed factor can easily be adjusted for, cost effectively.\n\nOverall, Perl comes out a clear winner.\n\nWith Perl, it is possible to deliver projects with a very small, skilled team, very rapidly, compared with Java.\n\nProjects developed in Perl can be maintained indefinitely as they are free of vendor lock-in, unlike Java.\n\nThis is just why Accenture Federal Services uses Java instead of Perl. They want a project that has a huge head count, lots of middle management, and a 10 year development deadline. It means a lot more money from the government.\n\nFurthermore, when Oracle shuts down, Accenture could go to the VA and ask for more money to rewrite the application in the latest closed source language.\n\nA handful of skilled Perl hackers could deliver the same project much faster, and do a better job of it. And the project need never be rewritten.\n\nWhy Java? Why not Perl?\nWhy Windows? Why not Debian Linux?\n\nThat would leave a lot more money to benefit Veterans directly, instead of lining Accenture executives pockets.\n\nIn fact, it makes sense to me to just crowdsource all the source repositories. Teach veterans about software, so they can help the VA spot bugs, while waiting for their benefits. Keeping all code out in the open, with the affected veterans watching, is a good way to stay honest. Publicly funded software should be...public.\n\nImagine teams of veterans battling bugs like Starship Troopers, learning new skills, getting paid, hanging out with a group of fellow veterans, doing work that matters to them, and whose requirements they understand well.\n\nAll work is licensed under Attribution-ShareAlike 4.0 International",
-    "readingTime": 5,
-    "keywords": [
-      "federal services",
-      "accenture federal",
-      "java variable",
-      "perl projects",
-      "why java why",
-      "in perl",
-      "veterans",
-      "money",
-      "management",
-      "maintained"
-    ],
-    "qualityScore": 1,
-    "link": "https://rant.li/ashwin/perl-versus-java",
-    "thumbnail_url": "https://i.postimg.cc/LXnHSVgG/hr-fancy-1-cropped.png",
-    "created_at": "2026-05-14T02:07:15.907Z",
-    "topic": "tech"
   }
 ]
