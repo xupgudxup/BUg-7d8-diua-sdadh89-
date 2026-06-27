@@ -1,5 +1,29 @@
 [
   {
+    "slug": "postgresql-zerodowntime-migration-onprem-to-aws-cloud",
+    "title": "PostgreSQL Zero-Downtime Migration: On-Prem to AWS Cloud",
+    "description": "Contribute to JoeyAlpha5/postgres-on-prem-aws-cloud-migration development by creating an account on GitHub.",
+    "fullText": "This project demonstrates a professional, zero-downtime homogeneous database migration from a local \"on-premise\" PostgreSQL database to AWS RDS.\n\nThe project demonstrates the process that AWS DMS runs \"under the hood\" when migrating a homogeneous database. Instead of relying on a managed service, this project manually implements PostgreSQL Native Logical Replication (Publication/Subscription) operating securely over a Site-to-Site IPsec VPN tunnel. It includes a Python script simulating live order traffic to prove that data continuously syncs during the migration process.\n\nSimulated using Docker, this environment contains the source PostgreSQL database, a pgAdmin dashboard, and a live Python application generating mock e-commerce transactions.\n\nProvisioned via Terraform, this environment features a secure VPC, private subnets, an RDS PostgreSQL instance, and a Virtual Private Gateway (VGW) ready to receive the VPN connection.\n\nThe strongSwan container establishes an IPsec tunnel to the AWS VGW, allowing the AWS RDS instance to securely reach back into the local Docker network and \n\nBefore provisioning the cloud, you need two critical IP addresses.\n\nOnce terraform apply finishes and everything is successfully provisioned on AWS, you can visualize your new cloud environment.\n\nUse Sunbird Insyte to automatically map all of your newly provisioned infrastructure. It will generate a clear overview of all your provisioned resources, giving you total visibility into your active cloud setup.\n\nAWS has generated the keys for your VPN tunnel, but your local Docker container needs them to establish the connection.\n\nEven with the tunnel \"Up,\" the pgAdmin and Postpres containers need a map to find AWS.\n\nFind VPN Container IP: docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' aws_ipsec_vpn\n\nAdd Route to pgadmin and local db containers so they know to send traffic destined for AWS: through the VPN tunnel:\n\nExecutue the migrations scripts in the scripts/ directory to run the data db migration.",
+    "readingTime": 2,
+    "keywords": [
+      "postgresql database",
+      "vpn tunnel",
+      "project demonstrates",
+      "homogeneous database",
+      "docker",
+      "provisioned",
+      "migration",
+      "environment",
+      "pgadmin",
+      "container"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://github.com/JoeyAlpha5/postgres-on-prem-aws-cloud-migration",
+    "thumbnail_url": "https://opengraph.githubassets.com/48af9fa9777f2ba7a756210fff2992ef7d08a1c8e630833639a093b29e1cf180/JoeyAlpha5/postgres-on-prem-aws-cloud-migration",
+    "created_at": "2026-06-27T19:03:28.974Z",
+    "topic": "tech"
+  },
+  {
     "slug": "forget-apple-amazon-just-made-ai-a-lot-more-expensive",
     "title": "Forget Apple. Amazon just made AI a lot more expensive.",
     "description": "Amazon Web Services is hiking AI cloud prices 20%. The company had already raised prices 15% in January.",
@@ -1785,22 +1809,5 @@
     "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/7ec7/live/6a0f52c0-4469-11f1-97e2-ede52d59c1ad.jpg",
     "created_at": "2026-04-30T08:02:55.780Z",
     "topic": "tech"
-  },
-  {
-    "slug": "microsoft-speeds-up-in-big-techs-data-center-spendoff",
-    "title": "Microsoft speeds up in Big Tech's data center spend-off",
-    "description": "Microsoft, Amazon, Google, and Meta ramp up AI spending. Microsoft plans $190 billion in capex.",
-    "fullText": "Microsoft, Amazon, Google, and Meta reported quarterly earnings on Wednesday.\n Big Tech is spending hundreds of billions in the AI race.\n Microsoft announced the most significant increase in capex spending.\n\n What drives AI investment increases?\n\n What are the risks of huge capex spending?\n\n What strategies help tech giants stay competitive?\n\n How do companies measure capex ROI?\n\n How does cloud growth impact spending?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "capex",
-      "microsoft",
-      "tech"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/big-tech-earnings-microsoft-ai-investment-capex-plan-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f28a0e402f8423cd99c378?width=1200&format=jpeg",
-    "created_at": "2026-04-30T01:56:24.117Z",
-    "topic": "finance"
   }
 ]
