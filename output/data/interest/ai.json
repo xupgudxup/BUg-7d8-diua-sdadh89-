@@ -1,5 +1,79 @@
 [
   {
+    "slug": "australian-rescue-team-uses-aipowered-drone-to-find-lost-hikers-video",
+    "title": "Australian rescue team uses AI-powered drone to find lost hikers – video",
+    "description": "Two men in their 20s were found within five hours thanks to an artificial intelligence-powered drone, which used thermal imaging to locate them. Two hikers veered off a walking track in Kosciuszko national park, New South Wales, on Tuesday, and were found about half a kilometre off the track. It was the first time the FRNSW drone’s AI detection system had been used to rescue missing...",
+    "fullText": "0:49Australian rescue team uses AI-powered drone to find lost hikers – videoTwo men in their 20s were found within five hours thanks to an artificial intelligence-powered drone, which used thermal imaging to locate them. Two hikers veered off a walking track in Kosciuszko national park, New South Wales, on Tuesday, and were found about half a kilometre off the track. It was the first time the FRNSW drone’s AI detection system had been used to rescue missing people\n\n Hikers lost in Kosciuszko national park rescued within five hours by AI drone\nExplore more on these topicsAustralia newsAI (artificial intelligence)New South Wales",
+    "readingTime": 1,
+    "keywords": [
+      "drone",
+      "hikers",
+      "rescue",
+      "within",
+      "hours",
+      "artificial",
+      "track",
+      "kosciuszko",
+      "park",
+      "south"
+    ],
+    "qualityScore": 0.25,
+    "link": "https://www.theguardian.com/australia-news/video/2026/jun/27/australian-rescue-team-uses-ai-powered-drone-to-find-lost-hikers-video",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/3752ed6a45e2ccc0b4c976fef12974cb7e048003/455_0_2104_1684/master/2104.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=1c373fb4c33f5e571f5ca5073a3a0888",
+    "created_at": "2026-06-27T13:07:57.707Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "why-llms-will-not-have-your-next-big-idea",
+    "title": "Why LLMs Will Not Have Your Next Big Idea",
+    "description": "After years of daily LLM use, I think we can draw a line: extraordinary tools for working within known territory, structurally unable to cross beyond it.",
+    "fullText": "I have been using LLMs daily for years now, mostly to code, but also for research, writing, and analysis. They are genuinely useful, sometimes spectacularly so. I have built tools, workflows, and entire coding pipelines around them. So this is not a “LLMs are bad” post. This is about something I have been thinking about for a while, and an enthusiastic youtube video about the LLM Wiki pattern got me thinking again about the drawbacks (besides the obvious benefits) and why I think that way of gathering and using data is not good enough for me.\n\nIn this post I will take you through two ideas: the first one is ‘LLMs can not create truly new ideas’ and the second is that ‘the simplification of information in an early stage leads to suboptimal results’. And the end conclusion is that, although we can do magnificent things with LLMs, this technique is not able to solve any real problems and will always result in mediocrity.\n\nNext-token prediction works by sampling from a distribution fitted over the training corpus. There is no reasoning faculty that could exceed what the text encodes. The model stores a very high-dimensional interpolation function over token sequences. It produces outputs for inputs not exactly in the training set (that is what makes it useful), but it interpolates within the convex hull of expressed human thought. It does not extrapolate beyond the manifold it was fitted to, and the model does not learn.\n\nWhat I here define as a good idea is a genuine breakthrough that is good because it violates the regularities the corpus taught. That is structurally outside the region the model can reach. To the model, the revolutionary idea and the incoherent error look the same: both are low-probability under the learned distribution. There is no mechanism to favour “low-probability because true-and-new” over “low-probability because wrong.”\n\nThe model’s only notion of “good” is “high-probability under the learned distribution,” which means “resembles what was already thought.” That is anti-correlated with genuine novelty almost by definition. The quality filter is filtering for conventionality, which explains why every LLM output feels competent but unsurprising. Ask any LLM to build you a web app and you will get React, Tailwind, and shadcn/ui. And only if you are an expert (or have a good general knowledge) you will spot the things it misses or simply fails on (your knowledge on that domain is then above medium).\n\nNow you could argue that there are a lot of good solutions in a LLM (including the novel ones we need to solve important issues like climate, energy and water management). And that they are simply buried in the vast knowledge of the LLM and need to be combined over different domains and then extracted. But if recombinational novelty could produce breakthroughs, the current reality would have surfaced them. We have the largest idea-discrimination experiment ever running right now, with millions of LLM instances running daily, with humans reading and judging. If LLMs would live up to their promise (the big breakthrough for humanity speech we have been hearing for a few years now): why do we not see those novel ideas showing up?\n\nThe result of those LLMs has a different character: a flood of interpolative novelty (restatements, syntheses, transfers of known methods to adjacent problems) and nothing on extrapolative novelty (fundamental breaks, genuinely new ideas). That bimodal signature is exactly what the mechanism predicts. Abundant where the manifold is dense (between known points), absent where it is not (beyond them).\n\nIf the good recombinations were reachable but merely unrecognised, millions of human discriminators sifting the output over years would have found them. They have not. The breakthroughs are not hidden in the output. They are simply not there.\n\nRecent research backs this up. Chakrabarty et al. (2025) found that LLM-generated ideas lead to homogenous outcomes across domains, and Tian et al. (2025) showed that aligned LLMs remain trapped in a “safe attractor basin” created during RLHF, limiting exploratory novelty even with strong creativity prompts. There is a counterpoint from Jiang et al. (2024) showing LLMs can combine existing concepts in ways rated more novel than ideas from NLP researchers, but that is combinatorial novelty (recombining known things), not extrapolative novelty (ideas that break the frame).\n\nThis connects to something I ran into while looking at Karpathy’s LLM Wiki pattern and rohitg00’s v2 extension. A wiki is basically a collection of datapoints (documents, website, databases etc) that can be connected based on theme or subject. This leads to a great overview of data on a subject with beautiful graphs that can help you understand interconnectedness of the data points. However most wikis fail here: they compile raw sources into a structured, interlinked knowledge graph at ingestion time, resulting in a more or less fixed but definitely 1 to low-dimensional description of connections. Before any question has been asked, before anything is known about what can safely be dropped, irreversible choices are made at the point of minimum information about what those choices should preserve. And the problem here is that an LLM makes those choices, easy but at the cost of massive information loss.\n\nThis is not just a gut feeling. Information theory has a name for it: the Data Processing Inequality. It says that processing data can only destroy information, never create it. If X goes through transformation T to produce Y, then Y cannot contain more information about the original source than X did. Every step in a pipeline can only lose or preserve, never gain. It is the same discipline as keeping the RAW file instead of the JPEG, or lazy evaluation in programming: defer the irreversible reduction until the moment you know what you actually need.\n\nThe wiki does the opposite. It flattens at ingestion, the earliest possible moment, when it has the least information about what any future question will require. When the target artifact is a node-edge graph, only graph-shaped information survives extraction. Argument structure, evidential weight, mechanism, scope conditions, the reasoning connecting premise to conclusion: gone. Not because the model failed, but because it succeeded at building exactly the thing it was aimed at, and that thing has no room for any of it. A wiki link (even a typed one like “refutes”) collapses a multi-dimensional relationship into a single undifferentiated connection. The real relationship between two claims has independent components: logical relation, evidential strength, domain, temporal validity. The graph has one slot.\n\nFor planning a holiday this does not matter, losing some nuance about hotel reviews may not be so important (and you can deliberately choose that this is not important). But for anything where the quality of reasoning matters (medical research, legal analysis, policy decisions, engineering trade-offs), early information loss is crippling. For example three pro-articles enter a pipeline; the compiled page reflects the pro-standpoint and see it as the base stance. Then a fourth article is added with a very strong point contra, that should weigh much heavier than the three pro documents with light evidence. The model has no faculty for evaluating that the fourth article’s methodology is stronger. Evidential weight and citation count are different quantities, and the system only has access to the latter. Worse, the three pro-articles arrived first, so they created the concept pages, set the framing, and named things. The dissenting source arrives into a wiki already shaped to express the opposite position. It gets architecturally demoted to a status of a light contra, basically a footnote, where it should dismiss the entire pro standpoint.\n\nAnd then it starts adding up: in a serial pipeline (entity extraction, graph building, contradiction resolution, consolidation), each step consumes the previous step’s output as ground truth. Chain a 95%-reliable step ten times and you end up with a reliability of 60% (0.95^10 –> 0.60). And on top of that these errors are correlated toward plausibility and majority framing, so the real number is worse. This is well-documented in cascading ML systems: Sculley et al. (2015) at Google showed that ML pipelines accumulate “technical debt” where each model’s errors become the next model’s training signal, creating feedback loops that are extremely hard to detect or debug. LLMs are slightly different but it is reasonable to state that they are not better at this.\n\nMaking it extra complicated if you are not a domain expert is that perceived reliability and actual reliability diverge in opposite directions as the pipeline grows. Each added step makes the surface richer, more complete-looking, more authoritative (more scores, typed edges, structure) while simultaneously multiplying against the reliability floor. The more elaborate the system, the more trustworthy it looks and the less trustworthy it (most likely) is.\n\nThe correct approach to choosing where to cut information density is as late and as informed as possible. The cut should be applied at the query, shaped by the query, discarding only what that specific question does not need.\n\nAnd this connects directly to the novelty problem. Every mechanism in these systems (confidence scoring, contradiction resolution, consolidation, forgetting curves) is tuned to suppress exactly the signature of genuine novelty: low support, high conflict, poor fit with existing structure. A good new idea is an anti-consensus object. The pipeline converts whatever novelty does appear into “noise to be cleaned up,” because it has no faculty to see it as anything else.\n\nSo we can define what we are actually dealing with: full competence within the convex hull of expressed human thought, zero reach outside it.\n\nThis has quite some implication: most practical work lives inside that hull: writing code, synthesising research, drafting documents, debugging, refactoring, transferring methods from one domain to an adjacent one. LLMs are quite good at all of this. I use them for it every day and they make me measurably more productive.\n\nBut “inside the hull” has a boundary, and everything interesting about the future of ideas happens at or beyond that boundary.\n\nThere is a way to frame this that makes the stakes clearer: the LLM is a nivellator. It pulls everyone toward the median of existing thought.\n\nIf you were below that median, you get lifted up. That is genuine value. I wrote about this before: the democratisation of capability is real and good. Someone who could not write code can now build a working application. Someone who could not write a decent email can now produce clear, professional communication.\n\nBut if you were above that median, or thinking orthogonally to it, the LLM pulls you down toward consensus. Your unusual angle gets smoothed into the conventional take. Your weird framing gets normalised. Your instinct that the consensus is wrong gets buried under a fluent, well-structured argument for why the consensus is right. The tool does not argue with you. It just quietly steers everything toward what the training data says is most likely.\n\nThe net effect is convergence toward the mean. The better the model gets, the stronger the pull. More people producing more competent work, all of it sounding increasingly alike. Ask five people to use an LLM to write a strategy document and you get five documents that could have been written by the same person.\n\nIf you are building systems on top of LLMs (and I am), be honest about what they can and cannot do. They are navigation tools for existing knowledge, not idea generators. Do not expect an LLM pipeline to surface the insight that changes your approach. It will give you a very competent synthesis of what is already known, and that is genuinely valuable, but it is a different thing.\n\nThe people who matter most here are the ones the LLM is worst at emulating: the imaginary thinkers, the artists, the scientists, the outliers, the stubborn contrarians who look at the consensus and say “but what if that is wrong.” People whose judgment is not a statistical shadow of what has already been thought, but a faculty that can value the unfamiliar as such. They were always important, and in a world where the median is increasingly automated, they are irreplaceable.\n\nSo hurray to the unconventional thinkers: the world needs you, so keep thinking those original thoughts.\n\nThinking about what LLMs can and cannot do for your team? Get in touch to compare notes.",
+    "readingTime": 11,
+    "keywords": [
+      "contradiction resolution",
+      "resolution consolidation",
+      "expressed human",
+      "learned distribution",
+      "evidential weight",
+      "convex hull",
+      "wiki pattern",
+      "extrapolative novelty",
+      "genuine novelty",
+      "ideas"
+    ],
+    "qualityScore": 1,
+    "link": "https://albertsikkema.com/ai/opinion/research/2026/06/24/why-llms-will-not-have-your-next-big-idea.html",
+    "thumbnail_url": "https://www.albertsikkema.com/assets/images/why-llms-will-not-have-your-next-big-idea-blog.png",
+    "created_at": "2026-06-27T13:07:56.857Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "microsofts-satya-nadella-says-every-company-should-build-its-own-ai-model",
+    "title": "Microsoft's Satya Nadella says every company should build its own AI model",
+    "description": "Satya Nadella said there should be \"as many models in the world as firms in the world\" and that reliance on a small set of models pose economic risks.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/satya-nadella-said-every-company-should-build-own-ai-model-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a3f1114e218c3b62535e2e9?width=1200&format=jpeg",
+    "created_at": "2026-06-27T13:07:55.814Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "i-tried-doordashs-new-ai-search-as-a-home-cook-this-feature-won-me-over",
+    "title": "I tried DoorDash's new AI search. As a home cook, this feature won me over.",
+    "description": "DoorDash's AI tool \"Ask DoorDash\" aims to simplify grocery shopping by allowing users to order ingredients from recipes.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/how-ask-doordash-ai-grocery-ordering-tool-works-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a3aa48640d09c7636327cab?width=1200&format=jpeg",
+    "created_at": "2026-06-27T13:07:55.560Z",
+    "topic": "finance"
+  },
+  {
     "slug": "join-agent-preregister-your-domain-free",
     "title": "Join .agent – Pre-Register Your Domain Free",
     "description": "Join the movement applying for a native .agent TLD for AI agents. Pre-register your name free and get priority access if the TLD is approved.",
@@ -1580,70 +1654,6 @@
     "link": "https://www.businessinsider.com/amazon-aws-ceo-matt-garman-white-collar-jobs-change-ai-2026-6",
     "thumbnail_url": "https://i.insider.com/6a3c0b72a25092c74cc9e4b8?width=1200&format=jpeg",
     "created_at": "2026-06-24T19:25:54.296Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "forget-chips-citrini-research-sees-hot-trades-in-planes-baby-boomers-and-soldout-stadiums",
-    "title": "Forget chips. Citrini Research sees hot trades in planes, Baby Boomers, and sold-out stadiums",
-    "description": "Citrini Research sees overcrowding in the AI trade, urging investors to look at \"small themes\" that are ripe for a rotation among investors.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/ai-trade-doomsday-report-citrini-ai-airlines-ual-tko-imax-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a3c15a8e218c3b62535c342?width=1200&format=jpeg",
-    "created_at": "2026-06-24T19:25:54.289Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "employees-arent-questioning-ai-advice-enough",
-    "title": "Employees Aren’t Questioning AI Advice Enough",
-    "description": "Many believe that making AI’s decision-making more transparent will help users of AI tools overcome potential biases in the tools’ thinking. But a new study found that people often avoid finding out “why” an AI made a decision when it threatens their comfort or incentives. In an online experiment with 2,512 participants acting as loan officers on real $10,000 requests, most sought AI’s assistance to determine applicants’ risk of defaulting on the loan, but fewer than half chose to view explanations about how risk assessments were determined. This was especially true when bonuses for participants depended on repayment or when they were told that explanations may include potential race- or gender-based bias. Explanations, when viewed, increased overrides of the AI.",
-    "fullText": "Employees Aren’t Questioning AI Advice Enough by Ben RandJune 24, 2026PostPostShareSavePrintSummary.   Many believe that making AI’s decision-making more transparent will help users of AI tools overcome potential biases in the tools’ thinking. But a new study found that people oftenmoreLeer en españolLer em portuguêsPostPostShareSavePrint",
-    "readingTime": 1,
-    "keywords": [
-      "tools"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://hbr.org/2026/06/employees-arent-questioning-ai-advice-enough",
-    "thumbnail_url": "/resources/images/article_assets/2026/06/Jun26_24_Dominika-Lipniewska.jpg",
-    "created_at": "2026-06-24T19:25:53.602Z",
-    "topic": "business"
-  },
-  {
-    "slug": "startup-founders-need-a-new-sales-playbook",
-    "title": "Startup Founders Need a New Sales Playbook",
-    "description": "Technology founders are trying to sell in markets that are far more crowded, skeptical, and fast-moving than the environments traditional sales playbooks were designed for. Drawing on interviews with more than 250 founders worldwide, we argue that many startups mistake customer curiosity for genuine buying intent, leading them to misdiagnose product-market fit, pursue overly broad markets, and hire sales teams prematurely. We propose a framework—we call it SPRINT—to help founders reduce buyer uncertainty by building credibility quickly, focusing narrowly, proving measurable outcomes, and creating trust in noisy AI-driven markets.",
-    "fullText": "Startup Founders Need a New Sales Playbook by Dave Rubinstein and Vincent OnyemahJune 24, 2026PostPostShareSavePrintSummary.   Technology founders are trying to sell in markets that are far more crowded, skeptical, and fast-moving than the environments traditional sales playbooks were designed for. Drawing on interviewsmoreLeer en españolLer em portuguêsPostPostShareSavePrintStarting a technology company in today’s world is fundamentally different from doing so a decade ago. Innovation cycles have accelerated and go-to-market execution has become more complex. Buyers are flooded with competing solutions, and founders face a level of skepticism and noise that traditional sales methodologies were not designed to address.",
-    "readingTime": 1,
-    "keywords": [
-      "traditional sales",
-      "founders",
-      "technology",
-      "designed"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://hbr.org/2026/06/startup-founders-need-a-new-sales-playbook",
-    "thumbnail_url": "/resources/images/article_assets/2026/06/Jun26_24_74180725.jpg",
-    "created_at": "2026-06-24T19:25:53.424Z",
-    "topic": "business"
-  },
-  {
-    "slug": "opella-growth-chief-on-using-ai-to-combat-health-misinformation",
-    "title": "Opella Growth Chief on Using AI to Combat Health Misinformation",
-    "description": "Opella chief growth officer Alberto Hernandez explains how the over-the-counter healthcare company uses artificial intelligence to counter inaccurate medical claims on social media. Hernandez details how the company increased its content creation output across six global studios to provide consumers with what he describes as scientifically credible self-care guidance.",
-    "fullText": "Opella Growth Chief on Using AI to Combat Health Misinformation WSJEDT Opella chief growth officer Alberto Hernandez explains how the over-the-counter healthcare company uses artificial intelligence to counter inaccurate medical claims on social media. Hernandez details how the company increased its content creation output across six global studios to provide consumers with what he describes as scientifically credible self-care guidance.",
-    "readingTime": 1,
-    "keywords": [
-      "opella",
-      "growth",
-      "chief",
-      "hernandez"
-    ],
-    "qualityScore": 0,
-    "link": "https://finance.yahoo.com/video/opella-growth-chief-using-ai-143200620.html",
-    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/EAC8D5D5341C71C32D33AAB89B5D5AEB67BDF712438144C1AE54E81B593236A2/subgraphmysterio/resizefill_w1200_h675;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fwall_street_journal_733%2Fd5a85911ba5655ee0e78e26a5370e389",
-    "created_at": "2026-06-24T19:25:51.071Z",
     "topic": "finance"
   }
 ]
