@@ -1,5 +1,18 @@
 [
   {
+    "slug": "stocks-adrift-oil-up-as-usiran-halt-renewed-attacks",
+    "title": "Stocks adrift, oil up as US-Iran halt renewed attacks",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/economy-news/stocks-adrift-oil-up-as-usiran-halt-renewed-attacks-4764197",
+    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM5S031_L.jpg",
+    "created_at": "2026-06-29T02:29:37.591Z",
+    "topic": "finance"
+  },
+  {
     "slug": "ukraines-drone-assault-ignites-major-russian-oil-refinery-as-putin-acknowledges-difficult-period",
     "title": "Ukraine's drone assault ignites major Russian oil refinery, as Putin acknowledges 'difficult period'",
     "description": "Ukraine kept up its heavy drone assault on Russia, setting fire to a major oil refinery in the south and killing at least two people, Russian authorities said Sunday, as President Vladimir Putin ackno...",
@@ -1837,29 +1850,5 @@
     "thumbnail_url": "https://i.insider.com/6a19b3382e5a80cfe0500b34?width=1200&format=jpeg",
     "created_at": "2026-06-10T20:10:29.916Z",
     "topic": "finance"
-  },
-  {
-    "slug": "stochastc-unit-commmitment-using-genetic-algorithm",
-    "title": "Stochastc Unit Commmitment Using Genetic Algorithm",
-    "description": "stochastic unit commitment - core energy simulation - bellpesce/succes",
-    "fullText": "Stochastic Unit Commitment for Core Energy Simulation — a power market\nsimulator for 15 European bidding zones that uses no MILP, no LP, no\ncommercial solver. Dispatch is found by a genetic algorithm; prices come from\npure merit order: the last dispatched unit sets the market clearing price.\n\nStatus: research code / show-and-tell. This is a working experiment, not\na production tool. It runs, it converges, it produces plausible January-2024\nprices for several zones and implausible ones for others — and it is honest\nabout which is which. See Limitations.\n\nA full run of the January 2024 example —\n\n— completes in ~17 minutes of solve time on a consumer desktop (8 Julia\nthreads). Zero scarcity hours. Startup costs land at 2.9% of total\nfuel+startup, inside the realistic 1–3% band for European markets.\n\nNot because MILP is bad — it's the industry standard for a reason, and it\ngives you optimality bounds this approach cannot. The trade is:\n\nA GA evaluates the actual nonconvex problem directly. CVaR objectives,\nper-scenario Bernoulli outages, nonlinear penalty structures, and\nmerit-order price formation are simply computed in the fitness function —\nnothing has to be linearised, no big-M constraints, no scenario decomposition\nmachinery. The cost is that you get a good solution with no certificate of\nhow good. For a market simulator validated against observed market\noutcomes (rather than a cost-minimisation tool), that trade seemed worth\nexploring. This repo is the exploration.\n\nWind and solar are handled as net-load pre-subtraction (\"Approach A\"):\ntheir output is computed deterministically from ERA5 capacity factors and\nsubtracted from gross demand, so the GA chromosome covers thermal + hydro\nonly. The chromosome is one fraction f ∈ [0,1] per free unit per hour;\nf > 0.10 means committed, f × max_cap is the dispatch target. Ramp\nconstraints are enforced hour-by-hour within each window.\n\nOutputs land next to the example: an interactive HTML report (prices,\ndispatch, flows, penalty breakdown per window) and a JSON with every number\nin it.\n\nThe repo ships the derived ERA5 capacity-factor profiles\n(data/era5_202401_profiles.npz, ~440 KB) so the example runs out of the\nbox. The raw ERA5 NetCDF files are not committed; data/era5_fetch.py\nre-downloads them with a free Copernicus CDS account if you want to build\nprofiles for other months.\n\nJanuary 2024 mean day-ahead prices, model vs. real (EUR/MWh):\n\nThe cluster of too-low zones shares one root cause: French nuclear is\nmodelled at ~39 GW where real January 2024 availability was 35–38 GW, and\nthe surplus exports suppress every CWE neighbour. It's a known, documented\ncalibration issue (one constant in the example file), deliberately left\nas-is for this release — the point of the repo is the method, not a\ncalibrated price forecast.\n\nRead these before quoting any number from this repo.\n\nThere's a CITATION.cff in the repo root — GitHub's \"Cite this repository\"\nbutton gives you BibTeX. If this code or its ideas end up in your work, a\nreference is all I ask.\n\nApache 2.0 — see LICENSE and NOTICE. Commercial use welcome; the NOTICE\nfile must travel with redistributions.",
-    "readingTime": 3,
-    "keywords": [
-      "market simulator",
-      "repo",
-      "january",
-      "zones",
-      "dispatch",
-      "european",
-      "milp",
-      "code",
-      "tool",
-      "land"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/bellpesce/succes",
-    "thumbnail_url": "https://opengraph.githubassets.com/f505ec87b67c406dce892cb27d29e510fc0bc08734d73c9218ead275f328d3ae/bellpesce/succes",
-    "created_at": "2026-06-10T20:10:28.576Z",
-    "topic": "tech"
   }
 ]
