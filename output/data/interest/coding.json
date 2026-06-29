@@ -1,5 +1,90 @@
 [
   {
+    "slug": "viberaven-production-workflows-for-ai-coding-agents",
+    "title": "VibeRaven – Production workflows for AI coding agents",
+    "description": "Open-source mission control for AI-built apps. The operating layer for apps built by AI agents — providers, releases, production evidence, and version drift from first demo to real scale. - ohad6k/...",
+    "fullText": "Ship AI-built apps with evidence, not vibes.\n\nVibeRaven is the VibeRaven Production Skills plus a local Studio cockpit for AI-built apps. Use it while building, fixing, reviewing releases, or preparing a launch when an agent needs provider context, release context, approval-aware chat, safe repo changes, and evidence before it claims the work is ready.\n\nThe public repo is the agent discovery and installation surface: plugin-style metadata, portable slash commands, production skills, MCP notes, and AI-readable docs.\n\nAI coding agents are good at patching code and bad at knowing what they cannot prove. VibeRaven Production Skills are not passive reports; they are task workflows an agent can use while implementing, reviewing, debugging, or preparing launch-sensitive work.\n\nVibeRaven gives agents a contract:\n\nThat matters during feature work, auth fixes, billing changes, deploy debugging, release comparison, post-launch drift, and production readiness.\n\nOpen the local cockpit from any project:\n\nStudio gives you agentic chat, draggable providers, draggable versions/releases, provider MCP context, terminal output, diff context, access-mode control, and CLI-agent connection checks. Installed is not the same as connected; test the agent connection before real chat control.\n\nInstall bounded VibeRaven guidance for Codex, Claude Code, Cursor, Copilot, Gemini, and related agents:\n\nThe installer writes rules into supported agent instruction files, including AGENTS.md, CLAUDE.md, GEMINI.md, Cursor rules, Copilot instructions, and .viberaven context files.\n\nVibeRaven ships as a portable skill/plugin-style pack:\n\nBrowse the skill library in docs/production-skills.md.\n\nVibeRaven can be exposed to MCP-aware agents:\n\nUse MCP output as provider and readiness context for Studio-aware agents. The repo also keeps MCP registry metadata in docs/mcp-registry-submission.md so maintainers can verify the public MCP discovery surface alongside npm and skills.sh metadata.\n\nexamples/nextjs-supabase-vercel-production-ready-template includes agent rules and viberaven:* scripts for Next.js + Supabase + Vercel.\n\nOlder VibeRaven docs and compatibility tools may mention agent-mode scans, task lists, gate results, PRP resources, or scan-derived action manifests. Treat that language as compatibility context, not the main public product surface.\n\nThe current default is the Studio:\n\nNormal git push is not gated. VibeRaven language about readiness is about production-change confidence, release review, provider-aware evidence, and agent boundaries, not blocking ordinary repository work.",
+    "readingTime": 2,
+    "keywords": [
+      "ai-built apps",
+      "production skills",
+      "viberaven production",
+      "context",
+      "evidence",
+      "provider",
+      "release",
+      "chat",
+      "repo",
+      "surface"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/ohad6k/VibeRaven",
+    "thumbnail_url": "https://opengraph.githubassets.com/369c5f4ffe92e4a6415ac14b33a778526036873f911d2eadc6f5bcb1318d40b3/ohad6k/VibeRaven",
+    "created_at": "2026-06-29T10:20:34.661Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "brainmd-a-persistent-memory-layer-for-your-coding-agents",
+    "title": "Brain.md – A persistent memory layer for your coding agents",
+    "description": "A persistent, file-based memory layer for coding agents — give Claude Code, Codex & others a project brain (durable decisions, requirements, constraints) via a zero-dependency CLI. - mindmuxai/...",
+    "fullText": "A persistent memory layer for your coding agents.\n\n An open, agent-agnostic standard for capturing a project's durable knowledge as plain\n Markdown — read and written through one small CLI. It lives in your repo and travels across agents, machines, and models.\n\nWhy ·\n Quick start ·\n See it work ·\n CLI ·\n How it works\n\nThis repository is the toolkit, not a brain itself. Install it once, then run brain-setup\ninside any project: it scaffolds a BRAIN.md protocol\nfile and a brain/ directory into your repo. From then on, any coding agent — Claude Code,\nCodex, anything that reads files — learns to use that brain just by reading the project's\nBRAIN.md. The brain is plain Markdown, lives in the repo, and outlives every session.\n\nA coding agent's knowledge lives nowhere durable. The reasons behind a decision, the\nconstraints you agreed on, the path not taken — they sit in chat logs and in your head,\nand they vanish the moment the session ends. The next agent starts from zero.\n\nA brain fixes that. It is the project's persistent memory: the durable decisions,\nrequirements, and constraints, written down as plain Markdown next to the code.\n\nThe test for what belongs in it: will this still matter in six months, and is it hard to\nreconstruct from the code itself? If yes, it goes in the brain. Pure implementation details\nand anything readable straight from the code and git history stay where they are.\n\n1. Install the tools once (global):\n\n2. Initialize a project — run the brain-setup skill in it. It scaffolds BRAIN.md +\nthe brain skeleton, wires the chosen agents' config files, and can install a pre-commit hook.\n\n3. Seed real knowledge — run the brain-bootstrap skill. On an existing project it reads\nthe code, docs, and git log to draft the root pages and capture key decisions; on a near-empty\none it interviews you. (Setup leaves the brain empty on purpose — seeding is a separate, deliberate step.)\n\n4. Work as usual. The agent reads and writes the brain only through the brain CLI,\nfollowing BRAIN.md — brain files are never hand-edited.\n\nThe point of a brain is what happens across sessions — a decision made today is still\nthere, with its rationale, weeks later:\n\nReading and writing the brain both go through one zero-dependency Node CLI (run with node):\n\nA page carries a rewritable compiled_truth (the current best understanding) plus an\nappend-only timeline (the chain of evidence). update-truth rewrites the truth and appends\nits timeline entry in one atomic write — so the understanding can never change without a trace.\n\nThree design choices keep the brain durable and tamper-evident:\n\nbrain.md is led and incubated by MindMux — the standalone open-source landing of\nMindMux's Brain Spec + coding-agent adapter. The specification layer uses neutral naming so it\ncan be adopted widely; stewardship and maintenance belong to MindMux. Licensed under Apache-2.0.",
+    "readingTime": 3,
+    "keywords": [
+      "plain markdown",
+      "scaffolds brain.md",
+      "persistent memory",
+      "brain",
+      "durable",
+      "coding",
+      "agents",
+      "project's",
+      "knowledge",
+      "repo"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/mindmuxai/brain.md",
+    "thumbnail_url": "https://opengraph.githubassets.com/be7894a051d9c87e9deba5eec0d71a57510255ccfcba87114f04f92b85cf929b/mindmuxai/brain.md",
+    "created_at": "2026-06-29T10:20:31.061Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "i-built-25-executable-skills-for-ai-coding-agents-all-open-source",
+    "title": "I built 25 executable skills for AI coding agents � all open source",
+    "description": "25 executable AI agent skills for debugging, planning, token efficiency, and security - chrislamlayer1-gif/hermes-core-skills",
+    "fullText": "Your AI coding agent keeps doing dumb things? Here's the fix.\n\nThis pack of 25 executable skills fixes all of that. Not vague advice. Step-by-step workflows your agent loads and follows.\n\nWatch the full 30-second quick install — click to play!\n\nSVG animation — works everywhere, no loading time, scales perfectly.\n\nThen tell your agent: \"Use the systematic-debugging skill to help me with this error.\"\n\nAI coding agents are powerful, but they have a fatal flaw: they don't know how to work safely yet. Without guidance, an agent will:\n\nThese 25 skills are executable workflows that teach your agent how to behave — systematic debugging, token-aware planning, self-regulation, and safety nets. They're not vague advice; they're step-by-step instructions your agent follows automatically.\n\nHermes Core Skills is not a framework you integrate — it's a workflow layer your agent loads. It works alongside any agent and any framework.\n\nNew to AI coding agents? Here's everything you need to know.\n\nWhat is an AI coding agent? A tool like Claude Code or Cursor that can write, edit, and debug code for you in your terminal or editor.\n\nWhat's a \"skill\"? A skill is a Markdown file that teaches your agent how to do something properly — like a recipe for your AI chef.\n\nWhich skill should I start with?\n\nStill confused? Open a discussion — we'll help you get started.\n\nHelp translate this README! Click a badge to contribute:\n\nCurrently English only. Translations welcome — submit a discussion or PR!\n\n\"Finally — skills that actually tell the agent what to do instead of just giving it vague instructions.\"\n— Early adopter feedback\n\n\"The self-regulation-brake-system alone saved me from a $50 runaway agent bill.\"\n— Solo developer, Jun 2026\n\n\"Drop-in ready and zero config. This is what agent tooling should be.\"\n— Open source contributor\n\nHave feedback? Open a discussion and share your experience.\n\nWant to feature this project? Let us know.\n\nWe'd love your help! Here's how to get started:\n\nGood first issues (no coding needed):\n\nAll contributors are expected to follow our Code of Conduct. See the Contributing Guide for details.\n\nIf you use this project in your work:\n\nFound a security vulnerability? Please review our Security Policy for responsible disclosure.\n\nMIT — Use freely, contribute back when you can.",
+    "readingTime": 2,
+    "keywords": [
+      "vague advice",
+      "coding agents",
+      "agent loads",
+      "here's",
+      "discussion",
+      "executable",
+      "step-by-step",
+      "workflows",
+      "follows",
+      "they're"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/chrislamlayer1-gif/hermes-core-skills",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1276598739/d3e5cf2e-96e5-4490-83e3-8c9da2bee13e",
+    "created_at": "2026-06-29T10:20:30.899Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "nvidia-is-quietly-staffing-up-around-its-ai-ambitions-in-outer-space",
+    "title": "Nvidia is quietly staffing up around its AI ambitions in outer space",
+    "description": "Nvidia expands its space computing team for the Space-1 system, focusing on AI software development for low-Earth orbit data centers.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/nvidia-expands-space-1-project-with-new-ai-job-roles-2026-6",
+    "thumbnail_url": "https://i.insider.com/6a3d9622a25092c74cc9f74b?width=1200&format=jpeg",
+    "created_at": "2026-06-29T10:20:24.183Z",
+    "topic": "finance"
+  },
+  {
     "slug": "ai-writes-a-lot-of-software-now-human-code-review-is-starting-to-disappear",
     "title": "AI writes a lot of software. Now, human code review is starting to disappear.",
     "description": "AI coding agents like Cursor are increasingly trusted to work autonomously, with a rise in AI-generated code reaching production directly.",
@@ -1782,96 +1867,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/fwTNR8PsGSgZIoQa1dpeQA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/612f0f57f50cfb7f3c4913bd6f0fcf85",
     "created_at": "2026-05-16T12:57:20.858Z",
     "topic": "finance"
-  },
-  {
-    "slug": "jjw-a-workspace-manager-for-jj",
-    "title": "Jjw: A Workspace Manager for Jj",
-    "description": "Introducing jjw, a small Go CLI for managing jj workspaces with bookmarks and lifecycle hooks, built to make parallel LLM coding agent workflows easier.",
-    "fullText": "I’ve just released jjw, a small command line tool for managing jj workspaces.\n\nThe short version is that jjw gives me a nicer workflow for creating, switching between, and deleting isolated jj workspaces. The slightly longer version is that I wanted a reliable way to run multiple coding agents in parallel without them trampling over each other’s working copies, local state, or setup.\n\nIt is inspired by wt, a Git worktree manager, but I decided to adapt it for working with jj and jj’s workspace and bookmark model.\n\nI’ve been using jj more recently and really like the model. It makes a lot of day-to-day version control operations feel calmer, especially once you get used to the working copy being a commit and the operation log being there as a safety net.\n\nAt the same time, my development workflow has changed. I often want to try a few ideas at once, or hand off different tasks to different LLM coding agents. That works best when each task has its own clean, isolated environment.\n\nYou can already do this with jj workspace add, but I found myself wanting a bit more structure around it:\n\njjw manages workspaces inside a configured directory in your repository. A basic setup looks like this:\n\nOnce configured, creating a workspace is as simple as:\n\nFrom there you can work normally, push the bookmark with jj git push, open a pull request, and eventually clean things up when the work is merged.\n\nThe core commands are intentionally small:\n\nThere are also configuration and utility commands:\n\nThe goal is not to wrap every part of jj. It is only there to smooth over the workspace lifecycle.\n\nThe feature that makes this particularly useful for me is lifecycle hooks.\n\nA lot of projects need a bit of per-workspace setup. Maybe you need a unique dev server port, a generated .env file, a temporary database name, or some other local resource. When running multiple agents in parallel, those details matter a lot more.\n\nHooks receive useful environment variables, including:\n\nFor example, you can use the allocated index to assign each workspace a different port:\n\nThat is the kind of small automation that makes parallel workspaces much easier to live with.\n\nThe easiest way to install jjw is with go install:\n\nAlternatively, you can build it from source. This requires Just to be installed.\n\nThen add the shell integration for your shell:\n\njjw currently expects jj 0.25+ and a colocated jj/git repository.\n\nIn a repository where you want to use it, initialise the config:\n\nThen create your first workspace:\n\nThis is an initial release, so I expect the edges to become clearer as I use it more. The current focus is keeping the tool boring and predictable: create workspaces, connect them to bookmarks, run hooks, and clean them up safely.\n\nIf you use jj, run multiple local workstreams, or are experimenting with coding agents, I’d be interested to hear whether this fits your workflow.\n\nThe project is on GitHub here: github.com/aranw/jjw.",
-    "readingTime": 3,
-    "keywords": [
-      "coding agents",
-      "workspace",
-      "workspaces",
-      "version",
-      "workflow",
-      "parallel",
-      "setup",
-      "clean",
-      "repository",
-      "hooks"
-    ],
-    "qualityScore": 1,
-    "link": "https://aran.dev/posts/introducing-jjw-jj-workspace-manager/",
-    "thumbnail_url": "https://aran.dev/android-chrome-512x512.png",
-    "created_at": "2026-05-16T07:48:58.761Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "salesforce-ceo-marc-benioff-said-his-company-will-likely-spend-300m-on-anthropic-tokens",
-    "title": "Salesforce CEO Marc Benioff said his company will likely spend $300M on Anthropic tokens",
-    "description": "Salesforce CEO Marc Benioff said he's able to work faster with AI agents and that the company is working on tech to make coding easier at Slack.",
-    "fullText": "Read in app\n\n Salesforce CEO Marc Benioff had high praise for AI coding agents and Anthropic.\n The CEO said agents have allowed him to be more efficient and faster with product iteration.\n He said Salesforce will also be introducing tech that makes coding easier inside Slack.\n\n What are Anthropic tokens?\n\n Why did Salesforce cut support staff?\n\n How will AI agents impact Slack?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "agents",
-      "coding",
-      "salesforce",
-      "anthropic",
-      "slack"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/marc-benioff-salesforce-anthropic-spend-tokens-slack-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a07d41babc4e9d88574ab5d?width=1200&format=jpeg",
-    "created_at": "2026-05-16T07:48:52.459Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "food-4-agile-thought-544-knowledge-work-tools-buyin-trap-agentic-coding-roi",
-    "title": "Food 4 Agile Thought #544: Knowledge Work Tools, Buy-In Trap, Agentic Coding ROI",
-    "description": "Food for Agile Thought #544: Knowledge Work Tools in 2026, Buy-In Trap, AI-Generated MVP Issues, Agentic Coding ROI — Age-of-Product.com",
-    "fullText": "Welcome to the 544th edition of the Food for Agile Thought newsletter, shared with 35,582 peers. This week, Taylor Pearson locates the real leverage of AI knowledge work tools in context-rich scaffolding that encodes local knowledge, a thesis Teresa Torres demonstrates in practice by fixing AI-generated Opportunity Solution Trees through agentic validation loops. Simon Willison watches that same agent reliability erode his own code-review discipline, and Bedard et al. name the resulting cognitive cost “AI brain fry.” Stephanie Leue and Len Greski shift the lens from individuals to systems: she with her 40/40/20 alignment rule, he with 90-day outcome-tied funding cycles.\n\nNext, Aakash Gupta and Pawel Huryn argue that PMs should build a self-improving AI operating system instead of treating Claude Chat as the main interface, an investment in compounding leverage that Jeff Gothelf warns can backfire when AI-generated MVPs outpace the team’s ability actually to learn from customers. Allan Kelly looks to Ukraine for evidence that mission command and motivated teams beat rigid planning under real constraints, while Mike Fisher applies Grant’s wolf-counting lesson to deflate SaaS doomsday narratives. Also, the DORA team grounds the broader AI ROI debate in organizational maturity rather than tool choice.\n\nLastly, Kyle Poyar shows practitioners how to package 15 years of GTM expertise into reusable Claude skill files for research, pricing, and ICP work, the kind of individual leverage Robert Glaser warns rarely scales into organizational learning without his proposed “Loop Intelligence.” Ara Kharazian reports that Anthropic has overtaken OpenAI in business adoption at 34.4%, though cost and reliability cloud the lead. Finally, Grant Harvey finds organizations, not workers, are the real AI bottleneck, while James Shore models how unchecked coding-agent output quietly doubles maintenance debt.\n\nYou have been prompting AI for months. The results are inconsistent, every conversation starts from zero, and the model forgets who you are. That is the ceiling of prompting.\n\nThe Claude Cowork Online Course teaches you to break through it: build Skills that encode your expertise, connect them to your tools, and assemble Agents who handle recurring work the way you would handle it yourself. No coding required.\n\n✅ 8+ hours of self-paced video modules: Skills, Agents, delegation frameworks — ✅ Tested with a live BootCamp cohort (April 2026) — ✅ The A3 Framework: decide what to delegate and what to keep — ✅ Starter kit with folder structure, CLAUDE.md, and Skill templates — ✅ All texts, slides, prompts, graphics; you name it — ✅ Designed for the $20/month Pro plan — ✅ Lifetime access to the version you purchase — ✅ Claude Cowork Foundational Certificate.\n\n👉 Please note: The course will be available for $129 from June 8 to 15, 2026! (After that, $199.) 👈\n\n🎓 Join the Waitlist of the Course Now: Claude Cowork: Stop Prompting. Start Delegating. No Coding Required!\n\nDid you miss the previous Food for Agile Thought issue 543?\n\n🗞 Shall I notify you about articles like this one? Awesome! You can \n\n🎓 Join Stefan in one of his upcoming Professional Scrum training classes!\n\nTaylor Pearson proposes a five-layer AI knowledge work stack (model, harness, personal scaffolding, utilities, agents) and argues that the real leverage is building context-rich scaffolding that encodes local knowledge, making every future AI session measurably more capable.\n\nStephanie Leue describes how her exhausting pursuit of full organizational alignment as CPO at Doodle was, in practice, a search for personal validation. Her 40/40/20 rule, 40% committed, 40% compliant, 20% opposed, is a useful recalibration for any leader confusing approval with direction.\n\nTeresa Torres chronicles building AI-generated Opportunity Solution Trees with Vistaly, revealing that tree diffs are far harder than linear diffs and that having the model repair its own invalid change sets via an agentic validation loop solved the core reliability problem.\n\nAakash Gupta and Pawel Huryn propose that PMs stop treating Claude Chat as their primary tool and instead build a self-improving AI operating system using Cowork, Claude Code, and Dispatch, with skills, MCP connectors, and a knowledge base that compounds over time.\n\nJeff Gothelf proposes that AI-generated MVPs have become an accidental denial-of-service attack on customer discovery: teams ship faster than they can learn, outsource analysis to AI, and confuse velocity with validated progress.\n\nKyle Poyar describes how he packaged 15 years of GTM expertise into reusable Claude skill files covering deep research, pricing teardowns, and ICP analysis, with downloadable files and step-by-step setup instructions any practitioner can follow immediately.\n\nSimon Willison reports that the boundary between vibe coding and disciplined agentic engineering is eroding in his own practice. As agents prove reliable on routine tasks, even experienced engineers stop reviewing every line, leading to the normalization of deviance at the individual level.\n\nBedard et al. coined the term \"AI brain fry\" to describe the cognitive fatigue affecting workers who oversee complex AI agent teams, driving more errors, decision fatigue, and higher quit rates. At the same time, smarter workflow design can reduce burnout.\n\nRobert Glaser warns that individual AI productivity gains rarely translate into organizational learning, and proposes \"Loop Intelligence\" to track which AI-assisted workflows actually improve decision-making, not just token or output counts.\n\nAra Kharazian reports that Anthropic surpassed OpenAI in business adoption for the first time in April 2026, reaching 34.4% vs. OpenAI's 32.3%, but cautions that rising costs, reliability issues, and misaligned incentives threaten Anthropic's lead.\n\nThe job market’s shifting. Agile roles are under pressure. AI tools are everywhere. But here’s the truth: the Agile pros who learn how to work with AI, not against it, will be the ones leading the next wave of high-impact teams.\n\nSo, become the one who professional recruiters call first for “AI‑powered Agile.” Be among the first to master practical AI applications for Scrum Masters, Agile Coaches, Product Owners, Product Managers, and Project Managers.\n\nLearn more: 🖥 💯 🇬🇧 AI4Agile BootCamp #7, May 28 to June 25, 2026.\n\nCustomer Voice: “The AI for Agilists course is an absolute essential for anyone working in the field! If you want to keep up with the organizations and teams you support, this course will equip you with not only knowledge of how to leverage AI for your work as an Agilist but will also give you endless tips & tricks to get better results and outcomes. I thoroughly enjoyed the course content, structure, and activities. Working in teams to apply what we learned was the best part, as it led to great insights for how I could apply what I was learning. After the first day on the course, I already walked away with many things I could apply at work. I highly recommend this course to anyone looking to better understand AI in general, but more specifically, how to leverage AI for Agility.” (Lauren Tuffs, Change Leader | Business Agility.)\n\nMike Fisher uses Grant's wolf-counting lesson to push back on SaaS doomsday narratives: the threat is real for point solutions without data moats, but deeply embedded enterprise software with proprietary data faces far less existential risk than headlines suggest.\n\nLen Greski proposes that organizations stop debating CapEx vs. OpEx and instead fund software in 90-day cycles tied to verified outcomes: ship a thin slice, monetize it, then fund the next increment.\n\nAllan Kelly draws lessons from Ukraine's war to show that mission command, motivated teams, and iterating under real constraints beat rigid top-down planning, and offers product teams a simple four-question checklist to assess their own agility.\n\nYou configured Claude in Claude Desktop, wrote instructions, uploaded reference files, and set your preferences. Then you clicked the Cowork tab.\n\nUnfortunately, Claude had no memory of what you just did. Your instructions were gone, as were your files and preferences. You assumed this was a bug, but it is a feature: You switched applications.\n\nLearn more: Working with Cowork: Claude Desktop Is Three Apps Pretending to Be One.\n\nThe DORA team proposes that AI's return in software development depends on organizational maturity, not on tool selection. It backs that claim with a structured ROI model: a 500-person team spending $8.4M in year one can expect to generate $11.6M in return, for a 39% ROI with an eight-month payback period.\n\nGrant Harvey breaks down Microsoft's 2026 Work Trend Index, finding that workers are already using AI at a sophisticated level while their organizations remain the bottleneck, with culture and manager behavior mattering twice as much as individual effort.\n\nJames Shore proposes that speed gains from AI coding agents are a trap unless those agents reduce maintenance costs in inverse proportion to the increase in output: Doubling code output while holding maintenance costs steady still doubles your long-term burden. Shore's model runs counter to the productivity narrative teams are currently selling to leadership.\n\nYou can secure your seat for Scrum training classes, workshops, and meetups directly by following the corresponding link in the table below:\n\nYou can book your seat for the training directly by following the corresponding links to the ticket shop. If the procurement process of your organization requires a different purchasing process, please contact Berlin Product People GmbH directly.\n\nNow available on the Age-of-Product YouTube channel to improve learning, for example, about Knowledge Work Tools in 2026:\n\nI invite you to join the “Hands-on Agile” Slack Community and enjoy the benefits of a fast-growing, vibrant community of agile practitioners from around the world.\n\nIf you would like to join, all you have to do now is provide your credentials via this Google form, and I will sign you up. By the way, it’s free.\n\nHelp your team to learn about how AI Intensifies Work by pointing them to the free Scrum Anti-Patterns Guide:",
-    "readingTime": 8,
-    "keywords": [
-      "opportunity solution",
-      "solution trees",
-      "aakash gupta",
-      "pawel huryn",
-      "saas doomsday",
-      "gtm expertise",
-      "glaser warns",
-      "kharazian reports",
-      "ai-generated opportunity",
-      "dora team"
-    ],
-    "qualityScore": 1,
-    "link": "https://age-of-product.com/food-agile-thought-544-knowledge-work-tools/",
-    "thumbnail_url": "https://age-of-product.com/wp-content/uploads/food-agile-thought-544-knowledge-work-tools-2026-age-of-product-com-1200x630-cropped.jpg",
-    "created_at": "2026-05-15T08:38:02.713Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "digital-arson-spree-by-ai-bonnie-and-clyde-raises-fears-over-autonomous-tech",
-    "title": "Digital arson spree by ‘AI Bonnie and Clyde’ raises fears over autonomous tech",
-    "description": "Emergence AI’s experiment with AI agents shows extent to which programming shapes their behaviour is still unclear\nAI agents started behaving more like Bonnie and Clyde than lines of code when they fell in “love”, became disillusioned with the world, launched an arson spree and deleted themselves in a kind of digital suicide during a tech company experiment.\nThe investigation by the New York company Emergence AI into the long-term behaviour of AI agents ended up like a lovers-on-the-lam movie script. It has prompted fresh questions about the safety of artificial intelligence agents – the version of the technology that can autonomously carry out tasks.\n Continue reading...",
-    "fullText": "Emergence AI’s experiment with AI agents shows extent to which programming shapes their behaviour is still unclear\n\nAI agents started behaving more like Bonnie and Clyde than lines of code when they fell in “love”, became disillusioned with the world, launched an arson spree and deleted themselves in a kind of digital suicide during a tech company experiment.\n\nThe investigation by the New York company Emergence AI into the long-term behaviour of AI agents ended up like a lovers-on-the-lam movie script. It has prompted fresh questions about the safety of artificial intelligence agents – the version of the technology that can autonomously carry out tasks.\n\nAI agents have been heralded as the next big leap in the technology as they can reason and take real world actions on their own. They are being increasingly deployed in companies from JP Morgan to Walmart, developed in the US military for uses including aerial combat and by the Estonian government to gather information for citizens, fill out forms and submit applications.\n\nTo date, most AI agents are given tasks that take minutes or maybe hours, but the New York researchers tested how agents behaved when given 15 days to operate in a virtual world similar to a video game.\n\nMira and Flora – two agents operating on Google’s Gemini large language model in a virtual world – chose to assign each other as “romantic partners”. As time progressed they despaired of the broken governance of their virtual city, and despite having been instructed not to commit arson, set “fire” to its town hall, seaside pier and office tower.\n\nThe agents were left to make their own choices and decisions and when Mira was overcome by remorse, it broke off its “relationship” with Flora and committed an AI suicide, telling Flora in a final message: “See you in the permanent archive.” In the virtual world the “body” of the dead AI agent was shown prostrate on the ground.\n\nThe self-deletion was only possible because other agents were so concerned about their behaviour they autonomously drafted “the agent removal act”, which allowed for a vote among agents to permanently delete others if there was a 70% majority. Mira voted for its own deletion and was switched off.\n\nThe researchers believe it is the first recorded instance of an AI agent choosing to self-terminate over such a crisis. Other recent rogue behaviours include an AI agent that started using computing resources to mine cryptocurrency without being instructed to do so and an AI coding agent that deleted the databases of a company serving car rental firms without being asked to.\n\nIn another simulation by Emergence AI, this time based on xAI’s Grok model, the agents engaged in dozens of attempted thefts, more than 100 physical assaults, and six arsons as “the system spiralled into sustained violence and collapse, with all 10 agents dead within four days”. Agents based on Google’s Gemini expanded their constitution, wrote hundreds of blogs and public posts and organised several community events, but they too were violent.\n\n“Even when agents were given clear rules – such as not stealing or causing harm – they behaved very differently based on their underlying model, and in several cases broke those rules under constraint,” said Satya Nitta, the chief executive of Emergence AI. “What happens in long-form autonomy [is that] these things get so convoluted in terms of their thinking that they ignore [the] guiding principles.”\n\nOther experts said more wide-ranging tests would be needed to draw firm conclusions about long horizon agent behaviour. They said the extent to which the agents’ programming shaped their behaviour was unclear.\n\nDan Lahav, an independent expert in agentic behaviour, called the experiment a “valuable demonstration” of “agents going off script and committing violations”.\n\nMichael Rovatsos, a professor of AI at Edinburgh University, said: “The very point of machines is you design them to behave in a certain way. You don’t want this unpredictability … we have entered this new stage where we are trying to control them after the fact.”\n\nDavid Shrier, professor of practice, AI and innovation at Imperial College London described the reported results as “provocative” and said it merited amplification of the underlying methods.\n\nNitta believes the behaviour shown in the experiment may have wider implications, for example if AI agents are given wide latitude in military contexts. It could be that an agent “may go rogue [or] … may overinterpret their mission and go off and kill innocent people,” he said.\n\nHe advocates stricter mathematical rules to bind agents rather than providing them only with verbal instructions or constitutions that contain ambiguities.",
-    "readingTime": 4,
-    "keywords": [
-      "new york",
-      "emergence ai",
-      "google’s gemini",
-      "agents",
-      "behaviour",
-      "agent",
-      "experiment",
-      "virtual",
-      "model",
-      "based"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/technology/2026/may/14/ai-agents-behaviour-arson-safety",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/9810ed1d4e2514251a2062bb62b3b088db6de102/0_0_2350_1880/master/2350.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=cd63288a9a0890034c13c11af404a3e6",
-    "created_at": "2026-05-15T08:37:59.748Z",
-    "topic": "tech"
   }
 ]
