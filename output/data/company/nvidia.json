@@ -1,5 +1,18 @@
 [
   {
+    "slug": "super-micro-office-raided-as-taiwan-expands-nvidia-chip-smuggling-probe",
+    "title": "Super Micro Office Raided as Taiwan Expands Nvidia Chip Smuggling Probe",
+    "description": "(Bloomberg) -- Super Micro Computer Inc.’s offices in Taiwan were raided by government authorities on Monday, widening an investigation into the alleged smuggling of Nvidia Corp. chips into China using the company’s servers, according to a person familiar with the situation. Most Read from BloombergTrump’s U-Turn on Iran Sanctions Would Unravel Decades of CurbsSupreme Court Leaves Trump’s Fed, Citizenship Gambits for LastUS and Iran Agree to Halt Attacking Each Other Ahead of TalksPrabowo Risks",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://finance.yahoo.com/technology/ai/articles/super-micro-office-raided-taiwan-175946955.html",
+    "thumbnail_url": "https://s.yimg.com/cv/apiv2/cv/apiv2/social/images/yahoo-finance-default-logo.png",
+    "created_at": "2026-06-30T02:13:11.809Z",
+    "topic": "finance"
+  },
+  {
     "slug": "nvidias-ai-chip-sales-in-china-stall-as-local-chipmakers-like-huawei-take-the-lead",
     "title": "Nvidia's AI chip sales in China stall, as local chipmakers like Huawei take the lead",
     "description": "In the race between the U.S. and China to develop artificial intelligence, the battle over hardware and computing power is heating up as Chinese companies like Huawei overtake global industry leaders like Nvidia in their home market.  Jensen Huang, the CEO of computer chip giant Nvidia, was mobbed by onlookers as he hit the streets for the “zhajiangmian” noodles while visiting Beijing during U.S.",
@@ -1677,29 +1690,5 @@
     "thumbnail_url": "https://i.insider.com/69e05e4c16ad6f0000dc5006?width=1200&format=jpeg",
     "created_at": "2026-04-16T07:18:27.325Z",
     "topic": "finance"
-  },
-  {
-    "slug": "nodejs-bindings-for-nvidia-cuvs-gpuaccelerated-vector-search",
-    "title": "Node.js bindings for Nvidia cuVS > GPU-accelerated vector search",
-    "description": "Opensource Node.js bindings for NVIDIA cuVS - GPU-accelerated vector search and clustering - 638Labs/cuvs-node",
-    "fullText": "Opensource Node.js bindings for NVIDIA cuVS - GPU-accelerated vector search and clustering.\n\nBuild, search, and serialize high-performance vector indexes directly from Node.js using NVIDIA GPUs.\n\nYou need a Linux machine with an NVIDIA GPU (A100, H100, or similar) and CUDA 12.x drivers. Cloud GPU instances from RunPod, Lambda, or similar providers work.\n\nThis installs conda, cuVS, builds the native addon, and runs the full test suite. Takes about 15-20 minutes on a fresh instance. On a previously configured instance, it skips what is already installed and goes straight to build and verify.\n\nWhen it finishes, you should see:\n\nIf you see that, everything is working.\n\nSetup is complete. To start working on the code, activate the environment:\n\nEdit code, then build and test:\n\nWhen ready to commit, deactivate conda first (conda conflicts with git's SSH):\n\nActivate the environment before running any examples (see Step 4).\n\nThis example builds a GPU-accelerated nearest neighbor index from 10,000 random vectors with 128 dimensions, searches it with 3 query vectors to find the 10 closest matches for each, then saves and reloads the index from disk.\n\nSee examples/basic.js for a runnable example. Run it with:\n\nWraps GPU handles, CUDA streams, and memory pools. Create one per process, reuse across operations, dispose when done.\n\nGPU-accelerated approximate nearest neighbor index using the CAGRA (Cuda Anns GRAph) algorithm. Graph-based; best general-purpose ANN on GPU.\n\nInverted-file index with flat (uncompressed) lists. Fast to build, exact distances within probed lists, higher memory than IVF-PQ.\n\nInverted-file index with product quantization. Lower memory than IVF-Flat, approximate distances via PQ codes, good for very large datasets.\n\nExact nearest neighbor search via brute-force pairwise distance. Ground-truth baseline and the right choice for small datasets.\n\nCPU-side HNSW graph, produced by converting a GPU-built CagraIndex. Build on GPU for speed, serve on CPU for cheap deployment.\n\nConda modifies library paths that can break git's SSH. Always deactivate conda before git operations:\n\nThen reactivate when you need to build or test again:",
-    "readingTime": 2,
-    "keywords": [
-      "git's ssh",
-      "inverted-file index",
-      "nearest neighbor",
-      "deactivate conda",
-      "gpu-accelerated",
-      "search",
-      "test",
-      "memory",
-      "cuvs",
-      "vector"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/638Labs/cuvs-node",
-    "thumbnail_url": "https://opengraph.githubassets.com/1d58cbb280b3cb65cc5bc39d1e39b74f1ad5ce4cdec17e17803170463e17925d/638Labs/cuvs-node",
-    "created_at": "2026-04-15T19:00:05.552Z",
-    "topic": "tech"
   }
 ]

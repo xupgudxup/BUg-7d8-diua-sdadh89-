@@ -1,5 +1,68 @@
 [
   {
+    "slug": "the-factorio-effect-the-agent-is-the-item-on-the-belt-not-the-machine",
+    "title": "The Factorio Effect: the agent is the item on the belt, not the machine",
+    "description": "Factorio trained a generation of engineers in the exact skill the AI software factory now demands. The agent is the item on the belt, not the machine.",
+    "fullText": "01 · The Game That Was Training\n\nThere is already a thing called the Factorio effect. Ask anyone who has lost a weekend to the game and they will tell you it is the compulsion, the just-one-more-belt loop that turns midnight into dawn, the way the factory crawls into your head and starts asking to grow while you are trying to sleep. That is the famous version. It is not the one I mean.\n\nThe version I mean is what the game was quietly doing to the people who played it. Factorio is a few hundred hours of training in a single discipline: how to run a system of autonomous producers that you do not personally operate. You do not place the iron on the belt by hand. You build the machine that does, and the machine that feeds that machine, and then you step back and supervise a thing that runs without you. You learn to think in throughput instead of tasks, in bottlenecks instead of effort, in blueprints instead of buildings. You learn that the factory is the unit of work, not the wrench.\n\nThat is the exact skill the AI software factory now demands, and almost nobody was taught it on purpose. The people picking up agent orchestration fastest are not the ones with the most LLM theory. They are the ones who already spent a year of evenings learning, in their hands, that you do not do the work, you build the thing that does the work, and then you keep the thing alive. The game was a flight simulator for a cockpit that had not been built yet. Now it has been built, and the simulator hours transfer.\n\nThe famous Factorio effect is the addiction. The real one is the training. A generation learned to supervise autonomous production for fun, years before the job existed.\n\nHere is the thing the game teaches that no amount of upfront thinking can replace. You cannot design the right factory from the armchair. You can sketch a plan, and the plan will be wrong, because the problems that matter do not show up on paper. They show up when the belts are running and something backs up two hundred tiles upstream for a reason you could not have predicted until you watched it happen.\n\nSo you build a first base. It is spaghetti. Everyone's first base is spaghetti, by law, not by failure. You learn what it teaches you, and then you do the thing that separates the people who get good from the people who stay stuck: you scrap it and start from zero, and the second base is cleaner because the first one taught you where the pain lives. Then you scrap that one too. I am on iteration seven of the real factory. Seven from-scratch rebuilds, each one carrying forward only the lessons, never the structure. That is not a confession. That is the mechanic.\n\nPlan to throw one away · Brooks, The Mythical Man-Month, 1975\n\n\"Plan to throw one away; you will, anyhow.\" The first system you build is the one you learn on. The second is the one that works, because the first showed you the shape of the problem you could not see before you built it. Fifty years before iteration seven, Brooks named the loop and told you to expect it. Factorio just turns it into a save file. The first base is supposed to be torn down. Keeping it out of sentiment is the actual failure, not the teardown.\n\nThis is why ground before you theorize is law and not a slogan. In Factorio there is a tech layer you genuinely cannot understand until you have played up to it. Read every wiki page on the late-game and it will still not be real to you, because the constraints of that tier only bite when your factory is large enough to feel them. The real factory is identical. The problems of running a hundred concurrent agents are not visible from the design of running ten. You play through to them, or you do not know them at all.\n\nThe first base is spaghetti by law. The right factory is not the one you designed. It is the seventh one, found by scrapping the first six.\n\nThis is the inversion that makes the metaphor more than a cute parallel, and it is where most people have the picture exactly backwards. The intuition is that the agent is the machine: the assembler standing on the factory floor, the thing that does the work. It is not. In a factory built right, the agent is the thing on the belt. It is the iron plate. It rides in, gets consumed at its station, and is dumped.\n\nThe durable machinery is something else entirely. It is the substrate: the dispatch primitive, the chain runner, the supervisors, the belts themselves. That layer is fixed, owned, and long-lived. The agents are not. An agent is spawned for one transformation, it does the one thing, it emits, and it dies. You do not keep it. You do not grow attached to it. You do not ask it to remember. It was a plate, and plates do not persist past the machine that consumes them.\n\nAnd this is the part the industry is killing itself over: that design is exactly what dissolves the context problem. An iron plate does not remember being ore. It carries no history of the furnace. The state does not live in the item being consumed, it lives in the artifact that rides the belt forward: the brief becomes code, the code becomes a review, the review becomes a merged PR, each one handed to a fresh consumable that transforms it and is thrown away. Nothing accumulates inside a worker because no worker lives long enough to accumulate. There is no drift, because there is nothing for drift to happen to. The whole industry is trying to give the plate a memory: longer context, vector stores, summarization, a scratchpad the worker reads back to itself. The factory builder does the opposite. Keep the plate moving. Let the belt carry the state.\n\nEveryone is trying to give the iron plate a memory. The factory builder keeps the plate moving and lets the belt carry the state.\n\nOnce you see the agent as an item, you can see that there are actually two kinds of thing moving across the floor, and they have opposite life spans. The agents are the disposable stream: consumed, dumped, gone, the cheap labor that exists for one transformation and never again. The artifacts are the other stream: the code, the briefs, the reviews, the merged work. Those persist. Those ride forward. Those are the point.\n\nAnd the artifacts do something the agents never could. They compound. In Factorio you do not mine iron to make iron. You mine iron to make the machines, and the machines make better machines, and eventually the factory is producing the components to build a second factory, and the second one is faster because the first one taught you the blueprint. The output loops back into capacity. That is the endgame of the game and it is the endgame of the real thing: a factory whose product is more and better factory.\n\nThis is why the continuous improvement is not a phase you finish. The artifacts that compound include the factory's own machinery: the doctrine, the supervisors, the blueprints. The system refactors itself with its own output. The agents that built this week's improvement are already dead. The improvement remains, on the belt, feeding the thing that builds next week's. Disposable labor, compounding capital. The workers are cattle and the artifacts are the herd that grows.\n\nThe agents are consumed and forgotten. The artifacts ride forward and compound. Disposable labor, compounding capital, and the factory's best product is more factory.\n\nWatch anyone play Factorio from start to finish and the most honest record of their progress is the zoom level. Hour one, the camera is down on the floor, and you are placing a single belt segment and a single inserter by hand, tile by tile. Hour two hundred, the camera is so far up that individual machines are invisible and you are moving entire districts at a time, reasoning about a city the size of a small country, and you have not personally placed a belt in days.\n\nYour altitude rises as the machine fills in beneath you. That is not a metaphor I am imposing on the game. It is the literal camera, and it tracks the literal change in what you are doing. You start as the worker placing the part. You end as the operator moving the blueprint. The work did not disappear. It moved below you, into the automation, and you moved up to where the leverage is.\n\nI have a name for this from before I had the Factorio frame for it: humans moving upchain. The agents move in below, into the implementation slot, and the human relocates above, to intent and structure and judgment. Factorio renders the whole shift as a camera move you can feel in your hands. The moment you stop placing belts and start stamping blueprints is the moment you moved upchain, and the game makes you feel exactly when it happens, because the zoom level changes and you never go back down.\n\nThe zoom level is the most honest record of progress. You start placing belts by hand. You end moving districts. The altitude rises as the machine fills in below.\n\nThe first time you solve smelting in Factorio, you sweat it. You agonize over the ratios, the belt lanes, the inserter placement. And then it works, and you select the whole thing, and it becomes a blueprint, and from that moment forward you never solve smelting again. You stamp it. Need ten times the throughput? Stamp it ten times. The hard-won unit becomes a tile you place without thinking, and your attention moves up to the next unsolved thing.\n\nThis is the same shape as the reusable core I described in The Capability Bus: solve the thing once, correctly, then turn it into something you instantiate instead of rebuild. The blueprint is the compiled unit. What changes between stampings is small and declarative, the inputs and the placement, while the internals stay fixed. You do not write twenty smelting arrays. You write one and stamp it twenty times, which is exactly the move from twenty hand-built integrations to one core and twenty manifests.\n\nThe self-similarity is the tell that you have built substrate and not a one-off. A blueprint that only works in the spot you first built it is not a blueprint, it is a building. A real one stamps anywhere, composes with copies of itself, and scales by repetition rather than by redesign. When your factory starts to look the same at every zoom level, the same pattern of pattern of pattern, that is not an accident of style. It is the proof that the unit was actually general, and generality is the thing you were trying to build the whole time.\n\nA blueprint that only works where you first built it is not a blueprint. It is a building. The real one stamps anywhere and scales by repetition, not redesign.\n\n07 · Find the Bottleneck or Optimize Nothing\n\nStrip Factorio down to its core and it is a single question repeated until you stop playing: where is the constraint right now, and what is it. Every productive hour in the game is spent finding the one belt that is starved, the one machine that is the wall, the single place where the whole line is waiting. You fix that, and the constraint moves somewhere else, and you go find it again. Optimize anything that is not the current bottleneck and you have done precise, satisfying, completely worthless work. The line is exactly as fast as its slowest point and not one item faster.\n\nThe Theory of Constraints · Goldratt, The Goal, 1984\n\nA system's throughput is set by its single binding constraint, and improving anything other than that constraint is motion without progress. Goldratt taught it as a business novel about saving a manufacturing plant by finding the one bottleneck and subordinating everything else to it. Factorio is that book rendered as a toy you cannot put down. The discipline ports straight to the agent factory: your throughput is gated by one thing right now, the credential pool or the review lane or the merge gate, and the work that matters is finding which, not optimizing the six that are already fast.\n\nAnd the stakes scale with the setting. That base is death world marathon: every recipe costs several times more, and the map is trying to kill you the entire time. On that setting a bottleneck is not an inefficiency, it is a cause of death. If ammo production is the constraint and you miss it, you do not lose throughput, you lose the wall, and then the base. It is why half the districts in the shot are military, a whole war economy whose only job is to buy time for the production economy to outgrow the threat. Goldratt in a boardroom is about quarterly numbers. Goldratt on death world is about whether you survive the next wave, and the real factory is closer to that than anyone likes to admit: a bottleneck in the part of the pipeline that keeps you safe is not a slowdown, it is an incident.\n\nAnd here is why the bottleneck obeys runtime proof beats repo text. You cannot find the constraint by reading the blueprint. The design looks balanced on paper, every ratio correct, and then you run it and the items pile up in a place the math said was fine, because reality had a detail the design did not. In the game you watch where the belt backs up. In the factory you read where the work backs up. Either way the constraint is discovered by running the thing, never by reasoning about it, and anyone optimizing from the diagram instead of the live floor is polishing a machine that was never the wall.\n\nThe line is exactly as fast as its slowest point. You find that point by running the factory, never by reading its blueprint.\n\nThe community has a phrase, half a joke and half a creed: the factory must grow. It is the thing you mutter when you should be asleep and instead you are extending the rail network one more time. And underneath the joke is the truest thing the game knows about the work, which is that the factory is never done. There is no win screen where you set down the wrench and the thing is finished. There is only the next constraint, the next blueprint, the next rebuild, the next zoom level out.\n\nThat is the honest shape of the real one too. Iteration seven is not the last iteration. There will be an eight, and it will tear down structure that took weeks to build, and that is correct, because the structure was never the asset. The lessons were the asset, and the artifacts that compound were the asset, and the practice of building, scrapping, and rebuilding at rising altitude was the asset. The factory is not a thing you complete. It is a thing you operate, and operating it well means it is always, by design, in the middle of becoming a better one.\n\nSo the two Factorio effects turn out to be the same effect seen from two distances. Up close it is the compulsion, the factory crawling into your head and asking to grow. Stepped back it is the training, the discipline of running autonomous production until it becomes the way you think. The game taught a generation to feel both, for fun, on nights and weekends, years before there was a factory worth the name to build. Now there is one, and the only surprising thing is how few people noticed they had already been to the school.\n\nThere is no win screen. The factory is not a project you finish. It is a practice you operate, always in the middle of becoming a better one.\n\nFactorio was right about how to build a factory before the industry needed to know.\n\nIt encoded the whole thing in mechanics, and the mechanics turned out to be right. A factory is played, not designed: you build the wrong one six times to find the seventh. The agent is the item on the belt, not the machine: consumed, dumped, carrying no state, which is the move that dissolves the context problem the rest of the field is still paying for. The artifacts compound while the workers are forgotten. The altitude rises as the automation fills in below. The unit that works gets stamped, not rebuilt. The constraint is found by running the line, never by reading it. And it is never finished, because the factory must grow.\n\nNone of that was on the box. It was just how the game worked, and how the game worked turned out to be how the real thing works, because a factory is a factory whether the items on the belt are iron plates or agents. The people who will build the real ones best are the ones who already have the hours in, and most of them do not yet know that the weekend they lost was the apprenticeship.",
+    "readingTime": 15,
+    "keywords": [
+      "disposable labor",
+      "factorio effect",
+      "compounding capital",
+      "stamps anywhere",
+      "honest record",
+      "altitude rises",
+      "solve smelting",
+      "ride forward",
+      "autonomous production",
+      "plate memory"
+    ],
+    "qualityScore": 1,
+    "link": "https://dangrafham.com/the-factorio-effect",
+    "thumbnail_url": "https://dangrafham.com/profile.png",
+    "created_at": "2026-06-30T02:13:12.561Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "china-manufacturing-pmi-grows-slightly-more-than-expected-in-june",
+    "title": "China manufacturing PMI grows slightly more than expected in June",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/economic-indicators/china-manufacturing-pmi-grows-slightly-more-than-expected-in-june-4766810",
+    "thumbnail_url": "https://i-invdn-com.investing.com/news/LYNXMPEBBF0W0_M.jpg",
+    "created_at": "2026-06-30T02:13:06.685Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "chinas-june-factory-activity-rises-to-503",
+    "title": "China’s June factory activity rises to 50.3",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/economy-news/chinas-june-factory-activity-rises-to-503-4766813",
+    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM5T04M_L.jpg",
+    "created_at": "2026-06-30T02:13:06.610Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "chinas-june-nonmanufacturing-pmi-rises-to-502",
+    "title": "China’s June non-manufacturing PMI rises to 50.2",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/economy-news/chinas-june-nonmanufacturing-pmi-rises-to-502-4766811",
+    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM5T04G_L.jpg",
+    "created_at": "2026-06-30T02:13:06.592Z",
+    "topic": "finance"
+  },
+  {
     "slug": "this-rural-maine-factory-made-100-million-covid-swabs-a-month-its-ceo-says-manufacturings-best-days-are-ahead",
     "title": "This rural Maine factory made 100 million COVID swabs a month. Its CEO says manufacturing’s best days are ahead",
     "description": "The CEO of Puritan Medical Products argues that on America's 250th birthday, manufacturing isn't declining — it's an underappreciated growth story.",
@@ -1767,86 +1830,5 @@
     "thumbnail_url": "https://s.yimg.com/os/en/motorsport_articles_445/1b8b4e5c99ceb8fa5cde68fbe2ac64e8",
     "created_at": "2026-03-28T18:26:57.013Z",
     "topic": "sports"
-  },
-  {
-    "slug": "fabio-di-giannantonio-in-advanced-talks-with-yamaha-over-2027-motogp-move",
-    "title": "Fabio Di Giannantonio in advanced talks with Yamaha over 2027 MotoGP move",
-    "description": "Yamaha closing in on signing Fabio Di Giannantonio Yamaha are close to finalising a deal with VR46 rider Fabio Di Giannantonio, as they move closer to confirming Jorge Martin’s expected teammate for the 2027 MotoGP season. The Iwata team are set to overhaul their factory line-up for 2027.",
-    "fullText": "Yamaha closing in on signing Fabio Di Giannantonio\n\nYamaha are close to finalising a deal with VR46 rider Fabio Di Giannantonio, as they move closer to confirming Jorge Martin’s expected teammate for the 2027 MotoGP season.\n\nThe Iwata team are set to overhaul their factory line-up for 2027. Alex Rins hasn’t been offered a new contract, and with Fabio Quartararo also departing at the end of his deal, big changes are on the horizon. Quartararo is widely expected to make the switch from Yamaha to Honda next year.\n\nQuartararo has been central to Yamaha’s project since he joined in 2021 and went on to win the championship that same year. But while he remained the only rider able to consistently get strong results from the M1, frustrations over Yamaha’s slow return to competitiveness eventually wore him down.\n\nFollowing his departure, Martin stepped up as Aprilia’s new team leader for 2026, taking over after Aleix Espargaro moved into a non-racing role within Ducati. Despite those responsibilities, it didn’t take long for Yamaha’s interest in Martin before reaching an agreement.\n\nYamaha’s interest in signing VR46 rider Di Giannantonio first emerged in February, after they saw Ducati star Francesco Bagnaia favour a transfer to Aprilia for 2027 because of their early issues with the V4 M1. Bagnaia backed out of joining Yamaha after watching them in testing.\n\nBut while Di Giannantonio was surprised by the initial reports of Yamaha’s interest, they are now understood to be in ‘advanced’ talks. That is according to Simon Patterson of The Race, who reports that Di Giannantonio is competing with Honda ace Luca Marini to join Yamaha.\n\nDi Giannantonio and Marini have emerged as Yamaha’s main targets to replace Rins on their second works bike next to Martin next season. They have no ‘ill will’ for Rins, but he has not been able to perform strongly enough with the M1 since he joined the Iwata squad in 2024.\n\nYamaha’s talks with Di Giannantonio are believed to be ‘fairly advanced’, as he weighs up an opportunity to join a factory team ahead of his works Ducati contract expiring. Ducati chose to keep Di Giannantonio at VR46 in the 2025 and 2026 seasons after signing his works deal.\n\nDi Giannantonio’s recent form aboard the Ducati GP26 with VR46 has likely helped him gain prominence in Yamaha’s plans. The 27-year-old enjoyed a double-podium performance last week with P2 in the Goiania Sprint and P3 in the Brazilian Grand Prix, as the top Ducati star.\n\nThe rostrum marked Di Giannantonio’s seventh career podium in MotoGP, and also his fifth over the past six rounds after finishing P2 in Australia and P3 in Valencia last term. Marini is yet to add to his two podiums since he left VR46 to replace Marquez at Honda back in 2024.\n\nJorge Martin’s only path to staying with Aprilia in 2027 is a step down to Trackhouse\n\nMaverick Vinales may be left without a 2027 MotoGP ride after KTM suspends deal\n\nAcosta leads United States GP FP1 as Marquez walks away from turn 10 crash",
-    "readingTime": 3,
-    "keywords": [
-      "ducati star",
-      "yamaha’s interest",
-      "di giannantonio",
-      "jorge martin’s",
-      "di giannantonio’s",
-      "deal",
-      "signing",
-      "rider",
-      "motogp",
-      "team"
-    ],
-    "qualityScore": 1,
-    "link": "https://sports.yahoo.com/articles/fabio-di-giannantonio-advanced-talks-122100353.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/hitc_articles_832/280faa6c63e9d3f82190b265db17a461",
-    "created_at": "2026-03-28T12:32:11.655Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "how-one-factory-supplies-nycs-corner-store-delis",
-    "title": "How one factory supplies NYC's corner store delis",
-    "description": "New York City bodegas face pressure from rising rents and competition.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/inside-the-bakery-where-nycs-bodegas-get-their-bread-2026-3",
-    "thumbnail_url": "https://i.insider.com/69c6cc4f445048b5f68bbc57?width=1200&format=jpeg",
-    "created_at": "2026-03-28T01:12:51.777Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ai-boom-accelerates-chinas-chip-industry-growth-as-demand-strains-supply-chain",
-    "title": "AI boom accelerates China's chip industry growth as demand strains supply chain",
-    "description": "China's chip industry is showing strong growth momentum as a global sprint to build AI infrastructure creates an explosion in demand, sparking higher capital spending and ‌capacity expansion as chipmakers race to keep up, executives said on Wednesday.  Growth in the industry \"is coming ‌faster than expected\" this year, Jerry Zhang, China sales head at Swiss semiconductor components firm VAT, told Reuters on the sidelines of Semicon ​China 2026 in Shanghai, one of the industry's largest annual gatherings.  As companies race to ramp up production, China's manufacturing capacity for chips made on mature 22nm to 40nm process nodes - used in cars, smartphones and electronics - is projected to reach 42% of global output by 2028, up from 37% in 2026, SEMI China President Lily Feng said.",
-    "fullText": "March 25 (Reuters) - China's chip industry is showing strong growth momentum as a global sprint to build AI infrastructure creates an explosion in demand, sparking higher capital spending and ‌capacity expansion as chipmakers race to keep up, executives said on Wednesday.\n\nGrowth in the industry \"is coming ‌faster than expected\" this year, Jerry Zhang, China sales head at Swiss semiconductor components firm VAT, told Reuters on the sidelines of Semicon ​China 2026 in Shanghai, one of the industry's largest annual gatherings.\n\nWhat role do foreign suppliers play in China's semiconductor supply chain?\n\nHow is China expanding its chip manufacturing capacity?\n\nHow fast is China's chip industry growing currently?\n\nWhat impact is AI having on semiconductor requirements?\n\nAs companies race to ramp up production, China's manufacturing capacity for chips made on mature 22nm to 40nm process nodes - used in cars, smartphones and electronics - is projected to reach 42% of global output by 2028, up from 37% in 2026, SEMI China President Lily Feng said.\n\nArtificial intelligence is also reshaping ⁠the broader semiconductor sector, increasing requirements for testing, packaging, and high-speed interconnects, as chips become more complex and performance-intensive.\n\n\"AI has significantly increased computing power requirements, and that in turn ⁠has raised the requirements for semiconductor testing,\" said Terry Feng, China sales director at U.S. chip testing firm Teradyne.\n\nThe impact is particularly visible in areas such as optical interconnects - a critical layer linking chips inside data centres - for which China ​is ​a major global supplier.\n\n\"Our order backlog is already booked out ​into next year,\" said Zhou Limin of Mycronic's ‌MRSI unit, which makes high-precision equipment used to assemble optical modules, a key component of optical interconnects.\n\nThe AI boom has also started to strain the semiconductor supply chain globally, particularly in raw materials and high-end components, as manufacturers struggle to keep up with rising demand.\n\nGiven the size and strength of its manufacturing industry, China is better placed than most to respond, according to executives and industry analysts.\n\n\"We are very optimistic about the memory (chip) cycle - ‌there will be large-scale capacity expansion,\" said Bai Yu, vice president ​at Suzhou Origins Materials Technology, which will begin construction of a ​new production base next month.\n\nThe company supplies ​materials used in manufacturing to top Chinese chipmakers including ChangXin Memory Technologies, Yangtze Memory Technologies ‌and Semiconductor Manufacturing International Corporation.\n\nFOREIGN SUPPLIERS STILL KEY ​PART OF CHIP SUPPLY CHAIN",
-    "readingTime": 3,
-    "keywords": [
-      "memory technologies",
-      "china sales",
-      "foreign suppliers",
-      "china's chip",
-      "supply chain",
-      "capacity expansion",
-      "optical interconnects",
-      "manufacturing capacity",
-      "semiconductor supply",
-      "chip industry"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://finance.yahoo.com/sectors/technology/articles/ai-boom-accelerates-chinas-chip-122047480.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/reuters-finance.com/1e2d1b4e741f0f3d0df637187ffb86b4",
-    "created_at": "2026-03-26T01:18:47.191Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "elon-musk-unveiled-more-on-his-moonshot-terafab-project-here-are-4-takeaways",
-    "title": "Elon Musk unveiled more on his moonshot Terafab project. Here are 4 takeaways.",
-    "description": "Elon Musk said his Terafab project, a joint Tesla and SpaceX chip manufacturing initiative, will be needed to unlock a terawatt of AI computing power.",
-    "fullText": "Elon Musk formally unveiled his ambitious chip manufacturing project called the Terafab.\n The project will be a joint venture between Tesla and SpaceX to make in-house chips.\n Musk said the goal is to produce a terawatt, or one million megawatts, of compute a year.\n\n What is the Terafab's major goal?\n\n What are the challenges of chip manufacturing?\n\n What is the significance of AI satellites?\n\n How do joint ventures benefit tech companies?\n\n Why focus on space-based compute?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "chip manufacturing",
-      "project",
-      "joint",
-      "goal",
-      "compute",
-      "musk"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/elon-musk-terafab-details-spacex-tesla-ai-satellites-terawatt-2026-3",
-    "thumbnail_url": "https://i.insider.com/69bf455158b5806618e7d1f1?width=1200&format=jpeg",
-    "created_at": "2026-03-22T06:38:17.672Z",
-    "topic": "finance"
   }
 ]
