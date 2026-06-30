@@ -1,5 +1,28 @@
 [
   {
+    "slug": "window-switcher-better-sameapp-window-switching-for-macos",
+    "title": "Window Switcher – Better same-app window switching for macOS",
+    "description": "Switch windows under the same app on macOS. Contribute to hanguokai/window-switcher development by creating an account on GitHub.",
+    "fullText": "A macOS utility for quickly switching between multiple windows of the currently active application.\n\nClick the ⌨️ icon in the menu bar:\n\nWindow Switcher requires macOS Accessibility permission to read and manage windows.\n\nThe first time you press the hotkey, the system will automatically show an authorization dialog. Click \"Open System Settings\" and enable the permission.\n\nYou can also trigger this manually via menu bar → Check Accessibility Permission.\n\nIf the hotkey doesn't respond or window switching doesn't work, try the following steps:\n\nThis project's source code is not publicly available. Software is distributed via Releases only.",
+    "readingTime": 1,
+    "keywords": [
+      "accessibility permission",
+      "menu bar",
+      "macos",
+      "switching",
+      "windows",
+      "hotkey",
+      "doesn't",
+      "window",
+      "system"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://github.com/hanguokai/window-switcher",
+    "thumbnail_url": "https://opengraph.githubassets.com/fea6f209c2f6d22ed078876041064d440991974d7257ff72b8d18f155b601374/hanguokai/window-switcher",
+    "created_at": "2026-06-30T08:55:29.726Z",
+    "topic": "tech"
+  },
+  {
     "slug": "fake-windows-highly-realistic-led-screens-that-simulates-sunlight-into-a-room",
     "title": "Fake Windows: highly realistic LED screens that simulates sunlight into a room",
     "description": "你敢信吗？有人靠卖假窗户赚了上千万。...",
@@ -2011,29 +2034,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/P9F63r2AVYB9_o8pIJbscQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/video.fbc.news.com/bcb66e9426d14fd0e9d13b545dbcdb44",
     "created_at": "2026-02-09T06:54:24.800Z",
     "topic": "news"
-  },
-  {
-    "slug": "winestaging-112-brings-more-patches-to-help-adobe-photoshop-on-linux",
-    "title": "Wine-Staging 11.2 Brings More Patches to Help Adobe Photoshop on Linux",
-    "description": "Building off Friday's release of Wine 11.2 is now Wine-Staging 11.2 as this experimental/testing version of Wine with hundreds of extra patches that have yet to be introduced in upstream proper for this open-source software enabling Windows games and applications on Linux",
-    "fullText": "Wine-Staging 11.2 Brings More Patches To Help Adobe Photoshop On Linux\n\nBuilding off Friday's release of Wine 11.2 is now Wine-Staging 11.2 as this experimental/testing version of Wine with hundreds of extra patches that have yet to be introduced in upstream proper for this open-source software enabling Windows games and applications on Linux. Notable in this bi-weekly update are more patches for continuing to improve the Adobe Photoshop installer support on Linux.\r\nRecently there were patches posted for getting the Adobe Photoshop 2025 installer working on Linux. The installer works with the patches and the app subsequently works too under Wine. Those patches have yet to be upstreamed but were merged into Wine-Staging 11.1. With Wine-Staging 11.2 are now more patches in this crusade for a nice Adobe Photoshop / Adobe Creative Cloud experience on Linux.\r\nWine-Staging 11.2 released this morning with more patches intended to help the Adobe software on Linux plus other software likely stands to benefit too. There is now an IXMLSerializer implementation for MSHTML and allowing embedded XML declarations inside elements for the xml2 code. This complements the earlier code in Wine-Staging 11.1 around MSHTML3 and MSXML3.\r\nThis Wine merge request is what's tracking these patches for working to get into the upstream Wine codebase.\r\nToday's Wine-Staging 11.2 release also pulls in the very latest VKD3D code as well as drops a number of outdated patches. In particular, patches that conflict with the PE/Unix split that will cause a number of patches to be rewritten. One of the dropped patches that may impact users is the removal of the \"NVCUDA\" CUDA support:\r\n\"While this patch set has known users, it has been disabled for quite some time due to the PE/Unix split. It would need to be rewritten effectively from scratch.\r\nTo make matters worse, at this point this can't even happen. nvcuda has some private undocumented interfaces that cannot simply be trivially passed through; they would require knowledge of the types in order to allow for wow64 translation, which would be a requirement for upstreaming.\r\nWe need coöperation from NVidia to get CUDA upstream. NVidia employees have been made aware of this problem, but so far the company has not provided us with the necessary documentation.\"\r\nOther dropped patches were already disabled for years or had other issues with the latest upstream code.\n\n Add A Comment",
-    "readingTime": 2,
-    "keywords": [
-      "pe/unix split",
-      "photoshop installer",
-      "dropped patches",
-      "adobe photoshop",
-      "upstream",
-      "code",
-      "software",
-      "wine-staging",
-      "release",
-      "mshtml"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.phoronix.com/news/Wine-Staging-11.2",
-    "thumbnail_url": "https://www.phoronix.net/image.php?id=2026&image=photoshop_2021_linux",
-    "created_at": "2026-02-08T12:26:31.842Z",
-    "topic": "tech"
   }
 ]
