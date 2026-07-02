@@ -1,5 +1,42 @@
 [
   {
+    "slug": "i-tasted-and-ranked-every-bagel-at-einstein-bros-bagels-turns-out-the-best-ones-are-sweet",
+    "title": "I tasted and ranked every bagel at Einstein Bros. Bagels. Turns out, the best ones are sweet.",
+    "description": "I taste-tested, reviewed, and ranked 22 of Einstein Bros' bagels, including everything and apple cinnamon. Here are the best and worst ones to order.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/review-einstein-bros-bagels-ranking-worst-to-best-photos",
+    "thumbnail_url": "https://i.insider.com/6a4678b12680585ce91a3d40?width=1200&format=jpeg",
+    "created_at": "2026-07-02T19:08:28.740Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "apple-is-changing-how-it-issues-security-updates-due-to-threats-from-ai",
+    "title": "Apple Is Changing How It Issues Security Updates Due to Threats From AI",
+    "description": "Apple's latest iOS update will make your device more secure.",
+    "fullText": "While the tech world's collective attention is currently fixed on iOS 27, Apple is still churning out updates to iOS 26. While we're not likely to get another feature-filled release in the \"26\" era, there will always be bugs and security flaws to squash whenever Apple or third-party researchers discover them. Case in point: On Monday, Apple dropped iOS 26.5.2, which includes fixes for 29 security vulnerabilities.\n\nMore interesting than what bugs these patches fix, however, is that the company didn't originally intend to release them yet. In fact, iOS 26.5.2 marks a stark change in how Apple rolls out security updates, in large part due to potential threats from new AI models.\n\niOS 26.5.2 wasn't always meant to be. Apple told Reuters earlier this week that these patches were actually meant for a future version of iOS—perhaps iOS 26.6—but the company is now changing how it handles security updates going forward, specifically due to the security threats of models like Anthropic's Claude Mythos. These models can easily detect security vulnerabilities in software earlier than human researchers, and, as such, Apple feels it necessary to release patches as soon as they're available. Traditionally, the company bundles security patches with its typical software updates, as opposed to other companies that separate security patches from feature updates. But as these new AI models spread, and the risk of bad actors discovering security vulnerabilities grows, Apple will now release new patches much sooner than it normally would.\n\nAs such, you should expect to see more updates appear on your Apple devices than in the past. I wouldn't be surprised to see iOS 26.5.3 hit the scene before an iOS 26.6, and Apple may release more \"iOS 26\" updates than usual before iOS 27 drops this fall. You should always update your devices whenever those updates become available, as the threat from AI security models really is significant.\n\nFirst, the good news: None of these vulnerabilities appears to be a \"zero-day.\" A zero-day is a security flaw that is publicly disclosed or actively exploited before the software developer has a chance to issue a patch. They're especially dangerous, since it gives hackers the advantage: They can attempt to find an exploit—or, worse, take advantage of that exploit—for as long as it takes the developer to issue an update, and for its user base to install it. Luckily, none of these flaws appear to qualify, meaning this isn't a mission-critical situation. Still, any unpatched security flaw is concerning, and now that these are disclosed, it's only a matter of time before someone figures out how to exploit them—especially when assisted by new AI models. As such, it's important to install iOS 26.5.2 as soon as possible.\n\nAccording to Apple's official security release notes, iOS 26.5.2 (and iPadOS 26.5.2) patches 29 security flaws. Many of the flaws have to do with how WebKit, Apple's engine that powers Safari, secures user data. You'll see some flaws that could expose sensitive data if the user processes malicious web content (e.g., if you click a fraudulent link), as well as one vulnerability that could leak sensitive data just by visiting a website, even if that site isn't necessarily malicious. Another patch handles a flaw that would let malicious websites process data outside of the \"sandbox,\" or the secure element that Apple keeps websites in so they don't venture into secure parts of iOS, while another patches a flaw that could steal clipboard data without your knowledge.\n\nYou'll find all 29 patches listed below, along with a description, the fix, and the CVE (Common Vulnerabilities and Exposures) number used to track them. Again, none of these flaws has a known active exploit.\n\nIOGPUFamily: An app may be able to cause unexpected system termination. A race condition was addressed with improved state handling. CVE-2026-43743: Lyutoon, Dun\n\nKernel: An app may be able to cause unexpected system termination or write kernel memory. The issue was addressed with improved input sanitization. CVE-2026-43724:\n\nKernel: An app may be able to leak sensitive kernel state. The issue was addressed with improved input sanitization. CVE-2026-43722.\n\nKernel: An app may be able to cause unexpected system termination or corrupt kernel memory. This issue was addressed with improved input validation. CVE-2026-39868.\n\nlibxslt: Processing maliciously crafted web content may lead to an unexpected process crash. A double free issue was addressed with improved memory management. CVE-2026-43706.\n\nlibxslt: Processing maliciously crafted web content may lead to an unexpected process crash. The issue was addressed with improved memory handling. CVE-2026-43703.\n\nWeb Extensions: A malicious web extension may be able to cause an unexpected process crash. A use-after-free issue was addressed with improved memory management. CVE-2026-43704.\n\nWebKit: Processing maliciously crafted web content may disclose sensitive user information. A cross-origin issue was addressed with improved tracking of security origins. CVE-2026-43700.\n\nWebKit: A malicious website may exfiltrate data cross-origin. The issue was addressed with improved checks. CVE-2026-43735.\n\nWebKit: Processing maliciously crafted web content may lead to an unexpected process crash. A use-after-free issue was addressed with improved memory management. CVE-2026-43734/CVE-2026-43726/CVE-2026-43709/CVE-2026-43699/CVE-2026-43742.\n\nWebKit: Processing maliciously crafted web content may disclose sensitive user information. A path handling issue was addressed with improved validation. CVE-2026-43732.\n\nWebKit: Processing maliciously crafted web content may lead to memory corruption. A use-after-free issue was addressed with improved memory management. CVE-2026-43731/CVE-2026-43715.\n\nWebKit: Processing maliciously crafted web content may lead to an unexpected Safari crash. A use-after-free issue was addressed with improved memory management. CVE-2026-43727.\n\nWebKit: A malicious website may be able to process restricted web content outside the sandbox. The issue was addressed with improved input validation. CVE-2026-43725.\n\nWebKit: Processing maliciously crafted web content may lead to an unexpected process crash. The issue was addressed with improved memory handling. CVE-2026-43663/CVE-2026-39872/CVE-2026-43712.\n\nWebKit: Processing maliciously crafted web content may lead to an unexpected Safari crash. The issue was addressed with improved memory handling. CVE-2026-43716.\n\nWebKit: Processing maliciously crafted web content may lead to an unexpected Safari crash. An out-of-bounds access issue was addressed with improved bounds checking. CVE-2026-43676.\n\nWebKit: Processing maliciously crafted web content may result in the disclosure of process memory. The issue was addressed with improved memory handling. CVE-2026-43740.\n\nWebKit: Visiting a website may leak sensitive data. A permissions issue was addressed with additional restrictions. CVE-2026-43713.\n\nWebKit: A malicious website may exfiltrate data cross-origin. The issue was addressed with improved input validation. CVE-2026-43708.\n\nWebKit: Processing maliciously crafted web content may lead to an unexpected process crash. A memory corruption issue was addressed with improved memory handling. CVE-2026-43707.\n\nWebKit: Processing maliciously crafted web content may lead to memory corruption. A type confusion issue was addressed with improved checks. CVE-2026-43705.\n\nWebKit: A malicious website may be able to process restricted web content outside the sandbox. The issue was addressed with improved checks. CVE-2026-43701.\n\nWebKit: Processing maliciously crafted web content may lead to an unexpected Safari crash. An out-of-bounds write issue was addressed with improved input validation. CVE-2026-43745.\n\nWebKit Canvas: Processing maliciously crafted web content may lead to an unexpected Safari crash. A use-after-free issue was addressed with improved memory management. CVE-2026-43720.\n\nWebKit Storage: A malicious website may be able to silently hijack clipboard data. This issue was addressed through improved state management. CVE-2026-43721.\n\nWebRTC: Processing maliciously crafted web content may lead to an unexpected process crash. An out-of-bounds access issue was addressed with improved bounds checking. CVE-2026-28979.\n\nWebRTC: Processing maliciously crafted web content may lead to an unexpected Safari crash. A stack overflow was addressed with improved input validation. CVE-2026-43718.\n\nWebRTC: Processing maliciously crafted web content may lead to an unexpected Safari crash. A use-after-free issue was addressed with improved memory management. CVE-2026-43717/CVE-2026-43746.\n\nInstalling this security patch is the same as any other iOS update. If you have Automatic Updates enabled, the OS should update on its own in due time. However, you can manually kick-start the process by heading to General > Software Update and following the on-screen instructions.",
+    "readingTime": 7,
+    "keywords": [
+      "cve webkit processing",
+      "safari crash",
+      "bounds checking",
+      "libxslt processing",
+      "processing maliciously",
+      "webrtc processing",
+      "unexpected safari",
+      "system termination",
+      "out-of-bounds access",
+      "sanitization cve"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/apple-issuing-more-security-updates-due-to-ai-threats?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KWAFZSFYGGG5QVB0EF66YRR0/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-07-02T19:08:27.214Z",
+    "topic": "tech"
+  },
+  {
     "slug": "10-hacks-every-apple-home-user-should-know",
     "title": "10 Hacks Every Apple Home User Should Know",
     "description": "Get the most out of Apple's smart home automations.",
@@ -1946,53 +1983,5 @@
     "thumbnail_url": "https://i.insider.com/6a10b547b1025a62a5c8660d?width=1200&format=jpeg",
     "created_at": "2026-05-24T08:15:50.688Z",
     "topic": "finance"
-  },
-  {
-    "slug": "apple-cofounder-steve-wozniak-got-cheers-not-boos-after-telling-students-they-all-have-ai-actual-intelligence",
-    "title": "Apple cofounder Steve Wozniak got cheers, not boos, after telling students they 'all have AI — actual intelligence'",
-    "description": "Apple cofounder Steve Wozniak's speech about AI at Grand Valley State University earlier this month got a laugh and applause from graduates.",
-    "fullText": "Steve Wozniak gave a commencement speech at Grand Valley State University earlier this month.\n\nHe was cheered after telling students they had AI, or \"actual intelligence.\"\n\nStudents have booed some other execs who championed AI during their graduation speeches.\n\nSteve Wozniak did what other college graduation commencement speakers couldn't this year: earn applause when talking about AI.\n\nThe Apple cofounder took the stage during Grand Valley State University's graduation ceremony earlier this month. During his speech, Wozniak offered reassurance to new graduates who are entering the workforce at the height of the AI revolution.\n\n\"You have AI — actual intelligence,\" Wozniak said.\n\nThe remark garnered laughs and applause from the audience.\n\n\"It would take too long to go deeply into what I think about AI, but we've been trying to create a brain,\" Wozniak said. \"Is there a way we can duplicate a routine a trillion times and have it work like a brain? AI is one of those attempts.\"\n\nWhile Wozniak delivered his speech without interruption, the same can't be said of some other AI-forward commencement speakers. In the weeks that followed, former Google CEO Eric Schmidt and real estate executive Gloria Caulfield were both booed for their comments about AI at two separate graduate ceremonies.\n\nAI is looming over new graduates as they enter the job market. The tech is changing the landscape, from the skills candidates need to how companies assess them. Its ability to automate many tasks has led some companies to conduct AI-related layoffs.\n\nDuring his commencement address, Wozniak reflected on working at Apple and offered students some advice as they begin their careers.\n\n\"You should always try to think different,\" he said. \"Don't follow the same steps as a million other people. Think, is there something I can do a little different?\"\n\nIf you enjoyed this story, be sure to follow Business Insider on Yahoo.",
-    "readingTime": 2,
-    "keywords": [
-      "grand valley",
-      "actual intelligence",
-      "commencement speakers",
-      "steve wozniak",
-      "speech",
-      "students",
-      "graduation",
-      "earlier",
-      "booed",
-      "applause"
-    ],
-    "qualityScore": 0.95,
-    "link": "https://www.yahoo.com/news/science/articles/apple-cofounder-steve-wozniak-got-183942097.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/7Ig6qUKNAgjNWEVs8UvxEw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/business_insider_consolidated_articles_886/396370a7d79b467242c2c39ba6e75022",
-    "created_at": "2026-05-22T08:47:48.193Z",
-    "topic": "science"
-  },
-  {
-    "slug": "cavaliers-vs-knicks-live-box-score-full-stats-from-nba-playoffs-eastern-conference-finals-game-2",
-    "title": "Cavaliers vs. Knicks live box score: Full stats from NBA Playoffs Eastern Conference Finals Game 2",
-    "description": "The Big Apple is on fire with New York in position to take a 2-0 lead.",
-    "fullText": "Cavaliers vs. Knicks live box score: Full stats from NBA Playoffs Eastern Conference Finals Game 2 originally appeared on The Sporting News. Add The Sporting News as a Preferred Source by clicking here.\n\nThe Cleveland Cavaliers come into Game 2 under pressure. After suffering a 115-104 overtime loss on Tuesday night, there's no room for error. The New York Knicks are the team to beat in the East and proved it once again.\n\nJalen Brunson had 38 points for the Knicks in Game 1. Donovan Mitchell led the Cavaliers with 29. Cleveland's offensive spark has been Mitchell, who averages 27.9 points and 4.5 rebounds per game this season.\n\nTip-off from Madison Square Garden will be at 8 p.m. ET on ESPN.\n\nNBA PLAYOFFS HQ: Live scores | Full schedule | Updated bracket\n\nNEW YORK KEEPS FIGHTING 🗽\n\nComing off their HISTORIC 22-point rally in Game 1, the Knicks now have FOUR 20+ point comeback wins over the last two Playoffs!\n\nRecord when trailing by 20+ in the last 2 postseasons:\n\nKnicks: 4-3\nRest of NBA: 4-67 pic.twitter.com/hFyhGbYfol\n\nSan Antonio has best NBA Playoff win since 1983\n\n10,170 days: Spurs vs. Thunder Western Conference Finals is a generational NBA Playoff series\n\nSpurs vs. Thunder: 2026 NBA Western Conference Finals schedule announced\n\nFull stats from NBA Playoffs Western Conference Finals Game 1\n\nSpurs vs. Thunder final score, results: Victor Wembanyama goes off with 41 points, 24 rebounds in 2OT thriller",
-    "readingTime": 2,
-    "keywords": [
-      "conference finals",
-      "western conference",
-      "nba playoffs",
-      "finals game",
-      "nba playoff",
-      "points",
-      "spurs",
-      "score",
-      "stats",
-      "sporting"
-    ],
-    "qualityScore": 0.95,
-    "link": "https://sports.yahoo.com/articles/cavaliers-vs-knicks-live-box-232840211.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/the_sporting_news_articles_584/3b5dccac0186e28523e909e480c2960d",
-    "created_at": "2026-05-22T02:12:24.682Z",
-    "topic": "sports"
   }
 ]
