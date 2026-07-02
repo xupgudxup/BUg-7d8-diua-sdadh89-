@@ -1,5 +1,29 @@
 [
   {
+    "slug": "memsignal-an-experimental-memorypressure-indicator-for-windows",
+    "title": "MemSignal – an experimental memory-pressure indicator for Windows",
+    "description": "An experimental memory-pressure signal for Windows - riccardoruspoli/MemSignal",
+    "fullText": "An experimental memory-pressure signal for Windows.\n\nMemSignal is a small project built out of curiosity, inspired by the concept of memory pressure in macOS: high RAM usage does not always mean that a system is under pressure, so could Windows expose a more useful signal at a glance?\n\nMemSignal combines several Windows memory metrics into an approximate memory-pressure estimate and keeps the current state visible in the system tray.\n\nWindows x64 executables are available on the Releases page:\n\nThe executables are currently unsigned, so Microsoft Defender SmartScreen may show a warning.\n\nMemSignal considers committed memory, available physical memory, paging activity, hard page reads, and pagefile usage when available. It reports an estimated pressure percentage together with a Normal, Warning, or Critical state.\n\nThe Details panel exposes the values behind the estimate.\n\nEach available metric is normalized to a value between 0 and 1, where higher values indicate greater pressure. The normalized values are combined using fixed weights, then smoothed over time to reduce short-lived jumps.\n\nThe final value is displayed as a percentage from 0% to 100%. This percentage is a normalized score, not the amount of RAM in use or a probability that the system will run out of memory.\n\nMemSignal is an experimental personal project for Windows x64. It has currently been tested on one Windows 11 system with 16 GB of RAM and a system-managed pagefile. Behavior on other Windows versions and hardware configurations has not yet been validated.\n\nMemSignal reads aggregate memory metrics locally through Windows APIs. It does not collect data or transmit it over the network.\n\nClosing or minimizing the window keeps MemSignal running in the system tray. A notification explains this the first time it happens. To stop the application, use Exit from the tray menu.\n\nMemSignal is available under the MIT License.",
+    "readingTime": 2,
+    "keywords": [
+      "memory metrics",
+      "system tray",
+      "pressure",
+      "percentage",
+      "normalized",
+      "windows",
+      "memsignal",
+      "experimental",
+      "memory-pressure",
+      "project"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://github.com/riccardoruspoli/MemSignal",
+    "thumbnail_url": "https://opengraph.githubassets.com/2de5f0a23b414d04d5cab1b986fe549c874bb4f8cc3e83bebc0a230f37daf045/riccardoruspoli/MemSignal",
+    "created_at": "2026-07-02T13:28:38.535Z",
+    "topic": "tech"
+  },
+  {
     "slug": "window-switcher-better-sameapp-window-switching-for-macos",
     "title": "Window Switcher – Better same-app window switching for macOS",
     "description": "Switch windows under the same app on macOS. Contribute to hanguokai/window-switcher development by creating an account on GitHub.",
@@ -2013,26 +2037,5 @@
     "thumbnail_url": "https://blogs.windows.com/wp-content/uploads/sites/2/2026/02/CLO25b-Developer-WorkAnywhere-1920.jpg",
     "created_at": "2026-02-12T12:39:45.736Z",
     "topic": "tech"
-  },
-  {
-    "slug": "light-flashes-silhouette-of-a-police-officer-seen-in-windows-of-annie-guthries-home",
-    "title": "Light flashes, silhouette of a police officer seen in windows of Annie Guthrie's home",
-    "description": "Fox News Digital captured video of photography lights flashing inside a window at Annie Guthrie's home as the silhouette of a police officer could be seen in a different window at the house on Saturda...",
-    "fullText": "Fox News Digital captured video of photography lights flashing inside a window at Annie Guthrie's home as the silhouette of a police officer could be seen in a different window at the house on Saturday evening as the search for her mother continues.\n\nNancy Guthrie is 84 years old and was last seen on Jan. 31.\n\n\"Whoever is out there holding our mother, we want to hear from you,\" Camron Guthrie, Savannah's older brother, said in an Instagram video. \"We need you to reach out.\"\n\nSam Darnold didn't have a great Super Bowl, but he'll still get his ring.\n\nDoes today's Wordle have you stumped? Here are some hints and the answer.\n\nThis game can be pretty tough, so we've got clues if you're stuck on today's puzzle, #974.\n\nKlint Kubiak just won the Super Bowl. He isn't going to Disney World. He's going to Las Vegas.\n\nNate Tice, Matt Harmon & Charles McDonald are LIVE reacting to Super LX.\n\nWhile Kenneth Walker III and Sam Darnold did what was needed on offense, Seattle's defense dominated the game and the highlight reel.\n\nHere are five notable prop bets that cashed in Super Bowl 60.",
-    "readingTime": 1,
-    "keywords": [
-      "super bowl",
-      "window",
-      "mother",
-      "today's",
-      "game",
-      "guthrie",
-      "darnold"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.yahoo.com/news/videos/light-flashes-silhouette-police-officer-051702429.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/P9F63r2AVYB9_o8pIJbscQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/video.fbc.news.com/bcb66e9426d14fd0e9d13b545dbcdb44",
-    "created_at": "2026-02-09T06:54:24.800Z",
-    "topic": "news"
   }
 ]
