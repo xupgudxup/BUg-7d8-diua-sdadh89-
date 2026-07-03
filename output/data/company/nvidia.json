@@ -1,5 +1,29 @@
 [
   {
+    "slug": "nvcf-deploy-and-route-gpuaccelerated-ai-workloads-at-scale",
+    "title": "NVCF: Deploy and Route GPU-Accelerated AI Workloads at Scale",
+    "description": "Platform for deploying and routing GPU-accelerated inference, streaming, and batch workloads at scale. - NVIDIA/nvcf",
+    "fullText": "Docs | Roadmap | Installation | API Reference | Contributing | License | build.nvidia.com Powered By NVCF\n\nNVIDIA Cloud Functions (NVCF) is a platform for deploying, managing, and running GPU-accelerated workloads at scale. It routes inference, streaming, and other GPU work to worker clusters, so you can scale demanding workloads with less infrastructure to run yourself.\n\nThis monorepo contains NVCF service code, deployment assets, documentation,\nexamples, CLI code, agent skills, and validation tooling.\n\nNVCF runs as Kubernetes services that manage function lifecycle, invocation\nrouting, GPU cluster integration, artifact access, secrets, observability, and\noperations.\n\nThe following diagram shows how self-managed NVCF can span regions and GPU\nclusters.\n\nNVCF functions are long-running, invokable workloads. Use a function when a\nclient needs an endpoint for inference, streaming, or another service-style GPU\nworkflow. Functions can be packaged as a container when the workload is a single\nservice with health and inference endpoints, or as a Helm chart when the\nworkload needs multiple coordinated containers, services, sidecars, or other\nKubernetes resources.\n\nNVCF tasks are asynchronous, run-to-completion workloads. Use a task for batch\ninference, evaluation, fine-tuning, data preparation, or other GPU jobs that\nshould finish and report status instead of staying online behind an invocation\nendpoint. Tasks can be packaged as a container when the workload is a single\nservice with health and inference endpoints, or as a Helm chart when the\nworkload needs multiple coordinated containers, services, sidecars, or other\nKubernetes resources.\n\nAfter installing a self-managed NVCF deployment and configuring nvcf-cli, a\ntypical function workflow is:\n\nFor the full setup, cleanup, and configuration flow, see\ndocs/user/cli.md and\ndocs/user/quickstart.md.\n\nBazel is the build, test, and packaging tool across the monorepo. Native\nsubtrees (src/clis/nvcf-cli, src/libraries/go/lib) build fully under\nBazel today. Phase B has additionally landed Bazel scaffolds in\nupstream-owned service trees: nvcf-grpc-proxy, nvcf-ratelimiter,\nnvcf-nats-auth-callout-service, nvcf-cache/nvcf-unbound (dns-cache),\nnvcf-image-credential-helper, and nvca. Their BUILD.bazel,\nMODULE.bazel, and rules/oci/ files are picked up automatically when\nthe subtrees are synced into the umbrella; from the umbrella you can\nbuild, test, and produce OCI images for any of them without leaving the\nmonorepo.\n\nBuilds read from the configured remote cache by default and do not upload local\nresults. If you are off the network path that can reach that cache and Bazel\nfails before local execution starts, disable the remote cache for that build:\n\nTo make the local-only path persistent, add the override to your user Bazel\nconfig:\n\nTo seed the cache from a dev box (corp network or VPN required), add\n--config=remote-write:\n\nFull setup, day-to-day commands, OCI image build/push, stamping, caches,\nremote-cache probe, and CI map live in BAZEL.md.\nFor CLI-specific developer flow see src/clis/nvcf-cli/README.md.\n\nBefore opening your first pull request, set up a local build and test\nenvironment:\n\nSee BAZEL.md for the complete setup, cache, and CI map.\n\nGitHub issue #27 is the current\npublic roadmap for the quarter. Use that issue as the source of truth for\nactive priorities, status updates, and follow-up proposals.\n\nThe broader issues board tracks the\nremaining backlog. Have an idea or a request that is not covered by the\nquarterly roadmap? Start a Discussion\nor file a feature issue.\n\nWe welcome contributions of all sizes, from typo fixes to new features. See\nCONTRIBUTING.md for the full guide.\n\nNVCF is a new open source project, and we are actively smoothing the\ncontribution workflow. We accept external contributions through GitHub pull\nrequests today, with a few temporary wrinkles while the repository becomes more\nGitHub-native.\n\nBefore changing a service, read AGENTS.md and the nearest nested\nAGENTS.md. The nested file is the best source for service-specific build,\ntest, style, and review expectations.\n\nUse Conventional Commits.\nFor documentation-only changes, run git diff --check and any targeted\nvalidation that applies to the changed files.\n\nThis project follows the Contributor Covenant Code of Conduct. Contributors\nagree to uphold this standard. See\nCODE_OF_CONDUCT.md for the full text and enforcement\nguidelines.\n\nDependency collection guide and tool:\ntools/collect-dependencies/README.md\nand tools/collect-dependencies.",
+    "readingTime": 4,
+    "keywords": [
+      "helm chart",
+      "kubernetes resources",
+      "self-managed nvcf",
+      "coordinated containers",
+      "containers services",
+      "services sidecars",
+      "inference streaming",
+      "inference endpoints",
+      "remote cache",
+      "workload needs"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/NVIDIA/nvcf",
+    "thumbnail_url": "https://opengraph.githubassets.com/880014389a9009d651aeb7a767884c24b6260fbf5862d04ee7d67d917fba0bca/NVIDIA/nvcf",
+    "created_at": "2026-07-03T08:47:58.567Z",
+    "topic": "tech"
+  },
+  {
     "slug": "jensen-huangs-iconic-leather-jacket-is-going-up-for-auction",
     "title": "Jensen Huang's iconic leather jacket is going up for auction",
     "description": "Nvidia CEO Jensen Huang's black Tom Ford leather jacket is up for auction, with proceeds benefiting charity, Sotheby's said.",
@@ -1654,18 +1678,5 @@
     "thumbnail_url": "https://i.insider.com/69e7d2d43fecbb42897a254a?width=1200&format=jpeg",
     "created_at": "2026-04-22T13:00:13.991Z",
     "topic": "finance"
-  },
-  {
-    "slug": "nvidias-android-tv-streaming-player-is-a-bit-pricey-but-it-offers-more-advanced-video-and-gaming-capabilities-than",
-    "title": "Nvidia's Android TV streaming player is a bit pricey, but it offers more advanced video and gaming capabilities than similar devices from Roku and Amazon",
-    "description": "The Nvidia Shield TV is a powerful Android TV streaming device with 4K, HDR, Google Assistant, and gaming support. Here's our full review.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/guides/tech/nvidia-shield-tv-review",
-    "thumbnail_url": "https://i.insider.com/68c8694c57d362d375e830fa?width=1200&format=jpeg",
-    "created_at": "2026-04-21T01:26:20.564Z",
-    "topic": "tech"
   }
 ]

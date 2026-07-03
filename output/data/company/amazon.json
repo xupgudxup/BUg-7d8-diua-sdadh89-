@@ -1,5 +1,53 @@
 [
   {
+    "slug": "amazons-mechanical-turk-to-stop-accepting-new-customers",
+    "title": "Amazon's Mechanical Turk to stop accepting new customers",
+    "description": "Workers who use OG crowdsourcing platform say AWS is closing accounts",
+    "fullText": "Workers who use OG crowdsourcing platform say AWS is closing accounts\n\nAmazon Web Services will stop accepting new customers for its Mechanical Turk crowdsourcing service, and not even AI can save it.\n\nMechanical Turk is a crowdsourcing marketplace that allows users to post gigs, and workers to bid for the chance to do them. The service's name references an 18th-century machine that its inventor claimed could play chess - but which was actually operated remotely by a human.\n\nAWS launched Mechanical Turk in November 2005 – a time when the cloudy concern focused on giving developers access to the functions of Amazon’s retail operations. The outfit’s now-mainstream infrastructure-as-a-service offerings debuted in 2006.\n\nAmazon quickly claimed Mechanical Turk was a hit.\n\nThe platform was arguably a pioneer as it pre-dated other crowdsourcing services like Freelancer and Fiverr. In 2018, AWS suggested a new reason to use the service: having humans review and annotate data used to train neural networks as part of its SageMaker service.\n\nEarlier this week, AWS added the Amazon SageMaker AI – Mechanical Turk service to its list of “Services in Maintenance” – AWS-speak for services it will soon retire. The Mechanical Turk website also added a warning that it will “be closed to new customers, effective July 30, 2026. Existing users will not be impacted by this change.”\n\nWe checked with Amazon, and the cloud colossus told us that notice means Mechanical Turk will stop accepting jobs for SageMaker and all other tasks.\n\nThe end of the OG crowdsourcing platform is therefore in sight.\n\nAmazon hasn’t explained why it’s decided to retire the Turk, although as is often the case it has developed competing services like SageMaker GroundTruth. AWS also allows integration with third party crowdsourcing services.\n\nOn a subreddit dedicated to Mechanical Turk, posters suggest the service’s best days are a long way in the past, and that Amazon has been closing workers’ accounts on short notice and without offering detailed explanation for the decision.\n\nShrinking the crowd of crowdsourced workers seems like a fine way to make Mechanical Turk useless for even its most dedicated customers. ®",
+    "readingTime": 2,
+    "keywords": [
+      "mechanical turk",
+      "stop accepting",
+      "crowdsourcing platform",
+      "crowdsourcing services",
+      "workers",
+      "customers",
+      "closing",
+      "accounts",
+      "allows",
+      "users"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.theregister.com/off-prem/2026/07/03/amazons-mechanical-turk-to-stop-accepting-new-customers-and-not-even-ai-can-save-it/5266274",
+    "thumbnail_url": "https://image.theregister.com/5266294.jpg?imageId=5266294&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+    "created_at": "2026-07-03T08:47:58.488Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "i-replaced-my-github-runners-with-lambda-microvms-and-maybe-you-should-too",
+    "title": "I replaced my GitHub runners with Lambda MicroVMs, and maybe you should too",
+    "description": "AWS recently released Lambda MicroVMs: ephemeral, isolated VMs with a lifetime of up to eight hours and very fast startup times. As an experiment I tried to use them as GitHub Actions runners and c…",
+    "fullText": "AWS recently released Lambda MicroVMs: ephemeral, isolated VMs with a lifetime of up to eight hours and very fast startup times. As an experiment I tried to use them as GitHub Actions runners and came away pleasantly surprised.\n\nTL;DR – Lambda MicroVMs can absolutely be used as GitHub runners. The primary benefits are customisability of the runners and the fact that they run in your own AWS account. These allow for optimisations you can’t do in hosted runners. The downside is that you need to run and maintain your own infrastructure.\n\nThe infrastructure itself isn’t very complicated – it includes an API gateway, two Lambda functions, two SQS queues, some SSM secret parameters and the Lambda MicroVM runners themselves. Builds are triggered by listening to GitHub webhook events.\n\nI published a working CDK project of the infrastructure on GitHub: GitHub Runner Orchestrator. Feel free to clone it for reference, inspiration, or scaffolding your own MicroVM runners.\n\nI run a lot of actions on GitHub for The AWS News Feed and other projects. Some build, deploy, and test steps can take quite some time to execute, lengthening the feedback loop. When Lambda MicroVMs were launched I figured they might allow me to optimize some processes. The two main areas of improvement I was looking for were (1) pre-warming environments with common binaries, packages and libraries, and (2) reducing latency between the runners and my environments for E2E testing.\n\nAt this point you might think: didn’t we have AWS CodeBuild for this? The answer is yeaahhh, but not really. CodeBuild has some problems, including very long startup times and capacity issues. Its design paradigms are also not a great fit for GitHub runners – they’re not true virtual machines like the native GitHub runners are. Lambda MicroVMs are a better fit because their images are built once during an out-of-band build phase, then snapshotted and stored. Booting this snapshot takes just a few seconds. The resulting VM has a full operating system which just needs to connect to the GitHub control plane and is almost immediately ready to start work.\n\nLet’s start with the good news. Lambda MicroVMs are fully compatible as GitHub runners. Setting them up and configuring them is a bit of a hassle, but using my sample repository on GitHub might save you some time.\n\nCustomising the image and pre-warming packages, libraries, images, and docker layers also works like a charm. It’s a matter of including them in the Lambda MicroVM Dockerfile so they are included in the snapshot. When GitHub actions use your images all pre-warmed contents are immediately available, which in my case saved minutes of execution time.\n\nThe biggest benefits I saw were gained in network latency. All my applications run in the AWS Ireland region, while the default GitHub runners are hosted in datacenters in the United States. I have a large suite of end-to-end tests which call my APIs hundreds of times. Each 200ms API roundtrip addition adds minutes to the full execution cycle. Running the E2E test suite in an AWS account in Ireland cost about 5 minutes, down from 8 minutes on GitHub hosted runners.\n\nLambda MicroVMs only support arm64 processors (based on Graviton 3 and 4). If your processes require x86_64 runners MicroVMs cannot help you. I don’t consider this a problem, I prefer arm64 where I can anyway.\n\nWhen I started the MicroVM project I hoped to save some cost too. In practice, however, the cost for MicroVMs is very close to native GitHub actions. A GitHub Actions linux_2_core_arm instance costs $0.005 per minute. A MicroVM with 2 vCPUs and 4GB of memory costs $0.0044 per minute. MicroVMs also incur a cost for storing, reading, and writing snapshot data. In my environments, these added about $1,50 per month in charges.\n\nA minor note on billing: AWS bills per second while GitHub bills per minute. If you have many short jobs, the AWS model might work in your benefit.\n\nI also hoped the runners might be slightly faster in terms of CPU clock speed or memory bandwidth, but in practice the difference between GitHub native runners and MicroVMs was not significant enough to notice.\n\nThe biggest downside of hosting your own runners, on Lambda MicroVM or otherwise, is the operational responsibility. You now own the patching cadence, security baseline, incident management, deployment pipelines, infrastructure, the works. With GitHub actions you just use ubuntu-24.04-arm or something like it, and the infrastructure and patching is invisibly managed for you.\n\nLambda MicroVMS also come – at least in my accounts – with pretty low default quotas. You can request to raise these through AWS support, but it’s a bit of a roll of the dice if you’ll get the requested allotment. In one of my accounts with years of history it was denied, but when I opened a new account and placed the request there it was approved after a few days 🤷‍♀️.\n\nSome Lambda MicroVM benefits I did not use, but might be very valuable to you:\n\nLambda MicroVMs are a very valid candidate for GitHub self-hosted runners. The initial setup takes some effort, but once it’s deployed it’s fully serverless, auto-scaling, and highly available. MicroVM-based runners benefit from proximity and integration options with other AWS resources, very fast boot times, and the ability to pre-warm images for faster runner execution. The primary downside is the operational responsibility that comes with it.\n\nIf your builds benefit from running in an AWS account, I would recommend MicroVMs over CodeBuild any day of the week. Happy building!",
+    "readingTime": 5,
+    "keywords": [
+      "lambda microvms",
+      "aws account",
+      "operational responsibility",
+      "per minute",
+      "bills per",
+      "native github",
+      "microvm runners",
+      "hosted runners",
+      "github actions",
+      "infrastructure"
+    ],
+    "qualityScore": 1,
+    "link": "https://lucvandonkersgoed.com/2026/07/01/i-replaced-my-github-runners-with-lambda-microvms-and-maybe-you-should-too/",
+    "thumbnail_url": "https://i0.wp.com/lucvandonkersgoed.com/wp-content/uploads/2026/07/pexels-ben-cheng-1485591855-29073619.jpg?fit=1200%2C900&ssl=1",
+    "created_at": "2026-07-03T08:47:57.677Z",
+    "topic": "tech"
+  },
+  {
     "slug": "trump-jrs-amazon-of-guns-could-make-millions-under-new-proposed-firearm-rule",
     "title": "Trump Jr.'s 'Amazon of guns' could make millions under new proposed firearm rule",
     "description": "-Ziff WASHINGTON, July 1 (Reuters) - Donald Trump Jr. helped take an online retailer known as the “Amazon of guns” public last year.",
@@ -1773,36 +1821,6 @@
     "link": "https://www.businessinsider.com/big-tech-earnings-winners-losers-ai-capex-cloud-meta-goog-2026-4",
     "thumbnail_url": "https://i.insider.com/69f3545279c9af599deecd1d?width=1200&format=jpeg",
     "created_at": "2026-04-30T19:05:39.054Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "copy-fail-732-bytes-to-root-on-every-major-linux-distribution",
-    "title": "Copy Fail: 732 Bytes to Root on Every Major Linux Distribution",
-    "description": "Xint Code disclosed CVE-2026-31431, an authencesn scratch-write bug chaining AF_ALG + splice() into a 4-byte page cache write. A 732-byte PoC gets root on Ubuntu, Amazon Linux, RHEL, SUSE. | AI for Security,  Vulnerability Research",
-    "fullText": "Xint Code disclosed CVE-2026-31431, an authencesn scratch-write bug chaining AF_ALG + splice() into a 4-byte page cache write. A 732-byte PoC gets root on Ubuntu, Amazon Linux, RHEL, SUSE.",
-    "readingTime": 1,
-    "keywords": [
-      "byte"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://xint.io/blog/copy-fail-linux-distributions",
-    "thumbnail_url": "https://inblog.ai/api/og?title=Copy%20Fail%3A%20732%20Bytes%20to%20Root%20on%20Every%20Major%20Linux%20Distribution.&logoUrl=https%3A%2F%2Fsource.inblog.dev%2Flogo%2F2026-04-21T20%3A39%3A21.712Z-fe202dd0-0a7f-41d2-a9bd-88052b6a6250&blogTitle=",
-    "created_at": "2026-04-30T13:19:26.002Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "amazon-now-has-aigenerated-podcasts-about-its-products-with-ai-hosts-im-loving-it",
-    "title": "Amazon now has AI-generated podcasts about its products with AI hosts. I'm loving it.",
-    "description": "Just what you've always wanted! A podcast about diaper rash cream! Amazon now lets you generate AI podcasts for different products. I tried it.",
-    "fullText": "Amazon's latest feature creates a one-to two-minute AI-generated audio clip discussing a product.\n Two AI \"hosts\" talk podcast-style about the user reviews and description, and can take your questions.\n This is possibly one of the funniest endpoints of human civilization.\n\n What's the impact on online shopping?\n\n What are AI's limitations in retail?\n\n What is \"dead internet theory\"?\n\n How does Amazon Bedrock function?\n\n How do customers react to AI hosts?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "hosts"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/amazon-ai-generated-podcasts-products-2026-4",
-    "thumbnail_url": "https://i.insider.com/69f24a225b15148769b847c6?width=1052&format=jpeg",
-    "created_at": "2026-04-30T13:19:21.566Z",
     "topic": "finance"
   }
 ]
