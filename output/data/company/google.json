@@ -1,5 +1,42 @@
 [
   {
+    "slug": "an-independent-evaluation-of-tabfm-googles-tabular-foundation-model",
+    "title": "An independent evaluation of TabFM, Google's tabular foundation model",
+    "description": "An independent, reproducible evaluation of TabFM - what held up, what did not, and the bug fix that got merged into Google's repo",
+    "fullText": "Google Research released TabFM on 2026-06-30, a zero-shot foundation model for tabular data: no training, no tuning, you hand it your table and it predicts. The claim is that a single pre-trained model can match or beat tuned gradient-boosted trees out of the box. That is a big claim, so I ran an independent reproduction across three machines.\n\nEverything below is seeded, pinned, and reproducible: github.com/devYRPauli/tabfm-evaluation\n\nI read the TabFM launch post the day it went up. The pitch is genuinely interesting: tabular data is the one domain where deep learning has repeatedly lost to gradient-boosted trees, and here was a foundation-model approach claiming to close that gap with zero training on your data. It learns in-context, the way a large language model does, except the “context” is your training rows.\n\nMy first instinct with a claim like that is not to believe it and not to dismiss it, but to reproduce it. Benchmarks in papers and blog posts are run by people who want their method to look good; that is not dishonesty, it is gravity. An independent reproduction is the only way to know which parts survive contact with someone who has no stake in the outcome.\n\nSo I set three rules for myself before writing a line of code:\n\nThat third rule turned out to matter the most.\n\nBefore benchmarking anything, I wanted to know exactly what I was testing. A few facts I verified directly from the \n\nI ran this across three machines, each with one job:\n\nThe MacBook is “orchestration only” for a reason I learned the hard way. Early on I ran the full model on the 16 GB laptop. The 32-member ensemble needs a ~17 GB working set. macOS tried to cover the gap with swap, wrote about 39 GB of it, and the machine restarted itself.\n\nThat incident produced the most useful piece of infrastructure in the whole project: a safe_run.sh watchdog that preflights free memory and disk, then kills any job before its resident set, system swap, or free disk crosses a limit. A killed job is an acceptable outcome; a machine restart is not. Every heavy run after that went through it. The lesson generalizes: when you are probing the limits of a model’s resource use, build the kill-switch before you need it.\n\nBefore the headline benchmark, three checks:\n\nPhase 1 - conformance and determinism. The scikit-learn contract holds, and predictions are bit-exact deterministic under a fixed seed, on both the Studio CPU and the 4090 GPU. CPU and GPU agree numerically. Good - a model whose outputs drift run-to-run is not one you can benchmark honestly.\n\nPhase 2 - known-answer sanity. Before trusting it on real data, I checked it can learn things I already know the answer to. It nails XOR (accuracy 1.00), accuracy climbs from 0.69 to 0.98 as I feed it more context rows, and it recovers a monotone function at R2 0.997. It genuinely learns from context; it is not pattern-matching noise.\n\nA caught harness bug. My first sanity layer looked broken until I found the bug was mine: the synthetic-data generator was drawing a fresh labeling function for train versus test. Fixing my own harness before blaming the model is a recurring theme. Most “the model is wrong” moments are “my measurement is wrong” moments in disguise.\n\nThe benchmark is TabArena (OpenML Study 457), a curated tabular suite. I used a 13-dataset subset spanning 748 to 150,000 rows, 9 classification and 4 regression tasks, on the official repeat-0 folds, 3 folds each.\n\nBaselines: TabFM’s default and .ensemble() presets, versus XGBoost, random forest, a logistic/ridge floor, and TabPFN (another tabular foundation model). Metrics: accuracy, ROC AUC, log loss for classification; RMSE and R2 for regression.\n\nThe comparison is fold-matched - TabFM and a baseline are only compared on folds where both produced a result. This one discipline prevents a huge class of benchmark lies, where a method looks good only because it quietly skipped the hard folds.\n\nThe first pass was clearly favorable to TabFM. It matched or beat every baseline on the primary metric, zero-shot: churn 0.979 vs 0.956 XGBoost, maternal-health 0.877 vs 0.842 random forest, diamonds R2 0.985. Against TabPFN it was directionally ahead but by hair-thin margins (MIC 0.891 vs 0.889).\n\nI published that. And then the internet did its job.\n\nThe feedback I got was sharp, specific, and correct. Three critiques stuck, and rather than defend the first draft I spent real compute closing each one. This is the part I am proudest of, because the honest answers made the story more interesting, not less.\n\nFair. My first XGBoost was lightly tuned. So I replaced it with an Optuna-tuned XGBoost: 100 trials of TPE search with 3-fold inner cross-validation, per dataset. That is a real tuning budget, the kind a strong practitioner would actually use.\n\nTabFM still beat it on all 10 fold-matched datasets:\n\nThe headline: on the anchor dataset (maternal-health), proper tuning did not close the gap - it widened it (+0.055, the largest margin of all). Eight of the ten margins are substantive (+0.013 to +0.055). But look at the bottom two rows. Those tiny margins set up critique 2.\n\nAlso fair. My first run used one seed. So I re-ran both TabFM and the baselines at three seeds on the thin-margin datasets and measured the run-to-run spread on each side.\n\nThe result was two-sided and humbling. First, the good news: TabFM is remarkably stable. Its run-to-run standard deviation is 0.0001 to 0.0006 - smaller than every tree baseline (the tuned XGBoost drifts up to 0.005, random forest up to 0.004). So the thin margins are not a TabFM-noise artifact; TabFM sits stably where it sits.\n\nNow the humbling part. Being stable does not mean the thin wins are real. When a margin is +0.001 and sits within test-set granularity, you cannot claim it. So I demoted the two thinnest results to ties:\n\nI also hit a wall I could not climb: TabPFN would not run at seeds 1 and 2. It hangs on a C-level network call in my environment no matter how I invoke it (backgrounded, pseudo-TTY, real TTY - all hang). Rather than pretend, I documented the gap: the two TabPFN margins rest on TabFM’s measured variance plus TabPFN’s single seed-0 point. An unmeasured thing reported as unmeasured is worth more than a number I made up.\n\nThe most technically satisfying one. My Phase 4 hardware sweep reported GPU peak memory pinned at a suspiciously flat ~22.75 GB across every context size. A commenter pointed out that I had not disabled XLA preallocation, so I was almost certainly measuring XLA’s preallocated pool, not the model’s live working set.\n\nThey were right, and the truth was more nuanced than either “real” or “artifact.” I re-ran with XLA_PYTHON_CLIENT_PREALLOCATE=false on an otherwise-empty card:\n\nSo: ~5.8 GB of the original 22.75 GB was pure pool padding (the artifact the commenter suspected). But the remaining ~16.95 GB is a real, large, and genuinely flat footprint - it grows only ~4 MiB from 100 rows to 20,000, because the 32-member ensemble’s fixed cost dominates. Latency is identical between the two runs, confirming it is the same workload measured with a different allocator.\n\nThe practical payoff: disabling preallocation roughly doubled the usable context ceiling on a 24 GB card, from ~10k rows to ~20k, and proved the original “>10k OOMs” was the pool, not the model. That is an actionable finding for anyone running TabFM on a single GPU.\n\nFor completeness I finished the CPU curve on the Studio too. The full latency-vs-context story:\n\nThe GPU is 14x to 42x faster where it fits, and the gap widens with context. There is no speed crossover - the GPU is always faster where it fits, and simply stops fitting past its memory ceiling. The CPU can hold far more context (64 GB unified memory), but at ~21 minutes per single prediction at 5,000 rows, it is impractical at scale. This matches exactly why the largest TabArena datasets (78k and 150k rows) could not be benchmarked exhaustively.\n\nReproducing a model end-to-end means running it in configurations the authors may not have. On the dual-4090 workstation, the very first predict call crashed:\n\nI traced it. With more than one GPU visible and no user-configured device mesh, predict defaults to a batch of size 1. The JAX forward path correctly derives a “no sharding” plan for that case - but then, on first compile, it unconditionally rebuilds the data sharding over every visible device, discarding the plan it just made. A batch of size 1 gets forced into a 2-way shard, and JAX refuses. A sibling bug (with a divisible batch, the model weights sit on device 0 while inputs are scattered across all devices) has the same root cause.\n\nThe net effect: TabFM’s predict does not work through the public API on any multi-GPU host unless you pin a single device. The advertised auto-sharding was broken at that commit.\n\nTwo things made this a clean contribution instead of a bug report:\n\nThe fix itself is small and surgical: remove the buggy override so the forward path uses the sharding it already correctly derived. Replicated when there is no mesh, properly sharded when the user configures one. I verified the full red-to-green cycle on simulated devices, confirmed all 36 existing tests still passed, and checked that the single-device path (the common case) was untouched.\n\nThe pull request was merged into google-research/tabfm, approved by one of TabFM’s own authors.\n\nThat is the outcome I care about most. The point of a careful reproduction is not to render a verdict on someone else’s work. It is that the deepest way to understand a system is to try to break it, and the best thing you can leave behind is not an opinion - it is a patch that makes the tool better for everyone who uses it next.\n\nNo evaluation is complete, and pretending otherwise is its own kind of dishonesty:\n\nEverything is seeded (SEED=0), pinned to commit b6ea70b, and every per-run result JSON is committed to the repo. The harness runs per-dataset from the command line; the three-machine orchestration is documented but not required.\n\nRepository: github.com/devYRPauli/tabfm-evaluation\n\nTabFM is by Google Research (Weihao Kong and Abhimanyu Das, introduced 2026-06-30). The benchmark is TabArena (OpenML Study 457) by the TabArena team. Baselines include TabPFN by Prior Labs, XGBoost, and scikit-learn. This was an independent third-party evaluation; all credit for the model belongs to its authors.",
+    "readingTime": 9,
+    "keywords": [
+      "openml study",
+      "tabarena openml",
+      "gradient-boosted trees",
+      "random forest",
+      "forward path",
+      "independent reproduction",
+      "foundation model",
+      "rows",
+      "context",
+      "benchmark"
+    ],
+    "qualityScore": 1,
+    "link": "https://yashrajpandey.com/writing/breaking-google-tabfm/",
+    "thumbnail_url": "https://yashrajpandey.com/og/writing/breaking-google-tabfm.png",
+    "created_at": "2026-07-06T14:57:07.107Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "googles-status-as-the-dream-tech-job-is-changing-fomo-over-ai-salaries-is-only-one-reason-why",
+    "title": "Google's status as the dream tech job is changing. FOMO over AI salaries is only one reason why.",
+    "description": "Recent AI departures put Google in the spotlight. Interviews with current and former Googlers reveal a broader shift in why employees are leaving.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/google-employees-leaving-ai-openai-anthropic-big-tech-jobs-careers-2026-7",
+    "thumbnail_url": "https://i.insider.com/6a4696cbe3bd3a50082bfa5c?width=1200&format=jpeg",
+    "created_at": "2026-07-06T14:56:56.422Z",
+    "topic": "finance"
+  },
+  {
     "slug": "i-left-google-and-spent-a-year-traveling-6-months-on-a-thai-island-led-me-to-a-career-i-never-expected",
     "title": "I left Google and spent a year traveling. 6 months on a Thai island led me to a career I never expected.",
     "description": "Sara Wilczynska tried everything before leaving Google. She trained in sound healing, led diversity initiatives, and even cut her hours — but it wasn't enough.",
@@ -1744,32 +1781,6 @@
     "link": "https://www.businessinsider.com/google-alphabet-stock-offering-shows-ai-trade-openai-anthropic-spacex-2026-6",
     "thumbnail_url": "https://i.insider.com/6a1f5490b4fb977f359838d4?width=1200&format=jpeg",
     "created_at": "2026-06-03T10:41:54.174Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "alphabets-relentless-ai-spending-is-giving-new-shine-to-broadcoms-stock",
-    "title": "Alphabet’s relentless AI spending is giving new shine to Broadcom’s stock",
-    "description": "The company’s “aggressive” cadence and performance improvements for its switching chips will also keep it ahead of competitors, an analyst said.",
-    "fullText": "Britney Nguyen is a tech reporter covering Nvidia, chips and AI. You can find her on X at @britneycath.",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.2,
-    "link": "https://www.marketwatch.com/story/alphabets-relentless-ai-spending-is-giving-new-shine-to-broadcoms-stock-abfb34b5?mod=mw_rss_topstories",
-    "thumbnail_url": "https://images.mktw.net/im-35353496/social",
-    "created_at": "2026-06-03T02:44:32.735Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "exgoogle-executive-mo-gawdat-offers-advice-for-job-seekers-in-the-age-of-ai",
-    "title": "Ex-Google executive Mo Gawdat offers advice for job seekers in the age of AI",
-    "description": "Mo Gawdat, who predicts that AI would erase 30% of certain job sectors will be gone by 2028, said he has tips for job seekers to survive the AI era.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/mo-gawdat-google-most-valuable-skill-in-the-ai-era-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a1f3d7fb4fb977f35983833?width=1200&format=jpeg",
-    "created_at": "2026-06-03T02:44:23.566Z",
     "topic": "finance"
   }
 ]

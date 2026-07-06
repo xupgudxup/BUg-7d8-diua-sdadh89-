@@ -1,5 +1,53 @@
 [
   {
+    "slug": "i-built-langgraph-for-swift",
+    "title": "I Built LangGraph for Swift",
+    "description": "🐦‍🔥  Agent Orchestration Framework , MacOS/iOS/Linux Pure Swift 6.3 - christopherkarani/Swarm",
+    "fullText": "A Swift framework for building agents and multi-agent workflows.\n\nTwo agents, one pipeline, compiled to a DAG with crash recovery and Swift concurrency safety.\n\nThat is a working agent with type-safe tool calling. Swarm also supports AGENTS.md and SKILL.md for declarative agent specs and reusable skills — see the Getting Started guide for the full workspace layout.\n\nSwarm now ships with an in-repo capability showcase that exercises the stable surface area in one deterministic matrix:\n\nThe deterministic matrix is CI-safe. Live-provider smoke coverage is opt-in through environment variables. See docs/guide/capability-showcase.md for the scenario catalog and smoke-mode details.\n\nDemo executables are opt-in so the default library graph stays focused on the framework products:\n\nEach agent resolves its own provider. Pass inferenceProvider: per agent (as above), or call await Swarm.configure(provider: .anthropic(apiKey: \"...\")) once at app startup to share a default across every agent that doesn't specify one.\n\nThe default Swarm graph is CI-tested on Ubuntu with Swift 6.2. Apple-only features such as Foundation Models, SwiftData, OSLog, and some built-in tool behavior are unavailable or different on Linux; cloud providers and Ollama use the shared InferenceProvider surface.\n\nBug reports and feature requests: GitHub Issues\n\nGitHub Issues · Discussions · @ckarani7\n\nIf Swarm saves you time, a star helps others find it.\n\nReleased under the MIT License.",
+    "readingTime": 2,
+    "keywords": [
+      "deterministic matrix",
+      "default",
+      "framework",
+      "tool",
+      "surface",
+      "opt-in",
+      "graph",
+      "inferenceprovider",
+      "github",
+      "agent"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://github.com/christopherkarani/Swarm",
+    "thumbnail_url": "https://opengraph.githubassets.com/e55d5a82f4ba69c34a1f2947445f7b3406b67c8c5a7c56955f6833b73855abeb/christopherkarani/Swarm",
+    "created_at": "2026-07-06T14:57:08.943Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "i-compared-siri-ai-to-gemini-on-iphone-and-theres-a-clear-winner",
+    "title": "I Compared Siri AI to Gemini on iPhone and There's a Clear Winner",
+    "description": "Apple trained Siri AI using Gemini models, but one AI still wins out on iOS 27.",
+    "fullText": "After a two-year tease, Siri AI is officially available to beta testers—once they get off the waitlist. For the last couple of days, I’ve had access to Siri AI on my iPhone 16 Pro, and naturally, the first question I had was, “Why should I use this instead of just the Gemini app?\"\n\nThat’s because, underneath Apple’s new UI and Private Cloud Compute, the company trained its new Siri AI on Gemini models, and sends some processes to Google servers—though the company is adamant the same privacy policies apply. I already went hands-on with the new Clean Up tool powered by Gemini and came out surprisingly impressed (though Reframe clearly needs some work). In this article, I want to compare Siri AI with Gemini, the AI system it owes much of its existence to. While Apple has managed to cram useful AI features into quite possibly every native app, this comparison is focused on Siri AI and the Gemini app on iPhone. While Apple has pushed Siri to new heights here, Google's AI, in my view, still has the edge overall.\n\nThe first thing to address here is how you use Siri AI on your iPhone. It’s directly integrated into Spotlight, and there’s a brand new gesture that breaks almost 20 years of iPhone muscle memory. When you swipe down from the center of the top of the screen (above the Dynamic Island), you'll activate the new “Search or Ask” field. Here, you can start typing your query, and press Enter to search. (Don't worry: You can still call Siri with the Side button.)\n\nThere’s a slick new Siri animation, after which the bubble expands to show you the answer. This can be a simple, short text response, or data from supported apps. This feature is currently limited to Apple’s apps, but after the public release, it will support third-party apps as well. Gemini, of course, doesn’t have all these features, at least not on iOS. The fastest way to access Gemini is through the Home Screen widget, or by assigning a shortcut to the Action button.\n\nSiri AI’s app integration is a real advantage here, even in the early stages. You can ask Siri to bring up all reminders due today, calendar events of the week, or even surface new emails from a sender. In my testing, the first two went quite well. I particularly like how iOS will pull in visual elements from the Reminder and Calendar apps here, along with the relevant data. The Mail app did the job as well, but when compared to Gemini's Gmail integration, it performed slightly worse. For example, when I asked both apps to pull my recent credit card statements, Siri AI only showed details from one statement, whereas Gemini compiled the due date and amounts for all three of my credit cards.\n\nIn the Gemini app, you can choose between three models: Flash, Flash-Lite, and Pro. The Pro model uses reasoning and therefore takes longer to respond. Siri AI offers no such options. You ask Siri AI something, and all you get is a “working on it” status message. And then relatively quickly you get an answer.\n\nWhile Siri AI is trained on Gemini’s models, the company has clearly customized the experience to its own design. The effect is that Siri AI is sometimes faster than Gemini, and, in my experience, always more direct when it comes to answering both general-knowledge questions as well as web research queries. I've always found Gemini's responses a bit too verbose, wasting tokens on buttering you up before getting to the answer. There’s none of that fluff in Siri AI.\n\nThe new Siri returns with one-paragraph answers most of the time, and, importantly, includes the actual answer. You are free to swipe down from the floating window to expand the answer, and to open the Siri AI app itself. I find that Siri usually has more context and options here. Just like Gemini, Siri also cites its sources. In fact, Siri lists all its sources at the bottom of the message, while Gemini links to sources in the text and sometimes doesn't provide sources at all.\n\nSiri AI isn’t designed for in-depth research, at least not in its current form. Gemini’s Pro models, on the other hand, excel at things like finding and collating information and guides based on Google searches. For example, I asked both Siri and Gemini to help me find a laptop for my wife’s dental practice.\n\nBoth did a good job of outlining the must-haves: a powerful processor like the AMD Ryzen 7, at least RTX 4050 graphics to run the GPU-intensive dental scanning programs, and 16GB RAM. But when I asked Siri to find me suitable options, it just did the bare minimum. It suggested some popular global options, but they weren’t tailored to India. Gemini, on the other hand, showed options that were available in India, with their pricing and links.\n\nSimilarly, I asked Siri and Gemini both to give me some hamstring stretches to perform after a workout. Siri just came back with some web images. After further prodding, it gave me a couple of stretches to try. Gemini Flash gave me a detailed breakdown, along with example images, right from the get-go.\n\nAs it stands, Gemini is the more complete package in my view. You can organize conversations in notebooks, perform deep research, generate videos, among many other tasks. Siri AI, by design, is more limited and more focused. The answers are to the point and are often paired with a well-designed interface. (Above, Siri AI gives me the timing for an F1 race, along with the starting grid in a cool UI.)\n\nThat’s where Apple's bot really shines: use Siri AI to securely pull data from Apple apps; use it to ask for information about current events; use it to ask pointed questions about the world (or things you would usually use Google search for). For all the above, Siri AI returns accurate responses most of the time—but that’s where Siri AI’s prowess ends. If you want to do detailed shopping comparisons, research a topic, or create visualizations, you’ll still need to use the Gemini app. Of course, Siri AI is still in beta testing, so things could change. But Apple doesn't yet have plans to add some of these Gemini features to its own bot, so, on the front, Gemini still has the advantage.",
+    "readingTime": 6,
+    "keywords": [
+      "siri ai",
+      "gemini app",
+      "siri and gemini",
+      "while apple",
+      "siri ai’s",
+      "apps",
+      "options",
+      "iphone",
+      "models",
+      "research"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/i-compared-siri-ai-to-gemini-on-iphone?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KWV3BT4QBCW1W3H7P5D28TD6/hero-image.fill.size_1200x675.png",
+    "created_at": "2026-07-06T14:56:55.245Z",
+    "topic": "tech"
+  },
+  {
     "slug": "apple-is-changing-how-it-issues-security-updates-due-to-threats-from-ai",
     "title": "Apple Is Changing How It Issues Security Updates Due to Threats From AI",
     "description": "Apple's latest iOS update will make your device more secure.",
@@ -2152,48 +2200,5 @@
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KMNC7220JR8WW8PYASNNZB3Y/hero-image.fill.size_1200x675.jpg",
     "created_at": "2026-03-26T18:52:05.957Z",
     "topic": "tech"
-  },
-  {
-    "slug": "repomance-tinder-for-github-repositories",
-    "title": "Repomance: Tinder for GitHub Repositories",
-    "description": "A mobile app for discovering and starring GitHub repositories through a dating app like swipe interface, iOS version. - mpospirit-apps/Repomance-iOS",
-    "fullText": "A mobile app for discovering and starring GitHub repositories through a dating app like swipe interface.\n\nVisit App Store to download and install the app on your iOS device.\n\nIf you are an Android user, go to Android Repository to find the Android version of the app.\n\nThis source code is made available for transparency and educational purposes. You may view and use the code for personal, non-commercial purposes. Commercial use, redistribution, or derivative works require explicit permission. See LICENSE for full terms.\n\nFor the app's end-user license agreement, visit https://repomance.com/license",
-    "readingTime": 1,
-    "keywords": [
-      "code",
-      "purposes",
-      "android",
-      "visit",
-      "license"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://github.com/mpospirit-apps/Repomance-iOS",
-    "thumbnail_url": "https://opengraph.githubassets.com/103b8f38712015069e7a3dcca93a304a4bf5a73e49d1777372ac62ac813511e4/mpospirit-apps/Repomance-iOS",
-    "created_at": "2026-03-26T12:50:51.675Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "morgan-stanley-has-a-stark-message-for-investors-in-apple-stocks",
-    "title": "Morgan Stanley has a stark message for investors in Apple stocks",
-    "description": "Morgan Stanley just published survey data that makes a strong case for owning Apple (AAPL) stock. The firm's AlphaWise Global Smartphone Survey was released March 22. It shows iPhone upgrade intentions hitting an all-time survey high. The data support the bank's above-consensus iPhone forecast. ...",
-    "fullText": "Morgan Stanley just published survey data that makes a strong case for owning Apple (AAPL) stock. The firm's AlphaWise Global Smartphone Survey was released March 22. It shows iPhone upgrade intentions hitting an all-time survey high.\n\nThe data support the bank's above-consensus iPhone forecast. Morgan Stanley keeps its overweight rating and $315 price target unchanged. The stock closed at $247.99 on March 20. That target implies roughly 27% upside from that level.\n\nThe headline number is a blended global iPhone upgrade rate of 37%, up 2 percentage points year over year. That is the highest reading in the survey's history. The driver is China, where upgrade intentions surged 9 points year over year to reach their own all-time high in the survey.\n\nOn the switching side, Apple's net switching rate improved to 11%. That is a five-year high. Apple was the only major smartphone brand in the survey with a positive and improving net switching rate.\n\nBillionaire Dalio sends 2-words on Fed pick Warsh\n\nTop analyst bets these stocks will boost your portfolio in 2026\n\nBank of America sends quiet warning to stock market investors\n\nSamsung, Xiaomi, Huawei, and others were all negative. That positions Apple to gain market share in 2026 even as the overall smartphone market faces pressure.\n\nTogether, these data points support Morgan Stanley's FY26 iPhone shipment forecast of approximately 260 million units, which sits 3% above Street consensus.\n\nThe most surprising result in the survey may be the level of interest in a foldable iPhone. Morgan Stanley found that 27% of global iPhone owners are \"extremely interested\" in paying for one. In China, that figure rises to nearly 40%.\n\nThe bank does not expect a quarter of the installed base to rush out and buy a first-generation foldable device. But the demand signal is strong. Morgan Stanley expects Apple to more than double the global foldable smartphone market within 18 months of launch.\n\nThe base case puts foldable iPhone revenue at approximately $40 billion. The bull case reaches $60 billion.\n\nThe foldable iPhone is expected to launch in fall 2026 alongside the iPhone 18 Pro lineup. If the survey data translates to actual purchases, the FY27 revenue impact would be significant. Morgan Stanley's FY27 iPhone revenue estimate is already 14% above Street consensus. The foldable is a big reason why.\n\nNot everything in the survey was positive for Apple. Consumer perception of Apple Intelligence continued to deteriorate year over year. The feature ranked seventh globally as a reason to upgrade to an iPhone. In the U.S., the decline was the most pronounced of any region surveyed.",
-    "readingTime": 3,
-    "keywords": [
-      "street consensus",
-      "morgan stanley's",
-      "net switching",
-      "upgrade intentions",
-      "switching rate",
-      "morgan stanley",
-      "smartphone market",
-      "iphone revenue",
-      "foldable iphone",
-      "morgan stanley's fy"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-stark-message-investors-164700952.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/thestreet_881/50c3855513ade3c41f7beb5df13e2fcf",
-    "created_at": "2026-03-26T06:56:49.156Z",
-    "topic": "finance"
   }
 ]
