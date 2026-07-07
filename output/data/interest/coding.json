@@ -1,5 +1,42 @@
 [
   {
+    "slug": "the-banana-test-coding-agents-grow-a-3d-banana-plant",
+    "title": "The Banana Test: coding agents grow a 3D banana plant'",
+    "description": "One prompt, many models: animate the full life cycle of a banana plant in three.js. A visual leaderboard.",
+    "fullText": "🍌 The exact prompt every agent receives\n Your goal is to generate a single self-contained HTML file containing a visual Three.js animation of a Cavendish banana plant growing, fruiting, declining, and being replaced by its pups. The animation should show a biologically plausible banana lifecycle. The plant should begin as a small corm or pup emerging from the soil. It should grow a pseudostem, unfurl broad banana leaves, develop a hanging inflorescence, open its reddish-purple bracts, form hands of bananas from the female flowers, continue into the male flower/banana-heart stage, ripen the bananas, and then show the mother plant gradually declining after fruiting. As the mother plant matures and declines, new pups should emerge from the base. Those pups should begin their own growth cycle so that the scene can loop continuously. Make the result as visually realistic and impressive as possible within a single HTML file. Think carefully about the appearance of a Cavendish banana plant: the thick layered pseudostem, large curved leaves with varied size and age, young leaves with reddish or dark mottled markings that fade as they mature, older leaves that yellow, tear, droop, and decay, the heavy curved banana bunch, the reddish-purple flower bracts, and the changing colours of ripening bananas. Pay attention to the physical presence of the plant. Leaves, pseudostems, flowers, and fruit should be arranged in a plausible 3D structure and should avoid obvious intersections. The plant should feel like a real growing organism with mass, curvature, gravity, asymmetry, and age variation, rather than a flat or symbolic diagram. The animation should be staged clearly enough that a viewer can understand the lifecycle without reading code. You may include helpful visual elements such as a camera orbit, timeline, labels, restart button, speed control, or subtle environmental details like soil, light, shadows, and background, but the main focus should remain the banana plant lifecycle. Take as much time and as many tokens as you need. Plan the animation, build it, verify it, then improve it, and repeat verifying and improving it until you get diminishing returns.\nTechnical requirements:\n* Output a single complete HTML file.\n* Use Three.js.\n* No build step.\n* All custom JavaScript and CSS should be included in the file.\n* External dependencies are allowed only for standard browser-loadable libraries such as Three.js from a CDN.\n* Do not rely on external image, video, 3D model, or texture assets.\n* The file should run directly in a modern browser.\n* Prioritise visual quality, biological plausibility, smooth animation, and robustness. Use your full available effort to design and implement the most realistic and beautiful Cavendish banana plant lifecycle animation you can.\n* The user can drag to change camera angle\n* The only visible widget is a speed dial",
+    "readingTime": 3,
+    "keywords": [
+      "html file",
+      "cavendish banana",
+      "mother plant",
+      "plant lifecycle",
+      "animation",
+      "visual",
+      "pups",
+      "bananas",
+      "fruiting",
+      "declining"
+    ],
+    "qualityScore": 0.8,
+    "link": "https://francescomoramarco.com/banana-test/",
+    "thumbnail_url": "https://francescomoramarco.com/banana-test/images/og-banana-test.jpg",
+    "created_at": "2026-07-07T14:05:41.786Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "midjourney-founder-says-new-ai-coding-tools-are-leaving-his-friends-more-productive-and-extremely-drained",
+    "title": "Midjourney founder says new AI coding tools are leaving his friends more productive — and 'extremely drained'",
+    "description": "Midjourney founder David Holz said the phenomenon \"makes me feel like something is wrong, and also that there might be a big opportunity.\"",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/midjourney-founder-ai-coding-friends-drained-2026-7",
+    "thumbnail_url": "https://i.insider.com/6a4bb2f694175b768171f186?width=1200&format=jpeg",
+    "created_at": "2026-07-07T14:05:39.966Z",
+    "topic": "finance"
+  },
+  {
     "slug": "inside-the-secret-ai-war-between-silicon-valley-and-china",
     "title": "Inside the secret AI war between Silicon Valley and China",
     "description": "In March, artificial intelligence company Anthropic quietly deployed software to spy on China-based customers of its popular coding chatbot Claude Code. The apparent goal: unmasking the Chinese rivals...",
@@ -1818,38 +1855,6 @@
     "link": "https://lemire.me/blog/2026/05/22/only-17-of-all-64-bit-integers-are-products-of-two-32-bit-integers/",
     "thumbnail_url": "https://lemire.me/blog/wp-content/uploads/2026/05/Gemini_Generated_Image_pbz9q4pbz9q4pbz9-1024x559.png",
     "created_at": "2026-05-22T08:47:50.940Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "open-source-platform-for-automating-sandboxed-coding-agents",
-    "title": "Open source platform for automating sandboxed coding agents",
-    "description": "Open source background agents. Contribute to mistlehq/mistle development by creating an account on GitHub.",
-    "fullText": "Mistle is an open-source platform for running and automating sandboxed coding agents.\n\nYou can spin up Mistle easily, assuming you have Docker installed:\n\nOnce this succeeds, you can open the dashboard at http://localhost:3000. Note that for email OTP auth, you'll need to use the locally running Mailpit at http://localhost:8025 to retrieve the OTP.\n\nThis runs Mistle locally using Docker containers as sandboxes. Mistle also supports remote sandbox providers such as E2B.\n\nIf you want to wind down the stack, run:\n\nIf you want to remove the installation:\n\nRemember to delete the necessary Docker volumes, as well as images that were pulled.\n\nIf you want to run the dev stack locally, refer to CONTRIBUTING.md.",
-    "readingTime": 1,
-    "keywords": [
-      "mistle",
-      "docker",
-      "locally",
-      "http://localhost",
-      "stack"
-    ],
-    "qualityScore": 0.65,
-    "link": "https://github.com/mistlehq/mistle",
-    "thumbnail_url": "https://repository-images.githubusercontent.com/1167164255/0fa1c8d7-a641-4845-83db-1eb5829056ce",
-    "created_at": "2026-05-21T19:42:49.412Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "multistream-llms-new-paper-on-parallelizingseparating-prompts-thinking-io",
-    "title": "Multi-Stream LLMs: new paper on parallelizing/separating prompts, thinking, I/O",
-    "description": "The continued improvements in language model capability have unlocked their widespread use as drivers of autonomous agents, for example in coding or computer use applications. However, the core of these systems has not changed much since early instruction-tuned models like ChatGPT. Even advanced AI agents function on message exchange formats, successively exchanging messages with users, systems, with itself (i.e. chain-of-thought) and tools in a single stream of computation.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://arxiv.org/abs/2605.12460",
-    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
-    "created_at": "2026-05-21T19:42:48.322Z",
     "topic": "tech"
   }
 ]
