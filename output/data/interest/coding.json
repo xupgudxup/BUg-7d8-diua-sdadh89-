@@ -1,5 +1,52 @@
 [
   {
+    "slug": "mark-cuban-explains-why-he-thinks-ai-labs-cant-immediately-replace-lovable-and-replit",
+    "title": "Mark Cuban explains why he thinks AI labs can't immediately replace Lovable and Replit",
+    "description": "The \"Shark Tank\" and Lovable investor said that AI coding companies offer add-on services that could prevent them from being replaced by AI labs.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/mark-cuban-ai-labs-replace-lovable-replit-vibe-coding-2026-7",
+    "thumbnail_url": "https://i.insider.com/6a4e0cfe5dc133dbf310dfd6?width=1200&format=jpeg",
+    "created_at": "2026-07-08T13:29:06.916Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "i-vibe-coded-a-7figure-tool-for-my-startup-here-are-the-4-steps-i-followed-and-how-i-avoided-coding-slop",
+    "title": "I vibe coded a 7-figure tool for my startup. Here are the 4 steps I followed — and how I avoided coding slop.",
+    "description": "John Hu left a banking career and his MBA program to build Stan. He and his cofounder went on to vibe code Stanley, an AI tool, in just 14 days.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/vibe-coded-7-figure-tool-startup-4-steps-followed-2026-7",
+    "thumbnail_url": "https://i.insider.com/6a4d074a94175b768171f90f?width=1200&format=jpeg",
+    "created_at": "2026-07-08T13:29:06.830Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "want-a-software-engineering-job-youll-need-more-than-coding-skills-in-the-ai-era",
+    "title": "Want a software engineering job? You'll need more than coding skills in the AI era.",
+    "description": "Software engineers need more than coding skills to get hired today. Interviews now test judgment, AI skills, and problem solving.",
+    "fullText": "Your browser does not support the video element.\n\n By\n\n Ana Altchek \n\n You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n and\n\n Shubhangi Goel \n\n You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n Read in app\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "you're currently",
+      "unfollow unsubscribe",
+      "unsubscribe via",
+      "currently following",
+      "author",
+      "link",
+      "email"
+    ],
+    "qualityScore": 0.3,
+    "link": "https://www.businessinsider.com/software-engineering-job-technical-interviews-hiring-ai-2026-7",
+    "thumbnail_url": "https://i.insider.com/6a4d077e965805a2c542d8bb?width=1200&format=jpeg",
+    "created_at": "2026-07-08T13:29:06.332Z",
+    "topic": "tech"
+  },
+  {
     "slug": "perplexity-is-quietly-building-an-ai-coding-tool-to-take-on-cursor-and-claude-code",
     "title": "Perplexity is quietly building an AI coding tool to take on Cursor and Claude Code",
     "description": "San Francisco-based Perplexity, valued at $20 billion, is working on 'Teammate,' an AI tool that may compete with AI coding giants like Anthropic.",
@@ -1769,77 +1816,5 @@
     "thumbnail_url": "https://i.insider.com/6a07c779ecd7cc1332bb05fc?width=1200&format=jpeg",
     "created_at": "2026-05-23T12:58:36.558Z",
     "topic": "finance"
-  },
-  {
-    "slug": "herdr-a-tmuxlike-terminal-multiplexer-for-ai-coding-agents",
-    "title": "Herdr: A tmux-like terminal multiplexer for AI coding agents",
-    "description": "agent multiplexer that lives in your terminal. Contribute to ogulcancelik/herdr development by creating an account on GitHub.",
-    "fullText": "herdr.dev · install · quick start · supported agents · integrations · configuration · socket api\n\nagent multiplexer that lives in your terminal.\n\nworkspaces, tabs, panes. mouse-native: click, drag, split. every agent at a glance: blocked, working, done. detach and reattach, agents keep running. no gui app, no electron, no mac-only native wrapper. you see the agent's own terminal, not someone's interpretation of it.\n\nor download the binary from releases. requires linux or macos.\n\nherdr notifies you when a new version is available. run manually to update:\n\nnamed sessions are runtime/socket namespaces for separate persistent herdr servers. they do not replace workspaces; each named session has its own panes, tabs, workspaces, sockets, and session state while sharing the same global config file.\n\non first run herdr opens a short onboarding flow. after that, restored sessions land in terminal mode; fresh sessions start in navigate mode.\n\ntmux gives you persistence and panes, but it was built before agents existed. gui managers show agent state, but they make you leave your terminal and use their wrapped view. herdr is persistence and awareness in one tool that stays out of your way.\n\nstart herdr where the work lives. locally, run herdr. it starts or attaches to the background session automatically, with no socket setup. run your agents, split panes, do your work. press ctrl+b q to detach. close your terminal, close your laptop; your agents keep running. open a new terminal, run herdr, you're back. same session, same panes, same agents.\n\nneed to check on your agents from your phone? just ssh in and run herdr. your shell is remote, herdr runs there, and the panes keep running there after detach. any ssh client works. no app to download, no account to create.\n\nor attach from your local terminal through ssh without opening a shell first. your local herdr acts as a thin client, connects over ssh, starts or attaches to the remote herdr server, and streams the ui back to your terminal. remote attach uses your local keybindings by default; pass --remote-keybindings server to use the remote server config instead.\n\nfor repeat targets, use your ssh config:\n\nsame session, same agents, same state.\n\nherdr and herdr --remote attach to the full Herdr session UI. herdr agent attach <target> attaches your current terminal directly to one server-owned terminal, like a single-pane terminal attach. herdr terminal attach <terminal_id> does the same by terminal id.\n\nDirect attach streams the current rendered terminal state first, then live ANSI frames. Your input goes straight to that terminal. Detach with ctrl+b q; send a literal ctrl+b with ctrl+b ctrl+b. One writable client owns input and resize for a terminal. A second attach fails unless you pass --takeover.\n\nthe sidebar shows which agents are blocked, working, or done. workspaces roll up to their most urgent state so you can scan the full list at a glance.\n\ndetection works by reading foreground process and terminal output. zero config, no hooks required. for agents that expose hooks, the socket api integration gives more robust state reporting.\n\nnot a gui window, not a web dashboard, not electron. herdr runs inside whatever terminal you already use. single rust binary, no dependencies. works inside tmux.\n\nthe local unix socket lets agents create workspaces, split panes, spawn helpers, read output, and wait for state changes.\n\nfull reference: socket api and SKILL.md.\n\nautomatic detection works out of the box. process name matching plus terminal output heuristics.\n\ndetected but not fully tested: gemini cli, cline, github copilot cli.\n\nfor agents outside the built-in list, herdr still works as a terminal multiplexer with workspaces, panes, and tiling. custom integrations can report agent labels over the socket api. see the socket api docs.\n\nthe built-in pi, claude code, codex, opencode, and hermes integrations forward semantic state to herdr over the socket api. install with:\n\nsee the integrations docs for setup details.\n\npress ctrl+b to enter prefix mode. default actions are prefix-first and tmux-like:\n\nresize mode: h/l resize width, j/k resize height, esc exit.\n\ncustom command keybindings can launch detached shell helpers or temporary panes:\n\nif you have old custom keybindings and want the new defaults, run herdr config reset-keys. herdr backs up config.toml, removes only keybinding config, and uses built-in v2 defaults after restart or config reload.\n\nmouse is supported throughout. full reference: configuration docs.\n\nconfig file: ~/.config/herdr/config.toml\n\nin-app settings screen for theme, sound, and toast preferences. full reference: configuration docs.\n\nherdr writes logs under ~/.config/herdr/.\n\nin persistent session mode, the client and server logs are usually the useful ones. logs rotate automatically and keep a few older files like .1 and .2.\n\nfor issue reports, include the relevant current log plus rotated siblings if they exist. default logs are metadata-focused and avoid pane contents by default.\n\nuse a higher log level only when needed:\n\nfull logging and environment variable details: configuration docs.\n\nIf you are an AI agent helping with this repository, read AGENTS.md before making changes and read CONTRIBUTING.md before opening issues or PRs.\n\nAGPL-3.0: free to use, modify, and distribute. modified versions must be open-sourced under the same license.\n\nherdr does not require or install terminal keybinds for pi.\n\nghostty does not ship a default shift+enter=text:\\n or shift+enter=text:\\x1b\\r keybind. if those lines exist in your ghostty config, they were added by user config or another tool, commonly claude code. they collapse shift+enter into legacy bytes, so downstream programs cannot reliably distinguish shift+enter from ctrl+j or alt+enter.\n\nif shift+enter behaves differently in pi inside herdr, first remove those custom terminal keybinds and retest. do not file this as a herdr keyboard encoding bug unless it reproduces with a clean terminal config.\n\nrelated context: #78, #81, #106, and earendil-works/pi#1872.",
-    "readingTime": 5,
-    "keywords": [
-      "claude code",
-      "press ctrl+b",
-      "reference configuration",
-      "configuration docs",
-      "socket api",
-      "split panes",
-      "config file",
-      "remote attach",
-      "terminal keybinds",
-      "terminal output"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/ogulcancelik/herdr",
-    "thumbnail_url": "https://opengraph.githubassets.com/9a912e1372687b732358656f3e7abc2fd607b5099970970d0afde779b7279883/ogulcancelik/herdr",
-    "created_at": "2026-05-23T12:58:34.553Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "nano-coding-agent-in-under-200-lines",
-    "title": "Nano: Coding agent in under 200 lines",
-    "description": "One file. Under 200 lines. Zero dependencies. It's a coding agent. - pnegahdar/nano",
-    "fullText": "The models got good enough that the harness doesn't matter anymore.\nSo we made the smallest one that proves it. One file. under 200 lines. Zero dependencies.\n\nThat's the whole thing. No, really.\n\n📂 Reads CLAUDE.md, AGENT.md, AGENTS.md, README.md — automatic repo context, same files the real agents use\n\n🧩 Discovers skill files — finds SKILL.md from .claude/skills, ~/.claude/skills, ~/.codex/skills, ~/.codex/plugins\n\n🛡️ Human-in-the-loop approvals — every command shows what and why before it runs\n\n🔁 200-step agentic loop — keeps going until the job is done, not until it gets bored\n\n💬 Interactive REPL — multi-turn sessions with persistent memory across turns\n\n⚡ Non-interactive CLI — ./nano.py \"fix the tests\" and walk away\n\n🔄 Session resume — ./nano.py -c picks up where you left off, zero local state (OpenAI stores the conversation)\n\nPlus: interactive REPL · one-shot mode · session resume (-c) · session picker (-s) · GPT-5.5 by default · any model via env var · multi-step tool chaining · approve-one / approve-all / deny · auto-approve mode · per-command cwd, timeout, and env · platform-aware system prompt · output capped at 12KB · forced 5-10 word command descriptions · session reset · zero dependencies · pure stdlib Python · one file you can read in 5 minutes\n\nMost coding agents are built on top of serious infrastructure — frameworks,\nruntimes, graph orchestrators, thousands of lines of glue.\n\nIt turns out you can get surprisingly far with a while loop, one shell tool,\nand a model that's good enough.\n\nnano.py is that loop. It sends context to GPT-5.5, lets it run shell commands,\nshows you what it wants to do, waits for your approval, and repeats until the job\nis done. Pure Python stdlib. Copy it into any repo and go.\n\nThat's the architecture diagram.\n\nThis gives a language model a shell on your computer.\n\nRead the command before you press y. It's under 200 lines — you can audit the whole thing over lunch.\n\nNo score is claimed here. But the shape is right. Same loop every agent runs:\nread repo, form hypothesis, run command, observe, repeat.\n\nWrap it in a harness, give it a budget, collect patches, and find out.\n\nIs this a joke?\n\nIt works. So no. But also a little bit yes.\n\nShould I use this in production?\n\nYes. Why not?\n\nWhy so small?\n\nThe models got good enough that the harness just doesn't need to be big anymore.\n\nCan I swap in Claude / Gemini / etc?\n\nThe Responses API is OpenAI-specific, but the pattern is universal. Port it in an afternoon.\n\nWhy not just use Claude Code / Codex?\n\nYou should. They're great. This is for the mass of developers who want to understand\nwhat's actually happening inside the black box — and for anyone who looked at a\nlarge agent framework and thought there has to be a simpler way.\n\nMIT. Copy it, fork it, vendor it into your monorepo.",
-    "readingTime": 3,
-    "keywords": [
-      "zero dependencies",
-      "session resume",
-      "command",
-      "loop",
-      "harness",
-      "that's",
-      "repo",
-      "nano.py",
-      "model",
-      "shell"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/pnegahdar/nano",
-    "thumbnail_url": "https://opengraph.githubassets.com/3fdc21f89b08d63aac27a16845dcd7f93601a5895e2827f1f6193a6a0909ed32/pnegahdar/nano",
-    "created_at": "2026-05-23T02:00:00.662Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "i-gave-my-openclaw-agent-a-physical-body",
-    "title": "I Gave My OpenClaw Agent a Physical Body",
-    "description": "The coding skills of AI models are about to make it much easier to build and deploy robots.",
-    "fullText": "my OpenClaw a real robot arm to play with. The results just about blew my own neural network.\n\nThe AI agent was able to configure the arm, use it to see and slowly grab things, and even train another AI model to pick up and place specific objects. And they say AGI is still a few years away! (I’m joking, it probably is).\n\nThe results have me convinced that we may be on the brink of a robotics breakthrough. Training and controlling robots used to require considerable skill. Today’s AI models can make it almost easy.\n\n“AI-powered coding is super exciting because it has the potential to bridge the gap between conventional engineering methods, which are reliable but don't generalize, and contemporary vision-language-action models, which generalize but are not yet reliable,” says Ken Goldberg, a roboticist at UC Berkeley who is exploring the approach.\n\nI bought a prebuilt arm called a LeRobot 101. It’s part of an open-source project from HuggingFace that makes it relatively cheap to start building and experimenting with robotics.\n\nThe LeRobot comes with two arms: a controller arm that a person operates using a handle and a trigger, and a follower arm with a camera that replicates those movements. You can train an AI model by teleoperating the controller arm and having the model learn how to move the follower in response to what it sees on the camera.\n\nBefore using OpenClaw, I spent several hours trying to connect and calibrate the robot, at one point nearly breaking the motors by applying the wrong settings, which caused them to overheat.\n\nThen, with help from OpenClaw and Codex, I was able to vibe code a simple program that closed the claw’s gripper when it spotted a red ball. In the terminal, Codex went through the tricky work of configuring the connections to the robot. Then, with my help, it calibrated the positions of its joints. It also wrote a Python script that used several libraries to identify and grip the ball in question. Vibe-coding isn't perfect of course, and hallucinations can introduce bugs especially when working with different hardware, but the results were impressive.",
-    "readingTime": 2,
-    "keywords": [
-      "controller arm",
-      "model",
-      "train",
-      "robotics",
-      "models",
-      "reliable",
-      "generalize",
-      "follower",
-      "camera",
-      "ball"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.wired.com/story/i-gave-my-openclaw-agent-physical-body-robot/",
-    "thumbnail_url": "https://media.wired.com/photos/6a0ca4ce280901f1fa2a6d37/191:100/w_1280,c_limit/AI-Lab-Rock-Em-Sock-Em-Vibe-Coded-Robots-Business.jpg",
-    "created_at": "2026-05-22T19:22:31.304Z",
-    "topic": "tech"
   }
 ]
