@@ -1,5 +1,29 @@
 [
   {
+    "slug": "how-global-energy-markets-built-the-amazon-of-oil-logistics-to-keep-prices-from-spiraling",
+    "title": "How global energy markets built the ‘Amazon of oil’ logistics to keep prices from spiraling",
+    "description": "Nations and companies can more easily and quickly divert petroleum shipments to hot spots thanks to modern technology.",
+    "fullText": "Businesses and governments managed to keep energy prices from skyrocketing as much as feared during the Iran war by leaning into a \"just-in-time\" delivery system that harnesses innovations in digital and satellite technology and that reduces the need to stockpile barrels of oil.\n\nCall it the \"Amazon of oil,\" said Jim Wicklund, a veteran oil analyst and managing director at the PPHB energy investment firm, comparing energy industry dynamics to the ecommerce giant's famous mastery of inventory and logistics.\n\nWhy didn't oil prices spike higher during Iran conflict?\n\nHow do strategic petroleum reserves affect oil prices?\n\nWhat role did China play in stabilizing oil markets?\n\nHow has digital technology changed oil market dynamics?\n\nEven with President Trump declaring the Iran ceasefire \"over\" on Wednesday amid a fresh exchange of military strikes, the U.S. benchmark for crude prices still only spiked about 5% to $74 per barrel—way below the mid-May high of $112.\n\nWhile energy traders may see the latest attacks and verbal barbs as dips along the negotiation rollercoaster, they've also been encouraged by the adaptability of global energy logistics, even amid the greatest global energy shock of the modern age when the effective closure of the Strait of Hormuz temporarily cut off almost 20% of the world's oil and liquefied natural gas supplies.\n\n\"When you go back to the 1970s when we had the oil shocks, you had no way of knowing what oil was where and what it was doing,\" Wicklund told Fortune. \"Today, I can hit my terminal and find every tanker full of oil on the ocean, who owns it, what's in it, and who to call to get it diverted to me. So, inventories have not meant nearly as much to oil prices here in the last few years as they used to.\n\n\"The correlation between inventories and oil price has been dropping from a high correlation to almost no correlation today. I don't need physical inventories like I used to. I can order immediately off the Amazon of oil and buy cargoes on the water,\" he said.\n\nAnother saving grace for logistics was the Trump administration's decision to temporarily waive the 106-year-old Jones Act, which requires cargo ships moving between U.S. ports to be U.S. built, flagged, and manned, reducing the number of vessels available to move crude oil and refined products between domestic ports.\n\nThe waiver allowed more ships, for instance, to move fuel from the U.S. Gulf Coast through the Panama Canal and up to California, which has dealt with newly shuttered refineries in recent months, to help alleviate shortfalls.\n\nWhile large commercial oil inventories haven't meant as much as they once did, the national strategic reserves of the U.S. and especially China have proven pivotal. The other major reason oil prices didn't rise as high as feared is because China built up its storage stockpiles to all-time highs and dramatically cut down on its imports after the war began.",
+    "readingTime": 3,
+    "keywords": [
+      "energy",
+      "inventories",
+      "iran",
+      "logistics",
+      "china",
+      "correlation",
+      "feared",
+      "digital",
+      "technology",
+      "amazon"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/energy/articles/global-energy-markets-built-amazon-070800462.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/00519CB5C9B8BE317CD0DD2961900B952491108F18157022EAC2953C95FEEA5B/subgraphmysterio/resizefill_w1200_h800;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Ffortune_175%2F8bf1bf8d928468945344d316a12094d1",
+    "created_at": "2026-07-09T19:21:24.199Z",
+    "topic": "finance"
+  },
+  {
     "slug": "i-took-the-same-grocery-list-to-walmart-kroger-and-amazon-to-compare-prices-after-filling-my-carts-i-found-a-winner",
     "title": "I took the same grocery list to Walmart, Kroger, and Amazon to compare prices. After filling my carts, I found a winner.",
     "description": "I brought the same shopping list to Walmart, Kroger, and Amazon to see which has the best grocery prices, especially amid Walmart's rollbacks.",
@@ -1742,29 +1766,5 @@
     "thumbnail_url": "https://i.insider.com/69f8ffe638bee05c969839fc?width=1200&format=jpeg",
     "created_at": "2026-05-05T01:52:10.201Z",
     "topic": "finance"
-  },
-  {
-    "slug": "how-to-get-alerted-when-a-stripe-charge-fails-no-cloud-vendor-required",
-    "title": "How to: Get Alerted When a Stripe Charge Fails – No Cloud Vendor Required",
-    "description": "Build a real-time alert for failed Stripe charges in under 5 minutes. One function, one trigger, any messaging tool — no AWS, no Azure, no polling.",
-    "fullText": "A charge fails. Nobody notices. The customer retries, gets frustrated, emails support. Support logs into Stripe, finds the charge.failed event, and starts debugging — hours or days after it happened.\n\nStripe can forward events to your endpoint, but it doesn't notify your team. You still need to build the alerting yourself. Stripe's Event Destinations can push to AWS EventBridge or Azure Event Grid, but that means an AWS or Azure account, IAM roles, an event bus, and a cloud bill — all for a notification.\n\nThis walkthrough builds a real-time alert that fires the moment a charge.failed event arrives. One function, one trigger, any messaging tool you want. No cloud vendor, no polling, no infrastructure.\n\nPrerequisites: This builds on Store Stripe Webhook Events and Query Them Forever. If you've already got a stripe-events collection receiving events, you're ready. If not, that post takes about 5 minutes.\n\nCentrali's compute sandbox restricts outbound HTTP to domains you've explicitly approved. Before your function can post alerts, add your messaging provider's domain.\n\nGo to Logic > Domains and add the domain for your tool:\n\nGo to Logic > Functions and create a new function called Alert on Charge Failed.\n\nGo to Logic > Triggers and create a new trigger.\n\nTrigger parameters are encrypted at rest. Your webhook URL is never exposed in logs or function code.\n\nTrigger a failed charge from the Stripe CLI:\n\nOr send a test webhook from the Stripe Dashboard. Within seconds, you should see the alert arrive:\n\nOpen the run detail in the Centrali console to see the execution:\n\nThe function posts { text: message }, which works with Slack and most webhook APIs. For other tools, adjust the payload:\n\nThis pattern isn't limited to failed charges. You can alert on any event type by adjusting the filter:\n\nYou can also build more advanced workflows using orchestrations — chain multiple functions together, add conditional logic, or fan out to several endpoints in parallel.\n\nStart building your own workflow",
-    "readingTime": 2,
-    "keywords": [
-      "charge.failed event",
-      "alert",
-      "webhook",
-      "events",
-      "logs",
-      "cloud",
-      "messaging",
-      "tool",
-      "you've",
-      "create"
-    ],
-    "qualityScore": 1,
-    "link": "https://centrali.io/blog/alert-stripe-charge-failures",
-    "thumbnail_url": "https://centrali.io/blog/alert-stripe-charge-failures/opengraph-image?98b7a8c2acc0ebc6",
-    "created_at": "2026-05-04T19:13:34.916Z",
-    "topic": "tech"
   }
 ]
