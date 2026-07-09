@@ -1,5 +1,29 @@
 [
   {
+    "slug": "epee-an-expertannotated-asl-dataset-from-native-deaf-signers",
+    "title": "EPEE, an expert-annotated ASL dataset from native Deaf signers",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+    "fullText": "The first AI-grade sign language data layer.\n\nA multi-signer ASL keypoint corpus designed for AI training, research benchmarking, and inter-signer variability studies. v0.2 expands the signer pool from 3 to 4 and the corpus from 300 to 600 clips, in a fully parallel structure — every one of 150 phrases is signed by all four Deaf signers.\n\nCLERC builds the data layer underneath sign language AI — not a translation tool, not an accessibility app. Infrastructure.\n\nThis release ships extracted keypoints and annotations only — no raw video. Source clips remain proprietary; access is reserved for commercial licensing (contact florian@clerc.io).\n\nThis is v0.2, a pilot release representing a portion of the full CLERC catalog. Full corpus access available via commercial license.\n\nA small BiLSTM trained on the four release signers and tested on signers held entirely outside the\ntraining set shows the core result: one signer does not generalize to a stranger, four do.\n\nFull method, numbers, and honest caveats: BENCHMARK.md.\n\nTop 10 glosses (cumulative coverage of corpus):\n\nThe 36 head-silhouette landmarks come from MediaPipe FaceMesh FACE_OVAL indices 10, 338, 297, 332, 284, 251, 389, 356, 454, 323, 361, 288, 397, 365, 379, 378, 400, 377, 152, 148, 176, 149, 150, 136, 172, 58, 132, 93, 234, 127, 162, 21, 54, 103, 67, 109 (in that traversal order). The points form a closed polygon outlining the head — no internal facial features are included, so the privacy stance is preserved.\n\nCoordinates are MediaPipe's image-normalized space, NOT clipped to [0, 1]:\n\nSource clips are framed waist-up. Lower-body landmarks (dataset indices 54–63) come from MediaPipe Pose's full-body prediction. For hand/face-only SLR pipelines, they can be dropped:\n\nZero values (0, 0, 0) indicate a landmark was not detected for that frame (e.g. an off-screen hand).\n\nGlosses (uppercase ASL labels) follow a few conventions worth knowing before training:\n\nBase gloss — WHAT, YOU, BATHROOM. The standard form of a sign.\n\nVariants — BASE_N (e.g. SIGN_2, WHAT_3). Alternative ways to sign the same English concept (different handshape, location, or movement). The number N is an internal disambiguator, not an intensity marker. Treat WHAT, WHAT_2, WHAT_3 as siblings sharing the same English target.\n\nDirectional / movement suffixes — POINTER_RIGHT, GO_LEFT, HOW_RIGHT_MOVE. These mark spatial/movement components inherent to the sign and should not be collapsed with their base form.\n\nPhrase repetitions — Some clips contain the target phrase signed more than once (emphasis, demonstration, self-correction). Each occurrence is a separate gloss segment. This is natural signer behavior, not a labeling error.\n\nDemographic distribution: 2 female / 2 male, all between 30–40 years old. All native ASL signers (Deaf, ASL as first language). Signer identities are pseudonymized.\n\nSigners participated under written informed consent. The signing space, framing, lighting, and recording protocol were standardized across signers.\n\nParallel structure: all four signers sign the same 150 phrases. The clip blocks are phrase-aligned: clerc_v02_001, _151, _301, _451 are the four signers' renderings of phrase #1, and so on — enabling direct inter-signer comparison.\n\nStylistic note: Phrase repetition rates vary by signer — natural inter-signer stylistic variation, annotated as separate gloss segments. See gloss conventions for filtering.\n\nFor production-grade systems or sign language generation models trained at scale, see commercial licensing for access to the full multi-signer corpus.\n\nThis release ships as plain .npy + .json files for transparency and zero-dependency loading.\n\nCC BY-NC-SA 4.0 — creativecommons.org/licenses/by-nc-sa/4.0\n\nCommercial licensing: for enterprise use, training of commercial models, or integration into commercial products, contact florian@clerc.io.\n\nCLERC is Deaf-led infrastructure. This release adheres to:\n\nCLERC builds the data infrastructure that lets AI understand sign language as a first-class language — not an accessibility afterthought.\n\nSign language is not to be translated. It is to be inscribed.\n\nWebsite: clerc.io · Contact: florian@clerc.io · LinkedIn: clerc-io",
+    "readingTime": 4,
+    "keywords": [
+      "parallel structure",
+      "contact florian@clerc.io",
+      "separate gloss",
+      "release ships",
+      "commercial licensing",
+      "sign language",
+      "signers",
+      "corpus",
+      "signer",
+      "training"
+    ],
+    "qualityScore": 1,
+    "link": "https://huggingface.co/datasets/CLERC-DATA/epee",
+    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/CLERC-DATA/epee.png",
+    "created_at": "2026-07-09T14:29:28.792Z",
+    "topic": "tech"
+  },
+  {
     "slug": "tencent-releases-hy3-295b-parameter-open-weight-model",
     "title": "Tencent Releases Hy3 295B parameter open weight model",
     "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
@@ -2022,30 +2046,6 @@
     "link": "https://www.asimov.press/p/ai-science",
     "thumbnail_url": "https://substackcdn.com/image/fetch/$s_!DzmV!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F18f54019-17ca-4c21-b886-cb112c763fde_2000x1260.jpeg",
     "created_at": "2026-03-23T18:39:37.138Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "518k-vietnamese-legal-documents-19242026",
-    "title": "518K Vietnamese legal documents (1924–2026)",
-    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
-    "fullText": "A comprehensive dataset of 518,255 Vietnamese legal documents sourced from\nthuvienphapluat.vn — the largest Vietnamese legal\ndocument repository. The dataset covers laws, decrees, circulars, decisions, and\nother official documents issued by Vietnamese government bodies, spanning from\n1924 to 2026.\n\nThis dataset is split into two configs to allow fast metadata access without loading the full text.\n\nJoin on the id column to get both metadata and content.\n\nThis is an independent personal research project. Documents were collected from\nthuvienphapluat.vn — a public legal document portal\n— via their sitemap. This project has no affiliation with\nthuvienphapluat.vn.\n\nHTML content was converted to Markdown using BeautifulSoup. Only Vietnamese-language\ndocuments were retained; English versions and technical standards (Tiêu chuẩn) were\nexcluded.\n\nVietnamese legal documents (laws, decrees, circulars, decisions, and other normative\nacts) are public domain by Vietnamese law. Under the\nLaw on Access to Information (Luật Tiếp cận thông tin, No. 104/2016/QH13)\nand the Law on Promulgation of Legal Documents (No. 64/2025/QH15),\nofficial legal normative documents issued by state agencies must be made publicly\naccessible free of charge.\n\nThe compiled dataset (collection, processing, metadata schema, and Markdown\nconversion) is released under CC BY 4.0.\n\nIntended for research purposes only.",
-    "readingTime": 1,
-    "keywords": [
-      "laws decrees",
-      "decrees circulars",
-      "circulars decisions",
-      "vietnamese legal",
-      "legal document",
-      "documents issued",
-      "dataset",
-      "thuvienphapluat.vn",
-      "metadata",
-      "access"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://huggingface.co/datasets/th1nhng0/vietnamese-legal-documents",
-    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/th1nhng0/vietnamese-legal-documents.png",
-    "created_at": "2026-03-22T18:22:35.851Z",
     "topic": "tech"
   }
 ]
