@@ -1,5 +1,18 @@
 [
   {
+    "slug": "ubep-expert-parallelism-communication-library-for-production-superpods",
+    "title": "UBEP: Expert Parallelism Communication Library for Production Superpods",
+    "description": "The deployment of Mixture-of-Experts (MoE) models on production high-bandwidth superpods, such as NVIDIA's NVL72/576 and Huawei's CloudMatrix384, introduces critical challenges beyond raw interconnect bandwidth. While these systems provide unified global address spaces and high-bandwidth fabrics, their full potential for sparse MoE communication is hindered by three fundamental bottlenecks: (1) Strict execution serialization imposed by coarse-grained Bulk Synchronous Parallel (BSP) orchestration of interdependent communication phases; (2) Prohibitive synchronization overhead that fails to scale alongside high interconnect bandwidth; and (3) Severe load imbalance resulting from distance-agnostic scheduling of irregular token traffic. To eliminate these bottlenecks, we introduce UBEP (Unified-Bus Expert Parallelism), a production-ready communication library that rethinks MoE's All-to-All primitives for modern superpod architectures. Through large scale experiments, UBEP reduces All-to-All latency by up to 52.4% and MoE inference Time Per Output Token (TPOT) by up to 11.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://arxiv.org/abs/2607.06202",
+    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "created_at": "2026-07-10T01:52:08.908Z",
+    "topic": "tech"
+  },
+  {
     "slug": "china-plans-to-let-top-ai-firms-buy-limited-nvidia-h200-chips-the-information-reports",
     "title": "China plans to let top AI firms buy limited Nvidia H200 chips, the Information reports",
     "description": null,
@@ -1638,29 +1651,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/bmfie_oKhqFcvDJkl7FCaA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/fortune_175/00c8a6205299e43a2959f1bfacac062f",
     "created_at": "2026-04-23T18:54:51.392Z",
     "topic": "news"
-  },
-  {
-    "slug": "oklo-stock-surges-9-on-nvidia-nuclear-fuel-collaboration",
-    "title": "Oklo stock surges 9% on NVIDIA nuclear fuel collaboration",
-    "description": "Oklo stock surges 9% on NVIDIA nuclear fuel collaboration",
-    "fullText": "Investing.com -- Oklo Inc. (NYSE:OKLO) shares rose 9% following the announcement of an agreement with NVIDIA and Los Alamos National Laboratory to advance nuclear fuel validation and critical nuclear infrastructure.\n\nThe collaboration brings together Oklo’s advanced sodium-fast-reactor platform, NVIDIA AI infrastructure, and Los Alamos National Laboratory’s expertise in materials science and nuclear fuels. The partnership aims to support the federal government’s Genesis Mission by combining advanced nuclear power, AI, digital twins, modeling, and simulation.\n\n\"This agreement brings together reactor deployment, high-performance compute, and world-class fuel and materials science expertise,\" said Oklo co-founder and CEO Jacob DeWitte. \"We believe this will advance our plutonium-bearing fuel work on Oklo’s Pluto reactor, which was selected under DOE’s Reactor Pilot Program, and help bring resilient power in support of the Genesis Mission.\"\n\nInitial focus areas include physics- and chemistry-based AI models to support fuel validation and R&D for plutonium-bearing fuels, materials science and fabrication R&D for plutonium-bearing fuels, and power generation studies in support of nuclear-powered AI factories at Los Alamos National Laboratory.\n\nProjects under the agreement include integrated full-stack solutions to support nuclear powered AI factories, AI development for nuclear fuel R&D, grid stabilization studies, materials science efforts focused on plutonium-bearing fuel, and proof of concept work related to the development of a nuclear powered AI factory.\n\nSeparately, HSBC analyst Samantha Hoh initiated coverage on Oklo with a Buy rating and a price target of $96.00. \"Oklo is accelerating the integration of power, fuels and isotopes production, with the company pioneering an ’owner-operator’ model for its next-gen small modular reactors (SMRs),\" Hoh commented.\n\nThis article was generated with the support of AI and reviewed by an editor.",
-    "readingTime": 2,
-    "keywords": [
-      "los alamos",
-      "materials science",
-      "fuel validation",
-      "nuclear powered",
-      "plutonium-bearing fuels",
-      "agreement",
-      "advance",
-      "infrastructure",
-      "together",
-      "advanced"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.investing.com/news/stock-market-news/oklo-stock-surges-9-on-nvidia-nuclear-fuel-collaboration-93CH-4632535",
-    "thumbnail_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
-    "created_at": "2026-04-23T12:59:53.197Z",
-    "topic": "finance"
   }
 ]
