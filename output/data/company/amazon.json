@@ -1,5 +1,29 @@
 [
   {
+    "slug": "zerofs-vs-amazon-s3-files",
+    "title": "ZeroFS vs. Amazon S3 Files",
+    "description": "A comparison of Amazon S3 Files and ZeroFS: storage layout, fsync behavior, S3 interoperability, rename cost, and pricing.",
+    "fullText": "Amazon S3 Files and ZeroFS expose POSIX filesystems backed by object storage, but the shared interface hides opposite bucket layouts. The choice turns on the role of the bucket: if files must remain ordinary S3 objects, S3 Files preserves that identity; if the bucket can be an internal persistence layer, ZeroFS trades direct S3 access for packing, compression, and client-side encryption.\n\nThe defining property of S3 Files, which is built using Amazon EFS, is that images/cat.jpg on the mount corresponds to the same key in the bucket, with changes flowing in both directions. Active data and metadata reside in a low-latency tier that AWS calls “high-performance storage.”\n\nThat one-file, one-object identity is deliberately absent from the ZeroFS storage format. Metadata lives in an LSM tree; file contents are split into extents, compressed and encrypted, then packed into immutable segment objects. An S3 client sees an opaque internal layout rather than the mounted files.\n\nBoth mounts use the client page cache. The write-path row below starts after the client sends the write to the server.\n\nKeeping that one-to-one mapping means a file written through the mount eventually becomes a normal S3 object. Export begins after 60 seconds without a write, so continued writes postpone S3 visibility. Once export completes, existing tools can read the object with GetObject, and S3-side changes flow back into the filesystem. If both sides modify the same file before synchronization, S3 wins and the file-side version moves to lost+found.\n\nA ZeroFS pathname cannot be fetched with the S3 API, and a segment cannot be scanned as Parquet. In exchange, small files need neither one data object nor one PUT each: their extents are compressed, encrypted, and packed together. The bucket and raw local cache contain ciphertext, so mounting or recovery requires ZeroFS and its encryption password. The encryption documentation lists the structural metadata that remains visible.\n\nIf other applications need immediate S3 visibility after a filesystem write, neither model provides it: S3 Files exports asynchronously, while ZeroFS never exposes mounted files through the S3 API.\n\nThe first S3 Files access can trigger an import: listing a directory loads every object's metadata and asynchronously copies files below the import threshold, 128 KiB by default, into high-performance storage. AWS says a first listing of 1,000 objects may take several seconds. Larger files stay in S3, and reads of at least 1 MiB go directly to S3.\n\nZeroFS instead populates a local RAM and disk cache from reads and uploads. Newly sealed segments enter the cache from bytes already in hand, so read-after-write needs no GET; the cache is not write-back, and writes still reach object storage when segments are sealed and metadata is flushed. A cold miss resolves the requested extents through the LSM tree and coalesces adjacent frames into ranged GETs. It pays the first object-store round trip without importing the rest of the file or every small file in the directory; once the working set fits locally, data reads generate few S3 requests.\n\nBoth paths add read-ahead for sequential traffic: ZeroFS prefetches within and across segment objects, while S3 Files relies on Linux NFS read-ahead alongside its direct-S3 routing.\n\nS3 storage and request charges apply in either case. S3 Files also charges for its high-performance storage tier: resident storage per GB-month and reads and writes per GB. The AWS pricing example current at publication uses these rates:\n\nThe amount resident in high-performance storage depends on the configured import threshold and expiration window. Listing imports metadata and eligible small files, reads can load more data, and file metadata does not expire. Imports are metered as filesystem writes and exports as reads; the minimum operation sizes are 32 KiB for file data and 4 KiB for metadata. AWS reports resident bytes and inodes in CloudWatch, but total bucket size alone cannot forecast the bill.\n\nThis is an illustrative scenario, not a general cost comparison. It uses 10,000 AWS billable GB (GiB) of logical data in S3 Standard in us-east-1, at $0.023 per GB-month. The direct case assumes 1 MiB reads from data already in S3; the resident case assumes reads below 1 MiB with all data also in high-performance storage. Internet egress is excluded.\n\nThe ZeroFS figures are estimates: compression reduces payload bytes, while metadata, temporary compaction data, and requests add cost. At an ideal 8 MiB GET size, reading the file data costs about $0.26 at 2:1 compression or $0.51 at 1:1, before metadata and short or random reads. ZeroFS also requires one server, or two for high availability, plus local disk cache; each node needs about 2 GB of RAM beyond its configured memory cache. S3 Files may therefore cost less for large-file streaming. The difference grows when data is imported into, or written through, high-performance storage: writing 10,000 GiB through S3 Files adds $600 in filesystem writes and $300 for export, while a month of residency adds $3,000.\n\nActual costs depend on file count, compression, I/O size, residency, fsync frequency, and infrastructure. S3 Files also requires bucket versioning, so noncurrent versions need an appropriate lifecycle rule.\n\nDurability and S3 visibility are separate events in S3 Files. Writes to high-performance storage are durable immediately, but export starts only after approximately 60 seconds without a write; calling fsync does not make the object immediately visible through the S3 API. ZeroFS has no second visibility event because there is no export step. Over 9P, a successful fsync returns after object storage acknowledges the data segment and its LSM metadata, leaving the file recoverable after a cold restart.\n\nS3 has no directories or atomic rename for general-purpose buckets. S3 Files renames on the mount, then copies each affected object to a new key and deletes the old one; during a directory rename, both prefixes can be visible. AWS says synchronizing 100,000 renamed files takes a few minutes. ZeroFS changes only its LSM directory entries, with no copy per descendant and no S3 prefix exposed to object clients.\n\nThe mount points may look similar, but the buckets make different promises: S3 Files preserves ordinary objects for the surrounding S3 ecosystem; ZeroFS treats object storage as the private substrate of the filesystem.",
+    "readingTime": 6,
+    "keywords": [
+      "lsm tree",
+      "per gb-month",
+      "import threshold",
+      "files preserves",
+      "mounted files",
+      "seconds without",
+      "ordinary objects",
+      "disk cache",
+      "segment objects",
+      "high-performance storage"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.zerofs.net/blog/zerofs-vs-aws-s3-files/",
+    "thumbnail_url": "https://www.zerofs.net/assets/og-card.jpg",
+    "created_at": "2026-07-11T18:44:37.244Z",
+    "topic": "tech"
+  },
+  {
     "slug": "steve-jobs-lets-force-amazon-to-use-our-payment-system-2010",
     "title": "Steve Jobs: Let's force Amazon to use our payment system (2010)",
     "description": "Steve Jobs: Let's force Amazon to use our payment...",
@@ -1734,30 +1758,6 @@
     "link": "https://peerlist.io/raviojhax/articles/how-unused-indexes-ate-41gb-postgres",
     "thumbnail_url": "https://dqy38fnwh4fqs.cloudfront.net/UHDNE6NQ8LPAARN1A9O78JBOBAGB/hdne6nq8lpaarn1a9o78jbobagb-5909-profile.webp",
     "created_at": "2026-05-06T19:20:36.276Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-samsung-galaxy-buds-4-pro-come-with-a-30-amazon-gift-card-right-now",
-    "title": "The Samsung Galaxy Buds 4 Pro Come With a $30 Amazon Gift Card Right Now",
-    "description": "Or choose the Samsung Galaxy Buds 4, which come with a $20 Amazon gift card.",
-    "fullText": "Samsung released its latest earbud lineup during the Samsung Unpacked 2026 event in January, and now, Amazon is bringing back its same pre-order deal: The Samsung Galaxy Buds 4 are $173.72 (originally $179.99) and come with a $20 Amazon gift card, and the Samsung Galaxy Buds 4 Pro go for $249.99 and come with a $30 Amazon gift card. The prices have held steady since their release, so this is a good deal if you want to snatch them up.\n\nSamsung wants to compete with Apple with a similar design, features, and even price point. The Samsung Galaxy Buds 4 are strikingly similar to the Apple AirPods 4 in their design, with noise cancellation and the absence of silicone eartips that go inside your ears. They come with Hi-Res audio, IP54 for water-resistance, a Live Translation feature similar to Apple's, a new design, improvements in call quality, and direct access to ask questions to AI and receive responses through the earbuds. The controls are swipe and pinch, and the charging case comes in black or white.\n\nIt's also easy to draw the similarities between the Samsung Galaxy Buds 4 Pro and the Apple AirPods Pro 3. Apart from both being $249, the most obvious similarity is the in-ear silicone tip design that helps seal the noise and improve ANC. The Pros have all of the same features as the Buds 4, and are supposed to be more comfortable, have better ANC which Samsung calls ANC 2.0, have a better water resistance with an IP57 rating, which handles immersion in water up to 1 meter, and perhaps more importantly, a two-way speaker (as opposed to a one-way on the Buds 4) that is meant to deliver better, high-fidelity sound, superior separation of frequencies, and reduced distortion. PCMag called these earbuds \"excellent\" in their review for their audio and integration with Samsung phones.",
-    "readingTime": 2,
-    "keywords": [
-      "amazon gift",
-      "galaxy buds",
-      "samsung galaxy",
-      "buds pro",
-      "gift card",
-      "the samsung galaxy buds",
-      "design",
-      "deal",
-      "features",
-      "noise"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://lifehacker.com/tech/samsung-galaxy-buds-4-deal-may-2026?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KJG4KMFPST9JVNNY3ES2AMA7/hero-image.fill.size_1200x675.png",
-    "created_at": "2026-05-06T19:20:30.820Z",
     "topic": "tech"
   }
 ]
