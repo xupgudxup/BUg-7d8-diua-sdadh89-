@@ -1,5 +1,53 @@
 [
   {
+    "slug": "dismissive-dans-review-of-the-overplane-ai-coding-harness",
+    "title": "Dismissive Dan's Review of the Overplane AI Coding Harness",
+    "description": "A plain-language explanation of Overplane, in a reading style of your choice.",
+    "fullText": "First, sincere congratulations to the team on shipping — that\n always deserves respect. That said, and I mean this\n constructively, I'm struggling to see the product. It's a single\n Go binary that reads numbered Markdown files, builds a local\n Docker or Podman image, runs Claude Code, Codex, Gemini CLI, or\n OpenCode headlessly inside it on your own API keys, has the agent\n emit some SMT files that Z3 then checks, and swaps whatever the\n model wrote into a code directory. Which is lovely,\n but any developer can already get this quite trivially with a\n Dockerfile, a read-only bind mount, a short shell loop, and a cron\n job for the rebuilds. Mine is about forty lines of bash, plus a z3\n invocation. I assume most people reading this have something\n similar.\n\nI will happily grant that the pipeline — raise → verify → codegen — now runs end to end:\n an agent lifts each spec into IR and SMT-LIB, Z3 checks each\n spec's model and a merged model of all of them, and a\n contradiction fails the build. Which is charming, though of course\n an LLM emitting asserts and piping them through Z3 is\n the sort of thing many of us have had in a Makefile since the\n SMT-LIB 2 standard settled down. The load-bearing observation,\n offered gently: the pipeline is heuristic at both ends. A solver\n faithfully checking the wrong formalization of your prose is a\n very efficient way to feel confident, and to the team's genuine\n\n those of us who — as I imagine most readers do — sketch a small\n TLA+ model before anything stateful, the distinction between\n consistency checking and proof is second nature. Actually verified\n software is seL4 or CompCert and costs person-decades; it is\n considerate of them to spell that out for the newer folks.\n\nRespectfully, probably not — if, like presumably everyone here,\n you already maintain your own sandbox scripts, billing\n normalizers, a reproducible container pipeline, and a little\n spec-to-SMT harness for the solver runs. For interactive work,\n Claude Code and Cursor remain lovely. If you need proofs of\n program correctness today, TLA+, Dafny, or Lean are a pleasant\n weekend of reading — what ships here checks spec consistency, not\n the code. GitHub Spec Kit and AWS Kiro sit in the same spec-driven\n aisle without the container isolation. I will concede, warmly,\n that for the rare team that hasn't gotten around to building all\n of this themselves, the packaging here — unattended, reproducible,\n sandboxed spec-to-code with a solver gate and agent portability —\n is genuinely sensible.\n\nThe tool is deliberately boring; the leverage is in your specs —\n granularity, precision, how much latitude you leave the model — in\n which agent you pin per run (--agent) or per spec (\nagent_config in the frontmatter), and in the sandbox\n you compose in overplane.yaml (base image, extra\n packages, which agents, env passthrough). Writing specifications\n precise enough for a solver to check is, happily, something we all\n do naturally, so I anticipate no difficulties for the median team.\n Bookmarked, with warmth; I did predict the solver phases would\n ship, and I am delighted for them.",
+    "readingTime": 3,
+    "keywords": [
+      "claude code",
+      "agent",
+      "model",
+      "solver",
+      "spec",
+      "team",
+      "checks",
+      "pipeline",
+      "files",
+      "lovely"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.overplane.dev/overview/dan/",
+    "thumbnail_url": "https://www.overplane.dev/assets/img.f229d1463afa/hero.jpg",
+    "created_at": "2026-07-12T01:43:36.508Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "joyce-loses-comeback-fight-in-bizarre-ending",
+    "title": "Joyce loses comeback fight in bizarre ending",
+    "description": "Joe Joyce's comeback fight ends in bizarre fashion as the veteran British heavyweight loses to Artem Suslenkov in Moscow.",
+    "fullText": "Joe Joyce's comeback fight ended in bizarre fashion as the veteran British heavyweight lost to Artem Suslenkov in Moscow.\n\nThe 40-year-old was facing undefeated Russian Suslenkov in his first fight since losing to Filip Hrgovic in April 2025.\n\nBut after looking lethargic and lacking power throughout, Joyce appeared to signal that he no longer wanted to fight in the 11th round and stepped backwards.\n\nJoyce offered little defence as Suslenkov, 30, landed a few more blows before the referee stepped in to stop the fight.\n\nJoyce, a silver medallist at the 2016 Olympics, now has a professional record of 16 wins and five losses, with all of those defeats coming in his last six fights.\n\nThe highlight of Joyce's professional career came in 2022, when he beat Joseph Parker to win the vacant WBO interim heavyweight title.\n\nJoyce then faced Zhilei Zhang twice in 2023, but lost his unbeaten record in the first meeting and was stopped in the rematch.\n\nAfter losing to Hrgovic, Joyce's promoter Frank Warren said his man needed to have a \"real serious think about the future\".\n\nDespite Joyce having said he spent 12 months preparing to fight again and that he was \"excited for the opportunity\" to face Suslenkov, who improved his record to 15-0, some now fear this could be the end of his boxing career.\n\nAnthony Fowler, a Great Britain team-mate at Rio 2016, said on X: \"What a sad end to Joe's career. It's a shame to see him go out like that.\"\n\nJoyce's fight was on the undercard of Russian Murat Gassiev's first defence of the WBA heavyweight title.\n\nGassiev, who was elevated to WBA champion after Oleksandr Usyk vacated his three heavyweight belts last month, was scheduled to face Tony Yoka.\n\nJoyce was touted as a possible stand-in after the Frenchman pulled out with injury, but Peter Kadiru was confirmed last week and Gassiev stopped the German in the sixth round to improve to 34 wins and two losses.\n\nCardiff keen to stage Fury-Joshua fight\n\nBoxing schedule and results 2026\n\nWatch every Born to Brawl episode\n\nNotifications, social media and more with BBC Sport",
+    "readingTime": 2,
+    "keywords": [
+      "heavyweight title",
+      "fight",
+      "record",
+      "career",
+      "round",
+      "stepped",
+      "defence",
+      "professional",
+      "losses",
+      "stopped"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.bbc.co.uk/sport/boxing/articles/cz75xdr3xyxo?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/bbd3/live/e433c740-7d6a-11f1-a42d-51c47234ae63.jpg",
+    "created_at": "2026-07-12T01:43:21.061Z",
+    "topic": "sports"
+  },
+  {
     "slug": "kalshis-unusual-management-style-has-more-than-100-employees-report-to-both-founders-ceo-says",
     "title": "Kalshi's 'unusual' management style has more than 100 employees report to both founders, CEO says",
     "description": "Kalshi CEO Tarek Mansour described the prediction market's management style as deliberately \"chaotic,\" but that leads to \"constant adaptability.\"",
@@ -1942,53 +1990,5 @@
     "thumbnail_url": "https://i.insider.com/6a16b640b4fb977f3597ffb9?width=1200&format=jpeg",
     "created_at": "2026-05-29T14:37:50.018Z",
     "topic": "finance"
-  },
-  {
-    "slug": "image-of-thai-police-in-sparkly-dresses-with-handcuffed-suspect-turns-out-to-be-ai-fake",
-    "title": "Image of Thai police in sparkly dresses with handcuffed suspect turns out to be AI fake",
-    "description": "Picture was created by administrator in charge of station’s Facebook account who wanted to create ‘friendlier image’\nIt was an arresting image and an irresistible story. A group of tough Thai police officers – five men and one woman – all wearing elaborate festival-style dresses, surrounding a drug dealer they had caught while undercover.\nThe image, released by local police, was so compelling that it found its way on to the front page of the UK’s Daily Star, as well as in picture stories in the Telegraph, the Sun and the New York Post.\n Continue reading...",
-    "fullText": "Picture was created by administrator in charge of station’s Facebook account who wanted to create ‘friendlier image’\n\nIt was an arresting image and an irresistible story. A group of tough Thai police officers – five men and one woman – all wearing elaborate festival-style dresses, surrounding a drug dealer they had caught while undercover.\n\nThe image, released by local police, was so compelling that it found its way on to the front page of the UK’s Daily Star, as well as in picture stories in the Telegraph, the Sun and the New York Post.\n\nThe Sun wrote: “The burly crew of five men and one woman slipped into skin tight sequins and feathers for the covert mission in Thailand.” The Daily Star wrote: “The team of five blokes and one woman shared a snap of themselves in frilly dresses with the nicked suspect on Facebook.”\n\nThere was just one problem: while the arrest was real, the image was an AI-generated fake.\n\nThe real image, which has now been posted on the Facebook page of Tha Luang police station in Thailand, shows the five male police officers in their regular clothes. The woman dressed as a dancer is not in the original at all.\n\nThe administrator in charge of the station’s Facebook account, which released the AI-generated image, had been trying to create “a friendlier image” for the police, intending to show “a cute and humorous side”.\n\nThe Telegraph, the Daily Mail, the Sun and others have now made clear their stories were based on a fake AI image supplied by the police.\n\nThe absurdity of the image may have rung alarm bells with some readers. However, the fact that the faked image came from a seemingly official source has highlighted the difficulties media outlets face in verifying images.\n\nThere are no foolproof ways to check whether an image is real without a direct relationship with the person who took the picture. It is becoming a time-consuming and precarious task for those overseeing the images used by large outlets, and AI verification tools are not reliable enough.\n\nThe problem is made even more difficult as the use of AI-generated imagery has crept into seemingly official sources. As a result, editors are braced for the reality that it is unlikely that all AI images will be spotted before publication.\n\nMedia outlets and other organisations are also facing the opposite problem – with viewers wrongly suspecting that some genuine images have been generated with AI.",
-    "readingTime": 3,
-    "keywords": [
-      "daily star",
-      "station’s facebook",
-      "facebook account",
-      "create friendlier",
-      "media outlets",
-      "police officers",
-      "woman",
-      "images",
-      "ai-generated",
-      "administrator"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.theguardian.com/technology/2026/may/28/image-of-thai-police-in-sparkly-dresses-with-handcuffed-suspect-turns-out-to-be-ai-fake",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/d3633cb48472a736251988a520826f730d063d9b/257_0_2318_1855/master/2318.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=4cf0d74a84acf134a14c5d460cee57fa",
-    "created_at": "2026-05-28T20:04:31.895Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "naomi-osaka-criticised-by-opponent-for-breaking-rules-with-french-open-fashion-show",
-    "title": "Naomi Osaka criticised by opponent for breaking rules with French Open ‘fashion show’",
-    "description": "Laura Siegemund hit out at Osaka for her clothing choice at Roland Garros and how long it took her to be ready to play",
-    "fullText": "Laura Siegemund claims Naomi Osaka is breaking the rules with her intricate clothing choices and criticised her opponent for putting on a “fashion show” ahead of their first-round encounter at the French Open.\n\nOsaka arrived on Court Suzanne-Lenglen for her opening match at Roland Garros on Tuesday in a ceremonial black skirt and a sleeveless beaded bodice, which she then removed to reveal a sequined gold playing dress for the clash with Siegemund.\n\nIt is far from the first time that Osaka has made a statement with her clothing choices, having also worn a jellyfish-inspired outfit at the Australian Open earlier this year.\n\nBut Siegemund, who lost the match 6-3, 7-6 to the 16th seed from Japan, was not impressed by all the talk about the outfit and hit out at what she sees as a breach of the rules that are inconsistently applied.\n\n“I couldn’t care less,” Siegemund told TNT Sports of Osaka’s catwalk-like entrance. “I come here to play tennis, not to put on a fashion show. And if others want to put on a fashion show, then they should go ahead and do it. That’s totally fine with me.\n\n“I find something else problematic. In our sport, at every tournament they count every second, right up until you’ve unpacked your water bottle. But she can have a minute and a half to change. I have a problem with that, because these rules simply exist and they are what they are – every second is now being watched so closely for us.\n\n“And I also think that with performances like these, every second should be accounted for. That’s the only thing regarding the rules that I don’t think is okay and where, once again, bigger names are treated differently.”\n\nOsaka says she uses fashion to “talk through my clothes” as she is not a very talkative person and explained the thinking behind her latest fashion choice, as well as joking that she was concerned her bold outfit might not be allowed.\n\n“I feel like I’m the Eiffel Tower!” ✨🇫🇷\n\nNaomi Osaka on her sparkling Roland-Garros outfit after her first round win 🎾 pic.twitter.com/0kq0EX7smd\n\n— TNT Sports (@tntsports) May 26, 2026\n\n“I am a little dramatic when it comes to my fashion sense,” explained Osaka “When I first saw it, I felt like I look like the Eiffel Tower at night time when it’s bright.\n\n“Then I actually got a little worried because when the sun hits the dress, it reflects a lot, so I was a little scared the umpire was going to kick me off the court.\n\n“I got two back-up, normal dresses. Thankfully I didn’t have to wear them.”\n\nSequins and sunshine on Suzanne-Lenglen ✨☀️\n\nNaomi Osaka arriving in style for her opening round Roland-Garros match 🔥 pic.twitter.com/cA5pCM4mKJ\n\n— TNT Sports (@tntsports) May 26, 2026\n\nOsaka wasn’t the only player to make a statement at the French Open with their on-court attire, as No 1 seed Aryna Sabalenka wore two necklaces with diamonds for her straight-sets win over Jessica Bouzas Maneiro on Court Philippe-Chatrier.\n\nSabalenka was watching Osaka’s entrance on TNT Sports and gave her approval to the outfit.\n\n“This is sparkling. I love it. I love that she is expressing herself and feels confident,” Sabalenka said. “That’s the beauty of the fashion world, there’s space for anything and I love that she’s bringing it on court.”",
-    "readingTime": 3,
-    "keywords": [
-      "sports tntsports",
-      "clothing choices",
-      "tnt sports",
-      "fashion",
-      "outfit",
-      "rules",
-      "match",
-      "that’s",
-      "second",
-      "love"
-    ],
-    "qualityScore": 1,
-    "link": "https://sports.yahoo.com/articles/naomi-osaka-criticised-opponent-breaking-084821451.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/the_independent_us_sports_articles_270/440a705eb6b9a2cd45365a0ab1797ec4",
-    "created_at": "2026-05-28T09:44:50.766Z",
-    "topic": "sports"
   }
 ]

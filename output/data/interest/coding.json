@@ -1,5 +1,42 @@
 [
   {
+    "slug": "dismissive-dans-review-of-the-overplane-ai-coding-harness",
+    "title": "Dismissive Dan's Review of the Overplane AI Coding Harness",
+    "description": "A plain-language explanation of Overplane, in a reading style of your choice.",
+    "fullText": "First, sincere congratulations to the team on shipping — that\n always deserves respect. That said, and I mean this\n constructively, I'm struggling to see the product. It's a single\n Go binary that reads numbered Markdown files, builds a local\n Docker or Podman image, runs Claude Code, Codex, Gemini CLI, or\n OpenCode headlessly inside it on your own API keys, has the agent\n emit some SMT files that Z3 then checks, and swaps whatever the\n model wrote into a code directory. Which is lovely,\n but any developer can already get this quite trivially with a\n Dockerfile, a read-only bind mount, a short shell loop, and a cron\n job for the rebuilds. Mine is about forty lines of bash, plus a z3\n invocation. I assume most people reading this have something\n similar.\n\nI will happily grant that the pipeline — raise → verify → codegen — now runs end to end:\n an agent lifts each spec into IR and SMT-LIB, Z3 checks each\n spec's model and a merged model of all of them, and a\n contradiction fails the build. Which is charming, though of course\n an LLM emitting asserts and piping them through Z3 is\n the sort of thing many of us have had in a Makefile since the\n SMT-LIB 2 standard settled down. The load-bearing observation,\n offered gently: the pipeline is heuristic at both ends. A solver\n faithfully checking the wrong formalization of your prose is a\n very efficient way to feel confident, and to the team's genuine\n\n those of us who — as I imagine most readers do — sketch a small\n TLA+ model before anything stateful, the distinction between\n consistency checking and proof is second nature. Actually verified\n software is seL4 or CompCert and costs person-decades; it is\n considerate of them to spell that out for the newer folks.\n\nRespectfully, probably not — if, like presumably everyone here,\n you already maintain your own sandbox scripts, billing\n normalizers, a reproducible container pipeline, and a little\n spec-to-SMT harness for the solver runs. For interactive work,\n Claude Code and Cursor remain lovely. If you need proofs of\n program correctness today, TLA+, Dafny, or Lean are a pleasant\n weekend of reading — what ships here checks spec consistency, not\n the code. GitHub Spec Kit and AWS Kiro sit in the same spec-driven\n aisle without the container isolation. I will concede, warmly,\n that for the rare team that hasn't gotten around to building all\n of this themselves, the packaging here — unattended, reproducible,\n sandboxed spec-to-code with a solver gate and agent portability —\n is genuinely sensible.\n\nThe tool is deliberately boring; the leverage is in your specs —\n granularity, precision, how much latitude you leave the model — in\n which agent you pin per run (--agent) or per spec (\nagent_config in the frontmatter), and in the sandbox\n you compose in overplane.yaml (base image, extra\n packages, which agents, env passthrough). Writing specifications\n precise enough for a solver to check is, happily, something we all\n do naturally, so I anticipate no difficulties for the median team.\n Bookmarked, with warmth; I did predict the solver phases would\n ship, and I am delighted for them.",
+    "readingTime": 3,
+    "keywords": [
+      "claude code",
+      "agent",
+      "model",
+      "solver",
+      "spec",
+      "team",
+      "checks",
+      "pipeline",
+      "files",
+      "lovely"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.overplane.dev/overview/dan/",
+    "thumbnail_url": "https://www.overplane.dev/assets/img.f229d1463afa/hero.jpg",
+    "created_at": "2026-07-12T01:43:36.508Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "inside-one-coders-journey-to-leave-tech-and-land-a-baby-bluecollar-job",
+    "title": "Inside one coder's journey to leave tech and land a 'baby blue-collar' job",
+    "description": "When Brian Gordon lost his tech job, he decided to leave software development for good. His goal was something more blue-collar.",
+    "fullText": "You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n Read in app\n\n HOME",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.1,
+    "link": "https://www.businessinsider.com/web-developer-coding-career-pivot-baby-blue-collar-job-2026-7",
+    "thumbnail_url": "https://i.insider.com/6a4fa02fd3b3e45765196edc?width=1200&format=jpeg",
+    "created_at": "2026-07-12T01:43:22.468Z",
+    "topic": "tech"
+  },
+  {
     "slug": "my-colleague-wanted-a-nerdy-niche-tool-for-his-macbook-codex-whipped-it-up-in-minutes",
     "title": "My colleague wanted a nerdy, niche tool for his MacBook. Codex whipped it up in minutes.",
     "description": "Business Insider's Stephen Council used OpenAI Codex to build a custom Mac clipboard app in minutes—no coding required.",
@@ -1798,43 +1835,6 @@
     "link": "https://www.businessinsider.com/coding-experiment-pinterest-inspired-web-app-base44-ai-result-2026-5",
     "thumbnail_url": "https://i.insider.com/69f980dd405e0cf89dc87071?width=988&format=jpeg",
     "created_at": "2026-05-25T09:46:43.813Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "your-clippy-config-should-be-stricter",
-    "title": "Your Clippy Config Should Be Stricter",
-    "description": "“If it compiles, it works.” This feeling is one of the main things Rust engineers love most about Rust, and a reason why using it with coding agents is espec...",
-    "fullText": "“If it compiles, it works.” This feeling is one of the main things Rust engineers love most about Rust, and a reason why using it with coding agents is especially nice. After debugging some code that compiled but mysteriously stopped in production, I realized that it’s useful to enable more Clippy lints to catch bugs that the compiler won't prevent by itself. It's especially useful as guardrails for coding agents, but stricter linting can make your code safer, whether or not you’re coding with LLMs.\n\nScour is the personalized content feed that I work on. Every Friday, Scour sends an email digest to each user with the top posts that matched their interests. On a recent Friday, the email sending job mysteriously stopped. This was puzzling because I had already put in place multiple type system-level safeguards and tests to ensure that it would continue with a log on all types of errors.\n\nAfter digging into the logs, I found the culprit to be thread 'tokio-runtime-worker' panicked... byte index 200 is not a char boundary. A function naively truncated article summaries without checking for UTF-8 character boundaries, which caused a panic and stopped the Tokio worker thread running the email sending loop.\n\nThe solution for this particular bug was a safer method for truncating article summaries that respects UTF-8 character boundaries. However, this problem was reminiscent enough of the 2025 Cloudflare unwrap bug that \"broke the internet\" that I wanted some more general solution.\n\nRust's compiler prevents many types of bugs but there are still production problems it can't catch. Panics will either crash your program or quietly kill Tokio worker threads. Deadlocks and dropped futures can make work silently stop. And plenty of numeric operations can silently cause incorrect behavior.\n\nWe can stave off many of these types of bugs by making Clippy even stricter than it already is.\n\nThis is especially relevant in the age of coding agents. A seasoned Rust engineer might naturally avoid patterns that could cause problems. An agent or a junior colleague might not. Stricter Clippy rules make it easier to rely on code you didn't personally write. Also, enabling new lints on an existing codebase is tedious, and exactly the kind of task that is good to hand to a coding agent.\n\nClippy ships with hundreds of lints that are disabled by default. Some are disabled because they might have false positives and some are style choices which you might reasonably not want.\n\nWhich lints should we enable to help us get back the \"if it compiles [and passes Clippy], it works\" feeling?\n\nClippy's lints are grouped into categories: Correctness, Suspicious, Complexity, Perf, Style, Pedantic, Restriction, Cargo, Nursery, and Deprecated.\n\nUnfortunately, none of these categories cleanly map onto \"don't let this panic or do the wrong thing in production\".\n\nIn fact, the Clippy docs say that \"The restriction category should, emphatically, not be enabled as a whole.\" Clippy even includes a dedicated lint, blanket_clippy_restriction_lints, to discourage you from enabling this category. While the restriction category includes many useful lints, it also includes some that directly contradict one another. For example, it contains lints to enforce both big_endian_bytes and little_endian_bytes.\n\nThe docs say \"Lints should be considered on a case-by-case basis before enabling\". Of course, you can enable whole categories like pedantic and restriction and then allow specific ones you want to disable, but I'm outlining a selective opt-in here.\n\nEven if you don't use a certain pattern in your code base today, it's not bad to enable the lint anyway. Inapplicable lints serve as cheap tripwires in case the given pattern is ever added later, whether by you, a colleague, or a coding agent.\n\nEvery project is different and you should look through the available lints to see which ones make sense for your project.\n\nAlso, check when lints landed in stable if your Minimum Supported Rust Version predates 1.95, as some of these may have been added after your MSRV.\n\nWith those caveats out of the way, here are the lints I enabled, roughly categorized by what kind of behavior they prevent. You can skip to the bottom if you just want to copy my config.\n\nThis group prevents panics from unwraps and unsafe slicing or indexing into arrays and strings.\n\nNote that some of these, like string_slice and indexing_slicing may produce many warnings throughout your code base. That may be annoying to fix. However, using safe methods like .get() and iterators instead of slicing prevents pretty severe footguns, so I would argue that it's worth it.\n\nYou might or might not want to enable expect_used. Calling .expect on an Option or Result can result in a panic. However, the message you pass to expect should already document why that thing shouldn't happen. Enabling the lint and then selectively disabling it throughout your code with #[expect(expect_used, reason = \"...\")] may end up duplicating the same rationale for using it in the first place.\n\nAnother lint that is a real judgement call is arithmetic_side_effects. This can prevent overflows and division by zero. However, it will cause Clippy to warn you about every place you use math operators: +, -, *, <<, /, and %. I tried enabling it in my code base and would estimate that around 15% of the warnings caught real issues and 85% was just noise.\n\nThese prevent various concurrency bugs and deadlocks:\n\nThe lints cast_possible_wrap, cast_precision_loss, cast_possible_truncation effectively force you to document invariants when doing lossy casts between numeric types. You might or might not find that useful.\n\nThese two are especially useful if you're using a coding agent. Instead of letting the agent write #[allow(lint_we_wanted_to_enable)], it should provide a reason wherever it's disabling a lint.\n\nIf you're using a Cargo workspace, you'll want to enable these lints in the workspace Cargo.toml. Unfortunately, each workspace crate needs to opt in to inheriting lints with lints.workspace = true, rather than inheriting the lints by default. On nightly, there's a missing_lints_inheritance lint that specifically checks for this.\n\nIf you're using stable Rust, you can use cargo-workspace-lints or a simple shell script run on CI to make sure you don't forget to make a workspace crate inherit the lints.\n\nWhen enabling lints, you can either set Clippy to warn or deny them. Either works but I personally prefer setting these to warn and running Clippy with -D warnings before committing and on CI. This makes local iteration marginally easier because you can compile your code initially without fixing all the lints right away.\n\nNote: if you set Clippy on CI to deny warnings, you should make sure to specify a specific Rust version. Otherwise, lints added in newer versions will cause your build to fail. (Thanks to u/scook0 for pointing this out!)\n\nUltimately, as Clippy's docs say, \"You can choose how much Clippy is supposed to annoy help you.\" But especially in the age of coding agents, I think it's worth tightening the guardrails so you end up with even fewer mysterious bugs in production and more code where you can say \"if it compiles and lints, it should work.\"\n\nDiscuss on r/rust, Lobsters, or Hacker News.\n\nIn response to this post, Billy Levin wrote up a case for enabling whole lint categories and disabling the specific lints you don't want: Your Clippy Config Should Be Stricter-er. If you found this post interesting, that one's worth a read before you decide which approach is best for you.",
-    "readingTime": 7,
-    "keywords": [
-      "utf character",
-      "tokio worker",
-      "rust version",
-      "character boundaries",
-      "mysteriously stopped",
-      "docs say",
-      "workspace crate",
-      "restriction category",
-      "it's worth",
-      "coding agents"
-    ],
-    "qualityScore": 1,
-    "link": "https://emschwartz.me/your-clippy-config-should-be-stricter/",
-    "thumbnail_url": "https://bear-images.sfo2.cdn.digitaloceanspaces.com/emschwartz-1723634231.webp",
-    "created_at": "2026-05-24T12:58:48.792Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "too-many-app-ideas-too-few-coding-skills-its-time-to-vibe-code-your-life",
-    "title": "Too many app ideas, too few coding skills? It's time to vibe code your life.",
-    "description": "Lots of app ideas but no coding skills? It's time to vibe code your life.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/build-app-no-coding-skills-ai-lovable-replit-claude",
-    "thumbnail_url": "https://i.insider.com/6a10997e7ff506e273e66c0a?width=1200&format=jpeg",
-    "created_at": "2026-05-24T12:58:45.606Z",
     "topic": "finance"
   }
 ]
