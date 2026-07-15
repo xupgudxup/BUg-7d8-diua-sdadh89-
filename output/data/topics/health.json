@@ -1,5 +1,42 @@
 [
   {
+    "slug": "healthmd-an-apple-health-exporter-for-files-and-selfhosted-apis",
+    "title": "Health.md, an Apple Health exporter for files and self-hosted APIs",
+    "description": "Source code of Health.md iOS app. Contribute to CodyBontecou/health-md development by creating an account on GitHub.",
+    "fullText": "Own your Apple Health data — export it to Markdown, JSON, CSV, and Obsidian Bases as private files you control.\n\nHealth.md turns Apple Health and Apple Watch history into a local-first health archive. Choose sleep, HRV, workouts, medications, vitals, activity, nutrition, and 170+ other metrics, preview your daily health note, then export clean Markdown, JSON, CSV, or Obsidian Bases YAML to Files, iCloud Drive, your Obsidian vault, or a nearby Mac. No accounts. No health-data cloud. Your health records stay on your devices and in folders you choose.\n\n🌐 healthmd.isolated.tech · 📲 Download on the App Store · 📚 Docs · 🐛 Issues · 💬 Discord · ⭐ Star this repo\n\nOwn a durable, searchable copy of the health history Apple Health stores on your iPhone. Health.md writes HealthKit data to plain files and supports 170+ selectable metrics across sleep, activity, heart, respiratory, vitals, body measurements, mobility, cycling, nutrition, vitamins, minerals, hearing, mindfulness, reproductive health, symptoms, medications, and workouts.\n\nMake your body part of your Obsidian vault. Export daily notes directly into an Obsidian folder, use date placeholders in paths, customize Markdown templates, inject health sections into existing daily notes, and emit Obsidian Bases frontmatter so sleep, HRV, workouts, weight, and more become queryable properties.\n\nOne export action can write multiple formats for multiple days.\n\nSearch metrics, enable categories, choose units, customize metric names, control filename templates ({date}, {year}, {month}, {weekday}), and organize exports into folders with placeholders like {year}/{month} or {quarter}.\n\nAlongside daily summaries, Health.md can create timestamped files for individual records:\n\nSchedule daily or weekly exports, retry from export history, and trigger exports from Apple Shortcuts. App Intents include Export Yesterday, Export Specific Date, Export Date Range, Export Last N Days, Get Health Summary, Get Last Export Status, and Set Scheduled Export Enabled.\n\nUse the macOS companion app as a local destination for iPhone-configured exports. The iPhone reads HealthKit, applies your selected settings, and sends the export job directly to the Mac over local network / Multipeer Connectivity. The Mac writes the received files to a destination folder you choose and stays available from the menu bar.\n\nmacOS cannot read Apple Health directly, so the iPhone remains the source of truth for HealthKit data.\n\nHealth.md includes 3 free export actions so you can verify permissions, folder access, formats, and your Obsidian workflow.\n\nUnlimited exports are unlocked with a one-time Full Access purchase through StoreKit. No subscription. No recurring charge. Health.md offers an Individual Lifetime option and a higher-priced Family Lifetime option that uses Apple Family Sharing. The live prices are shown by the App Store inside the app.\n\nThe free counter tracks export actions, not files: exporting Markdown + JSON + CSV for a date range still counts as one export action.\n\nDebug builds disable AppsFlyer automatically. Non-Debug builds require a dev key and fail fast if it is missing:\n\nRun both iOS and macOS test suites:\n\nThe Makefile wraps the shared Xcode schemes:\n\nHealth.md requests permissions only when a feature needs them:\n\nIf you want the strictest local setup, use manual exports, keep Mac Destination off, and leave Scheduled Exports disabled.\n\nBug reports, feature ideas, docs fixes, and pull requests are welcome. Open an issue with the workflow you are trying to build, the export format you need, or the HealthKit category you want Health.md to support next.\n\nHealth.md is licensed under the GNU Affero General Public License v3.0. The AGPL ensures that modified versions — including hosted services — must also publish their source, preserving the local-first privacy promise.",
+    "readingTime": 3,
+    "keywords": [
+      "lifetime option",
+      "json csv",
+      "sleep hrv",
+      "hrv workouts",
+      "markdown json",
+      "obsidian vault",
+      "daily notes",
+      "date range",
+      "export action",
+      "export actions"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/CodyBontecou/health-md",
+    "thumbnail_url": "https://opengraph.githubassets.com/230005dc833dd2779310e19576797db43407b2f05c5ba4aa1314773431278ff3/CodyBontecou/health-md",
+    "created_at": "2026-07-15T18:54:22.575Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "lawmakers-want-to-make-daylightsaving-time-permanent-health-experts-say-thats-precisely-the-wrong-idea",
+    "title": "Lawmakers want to make daylight-saving time permanent — health experts say that's precisely the wrong idea",
+    "description": "The House just voted to enshrine daylight-saving time. Doctors say it's bad for our health.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/daylight-saving-time-bill-vote-doctors-health-risks-2026-7",
+    "thumbnail_url": "https://i.insider.com/6a57a9a1121f0039668a02b9?width=1200&format=jpeg",
+    "created_at": "2026-07-15T18:54:19.069Z",
+    "topic": "finance"
+  },
+  {
     "slug": "majority-of-new-ebola-cases-in-eastern-congo-are-from-unknown-chains-as-outbreak-outpaces-response",
     "title": "Majority of new Ebola cases in eastern Congo are from unknown chains, as outbreak outpaces response",
     "description": "Eighty percent of new Ebola cases in eastern Congo are emerging from unknown chains of transmission, the World Health Organization said Tuesday, a sign the outbreak is spreading faster than health off...",
@@ -2004,53 +2041,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/t9gZmeq_kqjbyu5GSHpuww--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MzM7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/550704af309d267c56a644dc098d382a",
     "created_at": "2026-06-11T20:10:06.346Z",
     "topic": "sports"
-  },
-  {
-    "slug": "rare-disease-linked-to-rabbits-has-colorado-health-officials-on-alert",
-    "title": "Rare disease linked to rabbits has Colorado health officials on alert",
-    "description": "Colorado health officials announced on June 9 that they had detected a rare disease linked to rabbits and ticks in the state.",
-    "fullText": "A rare but potentially serious disease tied to rabbits and ticks has been detected in northern Colorado, prompting a warning as human risk rises heading into summer.\n\nHealth officials said on June 9 that tularemia was confirmed in a dead rabbit in Larimer County and is likely present elsewhere. Though human infections are rare, the disease can spread through insect bites, animal contact, and airborne dust, making outdoor precautions critical during peak months.\n\n\"Because tularemia is present in Larimer County, it's important to take steps to avoid infection,\" Paul Mayer, the Larimer County health department’s medical officer, said. Mayer recommended residents to always \"use effective insect repellent, check skin for ticks after being outdoors, and keep children and pets away from wild animals, including rabbits and squirrels.\"\n\nTularemia is caused by bacteria often found in rabbits and rodents, according to the Centers for Disease Control and Prevention. The disease can be transferred to humans through contact with infected animal tissue, as well as inhaling contaminated dust or drinking contaminated water.\n\nThe disease can also be transmitted to humans through ticks and deer flies.\n\nAccording to the CDC, tularemia is a relatively rare disease in humans.\n\nIn 2023, 196 cases were reported in humans across the United States, but that rarity was not always the case, as in the middle of the 20th century, cases in the United States hovered around 1,000 per year.\n\nColorado health officials also outlined steps people can take to reduce the risk of tularemia:\n\nWear gloves while gardening and wash your hands before eating or touching your face.\n\nUse an EPA-registered insect repellent effective against ticks and biting flies (such as DEET or picaridin).\n\nWear a dust mask when mowing, using a leaf blower, or digging in soil.\n\nWear shoes outdoors, especially in areas where dead animals may have been.\n\nUse protective gloves to remove dead rabbits or rodents from your property.\n\nFernando Cervantes Jr. is a trending news reporter for USA TODAY. Reach him at fernando.cervantes@usatodayco.com and follow him on X @fern_cerv_.\n\nThis article originally appeared on USA TODAY: Tularemia detected in Colorado. Here's how to protect yourself",
-    "readingTime": 2,
-    "keywords": [
-      "insect repellent",
-      "larimer county",
-      "united states",
-      "disease",
-      "rabbits",
-      "ticks",
-      "humans",
-      "rare",
-      "health",
-      "dead"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.yahoo.com/news/science/articles/rare-disease-linked-rabbits-colorado-010614235.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/mlfaTBZCEuV.pEsVAg_aHA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/usa_today_news_641/18ce64bf392744d245076ad8af8c486b",
-    "created_at": "2026-06-11T15:33:20.939Z",
-    "topic": "science"
-  },
-  {
-    "slug": "congos-ebola-outbreak-spreads-to-new-health-zone",
-    "title": "Congo’s Ebola outbreak spreads to new health zone",
-    "description": "DAKAR, June 10 (Reuters) - Congo's Ebola outbreak has spread to a new health zone in the northeastern province of Ituri, authorities said on Wednesday, as fresh infections underline sustained",
-    "fullText": "DAKAR, June 10 (Reuters) - Congo's Ebola outbreak has spread to a new health zone in the northeastern ‌province of Ituri, authorities said on Wednesday, as ‌fresh infections underline sustained transmission more than three weeks after the epidemic was ​declared.\n\nThe health ministry said Tchomia, about 50 kilometres south of the provincial capital Bunia on the shores of Lake Albert, has become the latest affected health zone, bringing the total number ‌of affected zones ⁠to 26 nationwide and 18 in Ituri province, which accounts for more than 94% of confirmed ⁠cases.\n\nA health zone in Congo’s healthcare system covers a defined area with a network of clinics and a referral hospital.\n\nThe ​government's latest ​situation report said 37 ​new confirmed cases, including 12 ‌deaths, were reported in the previous 24 hours, all in Ituri.\n\nThe outbreak has so far recorded 635 confirmed cases and 127 deaths across three eastern provinces.\n\nThe epidemic, caused by the rare Bundibugyo strain of the virus, for which there ‌is no approved vaccine or ​specific treatment, was declared on May ​15. It has since ​spread across Ituri, North Kivu and South ‌Kivu, regions marked by insecurity, displacement ​and cross-border ​movement.\n\nEight patients were newly declared recovered, bringing the total number of recoveries to 30, while treatment activities have ​been launched at ‌Ebola centres in Bunia and Rwampara, the report said.\n\n(Reporting ​by Clement Bonnerot and Congo newsroom; Editing by ​Robbie Corey-Boulet and Deepa Babington)",
-    "readingTime": 2,
-    "keywords": [
-      "health zone",
-      "declared",
-      "cases",
-      "ebola",
-      "outbreak",
-      "spread",
-      "province",
-      "epidemic",
-      "south",
-      "latest"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://www.yahoo.com/news/world/articles/congo-says-number-confirmed-ebola-171351291.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/reuters.com/8103970a17a429ed1ea31507fecfcdb1",
-    "created_at": "2026-06-11T02:36:32.318Z",
-    "topic": "news"
   }
 ]
