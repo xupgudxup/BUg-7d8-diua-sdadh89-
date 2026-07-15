@@ -1,5 +1,18 @@
 [
   {
+    "slug": "fold-launches-bitcoin-gift-card-on-tiktok-shop",
+    "title": "Fold launches bitcoin gift card on TikTok Shop",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/company-news/fold-launches-bitcoin-gift-card-on-tiktok-shop-93CH-4793462",
+    "thumbnail_url": "https://i-invdn-com.investing.com/news/world_news_2_108x81.jpg",
+    "created_at": "2026-07-15T13:09:27.458Z",
+    "topic": "finance"
+  },
+  {
     "slug": "a-very-good-clone-news-stories-faked-to-lure-victims-to-scam-investment-sites",
     "title": "‘A very good clone’: news stories faked to lure victims to scam investment sites",
     "description": "Fraudsters create false articles that appear to be from publishers such as the Guardian to share on social media\nThe Guardian article looks interesting. It says the billionaire Jim Ratcliffe has stormed out of a BBC interview after presenter Laura Kuenssberg revealed details of his personal financial affairs – and now the episode has been removed from iPlayer.\nAmong the detail in the piece is that Ratcliffe has been using an online investment platform to make money. The report says although the site has been kept secret, other people have used it too, and they have made a fortune. There is a link to the site where you can trade cryptocurrency, stocks and shares.",
@@ -1850,29 +1863,5 @@
     "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ioAh7.q6.eug/v1/1200x800.jpg",
     "created_at": "2026-04-02T01:17:17.813Z",
     "topic": "finance"
-  },
-  {
-    "slug": "google-researchers-just-put-a-new-expiration-date-on-bitcoin",
-    "title": "Google researchers just put a new expiration date on Bitcoin",
-    "description": "Bitcoin needs to fix this in the next three years.",
-    "fullText": "A team of Google researchers just set a new date for post-quantum cryptography migration: 2029. Among other things, this means that Bitcoin, as well as many other cryptocurrencies, needs to adopt new cryptographic techniques that are resilient to quantum attacks within three years.\n\nGoogle announced the new timeline in a blog post. \"Quantum computers will pose a significant threat to current cryptographic standards, and specifically to encryption and digital signatures,\" the post said.\n\nIn terms of actual science, two important papers were published on Monday. One is signed by Google researchers, the other by a startup called Oratomic (with ex-Googlers and Caltech folks on board). The papers are a dense read for anyone who's not an expert in cryptography, but can be simplified to this: They describe new ways to break some very important cryptographic systems using quantum computers, with far fewer resources (10x) than previously thought.\n\nThis is relevant for Bitcoin because it makes it far more likely that someone can build a quantum computer capable of deriving a Bitcoin private key from a Bitcoin public key. In fact, so much more likely that Google decided not to show the actual quantum circuits they used to do this, instead showing a mathematical proof that this is possible.\n\nJustin Drake, one of the researchers that co-signed the Google paper, has a good overview. \"A superconducting quantum computer, the type Google is building, could crack keys in minutes,\" he wrote.\n\nImportant point: As Adam Back, an important Bitcoin expert, pointed out, Bitcoin (the network) does not use encryption. What Google has found doesn't mean someone can intercept transactions on the Bitcoin network; instead, they could crack someone's private key, and when you have someone's private key, you have their coins.\n\nIn fact, it's a bit more complex than that. The two papers above reference Shor's algorithm, a quantum algorithm developed by Peter Shor back in 1994, that makes it a lot faster to break certain types of encryption with quantum computers. Shor's algorithm could be used to derive a Bitcoin private key from a public key, but only in certain cases. This includes some old Bitcoin addresses, including those used by Bitcoin's elusive creator Satoshi Nakamoto himself; this is notable, as these addresses hold over one million bitcoins, meaning that the potential prize for someone cracking them is in the tens of billions of dollars (not to mention the havoc it would cause on the network as everyone scrambled to figure what's next).\n\nNewer addresses can also be cracked, but not until they're broadcasted within a transaction, meaning there's a short (typically 10-minute long) window in which someone could use Shor's algorithm to get that private key. No known quantum computer that could do this exists right now, even considering the optimizations found by Google and Oratomic researchers. But it's not unfathomable that someone builds it in the future.\n\nBitcoin is traditionally slow to make any changes. Adam Back, in particular, advised in 2025 that \"some quantum readiness\" should be added in the next five years, though he said he's not expecting it to be used \"in a few decades.\"\n\nIn contrast, the new papers demonstrate that the quantum threat for Bitcoin is much closer than that, and that serious action should probably be taken now.\n\nWhat can be done? Google's paper suggest ways in which blockchains (including Bitcoin) could mitigate the issue. This includes simple steps such as moving coins from old addresses to new ones if possible, but also updating protocols to include post-quantum cryptography. This process is not easy for large, established cryptocurrency networks, and it may take years to even agree on a best solution (an internal strife over block size on Bitcoin's network took about two years to resolve), let alone implement it.\n\nOther cryptocurrencies, such as Ethereum, are also vulnerable to these issues. The Ethereum Foundation, a non-profit that stewards Ethereum's long-term growth, recently published a post-quantum roadmap, aiming to solve these issues before it's too late.\n\nMashable and Yahoo may earn commission from links in this article.",
-    "readingTime": 4,
-    "keywords": [
-      "shor's algorithm",
-      "google researchers",
-      "post-quantum cryptography",
-      "quantum computers",
-      "quantum computer",
-      "bitcoin",
-      "someone",
-      "papers",
-      "network",
-      "addresses"
-    ],
-    "qualityScore": 1,
-    "link": "https://tech.yahoo.com/science/articles/google-researchers-just-put-expiration-132301278.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/O3qcpaONjMNgPg.JOL5Zhg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/mashable_articles_863/a4f0e1b6c59e0f39c2f6552b417f2ae4",
-    "created_at": "2026-04-01T18:45:17.115Z",
-    "topic": "tech"
   }
 ]
