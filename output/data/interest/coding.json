@@ -1,5 +1,29 @@
 [
   {
+    "slug": "gist-of-go-concurrency",
+    "title": "Gist of Go: Concurrency",
+    "description": "Interactive book on concurrent programming with auto-tested exercises.",
+    "fullText": "Many Go concurrency books and tutorials are like: here's goroutine, here's channel, here's select — use them as you like. Others just throw concurrent patterns at you without really explaining them.\n\nThis is not very helpful: the most important thing in concurrent programming is not pure knowledge, but the understanding and ability to apply concurrency primitives.\n\nThat's why I've created an interactive book that teaches Go concurrency from the ground up through practical exercises. These exercises are simple enough to be solved with a single page of code yet are closely aligned with real-world scenarios.\n\nAudience and approach •\nContents •\nAbout the author •\nBook details\n\nThe book is intended for programmers who are already familiar with Go, from language basics to interfaces and errors. You don't need any prior knowledge of goroutines and channels — we'll cover concurrency tools from the ground up.\n\nSince the book targets experienced programmers, I've chosen a presentation style that I prefer: concise, focused, with exercises of moderate difficulty. Maybe you'll like it too.\n\nConcurrent programming is a tricky beast, but I explain complex topics clearly, making them easier to understand. There are lots of examples and no dry theory.\n\nThere are dozens of interactive exercises that run directly in the browser. Each problem has an automated test suite that provides immediate feedback and a reference solution with an explanation.\n\nThere is no AI-generated or copied content. The book is 100% original.\n\nYou can read the chapters using the links in the table of contents above, or purchase the book for full access to the interactive exercises (+ a PDF version).\n\nI'm Anton Zhiyanov. I work on open source and write interactive technical guides.\n\nIn 2022 I launched a course on Go concurrency. It now has 250 graduates and an average rating of 5 stars based on 100 student reviews.\n\nThis book is based on the original course.\n\nGo 1.26 (last updated: 2026-07-16)\n\n50 auto-tested exercises (with solutions)\n\n448-page PDF (15.8 × 21.4 cm or 6.22 × 8.43 inches)\n\n★",
+    "readingTime": 2,
+    "keywords": [
+      "concurrent programming",
+      "interactive exercises",
+      "book",
+      "concurrency",
+      "here's",
+      "knowledge",
+      "i've",
+      "ground",
+      "page",
+      "programmers"
+    ],
+    "qualityScore": 1,
+    "link": "https://antonz.org/go-concurrency/",
+    "thumbnail_url": "https://antonz.org/go-concurrency/cover.png",
+    "created_at": "2026-07-17T07:51:38.707Z",
+    "topic": "tech"
+  },
+  {
     "slug": "canadian-golf-viewers-miss-start-of-open-championship-for-second-consecutive-year",
     "title": "Canadian golf viewers miss start of Open Championship for second consecutive year",
     "description": "A programming mishap seems to have ruined the start of the Open Championship for Canadian viewers for the second consecutive year. According to a report by Coleman Bentley in Golf Digest, early risers in Canada who were planning on catching the beginning of this year’s Open Championship, which began in the overnight hours in North America,…",
@@ -1796,30 +1820,6 @@
     "link": "https://www.jolli.ai",
     "thumbnail_url": "https://www.jolli.ai/jolli-white-bg.png",
     "created_at": "2026-06-02T20:34:17.162Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "terse-typescript-first-workflow-builder",
-    "title": "Terse, TypeScript First Workflow Builder",
-    "description": "Typescript Workflow builder, optimized for use in Coding Agents - TerseAI/Terse",
-    "fullText": "Workflow building for the coding agent era.\n\nA code-first AI workflow platform for developers and coding agents.\n\n Connect your tools, generate a typed SDK from your workspace, and deploy serverless workflows that mix deterministic tool calls with agentic loops.\n\nQuickstart ·\n SDK ·\n CLI ·\n Sign up\n\nAI agents are fast to build but make mistakes. Deterministic workflows are reliable but slow to set up. Terse lets you mix both in the same workflow: call tools directly when you need precision, hand off to an agent when you need judgment.\n\nGet a workflow live in under 5 minutes — full guide at docs.useterse.ai/quickstart.\n\nThat's it. terse deploy ships to the Terse Cloud data plane — no infra to stand up.\n\nTerse has two planes you can place independently. Most users pick one of the named tiers below.\n\nnpx create-terse clones the repo, mints secrets, brings up Postgres in Docker, runs migrations, starts the app, and writes the env so terse-cli already points at your self-hosted control plane.\n\nA Terse workflow is a single TypeScript file. The job below watches a repo for new pull requests, posts a deterministic Slack message announcing the PR, then threads a Block Kit summary under it:\n\nThe skills passed to generateText are the only surface the model can reach: it can post in one Slack channel and read this one repo, nothing else. The deterministic toolbox.slack.sendMessage call returns a typed result you can thread on directly, and generateText picks up the GitHub and Slack tools without further wiring.\n\nFirst-class, typed integrations for the tools you already use:\n\nThis is the Terse monorepo — the platform code Terse runs in production, plus the public packages used to author workflows.\n\nIssues and PRs welcome. If you're picking up something non-trivial, open an issue first so we can sanity-check the approach. See CONTRIBUTING.md for the full guide and SECURITY.md for the private disclosure process.\n\nWorking on the SDK, CLI, or frontend? Clone the repo and:\n\nThe frontend and CLI talk to the hosted Terse backend at api.useterse.ai by default, so most SDK/CLI/frontend work doesn't need a local backend. Override with TERSE_BACKEND_URL if you're pointing at a self-hosted instance.\n\nBackend work needs Postgres and the credentials backend integrations expect — see docs.useterse.ai/self-hosting.\n\nTerse is source-available under the Sustainable Use License v1.0. You can read it, fork it, modify it, and self-host it for non-commercial or internal business use. You can't redistribute it commercially or run it as a competing hosted product. The license text in LICENSE.md is authoritative.",
-    "readingTime": 3,
-    "keywords": [
-      "workflow",
-      "tools",
-      "deterministic",
-      "repo",
-      "backend",
-      "typed",
-      "workflows",
-      "terse",
-      "coding",
-      "agent"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/TerseAI/Terse",
-    "thumbnail_url": "https://opengraph.githubassets.com/8dbb371ea1b00c502b805f46f20c9d41e3fc53b95af2874d6adc073059b131cf/TerseAI/Terse",
-    "created_at": "2026-06-02T15:58:11.166Z",
     "topic": "tech"
   }
 ]

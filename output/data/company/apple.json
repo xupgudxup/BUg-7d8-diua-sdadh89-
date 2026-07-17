@@ -1,5 +1,29 @@
 [
   {
+    "slug": "velora-ondevice-macos-dictation-whisper-and-a-local-llm-no-cloud",
+    "title": "Velora – On-device macOS dictation (Whisper and a local LLM, no cloud)",
+    "description": "Local-first, on-device dictation for macOS (Apple Silicon) — Superwhisper/Wispr Flow alternative. Multilingual STT + LLM cleanup via MLX, fully offline. - sushilk1991/velora",
+    "fullText": "Local-first dictation for macOS. Hold a key, speak, release — polished text appears in whatever app you're using. Every dictation step, from speech-to-text to AI cleanup, runs on-device via MLX on Apple Silicon. Audio, transcripts, and history never leave your Mac; confirmed Personal Dictionary terms can sync privately through your iCloud Drive.\n\nDictation tools like Superwhisper and Wispr Flow proved the product: invisible, fast, smart voice input everywhere. But Wispr Flow transcribes in the cloud, and both are closed-source subscriptions. Velora is the open-source answer:\n\nmake app compiles the Swift app and bundles the Python engine; the engine's dependencies are fetched by uv on first launch. First launch then walks you through onboarding: microphone permission, accessibility permission (live-detected as you grant it), hotkey choice, and a try-it playground — you finish with a real dictation. The engine downloads the default models from Hugging Face on first run (~6 GB; live progress shows in the onboarding window, the menubar menu, and the HUD if you try dictating early — speech recognition unlocks first, AI cleanup a few minutes later). After that, everything is offline.\n\nPrefer not to build? Install with Homebrew:\n\nOr grab the latest release from Releases, drag Velora to Applications, and open it.\n\nRun the .app bundle, not the bare binary — macOS permission grants (mic, accessibility) attach to the signed bundle identity.\n\nTests: make test runs the Python engine suite. The app also has an embedded Swift self-test (swift run Velora --selftest), and make perf-test checks Intelligence against a 100,000-row history.\n\nThe installed app includes a CLI at:\n\nEnable Allow local CLI and agents in Settings → General, then use status, recent, search, stats, transcribe, or listen. Add --json for machine-readable output. listen always displays an approval prompt before the microphone starts.\n\nVelora also exposes the same narrow surface as a local MCP stdio server:\n\nThe app must be running. Nothing listens on the network, and disabling the setting immediately removes history, stats, and action access; status remains available so tools can explain what is missing.\n\nThe cleanup model is picked by RAM tier at first launch (Qwen3-1.7B-8bit on ≤14 GB Macs, Qwen3-4B-4bit up to 24 GB, Qwen3.5-4B-8bit above) and can be changed in Settings → Models. Measured on Apple Silicon M-series:\n\nThe default multilingual model is batch (transcribes on release rather than streaming), a deliberate quality tradeoff for accurate Hindi/Indian-English. For streaming English with live HUD partials, pick parakeet-tdt-0.6b-v2 in Settings. If cleanup would blow its budget, Velora inserts the raw transcript immediately instead of making you wait — the cleaned version is never the bottleneck.\n\nThe Swift app owns everything user-facing; the Python engine is an invisible inference server, supervised (spawned, health-checked, restarted) by the app. Full details, wire protocol, and module map: docs/ARCHITECTURE.md.\n\nModes live in ~/.velora/modes/*.json (built-ins are copied there on first run — edit away). The file format is the API:\n\nEdits are picked up via the engine's config reload — no restart dance required.\n\nVelora is actively developed and pre-1.0. The complete local dictation loop now sits alongside Voice Intelligence, consent-first Meeting Memory, and the default-off CLI/MCP surface. The release gate combines the Python engine suite, hundreds of embedded Swift checks, a 100,000-row Intelligence benchmark, packaged-app CLI/MCP smoke tests, and Apple signing/notarization verification.\n\nContributions welcome — see CONTRIBUTING.md for dev setup, repo layout, and PR guidelines. Building the app locally is just make app; no signing setup or Apple credentials are needed.\n\nLicensed under the MIT License.",
+    "readingTime": 3,
+    "keywords": [
+      "wispr flow",
+      "apple silicon",
+      "python engine",
+      "embedded swift",
+      "engine suite",
+      "swift app",
+      "velora",
+      "release",
+      "cleanup",
+      "history"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/sushilk1991/velora",
+    "thumbnail_url": "https://opengraph.githubassets.com/4ca4ce732a9c06af3f7913666795f535af8c11b7d0be66c1af7ce3e5e7ac3701/sushilk1991/velora",
+    "created_at": "2026-07-17T07:51:40.625Z",
+    "topic": "tech"
+  },
+  {
     "slug": "use-apples-150-backtoschool-gift-card-offer-to-get-a-macbook-for-what-it-cost-last-month",
     "title": "Use Apple's $150 Back-to-School Gift Card Offer to Get a MacBook for What It Cost Last Month",
     "description": "Parents can buy on behalf of students, and faculty, staff, and employees of K-12 institutions are eligible too.",
@@ -1882,30 +1906,6 @@
     "link": "https://lifehacker.com/tech/biggest-apple-intelligence-upgrade-yet-is-focused-on-you-and-your-privacy?utm_medium=RSS",
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KTM6VK39WKSMQQKGQBF0TBMM/hero-image.fill.size_1200x675.jpg",
     "created_at": "2026-06-08T20:00:17.367Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "apple-will-soon-let-you-use-ai-to-more-easily-create-automation-routines",
-    "title": "Apple Will Soon Let You Use AI to More Easily Create Automation Routines",
-    "description": "Create shortcuts with easy text prompts.",
-    "fullText": "The Shortcuts app is Apple's hub for all kinds of automation on your iPhone, iPad, and Mac. It allows you to create automation routines based on simple triggers, such as turning on the lights when you're near home at the end of your work day. While the Shortcuts app is incredibly powerful, it's always been a bit difficult to create shortcuts. If you're not technically inclined, it's not easy to learn how triggers work, why a particular step is breaking your automation, and so on. Apple is changing all of that with iOS 27, which is scheduled for release this Fall.\n\nApple will soon allow you to use Apple Intelligence, the company's spin on AI, to create shortcuts with simple text prompts. This means that you could ask Apple Intelligence to create a shortcut with a prompt as simple as: \"Message my ETA to my partner when I'm leaving work.\" That will create a shortcut for you, and you can ask the app to run this every weekday. This makes Shortcuts much more accessible to people who find it intimidating to create multi-step automation workflows. You'll still have to check if the shortcut works correctly, adjust your prompts to fix errors, and go through a few iterations before the perfect automation is ready. This, however, is a lot easier than manually creating your own shortcuts.\n\nTo be honest, even I resist creating many shortcuts and automations because of the time it requires. I'd rather search the internet for great shortcuts created by the community, but with this upcoming Apple Intelligence integration, I'm looking forward to whipping up many more of my own shortcuts. The catch is that this feature will only work with devices that support Apple Intelligence, which means that you'll need an iPhone 15 Pro or newer device to get this feature. Those of us with older devices won't be able to use new Apple Intelligence features.",
-    "readingTime": 2,
-    "keywords": [
-      "apple intelligence",
-      "create shortcut",
-      "shortcuts app",
-      "automation",
-      "simple",
-      "iphone",
-      "triggers",
-      "you're",
-      "it's",
-      "prompts"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://lifehacker.com/tech/apple-will-soon-let-you-use-ai-to-create-automation-routines?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KTM7JBPA7ZXNCYD6M7ZGK2N2/hero-image.fill.size_1200x675.png",
-    "created_at": "2026-06-08T20:00:17.339Z",
     "topic": "tech"
   }
 ]
