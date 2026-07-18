@@ -1,5 +1,29 @@
 [
   {
+    "slug": "write-2x-faster-in-your-native-language-get-english-with-context-automatically",
+    "title": "Write 2x faster in your native language, get English with context automatically",
+    "description": "Three design decisions separate Echoo from Grammarly-style checkers: native-language writing, screen-level context, and customizable commands.",
+    "fullText": "Most AI writing tools were built to correct English after you write it. Echoo was designed around a different question: how do you get the sentence in your head - in whatever language you think in - onto the screen, in your voice, without leaving the app you are working in?\n\nThat question led to three design decisions that grammar checkers and rewrite buttons cannot retrofit: write in your native language and skip the slowest step of your day, take context from the screen instead of a text box, and define how every rewrite and proofread behaves instead of settling for one fixed button.\n\nThis is not a feature checklist. Each decision changes what the tool can see and do at an architectural level.\n\nThe slowest part of writing in a second language is not typing. It is the silent translation happening in your head: forming the thought in your native language, converting it to English, second-guessing a preposition, rereading the sentence to make sure it does not sound off. Grammar checkers cannot save you that time - they wake up after it is already spent, and their ceiling is a corrected version of whatever English you managed to produce.\n\nEchoo removes the slow step itself. You draft in Hebrew, Spanish, German, or whatever language you actually think in, hit one shortcut, and about a second later you have natural English that keeps your tone, voice, and style. Casual stays casual. Blunt stays blunt. A joke survives as a joke. The built-in To English command (opens in new tab) converts idioms by meaning rather than word-for-word, and its prompt explicitly forbids the stiff, even-rhythm pattern of machine translation.\n\nMinutes per email, dozens of messages a day - the savings compound into real hours every week. The research on native-language drafting (opens in new tab) puts numbers on that gap: writing at the speed you think, instead of the speed you translate, is roughly a 2× difference.\n\nAn AI rewrite is only as good as what the model can see. Tools built as browser extensions or chat windows typically see one thing: the sentence you gave them. So they guess - and generic guesses are why AI-rewritten text feels off. Right grammar, wrong register, vague reference.\n\nEchoo detects the active text automatically and captures the on-screen context around it - the message you are replying to, the thread above your draft, the app you are writing in. That context travels into the prompt, so the rewrite knows:\n\nAnd because Echoo works at the system level on your Mac, this holds in every app - Mail, Slack, Notion, your IDE, a CRM in the browser. There is no supported-sites list. Select, trigger, and the text is replaced in place.\n\nA fixed rewrite button has to serve everyone, so it serves no one specifically. Echoo's commands are editable prompts, each with its own shortcut and its own AI provider. You decide what the rules are:\n\nEach variant is a saved one-shortcut action, and commands chain into sequences like Proofread Then Translate (opens in new tab) or Rewrite Then Send an Email (opens in new tab). For confidential text, route a command through a local model with Ollama and nothing leaves your Mac. Passive checkers offer settings; Echoo offers authorship of the tool itself.\n\nA feature can be copied next quarter. These three cannot be bolted onto a tool that lives in a browser extension and activates after you type English, because they contradict its architecture. Seeing your screen requires living at the system level. Starting from your native language requires being a writing tool, not a checking tool. Customizable commands require exposing the prompt instead of hiding it behind a button.\n\nThat is the honest way to compare: not feature tables, but what each tool was built to assume about you. If the assumption \"you write in English and want it corrected\" fits your day, a passive checker does that job well - the Echoo vs Grammarly (opens in new tab) breakdown covers where each fits. If your day involves thinking in one language, writing across ten apps, and repeating the same edits, the assumptions behind Echoo fit better.\n\nTake your next reply. Draft it in the language you think in, in the app it lives in, and run one rewrite. Then check names, numbers, and the ask before you send - the rewrite handles the mechanics, you keep the accountability.\n\nStart with AI writing automation on Mac (opens in new tab), or open the marketplace (opens in new tab), pick a command, and edit the prompt until it writes like you.",
+    "readingTime": 4,
+    "keywords": [
+      "grammar checkers",
+      "native language",
+      "whatever language",
+      "echoo",
+      "tool",
+      "text",
+      "instead",
+      "prompt",
+      "sentence",
+      "screen"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.echoo.ai/blog/what-makes-echoo-different-from-ai-writing-tools",
+    "thumbnail_url": "https://www.echoo.ai/og-image.png",
+    "created_at": "2026-07-18T12:49:53.220Z",
+    "topic": "tech"
+  },
+  {
     "slug": "the-dollars-demise-has-been-predicted-for-55-years-the-bcg-institute-says-its-still-overstated",
     "title": "The dollar’s demise has been predicted for 55 years. The BCG Institute says it’s still overstated",
     "description": "Everyone's writing the dollar's obituary. They're ignoring that every rival has bigger problems than America does.",
@@ -1880,30 +1904,6 @@
     "link": "https://poll.qu.edu/poll-release?releaseid=3955",
     "thumbnail_url": "images/qu-poll-ui-default-share.jpg?v=1.0.3",
     "created_at": "2026-03-31T12:52:30.247Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "i-am-definitely-missing-the-preai-writing-era",
-    "title": "I am definitely missing the pre-AI writing era",
-    "description": "Yesterday, I wrote my first technical draft on what I was working on with the goal to share it publicly on here (well using an account dedicated to t…",
-    "fullText": "Yesterday, I wrote my first technical draft on what I was working on with the goal to share it publicly on here (well using an account dedicated to technical post), and did not realize how wanting to sound perfect actually steal the ''my voice\" in the paper. Although 80 % of the content was my own writing, the fact that it was run in a LLM enginee for grammar and vocabulary cross-check, made it failed the \"probable written by AI \" metric; and it was rejected. \nI am not complaining, well, it was kinda my fault after all cause the instructions did specify the no-use of LLM, when sending first post. And the rejection made me think: why did I even need the AI to validate what I worked on? \n\nThe scary part, is I love writing, I have been writing blogs and all sort of things since I can't even remember. Have some think pieces on popular sites, and other personal blog that I used to share. And you know, before 2023, my writing was so good that I rarely had to have a second read or correction to make sure the flow stays consistent, since english is my 4th language. I always sought external review or check with tools like : Grammarly or Quilbot, for mistakes or grammars misphrasing. But now, this \"superskill\" has faded away, like seriously. I can't even write a 1000 words think piece, without needing or wanting to know what AI thinks or how it could have phrase it better, even for my emails. I can't write poems as before, without sounding generic, and this is mainly because I have now trained my brain to rely on these automated tools that It can not be creative anymore or think of itself. My writing has deterioted, I attempted to write a slam-poem, recently for a competition I wanted to partake in, and upon the completion when I read it, my reaction was : Who is this? Who wrote this? This is bad !\n\nBefore, I would sit and write a piece and I kid you not, the first draft was always perfect that I rarely had to write, and my best poem that got me to some \"art\"ies festival, was just written while I was sitting outside my hostel, with a piece of paper and a pen, and a thought that was bothering me. But now, I am slowly realizing, it has been changing in negative way. \n\nSorry that this sounds like a rant, well, it is one ! But like, my point was to share it out loud, and kinda know if I am the only person experiencing this or if there are others? And for people who successfully taken back their creative writing skills, how did you do it? \n\nThis post, is written without any tools assistance I just wrote what my brain is instructing to type (might not reread it before posting). Obviously, you would see some mistakes, some paraphrasing issue, some article misuse; I personally do not see them but, hey, I am not expert in literature. So bear with me, also, I think that is the beauty of writing, the raw , unedited emotions of the person behind every words either for entertainment or educational purposes, is what makes it special.\n\nSo, thank you ''LessWrong\" moderators, for rejecting my first draft, it is kinda a wake up call that made me realize, maybe I just need to be focusing on my own voice, and there is nothing wrong into sounding \"more or less wrong\". Yeah, I know, people advocate into embracing AI as it would be/is in every aspect of our life, but maybe it is good that most of us do not let this technology rephrase our own thought. Cause those words, that the AI told you: sound wrong or aggressive or less formal, are the ones that carry the ''emotions\", you ought to share. \n\nHave a productive week, dear reader !\n\nP.S: If you see this! I am celebrating. It means, I passed the text. Yay!",
-    "readingTime": 4,
-    "keywords": [
-      "draft",
-      "can't",
-      "tools",
-      "piece",
-      "without",
-      "technical",
-      "realize",
-      "sound",
-      "perfect",
-      "voice"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.lesswrong.com/posts/BJ4pnropWdnzzgeJc/i-am-definitely-missing-the-pre-ai-writing-era",
-    "thumbnail_url": "https://res.cloudinary.com/lesswrong-2-0/image/upload/c_fill,ar_1.91,g_auto/SocialPreview/kbuutzaogk2zluuyfh3t",
-    "created_at": "2026-03-30T07:15:26.206Z",
     "topic": "tech"
   }
 ]
