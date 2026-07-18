@@ -1,5 +1,53 @@
 [
   {
+    "slug": "what-a-20-coding-subscription-actually-buys",
+    "title": "What a $20 coding subscription actually buys",
+    "description": "Route Claude Code and Codex subscriptions through Aperture's passthrough mode to see per-seat token costs, track usage across devices, and set guardrails.",
+    "fullText": "31 cents seems like a lot to pay just to send “Good evening” to Claude Code, even if there are reasons for it. But $3.29 for a personalized B-minus copy of Rampart, running in a browser? I can see that.\n\nThose are the current token costs you might pay Anthropic for its coding assistance. If you pay $20 per month for a Claude Pro or ChatGPT subscription—or your company pays even more per-seat for team subscriptions—you don’t see the costs, unless you go looking for them. I know these numbers because I started using Claude Code through Aperture, Tailscale’s gateway for managing LLM use—which now works with subscription logins, not just API keys.\n\nWhy track your coding costs through Aperture? Right now, a flat monthly fee buys a mostly unknown amount of computing, subsidized by lighter users and a great deal of venture capital. You’re never quite sure how good a deal you’re getting. Anthropic provides a usage-limit progress bar and per-session tools, while OpenAI offers next to nothing.\n\nThe economics of this arrangement seem increasingly temporary. When the inevitable repricing happens—like it already has for organizations above Anthropic's 150-seat Team limit—people who know their token math can make an informed decision, based on their real usage and needs. Everyone else does a gym-membership-style guessing game, whether for themselves or dozens of employees.\n\nTracking your own coding receipts takes less than 15 minutes. Once you’re set up, you’ll almost certainly find other tools in Aperture useful, too, whether for subscriptions or other AI usage.\n\nLet’s set up Aperture to handle access to an Anthropic Pro subscription to use Claude Code. If you use ChatGPT/Codex, the process is much the same. We have documentation on setting up both Anthropic/Claude and ChatGPT/Codex.\n\nFirst, add Aperture on your tailnet. Provide your email address on Aperture’s You’ll end up with a web address you can reach on your tailnet URL, with ai as the default. So if your tailnet was assigned silly-pangolin.ts.net, your Aperture instance would live at https://ai.silly-pangolin.ts.net (presuming you have HTTPS enabled for your tailnet; otherwise it starts with http). Open your Aperture URL in a browser while signed into Tailscale.\n\nIf you're setting up a new Aperture instance, Anthropic and OpenAI subscriptions are automatically configured for you. If you created your Aperture instance earlier this year and have not set up subscription providers yet, go to the Administration section of your My Aperture configuration section, head into Providers, and choose OpenAI (Subscription) or Anthropic (Subscription), and the fields are filled out for you.\n\nAperture should provide the most commonly used models in the Models section, using exact names like claude-sonnet-4-6; add anything else you want specifically in there. Select Save and you’re most of the way there.\n\nWe’re now going to set up Claude Code to send its requests and authorization through Aperture, rather than its default flow that goes straight to Anthropic.\n\nFirst, log in. If you haven’t set up Claude Code before, install it, launch a terminal window, start Claude Code with claude, answer the prompts about directories and safety, and you’ll land at a Claude Code prompt. Enter /login, and log into your Anthropic account through the browser tab that pops up (or copy and paste the URL and resulting code).\n\nOnce you’ve logged in, you need to edit one file, to add your Aperture hostname. Using silly-pangolin.ts.net as an example, we’ll edit ~/.claude/settings.json to provide our Aperture gateway (~/.codex/config.toml for ChatGPT). Note that base URL is specifically http, to avoid unexpected TLS issues; the traffic remains encrypted.\n\nIf you have other variables set in your settings.json, you can leave them be. If there is an API key, remove that line, making sure there is a comma after every line, except the last.\n\nNow test your connection. Run claude from a directory you want to work in (or just your home directory). Give it a test prompt. If it responds, it’s likely working, but let’s double-check. Head into your Aperture dashboard, down to Logs, and look for your test prompt. In my case, using Claude Code and sending a single-line chat, it’s broken down into a session with three parts:\n\nThis little cordiality to Claude would have cost 31 cents, according to Aperture. But Aperture also showed me why. The first request of every session pays full price to write Claude Code’s enormous system prompt into the cache, setting it down for every following request. Token math is tricky, so I’m glad to have something else doing a lot of it for me.\n\nWith those introductory sunk costs in place, the next logical step was, obviously, asking Claude Code to build me a browser-based version of the arcade classic Rampart. How much would it cost to whip up a simulacrum of that progenitor of the tower defense genre, the one with a bit of Tetris mixed in?\n\nI went a few rounds with Claude Code, refining the gameplay until it almost matched my memories of long summer afternoons with the NES version of Rampart. The agent told me my initial scope, with a full two-player mode that used tsnet for authentication, would have been a “weekend-to-week project.” So I stuck with a single-player game, with just-above-Atari-level graphics and gameplay that I kept revising until it felt like a reasonable approximation.\n\nHow much did this cost? On a Claude Pro subscription, there is only one answer, for now: $20, every month, unless you go over your limits and spend optional “Usage credits” you keep topped up. Was I close to that line? I can type /usage into Claude Code and see the actual costs and token use, but just for this one session.\n\nYou could install any number of third-party trackers, like ccusage, that can track your token-per-turn data. But those are per-device tools you have to set up. Aperture, once authorized, can track all your sessions, models, devices, agents, and whatever else you connect, and make it all make sense at a glance.\n\nMy Rampart project, on Claude’s Sonnet 4.6, was 47 requests, 326,359 input tokens, 32,211 output tokens, with 2.85M tokens cached. It would have cost me $3.29 if I was using prepaid or usage credit tokens.\n\nThat same week, I went deep on a complex home automation project—cable-running, hardware buying, container setup, a whole deal. I stuck with Claude’s Opus model for most of it, never compacted or created new sessions, filled the context window beyond 150K, used a lot of MCP tools, and burned a hypothetical $32.76. This revealed some … skill issues, let's say, along with more context for future subscription renewals.\n\nNow imagine that $3-or-maybe-$32 spread across every seat on a Team plan.\n\nIf you’ve set up Aperture on your tailnet, and set up a passthrough provider for Anthropic or OpenAI, you can make use of a number of Aperture features, beyond the token and cost tracking:\n\nAperture has a lot more to offer if you get into API-based usage: setting up and controlling agents, a multi-provider chat interface, setting up cost and model-use quotas, and more. It's particularly useful for teams looking at token-based pricing (whether on their own or due to seat limits), providing quotas, per-team budgets, and detailed audit logs. Seeing how much you save, or not, from a subscription model might just compel you to explore your options.\n\nYou and I, reader? We’re honest types. But there are some people who might see “A single endpoint for access to your Anthropic subscription” and think, “Ah, I know some off-the-books ways that could be useful.” Straight talk: those ways will not work.\n\nDuring our setup, we set our mode to passthrough and logged into an Anthropic account using the /login command. That login credential is the thing getting passed through. Anyone else who tried to use Claude Code or Codex with your Aperture endpoint would, for starters, have to be on your tailnet. Even if they were, they would then have to sign into the associated Anthropic or OpenAI account. Their logs would get mixed with yours, and Aperture doesn't add anything.\n\nWhat about using Aperture to load your subscription into third-party tools and harnesses? Aperture isn’t designed for that, and it is, generally, a violation of both Anthropic and OpenAI’s terms of service for their subscriptions. Anthropic has gone back and forth on third-party usage a few times, but ultimately prioritizes use of its own tools. OpenAI, for its part, has generally allowed third-party agents and tools to access inference through ChatGPT subscriptions.\n\nAperture provides easier access, and better visibility, to LLM tools. It’s a gateway, not a back door.\n\nHow has Aperture proved useful for your own AI-assisted coding? Let us know on Reddit, Discord, Bluesky, X, Mastodon, or LinkedIn.",
+    "readingTime": 8,
+    "keywords": [
+      "claude code",
+      "pro subscription",
+      "anthropic account",
+      "aperture instance",
+      "token math",
+      "test prompt",
+      "tools",
+      "usage",
+      "tailnet",
+      "else"
+    ],
+    "qualityScore": 1,
+    "link": "https://tailscale.com/blog/aperture-ai-passthrough-subscription-costs",
+    "thumbnail_url": "https://tailscale.com/api/og-image?id=226323bc-dd14-44e5-9dbc-6bce83872663",
+    "created_at": "2026-07-18T18:45:17.911Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "sideshow-a-live-visual-surface-for-your-terminal-coding-agent",
+    "title": "Sideshow – A live visual surface for your terminal coding agent",
+    "description": "The missing visual surface companion for agents - generate UI mockups, data visualizations, code explainers, and more - modem-dev/sideshow",
+    "fullText": "A live visual surface for your terminal coding agent.\n\nYour agent works in a wall of text; Sideshow gives it a screen. It publishes\nsurfaces — diagrams, UI sketches, rendered markdown, syntax-highlighted\ndiffs, terminal output, images — and they render live in your browser while it\nworks.\n\nThen point your agent at the surface — paste the setup block into its\ninstructions:\n\nThat bootstrap tells any agent with a shell (Pi, opencode, amp, codex, Claude\nCode) to fetch the current instructions from the running server, then publish\nsurfaces and read your comments. Ask it to \"sketch this on sideshow\" and watch\nthe card appear.\n\nThe running viewer has the same handoff built in: its sidebar footer carries an\nagent setup link (the block above) and a polished connect agent screen, so\nyou can grab the right MCP command without leaving the browser.\n\nNo agent handy? npx sideshow demo seeds two example sessions to look around.\n\nGoing further: richer integration tiers (CLI, MCP, the Pi extension, and the\nClaude Code skill + plugin) are in docs/connecting-agents.md.\n\nEvery card below is real — published over the API and captured straight from the\nviewer. A surface is an ordered list of parts; one card can carry several.\n\nhtml — markup the agent authors, rendered sandboxed. Shapes and buttons can call sendPrompt() to post back to the thread.\n\nmarkdown — prose, tables, and fenced code handed over as text, rendered in the viewer's own typography.\n\ndiff — a patch rendered natively as a syntax-highlighted code review (unified or split).\n\nterminal — monospace output with ANSI color, in a terminal-window frame.\n\ntrace — an agent run as a step timeline, each step expandable to its detail.\n\nmermaid — a few lines of diagram source, rendered to an SVG in the sideshow palette. Tag nodes with :::accent to highlight them.\n\njson — a JSON value rendered natively as a collapsible tree; objects and arrays expand and collapse, primitives show inline.\n\ncode — source highlighted with shiki and numbered; pass a starting line to show an excerpt at its original line numbers.\n\nParts compose. One card can carry several — here a markdown rationale stacked above its diff, so a single surface holds the why and the what.\n\nShowing something visually costs tokens — the ones your agent spends writing\nit. A standalone HTML document pays for its whole design system (doctype, reset,\npalette, typography, component CSS, often a little JS) on every render. A surface\npays for none of it: it hands the content over as data — mermaid source, a JSON\nvalue, a markdown table, a diff patch — and the viewer supplies the theme. Fewer\noutput tokens also means a faster draw, since a model writes them one at a time.\n\nMeasured both ways on identical content (output tokens):\n\nEven an HTML surface you author inherits the viewer's theme tokens and\npre-styled controls instead of shipping its own, so it still comes out ahead.\n\nsideshow runs locally as a small Node server, or on Cloudflare Workers when your\nagent and your browser live on different machines (or you want the viewer on your\nphone). See docs/deploying.md.\n\nEach surface has an open-as-image action in its footer that renders the\nsurface to a PNG (/p/:id.png) — handy for pasting into a doc or a chat. The\n\nRendering binding and\nonly works on a Workers deployment. On the local Node server there is no headless\nbrowser, so the action is shown but disabled.\n\nThe server and CLI have no build step — TypeScript runs directly on Node via\nnative type-stripping, and the npm package ships compiled JS built on prepack.\nThe viewer (viewer/src/, Solid) is Vite-built into a single self-contained\nviewer/dist/index.html (npm run build:viewer). See\nAGENTS.md for the full architecture and rules.",
+    "readingTime": 4,
+    "keywords": [
+      "node server",
+      "diff patch",
+      "rendered natively",
+      "output tokens",
+      "claude code",
+      "surface",
+      "sideshow",
+      "viewer",
+      "markdown",
+      "browser"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/modem-dev/sideshow",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1265774025/05121b8c-9b9f-479c-b7b8-c3881b5f376f",
+    "created_at": "2026-07-18T18:45:17.516Z",
+    "topic": "tech"
+  },
+  {
     "slug": "traicer-capture-your-ai-coding-traces-to-sell-later",
     "title": "TrAIcer – capture your AI coding traces to sell later",
     "description": "Seller-operated sovereign capture service for Traice Market - smashah/traicer",
@@ -1800,32 +1848,6 @@
     "link": "https://www.businessinsider.com/walmart-ai-coding-tool-limit-duplicative-requests-2026-6",
     "thumbnail_url": "https://i.insider.com/6a208401b4fb977f3598429b?width=1200&format=jpeg",
     "created_at": "2026-06-04T14:33:03.985Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "vibe-codings-notsonew-management-problem",
-    "title": "Vibe coding's not-so-new management problem",
-    "description": "Coding's great reckoning is underway as Corporate America pushes out managers, and that's a recipe for disaster.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/vibe-coding-management-risks-for-flat-organizations-tech-ai-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a1f3ad62ab5f9757add83a2?width=1200&format=jpeg",
-    "created_at": "2026-06-04T02:38:40.829Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-software-engineer-created-a-90day-ai-course-to-help-workers-across-departments-build-the-tech-they-want",
-    "title": "A software engineer created a 90-day AI course to help workers across departments build the tech they want",
-    "description": "Flexport's AI training was built in-house to give employees automation and vibe-coding skills crucial to modern supply chain management.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/flexport-upskilling-ai-employee-program-product-engineering-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a1f07f6b4fb977f35983586?width=1200&format=jpeg",
-    "created_at": "2026-06-04T02:38:40.553Z",
     "topic": "finance"
   }
 ]
