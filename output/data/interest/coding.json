@@ -1,5 +1,29 @@
 [
   {
+    "slug": "ai-hasnt-shifted-the-bottleneck-from-coding-to-code-review",
+    "title": "AI hasn't shifted the bottleneck from coding to code review",
+    "description": "Think AI shifted your bottleneck to code review? Think again. The real issue is downstream deployment batches blocking your value stream.",
+    "fullText": "Since AI arrived, many people have mentioned that the bottleneck has shifted from coding to code review. This isn’t quite right, as coding wasn’t the bottleneck in the first place, and it’s not code review now. The reason we think either of these things is constraining the flow of value is that mossy hill we all stare past when we look at the mountains.\n\nHere’s a simple test. For the application or service you work on, how many changes have passed code review but haven’t yet been deployed and enabled for users? If the answer is none or one, accept my apologies: in your specific case, I’m wrong. But I rarely get that answer. It’s usually more than one, and that tells you the bottleneck is elsewhere.\n\nWe’re conducting original research in this area right now, and half of all teams have between 2 and 10 changes sitting in a batch, and a quarter have 11-50. Overall, more than 90% of teams ship in batches rather than one change at a time.\n\n“Coding wasn’t the bottleneck in the first place, and it’s not code review now.”\n\nThis number reveals an industry-wide visibility gap. People believe Claude Code, Cursor, and GitHub Copilot have shifted the bottleneck from coding to code review, but that ignores everything that happens after the review, and that’s not a personal failing; it’s an industry-wide misperception.\n\nWe’ve grown so used to working in batches that the practice looks like it belongs. It’s overgrown with moss, indistinguishable from the surrounding hills. When you search for ways to speed up software delivery, you won’t see it, because it doesn’t look like a problem. It looks just as things have always been.\n\nWriting code is a small part of a longer value stream that starts with an opportunity and ends when a user gets the value they need. The impact across this whole value stream is lumpy. AI will help \n\nGitLab’s 2026 AI Accountability Report found that 85% of respondents agree AI has shifted the bottleneck from writing code to reviewing it. Yet we can see from deployment batches that 92% of these people are likely wrong, because if there’s accumulation after the code review, it means code review isn’t the bottleneck. It also means speeding up the reviews will make the real bottleneck worse.\n\nThis isn’t to say increased coding speed doesn’t put pressure on code review. Faros AI’s research across 10,000 developers found that teams with high AI adoption merge 98% more pull requests, but review time for those changes increases by 91%, and the average pull request size increases by 154%. Cursor’s own study, run with a University of Chicago economist, found companies merge 39% more pull requests once its coding agent becomes the default.\n\nHowever, approving changes faster only works if the change then flows smoothly into production. In the majority of cases, it simply moves into the queue of changes awaiting further handling, such as testing and deployment. If you up the rate and size of changes passing through the review stage, pressure is simply transferred to the real bottleneck.\n\n“If you up the rate and size of changes passing through the review stage, pressure is simply transferred to the real bottleneck.”\n\nCode review looks like a constraint only because it has a visible queue, while the downstream queues are hidden by their general acceptance across the industry. The job of your pipeline is to get changes to production, where they can be used, not to gather them in a “pending deployment” queue.\n\nAnd as all those unreleased changes accumulate, risk increases with them.\n\nAsk the batch-size question, and you’ll find what’s really constraining your value stream: a manual verification step, a cumbersome change approval or release train process, or no easy way to deploy changes. Not coding. Not code review.\n\nYou were likely working in batches before you started your AI initiative. The introduction of AI will increase your batch sizes, which can cause problems. Increasing code review throughput doesn’t solve the problem; it simply moves changes to the bottleneck faster.\n\nUsing the true constraint to set the pace of your whole value stream will help you invest in solving the right problem. If your retrospectives keep failing to produce noticeable improvements, you’re likely missing the batch problem. It’s why some AI initiatives pay off while others flop.\n\nResearch on the impact of AI is useful, but, like many studies on this topic, it stops at the point where code is merged. It looks at open pull requests, merged pull requests, and hours spent reviewing. None of it asks how long changes wait after the review, or how many are bundled together before anyone sees them in production. Without that number, you can’t find the real constraint.\n\nHaving invested in AI to speed up coding, you’ll be tempted to fix code review next, or give up on code reviews altogether. If you’re shipping in batches, neither will make much difference to how quickly you remove risk or deliver value to the people using the software.\n\nThe reason your organization resists fixing the batch problem is the real problem you need to solve.",
+    "readingTime": 5,
+    "keywords": [
+      "stage pressure",
+      "simply transferred",
+      "coding wasn’t",
+      "review stage",
+      "code review",
+      "bottleneck",
+      "it’s",
+      "batches",
+      "batch",
+      "looks"
+    ],
+    "qualityScore": 1,
+    "link": "https://thenewstack.io/ai-code-bottleneck-myth/",
+    "thumbnail_url": "https://cdn.thenewstack.io/media/2026/07/dbb20f4b-osarugue-igbinoba-xdy7ethhssm-unsplash-1.jpg",
+    "created_at": "2026-07-18T01:24:23.542Z",
+    "topic": "tech"
+  },
+  {
     "slug": "why-chinas-kimi-k3-has-silicon-valley-and-washington-quaking",
     "title": "Why China's Kimi K3 has Silicon Valley — and Washington — quaking",
     "description": "Moonshot AI's latest model is impressing developers with its coding skills, low API costs, and open-weight strategy.",
@@ -1797,18 +1821,5 @@
     "thumbnail_url": "https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a1f0f1a5a045e955123064a_og_running-an-ai-native-engineering-org.jpg",
     "created_at": "2026-06-03T02:44:26.948Z",
     "topic": "tech"
-  },
-  {
-    "slug": "no-one-is-doing-it-quite-like-apple-tv-right-now",
-    "title": "No one is doing it quite like Apple TV right now",
-    "description": "Apple TV has been on a roll lately with its slate of original TV shows and live sports programming.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/guides/streaming/apple-tv-impresses-in-2026",
-    "thumbnail_url": "https://i.insider.com/6a1ee04b2ab5f9757add7fab?width=1200&format=jpeg",
-    "created_at": "2026-06-03T02:44:23.599Z",
-    "topic": "finance"
   }
 ]
