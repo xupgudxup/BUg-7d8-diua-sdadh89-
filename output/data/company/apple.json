@@ -1,5 +1,29 @@
 [
   {
+    "slug": "enviouswispr-an-opensource-wispr-flow-alternative-for-macos",
+    "title": "EnviousWispr, an open-source Wispr Flow alternative for macOS",
+    "description": "Free, sub-second on-device AI dictation for macOS. Dual engines (Whisper + Parakeet) on Apple Silicon. Optional AI polish with our own on-device model (EG-1), Apple Intelligence (macOS 26), Ollama,...",
+    "fullText": "Talk naturally. Paste perfectly.\n\n Free, on-device AI dictation and speech-to-text for macOS.\n\n Powered by Apple Silicon. No cloud, no account, your voice never leaves your Mac.\n\nEnviousWispr is a free AI dictation app for macOS that runs entirely on-device. It uses Whisper and Parakeet speech-to-text models on Apple Silicon to transcribe your voice locally, polishes the output with an optional LLM, and pastes clean text into whatever app you're working in. Transcription is sub-second; with optional AI polish, the full hotkey-to-paste flow typically lands in around a second and a half.\n\nNo cloud. No account required. No subscription. No audio ever leaves your Mac. Works fully offline.\n\nIt is open source under the GPLv3, actively maintained, and built to be a tool you can rely on every day.\n\nSee the full interactive pipeline demo at enviouswispr.com/how-it-works\n\nDictation is only useful if you can trust it mid-sentence, every time. EnviousWispr keeps the critical path (record, transcribe, paste) deliberately separate from every optional enhancement, so a hiccup in a \"nice to have\" can never swallow your words. When an optional step cannot run, you simply get your raw transcribed text instead of an error.\n\nBoth models run entirely on-device on Apple Silicon using CoreML. Parakeet runs on the Apple Neural Engine, which is what makes the default engine near-instant; WhisperKit runs on the GPU for broad-language accuracy. First launch downloads and compiles the model; subsequent launches are instant.\n\nTranscription gets your words down. AI polish cleans them up: it drops filler, fixes grammar and punctuation, and structures rambling speech into readable text. This step is optional, and by default it never leaves your Mac.\n\nEG-1 is our own AI model, fine-tuned specifically for dictation cleanup and optimized for Apple Silicon. It runs entirely on your Mac with no internet required, and it closes the gaps a general on-device model leaves: reliably turning a spoken list into a real list, splitting a wall of speech into clean paragraphs, and keeping only the corrected version when you fix yourself mid-sentence. Because it is our own model rather than Apple's, it works across the full supported range (macOS 14 and later), not just macOS 26. EG-1 is distributed under its own model license, not the GPLv3 that covers the app code (see License).\n\nOn our own benchmark of 1,890 real dictation-cleanup cases, EG-1 passed 93.7%, ahead of both GPT-5.4-mini (83.8%) and Gemini 3.5 Flash (92.6%) on the same cases with the same judge. This is our own benchmark, not an independent review. The eval harness and the exact prompts are public in scripts/eval/ so you can inspect or rerun them; the test cases are personal dictations and stay private.\n\nEnviousWispr ships often. A few of the user-facing improvements from recent releases:\n\nSee the full release history for every version.\n\nOptional: Turn on AI polish in Settings > AI Polish. Keep it fully on-device with Apple Intelligence (macOS 26+) or Ollama, or add an OpenAI or Gemini API key.\n\nCore dictation works across the full supported range. The built-in Apple Intelligence polish option requires macOS 26 or later; on earlier versions dictation works normally and you can use Ollama or a cloud key for polish instead.\n\nThe runnable .app is assembled by the Xcode build engine via Tuist, not by swift build. Use ./scripts/build-dev-app.sh for a local dev build, or the release path below. First build takes several minutes as ML models compile.\n\nFor a distributable .app bundle and DMG:\n\nThe release build runs on the Xcode engine via Tuist, so it requires full Xcode (26+) plus mise and Tuist; set CODESIGN_IDENTITY to sign. Running the app itself requires macOS 14+.\n\nThe app follows a pipeline state machine: idle --> recording --> transcribing --> polishing --> complete.\n\nContributions are welcome. EnviousWispr is open source under the GPLv3. Please open an issue to discuss significant changes before submitting a PR.\n\nThis project uses conventional commits: feat(scope):, fix(scope):, refactor(scope):.\n\nEnviousWispr is built on a simple principle: your voice is yours.\n\nEnviousWispr is open source under the GNU General Public License v3 (GPLv3), an OSI-approved license. You can read, build, modify, and redistribute the code under the terms of the GPL, including for commercial purposes; distributed derivative works must also be licensed under the GPLv3 with their source available.\n\nThe EG-1 model is not open source. The GPLv3 covers the EnviousWispr application code only. EG-1's model weights are not part of this repository; they download separately and are distributed under the EG-1 Community Model License. You are free to download and use EG-1 within EnviousWispr, but you may not redistribute, re-host, mirror, or bundle the model into other products, or use the model, or outputs generated by it at scale, to train, fine-tune, or distill another model intended for commercial distribution. EG-1 is a fine-tuned derivative of Qwen3-4B-Instruct-2507 (Apache-2.0); this license applies to the fine-tuned weights.\n\nThe EnviousWispr name and logo are trademarks of Envious Labs and are not covered by the GPL.",
+    "readingTime": 5,
+    "keywords": [
+      "via tuist",
+      "supported range",
+      "engine via",
+      "entirely on-device",
+      "model license",
+      "apple silicon",
+      "apple intelligence",
+      "macos",
+      "dictation",
+      "free"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/saurabhav88/EnviousWispr",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1161274003/dcdd7644-79ce-431e-a79d-0a177fdcf319",
+    "created_at": "2026-07-19T01:30:22.663Z",
+    "topic": "tech"
+  },
+  {
     "slug": "apple-dethrones-nvidia-to-regain-title-of-worlds-most-valuable-company",
     "title": "Apple dethrones Nvidia to regain title of world’s most valuable company",
     "description": "Shift in pecking order illustrates that investors are reassessing outlook for artificial intelligence\nApple overtook Nvidia on Friday to become the world’s most valuable company, reshuffling the top ranks of tech heavyweights as investors reassess the outlook for artificial intelligence.\nApple was last valued at $4.88tn as ⁠its shares held steady, while Nvidia ⁠was roughly at $4.86tn, ​after a 3.5% decline.",
@@ -1883,29 +1907,5 @@
     "thumbnail_url": "https://i.insider.com/6a270f035bcf40c28b6b04b7?width=1200&format=jpeg",
     "created_at": "2026-06-08T20:00:20.146Z",
     "topic": "finance"
-  },
-  {
-    "slug": "apple-airpods-are-finally-getting-the-equalizer-controls-you-were-waiting-for",
-    "title": "Apple AirPods Are Finally Getting the Equalizer Controls You Were Waiting For",
-    "description": "Finally, Apple's flagship earbuds get the same audio customization of some of its top competitors.",
-    "fullText": "At today's WWDC event, Apple announced it's bringing custom equalizer controls to your AirPods with iOS 27. The company's earbuds have had their own adaptive EQ prior to now, but you haven't been able to set the EQ yourself.\n\nThe new custom EQ feature will be found in the AirPods' settings once they roll out. In typical Apple fashion, the controls are relatively simple and easy to use. You'll see a graph of low, mid, and high tones, and you can drag simple handles to raise or lower these tones. It's not quite as robust as some other EQ interfaces, but it doesn't really need to be for most users.\n\nThe custom profile will live alongside Apple's recommended EQ profile. Unfortunately, it looks like you won't be able to set multiple custom profiles to swap between, but given how easy it looks to tweak them, this likely won't be much of an issue.",
-    "readingTime": 1,
-    "keywords": [
-      "custom",
-      "apple",
-      "it's",
-      "controls",
-      "airpods",
-      "simple",
-      "tones",
-      "profile",
-      "looks",
-      "won't"
-    ],
-    "qualityScore": 0.55,
-    "link": "https://lifehacker.com/tech/apples-airpods-getting-custom-eq-controls-wwdc-2026?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KTM4PS7H6JWHKVR4MDXQT3VP/hero-image.fill.size_1200x675.png",
-    "created_at": "2026-06-08T20:00:17.528Z",
-    "topic": "tech"
   }
 ]
