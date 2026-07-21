@@ -1,5 +1,29 @@
 [
   {
+    "slug": "codekeel-a-context-drift-governance-tool-for-claude-code",
+    "title": "Codekeel: A context drift governance tool for Claude Code",
+    "description": "Drift governance for agentic coding — a local decision ledger and live enforcement engine for Claude Code sessions. AGPL-3.0, runs entirely on your machine. - HabibiCodeCH/codekeel",
+    "fullText": "Drift governance for agentic coding. codekeel keeps a decision ledger for your project — architectural choices, conventions, and constraints — and enforces it live during Claude Code sessions, so every new session inherits, respects, and extends what was already decided instead of silently re-inferring (and contradicting) it from code alone.\n\nFree and open source (AGPL-3.0). Runs entirely on your machine — no account, no server, no telemetry.\n\nSets up the Claude Code integration (hooks + slash commands) in your current project. From inside a session, use /decision to record an architectural decision — it's added to the ledger and injected into every future session automatically. Set ANTHROPIC_API_KEY (see below) to additionally have every edit under that decision's scope semantically verified against it before it lands.\n\nThe ledger lives in ledger/DECISIONS.yaml in your project (or ~/.vibe-code-receipts/GLOBAL_DECISIONS.yaml for conventions that apply across every project you work in) — plain YAML, readable and editable by hand.\n\nRunning bare npx codekeel (no subcommand) triggers install automatically the very first time you run it. install does four things, each independently idempotent — safe to re-run any time:\n\nNo account and no network call at any step — everything above is written to your own machine.\n\nHooks and slash commands are global — set up once per machine, shared by every project you open in Claude Code afterward. The ledger is not: it lives inside each repo, so a brand-new project needs its own npx codekeel install (or just npx codekeel ledger init if the hooks are already set up).\n\nEverything above works with zero setup. Setting ANTHROPIC_API_KEY in your environment additionally unlocks:\n\ncodekeel calls Anthropic's API directly from your machine using this key — there is no codekeel-hosted relay, and codekeel never sees this traffic or bills you for it. Every one of these checks fails open (never blocks an edit) when no key is configured.\n\nMost also accept --json — that's how /decision drives them non-interactively from inside a session.\n\nBare invocation (no subcommand) scans your local Claude Code session logs for governance signals — discussion loops, a bloated CLAUDE.md, scope creep, code churn — and offers to install a tip for whichever ones it finds, entirely on your own machine.\n\nEvery file codekeel reads or writes, and why. All plain text, all inspectable, nothing hidden.\n\nOn your machine, shared across every project:\n\nAGPL-3.0. See LICENSE and CONTRIBUTING.md.",
+    "readingTime": 2,
+    "keywords": [
+      "slash commands",
+      "claude code",
+      "machine shared",
+      "npx codekeel",
+      "inside session",
+      "project",
+      "ledger",
+      "decision",
+      "install",
+      "hooks"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/HabibiCodeCH/codekeel",
+    "thumbnail_url": "https://opengraph.githubassets.com/7d7599735a52776e6e25376a8df7be123a29e3e08883adcac0f407109723c273/HabibiCodeCH/codekeel",
+    "created_at": "2026-07-21T13:15:26.013Z",
+    "topic": "tech"
+  },
+  {
     "slug": "programming-languages-are-authoring-tools-for-platforms",
     "title": "Programming Languages Are Authoring Tools for Platforms",
     "description": "That's what I think.",
@@ -1854,19 +1878,6 @@
     "link": "https://ea.rna.nl/2026/06/07/anthropic-openai-may-be-spending-more-than-1000-for-every-100-you-pay-them/",
     "thumbnail_url": "https://i0.wp.com/ea.rna.nl/wp-content/uploads/2026/06/chart_full_range_no_claude.jpeg?fit=1200%2C660&ssl=1",
     "created_at": "2026-06-07T13:19:56.620Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "tokenomics-quantifying-where-tokens-are-used-in-agentic-software-engineering",
-    "title": "Tokenomics: Quantifying Where Tokens Are Used in Agentic Software Engineering",
-    "description": "LLM-based Multi-Agent (LLM-MA) systems are increasingly applied to automate complex software engineering tasks such as requirements engineering, code generation, and testing. However, their operational efficiency and resource consumption remain poorly understood, hindering practical adoption due to unpredictable costs and environmental impact. To address this, we conduct an analysis of token consumption patterns in an LLM-MA system within the Software Development Life Cycle (SDLC), aiming to understand where tokens are consumed across distinct software engineering activities. We analyze execution traces from 30 software development tasks performed by the ChatDev framework using a GPT-5 reasoning model, mapping its internal phases to distinct development stages (Design, Coding, Code Completion, Code Review, Testing, and Documentation) to create a standardized evaluation framework. We then quantify and compare token distribution (input, output, reasoning) across these stages.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://arxiv.org/abs/2601.14470",
-    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
-    "created_at": "2026-06-07T02:31:56.259Z",
     "topic": "tech"
   }
 ]
