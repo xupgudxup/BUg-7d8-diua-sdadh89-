@@ -1,5 +1,29 @@
 [
   {
+    "slug": "post-quantum-liveness-identity-provenance-no-biometric-identification",
+    "title": "Post Quantum Liveness, Identity, Provenance. No Biometric Identification",
+    "description": "Post-quantum trust layer that proves a live human is present — no biometric templates, no central authority. Liveness gates the keys; it never enters them. Python + Swift PoC, 850+ tests - Clockwor...",
+    "fullText": "A novel machine and method that turns standard, battle-tested classical and post-quantum\ncryptographic primitives into a living, presence-bound trust substrate — keys that exist\nonly while you're alive and present, identity without biometrics, and no central authority.\n\nProof-of-concept implementation of the Atlas protocol — a post-quantum, live-presence\nidentity substrate: one anonymous root generates unlinkable per-context pseudonyms, a\nlive signal times and gates the cryptography (it never enters a key), and every\nfeature (messaging, vault, capture, recovery, authentication) runs under one enrolled\nidentity + live presence.\n\nLiveness is not identity. The live signal proves only that a person is alive and\npresent — and, with a second device, that both sensors are on one body right now. It\nis checked by the signals' own in-the-moment coherence and cross-device correlation; it\nis never matched against a stored physiological profile of a person, and Atlas keeps\nno biometric template and does no biometric identification. Physiology only\ntimes entropy and gates operations. The who is bound by the device's own Secure\nEnclave biometric (Face ID / Touch ID), whose template never leaves the enclave and which\nAtlas never sees or stores. (Note: the \"recognition\" tunnel is a Diffie–Hellman key\nagreement, not face recognition.)\n\nMaturity has three rungs: built + tested (runs in this repo, tests pass),\ndevice-only (needs a physical iPhone — Secure Enclave, ring, camera — so it's\nexercised on hardware, not in CI), and not built.\n\nBoth the Python core and the Swift AtlasCore reach built + tested:\nCI runs them on every push — the backend suite (637 tests, on the pure-Python\ndefault and the native-Ursa path) plus the Swift core/parity suite (217 tests) on\nmacOS. See .github/workflows/ci.yml.\n\nThis is a proof of concept, and it is honest about what is and isn't finished. Where a\nseam is a stub or a layer is designed-not-built, it says so plainly below — and because it\nis open source (AGPL-3.0), those are invitations to contribute, not hidden debt.\n\nBeyond the milestone spec — also built + tested:\n\nCrypto posture (honest): the core is post-quantum — ML-DSA-65 + Ed25519 signatures,\nSPHINCS+ root, ML-KEM-768 + X25519 KEM — and persona↔persona unlinkability is hash/HKDF-derived,\nso it is post-quantum too (separate identities stay unlinkable even against a quantum adversary).\nThe classical (not-yet-PQ) residue is narrow: the anonymous credential's same-credential multi-show\nunlinkability and the discrete-log range-proof soundness, with a STARK migration path for the\nlatter. Not built (designed): on-network governance, the AI tiers, and the space tier\n(satellites — distinct from Spaces). The economy/token is designed and its capabilities described,\nbut the implementation is not included here.\n\nThe Atlas invention — its architecture, mechanisms, and design decisions — is the work of the\ninventor, Aun Ali. AI tools were used for research, drafting, and implementation assistance\nunder the inventor's direction. The ideas and the direction originate with the inventor.\n\nAI clients used: Claude, ChatGPT, Perplexity\n\nIt is with great hope that I reveal this design and code. This project started as a return to normal workflow after a prolonged medical disability, as a desire to help other people struggling with disability and mental illness break their bonds. Med school, healing, self discovery, and helping others deal with trauma, illness, and loss has taught me that the gates to freedom lie not in any one plane, but exist dispersed and guarded selfishly, accessible only to the few wielding connection, wealth, and safety. It is difficult to spend time in a position to help others only to feel helpless in the face of apathy, abandonment, danger, disease, and poverty, and Atlas is intended to behave as a bulwark to these ghosts of a fraught past. I invite you to contact us to help us build and fulfill this vision for a brighter future for all of us.\n\nAun Ali, MBBS\nFounder,\nClockwork Tree Inc.\n\nwork of Clockwork Tree Inc. Commercial licensing: Clockwork Tree Inc.\n\nPatent pending — the underlying invention (inventor: Aun Ali; assigned to Clockwork Tree\nInc.) is the subject of a filed provisional patent application.\n\nTrademarks — Atlas™, PoLE™, Renaissance Ecosystem™, and Clockwork Tree™ are trademarks of\nClockwork Tree Inc.\n\nNo surveillance, no manipulation — Atlas performs no engagement-optimization, behavioral\nprofiling, or attention-harvesting. The algorithms here are cryptographic, not behavioral.",
+    "readingTime": 4,
+    "keywords": [
+      "inventor aun",
+      "clockwork tree",
+      "tree inc",
+      "suite tests",
+      "secure enclave",
+      "post-quantum",
+      "identity",
+      "implementation",
+      "gates",
+      "biometric"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/Clockwork-Tree-Inc/atlas-poc-v1",
+    "thumbnail_url": "https://opengraph.githubassets.com/55a24f72c0270d530ccaac40ea2695be5c6892d596c0f5b35ccb9e7582928245/Clockwork-Tree-Inc/atlas-poc-v1",
+    "created_at": "2026-07-22T13:20:40.859Z",
+    "topic": "tech"
+  },
+  {
     "slug": "infleqtion-ceo-to-testify-on-quantum-minerals-mapping-bill",
     "title": "Infleqtion CEO to testify on quantum minerals mapping bill",
     "description": null,

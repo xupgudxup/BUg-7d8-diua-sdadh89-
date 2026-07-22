@@ -1,5 +1,50 @@
 [
   {
+    "slug": "portmarshal-guard-dev-servers-from-crossagent-stops",
+    "title": "PortMarshal – Guard dev servers from cross-agent stops",
+    "description": "Stop AI coding agents from killing each other's dev servers — port/project attribution, sticky claims, and guarded stops for macOS/Linux - worsher/portmarshal",
+    "fullText": "Know which coding agent owns a local dev server — and stop the wrong one from being killed.\n\nPortMarshal is an agent-aware ownership and safety layer for local development services on macOS and Linux. It maps attributable TCP listeners to their PID, project directory, and launching agent; coordinates sticky port claims; detects port drift; and blocks one agent from stopping another agent's active service by default.\n\nThe last command inspects the process, project, and agent behind a dev server already listening on port 3000.\n\nParallel coding agents create three recurring problems:\n\nPortMarshal scans first and coordinates second. Existing listeners do not need to be launched through PortMarshal to be discovered. Cooperative agents gain stable claims and stronger ownership signals, while uncooperative services still appear when the operating system exposes their process metadata.\n\nRequires Node.js 18.17 or newer. The runtime has no npm dependencies.\n\nOn first use, PortMarshal copies an existing ~/.portscout/registry.json into ~/.portmarshal/registry.json, preserving sticky claims without deleting the old data.\n\nA claim is a cooperative lease, not an operating-system socket reservation. PortMarshal revalidates a previous claim before reusing it: a port must still be free or be attributable to the same project. There is still an unavoidable handoff window between returning a free port and the application binding it.\n\nPortMarshal follows the process parent chain to identify claude-code, cursor, antigravity, vscode/electron, terminal, docker, and pm2. PM2-managed listeners are enriched from pm2 jlist, displayed as pm2:<app-name>, and attributed to the application's configured cwd; the full PM2 environment is never retained. For published Docker ports, PortMarshal inspects running-container metadata: shared Docker Desktop listeners are split by container, the source is shown as docker:<compose-project>/<service>, and the host project directory is recovered from Compose, Dev Container, or bind-mount metadata. If managed-runtime metadata is unavailable, attribution safely falls back without inventing ownership. PortMarshal also recognizes launchd:<label> on macOS and systemd:<unit> on Linux. A process reparented to PID 1 without a recognized manager is labeled detached — this is a review signal, not proof that the process is abandoned.\n\n--force overrides the guard after review. On macOS, --gui asks through a native confirmation dialog.\n\nPortMarshal can only attribute listeners whose process metadata is visible to the current user. For example, Linux ss output without PID information is not invented or guessed; those rows are omitted.\n\nAdd this policy to AGENTS.md, CLAUDE.md, or your editor's agent rules:\n\nA ready-to-copy Claude Code skill lives in integrations/claude-code/skills/portmarshal.\n\nGitHub Actions runs build, unit tests, and a real listener smoke test on macOS and Linux. Tagged releases publish to npm with provenance.\n\nDesign: docs/specs/2026-07-16-portmarshal-design.md · Changelog\n\nmacOS and Linux · Node.js ≥ 18.17 · zero runtime dependencies · MIT",
+    "readingTime": 3,
+    "keywords": [
+      "dev server",
+      "project directory",
+      "process metadata",
+      "portmarshal",
+      "macos",
+      "listeners",
+      "port",
+      "without",
+      "ownership",
+      "claims"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/worsher/portmarshal",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1302422354/b9492d37-2504-4b72-8009-51144073bf0d",
+    "created_at": "2026-07-22T13:20:39.855Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "the-great-coding-reset-how-ai-coding-is-changing-software-engineering",
+    "title": "The Great Coding Reset: How AI coding is changing software engineering",
+    "description": "AI coding tools are changing software engineering. Hear from developers about how it's reshaping their careers — from getting hired to doing the work.",
+    "fullText": "You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n and\n\n Robert Scammell \n\n You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n Read in app\n\n HOME",
+    "readingTime": 1,
+    "keywords": [
+      "unfollow unsubscribe",
+      "unsubscribe via",
+      "you're currently",
+      "currently following",
+      "author",
+      "link",
+      "email"
+    ],
+    "qualityScore": 0.3,
+    "link": "https://www.businessinsider.com/great-coding-reset-ai-software-engineering-2026-7",
+    "thumbnail_url": "https://i.insider.com/6a5f7cd254f98752617779d4?width=1200&format=jpeg",
+    "created_at": "2026-07-22T13:20:39.799Z",
+    "topic": "tech"
+  },
+  {
     "slug": "seamv-a-hybriddecoupled-riscv-vector-processor",
     "title": "SEAM-V: A Hybrid-Decoupled RISC-V Vector Processor",
     "description": "Data-parallel workloads in deep learning and scientific computing continue to drive demand for higher processor throughput, energy efficiency, and scalability. The RISC-V Vector Extension (RVV) supports scalable execution through a vector-length-agnostic programming model. However, many tightly coupled implementations still rely on the scalar core to supply vector instructions one at a time, making execution susceptible to vector-instruction supply gaps, scalar-side progression delays, and conservative dependence handling in short-vector, loop-tail, and control/memory-interleaved phases. This paper presents SEAM-V, a hybrid-decoupled vector execution architecture for RVV. SEAM-V forms a continuous stream of execute packets (EPs) through task-level decoupling, local instruction supply, and VLIW-style packing.",
@@ -1850,43 +1895,6 @@
     "link": "https://www.dioko.ai/blog/rust-in-the-vibecoding-era",
     "thumbnail_url": "https://www.dioko.ai/services-illustration.webp",
     "created_at": "2026-06-12T02:31:57.099Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "csuites-have-decided-its-time-to-put-ai-on-a-diet",
-    "title": "C-suites have decided: It's time to put AI on a diet",
-    "description": "Pricing changes after a boom in AI coding left companies with sticker shock. Now, executives are grappling with a new era.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/ai-companies-raising-prices-internal-token-limits-openai-anthropic-ipo-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a288b3259f798e5451f54e0?width=1200&format=jpeg",
-    "created_at": "2026-06-10T14:51:39.879Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "how-to-have-claude-code-run-28-longer-before-autocompaction",
-    "title": "How to have Claude Code run 28× longer before auto-compaction",
-    "description": "Commit-boundary context compaction for long-horizon coding agents — ties full-context retention at ~5x lower cost, proven Pareto-dominant - wiztek-llc/context-ledger",
-    "fullText": "Commit-boundary context compaction for long-horizon coding agents.\n\nAn agent building a product feature-by-feature accumulates context until it hits\nthe model's window and either fails mid-task or gets bluntly summarized (losing\ndetail it can't recover). Context Ledger fixes this at the natural seam — the\ngit commit. When a feature is committed, its ~10k tokens of build context\n(file reads, reasoning, tool output, diffs) are replaced with a compact,\nstructured ledger entry that keeps the decisions, the public interfaces, and\n— crucially — a git pointer to the exact bytes. The pointer is what makes\neviction safe: when later work needs an evicted detail, the agent\nrehydrates it from git on demand.\n\nThe committed code + git history is the external memory. The commit isn't\njust \"done\" — it's the lossless store that makes it safe to evict the context\nthat produced it.\n\nThis is \"restorable compression\" (drop the content, keep the handle) applied at a\nsemantic boundary. See RESEARCH.md for how it relates to the\nstate of the art (Anthropic context-editing + memory tool, MemGPT/Letta,\nManus, Cline Memory Bank, MEM1 / \"Memory as Action\").\n\nOn a real 4-feature build (this project's sibling repo), Context Ledger\nmatches full-context retention of earlier-feature facts while keeping the\nworking context ~30× smaller — and projected over session length it runs\n~28× longer before hitting the 200k window, losslessly, where naive\ntruncation forgets and naive summarization loses detail it cannot recover.\n\nPeak working-context vs session length (cycling the 4 real features). Full\n(no compaction) crosses the 200k window at N≈24 features and dies; Ledger stays\nflat (~277 tok/feature) and reaches the wall only at N≈673.\n\nRetention = % of 14 factual probes about earlier features answered correctly\nfrom only the retained context (same model judges every strategy):\n\nLedger ties Full's retention at 5× lower cost and beats the lossy\nbaselines by 29–36 points — the top-left of the frontier. The baselines\ncan't reach it because they aren't restorable: Truncate forgets the oldest\nfeature; RollingSummary's prose drops the specifics; Ledger keeps a git\npointer and recovers them.\n\nA ledger entry keeps: the human-authored commit message (where decisions and\ngotchas live), the public interface signatures touched (what later features\ndepend on), the changed-file map, and the rehydrate pointer. Everything else is\nrecoverable from git and therefore safe to drop.\n\nInstalls the ctxledger CLI and (opt-in) the live Claude Code hooks. Revert\nwith ./uninstall.sh. Non-interactive: ./install.sh --with-hooks /\n--no-hooks / --with-bench.\n\nWith the hooks installed, Context Ledger works automatically:\n\n\"Is it even working?\" Run ctxledger doctor in any project — it checks the\ngit repo, the installed hooks, and how many features/tokens have been recorded,\nand tells you the next step. The hooks load at session start, so if you\ninstalled them while a session was already open, restart it once.\n\nThis is the deployable form of the mechanism the benchmark proves: the ledger\nfile is the durable, restorable memory; git is the lossless store.\n\nThe benchmark runs on a bundled real corpus (corpus/statusline.bundle,\nmaterialized into .corpus/ on first run) so the published numbers reproduce\nidentically after a fresh clone — no personal paths, no network for the\ndeterministic parts. Point at any repo with CL_REPO=/path/to/repo.",
-    "readingTime": 3,
-    "keywords": [
-      "ledger entry",
-      "lossless store",
-      "session length",
-      "git pointer",
-      "context ledger",
-      "memory",
-      "features",
-      "hooks",
-      "window",
-      "detail"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/wiztek-llc/context-ledger/tree/main",
-    "thumbnail_url": "https://opengraph.githubassets.com/f04bc18483087c4f89540f54499902396845700b43087715155fa0f76f129510/wiztek-llc/context-ledger",
-    "created_at": "2026-06-09T02:01:58.545Z",
     "topic": "tech"
   }
 ]
