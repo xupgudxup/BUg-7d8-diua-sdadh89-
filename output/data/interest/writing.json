@@ -1,5 +1,53 @@
 [
   {
+    "slug": "code-mode-is-all-you-need-why-agents-writing-code-calling-tools",
+    "title": "Code mode is all you need: Why agents writing code > calling tools",
+    "description": "Browserbase is the complete platform to build and deploy agents that browse and interact with the web like humans.",
+    "fullText": "TLDR; For a large class of agent tasks, the best “tool” is a small code-execution surface. Let the model write ordinary code against typed capabilities, then enforce security below the model instead of wrapping every action in another bespoke tool call.\n\nWe keep giving agents bigger toolboxes, when in reality they just need better tools.\n\nOne MCP server exposes 12 tools. The next exposes 30. Add a CLI, a sandbox, a database, a CRM, a browser, and suddenly the model spends a meaningful part of its context learning interfaces instead of doing the job.\n\nMeanwhile, frontier models have spent years getting frighteningly good at one interface already: code.\n\nThe first generation of agents needed explicit verbs.\n\nsearch_customer. get_invoice. click_element. query_logs. download_file.\n\nThat made sense; Models were unreliable, context windows were smaller, and every allowed action needed tight guardrails. If you wanted an agent to complete a 10-step workflow, you gave it 10 carefully described tools and hoped it picked the right one in the right order.\n\n“Code mode” changes the shape of that interface.\n\nInstead of teaching the model a new JSON schema for every action, you expose a small set of typed capabilities inside an execution environment. The model writes the glue itself.\n\nIt can call 3 services in parallel, filter a 20 MB response before it reaches context, retry one failed branch, write an intermediate result to disk, and compose the whole workflow in a language it already knows by heart.\n\nFor this workflow, a rough estimate looks like this:\n\nRoughly 88% less context. Scale the toolbox to 40 always-loaded tools and schemas alone can consume ~12,000 tokens before the agent starts working.\n\nOne single code execution can replace a long sequence of tool calls. More importantly, the logic between calls becomes deterministic. JavaScript handles the join, filter, loop, and error path. The model only has to decide what program to write.\n\nEvery custom tool asks the model to learn new slang.\n\nThe name is completely new, so are the arguments and error shape. The model has to infer whether customer_search, find_customer, and lookup_account are synonyms or subtly different operations. Multiply that across every vendor and every internal service.\n\nCode gives the model a familiar grammar for all of them.\n\nTypes provide the vocabulary, the compiler catches malformed calls, runtime errors create a feedback loop, files provide working memory, and standard programming language features provide branching, concurrency, parsing, and transformations without another trip through the model.\n\nAn individual tool call is a decision, a program is a decision tree.\n\nThis is why code mode feels qualitatively different from adding one more tool. The model can turn a fuzzy task into a temporary, task-specific tool. It writes the exact abstraction it needs, uses it, inspects the result, and can decide to throw it away or saves it as a reusable skill.\n\nAt Browserbase, we’re seeing this shift even earlier because we build browser agents.\n\nEvery single web page already has a programming interface. The DOM describes its structure, Browser APIs expose state, and JavaScript can query elements, read application data, dispatch events, call page-local functions, inspect perf. entries, and transform results before returning them.\n\npage.evaluate() runs JavaScript in the page context, where window, document, and the application's own runtime are available.\n\nThe agent does not need an extract_product_cards tool. It writes the extraction logic (and the extraction logic ONLY) the page requires.\n\nThe same pattern works for interaction:\n\nHow on earth do you define a universal tool for every interaction on every single website?\n\nYou don’t, just let the model’s write code to control the browser in the exact way they need.\n\nThere are still limits. The JS inside the page cannot control every piece of browser chrome, bypass origin boundaries, safely handle every credential, or guarantee that synthetic events behave like trusted user input. Visual interfaces, canvases, cross-origin frames, downloads, and native permission prompts (ie. ad popups) still benefit from specialized primitives.\n\nFor a huge share of browser work, the most general browser tool is JavaScript.\n\nCode mode improves more than interface familiarity.\n\nA tool-heavy loop often returns every intermediate result to the model. Code can filter, aggregate, and write large values to disk before returning the 10 lines that matter.\n\nA program can control a browser, query a warehouse, normalize a CSV, and update a CRM in one execution. The control flow lives in TypeScript instead of being re-decided one model turn at a time.\n\nA successful run can become a script, test, or skill. The next run starts from working code instead of reconstructing the workflow from a transcript.\n\nCompilers and runtimes produce structured feedback, which the agent uses edit the program and rerun it in a tight loop.\n\nThe progression looks something like:\n\nOnce an agent discovers a working workflow, paying for fresh reasoning on every run is waste. Save the code then run it deterministically. Bring the model back for repair when the environment changes.\n\nOur internal agent, bb, works across engineering, support, sales, marketing, and operations. It investigates browser sessions, queries internal data, reads files, logs feature requests, and writes code.\n\nWe could have given it a giant flat catalog of tools. Instead, its core surface stays small. The most important capability is exec: JS execution against typed service interfaces.\n\nThe agent can write code to call a warehouse, CRM, support system, observability stack, or browser. It can parallelize requests, transform results before they enter context, and move large outputs to files. Skills teach it the playbook for a domain, while code handles the execution.\n\nI wrote about the full architecture, including the sandbox, skill system, and credential proxy, here.\n\nThis design also makes new integrations cheaper. We define a typed capability once, place it behind the execution boundary, and add a small skill describing when to use it. The agent writes the task-specific composition.\n\nThe toolbox grows without making the top-level harness grow at the same time.\n\nIf you had security doubts, they are valid. Arb. code execution creates a much larger blast radius than a tool call. “Running it in a sandbox” is necessary, but nowhere near sufficient.\n\nA sandbox limits what code can touch in the execution environment. It doesn’t automatically prevent the agent from exfiltrating a credential, calling a destructive API, sending data to an unapproved domain, or repeating a side effect after a partial failure.\n\nThe safety boundary has to sit below the generated program.\n\nLet the model write anything inside the box. Then make the box physically incapable of doing what the run is not authorized to do.\n\nThis is where specialized tools belong. Things like a payment action, permission change, or prod deploy should carry a small but explicit contract. Code mode should orchestrate read and transformation surfaces, while high-consequence writes stay tightly governed.\n\nTool catalogs will keep growing, but the model-facing surface shouldn’t.\n\nSDKs, MCP servers, and CLIs can still provide transport, discovery, authentication, observability, and human access. For capable agents, more of those interfaces will sit underneath a programmable execution layer.\n\nThe agent will see types and code, and the runtime will see permissions and policy. The service will see a normal authenticated request.\n\nEach new generation of models writes better code, can debug longer workflows, and uses execution feedback more effectively. We should stop forcing that capability through hundreds of tiny, unfamiliar schemas.\n\nGive the model a language it already speaks, give the language a safe place to run, then put the strict guardrails beneath both.\n\nThe best agent harnesses will use both tools and code, pairing a small number of high-consequence tools beside a general execution surface.\n\nAll roads lead to Rome, let the Agents write code.",
+    "readingTime": 7,
+    "keywords": [
+      "extraction logic",
+      "typed capabilities",
+      "execution environment",
+      "code mode",
+      "model",
+      "agent",
+      "tool",
+      "tools",
+      "instead",
+      "context"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.browserbase.com/blog/code-mode-is-all-you-need",
+    "thumbnail_url": "https://cdn.sanity.io/images/yd6zslid/production/666e321127d7a1645953be66e5a264423eacdb7a-2568x1737.png?rect=0,198,2568,1342&w=1200&h=627&fit=crop",
+    "created_at": "2026-07-22T18:56:39.392Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "harry-potter-publisher-to-receive-millions-in-anthropic-copyright-settlement",
+    "title": "Harry Potter publisher to receive millions in Anthropic copyright settlement",
+    "description": "Bloomsbury has 14,087 titles listed in agreement between AI startup and authors over use of their work \nThe publisher of Harry Potter has received a multimillion-pound payout as a beneficiary of a $1.5bn (£1.12bn) copyright settlement between the AI startup Anthropic and thousands of authors over the use of their protected work to power chatbots.\nBloomsbury, which is home to the bestselling novelists Sarah J Maas and Susanna Clarke as well as JK Rowling, said it had 14,087 titles listed within the settlement, with a proposed compensation of about $3,000 a title.\n Continue reading...",
+    "fullText": "Bloomsbury has 14,087 titles listed in agreement between AI startup and authors over use of their work\n\nThe publisher of Harry Potter has received a multimillion-pound payout as a beneficiary of a $1.5bn (£1.12bn) copyright settlement between the AI startup Anthropic and thousands of authors over the use of their protected work to power chatbots.\n\nBloomsbury, which is home to the bestselling novelists Sarah J Maas and Susanna Clarke as well as JK Rowling, said it had 14,087 titles listed within the settlement, with a proposed compensation of about $3,000 a title.\n\nThe London-based company expects to receive the cash from the settlement in instalments, potentially starting in the second half of this fiscal year, with the proceeds to be split with authors.\n\nAfter a deduction of about 10% for attorney fees and other expenses, Bloomsbury and the group of affected authors can expect to receive about $19m (£14m).\n\nUS-based AI companies have argued that using such work is allowed under the legal doctrine of fair use, which allows use of copyrighted work without the owner’s permission in certain circumstances. However, creative professionals and artists around the world have been demanding that AI companies seek permission first – or at least pay them for using their work.\n\nThe US district judge Araceli Martínez-Olguín said on Monday that the settlement provided “meaningful relief” to affected authors and publishers. The case began when the novelist Andrea Bartz and two other authors filed the lawsuit in 2024. About 91% of the 482,000 works covered in the suit have been claimed.\n\nThe authors’ lead lawyer, Justin Nelson, described it as “the largest known copyright recovery in history”.\n\nIt is the first major settlement out of dozens of AI copyright lawsuits being filed in the US on behalf of authors and news outlets, which are still going through the courts.\n\nAnthropic’s deputy general counsel, Aparna Sridhar, said in a written statement after the ruling: “We are pleased that more than 91% of authors and publishers covered by the settlement have claimed their share of the payment, and we’re looking forward to bringing this matter to a close.”\n\nBloomsbury announced an AI licensing deal last year which allows it to sell academic works to train up generative AI programmes.\n\nThe firm said recently that more subject areas were now being considered for AI training. Authors have been given the opportunity to “opt in” to the scheme and will be paid royalties if they decide to let their work be used.",
+    "readingTime": 3,
+    "keywords": [
+      "titles listed",
+      "affected authors",
+      "settlement",
+      "bloomsbury",
+      "copyright",
+      "startup",
+      "receive",
+      "allows",
+      "permission",
+      "publishers"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.theguardian.com/technology/2026/jul/22/bloomsbury-book-publisher-anthropic-copyright-settlement",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/cebf7124937f6bc74c21ce8ed458cb09829cd5f4/0_16_3380_2704/master/3380.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=c4d7f919ce8dd29f6ce15ded42210cfa",
+    "created_at": "2026-07-22T18:56:30.106Z",
+    "topic": "tech"
+  },
+  {
     "slug": "plain-language-guide-series",
     "title": "Plain Language Guide Series",
     "description": "A series of guides to help you understand and practice writing, designing, and testing plain language.",
@@ -1878,43 +1926,5 @@
     "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
     "created_at": "2026-04-03T06:57:13.040Z",
     "topic": "tech"
-  },
-  {
-    "slug": "synumpy-a-header-only-c17-library-for-working-with-numpy-arrays",
-    "title": "SyNumpy – a Header only C++17 library for working with NumPy Arrays",
-    "description": "A C++17 library for reading and writing NumPy .npy files, with optional .npz (zip) archive support - symisc/sy-numpy-cpp",
-    "fullText": "syNumpy is a standalone C++17 library from Symisc Systems for reading and writing NumPy .npy files.\n\nProject homepage and documentation: https://pixlab.io/numpy-cpp-library\n\nsyNumpy is used internally by Symisc/PixLab production systems.\n\nThis public release focuses on robust .npy support.\n\nThe easiest way to integrate syNumpy is to drop synumpy.hpp and synumpy.cpp directly into your codebase and compile them as part of your project. No complex build scripts, generators, or external runtime dependencies are required.\n\nSee example.cpp for a fuller sample covering:\n\nThe C++ interface is intentionally small and source-oriented. The public declarations live in synumpy.hpp, and that header should be treated as the immediate source of truth during integration.\n\nThis README does not attempt to fully document every API detail. For project updates, integration notes, and the official documentation path, use:\n\nBSD 3-Clause. See the LICENSE file.",
-    "readingTime": 1,
-    "keywords": [
-      "synumpy",
-      "project",
-      "documentation",
-      "synumpy.hpp",
-      "integration",
-      "systems"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://github.com/symisc/sy-numpy-cpp",
-    "thumbnail_url": "https://opengraph.githubassets.com/94d669ca15ea60e1acfaf143c98d8e68cec3ca2ab4b8dd142df05003bbcae9b2/symisc/sy-numpy-cpp",
-    "created_at": "2026-04-02T18:41:57.411Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "im-a-college-admissions-expert-and-my-students-are-struggling-with-basic-literacy-skills-their-college-apps-are",
-    "title": "I'm a college admissions expert, and my students are struggling with basic literacy skills. Their college apps are suffering.",
-    "description": "I've been a college admissions coach for two decades, but my current students lack basic reading and writing skills. I blame their screen time.",
-    "fullText": "I'm a college admissions expert, and my students are struggling with basic reading and writing.\n They came of age during the iPhone era, trading reading time for screentime.\n Since they don't have these skills, students are struggling on SATs and college essays.",
-    "readingTime": 1,
-    "keywords": [
-      "college",
-      "students",
-      "struggling",
-      "reading"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://www.businessinsider.com/college-admissions-expert-teens-literacy-skills-2026-4",
-    "thumbnail_url": "https://i.insider.com/69cd3f2b6a864f6fcd7bc569?width=1168&format=jpeg",
-    "created_at": "2026-04-02T18:41:45.191Z",
-    "topic": "finance"
   }
 ]
