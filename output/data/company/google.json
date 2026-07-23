@@ -1,5 +1,18 @@
 [
   {
+    "slug": "ai-is-actually-making-google-search-bigger",
+    "title": "AI is actually making Google search bigger",
+    "description": "Sundar Pichai said Google's AI tools have driven growth in search queries, and search revenue increased by 17% in the latest quarter.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/ai-google-search-bigger-alphabet-earnings-2026-7",
+    "thumbnail_url": "https://i.insider.com/6a61830954f9875261778b05?width=1200&format=jpeg",
+    "created_at": "2026-07-23T08:10:27.614Z",
+    "topic": "finance"
+  },
+  {
     "slug": "anthropic-and-spacex-just-handed-google-the-biggest-profit-quarter-in-company-historyon-paper",
     "title": "Anthropic and SpaceX just handed Google the biggest profit quarter in company history—on paper",
     "description": "A $99 billion markup on stakes in Anthropic and SpaceX delivered more than two-thirds of Alphabet's stunning $112 billion profit.",
@@ -1782,30 +1795,6 @@
     "link": "https://tenureai.dev/writing/open-knowledge-format-ai-memory-benchmark/",
     "thumbnail_url": "https://tenureai.dev/og-image.png",
     "created_at": "2026-06-23T08:57:30.452Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "local-translate-cli-for-mac-mit",
-    "title": "Local Translate CLI for Mac [MIT]",
-    "description": "On-device translator for macOS Tahoe — UNIX filter + drop-in HTTP server compatible with DeepL, LibreTranslate, and Google v2. 100% on-device, no cloud, no LLM, no API keys. - Arthur-Ficial/translate",
-    "fullText": "A deterministic, on-device translator for macOS. A UNIX-style command and a drop-in HTTP server for DeepL, LibreTranslate, and Google v2 — all running 100% on-device using Apple's Translation framework.\n\ntranslate is a tiny macOS CLI built as a UNIX filter: stdin in, stdout out, stderr for errors and optional progress. It uses Apple's on-device Translation framework on macOS Tahoe, auto-detects the source language with NaturalLanguage, reuses a single translation session per run, and batches work wherever possible. With --serve it exposes the same engine over HTTP, byte-compatible with DeepL /v2/*, LibreTranslate /translate /detect /languages, and Google /language/translate/v2/* — so existing client libraries point at it unchanged.\n\nNo cloud calls, no API keys, no telemetry, no LLMs, no third-party translation libraries. Apple's Translation framework is a deterministic neural translation engine — same input, same output, every time.\n\nmake install copies the release binary to /usr/local/bin/translate and creates the short alias /usr/local/bin/ueb.\n\nDrop-in for DeepL clients (Python deepl, Node deepl-node):\n\nDrop-in for LibreTranslate clients (libretranslatepy, raw requests):\n\nDrop-in for the v2 REST API. Override the base URL in your client.\n\nOn-device translation keeps source text local, reduces latency, works offline after models are installed, and needs no API key, account, usage quota, proxy, or billing setup. It is also easier to script safely: the same input, model version, and flags produce byte-stable output without a remote service changing behavior between runs.\n\nFor scripts, prevent automatic model preparation:\n\nIf the model is missing, the command exits with code 4.\n\ntranslate does not translate fenced code blocks, inline backtick spans, URLs, or email addresses. Those spans pass through unchanged.\n\nThe unit suite drives every codec and every endpoint via real loopback HTTP. The real-client suite proves drop-in compatibility with three production translation APIs.\n\nSee EXAMPLE.md for end-to-end CLI and server scenarios.\n\nReference targets on Apple silicon with installed low-latency models:",
-    "readingTime": 2,
-    "keywords": [
-      "translation framework",
-      "on-device translation",
-      "apple's translation",
-      "macos",
-      "model",
-      "deterministic",
-      "command",
-      "server",
-      "engine",
-      "client"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://github.com/Arthur-Ficial/translate",
-    "thumbnail_url": "https://opengraph.githubassets.com/bffc298e42decb6b56ca19ba513014586c286a7f7689b177fbbeaf0eae9347ee/Arthur-Ficial/translate",
-    "created_at": "2026-06-22T20:33:06.469Z",
     "topic": "tech"
   }
 ]
