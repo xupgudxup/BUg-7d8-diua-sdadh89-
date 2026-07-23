@@ -1,5 +1,31 @@
 [
   {
+    "slug": "spending-strikes-again-tesla-and-alphabet-are-being-punished-by-investors-for-lofty-capex-plans",
+    "title": "Spending strikes again: Tesla and Alphabet are being punished by investors for lofty capex plans",
+    "description": "Tesla and Alphabet shares crumbled on Thursday. Soaring capex has spooked investors, who are eager to see AI projects finally yield some return.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/tesla-alphabet-stock-price-q2-earnings-capex-ai-spending-tsla-2026-7",
+    "thumbnail_url": "https://i.insider.com/6a6220f0ce52cb26b8393043?width=1200&format=jpeg",
+    "created_at": "2026-07-23T18:58:27.423Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "the-ai-boom-didnt-stop-google-from-hiring-nearly-12000-people",
+    "title": "The AI boom didn't stop Google from hiring nearly 12,000 people",
+    "description": "Google's parent Alphabet said that it grew its head count by nearly 12,000 between June 2025 and June 2026.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/chart-shows-google-alphabet-head-count-growth-2026-7",
+    "thumbnail_url": "https://i.insider.com/6a623369ce52cb26b8393106?width=1200&format=jpeg",
+    "created_at": "2026-07-23T18:58:26.892Z",
+    "topic": "finance"
+  },
+  {
     "slug": "eu-fines-google-890m-for-competition-breaches-over-search-and-apps",
     "title": "EU fines Google €890m for competition breaches over search and apps",
     "description": "Firm told to treat third-party services that appear in its results in ‘fair and non-discriminatory manner’\nGoogle has been fined a total of €890m (£760m) by the EU for breaches of online competition laws by its search and app store services.\nThe European Commission, the EU’s executive arm, said Google had broken the Digital Markets Act by giving priority to its own services, such as shopping and hotel deals, in search results over those of its rivals.\n Continue reading...",
@@ -1770,42 +1796,5 @@
     "thumbnail_url": "https://i.insider.com/6a3be7603d84808d83754f9a?width=1200&format=jpeg",
     "created_at": "2026-06-24T19:25:54.936Z",
     "topic": "finance"
-  },
-  {
-    "slug": "walmart-truckers-are-getting-a-shorter-drive-home-thanks-to-one-managers-ai-project",
-    "title": "Walmart truckers are getting a shorter drive home thanks to one manager's AI project",
-    "description": "Walmart load manager Leo Garcia took what he learned from a Google AI certification course to vibe code an app that gets truck drivers home faster.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/walmart-truckers-getting-shorter-drive-home-thanks-to-ai-project-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a3bf8726891755ad48b8880?width=1200&format=jpeg",
-    "created_at": "2026-06-24T19:25:54.499Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "bigquery-emulator-bqemulator",
-    "title": "BigQuery Emulator (Bqemulator)",
-    "description": "Local emulator for Google BigQuery. DuckDB-backed, SQLGlot-powered. Drop-in replacement for the real service in dev, CI, and offline replicas. - jjviscomi/bqemulator",
-    "fullText": "A local, drop-in emulator for Google BigQuery.\n\nDuckDB-backed, SQLGlot-powered, and tested against the real service. Point the official Google Cloud client libraries at it and run your BigQuery code on your laptop or in CI — no real project, no billing, no network.\n\nDocumentation\n· Quickstart\n· Examples\n· Compatibility matrix\n· Changelog\n\nTesting code against real BigQuery is slow (network + service latency), expensive (every query is billable), and dangerous (no rollback in shared environments). The alternatives — mocks, fakes, and shared sandboxes — drift from the real service the moment you stop chasing them.\n\nbqemulator is a process you can run locally that speaks BigQuery's actual wire protocol (REST + gRPC), backs onto a real analytical SQL engine (DuckDB), and translates GoogleSQL → DuckDB SQL with a rule-based, ADR-grounded translator (SQLGlot). The official google-cloud-bigquery, @google-cloud/bigquery, cloud.google.com/go/bigquery, com.google.cloud:google-cloud-bigquery, and bq CLI clients all work against it unchanged — only the endpoint differs.\n\nBoth pip and the published image bundle the same emulator. The image exposes REST on 9050 and gRPC on 9060 by default — see configuration reference to change them.\n\nWindows users: install Docker Desktop for Windows with the WSL2 backend (default since Docker Desktop 4.x); the published Linux image runs natively under WSL2 with no Windows-specific configuration. Native Windows-container variants of the image are explicitly out of scope for v1.0 — see docs/reference/out-of-scope.md#native-windows-containers for the rationale.\n\nbqemulator ships a pytest plugin via the pytest11 entry point. Installing the package is all the wiring you need — your conftest.py stays empty.\n\nThe bqemu_server fixture is session-scoped (one emulator per test session); the bqemu_client fixture is function-scoped and returns a pre-configured bigquery.Client. See the pytest fixture guide and the python/pytest-integration example for a complete Flask app with integration tests.\n\nSee the Node.js quickstart and the nodejs/nestjs-app example.\n\nSee the Go quickstart and the go/beam-pipeline example.\n\nSee the Java quickstart and the java/spring-boot example.\n\nSee the bq CLI guide and the bq-cli-quickstart example.\n\nSee the docker-compose/full-stack example for app + emulator + Prometheus + Grafana.\n\nbqemulator is at v1.3.0 — third minor on the production-stable\nline. SemVer applies: breaking changes ship only in MAJOR,\ndeprecations live ≥2 MINOR or 6 months. The compatibility matrix is auto-generated from the conformance corpus on every CI run; the conformance coverage matrix breaks down support by surface item.\n\nConformance corpus depth (the conformance coverage matrix carries the live, auto-generated breakdown):\n\nPlus 10 non-deterministic items (RAND, CURRENT_*, SESSION_USER, GENERATE_UUID, TABLESAMPLE, FOR SYSTEM_TIME AS OF <expression>) that are excluded from the conformance corpus by ADR 0022 and exercised in unit / property / integration tiers instead — bringing the full inventory to 419 surface items across 20 categories, backed by a 1,288-fixture conformance corpus (1,213 SQL + 49 HTTP + 26 gRPC) under tests/conformance/.\n\nWe follow a no-deferral principle: features either ship complete or are excluded with documented rationale. There is no \"TODO for v1.1.\" Scope boundaries are catalogued in docs/reference/out-of-scope.md.\n\nThe full documentation lives at jjviscomi.github.io/bqemulator. Key entry points:\n\nEvery example under docs/examples/ is a complete, runnable project with its own make test validated by CI:\n\nbqemulator is at v1.3.0 — third minor on the production-stable\nline. SemVer applies: breaking changes ship only in MAJOR\nversions, preceded by ≥1 MINOR with deprecation warnings;\ndeprecated APIs remain for ≥2 MINOR versions or 6 months.\n\nSee CHANGELOG.md for the complete release-by-release inventory.\n\nWe welcome contributions of all sizes. Start with CONTRIBUTING.md for the mechanics; AGENTS.md captures the project's day-to-day conventions; and docs/architecture/overview.md is the canonical architectural reference.\n\nPull requests are squash-merged into main with a Conventional Commits subject; commits carry a DCO sign-off (git commit -s). The full review policy lives in GOVERNANCE.md.\n\nbqemulator is released under the Apache License 2.0.",
-    "readingTime": 4,
-    "keywords": [
-      "semver applies",
-      "compatibility matrix",
-      "conformance corpus",
-      "docker desktop",
-      "bqemulator",
-      "emulator",
-      "fixture",
-      "service",
-      "grpc",
-      "pytest"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/jjviscomi/bqemulator",
-    "thumbnail_url": "https://opengraph.githubassets.com/3031eab08bd029b8437888e39233b0d263d25f39b4ebb0f54c10e2230bd2d55e/jjviscomi/bqemulator",
-    "created_at": "2026-06-24T14:05:18.070Z",
-    "topic": "tech"
   }
 ]
