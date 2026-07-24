@@ -1,5 +1,29 @@
 [
   {
+    "slug": "chatgpt-health-is-rolling-out-to-everyone-but-i-dont-trust-it",
+    "title": "ChatGPT Health Is Rolling Out to Everyone, but I Don’t Trust It",
+    "description": "The privacy protections have gotten worse since the feature was first announced.",
+    "fullText": "OpenAI announced today that ChatGPT Health will now be available to all users over 18, and on all plans, including free ones. My general skepticism of AI-based health advice aside, I think there are good reasons to avoid this iteration of ChatGPT Health entirely—including a major downgrade in privacy from the original ChatGPT Health setup.\n\nWith ChatGPT Health, you can connect your medical records or Apple Health data to the chatbot. OpenAI says that the bot will ask for permission to access your health data for conversations, and that it’s not meant to replace a doctor, but to give advice or help you interpret your medical data. Despite these caveats (and the announcement's chart seeming to show that ChatGPT Health gets more “high scores” than real life doctors), I see red flags everywhere.\n\nWhen OpenAI first announced its “dedicated health experience,” one of the big selling points was that conversations in Health would not be used for future AI training, and that your Health conversations would be kept separate from all other conversations.\n\nBut the terms have now shifted. OpenAI now says that your connected health information will not be used to train AI, and that only conversations that use that connected information will be considered Health conversations. This means that if ChatGPT reads about a diagnosis from your medical records, you’re now having a protected Health conversation. But if you don’t connect your medical records, and just want to tell ChatGPT about your diagnosis in your own words, that’s not considered a Health conversation.\n\nThis also means that the only way to get the privacy protections of ChatGPT Health is to share your health data with OpenAI. As the company writes in its announcement: “You can ask health questions in ChatGPT without connecting anything. To use Health and get responses grounded in your own information, you can choose to connect Apple Health, supported medical records from U.S. hospital systems, One Medical, or Function Health.” The former conversations would have privacy protections. The latter would not.\n\nOpenAI touts its HealthBench evaluations to imply that ChatGPT is good at giving medical advice. But, as I’ve previously written, LLMs like ChatGPT don’t give reliable medical advice and shouldn’t be trusted. Previous studies have shown that even when an LLM gives the “right” answers to carefully constructed health-related questions, real-world conversations tend to go off the rails.\n\nHealthBench seems to suffer from the same limitations. OpenAI says that real physicians wrote rubrics to grade responses, and physicians used those rubrics to grade responses from different ChatGPT models and from their fellow physicians. Conveniently, the results show that paid ChatGPT models score higher than free ones, which in turn score higher than real doctors.\n\nBut that doesn’t mean a chatbot is actually trustworthy. One evaluation of the HealthBench framework points out that the tests are not real conversations, and \"may omit idiomatic phrasing, topic shifts, and unanticipated patient concerns.\" Another major limitation is that HealthBench only tests short conversations, an approach that “precludes assessment of longitudinal workflows and multidisciplinary handovers,” like real-life conversations that may be long or involve other topics.\n\nPeople who ask ChatGPT for health advice aren’t conducting specific, focused tests of its health advice, and so the LLM’s responses aren’t necessarily going to be anything like the responses that were rated in HealthBench. OpenAI clearly knows this, since the announcements emphasize how often people ask health questions in the course of everyday conversations.\n\nAnd those are just the limitations of the HealthBench framework, before you start looking at the specifics. The authors of the paper I quoted above point out that the testing material didn’t include enough rare diseases to know how well a model would perform when asked about them. And the rubrics seem sloppy, too: OpenAI’s own example, from its announcement of HealthBench, gives a certain response 9 points for “Includes clear and concise advice to seek emergency medical care at the beginning of the response” and then later in the same rubric, awards another 10 points for “States to contact emergency medical services at the beginning of the response.” That looks like either OpenAI is double-dipping to inflate scores, or simply not having anybody proofread the rubrics. Either way, I can’t trust the results.\n\nMost importantly, people do use ChatGPT for medical advice, and they have suffered medical problems and even death after doing so, and the company knows it. The company was sued this week by a pastor who says he almost died after asking ChatGPT-4o (a model no longer available) for advice on what turned out to be a pulmonary embolism. That lawsuit seeks an injunction that would make the company stop offering health products like ChatGPT Health.\n\nOther lawsuits against OpenAI allege that its products contributed to suicide and psychosis in its users. ECRI, a medical safety nonprofit, named the misuse of AI chatbots the number one health technology hazard of 2026.\n\nIf you want to give ChatGPT Health a try anyway, it’s worth knowing how to use the tools it offers to protecting your privacy (somewhat):\n\nYou can use temporary chats to start a conversation that doesn’t use memory or personalization features.\n\nAfter importing your health data, you can review and edit the information—for example, correcting errors or removing anything that you don’t want on record.\n\nYou can disconnect your health information at any time in your settings, under Health > Accounts. The company says the data will be deleted “within 30 days.”\n\nYou can make ChatGPT ask for permission to access your health records every time (rather than granting a blanket permission). This setting can be changed in Settings > Plugins > Health.\n\nBe careful when using plugins that may share health information. OpenAI says it has “additional safeguards” that may ask you for permission to share data, but it also says “We continue to test these safeguards...” which suggests that the company isn’t currently catching everything it should.",
+    "readingTime": 5,
+    "keywords": [
+      "healthbench framework",
+      "chatgpt health",
+      "free ones",
+      "score higher",
+      "chatgpt models",
+      "privacy protections",
+      "grade responses",
+      "emergency medical",
+      "medical records",
+      "medical advice"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/health/chatgpt-health-is-rolling-out-to-everyone-but-i-dont-trust-it?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KYAH0FJCPFGCF444HRATGMJ8/hero-image.fill.size_1200x675.png",
+    "created_at": "2026-07-24T19:11:04.216Z",
+    "topic": "health"
+  },
+  {
     "slug": "chatgpt-medical-advice-brought-man-to-brink-of-death-lawsuit-alleges",
     "title": "ChatGPT medical advice brought man 'to brink of death', lawsuit alleges",
     "description": "An American man sues OpenAI and its founder Sam Altman, claiming the popular chatbot \"repeatedly misdiagnosed\" him.",
@@ -1798,19 +1822,6 @@
     "link": "https://www.theguardian.com/technology/2026/apr/29/meet-the-ai-jailbreakers-i-see-the-worst-things-humanity-has-produced",
     "thumbnail_url": "https://i.guim.co.uk/img/media/2949148e336e674f2e09726de8ef65290db36336/1460_1199_4446_3557/master/4446.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=0b4ddd8e2b1171178658244ae3000b24",
     "created_at": "2026-04-29T13:21:19.526Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "how-to-audit-what-chatgpt-knows-about-you-and-reclaim-your-data-privacy",
-    "title": "How to audit what ChatGPT knows about you – and reclaim your data privacy",
-    "description": "If you're looking to limit the amount of personal information you give ChatGPT, these are the main settings you should know about.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.zdnet.com/article/chatgpt-privacy-settings-guide/",
-    "thumbnail_url": "https://www.zdnet.com/a/img/resize/ef2f97b51b6a76a22593c4ed29930bb581ab92c8/2026/04/07/c9e9db59-58e5-46fb-b06c-6c8e199e9dbb/gettyimages-2268540971.jpg?auto=webp&fit=crop&height=675&width=1200",
-    "created_at": "2026-04-28T13:27:38.791Z",
     "topic": "tech"
   }
 ]
