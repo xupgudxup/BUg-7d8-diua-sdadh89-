@@ -1,5 +1,18 @@
 [
   {
+    "slug": "i-spent-4-hours-at-an-ai-data-center-town-meeting-things-got-rowdy",
+    "title": "I spent 4 hours at an AI data center town meeting. Things got rowdy.",
+    "description": "A crowd of residents gathered at a Pennsylvania middle school auditorium on Wednesday to resist the construction of a massive data center campus.",
+    "fullText": "You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n Read in app\n\n HOME",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.1,
+    "link": "https://www.businessinsider.com/ai-data-center-opposition-upper-merion-pennsylvania-2026-7",
+    "thumbnail_url": "https://i.insider.com/6a621283ce52cb26b8392fc5?width=1200&format=jpeg",
+    "created_at": "2026-07-24T01:44:22.603Z",
+    "topic": "finance"
+  },
+  {
     "slug": "can-we-lower-construction-costs-with-cheaper-labor-or-materials",
     "title": "Can We Lower Construction Costs with Cheaper Labor or Materials?",
     "description": "Last time in our series on the nature of the construction productivity problem, we looked at economies of scale, finding that capturing economies of scale in homebuilding is difficult.",
@@ -2015,30 +2028,6 @@
     "link": "https://growingswe.com/blog/inventing-math",
     "thumbnail_url": "https://growingswe.com/blog/inventing-math/opengraph-image?16ed498263341a16",
     "created_at": "2026-02-25T06:51:10.609Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "steerling8b-a-language-model-that-can-explain-any-token-it-generates",
-    "title": "Steerling-8B, a language model that can explain any token it generates",
-    "description": "We release Steerling-8B, an 8B-parameter causal diffusion language model that is interpretable by construction — its predictions are routed through concepts you can measure, audit, and control.",
-    "fullText": "We are releasing Steerling-8B, the first interpretable model that can trace any token it generates to its input context, concepts a human can understand, and its training data.\nTrained on 1.35 trillion tokens, the model achieves downstream performance within range of models trained on 2–7× more data.\nSteerling-8B unlocks several capabilities which include suppressing or amplifying specific concepts at inference time without retraining, training data provenance for any generated chunk, and inference-time alignment via concept control, replacing thousands of safety training examples with explicit concept-level steering.\n\nFor the first time, a language model, at the 8-billion-parameter scale, can explain every token it produces in three key ways.\nMore specifically, for any group of output tokens that Steerling generates, we can trace these tokens to:\n\nWe are releasing the weights of a base model trained on 1.35T tokens as well as companion code to interact and play with the model.\n\nBelow we show Steerling-8B generating text from a prompt across various categories. You can select an example, then click on any highlighted chunk of the output. The panel below will update to show:\n\nSteerling is built on a causal discrete diffusion model backbone, which lets us steer generation across multi-token tokens rather than only at the next-token.\nThe key design choice is decomposing the model’s embeddings into three explicit pathways: ~33K supervised “known” concepts, ~100K “discovered” concepts the model learns on its own, and a residual that captures whatever remains.\n\nWe then constrain the model with training loss functions that ensure the model routes signal through concepts without a fundamental tradeoff with performance.\nThe concepts feed into logits through a linear path, every prediction decomposes exactly into per-concept contributions, and we can edit those contributions at inference time without retraining.\nFor the full architecture, training objectives, and scaling analysis, see Scaling Interpretable Models to 8B.\n\nDespite being trained on significantly fewer compute than comparable models, Steerling-8B achieves competitive performance across standard benchmarks. The figure below shows average performance (across 7 benchmarks) versus approximate training FLOPs on a log scale, with vertical lines marking multiples of Steerling’s compute budget.\n\nIn the previous update, we shared several ways that assess how interpretable a model’s representations are.\nHere we provide another metric that gives insight into the model’s use of its concepts. On a held-out validation set, over 84% of token-level contribution comes from the concept module: the model is not just using the residual to make its predictions.\nThis matters for control: if the model’s predictions genuinely flow through concepts, then editing those concepts at inference time actually changes what the model does rather than nudging a side channel while the real work happens elsewhere.\n\nA useful check is what happens when we remove the residual pathway. On several LM Harness tasks, dropping the residual has only a small effect, which suggests the model’s predictive signal is largely routed through concepts rather than hidden “everything-else” channels.\n\nFinally, Steerling can detect known concepts in text with 96.2% AUC on a held-out validation dataset.\n\nIn the coming weeks, we’ll be releasing deep dives on each of these capabilities:\n\nWe’ll cover each of these in detail in upcoming posts, with quantitative evaluations and deployment-oriented case studies.",
-    "readingTime": 3,
-    "keywords": [
-      "held-out validation",
-      "without retraining",
-      "performance across",
-      "concepts",
-      "tokens",
-      "model’s",
-      "steerling-8b",
-      "trained",
-      "residual",
-      "model"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.guidelabs.ai/post/steerling-8b-base-model-release/",
-    "thumbnail_url": "https://www.guidelabs.ai/logo/guidelabs-social-media-thumbnail.png",
-    "created_at": "2026-02-24T01:09:43.548Z",
     "topic": "tech"
   }
 ]
