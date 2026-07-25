@@ -1,5 +1,29 @@
 [
   {
+    "slug": "jolta-automatic-perproject-jdk-switching-like-volta-for-java",
+    "title": "Jolta – Automatic per-project JDK switching (like Volta, for Java)",
+    "description": "Like Volta, but for Java. Pin a JDK per project with .java-version and never switch manually again. macOS, Linux, Windows.",
+    "fullText": "Prebuilt binaries for every platform — no Rust toolchain, no runtime, nothing to\ncompile.\n\nDownload jolta-x86_64-pc-windows-msvc.zip from the\n releases page, unzip, then:\n\nFollow the two printed steps: add the shims directory to your user\n PATH, and add the PowerShell hook line to your $PROFILE.\n\nJolta puts lightweight shims on your PATH\n(java, javac, jar, jshell, …) — each one a\nlink to the single jolta binary. Every invocation walks up from the current directory to\nthe nearest .java-version, resolves an installed JDK for it, sets\nJAVA_HOME, and execs the real tool. Resolution takes ~2 ms, invisible\nnext to JVM startup.\n\nIf a project pins a version you don't have, the first invocation\ndownloads it on demand (Volta-style) from the distro's official endpoint —\nnever triggered by merely cd-ing around, safe under parallel builds, and\ndisabled with JOLTA_NO_AUTO_INSTALL=1. Restricted networks can set\nJOLTA_DOWNLOAD_BASE to serve JDKs from an internal mirror\n({base}/{vendor}/{version}/{os}-{arch}.{ext}) instead of the vendor\nendpoints.\n\nJolta also finds the JDKs you already have: Homebrew,\n/Library/Java/JavaVirtualMachines, SDKMAN, /usr/lib/jvm,\nWindows Program Files, and JAVA_HOME_<major>_* environment\nvariables.\n\nThe pin is a plain .java-version file (compatible with jenv and asdf) —\ncommit it to your repo:\n\nResolution order: JOLTA_JAVA_VERSION env var → nearest\n.java-version walking up → jolta default → system default JDK.\nOn a machine with no JDK at all, the first java run installs the latest\nLTS (Temurin) and sets it as your default.\n\nA major pin (21) matches the highest installed build of that major.\nAn exact pin (21.0.2) means exact — never silently substituted, and\nauto-installed precisely. .sdkmanrc files (java=21.0.2-tem)\nare honored with vendor mapping when no .java-version claims the\ndirectory. jolta catalog (alias search) shows what every distro\npublishes — latest per distro, per-major comparisons, and @v prefix\nfilters like temurin@21.0 — with installed versions marked.\n\nA spec can name a JDK distribution as distro@version or\ndistro-version:\n\nPoint releases: jolta update checks jolta-managed JDKs against the\nvendors (via redirect filenames — no downloads) and jolta upgrade\nfetches newer builds and prunes superseded ones. Homebrew/system JDKs stay with\ntheir own package managers; resolution picks the highest build of a major, so\ntheir upgrades apply automatically.\n\nTwo mechanisms keep JAVA_HOME correct:\n\nDon't export JAVA_HOME manually in your profile — the hook owns it. In\nscripts and CI, use jolta exec mvn ... or\neval \"$(jolta env)\". jolta doctor flags stale values.\n\nAn honest table, current as of July 2026 — corrections\nwelcome.\n\nFair summary: if Java is one of five languages you juggle, mise is\nexcellent. If Java is the job, jolta does the whole job by default — nothing to\nenable, nothing to configure, and a .java-version is all your repo\nneeds.\n\nRemoves ~/.jolta and the jolta lines from your shell profile, after a\nconfirmation prompt that lists exactly which jolta-installed JDKs will be deleted.\nJDKs installed outside jolta and your .java-version files are never touched —\njolta only ever deletes what it downloaded itself.",
+    "readingTime": 3,
+    "keywords": [
+      "nearest java-version",
+      "jolta",
+      "installed",
+      "default",
+      "directory",
+      "java_home",
+      "resolution",
+      "files",
+      "releases",
+      "shims"
+    ],
+    "qualityScore": 1,
+    "link": "https://oneappplatform.github.io/jolta/",
+    "thumbnail_url": "https://oneappplatform.github.io/jolta/logo.png",
+    "created_at": "2026-07-25T01:44:18.723Z",
+    "topic": "tech"
+  },
+  {
     "slug": "shotsglow-windows-screenshot-editor-with-ondevice-background-removal",
     "title": "ShotsGlow – Windows screenshot editor with on-device background removal",
     "description": "ShotsGlow is the polished, native Windows screenshot app: capture, add designed backdrops, annotate, blur/redact, and remove backgrounds on-device — then export to 30 social & App Store sizes. One-time $9 lifetime, no subscription, nothing leaves your machine.",
@@ -2068,30 +2092,6 @@
     "link": "https://github.com/primaprashant/awesome-voice-typing",
     "thumbnail_url": "https://opengraph.githubassets.com/04058c3f1cab6b5e2e8c97e8ba1afbf90287e4cac5353b5a0b3f1b7e1b6d11e5/primaprashant/awesome-voice-typing",
     "created_at": "2026-03-07T12:25:12.577Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "microsofts-ceo-says-without-intel-i-dont-know-if-windows-would-have-happened",
-    "title": "Microsoft's CEO says 'without Intel, I don’t know if Windows would have happened'",
-    "description": "A very candid admission.",
-    "fullText": "When you buy through links on our articles, Future and its syndication partners may earn a commission.\n\nLong-time Microsoft CEO Satya Nadella has been surprisingly candid in a recent chat with Morgan Stanley, highlighting, in as many words, how much the company has to thank both Intel and Apple for.\n\nThis came in response to a question—well, more of a statement than a question—commenting on Nadella \"embracing openness\". For instance, regarding Microsoft's stance towards Linux on Azure and its relationship with OpenAI.\n\nNadella responded: \"There are very few zero-sum battles, and I think we overstate that a lot… somebody else’s success doesn’t need to be your failure if you can ride it. It’s sort of a thing that needs to be talked about more… Like, without Intel, I don’t know if Windows would have happened, right? Without Mac, I wonder whether Office would have happened.\"\n\n\"I’m always looking for, first, what’s the non-zero sum, where we can add value to our customers? Then, of course, there are zero-sum battles, and we’ll compete.\"\n\nIt's clear that the Microsoft CEO is referring to the origins of Windows and Office rather than any kind of ongoing dependence. In the case of Windows, there's a reason \"Wintel\" was, for a long time, common techy parlance. MS-DOS was made for the first IBM PCs that were running Intel CPUs, and thereafter for quite some time Microsoft's operating systems were the de-facto for home computing, in Intel machines.\n\nThe Mac-and-Office link is a little weaker but still pretty strong, because Excel was originally released for Mac computers, and the first version of Word with a GUI was also released for Mac before Windows. This was most likely because the original graphical Mac OS, System 1, was more user-friendly and popular than Microsoft's first graphical follow-up to MS-DOS, Windows 1.0.\n\nOh how far we've come... I suppose? Take a Windows 11 room temperature reading, and you'll most likely find it lukewarm at best, thanks in part to the all-out AI PC rebranding and redesigns and seemingly perpetual privacy creep. On the former front, that topic and related ones took up the bulk of the Morgan Stanley discussion—surprise, surprise—with a brief respite for this candid admission.\n\nThere have recently been some rumours that an AI-laden and \"modular\" Windows 12 might land this year, too, but this is heavily disputed. Either way, 2026 is seeming increasingly like the year of Linux, and I'm not sure Nadella will be as thankful for that as he is about yesteryear's Intel and Mac. But that's enough snark from me, let's leave a good comment be.",
-    "readingTime": 3,
-    "keywords": [
-      "zero-sum battles",
-      "morgan stanley",
-      "microsoft's",
-      "windows",
-      "candid",
-      "released",
-      "graphical",
-      "intel",
-      "nadella",
-      "microsoft"
-    ],
-    "qualityScore": 1,
-    "link": "https://tech.yahoo.com/business/articles/microsofts-ceo-says-without-intel-122153620.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/sCZId7zlJCM0hf6w8muLVQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03MDE-/https://media.zenfs.com/en/pc_gamer_708/bc28001f769e89c76db09b04c0138afe",
-    "created_at": "2026-03-06T18:30:57.648Z",
     "topic": "tech"
   }
 ]
