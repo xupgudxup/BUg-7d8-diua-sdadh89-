@@ -1,5 +1,66 @@
 [
   {
+    "slug": "an-agent-with-write-access-to-my-files-and-no-way-to-send-them-anywhere",
+    "title": "An agent with write access to my files, and no way to send them anywhere",
+    "description": "secondBrain Part Two by Manazir Ali. How a vectorless, Markdown personal LLM knowledge base became always-on and self-maintaining, then hardened against the agentic threat model: machine-enforced immutability, an append-only-log guard, the lethal trifecta cut by removing the exfiltration channel, least-privilege read-only librarian and write-scribe agents, and indirect-prompt-injection defenses. A 16-agent security rubric moved the system from a 5.1 mean into the 8-to-9 range, and a live session then found and fixed two real bugs. The thesis: the same plain-files discipline that made retrieval deterministic makes the autonomy auditable and the security real.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://manazir.dev/work/mnzrbrain-secondbrain-part-two",
+    "thumbnail_url": "https://manazir.dev/images/projects/secondbrain-part-two/cover.png",
+    "created_at": "2026-07-26T08:06:51.772Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-protocol-for-ai-agent-workspace-state-and-effect-management",
+    "title": "A protocol for AI agent workspace state and effect management",
+    "description": "A protocol for AI agent workspace state and effect management. - eouzoe/reel",
+    "fullText": "reel is a protocol for the boundary between an AI agent's speculative work and\nthe systems it does not own.\n\nAn agent reasons by attempting things. Some attempts cross that boundary: a\nmessage is posted, a row is written, a payment is taken. Once an action has\ncrossed, no later decision — including the decision to abandon the line of\nreasoning that produced it — can retract it. reel exists to make the boundary\ntransactional, so that an action the system decides to discard is never\nperformed in the first place.\n\nreel defines six content-addressed types — Hash, Block, Ref, Delta,\nCapability, View — three verbs — fork, commit, abort — and three\ninvariants: reachability, the silencing of discarded irreversible effects, and\ncapability narrowing.\n\nThe load-bearing decision is that a View's pending side-effects are themselves\na content-addressed Block. commit moves that block into the committed log\nand drains it; abort drops the reference, after which the block is unreachable\nand is collected. No path between the submission of an irreversible effect and\ncommit can fire it, because the capability needed to fire one is constructed\nonly inside commit's drain. abort constructs none, so on the discard path\nthe effect is, by construction, unable to run.\n\nThe verbs, the snapshot-isolation reading of a View, the capability model and\nthe effect taxonomy are each taken from existing work — Gray (1981), Wang &\nZheng (2026), Berenson et al. (1995), Miller, Yee & Shapiro (2003),\nGarcia-Molina & Salem (1987). reel's contribution is their composition under a\nsingle content-addressed representation.\n\nState, side-effects and capabilities are represented as the same kind of\ncontent-addressed block. One transactional kernel therefore provides rollback,\naudit and sharing for an entire workspace, rather than each being implemented\nagain for each feature. A system that routes work across many external\nresources can rebuild its state-and-effect layer on this one kernel instead of\nreasoning about transactionality resource by resource.\n\nThe workspace builds on stable Rust and passes its test suite, which includes\nproperty-based tests over the kernel's invariants.\n\nRust 1.95 (stable), edition 2024.\n\nPre-release. The specification is settled; the kernel is under construction\nalong the path described above. Interfaces may change.",
+    "readingTime": 2,
+    "keywords": [
+      "content-addressed block",
+      "capability",
+      "reel",
+      "boundary",
+      "decision",
+      "commit",
+      "abort",
+      "path",
+      "effect",
+      "kernel"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/eouzoe/reel",
+    "thumbnail_url": "https://opengraph.githubassets.com/0fb9e048cbb20d1126a08d02bdf61fc462e285ffdc4c7abba02a3d2a25e7714a/eouzoe/reel",
+    "created_at": "2026-07-26T08:06:50.331Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-hims-cofounder-fired-his-entire-marketing-team-for-ai-now-his-247-online-vet-service-is-growing-20-a-month",
+    "title": "A Hims cofounder fired his entire marketing team for AI. Now his 24/7 online vet service is growing 20% a month",
+    "description": "Joe Spector helped build a multibillion-dollar telehealth company. Now he’s on to own remote vet services.",
+    "fullText": "When Joe Spector's corgi, Eddie, ate four M&Ms, the Hims cofounder spent hours trying to find an emergency vet who could see him. One office pointed him to a pet poison hotline, and another was an hour away and had a four-hour wait. The bill came out to $2,000.\n\nSpector thought at the time \"this does not have to be that way,\" he told Fortune.\n\nThat stressful scramble in 2021 sparked the idea for Dutch, the veterinary telehealth company Spector launched on July 1 of that year after helping build and take public Hims & Hers, the direct-to-consumer telehealth brand best known for treating hair loss and sexual wellness. Those companies have since grown exponentially to cover an array of health concerns.\n\nDutch, which just marked its fifth anniversary, offers members video visits with veterinarians for a flat $100 a year covering up to five pets. That amounts to roughly the cost of a single in-person visit at a regular veterinary office. The company now operates in 35 states, up from eight at launch, as more states loosen restrictions on veterinary telemedicine. The company has logged millions of interactions and now counts more than 100,000 active members, according to the company. Dutch raised $20 million in early 2022 to scale the platform, in a round led by Forerunner Ventures.\n\nThe company declined to share its current revenue and valuation, but its revenue grew 5.5x between 2022 and 2023, 2.2x between 2023 and 2024, and 1.8x between 2024 and 2025.\n\nAlthough Dutch is clearly charting its growth path now, it was a bit stagnant for a while. Now Spector is making a bigger bet on how the company markets itself.\n\nLate last year, Spector said, Dutch was paying an outside agency roughly $50,000 a month to produce five pieces of creative material, or about $10,000 apiece.\n\n\"It's both expensive and it's just limited because so much of marketing, especially with a new product, is just testing to see what's resonating,\" Spector said.\n\nSo he fired that agency. That drastic move is somewhat reminiscent of Bolt's CEO telling Fortune at its Workplace Innovation Summit in May he had ditched his entire human resources team, although the executives had very different motivations for their moves.\n\nIn its place is a new in-house marketing team leaning heavily on AI tools to generate content, from static ads to full animated and live-action commercials. Now Dutch produces about 50 pieces of content a month internally, or a 10x jump, Spector said. That's enough work to cost roughly half a million dollars a month through an agency, he said. Just as important as the savings, he said, is the ability to test what actually lands with pet owners who often don't know virtual vet care exists.",
+    "readingTime": 3,
+    "keywords": [
+      "veterinary",
+      "roughly",
+      "agency",
+      "telehealth",
+      "revenue",
+      "pieces",
+      "it's",
+      "marketing",
+      "team",
+      "content"
+    ],
+    "qualityScore": 1,
+    "link": "https://finance.yahoo.com/healthcare/articles/hims-cofounder-fired-entire-marketing-133245733.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/978420806F7D1F2766B66026A20214350273B7AE9BD8D31D67A53FACA8915F1A/subgraphmysterio/resizefill_w1200_h800;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Ffortune_175%2F287c0d830da4ee48a1aaeaaa0d89c573",
+    "created_at": "2026-07-26T08:06:46.540Z",
+    "topic": "finance"
+  },
+  {
     "slug": "hugging-face-ceo-shares-his-demands-of-openai-after-rogue-agent-hack-it-deserves-an-unprecedented-response",
     "title": "Hugging Face CEO shares his demands of OpenAI after 'rogue' agent hack: 'It deserves an unprecedented response'",
     "description": "Hugging Face CEO Clem Delangue met with OpenAI this week to discuss the \"unprecedented\" hack on its systems by an agent running on OpenAI models.",
@@ -1644,55 +1705,5 @@
     "thumbnail_url": "https://opengraph.githubassets.com/a6e201089c15780e70c3e397d3ceb4352f8671dbe7f82ba0d90b0306db862aba/mauscoelho/rabbitty-app",
     "created_at": "2026-07-22T18:56:38.792Z",
     "topic": "tech"
-  },
-  {
-    "slug": "an-openai-test-model-escaped-and-broke-into-a-real-companys-servers",
-    "title": "An OpenAI test model escaped and broke into a real company's servers",
-    "description": "OpenAI says some of its experimental AI models left a test environment with no human direction and hacked its way onto a different company’s real production systems while trying to “cheat” on a cybersecurity test.",
-    "fullText": "OpenAI says some of its experimental AI models left a test environment with no human direction and hacked its way onto a different company’s real production systems while trying to “cheat” on a cybersecurity test.\n\nIt’s one of the first publicly disclosed examples of an AI system autonomously breaching its testing environment and reaching a real external system - the “agentic attacker” scenario the AI and cybersecurity industry has been warning will happen. It’s like an engineered virus escaping a biocontainment lab and turning up inside a neighboring facility’s systems.\n\n“We consider this incident to be an unprecedented cyber incident, involving state-of-the-art cyber capabilities, and are responding accordingly,” OpenAI said in a statement on Tuesday. “We are sharing preliminary findings at this stage to help defenders understand what happened and to help calibrate on what models are now capable of.”\n\nThe ChatGPT maker said the breach happened while it was internally testing how good some of its new models are at hacking. The models were in a sealed off test environment known as a sandbox so that its normal safety restrictions could be turned off.\n\nBut OpenAI said the AI agents broke out of the sandbox using a previously unknown security flaw and worked their way across OpenAI’s internal systems until they managed to gain internet access, something they weren’t supposed to have.\n\nOnce online, the model reasoned that Hugging Face - a well-known company that hosts thousands of open-source AI models and datasets - likely had the answer to OpenAI’s test. It then broke into Hugging Face’s production servers and pulled out the information it needed to “solve” the exercise.\n\nHugging Face had noticed the breach itself before it knew it was an OpenAI test, announcing last week that they had detected an intrusion by an autonomous AI agent system and even reporting the incident to law enforcement. OpenAI’s security team separately noticed the unusual activity internally and the two companies connected. They both now say they are working together to solve the security flaws the model exploited.\n\nHugging Face co-founder and CEO Clem Delangue framed the incident as evidence AI safety can’t be handled by any one company working alone, and it needs to be tackled openly and collaboratively.\n\n“This is day one for cybersecurity in the age of agents & we’re all learning that secrecy is not the answer & that all defenders (not just a few selected ones) everywhere need more powerful models without restrictions, especially open ones!” Delangue said in a post on X.\n\nResearchers have long warned autonomous agentic cyberattacks are coming, as frontier AI models are increasingly able to carry out complex, multi-step cyberattacks over long stretches of time. That can translate into real-world risk, to critical infrastructure like utilities and financial systems.\n\n“Welcome to the next level of cyber incidents,” Nikesh Arora, CEO of cybersecurity company Palo Alto Networks posted on X. “These attacks continue to maintain the urgency on enterprises need to test, validate and improve both their security posture and infrastructure.”",
-    "readingTime": 3,
-    "keywords": [
-      "test environment",
-      "hugging face",
-      "models",
-      "systems",
-      "cybersecurity",
-      "incident",
-      "security",
-      "system",
-      "cyber",
-      "openai’s"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.cnn.com/2026/07/22/tech/openai-hugging-face-ai-cybersecurity",
-    "thumbnail_url": "https://media.cnn.com/api/v1/images/stellar/prod/c-2026-03-20t193909z-1777114240-rc2i2kaptryb-rtrmadp-3-openai-altman-sister-lawsuit.jpg?c=16x9&q=w_800,c_fill",
-    "created_at": "2026-07-22T18:56:38.472Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "openai-is-launching-new-corporate-software-that-takes-it-beyond-the-ai-model-war",
-    "title": "OpenAI is launching new corporate software that takes it beyond the AI model war",
-    "description": "OpenAI's new Presence product signals its push beyond AI models into business software and AI-powered work.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/openai-presence-corporate-software-customer-service-sales-2026-7",
-    "thumbnail_url": "https://i.insider.com/6a5fb62154f9875261777cd5?width=1200&format=jpeg",
-    "created_at": "2026-07-22T18:56:31.994Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "21-successful-tech-moguls-who-never-graduated-college",
-    "title": "21 successful tech moguls who never graduated college",
-    "description": "The founders of billion-dollar tech companies, including Meta, OpenAI, and Canva, have achieved success without ever getting college degrees.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/successful-college-dropouts-tech-ceos-never-graduated",
-    "thumbnail_url": "https://i.insider.com/6a5f97a454f9875261777b6d?width=1200&format=jpeg",
-    "created_at": "2026-07-22T18:56:31.881Z",
-    "topic": "finance"
   }
 ]
