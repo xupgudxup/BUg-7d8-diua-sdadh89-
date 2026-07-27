@@ -1,5 +1,101 @@
 [
   {
+    "slug": "bbc-micro-ai-agent-experiment",
+    "title": "BBC Micro AI Agent Experiment",
+    "description": "I built an AI agent with one mission: write code for the BBC Micro - an 8-bit computer from 1981.",
+    "fullText": "Vacation side project: build an AI agent with one mission: write code for the BBC Micro - an 8-bit computer from 1981.\n\nNow, the BBC Micro Bot community has spent years creating BBC BASIC one-liners that express amazing creativity in under 500 characters. We did not use any BBC Micro Bot programs in this experiment, nor attempt that level of finesse, however.\n\nInstead, our agent gives the model some context about the machine and access to a BBC Micro emulator and VLM critic of the graphics output.\n\nClick any image to open agent output in BBC BASIC editor:\n\nSimon Willison has been asking LLMs to write an SVG of a pelican riding a bicycle since 2024. It seemed only fair to make the BBC Micro attempt it, in four colours, at 320x256. However, our harness gives the models the advantage of an emulator to run against and a critic marking each attempt.\n\nThe agent is a simple loop with feedback. We used OpenRouter to test the same harness across a fairly random selection open-weight and proprietary models: GPT‑5.6 Sol, Kimi K3, Gemini 3 Flash, DeepSeek V4 Flash, and Gemma 4 26B A4B. Plan the scene, write the program, observe what happened, fix it, repeat. Observing is two questions asked in order: did it run, and does it look right?\n\nThe model calls plan and describes the scene in text - the shapes it intends, their colours, sizes and positions as well as outlining it in pseudocode.\n\nThen the whole program, in one reply. Every attempt is a fresh few hundred characters of BASIC, written from scratch after reading the last critique. Two smaller tool calls are available here: lookup fetches a reference page (e.g. the PLOT map, VDU codes, size tricks), and count_chars gives the canonical length, counted after tokenising, where every BASIC keyword costs one character.\n\nrun_check sends the program to the beebjit emulator for 30 emulated seconds. It returns a screenshot if the program runs successfully, or else the model gets the BASIC error message and error line (e.g. \"Division by zero at line 30\"). A program that crashed goes straight back to be rewritten - it never reaches the critic, because there is nothing on the screen worth paying to look at.\n\nThe Qwen3 VL VLM critic drives refinement of the image. On Kimi's first attempt of a pelican on a bicycle it said:\n\nThanks to this observation stage in our agentic loop, Kimi's program output image goes from a one-shot seagull to genuine pelican-ness in the subsequent iterations (above)\n\nIf the critique warrants another go and turns remain, the agent loops back. When it calls submit - or runs out of turns - the session ends, but the model does not choose what ships: the harness keeps the highest-scoring attempt of the whole run.\n\nThe driver behind this investigation was the economics of popping up a website that generated BBC Micro programs. Of course, OpenAI Codex or Claude Code with frontier models do a great job of this, it but feels like a sledgehammer to crack a nut:\n\nThe questions for me was really how efficiently we can implement it. The lowest cost inference options being free-tier AI models on the cloud, or even better (from my perspective) smaller models on the edge that could run on the local machine, even in the web browser itself. The fact that Gemma4 26B A4B was quickly able to generate executable BBC BASIC programs with some passable images makes me think this is a worthwhile avenue to pursue.\n\nOf course there is plenty of headroom to optimize the agent itself:\n\nIf we look at the Kimi Pelican example, it took twelve model calls over 295 seconds: a long block of planning, a detour to look up the graphics ROM reference after seeing the first render, then nine write-run-look cycles. In the timeline, the emulator is the row of thin red slivers, drawn a little wider than life so they show up at all - 0.23 seconds a go, 0.7% of the session, roughly eighty times less than one model call.",
+    "readingTime": 4,
+    "keywords": [
+      "vlm critic",
+      "micro bot",
+      "bbc micro",
+      "bbc basic",
+      "agent",
+      "attempt",
+      "model",
+      "program",
+      "models",
+      "emulator"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.dompajak.com/blog/bbc-micro-ai-agent/index.html",
+    "thumbnail_url": "https://www.dompajak.com/blog/bbc-micro-ai-agent/kimi-city.png",
+    "created_at": "2026-07-27T14:09:52.023Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "judge-limits-bbc-from-relitigating-jan-6-in-trump-lawsuit-over-misleading-documentary-edit",
+    "title": "Judge limits BBC from relitigating Jan 6 in Trump lawsuit over misleading documentary edit",
+    "description": "A federal judge ruled the BBC can probe how Trump's Jan. 6 speech was interpreted but relitigating the Capitol riot is not at issue in the $10 billion suit.",
+    "fullText": "A federal judge last week drew a sharp line around President Donald Trump's $10 billion defamation lawsuit against the BBC, ruling the broadcaster can probe how Trump's Jan. 6, 2021, speech was understood by the public — but cannot relitigate the riot at the U.S. Capitol itself.\n\nThe ruling was handed down by U.S. Magistrate Judge Enjoliqué Lett as the BBC faces continued scrutiny over a 2024 \"Panorama\" documentary about Trump's speech on Jan. 6.\n\nThe documentary — titled \"Trump: A Second Chance?\" — was subsequently labeled as misleading by critics who noticed it omitted Trump's call for supporters to protest peacefully at the Capitol. The documentary stitched together remarks Trump made nearly an hour apart during his address that made it appear as if he had told his supporters to \"fight like hell\" down at the Capitol — the comments were actually out of context — shortly before the Capitol riot that day.\n\n\"All of the impressions that were received by President Trump's statements on Jan 6 are at issue,\" Lett said at the hearing, according to reports. \"The full relitigation of Jan. 6 is not at issue.\"\n\nTrump, Bbc Agree On Mediator For $10 Billion Lawsuit Over Jan 6 Documentary Editing Controversy\n\nA source close to Trump's legal team, which has accused the BBC of a \"fishing expedition,\" said the judge's decision on that specific item was significant.\n\n\"It's important because this case is about a very limited splicing that consisted of nine seconds of a more than 50-minute speech and, rather than focus just on that, the BBC is trying to distract the judge, ultimately the jurors in this case, from that very limited scenario, and what they're trying to do is expand the scope of this case to litigate January 6 simply to take the attention off of them for their own wrongful conduct,\" the source told Fox News Digital.\n\n\"And so when the judge made that determination that that's not going to happen, that eliminated the primary defense that the BBC was seeking to employ in this case, which was to create a distraction, to make this case into something that was just going to be unmanageable and unnecessary, which is, 'We're going to try the whole January 6 case here.' The BBC has no standing, legal standing or any basis to bring such a defense.\"\n\nTrump filed a lawsuit against the BBC in December in a personal capacity for both defamation and for a violation of Florida's Deceptive and Unfair Trade Practices Act for $5 billion apiece, seeking $10 billion total.\n\nAt Tuesday's hearing, Trump's lawyers argued in a Miami courtroom that the president's intent and third-party interpretations of his remarks were irrelevant because the lawsuit only points to the exact words Trump used in his speech, according to Politico.\n\nJudge Dismisses Trump's $10B Defamation Lawsuit Against The Wall Street Journal Over Epstein Story\n\n\"What matters is what he said relative to what was broadcast that he said. That's it. There's nothing more that needs to be examined,\" Trump attorney Alejandro Brito reportedly said.\n\nBrito cited the written apology penned by BBC Chairman Samir Shah to Trump last year, in which Shah admitted that the documentary \"gave the mistaken impression that [Trump] had made a direct call for violent action.\"\n\n\"He acknowledged the falsity,\" Brito told the judge, according to the outlet.\n\nHowever, Sasha Dudding, an attorney for the BBC, noted that Shah had deemed the misleading edit as unintentional, and argued that the intent behind Trump's speech is fair game for the outlet's attorneys to investigate, Politico reported.\n\nDudding pointed to Trump's own denial within the lawsuit, in which he asserted that he was not responsible for his supporters carrying out the riot at the Capitol, according to Politico.\n\nFrom The Hunter Biden Laptop To Kamala Harris Edits: The Long History Of '60 Minutes' Controversies\n\nUltimately, Lett ruled that while the BBC can delve into the interpretation of Trump's speech by his supporters, the trial will not re-examine the cause or legality of the actual riot.\n\nThe judge also determined that the BBC overstepped in some instances regarding requests to examine the findings of several investigations into Jan. 6, the outlet reported.\n\nThe issue surrounding the documentary's editing integrity comes after a report from The Telegraph revealed excerpts from a whistleblower dossier compiled by Michael Prescott, a communications advisor hired by the BBC to review its editorial standards.\n\nThe whistleblower alleged the network's documentary spliced two separate comments made by Trump nearly an hour apart on the day of the Capitol riot, which erroneously implied that the president was calling for violence from his supporters.\n\nLegal Analyst Predicts Trump Could Win 'Considerable' Damages From Bbc Documentary Lawsuit\n\n\"We're going to walk down to the Capitol. And I'll be there with you. And we fight — we fight like hell,\" the documentary showed Trump saying, without noting that the statement had been edited.\n\nIn reality, Trump said, \"We're going to walk down to the Capitol. And we're going to cheer on our brave senators and congressmen and women, and we're probably not going to be cheering so much for some of them, because you'll never take back our country with weakness. You have to show strength, and you have to be strong.\"\n\nTrump called on his supporters 54 minutes later to \"fight like hell\" for election integrity.\n\nThe controversy ultimately led to the resignations of BBC CEO Deborah Turness and Director-General Tim Davie last year.\n\nWhat drove the majority of media attention and headlines this week was Lett ordering Trump to hand over financial information as part of the suit, according to Politico.\n\n\"All of President Trump's brand, properties and businesses are impugned or said to have been impugned. Reputational, economic damages, all of that is now at issue in this case,\" Lett reportedly said.\n\nEx-bbc Director General Tells Network They Shouldn't Agree To Pay Trump Any Money\n\nLett reportedly based the ruling on Trump's argument that his businesses were negatively impacted by the network's coverage, thus presenting the opportunity for the BBC to delve into the financial records of over 400 companies controlled by a Trump family trust.\n\nThis was widely covered as a significant blow to Trump. Headlines included MS NOW's \"BBC to access Trump's financial records as his dubious lawsuit starts to backfire,\" The Daily Mail's \"Trump suffers humiliating legal blow in $10 billion BBC lawsuit,\" and The Guardian's \"Trump must divulge financial details about businesses in $10bn BBC lawsuit.\"\n\nHowever, a source close to the Trump legal team says the judge's order is \"far more limiting\" than what's been reported, saying she still must enter an order specifying what she'd require as part of the discovery process.\n\nClick Here For More Coverage Of Media And Culture\n\n\"The judge made it abundantly clear that although she's going to require certain financial information to be disclosed relating to the trust and the companies that are operated by the trust, that's not as broad as the BBC would like,\" the source told Fox News Digital. \"At the end of the day, the financial information that they're seeking with regard to the Trump Organization has nothing to do with this case … We simply are viewing this in a way that's going to be far more narrowed and tailored than what's being reported.\"\n\nTrump's team is now arguing he's only seeking amends for damage to his reputation rather than to businesses under his umbrella.\n\n\"This case is not going to be about any damage caused to the Trump Organization. It's always been about the damage caused to President Trump,\" the source close to Trump's team said.\n\nWhile Lett reportedly said she does not possess the power to drop the business damages allegations from the suit, Trump can appeal the decision to one of his own appointees, U.S. District Court Judge Roy Altman.\n\nThe BBC, meanwhile, has argued the case should be dismissed on the grounds that a Florida court has no jurisdiction over what the British broadcaster aired across the ocean.\n\nFox News Digital reached out to the BBC for comment but did not immediately receive a response.\n\nFox News Digital's Brian Flood contributed to this report.\n\nOriginal article",
+    "readingTime": 7,
+    "keywords": [
+      "lett reportedly",
+      "hour apart",
+      "capitol riot",
+      "damage caused",
+      "trump's speech",
+      "trump's team",
+      "financial records",
+      "legal team",
+      "defamation lawsuit",
+      "bbc lawsuit"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.yahoo.com/news/politics/articles/judge-limits-bbc-relitigating-jan-023138214.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/7eca6deb1e5a4bea182e9dbd27f880fbc28473a452942aec54c57e0b1cfdfd97/lightyear_networkapi/resizefill_w1200;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Ffox_news_text_979%2F2c226422c1c83569200c0683c4f018e8",
+    "created_at": "2026-07-27T14:09:30.063Z",
+    "topic": "politic"
+  },
+  {
+    "slug": "odonoghues-pride-and-relief-after-banishing-ghosts-of-2021",
+    "title": "O'Donoghue's 'pride and relief' after banishing ghosts of 2021",
+    "description": "Ryan O'Donoghue tells the BBC of his \"pride and relief\" after starring in Mayo's All-Ireland win five years after missing a penalty in the final.",
+    "fullText": "Mayo's emotional All-Ireland triumph on Sunday brought a collective release to everyone associated with the county, but victory on Gaelic football's biggest day also provided Ryan O'Donoghue a measure of redemption.\n\nIn the 2021 final, O'Donoghue missed a penalty that would have given Mayo the lead over Tyrone in the second half.\n\nWhile O'Donoghue top-scored on the day with 0-8, Tyrone won the game, leaving the spot-kick failure - which came 12 months after the 2020 final loss to Dublin - to eat away at him for five years before he got another crack at the final.\n\nAnd against Kerry on Sunday, the 27-year-old set the tone for a furious Mayo performance as he pressed and hassled the Kingdom defence from the first minute in a man of the match performance.\n\n\"The two main emotions are pride and relief,\" he told The GAA Social.\n\n\"After 2020 and 2021, if I'm being honest, I was never over 2021 until about a half-hour ago [at full-time on Sunday].\n\n\"Now I'm an All-Ireland champion, we're All-Ireland champions and I'm over it. I'm a firm believer that everything happens for a reason.\n\n\"There are a lot of things that have happened in the past couple of years on the pitch - 2020, 2021 and the Roscommon game [a 10-point loss in this year's Connacht semi-final]. I don't think today would have happened if we didn't go through those things.\"\n\nPride and emotion as Mayo end 75-year wait for glory\n\nMayo beat Kerry in thriller to end 75-year All-Ireland wait\n\nO'Donoghue, who made his senior inter-county debut in 2020, had enjoyed a superb season for Andy Moran's side prior to Sunday's final.\n\nBut his indefatigable display - in which he scored 0-5 and launched the move that ended with Darragh Beirne's 40th-minute goal - has installed him as the frontrunner for the Footballer of the Year award (he would be the first Mayo winner since Moran in 2017).\n\nIt would be a remarkable achievement for a multi-talented sportsman, who fought in two All-Ireland boxing finals in his youth and played for the Republic of Ireland soccer team at underage level.\n\nAnd like so many of his team-mates, Belmullet club-man O'Donoghue was able to savour the epic celebrations at Croke Park with his family, including his father Michael and County Down-born mother Brenda.\n\n\"What my mother and father have done for me since I was 11 years of age. Boxing, my dad used to leave at 4 o'clock in the morning to take me to Dublin to the National Stadium for Ireland training,\" explained O'Donoghue.\n\n\"Up and down the road to Castlebar when I was playing Kennedy Cup with Mayo, up and down the road, under-14, Minor. It's a long journey from Castlebar to Belmullet.\n\n\"My father worked two jobs. I was playing with Sligo Rovers 2014 to 2016. I didn't get paid, we had to pay our own diesel. There were bills to be paid and my father worked to get me up and down the road to Sligo.\n\n\"They've given me every opportunity, whether it's boxing, soccer or Gaelic. This is for them. That's the pride and the emotions in mum and dad. I'm so happy to have repaid them. There's been so many sacrifices. I'm so glad we've done it.\"",
+    "readingTime": 3,
+    "keywords": [
+      "mayo",
+      "all-ireland",
+      "final",
+      "father",
+      "pride",
+      "boxing",
+      "road",
+      "tyrone",
+      "game",
+      "loss"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.bbc.co.uk/sport/articles/cwym0rjmr2ro?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/acaf/live/2539b2e0-89aa-11f1-803f-770138b0c57a.jpg",
+    "created_at": "2026-07-27T14:09:21.768Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "english-football-agrees-trial-to-end-goalkeeper-tactical-timeouts",
+    "title": "English football agrees trial to end goalkeeper tactical timeouts",
+    "description": "English football is set to implement a radical trial to try to eradicate the goalkeeper tactical timeout this season, BBC Sport can reveal.",
+    "fullText": "English football is set to implement a trial to try to eradicate the goalkeeper tactical timeout this season, BBC Sport can reveal.\n\nThe Football Association, Premier League, English Football League, National League and Women's Super League have agreed on the measure, pending permission from the International Football Association Board (Ifab).\n\nEarlier this year, Ifab decided against changing the law and invited leagues to volunteer for trials.\n\nPro Ref, led by chief refereeing officer Howard Webb, has been in discussions with the leagues to determine how to tackle the issue. It settled on a team having to remove an outfield player from the field.\n\nIf a referee signals that the physio can come on to treat a goalkeeper, the coach will have 10 seconds to nominate another player to leave the pitch for one minute, telling the fourth official of their choice.\n\nIf no player has been selected within 10 seconds, the captain must leave the field.\n\nIf clearance is received by the Ifab in time, the first game to feature the trial will be the Carabao Cup preliminary round tie between Tranmere and Rochdale on Saturday, 1 August.\n\nBBC Sport understands that the Australian A-League will trial a variation with the captain always having to leave the field.\n\nThe tactic of gaining a timeout as the keeper is treated has become increasingly common and controversial in recent seasons.\n\nIt has not been uncommon for the goalkeeper to sit on the turf and signal for the physio, with all the other players rushing to the technical area for a team talk. As soon as the coach has delivered their instructions, the keeper gets up to play on.\n\nGoalkeeper treatment has also been used to disrupt the opposition's momentum when they are on top.\n\nIn November, Leeds United boss Daniel Farke accused Manchester City goalkeeper Gianluigi Donnarumma of feigning injury to \"bend the rules\" and break up play.\n\nAt the Ifab's AGM in February, head of referees Pierluigi Collina said that finding a solution to stop the goalkeeper tactical timeout was a priority.\n\nAt the 2026 World Cup, Collina told his officials to prevent players from going to the technical area on all stoppages.\n\nThe effectiveness of the measure is open to debate, as the three-minute hydration breaks in each half created a natural opportunity for a team talk.\n\nIn its own discussions, English football felt that merely stopping players going to the technical area would not deter coaches from using goalkeepers to break up play.\n\nEnglish football chose this trial as it follows the logic applied to outfield players, who must themselves leave the field for one minute if the physio comes on.\n\nIt is intended to be proactive as a deterrent rather than reactive to a team talk as it happens.\n\nMatch of the Day pundit Danny Murphy suggested last season that lawmakers could act to close the loophole in this exact way.\n\n\"I think they can change it really quickly,\" Murphy said. \"If a keeper goes down injured, instead of him having to go off, one of the outfield players should go off then it's fair all round.\n\n\"It's a little change that makes a world of difference.\"\n\nOfficials will not prevent players from visiting the touchline as an injury is treated but it is hoped the prospect of playing with 10 players for a minute will act as an adequate disincentive.\n\nThis is especially the case in the final minutes of games, when teams trying to hold on to a result would use the goalkeeper to kill momentum. Now they would have to play with 10 players.\n\nThere are a few exemptions when a team-mate will not have to go off.\n\nWhere a goalkeeper says they do not need the physio and they have not caused play to stop\n\nThe goalkeeper and an outfield player have collided\n\nIf a goalkeeper is fouled and needs immediate treatment\n\nIf there is a serious injury (has to be substituted) or concussion.\n\nThere have been some concerns that a requirement to leave the field for one minute could lead to players, both goalkeepers and outfield, attempting to play on with an injury.\n\nThe results of the trials will be assessed by Ifab at its meetings throughout the seasons, and this could lead to a permanent law change globally from 2027-28.\n\nGet news, insight and fan views on your Premier League team\n\nAll your football quizzes in one place",
+    "readingTime": 4,
+    "keywords": [
+      "english football",
+      "football association",
+      "tactical timeout",
+      "team talk",
+      "prevent players",
+      "goalkeeper tactical",
+      "outfield player",
+      "trial",
+      "physio",
+      "minute"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.bbc.co.uk/sport/football/articles/clyjxd53zkpo?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/441f/live/daf7c2b0-850f-11f1-a08a-6d526d664753.jpg",
+    "created_at": "2026-07-27T14:09:21.221Z",
+    "topic": "sports"
+  },
+  {
     "slug": "ferrari-must-do-better-after-errors-in-hungary",
     "title": "Ferrari must 'do better' after errors in Hungary",
     "description": "The BBC F1 team discuss Ferrari's performance at the Hungarian Grand Prix as, despite appearing to be the car to beat in practice, Charles Leclerc and Lewis Hamilton finish the race in fourth and fifth respectively.",
@@ -2184,93 +2280,6 @@
     "link": "https://www.bbc.co.uk/sport/football/articles/c9w2zr9wzj1o?at_medium=RSS&at_campaign=rss",
     "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/1d2d/live/7bc0e940-7c89-11f1-b976-0b9c15b0ccfc.png",
     "created_at": "2026-07-11T07:39:01.748Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "haaland-has-advantage-over-man-city-teammates",
-    "title": "Haaland has advantage over Man City team-mates",
-    "description": "BBC Sport World Cup pundits Micah Richards, Wayne Rooney and Cesar Azpilicueta look ahead to England's match against Norway and feel that Erling Haaland will have an advantage over his Manchester City team-mates in the match.",
-    "fullText": "Haaland has advantage over Man City team-matesThis content is not available in your location.There was an errorBBC Sport World Cup pundits Micah Richards, Wayne Rooney and Cesar Azpilicueta look ahead to England's match against Norway. Rooney says Erling Haaland will have an advantage over his Manchester City team-mates in the match.MATCH REPORT: Spain 2-1 BelgiumAvailable to UK users only.SubsectionWorld CupPublished1 hour agoShareclose panelCopy linkAbout sharingRelated topicsBelgiumFollow Belgiumclose panelUpdates from your Sport topics will appear in My Sport and in a collection on the Sport homepage.FIFA World Cup 2026Follow FIFA World Cup 2026close panelUpdates from your Sport topics will appear in My Sport and in a collection on the Sport homepage.SpainFollow Spainclose panelUpdates from your Sport topics will appear in My Sport and in a collection on the Sport homepage.Read description",
-    "readingTime": 1,
-    "keywords": [
-      "sport topics",
-      "my sport",
-      "panelupdates",
-      "collection",
-      "advantage",
-      "haaland",
-      "city",
-      "rooney"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.bbc.co.uk/sport/videos/cy06rd1z816o?at_medium=RSS&at_campaign=rss",
-    "thumbnail_url": "https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/d422/live/71298950-7cad-11f1-bee8-53ce494e1abc.jpg",
-    "created_at": "2026-07-11T07:39:01.514Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "influential-lamine-yamal-has-more-to-give-to-spain",
-    "title": "'Influential' Lamine Yamal has 'more to give' to Spain",
-    "description": "BBC Sport World Cup pundits Cesar Azpilicueta and Wayne Rooney look at how Lamine Yamal performed against Belgium and feel there is \"more to come\" from the Spain forward.",
-    "fullText": "'Influential' Lamine Yamal has 'more to give' to SpainThis content is not available in your location.There was an errorBBC Sport World Cup pundits Cesar Azpilicueta and Wayne Rooney look at how Lamine Yamal performed against Belgium and feel there is \"more to come\" from the Spain forward.MATCH REPORT: Spain 2-1 BelgiumAvailable to UK users only.SubsectionWorld CupPublished3 hours agoShareclose panelCopy linkAbout sharingRelated topicsBelgiumFollow Belgiumclose panelUpdates from your Sport topics will appear in My Sport and in a collection on the Sport homepage.FIFA World Cup 2026Follow FIFA World Cup 2026close panelUpdates from your Sport topics will appear in My Sport and in a collection on the Sport homepage.SpainFollow Spainclose panelUpdates from your Sport topics will appear in My Sport and in a collection on the Sport homepage.Read description",
-    "readingTime": 1,
-    "keywords": [
-      "sport topics",
-      "my sport",
-      "panelupdates",
-      "collection",
-      "lamine",
-      "yamal",
-      "spain"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.bbc.co.uk/sport/videos/cy9r3dnngqno?at_medium=RSS&at_campaign=rss",
-    "thumbnail_url": "https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/3b3d/live/dacbad80-7ca7-11f1-926f-c90d1bcfbc84.jpg",
-    "created_at": "2026-07-11T01:30:58.350Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "difficult-for-goalkeeper-to-come-into-game-so-late-analysis-of-spain-winner",
-    "title": "Difficult for goalkeeper to come into game so late - analysis of Spain winner",
-    "description": "BBC Sport World Cup pundits Micah Richards and Wayne Rooney analyse substitute Belgium goalkeeper Senne Lammens' mistake which lead to Spain's winner in their World Cup quarter-final in Los Angeles.",
-    "fullText": "Difficult for goalkeeper to come into game so late - analysis of Spain winnerThis content is not available in your location.There was an errorBBC Sport World Cup pundits Micah Richards and Wayne Rooney analyse substitute Belgium goalkeeper Senne Lammens' mistake which lead to Spain's winner in their World Cup quarter-final in Los Angeles. MATCH REPORT: Spain 2-1 BelgiumAvailable to UK users only.SubsectionWorld CupPublished3 hours agoShareclose panelCopy linkAbout sharingRelated topicsBelgiumFollow Belgiumclose panelUpdates from your Sport topics will appear in My Sport and in a collection on the Sport homepage.FIFA World Cup 2026Follow FIFA World Cup 2026close panelUpdates from your Sport topics will appear in My Sport and in a collection on the Sport homepage.SpainFollow Spainclose panelUpdates from your Sport topics will appear in My Sport and in a collection on the Sport homepage.Read description",
-    "readingTime": 1,
-    "keywords": [
-      "sport topics",
-      "my sport",
-      "panelupdates",
-      "collection",
-      "goalkeeper",
-      "spain"
-    ],
-    "qualityScore": 0.45,
-    "link": "https://www.bbc.co.uk/sport/videos/cx2dvredge3o?at_medium=RSS&at_campaign=rss",
-    "thumbnail_url": "https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/3621/live/26ffa6e0-7ca6-11f1-b976-0b9c15b0ccfc.jpg",
-    "created_at": "2026-07-11T01:30:58.257Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "england-favourites-to-reach-semis-says-norway-boss",
-    "title": "England favourites to reach semis, says Norway boss",
-    "description": "England are favourites to reach the semi-finals of the World Cup, Norway boss Stale Solbakken has told BBC Sport.",
-    "fullText": "England are favourites to reach the semi-finals of the World Cup, Norway boss Stale Solbakken has told BBC Sport.\n\nThe Three Lions meet Norway - who knocked out five-time world champions Brazil in the last 16 - in Miami on Saturday (22:00 BST kick-off).\n\nAnd Solbakken, in an interview with BBC sports editor Dan Roan, said: \"They are favourites, but they're not big, big favourites.\"\n\nLater, the former Wolves boss told a news conference at the Miami Stadium: \"I think England have more pressure than us.\n\n\"But we also put pressure on our performance. Once the game starts I don't think the players think about the pressure.\"\n\nNorway's team is packed with Premier League talent and experience, including Arsenal's title-winning captain Martin Odegaard and Manchester City forward Erling Haaland.\n\n\"Brazil and England are maybe the two biggest nations we could meet at this World Cup in terms of history,\" added Solbakken.\n\nThe winners of Saturday's quarter-final will meet Argentina or Switzerland next Wednesday (20:00 BST) in Atlanta for a place in the 19 July showpiece.\n\nStriker Haaland has scored seven goals during Norway's historic run to the quarter-finals.\n\nThis is their first World Cup since 1998 - and the furthest they have gone.\n\nIt has turned into a summer to remember after wins over Iraq, Senegal, Ivory Coast and Brazil, with Haaland hitting form.\n\nOn Friday, the main focus of the last-eight tie was on Haaland and England captain Harry Kane, who has scored six times in five games at the tournament.\n\nAsked if it would be a straight shootout between the prolific goalscoring pair to determine the outcome, Solbakken said: \"It's Norway against England.\"\n\nHe added: \"It's not a secret that Kane is match-winner number one for England and Erling is match-winner number one for us.\n\n\"There's no doubt that he [Haaland] is our biggest match-winner, but I think you underestimate some of the other players if you think that's the whole theme.\n\n\"He also needs service, but you can't deny that he is a big, big match-winner for us.\"\n\nAfter seeing Thomas Tuchel's side battle past co-hosts Mexico 3-2 in the last 16, despite having defender Jarell Quansah sent off in the 54th minute at a hostile Azteca Stadium, Solbakken is a big admirer of England.\n\nSolbakken said: \"We need to compete and defend properly. We need to concentrate on the pitch and then we can be ourselves.\n\n\"Jude Bellingham and Kane score from great positions. I think the most impressive [England] game came when they were better than Mexico.\n\n\"Mexico created very few chances and I think Tuchel managed to get their best players in good position. And being match-winners like Bellingham, Kane - they have several options on the wings which means that if one doesn't have the day, another comes in and then obviously does something good, then steady out in the middle of the park with Elliot Anderson and Declan Rice.\"\n\nNorway had 66.4% possession during the memorable win over Brazil.\n\nAsked if he expected his side to have a similar amount against England, Solbakken added: \"No I don't.\n\n\"It's getting hotter. We have trained very lightly. We've not done as much hard work [in training]. We have had technical sessions but in a lower tempo.\n\n\"It's all about being fresh for tomorrow.\"\n\nHow do England stop Norway - and Haaland?\n\nThousands of Norway fans have arrived in Miami for one of the biggest football matches in the country's history.\n\nSolbakken, who played for his country when they last featured at the World Cup in 1998, admitted: \"It [the World Cup run] has brought the country together. The whole of Norway is looking forward to tomorrow.\"\n\nHe also used his news conference to pay tribute to his old Liverpool idol Kevin Keegan.\n\nThe former England captain and manager, 75, revealed in June he has stage four cancer.\n\n\"My biggest regret in World Cup history is that Kevin Keegan did not score when he came on against Spain in 1982,\" recalled Solbakken, 58.\n\n\"He was my big hero. I hope Kevin is well.\n\n\"We had Match of the Day on the television from the late 1960s and early 1970s when it was one game on the telly, and everyone had a team they followed.\n\n\"My team was Liverpool and Kevin was my man. So I say hello to Kevin.\"\n\nFootball's best bromance: Why Bellingham and Haaland break the mould\n\nNorway's Haaland says pressure is all on England",
-    "readingTime": 4,
-    "keywords": [
-      "england captain",
-      "world cup",
-      "england solbakken",
-      "pressure",
-      "biggest",
-      "match-winner",
-      "favourites",
-      "game",
-      "players",
-      "team"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.bbc.co.uk/sport/football/articles/cq61n2gqqv0o?at_medium=RSS&at_campaign=rss",
-    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/a099/live/94bf2710-7c96-11f1-9b18-bb5b415621a9.jpg",
-    "created_at": "2026-07-11T01:30:56.797Z",
     "topic": "sports"
   }
 ]
