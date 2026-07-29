@@ -1,5 +1,42 @@
 [
   {
+    "slug": "trees",
+    "title": "Trees",
+    "description": "An open-source interpreter for the K5 programming language. - JohnEarnest/ok",
+    "fullText": "K permits recursion, but recursive solutions to problems tend to be slow and clumsy compared to vector-oriented solutions. Tree structures lend themselves very naturally to recursion. How would we represent trees in a non-recursive fashion and operate on them in a vector-oriented style?\n\nThe most straightforward representation of the structure of this tree is a series of nested lists, with null or a value at each leaf:\n\nIf we want to preserve a value for each node, we might go for an even more Lispy approach in which the value of each node is the first element of a nested list:\n\nAlternatively, consider representing the tree as a matrix in which each row is a list of the indices of the left and right children of that node. Since a tree cannot contain \"loops\", The number 0 will serve to identify null references.\n\nIf we didn't care about the order of children, we might represent an N-ary tree without these 0 placeholders:\n\nOne nice feature that immediately arises is that we can augment such a matrix with a list of values to be stored at each node (or several such lists!) without altering our representation. We have separated the structure of the tree from the data on the tree, and each can be manipulated separately:\n\nLet's consider some common tree operations applied to this representation.\n\nStarting from the root, we wish to create a list of the nodes at each layer of a breadth-first traversal of the tree. The successors of a given node N are exactly the list at position N of our tree-matrix:\n\nIndexing allows us to gather the successors of several nodes all at once:\n\nThere may be several zeroes and we want to get rid of all of them. This is an excellent use for unique and except:\n\nGeneralizing, a complete traversal can be performed by using a fixed-point scan starting with ,0- the root. When we select only zeroes, ^0 will produce the empty list and indexing will produce no further successors.\n\nJoining these gives us a list of the reachable nodes in the tree from a particular starting point:\n\nWe wish to gather a list of all the (indices of) leaf nodes in our tree. A leaf node is a node with no children, so the tree-matrix entry for this node must be the list 0 0:\n\nNaturally the complement of this operation finds non-leaves:\n\nFor an N-ary tree we might more generally say that a leaf node's successor list is all zeroes:\n\nGiven a node N, we wish to know the sequence of left/right paths taken to get to N from the root. There is exactly one instance of each node's index in the tree. By finding these references, we find the parent of a given node:\n\nApplying this repeatedly until we find the root gives us the chain of parents of N. Reversing this list provides the sequence of nodes which should be visited to reach N:\n\nFor each of these nodes we simply need to determine whether the child we're interested in was the left or right. More generally, we want the index in their successor list where the next node can be found:\n\nGoing the other way, if we have just one such path we can easily obtain the node at that position via over:\n\nNote that these approaches generalize to N-ary trees and permit treating any node of a tree as a starting point, rather than just node 0.\n\nA complete binary tree of size N contains N nodes. If we list complete tree matrices a clear pattern emerges:\n\nWe can produce any such tree by generating an appropriate enumeration (1+!2*x), forcing all indices which would reference nodes outside this boundary to zero (a*x>a:) and then reshaping the result into a list of pairs (0N 2#):\n\nThe columnar tree representation we've been working with up to this point behaves nicely in many cases. You may have noticed a few downsides, though. There are odd edge cases: we have to treat the zero index specially and appending to and removing from such a representation is enormously clumsy.\n\nHow can we fix this? Turn it on its head! Instead of using links from a parent to each child, have each node track the index of its parent. The root will be indicated with a node which links to itself. A side benefit to this representation is that trees require only a single flat shape vector no matter how many children may be attached to any given node; N-ary trees are not a special case.\n\nWithout delving into too much detail, we can easily enough carry out the same sorts of operations as above:\n\nNote that the vector representing a given tree is not unique. Consider the following equivalent representations of the same tree:\n\nWe'll say a normalized tree is one in which parent nodes strictly precede their children. Trees glued together using our append procedure will preserve this property, and our remove procedure depends on it. Checking whether a tree is normalized is fairly straightforward- no parent index should be greater than the index of the current node:\n\nIn an append, the auxiliary data columns can simply be concatenated. The lists of tree indices can be concatenated as well, but the child tree's indices must be altered to represent their new relative positions. The root of the child tree must become the index in the parent tree to which it is being attached:\n\nAll the other nodes of the child tree must be incremented by the size of the parent tree to preserve their existing relative structure:\n\nSo, to attach a subtree y to node z of base tree x:\n\nHow about removing nodes? Let's begin with assuming that the set of nodes you which to remove, r, is it's own transitive closure. That is, any descendants of nodes in r are contained in r. This ensures that we are removing complete subtrees at once, and avoiding the risk of leaving \"dangling\" nodes behind. Furthermore, we'll assume our tree is normalized.\n\nWhere do the nodes in r appear in the overall tree?\n\nThus, the indices of the nodes (and data items) which will be preserved:\n\nAnd the number of spaces by which each node will be displaced by the removal of intervening nodes:\n\nSo, we must select the nodes which will be preserved and adjust the indices of the tree to reflect how far the parent of each preserved node was shifted:\n\nPhew! Observe that if we have a mask of nodes to preserve we can remove an arbitrary number of nodes in linear time. Not too shabby!",
+    "readingTime": 6,
+    "keywords": [
+      "n-ary trees",
+      "successor list",
+      "n-ary tree",
+      "child tree",
+      "parent tree",
+      "node",
+      "nodes",
+      "indices",
+      "index",
+      "representation"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/JohnEarnest/ok/blob/gh-pages/docs/Trees.md",
+    "thumbnail_url": "https://opengraph.githubassets.com/fb4da38f659d97c3be82767c7ced94a5bbbe23965e0590c23f978d5389bbf315/JohnEarnest/ok",
+    "created_at": "2026-07-29T08:18:39.225Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "doordashs-ceo-says-ai-coding-is-not-enough-to-make-engineers-more-productive",
+    "title": "DoorDash's CEO says AI coding is not enough to make engineers more productive",
+    "description": "He said that engineers spend another big chunk of time in product reviews, design meetings, and aligning with different business teams.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/doordash-ceo-tony-xu-ai-coding-not-enough-engineering-productivity-2026-7",
+    "thumbnail_url": "https://i.insider.com/6a697585548c9c486b3119ee?width=1200&format=jpeg",
+    "created_at": "2026-07-29T08:18:31.734Z",
+    "topic": "finance"
+  },
+  {
     "slug": "impressions-of-teal",
     "title": "Impressions of Teal",
     "description": "About two months ago, I found the Teal programming language, which describes itself as a statically-typed dialect of Lua. It transpiles to Lua and runs typecheck on the developer’s machine, so it fills roughly the same niche as TypeScript. It’s used by quite a few projects, including LuaRocks and inspect.\nFor better or worse, I am trying to write Lua without feeling like it’s year 2010, and Teal promised to be suitable for this purpose.\nThis post is a retrospective on my experience: what went right and what, in my opinion, could be improved.",
@@ -1855,53 +1892,5 @@
     "thumbnail_url": "https://www.anthropic.com/api/opengraph-illustration?name=Hand%20Abacus&backgroundColor=cactus",
     "created_at": "2026-06-17T19:58:33.812Z",
     "topic": "science"
-  },
-  {
-    "slug": "turn-your-ai-coding-agent-into-a-readonly-compliance-auditor",
-    "title": "Turn your AI coding agent into a read-only compliance auditor",
-    "description": "Turn an AI coding agent into a disciplined, read-only compliance auditor. Evidence or silence; method public, results private. - bohdan1288-dotcom/ai-audit-orchestrator",
-    "fullText": "A read-only, evidence-gated audit harness for AI coding agents (Claude Code, Cursor,\nCodex, etc.). It runs a chain of single-purpose audit subagents over your own\nrepository, one framework at a time, and forces every finding to carry a\npath:line citation — or the literal words No evidence found. State is passed\nfrom one subagent to the next through a small Resume Packet.\n\nIt is designed to instruct the agent not to fix, edit, run, commit, or print\nsecrets — and to produce only findings you can verify yourself by opening the cited\nline. These are prompt-level constraints, not technical guarantees: the prompt\ntells a capable agent to stay read-only, but it does not enforce it. Run it in an\nenvironment that enforces read-only for real (see Operating safely below).\n\nBuilt by one person who does not write code, by directing AI. This is the\nauditing method that came out of that — extracted, anonymized, and given away.\n\nLLM coding agents are fluent and confident, and they hallucinate. When you ask one\n\"is my platform SOC 2 ready?\", a normal agent will write you a reassuring paragraph.\nThis harness is built to do the opposite: to be adversarial about its own claims.\n\nThe harness answers \"where is evidence present or absent in the code/docs?\" A real\nSOC 2 / ISO audit also asks where evidence is stored, who owns it, what period it\ncovers, when it was collected, whether it changed, which control it maps to, and\nwhether an auditor accepted it. prompts/evidence/ turns the harness's gaps into\na private, metadata-only evidence register (01 request list → fill the register\n→ 02 review → 03 remediation plan). It is a readiness aid — not a GRC platform\nand not a replacement for Vanta/Drata/Thoropass or an auditor. A filled-in register\nis private (the .gitignore keeps it out); only blank templates and the synthetic\nexample are tracked. See prompts/evidence/README.md.\n\nThe prompt instructs the agent to behave; your environment must enforce it. The\nexample subagents grant the Bash tool so they can grep/read files — that same tool\ncan run arbitrary commands if an agent ignores the prompt or is steered by injected\ntext. Do not rely on the wording alone.\n\nThe output of this harness is a map of your current weaknesses. Do not commit a\nfilled-in audit report (or the Resume Packet from a real run) to a public repo. Keep\nthis harness public; keep your findings private.\n\nMIT — see LICENSE. Use it, fork it, send improvements back.",
-    "readingTime": 3,
-    "keywords": [
-      "coding agents",
-      "harness",
-      "audit",
-      "evidence",
-      "read-only",
-      "prompt",
-      "register",
-      "subagents",
-      "commit",
-      "findings"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/bohdan1288-dotcom/ai-audit-orchestrator",
-    "thumbnail_url": "https://opengraph.githubassets.com/1a328fac174f4895312e590351915aa42d2d5bfdff22123b6728a82df13667ae/bohdan1288-dotcom/ai-audit-orchestrator",
-    "created_at": "2026-06-17T19:58:31.937Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "cutile-rust-safe-dataracefree-gpu-kernels-in-rust",
-    "title": "cuTile Rust: Safe, data-race-free GPU kernels in Rust",
-    "description": "cuTile Rust provides a safe, tile-based kernel programming DSL for the Rust programming language. It features a safe host-side API for passing tensors to asynchronously executed kernel functions. -...",
-    "fullText": "cuTile Rust (cutile-rs) is a tile-based system for writing memory-safe, data-race-free GPU kernels in idiomatic Rust. It extends Rust's ownership discipline across the GPU launch boundary: mutable tensors are partitioned into disjoint pieces before launch, immutable tensors are shared, and generated launchers preserve ownership while GPU work is in flight. The same model supports synchronous launches, asynchronous pipelines, and CUDA graph replay. The #[cutile::module] macro embeds a captured Rust AST for each kernel in the host binary; when a kernel is needed, cuTile Rust JIT-compiles that AST through CUDA Tile IR into a GPU cubin. Local opt-outs remain available when lower-level control is needed.\n\nWe are excited to release this research project as a demonstration of how GPU programming can be made available in the Rust ecosystem. The software is in an early stage and under active development: you should expect bugs, incomplete features, and API breakage as we work to improve it. That being said, we hope you'll be interested to try it in your work and help shape its direction by providing feedback on your experience.\n\nPlease check out CONTRIBUTING.md if you're interested in contributing.\n\nThe #[cutile::module] macro transforms add into a GPU kernel and generates a host-side launcher. The host code constructs lazy tensor operations, partitions the mutable output into 128-element chunks, and calls .sync() to JIT-compile and execute the kernel.\n\nThe kernel signature carries the access discipline into device code: z is the exclusive mutable output, while x and y are shared read-only inputs. The body loads input tiles matching the output partition, adds them, and stores the result. The launch grid (8, 1, 1) is inferred from the partition: 1024÷128 = 8 tiles.\n\nThe cuTile Rust paper, Fearless Concurrency on the GPU, is available here. On NVIDIA B200, cuTile Rust reaches 7 TB/s for element-wise operations and 2 PFlop/s for GEMM, about 91% of peak memory bandwidth and 92% of dense f16 peak, respectively. The GEMM result is competitive with cuBLAS, and the B200 safety-overhead microbenchmarks show that cuTile Rust adds safety without measurable runtime overhead: safe Rust persistent GEMM reaches 2.07 PFlop/s at M=N=K=8192 (92% of the B200 dense f16 peak), within 0.3% of the corresponding low-level Tile IR variant.\n\nThe paper also evaluates Grout, a Qwen3 inference engine built with cuTile Rust in collaboration with Hugging Face. In batch-1 Qwen3 decode, Grout reaches 171 tokens/s for Qwen3-4B on NVIDIA GeForce RTX 5090 and 82 tokens/s for Qwen3-32B on B200, showing competitive state-of-the-art performance on memory-bound inference tasks as measured by our HBM roofline analysis.\n\nReproducibility artifacts for the paper evaluation are available here. The paper-facing measurements were run against cuTile Rust 0.2.0, and the version of Grout used for the paper is available here.\n\nIf you use cuTile Rust in research, please cite the paper:\n\ncuTile Rust targets tile-based kernels that lower through CUDA Tile IR, with APIs built around tensor partitions and tensor-core-oriented operations.\n\nInstall CUDA 13.3 for your OS by following the official instructions:\nhttps://developer.nvidia.com/cuda-downloads\n\nSet CUDA_TOOLKIT_PATH to your CUDA 13.3 install directory.\n\nIf everything works, you should see: Hello, I am tile <0, 0, 0> in a kernel with <1, 1, 1> tiles.\n\nWe provide a Nix flake for easy setup and development. Flakes must be enabled in your Nix configuration, if not already, add to ~/.config/nix/nix.conf:\n\nThe flake automatically locates host NVIDIA driver libraries on both NixOS and non-NixOS systems.\n\nThe cuda-bindings crate is licensed under NVIDIA Software License: LICENSE-NVIDIA.\nAll other crates are licensed under the Apache License, Version 2.0 https://www.apache.org/licenses/LICENSE-2.0",
-    "readingTime": 3,
-    "keywords": [
-      "cuda tile",
-      "cutile::module macro",
-      "cutile rust",
-      "dense peak",
-      "mutable output",
-      "cuda tile ir",
-      "kernel",
-      "paper",
-      "launch",
-      "host"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/nvlabs/cutile-rs",
-    "thumbnail_url": "https://opengraph.githubassets.com/44d957e0be8e57100048f7d362ce78d87ed9dc095de166d29dda9f5ba4543e6e/NVlabs/cutile-rs",
-    "created_at": "2026-06-16T20:36:49.713Z",
-    "topic": "tech"
   }
 ]
