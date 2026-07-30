@@ -1,5 +1,29 @@
 [
   {
+    "slug": "openmetaharness",
+    "title": "OpenMetaHarness",
+    "description": "A one-file bootloader that helps coding agents execute long-horizon projects across sessions and context windows. - openmetaharness/openmetaharness",
+    "fullText": "Coding agents have become highly capable, but they can be unreliable on long-horizon,\nevolving projects that unfold across many context windows.\n\nOpenMetaHarness is a cognitive architecture that enables coding agents to develop and\nexecute on a long-horizon project vision from 0 to 1 with minimal human\nintervention and maximum token efficiency across multiple sessions and context\nwindows.\n\nYou will be able to direct a persistent engineering operation whose memory, judgment,\nand discipline compound with the project. As the project accumulates verified\ndecisions, operating lessons, and category-specific trust, any compatible coding agent\ncan resume with more context, repeat fewer mistakes, and work autonomously for longer\nstretches.\n\nCreate a new directory, put openmetaharness.md inside it, and\nopen your coding agent in that directory. Then type:\n\nThat's it. The bootloader sets up the project, starts the harness, and you are ready to\nbuild.\n\nOpenMetaHarness is distributed as a plain-text Markdown file so its instructions can be\nread directly, searched, diffed, and reviewed without executing macros or unpacking an\nopaque binary format. Markdown alone cannot prevent invisible Unicode characters, so\nthe validator also rejects zero-width characters, bidirectional text controls,\nnon-breaking spaces, soft hyphens, and unsafe control characters in harness files.\nSuspicious text is never normalized silently; validation stops and identifies the file,\nline, and code point.\n\nThe bootloader has six sequential phases. The lifecycle tables describe what happens\nand in what order. The module map that follows describes the persistent control system\nthat operates across those phases.\n\nThese systems are mutually exclusive by responsibility and collectively cover every\nmandatory module embedded in the bootloader. Domain artifacts are generated only when\nthe selected project profile requires them.\n\nI've been working with multimodal agentic systems ever since the ImageNet and DQN\ndays. It's amazing to see all the progress in the community since then. The way I work\nwith AI now is exactly what I dreamed of a decade ago.\n\nWhen I started vibecoding last year, I came up with new ways to set up projects to\navoid known issues in long-horizon task execution. I thought it would be great if I\nhad one simple file that a coding agent could read when I start a new project to\naddress these known issues while improving efficiency and autonomy long-term.\n\nOpenMetaHarness has unlocked a better way for me to use AI. It allows me and my\ncollaborators to run a persistent engineering operation designed to be model and\nsystem-agnostic, whose memory, judgment, and operating discipline compound over\ntime.\n\nIn some of my tests, as the project matured, the loop ran for an hour before needing\nhuman input. When my collaborator started a new session on a new device with a new\ncoding agent all they had to prompt it with was continue where you left off.\n\nI call this OpenMetaHarness, a one-file bootloader and a README released under the\nMIT License. I'd love the community to contribute to this; this is the first version,\nand over time we can make it better and better!\n\nContributions are welcome. Three things are worth knowing before you open a pull\nrequest, because they are easy to get wrong with the best intentions.\n\nThe project stays this shape. A README and a one-file bootloader. It will not be\nsplit into modules, grown into a framework, or given a package to install. Changes that\nwould make it something else are out of scope, however well made.\n\nThe bootloader grows rather than shrinks. Improvements add new guidance or clarify\nwhat is already there, instead of deleting or compressing it, so the reasoning behind\nearlier decisions stays visible to the agents and people who come later. A change that\ntidies the file by cutting it is the most common thing I have to turn down.\n\nThe message from the creator is mine. Please leave that section alone. Everything\nelse in the README is fair game to improve.\n\nGood contributions include a bug with a reproduction, a clarification where two agents\nwould read the same passage differently, or a new domain profile that composes with the\nexisting ones. Keep a pull request to one coherent change, and open an issue first if\nyou are unsure whether something fits.\n\nOpenMetaHarness, the bootloader and README, is MIT-licensed: free to use,\nread, fork, and modify.\n\nProjects created with the bootloader are private and proprietary by default. That is a\nseparate default for your work, and you can override it for any project.",
+    "readingTime": 4,
+    "keywords": [
+      "engineering operation",
+      "memory judgment",
+      "discipline compound",
+      "context windows",
+      "persistent engineering",
+      "coding agent",
+      "one-file bootloader",
+      "coding agents",
+      "project",
+      "openmetaharness"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/openmetaharness/openmetaharness",
+    "thumbnail_url": "https://opengraph.githubassets.com/dc5a597b5cf3f2c3345e41fb7310ee26054ee4b59a6d3f3bac60b1e0098afef2/openmetaharness/openmetaharness",
+    "created_at": "2026-07-30T01:22:02.068Z",
+    "topic": "tech"
+  },
+  {
     "slug": "corporate-america-may-be-using-ai-to-cut-jobs-but-small-businesses-are-using-it-to-keep-them",
     "title": "Corporate America may be using AI to cut jobs, but small businesses are using it to keep them",
     "description": "Reports of wide-scale replacement of workers by AI are overblown. Small businesses use it to help workers\nI recently met the owner of a company that sells windows and doors. He told me he invested about $10,000 in an AI application that is used by his salespeople in his showroom. The application listens to the conversations between the salesperson and the prospective customer and then automatically creates a quote for the salesperson to review and send.\n“It allows my salespeople to talk to more customers and spend less time doing paperwork,” he said.",
@@ -2068,30 +2092,6 @@
     "link": "https://krebsonsecurity.com/2026/03/microsoft-patch-tuesday-march-2026-edition/",
     "thumbnail_url": "https://krebsonsecurity.com/wp-content/uploads/2026/03/winupdatechecking.png",
     "created_at": "2026-03-11T01:05:56.765Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ulli-a-linux-installer-without-a-live-usb-flash-drive",
-    "title": "ULLI – A Linux installer without a live USB flash drive",
-    "description": "USB-less Linux installer for Linux and Windows. Install Linux without a USB stick. - rltvty2/ulli",
-    "fullText": "Donations/tips: https://ko-fi.com/rltvty\n\nWebsite: https://rltvty.net/installlinux.html\n\nInstall a bootable Linux partition to your hard drive without a USB stick or manual BIOS configuration.\n\n⚠️ WARNING: THIS SOFTWARE IS IN ALPHA AND IS NOT RECOMMENDED FOR USE ON YOUR MAIN/CRITICAL PC. THIS SOFTWARE IS PROVIDED AS-IS. THE AUTHOR ACCEPTS NO LIABILITY FOR DAMAGES OR DATA LOSS CAUSED BY THIS SOFTWARE. BACK UP YOUR DATA BEFORE USE. USE AT YOUR OWN RISK.\n\nAcknowledgement: AI (mostly Claude) was used in the development of this software. That being said I always test before releasing code.\n\nDownload ulli-linux.py, right click on ulli-linux.py, click properties, and then, under the permissions tab check \"Allow this file to run as a program\". Then double click on the .py and click \"Run in Terminal\".\n\nAlternatively just run this code in your terminal, in the same folder you downloaded to:\n\nDownload ulli-windows.zip, extract all files, right click on run-ulli-windows.bat, and then run the program as administrator.\n\nAlternatively you can turn off smart app control under windows security, and then simply double click on run-ulli-windows.bat to run the program.\n\nYou may have to disable bitlocker/decrypt your hard drive to use this software.\n\nYou may have to disable Secure Boot in the BIOS depending on your computer.\n\nCurrently the installer supports the installation of Linux Mint 22.3 Cinnamon, Ubuntu 24.04.4 LTS, Kubuntu 24.04.4 LTS, Debian Live 13.3.0 KDE, and Fedora 43 - KDE Plasma Desktop. You may also use your own .iso files, but Debian and Fedora based distros don't work for now. Linux Mint Debian Edition is an exception.\n\nulli attempts to set Linux as the default boot entry automatically, but this doesn't work on all systems. You may have to select Linux as the default boot option in the BIOS. The BIOS is accessible during startup by pressing F2, DEL, F10, ESC, F1, F12, or F11. Refer to your PC or motherboard's documentation \n\nTo create a persistent Kubuntu installation after creating the live partition, run the installer, and then when the partitioning option comes up choose replace partition and choose the free space created by the linux installer.\n\nTo create a persistent Linux Mint installation after installing the live image, you must click on the install Linux Mint icon on the desktop from within the live partition Linux Mint OS. Once the partitioning screen comes up you must create a swap area (equal to your RAM size. If disk space is limited, 8 GB is the minimum recommended.), and a btrfs file system in the rest of the free space at /. I recommend btrfs as opposed to ext4, because if you ever want to install another distro using this software, only btrfs supports resizing the mounted partition.\n\nUnder Linux Mint, Ubuntu, and Kubuntu, Windows can be accessed upon booting by selecting \"Boot from next volume\", however ⚠️ WATCH OUT — under Debian and Fedora, you must change your boot order in the BIOS to access Windows.\n\nReleased under GNU General Public License v3.0. You are free to do whatever you like with the source except distribute a closed source version.",
-    "readingTime": 3,
-    "keywords": [
-      "create persistent",
-      "free space",
-      "default boot",
-      "debian and fedora",
-      "linux mint",
-      "software",
-      "partition",
-      "install",
-      "program",
-      "installer"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/rltvty2/ulli",
-    "thumbnail_url": "https://opengraph.githubassets.com/62b74e679ea6103b5fb7e9a29018ed12a026e06627758076fb8405ecaf6802ad/rltvty2/ulli",
-    "created_at": "2026-03-11T01:05:56.478Z",
     "topic": "tech"
   }
 ]
