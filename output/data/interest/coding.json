@@ -1,5 +1,29 @@
 [
   {
+    "slug": "the-conductor-developer",
+    "title": "The Conductor Developer",
+    "description": "Why I think software development is starting to feel a little more like conducting an orchestra.",
+    "fullText": "I'm Rachel Laycock, CTO at Thoughtworks. I'm endlessly curious about how technology is changing the way we build software, lead teams and run businesses. This is where I capture ideas before they're fully formed, challenge my own thinking and occasionally wander off on interesting tangents.\n\nTL;DR\nWhy I think software development is starting to feel a little more like conducting an orchestra.\n\nThere’s a shift happening in software development that I don’t think we’re talking about clearly enough.\n\nFor the last couple of years we’ve framed AI as a productivity tool. How much faster can it write code? How many more features can we ship? How much cheaper can we build software? I think that’s the wrong question, but I understand why.\n\nThe first thing AI became good at was writing code, so naturally that’s where we focused. As AI got better at coding, I expected the bottlenecks to move through the software delivery lifecycle: from coding to design and specification, architecture, then verification. And they have. We spent a lot of time at the most recent FOSE event discussing how we ensure good design, quality and resilience while agents increasingly write the code.\n\nThat’s a topic for another ramble.\n\nA few months ago, though, I realised I was looking at the wrong bottleneck. I kept assuming it would simply move to the next phase of software delivery.\n\nAI didn’t change what great software looks like. It changed what’s scarce. Human attention is now the bottleneck.\n\nThe next bottleneck isn’t design. It isn’t verification. It’s us. More specifically, it’s our attention. Developers have always protected long periods of uninterrupted focus because that’s where good software gets built. Pair programming. Quiet afternoons. Deep work. We optimized around flow because flow mattered. When we didn’t get that time, very little got done.\n\nBut when I watch developers using AI today, I see something different. The best developers I know aren’t spending all day in flow anymore. They’re orchestrating agents.\n\nGreat developers are starting to look less like programmers and more like conductors.\n\nI was watching Jacob Collier on YouTube recently because I’m hoping to see him in concert soon. Watching him conduct is fascinating. He’s not trying to play every instrument himself. He’s listening to the whole piece, hearing what doesn’t quite fit, bringing different voices in at the right moment, changing the energy, changing the tempo and shaping the performance as it unfolds. Increasingly, that’s what great software developers look like.\n\nA great conductor is first and foremost a great musician. They could play the instruments themselves. That’s not why they’re standing on the podium. Their value comes from understanding the whole score. The orchestra doesn’t need the conductor because the musicians aren’t talented enough. It needs the conductor because someone has to hold the whole system in their head. Increasingly, I think that’s what great software developers are doing.\n\nThe AI agents are the musicians.\n\nThe developer is the conductor.\n\nThey’re deciding which agent should tackle which problem. They’re providing context. They’re evaluating what comes back. They’re spotting subtle mistakes. They’re deciding what deserves another iteration and what is ready to move on.\nI was talking to an engineer recently who told me they regularly have eight AI agents running in parallel. I’ve heard similar numbers from others. Ten. Twelve. Beyond that, they become the bottleneck.\n\nThat number stuck with me because it sounded remarkably familiar. It sounded like my job.\n\nAs CTO, I rarely produce the work myself anymore. Instead, I have lots of streams of work progressing at once. A strategy document comes back for feedback. A client opportunity needs a decision. Someone wants guidance on a technical trade-off. Another team needs context before they can move.\n\nNone of it arrives neatly packaged. It comes as conversations, emails, documents, chat messages and half-formed ideas. My job is to decide where my attention belongs, make sense of incomplete information, provide context and help other people make progress.\n\nWhen I first became CTO, I thought I needed to get better at managing my time. I was wrong.\n\nWhat I really needed to learn was how to manage my energy. The challenge wasn’t the hours. It was the constant context switching. The endless stream of decisions. The feeling that nothing was ever completely finished.\n\nAn executive coach taught me some things I’ve never forgotten.\n\nCreate systems that help your brain, not just your calendar.\n\nLately I’ve been wondering whether developers are about to need exactly the same capabilities. A few weeks ago I shared this thought with our Chief People and Leadership Officer. His response surprised me. “I knew something fundamental was changing,” he said. “I just didn’t know how to help. Now I do.”\n\nThat conversation stuck with me because we’ve spent decades helping executives succeed in this kind of environment. We coach them to make decisions with incomplete information, manage cognitive load, prioritize relentlessly and protect their energy. Yet we’re still preparing developers for a world of individual execution. We’re redesigning the tools, but we haven’t started redesigning the job.\n\nI don’t think software developers are becoming managers. I don’t think AI is replacing engineering. I think engineering expertise is simply being applied in a different place, and much more often, because execution has become so much faster.\n\n(I suspect software developers are simply the first knowledge workers to experience it, but I’ll save that thought for another rambling.)\n\nThe question I’m most interested in now is this:\n\nHow do we redesign engineering careers when human attention becomes the scarce resource?\n\nWhen I became an executive, learning to manage my own energy was one of the hardest things I’ve ever done. Even today, if I stop paying attention to it, I pay the price.\n\nI have a feeling software development is about to demand those same capabilities from many more people.\n\nAnd I don’t think we’ve quite realised how profound that change is.\n\nWhy I’m Writing Rachel’s Ramblings",
+    "readingTime": 5,
+    "keywords": [
+      "human attention",
+      "software development",
+      "software delivery",
+      "software developers",
+      "that’s",
+      "they’re",
+      "changing",
+      "don’t",
+      "agents",
+      "another"
+    ],
+    "qualityScore": 1,
+    "link": "https://martinfowler.com/rachels-ramblings/conductor-developer.html",
+    "thumbnail_url": "https://martinfowler.com/rachels-ramblings/card.png",
+    "created_at": "2026-08-02T18:54:02.674Z",
+    "topic": "tech"
+  },
+  {
     "slug": "i-stop-llms-drifting-in-production-codebases",
     "title": "I Stop LLMs Drifting in Production Codebases",
     "description": "The problem I care about with LLM coding is drift: one plausible\nshortcut gets copied, then future sessions start treating it as how\nthe app...",
@@ -1879,29 +1903,5 @@
     "thumbnail_url": "https://i.insider.com/6a33feecc7a58f814f0d3dfa?width=1200&format=jpeg",
     "created_at": "2026-06-19T10:11:34.840Z",
     "topic": "finance"
-  },
-  {
-    "slug": "deepswe-v11",
-    "title": "DeepSWE v1.1",
-    "description": "DeepSWE measures frontier coding agents on original, long-horizon software engineering tasks.",
-    "fullText": "DeepSWE v1.1 keeps the same long-horizon engineering tasks as v1, but updates how agents are executed and scored by grading their committed code in a clean, isolated environment, making results easier to reproduce, audit, and analyze. We also fixed dependency drift and removed flaky tests on some tasks.\n\nWith the updated setup, now including Claude Fable 5 and Kimi K2.7 Code, aggregate pass rates and model ordering remain close to v1.\n\nNote: 73 of Claude Fable 5's 2,260 trials did not complete due to access being suspended by a US government directive partway through our sweep. Pass rates are computed over the completed trials.\n\nWall-clock time is no longer reported as it is highly dependent on external variables like host machine performance and provider load, making it an inconsistent metric.\n\nView the benchmark on GitHub, browse every rollout behind the numbers above, or run your own agent against the benchmark.\n\nBrowse trajectoriesRun DeepSWEGitHub\n\nTo elaborate on the git environment: one concern with our previous environment construction method was that if an implementation similar to a task had been merged upstream, the agent could potentially cheat by finding it through git log. We conducted a sweep of the tasks' upstream repos to check whether any had implementations similar to our tasks as of June 5th. We found no such instances, meaning results from v1.0 remain free of this form of cheating.\n\nTogether, these changes make tasks harder to game. Because we grade only the committed patch in a separate container, some easier shortcuts no longer work: an agent can't monkey-patch the test framework, and because the CTRF report records each task-defining test by name, dropping tests or forcing an early exit shows up as missing or failed results rather than a pass.\n\nThe chart below compares each model's pass rate under v1 and v1.1. Scores stay close: the ordering at the top is unchanged, and most configurations land within a few points of their v1 result.\n\nThe 10 configurations run in both versions. Hollow dot is v1, filled dot is v1.1; the change in points is at right.\n\nNew frontier models are added to the DeepSWE leaderboard as they're released.",
-    "readingTime": 2,
-    "keywords": [
-      "claude fable",
-      "tasks",
-      "environment",
-      "agent",
-      "committed",
-      "code",
-      "easier",
-      "tests",
-      "rates",
-      "ordering"
-    ],
-    "qualityScore": 1,
-    "link": "https://deepswe.datacurve.ai/blog/deepswe-v1-1",
-    "thumbnail_url": "https://deepswe.datacurve.ai/og/deepswe-card.webp",
-    "created_at": "2026-06-19T02:53:45.946Z",
-    "topic": "tech"
   }
 ]
