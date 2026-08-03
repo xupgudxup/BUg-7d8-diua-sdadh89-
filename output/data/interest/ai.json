@@ -1,5 +1,140 @@
 [
   {
+    "slug": "hollywood-fights-ai-in-public-while-quietly-building-it-into-movies",
+    "title": "Hollywood Fights AI In Public While Quietly Building It Into Movies",
+    "description": "Even as Hollywood performers protest and Hollywood studios sue \"in their war on AI,\" reports the Los Angeles Times, \"the entertainment industry is deepening its dependence on...",
+    "fullText": "184825066\n story\n\n Even as Hollywood performers protest and Hollywood studios sue \"in their war on AI,\" reports the Los Angeles Times, \"the entertainment industry is deepening its dependence on it.\"\n\nAmong hundreds of job postings in late June, more than one in 10 was likely connected to AI. The top studios' public postings suggest they have been recruiting people to build AI tools. They are also recruiting teams to defend their intellectual property against unauthorized AI use. \"There are plenty of studios that are hiring [for AI] but never talk about it in public,\" said Yoland Yan, a co-founder of ComfyUI, a company that helps studios juggle different AI tools. Companies have been hesitant to detail how they use generative AI in film production — partly because they are concerned about consumer and union backlash. Some in Hollywood described AI use as the new cosmetic surgery, where everyone knows it is happening, but few will admit to it... \n\nAlthough some companies may be shy about sharing their AI plans, big stars who don't have to answer to others have been more open about their embrace of the new technology for storytelling. Rejecting AI is like picking a horse and buggy over a car, said \"Star Wars\" creator George Lucas. \"Artificial intelligence means it's much easier for us to make movies,\" he told a trade magazine earlier this year. \"There's nothing you can do about it. That's progress. It's the future.\" Some in Hollywood have a softer stance on artificial intelligence, with studios cutting deals with AI companies, and filmmakers like Martin Scorsese backing AI companies. Ben Affleck launched an AI film tech company then sold it to Netflix for half a billion dollars. When launching InterPositive, Affleck said he wanted to keep \"storytelling human\" by building AI tools that could fix lighting, generate missing shots and other things while \"keeping creative decisions in the hands of artists....\"\n\nDisney, Netflix and Amazon had job postings that were about using AI on the creative side of the business. Universal, Paramount, Warner Bros. and Sony had job ads suggesting they were also using AI but for marketing, distribution and audience analytics. The postings suggest the Disney, Netflix and Amazon studios are building repeatable AI workflows for visual effects, animation, sound and dubbing. The companies also seem to be building in-house teams to develop custom generative-AI models, while also using third-party software. \n\nNone of the jobs advertised were to create AI that wrote scripts or created AI actors.\n\nIronically, the Times used Claude Code to build a scraper to identify the job postings, their article acknowledges.\n\nThree Disney jobs were for \"content security,\" assessing AI tools and guarding against piracy, watermarking and rights-protection work. But Disney is also hiring PhD-level talent \"to study 'computer graphics and AI' for Pixar and Disney films,\" according to the article, and \"people to 'bridge the gap between research and practical studio application.'\" \nDisney-owned visual effects shops Industrial Light & Magic \"was searching for supervisors to 'explore emerging technologies (including AI/Machine Learning)' to develop new production workflows.\"\nAudio post-production unit Skywalker Sound \"seemed to be recruiting to build proprietary AI models for soundtracks, voice separation, and voice transfer, the process of taking a speaker's tone and pitch, and applying it to new content.\" \nAmazon \"was hiring a principal AI executive to drive AI-tool adoption across production, plus roles in operations automation and LLM content classification.\"",
+    "readingTime": 3,
+    "keywords": [
+      "disney netflix",
+      "artificial intelligence",
+      "visual effects",
+      "job postings",
+      "disney netflix and amazon",
+      "studios",
+      "hollywood",
+      "tools",
+      "recruiting",
+      "hiring"
+    ],
+    "qualityScore": 1,
+    "link": "https://entertainment.slashdot.org/story/26/08/03/0350223/hollywood-fights-ai-in-public-while-quietly-building-it-into-movies?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+    "thumbnail_url": "https://a.fsdn.com/sd/topics/movies_64.png",
+    "created_at": "2026-08-03T19:18:37.712Z",
+    "topic": "entertainment"
+  },
+  {
+    "slug": "the-ai-bailout-could-be-baked-into-the-ai-bubble",
+    "title": "The AI Bailout Could Be Baked into the AI Bubble",
+    "description": "Instead of passing through bankruptcy, insolvent life insurers have all their liabilities—in particular the policyholder claims—paid for by state guaranty funds.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://prospect.org/2026/08/03/ai-bailout-could-be-baked-into-bubble-private-equity-life-insurers-loans/",
+    "thumbnail_url": "https://i0.wp.com/prospect.org/wp-content/uploads/2026/07/Dayen-AI-bailout-080326.jpg?fit=2309%2C1299&ssl=1",
+    "created_at": "2026-08-03T19:18:33.539Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "kimi-k3-built-the-game-i-still-had-to-play-it",
+    "title": "Kimi K3 Built the Game. I Still Had to Play It",
+    "description": "Kimi K3 built a playable first-person game from one prompt, but its bugs only appeared when a human played it. AI can make the first version. Somebody still owns the failures.",
+    "fullText": "I gave Kimi K3 one prompt and asked it to build a browser game. The assignment was a first-person 3D maintenance game inside a procedurally generated server facility. The player had to collect data cores, reach a freight elevator, and descend three floors. The stack was Three.js, vanilla JavaScript, and Vite.\n\nKimi produced a playable game in one shot. It was fun. It also had rough edges that mattered immediately: a drone could clip through my body, and hitting a knocked-out drone could wake it back up. The game looked like a finished demo until I tried to play it like a person.\n\nThe code is on GitHub, and you can play the game here.\n\nI described the two failures, asked Kimi to fix them in parallel, restarted the development server, and tested the result. The collision bug was gone. The projectile bug was gone. The model did the repair work, but I had to see the failure, name it, and decide what correct behavior meant.\n\nThe prompt was deliberately difficult. I did not give Kimi a flat map and ask it to add a character. I asked for procedural levels with a different layout each time the random seed changed. That forced the model to keep the architecture, gameplay rules, rendering, physics, and progression in its head at the same time.\n\nKimi K3 is clearly built for long-horizon coding tasks with a clear outcome. Give it a large project and it will make a lot of decisions for you. Give it a small task and it may still respond like you asked for a department.\n\nA playable game is a real result. It is also the first result a human can judge. The work moves into testing, correction, security, performance, and the boring decisions that decide whether anybody can live with the software.\n\nI used Kimi Code on the $199 monthly plan. After the initial specification, the first game build, the bug fixes, and a few chat tests, I had used less than 1% of the monthly quota. By rough math, the project cost about $2 on that plan. Kimi's pricing page lists the plan and its shared quota structure.\n\nThe wait was the problem. When I asked Kimi to generate 100 taunts and add them to the game, the task took slightly more than 15 minutes. That is long enough to get coffee and long enough to lose the context of the work when you come back. The servers were under heavy load, so I cannot treat that speed as a final verdict. I can say that quality stayed much more consistent than the waiting time.\n\nThe architecture matters here. Kimi K3 is built on Kimi Delta Attention and Attention Residuals. The company says the combination produces an approximate 2.5x improvement in overall scaling efficiency compared with Kimi K2. If that claim holds up, Kimi can do more work without demanding a miracle from the hardware. I walked through the claim in the video, and Moonshot's technical write-up lays out the architecture.\n\nA model can produce a system quickly. Somebody still has to define the system, catch the drone walking through the player, test the fix, and decide whether the result is safe enough to ship. That person did not disappear. The job moved closer to judgment and ownership, and companies will try to pay less for both.\n\nAI is real. The people selling the labor story are the part I distrust. Kimi K3 can do work that used to require a room full of setup, code, and patience. It can also hand you a system whose failure modes appear only after you start playing it.\n\nThe model earned my recommendation. It did not earn a free pass.",
+    "readingTime": 4,
+    "keywords": [
+      "playable game",
+      "model",
+      "kimi",
+      "drone",
+      "architecture",
+      "plan",
+      "system",
+      "prompt",
+      "server",
+      "player"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.drjoshcsimmons.com/writing/kimi-k3-built-the-game-i-still-had-to-play-it",
+    "thumbnail_url": "https://www.drjoshcsimmons.com/api/og/blog?title=Kimi%20K3%20Built%20the%20Game.%20I%20Still%20Had%20to%20Play%20It.&description=Kimi%20K3%20built%20a%20playable%20first-person%20game%20from%20one%20prompt%2C%20but%20its%20bugs%20only%20appeared%20when%20a%20human%20played%20it.%20AI%20can%20make%20the%20first%20version.%20Somebody%20still%20owns%20the%20failures.",
+    "created_at": "2026-08-03T19:18:33.463Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "many-businesses-using-ai-to-save-time-but-do-they-know-what-theyre-doing",
+    "title": "Many businesses using AI to save time, but do they know what they're doing?",
+    "description": "Small businesses are experimenting with artificial intelligence (AI), but many are still learning by trial and error, according to technology firms HP and Xero.",
+    "fullText": "Small businesses are experimenting with artificial intelligence (AI), but many are still learning by trial and error, according to technology firms HP and Xero.\n\nThe companies said AI could help tackle New Zealand's long-running productivity problem, but only if firms build trust in the technology and put basic rules around how it is used.\n\nXero's research found almost two-thirds of small and medium businesses were already using AI, while 64 percent of those using it said it had saved them time, with an average reported saving of about one working day.\n\nBut the research also found businesses were still worried about privacy, security, whether AI answers were accurate, and finding the time to set up tools properly.\n\nJames Bergin, Xero's executive general manager of technology research and advocacy, said small firms using AI were reporting productivity gains, even if those benefits were not yet showing clearly across the wider economy.\n\nBergin said the research showed strong interest in AI, but many firms were still trying it out for themselves and needed practical guidance.\n\nHP New Zealand managing director Shannon Harris said businesses did not necessarily need lengthy policy documents before getting benefits from AI, but they did need simple rules covering security, governance and appropriate use.\n\n\"I'm talking guardrails and frameworks over 50-page policy documentation,\" she said.\n\nShe said clear rules should help businesses use AI rather than slow them down, particularly where they were handling sensitive customer or financial information.\n\nBergin said businesses also needed to understand the limits of different AI tools, particularly where accuracy mattered, because some tools gave likely answers rather than verified facts.\n\nXero called this \"accountable intelligence\", Bergin said, using AI to handle routine tasks and point to useful information, while business owners or advisers remained responsible for the final decision.\n\nThey said getting the rules and training right mattered because productivity remained a key economic challenge for New Zealand, underpinning living standards, competitiveness and the ability of businesses to grow.\n\nBergin said the next challenge was not simply accessing more AI capability, but turning what was already available into practical use.\n\nHarris said turning AI into genuinely useful tools required a clear understanding of the business problem and human judgement about the results.\n\nConfidence would be critical if small firms were to move from experimenting with AI to using it in ways that supported growth, Harris said.\n\n\"What is going to be possible if we can remove all of this really low-value work that we're doing?\" she said. \"How could we use the same number of people to grow faster, reach customers sooner or build exports?\"\n\nHarris said anything that helped businesses build confidence, simplify adoption and reduce low-value administrative work could be a \"game changer\" for New Zealand.",
+    "readingTime": 3,
+    "keywords": [
+      "new zealand",
+      "businesses",
+      "firms",
+      "rules",
+      "research",
+      "tools",
+      "technology",
+      "productivity",
+      "experimenting",
+      "intelligence"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.rnz.co.nz/news/business/874814/many-businesses-using-ai-to-save-time-but-do-they-know-what-they-re-doing",
+    "thumbnail_url": "https://media.rnztools.nz/rnz/image/upload/s--gfEGHlej--/t_tohu-badge-facebook/f_auto/q_auto/4JMY61I_GettyImages_2163653393_jpg",
+    "created_at": "2026-08-03T19:18:29.952Z",
+    "topic": "business"
+  },
+  {
+    "slug": "elon-musk-is-looking-for-trades-workers-to-build-ai-data-centers-and-his-famous-3bulletpoint-requirement-applies",
+    "title": "Elon Musk is looking for trades workers to build AI data centers — and his famous 3-bullet-point requirement applies",
+    "description": "SpaceX is hiring talent \"to build & operate the most powerful AI supercomputer clusters on & off Earth,\" Elon Musk said in an X post.",
+    "fullText": "Elon Musk is looking to hire skilled trades workers for his AI data center buildout.\n\nHe said in an X post that SpaceX is hiring talent to build data centers \"on & off Earth.\"\n\nApplicants were asked to email \"3 bullet points demonstrating evidence of exceptional ability.\"\n\nElon Musk is reviving one of his famed hiring tactics as he recruits skilled trades workers for the AI data center buildout by his rocket company, SpaceX.\n\nMusk, in an X post last week, said SpaceX is hiring \"exceptional engineering & skilled trades talent to build & operate the most powerful AI supercomputer clusters on & off Earth.\"\n\nThe \"off Earth\" reference reflects Musk's vision of placing data centers in space as a potential solution to AI's soaring energy demands.\n\nInterested applicants were asked to email \"3 bullet points demonstrating evidence of exceptional ability,\" along with their resume, to datacenters@spacex.com.\n\nThe three-bullet-point requirement has become a hallmark of the world's richest man's recruiting style.\n\nThe Tesla and SpaceX CEO has previously asked potential candidates for white-collar roles at his companies to provide three bullet points \"demonstrating evidence of exceptional ability\" or three bullet points on the \"toughest technical problems\" they've solved.\n\nMusk's hiring push for trades workers to build data centers comes as SpaceX plays an increasingly central role in his AI ambitions. Earlier this year, SpaceX acquired Musk's AI startup, xAI, which was rebranded as SpaceXAI.\n\nSpaceXAI now operates Colossus, the massive AI supercomputer campus built in Memphis, Tennessee, that trains the company's Grok AI models.\n\nIf you enjoyed this story, be sure to follow Business Insider on Yahoo.",
+    "readingTime": 2,
+    "keywords": [
+      "center buildout",
+      "demonstrating evidence",
+      "skilled trades",
+      "trades workers",
+      "email bullet",
+      "bullet points",
+      "exceptional ability",
+      "elon musk",
+      "hiring",
+      "centers"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://finance.yahoo.com/technology/ai/articles/elon-musk-looking-trades-workers-165442357.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/73D70829DED860425E27B9F5DC0C490BDF00EA3CF694F5CAD518236776F78E93/subgraphmysterio/resizefill_w1200_h900;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fbusiness_insider_consolidated_articles_886%2F5673cab10e081745828e7fea30552aeb",
+    "created_at": "2026-08-03T19:18:26.960Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "jon-gray-says-impatience-about-ai-returns-is-a-little-misplaced",
+    "title": "Jon Gray says impatience about AI returns is 'a little misplaced'",
+    "description": "Jon Gray said that AI applications will take time to show up, and that Blackstone is invested across the AI ecosystem.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/jon-gray-blackstone-president-ai-investment-returns-data-center-2026-8",
+    "thumbnail_url": "https://i.insider.com/6a70a66a97a2276a3423c7cb?width=1200&format=jpeg",
+    "created_at": "2026-08-03T19:18:16.626Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "elon-musk-is-looking-for-trades-workers-to-build-ai-data-centers-and-his-famous-3bulletpoint-requirement-applies",
+    "title": "Elon Musk is looking for trades workers to build AI data centers — and his famous 3-bullet-point requirement applies",
+    "description": "SpaceX is hiring talent  \"to build & operate the most powerful AI supercomputer clusters on & off Earth,\" Elon Musk said in an X post.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/elon-musk-hiring-trades-workers-ai-data-centers-bullet-points-2026-8",
+    "thumbnail_url": "https://i.insider.com/6a70c312a62e6e00bc539cf1?width=1200&format=jpeg",
+    "created_at": "2026-08-03T19:18:16.624Z",
+    "topic": "finance"
+  },
+  {
     "slug": "a-top-mexican-university-used-ai-to-prevent-exam-cheating-now-thousands-of-admissions-are-in-doubt",
     "title": "A top Mexican university used AI to prevent exam cheating. Now thousands of admissions are in doubt",
     "description": "Thousands of students have been left in limbo amid a cheating scandal that erupted after the prestigious institution offered its exam online for the first time ever.",
@@ -1765,127 +1900,5 @@
     "thumbnail_url": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2278736523.jpeg?resize=1200,798",
     "created_at": "2026-07-31T01:48:46.031Z",
     "topic": "tech"
-  },
-  {
-    "slug": "resilireplay-chaos-testing-for-ai-agents-and-mcp-servers",
-    "title": "ResiliReplay - Chaos testing for AI agents and MCP servers",
-    "description": "Crash-test AI agents and MCP servers, replay failures, and turn broken traces into deterministic regression tests. - aliengineering-byte/resilireplay",
-    "fullText": "ResiliReplay crash-tests AI agents and MCP servers, replays failures deterministically, and converts broken traces into regression tests.\n\nIt is a model-agnostic, local-first TypeScript toolkit: record versioned events, inject seed-controlled faults, score recovery from declared evidence, and compile the first causal failure into an editable scenario plus an executable Node test. The deterministic path needs no API key, paid model, Docker, external account, telemetry, or LLM judge.\n\nResiliReplay is defensive testing software. Audit only local or user-owned MCP targets. A report or badge is evidence for one declared suite and version, not a universal security certification.\n\nRequirements: Node.js 20 or 22 and pnpm.\n\nThe demo runs a real deterministic local subprocess, injects three faults, scores a successful recovery and an unrecovered failure, writes every report format, compiles the failed trace, and executes the generated regression test.\n\nThe MCP demo audits an intentionally vulnerable toy stdio server and a resilient one. The first has two expected safe-canary findings; the second has none. Open runs/demo/recovered-report/report.html in a browser to inspect the standalone recovery report.\n\nSee the demo guide and verified transcript for expected output and asset reproduction.\n\nRecord the bundled deterministic agent and emit a passing baseline report:\n\nAdapters for a real agent framework emit the same versioned TraceEvent objects. See the adapter guide; the OpenAI-compatible example is a translation fixture and does not claim to call a live provider.\n\nAudit the bundled resilient server over stdio:\n\nmcp audit captures tools/list schemas and calls only a tool named reliability_probe by default. Pass --call-tools only after reviewing tool behavior, because MCP calls may have server-side effects. Non-loopback Streamable HTTP targets also require --allow-remote.\n\nThe MCP chaos guide covers controlled faults, transports, authorization, and safe-canary behavior.\n\nApply a built-in fault or reviewable YAML scenario. The same trace plus scenario plus seed produces the same mutation:\n\nThe replay command above intentionally exits 1: the minimal baseline has no recovery event after the injected malformed response. It still writes the failed report bundle for review. Use pnpm exec resilireplay test scenarios when a CI command should verify both expected-pass and expected-failure scenarios with exit 0.\n\nProvider and transport faults include bounded latency, timeout, 429/5xx, reset, truncation, malformed JSON, duplicates, and stale responses. Tool and workflow faults cover errors, permissions, disposable missing files, corrupt results, side-effect duplication, handoff loss, wrong recipients, stale state, conflicting instructions, and loops.\n\nSee custom fault scenarios for the YAML contract and safety rules.\n\npnpm demo creates a failed trace. Convert it into a minimized fixture, scenario, manifest, and executable node:test:\n\nThe generated test executes immediately by default. manifest.json links the source trace, minimized fixture, scenario, and test with SHA-256 hashes.\n\nThis excerpt is captured from the no-key demo:\n\nThe stable boundary is a strict, provider-neutral TraceEvent, not a model SDK:\n\nRead the architecture for invariants and package dependencies.\n\nFilesystem faults use owned temporary directories, output paths are containment-checked, spawned processes have deadlines and cleanup, and listeners bind to loopback unless a caller deliberately chooses another host.\n\nRead SECURITY.md and THREAT_MODEL.md before running untrusted commands or remote MCP targets.\n\nSee known limitations and the roadmap.\n\nResiliReplay is Apache-2.0 licensed. Contributions should be deterministic, bounded, and covered by tests. See CONTRIBUTING.md, CODE_OF_CONDUCT.md, the launch reference, release evidence, and the v0.1.0 release.",
-    "readingTime": 3,
-    "keywords": [
-      "mcp targets",
-      "minimized fixture",
-      "failed trace",
-      "scenario plus",
-      "the mcp",
-      "faults",
-      "test",
-      "demo",
-      "resilireplay",
-      "recovery"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/aliengineering-byte/resilireplay",
-    "thumbnail_url": "https://repository-images.githubusercontent.com/github-production-repository-image-32fea6/1317733777/909cd245-a721-4b87-b1ee-632c8a105e07?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260731%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260731T014845Z&X-Amz-Expires=300&X-Amz-Signature=02767bc73911e081b43997d72076d3709d74b05bc0a18d9e204ea89f85cf5cd0&X-Amz-SignedHeaders=host&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoiaHR0cHM6Ly9yZXBvc2l0b3J5LWltYWdlcy5naXRodWJ1c2VyY29udGVudC5jb20vIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4NTQ2MjgyNSwibmJmIjoxNzg1NDYyNTI1LCJwYXRoIjoicmVwb3NpdG9yeS1pbWFnZXMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIn0.H7q9E65KZXwxTfTNIjWuuegnmS2enE9p03dpazfDdFE",
-    "created_at": "2026-07-31T01:48:45.884Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ai-boom-1999-capex-and-2008-credit",
-    "title": "AI Boom = 1999 Capex and 2008 Credit",
-    "description": "I wrote in the past that the AI rollout feels a lot like déjà vu of the 1999 telecom bubble. Today's AI bubble has elements of both the 1999 overinvestment in internet infrastructure and the 2008 co",
-    "fullText": "I wrote in the past that the AI rollout feels a lot like déjà vu of the 1999 telecom bubble. Today's AI bubble has elements of both the 1999 overinvestment in internet infrastructure and the 2008 collapse of financial instruments that infected the banking and financial system.\n\n Read Full Article »",
-    "readingTime": 1,
-    "keywords": [
-      "bubble",
-      "financial"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.realclearmarkets.com/2026/07/30/ai_boom__1999_capex__2008_credit_1197590.html",
-    "thumbnail_url": "https://assets.realclear.com/images/64/643486_6_.jpeg",
-    "created_at": "2026-07-31T01:48:45.592Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "lloyds-bank-to-cut-2bn-in-costs-as-part-of-aipowered-strategy",
-    "title": "Lloyds Bank to cut £2bn in costs as part of AI-powered strategy",
-    "description": "Chief executive says the four-year plan will lead to greater efficiency but gives no details of potential job...",
-    "fullText": "Chief executive says the four-year plan will lead to greater efficiency but gives no details of potential job losses\n\nLloyds Banking Group will cut another £2bn of costs as part of a four-year plan under which its chief executive will use new tech and AI to drive growth.\n\nCharlie Nunn said the strategy, which the UK’s largest high street lender will launch in January, would involve investing £13bn into the business by 2030, including for “pioneering technology” to lure new business, improve efficiency and increase payouts for shareholders.\n\nThat will involve rolling out “AI-powered advice” for wealth and workplace pensions, and using it to offer personalised offers based on customer behaviour, and give “support and guidance” to relationship managers, who are assigned to specific accounts.\n\nWhile Nunn praised colleagues for guiding customers through “increasingly complex services, he said “we can make it even better, and even simpler, because we’re not good enough today, relative to our ambition”.\n\nWhen asked how staff would be affected by £2bn in planned cuts, Nunn said he would consider all the same business areas that were in the bank’s crosshairs over the past five years, including better technology, reviewing physical office space and “improving our ability to increase productivity”, without giving details of any potential job losses.\n\n“So, when we look to this next stage, those kind of levers will continue in front of us,” he told journalists on Thursday. “And we do think that there are new opportunities for agentic AI to both differentiate our services and grow more efficiently: IE provide services we’ve never been able to provide.\n\n“That is going to impact work. It is going to require us to continue to re-skill people and hire new people, but that’s been my history for 30-odd years in financial services.”\n\nAs for the future of Lloyds’s 550 branches, Nunn said: “It will be important part of our proposition, but we’re going to follow the customers and our customer data around our branches.”\n\nThe strategy also pointed to international expansion, with Lloyds aiming to grow its corporate and institutional bank in the US and Europe, marking a big shift from the retrenchment that followed the lender’s bailout at the height of the 2008 financial crisis.\n\nNunn said he was also betting on AI and blockchain technology to cut waiting times for mortgage approvals to about three days; the bank would also boost rewards and loan discounts to retain loyal customers.\n\nLloyds will double down on its car loan division, which is still waiting to settle the long-running motor finance commission scandal, by creating a one-stop-shop app for drivers wanting to buy, insure and set up charging points for electric vehicles.\n\nChris Beauchamp, the chief market analyst at the investing and trading platform IG, said: “Nunn’s strategy to move away from the traditional lending business continues to deliver for Lloyds, though it is still a work in progress.\n\n“The push towards the US and more corporate banking is understandable, but Lloyds would hardly be the first UK name to follow this demanding path – success here is far from guaranteed. Lloyds has the heft in its home market, but a move to a bigger global player is a significant undertaking.”\n\nIt came as the bank reported better-than-expected second-quarter profits, which rose to £2.3bn between April and June, a 14% jump from the same period last year. It meant bosses could increase payouts for shareholders, with a 1.58p a share dividend and the first ever share buyback announced at half-year, worth £1bn.\n\nLloyds’s share price rose 1.7% in response to the news on Thursday morning.",
-    "readingTime": 3,
-    "keywords": [
-      "four-year plan",
-      "potential job",
-      "job losses",
-      "chief executive",
-      "increase payouts",
-      "business",
-      "services",
-      "strategy",
-      "technology",
-      "customers"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/business/2026/jul/30/lloyds-bank-cut-2bn-costs-part-ai-powered-strategy",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/365ecb10aa9b786ad6849a1f497dcc1f1a3eaf38/73_0_4434_3548/master/4434.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=5be66b837b87546badee0b25dc736999",
-    "created_at": "2026-07-31T01:48:40.619Z",
-    "topic": "business"
-  },
-  {
-    "slug": "andy-jassy-said-amazon-will-spend-220-billion-this-yearand-still-wont-have-enough-capacity-to-meet-demand",
-    "title": "Andy Jassy said Amazon will spend $220 billion this year—and still won’t have enough capacity to meet demand",
-    "description": "AWS revenue hit $42.2 billion in Q2, marking its fastest growth in 18 quarters as AI demand outpaces Amazon's ability to build more data centers.",
-    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
-    "readingTime": 1,
-    "keywords": [
-      "fortune"
-    ],
-    "qualityScore": 0.1,
-    "link": "https://fortune.com/2026/07/30/andy-jassy-amazon-capex-demand-aws-pga-tour/",
-    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/07/GettyImages-2265246495-e1785455759256.jpg?resize=1200,600",
-    "created_at": "2026-07-31T01:48:40.311Z",
-    "topic": "business"
-  },
-  {
-    "slug": "mbodi-ai-yc-p25-is-hiring-roboticsresearch-engineers",
-    "title": "Mbodi AI (YC P25) Is Hiring Robotics/Research Engineers",
-    "description": "Jobs at Mbodi AI",
-    "fullText": "Mbodi is an embodied AI platform that makes robots learn like humans, with natural language. So anyone can teach robots new skills by talking to them and execute the learned skills reliably in production, in minutes. We are pioneering the next wave of robotics, where advanced generative models meet real-world applications. Backed by top investors and already working with global industrial partners (e.g., ABB), we’re redefining what’s possible in robotics and automation.",
-    "readingTime": 1,
-    "keywords": [
-      "robots",
-      "skills",
-      "robotics"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.ycombinator.com/companies/mbodi-ai/jobs",
-    "thumbnail_url": "https://bookface-images.s3.amazonaws.com/logos/bb1239ee67e01455546fe8a413724b572346e680.png?1745870357",
-    "created_at": "2026-07-31T01:48:39.881Z",
-    "topic": "jobs"
-  },
-  {
-    "slug": "amazons-anthropic-stake-is-leading-to-a-huge-windfall",
-    "title": "Amazon's Anthropic stake is leading to a huge windfall",
-    "description": "Amazon said it received a major boost from its previous $13 billion worth of investment in Anthropic.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/amazon-anthropic-stake-q2-earnings-2026-7",
-    "thumbnail_url": "https://i.insider.com/6a6bbecca62e6e00bc538c06?width=1200&format=jpeg",
-    "created_at": "2026-07-31T01:48:39.756Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "an-ai-startups-tattooforaninterview-stunt-set-off-a-silicon-valley-backlash-now-the-founder-is-apologizing",
-    "title": "An AI startup's tattoo-for-an-interview stunt set off a Silicon Valley backlash. Now the founder is apologizing.",
-    "description": "Jordan Zietz, the founder of LemonLime, an AI startup, is apologizing after he offered job interviews to anyone at a party who got a company tattoo.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/lemonline-founder-apology-job-interview-logo-tattoo-2026-7",
-    "thumbnail_url": "https://i.insider.com/6a6b9c5aa62e6e00bc538936?width=1200&format=jpeg",
-    "created_at": "2026-07-31T01:48:39.749Z",
-    "topic": "finance"
   }
 ]
