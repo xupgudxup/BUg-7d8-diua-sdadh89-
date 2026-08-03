@@ -1,5 +1,29 @@
 [
   {
+    "slug": "ai-slop-blocked-a-real-200k-macos-flaw",
+    "title": "AI slop blocked a real $200K macOS flaw",
+    "description": "Apple's bug bounty program is drowning in AI-generated bug reports. The company has capped submissions per researcher because fabricated reports are clogging the review pipeline. As a result, Italian startup Bynario was initially unable to report a serious macOS vulnerability worth up to $200,000 on the black market.",
+    "fullText": "AI as a cybersecurity risk, but not the way you'd think. Apple is capping the number of bug reports security researchers can submit and enforcing a 30-day cooldown period. A flood of low-quality, AI-generated reports with hallucinated vulnerabilities is clogging the review pipeline, the Financial Times reports. Researchers can request a higher quota.\n\nThe cap creates real security gaps: Italian startup Bynario used ChatGPT to find a serious macOS vulnerability that could give attackers full control over a machine but couldn't report it because Apple had blocked further submissions. CEO Alfredo Pesoli estimates the flaw's black-market value at $100,000 to $200,000. Apple has since reached out to Bynario.\n\nMeanwhile, Apple itself is using AI from Anthropic and OpenAI to hunt for vulnerabilities, and its latest updates included five times as many fixes as usual. That raises the question whether bug bounty programs can survive long-term or whether big tech companies will handle vulnerability discovery on their own. Rafe Pilling of Sophos told the FT that bug bounty programs have gone from finding vulnerabilities to validating them \"at machine speed.\"",
+    "readingTime": 1,
+    "keywords": [
+      "bounty programs",
+      "bug bounty",
+      "reports",
+      "vulnerabilities",
+      "security",
+      "researchers",
+      "vulnerability",
+      "machine",
+      "apple",
+      "bynario"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://the-decoder.com/a-real-macos-flaw-worth-200k-went-unreported-because-apples-bug-bounty-inbox-was-full-of-ai-slop/",
+    "thumbnail_url": "https://the-decoder.com/wp-content/uploads/2026/07/apple_logo_neon_green.png",
+    "created_at": "2026-08-03T09:19:17.446Z",
+    "topic": "tech"
+  },
+  {
     "slug": "i-built-a-personal-crm-that-lives-inside-apples-contacts-app",
     "title": "I built a personal CRM that lives inside Apple's Contacts app",
     "description": null,
@@ -1860,30 +1884,6 @@
     "link": "https://cloud.google.com/blog/products/identity-security/powering-the-next-era-of-confidential-ai",
     "thumbnail_url": "https://storage.googleapis.com/gweb-cloudblog-publish/images/17_-_Security__Identity_NrORvDT.max-2600x2600.jpg",
     "created_at": "2026-06-11T20:09:48.403Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "you-can-skip-the-waitlist-and-get-siri-ai-on-your-macbook-right-now",
-    "title": "You Can Skip the Waitlist and Get Siri AI on Your MacBook Right Now",
-    "description": "Don't wait in line to test Apple's new AI-powered assistant.",
-    "fullText": "After a two-year delay, Siri AI is finally here—at least, for beta testers. Immediately following the WWDC keynote on Monday, Apple rolled out the first developer betas for iOS 27, iPadOS 27, and macOS 27 Golden Gate, and with them, the company's new AI-powered Siri. If you're brave enough to trial Apple's unfinished updates, you have a chance to try out Siri AI for yourself—assuming you make it off of the waitlist.\n\nLike many in-demand AI tools, Siri AI is locked behind a waitlist at the beta's launch. After installing the beta, you can Some users report gaining access rather quickly, while others have had a lengthy hold. Based on what I've seen, there's really no rhyme or reason as to why some users' wait times are shorter than others; it just seems to be the luck of the draw.\n\nHowever, if you happen to be rocking the macOS 27 beta, it appears there's no reason to wait around at all. In fact, taking matters into your own hands, you can bypass the wait entirely and try out Siri AI as soon as you're ready.\n\nAccording to MacRumors, all it takes to skip the line is a simple Terminal command. The Terminal app, for anyone unfamiliar, lets you communicate with macOS directly, offering you a greater level of control over the OS. Using it can seem intimidating to neophytes, but it's easy enough to copy and paste commands for singular use cases.\n\nThat said, some disclaimers: If you're running the macOS 27 beta, you're probably comfortable with a certain degree of risk already, but it bears repeating that trying Siri AI before it's done baking means dealing with unfinished software and programs. The beta alone can cause instability and data loss, and messing with the intended design of the beta could put you at greater risk. Before proceeding, I'd recommend making secure backups of any data you don't want to lose, and understand that this isn't how Apple intends for you to experience the beta.\n\nThat caveat out of the way, here's how the workaround works, per MacRumors: First, install the macOS 27 beta. Once it's installed, open Terminal on your Mac. Next, paste the following command into the window:\n\nsudo defaults write \"/Library/Preferences/FeatureFlags/Domain/GenerativeModels.plist\" \"EnhancedSiriWaitlist\" -dict-add Enabled -bool NO\n\nOnce that's pasted, hit Enter. Finally, restart your Mac. Once it boots back up, you will be able to access Siri AI immediately—you should see the Siri app, and have the ability to access Siri AI from Spotlight. Happy beta testing!",
-    "readingTime": 3,
-    "keywords": [
-      "siri ai",
-      "access siri",
-      "macos beta",
-      "you're",
-      "it's",
-      "following",
-      "unfinished",
-      "users",
-      "others",
-      "there's"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/skip-the-line-for-siri-ai-macos-27-beta?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KTVJZZ86T2WYM67NDYC40F7H/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-06-11T20:09:34.306Z",
     "topic": "tech"
   }
 ]
