@@ -1,5 +1,18 @@
 [
   {
+    "slug": "meta-to-take-on-anthropics-claude-and-openais-codex-with-new-coding-agent",
+    "title": "Meta to take on Anthropic's Claude and OpenAI's Codex with new coding agent",
+    "description": "Meta launched Muse Code, which aims to be a comparable coding agent that's priced lower than competitors like Anthropic's Claude or OpenAI's Codex.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/meta-muse-coding-agent-race-openai-codex-anthropic-claude-2026-8",
+    "thumbnail_url": "https://i.insider.com/6a73a2ff8fcc2e955f7dd954?width=1200&format=jpeg",
+    "created_at": "2026-08-06T01:26:50.732Z",
+    "topic": "finance"
+  },
+  {
     "slug": "google-is-in-talks-for-a-15-billionplus-deal-with-ai-coding-agent-startup-mechanize",
     "title": "Google is in talks for a $1.5 billion-plus deal with AI coding agent startup Mechanize",
     "description": "Google wants its AI to get better at coding. It might have found a shortcut with the startup Mechanize.",
@@ -1871,30 +1884,6 @@
     "link": "https://bryntum.com/agents/",
     "thumbnail_url": "https://bryntum.com/wp-content/uploads/2022/11/website.png",
     "created_at": "2026-06-23T14:25:54.763Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ralph-harness-a-tiny-guarded-loop-for-coding-agents",
-    "title": "Ralph Harness, a tiny guarded loop for coding agents",
-    "description": "A lightweight spec-driven loop harness for Claude Code, Codex, and Gemini CLI. Fresh-context runs, specs, commits, and gates to get you and your agents productive immediately. - rxdt/py_ralph_frame",
-    "fullText": "No task list, no orchestrator. Just a reusable PROMPT with guards.\nLoosely opinionated scaffold, easy to opt out of features, for a gated autonomous agent loop (\"Ralph\"). A dumb Ralph tells an agent \"Go!\" and hands it a PROMPT. The agent iterates on tasks from specs. One iteration includes pre-commit rules, specs updates, and a push to GitHub.\n\nAgents update their spec and PROJECT_STATUS at the end of each iteration. How things get built: the agent's PROMPT tells it to pick a spec. The specs/ say what to build. The agent in the loop decides what next. Humans update the MASTER PLAN that refreshes specs/. Ideas from ghuntley, How to Ralph Wiggum.\n\nUse with new Python projects or drop the harness and dependencies into an existing project.\n\nThe repo is the only memory between iterations. Each iteration is a fresh-context agent.\n\nharness/ralph.sh launches an autonomous LLM worker with the permissions you grant it (e.g.\n--permission-mode acceptEdits). The gate bounds what any commit may touch, but the worker itself is not sandboxed to this repo — under a permissive mode it can run arbitrary shell. You are authorizing real changes — choose the worker and permission mode deliberately. Run uv run ralph status for the run registry as a table; per-iteration logs are in scratchpad/runs/. Use git log --oneline origin/main..HEAD to show what's unpushed.\n\nThe safety minimum is in code: harness/gate.py holds PROTECTED_PATHS and FORBIDDEN_PATTERNS; semgrep comes from pyproject.toml; harness/preferences.py holds the style checks other tools can't catch, e.g. MAX_FUNCTIONS_PER_FILE. Containment runs when RALPH_LOOP=1, which ralph.sh sets at each invocation. Humans commit normally while agents in the loop get stronger checks.\n\n⚡ uv run ralph gate (pre-commit) → fast checks.\nRuff lint + check format for everyone, plus containment for the agents (via RALPH_LOOP=1 set by ralph.sh): PROTECTED_PATHS + FORBIDDEN_PATTERNS + preferences, including MAX_FUNCTIONS_PER_FILE.\n\n✅ uv run ralph verify (pre-push) → the heavy quality pass: ruff lint + check format, pyright, pylint, semgrep, pytest @ 100% cov — no containment re-check. CI re-runs these quality checks on every PR and every push to main as the backstop.\n\nHumans can use normal git commands.\n\nProtected paths — AGENTS.md, harness/, tests/harness/, .githooks/, .github/,\npyproject.toml — are off-limits; humans own them. The exception is harness/preferences.py — the tunable knobs file, which the loop may edit and you may delete.\n\nThe gate is a guardrail, not a jail. Agents are smart and crafty — like people. They will find a way to complete a task at all costs. Lock the worker down with its own settings (permissions and sandbox flags), add branch protection and required CI, and trust nothing and no one.\n\nThis harness does not sandbox your machine. It tries to contain the loop — the gate limits which paths a commit may touch, bans escape-hatch patterns, and steers writes into repo scratchpad/. But a worker can still run arbitrary shell commands. For real isolation, constrain all agents from a higher level, use permission/deny rules, or run everything in a container.\n\nMind your usage limits. ralph.sh works to a cap. If you set caps high, or run several workers from the same provider at once, you will burn through your tokens, context windows, and provider usage limits. Workers keep working as long as there is work to do. There is always work to do. Recall defaults: 2 loops x 20 minutes.\n\nEvery single iteration is a push to whichever branch is set by design, so autonomous commits push to remote continuously. If you want to protect main, run the loop on its own branch and merge via PR/CI — a protected main rejects the push and stalls the loop.\n\n100% coverage does not mean good tests. That is quantity, not quality. If you had the same agents that wrote the code write the tests \"green\" can mean nothing. Tests should challenge source. (You can try adding mutmut)\n\n· Rules: AGENTS.md · What to build: specs/ · Standing instruction: PROMPT.md ·\n\nUse your best judgment · Leave the code how you would like to find it ·\n\nHuman and agent-owned status interface: docs/PROJECT_STATUS.md.",
-    "readingTime": 4,
-    "keywords": [
-      "arbitrary shell",
-      "ruff lint",
-      "lint check",
-      "check format",
-      "usage limits",
-      "loop",
-      "specs",
-      "push",
-      "worker",
-      "iteration"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/rxdt/py_ralph_frame",
-    "thumbnail_url": "https://opengraph.githubassets.com/7d85ad82878e840a21ae71fb4a43bf3dbc4aef0b8c8628064791f2fa0467ee43/rxdt/py_ralph_frame",
-    "created_at": "2026-06-23T08:57:32.138Z",
     "topic": "tech"
   }
 ]
