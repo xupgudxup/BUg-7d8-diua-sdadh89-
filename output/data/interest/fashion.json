@@ -1,5 +1,29 @@
 [
   {
+    "slug": "how-could-newcastle-play-under-jaissle",
+    "title": "How could Newcastle play under Jaissle?",
+    "description": "Matthias Jaissle's predecessor Eddie Howe had similar principles in terms of building a side around physical intensity, pressing and direct attacks.  Howe's defensive tactics should align well with the Red Bull Salzburg style of pressing, which could make it easier for the players to buy into Jaissle's methods.  What Howe was criticised for towards the end of his tenure, though, was a supposed lack of adaptability.",
+    "fullText": "Matthias Jaissle's predecessor Eddie Howe had similar principles in terms of building a side around physical intensity, pressing and direct attacks.\n\nThe German primarily uses a high-pressing 4-4-2 when the opposition are building from the back.\n\nEven when his teams are pushed into more of a mid-block, they have shown an impressive understanding of when to step forward and transition into a high press as a collective.\n\nHowe's defensive tactics should align well with the Red Bull Salzburg style of pressing, which could make it easier for the players to buy into Jaissle's methods.\n\nWhat Howe was criticised for towards the end of his tenure, though, was a supposed lack of adaptability.\n\nAfter joining Al-Ahli, Jaissle inherited a mosaic of superstars and less experienced Saudi players - a wildly different challenge from coaching a Red Bull club with consistency and understanding in style from youth level through to first team.\n\nWhile he retained his coaching principles, he recognised the need to platform players according to their individual strengths within that framework.\n\nThe Premier League is constantly evolving, with coaches designing new counter-measures to tactics that appear to work from one week to the next.\n\nIf Jaissle is going to succeed in the English top flight, that agility will be a vital asset.",
+    "readingTime": 2,
+    "keywords": [
+      "players",
+      "principles",
+      "pressing",
+      "understanding",
+      "tactics",
+      "style",
+      "coaching",
+      "jaissle's",
+      "howe",
+      "bull"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://sports.yahoo.com/articles/could-newcastle-play-under-jaissle-080437654.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/db46a6d7a08998c01efe25459fcdde1cf9f4f3285b07d76be4a96ff13d18362f/lightyear_networkapi/resizefill_w1024_h576%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fbbc_us_articles_995%2F227ce14971a7298aedb9c124c77d8628",
+    "created_at": "2026-08-06T08:14:41.935Z",
+    "topic": "sports"
+  },
+  {
     "slug": "mrbeasts-studio-head-is-leaving-after-a-year-heres-what-his-companys-ceo-told-staffers",
     "title": "MrBeast's studio head is leaving after a year. Here's what his company's CEO told staffers.",
     "description": "Corie Henson, president of the studio division, was among the new hires brought on to turn MrBeast's company into a Disney-style colossus.",
@@ -1991,29 +2015,5 @@
     "thumbnail_url": "https://i.insider.com/6a2c55f124b3540ad29c2c81?width=1200&format=jpeg",
     "created_at": "2026-06-18T20:10:47.225Z",
     "topic": "finance"
-  },
-  {
-    "slug": "i-built-imgcli-to-make-ffmpeg-for-images",
-    "title": "I built imgcli to make FFmpeg for images",
-    "description": "Dependency-free command-line image conversion & processing in C — convert, resize, crop, filter, and composite PNG/JPEG/BMP/TGA/GIF via an ffmpeg-style filtergraph. A tiny ImageMagick/ffmpeg al...",
-    "fullText": "converts, resizes, crops, filters, and composites images — PNG, JPEG, BMP, TGA,\nGIF, PPM, QOI — driven by an ffmpeg-style filtergraph. No system libraries;\ncompiles anywhere a C11 compiler exists.\n\n⚡ ~8× faster than ImageMagick on common resize/filter ops, in a 232 KB\nsingle binary (~470× smaller) — see the benchmarks. A lightweight\nalternative to ImageMagick convert or ffmpeg for still images.\n\nWhat it does: format conversion · resize / scale · crop · pad · rotate · flip ·\nbrightness / contrast / saturation / gamma / hue · grayscale · sepia · invert ·\nthreshold · box & Gaussian blur · sharpen · Sobel edge detect · emboss · custom\nconvolution kernels · alpha-composite overlay · draw boxes · solid fills.\n\nDesign: the same paradigm as ffmpeg — decode → normalize to one common frame\nformat (RGBA) → run a comma-separated filtergraph → encode by output extension.\n\nimgcli vs ImageMagick on an Apple Silicon Mac (single-threaded, warm cache).\nReproduce with make && bench/bench.sh — see bench/RESULTS.md\nfor the full method and caveats.\n\nlean 8-bit pipeline that wins on speed, size, and startup — the shape that\nmatters when an agent or script spawns one process per task.\n\nThe default build is dependency-free — a single binary that links only the\nsystem C library (libc). Decoding/encoding is handled by the bundled,\npublic-domain stb and\nqoi single-header libraries, compiled\ndirectly in. Nothing to apt install, no shared libraries, no version hell.\n\nThe \"zero dependencies\" claim applies to the default build, and always will —\nopt-in format libraries are never compiled into it. A build that enables such\na flag is, by definition, no longer dependency-free, and that trade-off is\nstated at the point you opt in.\n\nCodecs come from the public-domain stb\nsingle-header libraries (third_party/). They're bundled, not linked, so the\ntool stays portable and self-contained while still reading/writing the formats\nthe world actually uses — the same trade-off ffmpeg makes by leaning on codec\nlibraries instead of reinventing them.\n\nAn MCP server wraps imgcli so AI agents can\ncall convert_image, probe_image, and list_filters directly — see\nmcp/.\n\nColours accept #rgb, #rrggbb, #rrggbbaa, 0x…, r-g-b[-a], or names\n(red, white, transparent, …). No commas, so they're safe inside a graph.\n\nGeometry — scale=W:H[:nearest|bilinear|bicubic|lanczos] (-1 keeps aspect;\nbicubic/lanczos are high-quality separable resamplers that anti-alias on\ndownscale and stay sharp on upscale — bilinear is the default),\ncrop=W:H[:X:Y], pad=W:H[:X:Y[:color]], hflip, vflip,\ntranspose=90|180|270, rotate=DEG[:color] (arbitrary angle, canvas expands).\n\nColour — grayscale, invert, sepia, solarize, brightness=V, temperature=V,\ncontrast=V, saturation=V, gamma=V, hue=DEG, threshold=V, opacity=V, tint=color.\n\nConvolution — blur=R (box), gblur=SIGMA (separable Gaussian),\nsharpen[=AMOUNT], edge (Sobel), emboss, convolution=K[:DIV:BIAS]\n(custom N×N kernel, e.g. convolution=0 -1 0 -1 5 -1 0 -1 0).\n\nComposite / draw — overlay=X:Y[:INDEX] (alpha \"over\" compositing of\nanother -i input), fill=color, drawbox=X:Y:W:H:color[:fill|thickness].\n\nimgcli is built to be a reliable tool in an automated pipeline: one\nself-contained binary, no dependencies, deterministic, non-interactive, and\nmachine-readable. See AGENTS.md for a token-economical recipe sheet.\n\nimgcli decodes untrusted image files in C, so memory safety is taken seriously.\nThe codebase has been audited against the OWASP Top 10, common C/CWE classes, and\nffmpeg's historical vulnerability classes. Highlights:\n\nFull threat model, OWASP/CWE mapping, ffmpeg-CVE-class analysis, and dependency\npolicy: SECURITY.md.\n\nContributor setup, validation targets, filter-registry guidance, and PR expectations live in CONTRIBUTING.md.\n\nHave a question or idea? Use Discussions. For bugs and feature/format requests, open an issue — the templates will guide you.\n\nIf imgcli is useful to you, consider sponsoring its development — it funds new formats, security hardening, and maintenance. See SPONSORS.md.\n\nThe imgcli source is yours to use freely (MIT). The vendored stb\nheaders are public domain (or MIT, at your option) and the vendored qoi.h is\nMIT-licensed; full third-party notices are in\nTHIRD_PARTY_NOTICES.md.",
-    "readingTime": 4,
-    "keywords": [
-      "public-domain stb",
-      "single-header libraries",
-      "imgcli",
-      "imagemagick",
-      "binary",
-      "ffmpeg",
-      "format",
-      "convolution",
-      "default",
-      "images"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/swperb/imgcli",
-    "thumbnail_url": "https://repository-images.githubusercontent.com/1269733727/faa8c67b-b9aa-4424-9439-6fe53487b1b5",
-    "created_at": "2026-06-18T20:10:28.946Z",
-    "topic": "tech"
   }
 ]
