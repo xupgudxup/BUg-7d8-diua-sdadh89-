@@ -1,5 +1,29 @@
 [
   {
+    "slug": "openconnector-an-open-source-alternative-to-pipedreamcomposio",
+    "title": "OpenConnector, an open source alternative to Pipedream/Composio",
+    "description": "Open-source auth gateway connecting 1000+ SaaS providers to AI agents through SDK, CLI, MCP, HTTP, and OpenAPI. - oomol-lab/open-connector",
+    "fullText": "English | 简体中文 | 繁體中文 | 日本語 | 한국어 | Русский | Français\n\nOpenConnector is an open-source connector gateway for AI agents and an alternative to Pipedream/Composio.\nConnect user app accounts once, then expose a shared catalog of 1,000+ providers and 10,000+\nprebuilt Actions to agents and applications.\n\nUse the Connector SDK from app code,\noo CLI as the local-agent relay, MCP from agent hosts,\nHTTP/OpenAPI from custom clients, and the Web Console for administration and debugging.\n\nOpenConnector fits products where agents need durable access to the tools users already use, without\nhanding provider credentials to the agent process.\n\nEndpoint details, response envelopes, auth headers, MCP tools, and Action guide examples are in\ndocs/runtime-api.md.\n\nOpenConnector ships with a local Dashboard for browsing connectors, configuring credentials,\ncreating runtime tokens, and inspecting runtime usage.\n\nUse the connector catalog to see available services, search for providers, and open their Actions\nand credential setup from one place.\n\nUse the Overview page after deployment to monitor runtime readiness, available providers,\nexecutable Actions, recent failures, tool call trends, and recent calls.\n\nProvider names and trademarks belong to their respective owners and are used only for identification\nand interoperability.\n\nApps and agents discover Actions, inspect schemas and scopes, select a connection alias, and execute\nthrough the gateway. Provider secrets stay behind the runtime boundary; agents receive the metadata,\nsafe account labels, and execution results needed for the run.\n\nThe\nCloudflare Workers deployment walkthrough shows how\nto launch OpenConnector on Cloudflare with Workers, D1, R2, and the Web Console. The video follows\nthe same flow as docs/cloudflare.md: create Cloudflare resources, copy\nwrangler.example.jsonc to wrangler.local.jsonc, apply D1 migrations, set required secrets, and\nrun npm run deploy:cloudflare.\n\nThis starts a self-hosted runtime. OAuth providers require OAuth client credentials from apps you\nregister with those providers. To let users authorize supported providers without setting up your\nown OAuth apps, use OOMOL-hosted connectors.\n\nStart the runtime from the published image with Docker Compose:\n\nThis pulls ghcr.io/oomol-lab/open-connector:latest. To build from source instead:\n\nOpen the local console and generated API reference:\n\nRun a no-auth Action to verify the runtime:\n\nSee docs/quickstart.md for the full local setup, first provider connection,\nOAuth flow, and runtime settings.\n\nGitHub is the simplest credentialed example because it can use a personal access token:\n\nFor OAuth2 apps, named connections, credential encryption, token refresh, and action policies, see\ndocs/credentials.md and docs/configuration.md.\n\nFor npm-based local development, open http://localhost:5173; the Web Console dev server proxies\nAPI requests to the runtime on http://localhost:3000. For Docker or a built Node runtime, the\nconsole is served from http://localhost:3000.\n\nThe console supports provider browsing, API key and OAuth client configuration, runtime token\ncreation, Action schema inspection, Action debugging, recent run review, and access to the\ngenerated OpenAPI and MCP metadata.\n\nOpenConnector can run on Cloudflare with Workers for the runtime, D1 for state, R2 for transit\nfiles, and Static Assets for the Web Console.\n\nSee docs/cloudflare.md for resource creation, migrations, secrets, local Worker\npreview, and remote deployment.\n\nOpenConnector can also run on Fly.io with the Node Docker runtime and persistent SQLite storage on a\nFly volume.\n\nSee docs/fly-io.md for app creation, volume setup, secrets, deployment, custom\ndomains, and scaling.\n\nRun OpenConnector from a prebuilt image on GitHub Packages (GHCR): ghcr.io/oomol-lab/open-connector. Use\nlatest for the newest release, a pinned version like v1.0.0 for production, or tip for the\nlatest main build.\n\nSee docs/docker-ghcr.md for tags, pulling, and running.\n\nOpenConnector and Wanta are two open-source projects for AI\nAgents in the OOMOL ecosystem. OpenConnector connects Agents to external services such as Gmail,\nSlack, and Notion. Wanta provides a complete desktop Agent application powered by OpenCode and uses\nOpenConnector to work with connected SaaS services.\n\nIssues and pull requests are welcome.\n\nThe local API runtime listens on http://localhost:3000. The Web Console dev server listens on\nhttp://localhost:5173 and proxies API requests to the runtime.\n\nProvider code lives under src/providers/<service>. See\nCONTRIBUTING.md for provider contribution rules.\n\nUnless otherwise noted, the source code, scripts, generated project scaffolding, tests, and\ndocumentation authored for this repository are licensed under the Apache License, Version 2.0. See\nLICENSE.txt.\n\nThe Apache-2.0 license for this repository does not grant rights to third-party products,\nproviders, apps, APIs, trademarks, service marks, trade names, logos, icons, brand assets,\ndocumentation, screenshots, or other copyrighted materials owned by their respective holders.\n\nProvider and app names, metadata, links, scopes, permissions, and optional logos/icons are included\nonly to identify services and enable interoperability. All third-party brand and product rights\nremain with their respective owners. Inclusion in this catalog does not imply endorsement,\nsponsorship, partnership, certification, or verification by those owners.\n\nIf you contribute provider metadata or assets, only submit material you have the right to submit.\nPrefer linking to official public assets instead of copying brand files into this repository.\n\nPlease keep issues and pull requests focused, respectful, and actionable. Participation in this\nproject is governed by CODE_OF_CONDUCT.md.\n\nIf OpenConnector is useful to you, giving it a ⭐ helps more developers discover the project.\n\nThanks to everyone who has helped build OpenConnector. Want to join them? See\nCONTRIBUTING.md.",
+    "readingTime": 5,
+    "keywords": [
+      "apache license",
+      "proxies api",
+      "oauth client",
+      "console dev",
+      "api requests",
+      "dev server",
+      "oauth apps",
+      "respective owners",
+      "web console",
+      "see contributing.md"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/oomol-lab/open-connector",
+    "thumbnail_url": "https://repository-images.githubusercontent.com/1283907968/14d7b95e-84f9-4ecc-9fac-7254cccc326d",
+    "created_at": "2026-08-07T02:05:00.942Z",
+    "topic": "tech"
+  },
+  {
     "slug": "vanguard-says-fears-of-an-aifueled-whitecollar-job-wipeout-are-way-overdone",
     "title": "Vanguard says fears of an AI-fueled white-collar job wipeout are way overdone",
     "description": "Fears of an AI-fueled culling of white-collar jobs have risen, but one economist argues most functions aren't at risk of being replaced by the technology.",
@@ -1949,21 +1973,5 @@
     "thumbnail_url": "https://i.guim.co.uk/img/media/16b4258744f3b774fe6b88c7cfa42ee04ce437a6/21_79_570_456/master/570.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=dbb30d8726227e2eed03da67d79e778e",
     "created_at": "2026-06-25T19:45:45.911Z",
     "topic": "tech"
-  },
-  {
-    "slug": "great-leaders-question-philosophical-assumptions",
-    "title": "Great Leaders Question Philosophical Assumptions",
-    "description": "Business leaders increasingly face decisions that are not just technical or financial but deeply philosophical. Questions about what a company is for, what counts as reliable knowledge, and what responsibilities organizations owe customers, employees, and society now shape strategy as much as markets or technology. Yet most executives have never been trained to think explicitly about these issues. Developing philosophical proficiency can help leaders surface the hidden assumptions that guide their choices. By examining the nature of their business, clarifying how evidence and expertise are evaluated, and defining the ethical commitments they are willing to defend even under pressure, leaders can make decisions with greater consistency and credibility.",
-    "fullText": "Great Leaders Question Philosophical Assumptions by Faisal Hoque, Paul Scade, Pranay Sanklecha and Sverre SpoelstraJune 25, 2026PostPostShareSavePrintSummary.   moreLeer en españolLer em portuguêsPostPostShareSavePrintBusiness leaders are increasingly called upon to make philosophical decisions. Yet few have the skills needed to navigate this new reality.",
-    "readingTime": 1,
-    "keywords": [
-      "leaders",
-      "philosophical"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://hbr.org/2026/06/great-leaders-question-philosophical-assumptions",
-    "thumbnail_url": "/resources/images/article_assets/2026/04/Apr26_14_l3X3rcG_6U5AEmQIajg_dU8BEQ_NIJuEQw0RKg.jpg",
-    "created_at": "2026-06-25T19:44:53.992Z",
-    "topic": "business"
   }
 ]
