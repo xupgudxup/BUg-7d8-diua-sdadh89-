@@ -1,5 +1,29 @@
 [
   {
+    "slug": "linkly-a-language-designed-for-llms-compiled-through-mlir",
+    "title": "Linkly – a language designed for LLMs, compiled through MLIR",
+    "description": "An LLM-native programming language: you declare intent, and it lowers to a semantic IR that runs on an interpreter or compiles through MLIR to a native binary. - choiyounggi/linkly",
+    "fullText": "There was an error while loading. Please reload this page.\n\nThe production-readiness release: everything the 2026-08-05 probe blocked,\n\nmeasured again on 2026-08-07 as resolved.\n\nRuntime and observability (RFC-0014, issues #43-#46, #48):\n\nDocs (RFC-0017, issue #50): naming/grammar rules, guarded.lnpl restored,\n\n--workflow candidate listing, KB security routing, CLI surface doc.\n\nNumbers: suite 1,204 -> 1,513; frictions 46 -> 33 resolved / 7 partial / 6 remaining;\n\nverdict No-Go -> conditional Go (batch/aggregation still Block).\n\nKnown issues: #51 (until entry-true mode B divergence), #25, #26.\n\nReports: qa/REPORT.md (probe), qa/rerun/REPORT.md (re-measurement).\n\nThere was an error while loading. Please reload this page.\n\nEverything v0.1.0 named as unfinished is now done: the custom lnpl MLIR dialect,\n\nthe last agent role, and both of that tag's known limitations.\n\n264 → 386 tests. 5 merged PRs, 50 files, +7573/−250.\n\nRFC-0004 stage S4 — the custom lnpl MLIR dialect (#6). Mode B no longer\n\njumps from Semantic IR straight to standard dialects. It emits an lnpl module,\n\nbuild() verifies it, and the standard-dialect lowering reads the same op stream.\n\nEvery op carries the originating node id on both paths RFC-0004 requires — the\n\nlnpl.node_id attribute and a loc(...) — and the dialect's verifier enforces\n\nthe attribute's presence and type.\n\nIt needs no C++ TableGen build. v0.1.0 said it did; that was wrong. The\n\ndialect is defined declaratively in mlir/lnpl.irdl.mlir and loaded into stock\n\nmlir-opt with --irdl-file. The prerequisite is still just brew install llvm.\n\nAll nine agent roles (#14). RefactoringAgent performs the one restructuring\n\nthe KB grounds — patterns-repository-call's \"한 step에 한 저장소 접근\" — and\n\ndeclines anything else. A test asserts protocol.ROLES equals the implemented\n\nclass set.\n\nGetting there needed RFC-0010, which states for the first time how a role\n\nattaches a node it authored to a node it may not author, and what happens to a\n\nreference that moves rather than disappearing. A proposal now declares its\n\nstructural intent and the Reviewer validates the merged document's invariants\n\ninstead of diffing surfaces. No new protocol method — the set stays at 8.\n\nuntil obeys its condition in mode B (#5). At this tag's predecessor, mode B\n\nstatically unrolled to the round cap and behaved as though the condition never\n\nbecame true; until counter >= 10 with counter = 10 ran 16 iterations against\n\nmode A's 0. Both modes now agree at 0, 9, 10 and 100.\n\nG8's condition-field list has one source (#4). It was derived independently in\n\nthree places, so a workflow with a different number of condition fields could\n\nsilently take the wrong guard branch and exit 0.\n\nThe deliberate-mismatch suite actually detects (#10). Three of its five cases\n\nwere passing against a standing divergence their own patch never caused. All five\n\nnow assert an equivalent baseline first and pin the specific failure class.\n\nEleven documents; eight Accepted. New since v0.1.0:\n\nRFC-0004's S4 deviation note is retired, and its Open Question ② (the dialect's op\n\nlist and location notation) is resolved.\n\nOne mutation in impl/tests/mutation_check.py — drop the retry attempt cap —\n\nhangs rather than failing, because removing the cap produces an infinite loop the\n\nharness can only time out on. Pre-existing, and the reason its verdict reads FAIL\n\nwhile 72 of 73 are caught.\n\nSecurityAuditor and PerformanceAnalyzer still report attachment_required\n\nrather than using RFC-0010's attachment path\n\n(#16). The capability is live for\n\nevery role; only those two agents' own code declines.\n\nRefactoringAgent's split preserves the order of effects but not retry\n\ngrouping — the KB's reason for one access per step is that a step is the unit of\n\nretry and span, so a moved access stops being retried with the one it left\n\n(measured: 3 executions become 1). That is the prescription's purpose, but RFC-0006\n\ncalls this role meaning-preserving and only half of that holds. RFC-0010 §Examples\n\nrecords it.\n\nThere was an error while loading. Please reload this page.\n\nFirst tagged release. Phases 1–2 of the roadmap are complete: .lnpl parses, lowers to a semantic\n\nIR, and runs both on the IR interpreter and as a native binary.\n\nRFC bodies are written in Korean; identifiers, keywords, and schema fields are English.\n\nPhase 3 — a custom lnpl MLIR dialect — is not started. It needs C++ TableGen; tracked in\n\nissue #1.\n\nSee the roadmap for what comes next.",
+    "readingTime": 4,
+    "keywords": [
+      "loading please",
+      "please reload",
+      "mlir dialect",
+      "lnpl mlir",
+      "custom lnpl",
+      "mode",
+      "role",
+      "error",
+      "page",
+      "resolved"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/choiyounggi/linkly/releases",
+    "thumbnail_url": "https://opengraph.githubassets.com/de8b49df288dbb583add7f0d1d8f535fadae37265da53b51d45ca34fc78287b7/choiyounggi/linkly",
+    "created_at": "2026-08-07T06:59:32.942Z",
+    "topic": "tech"
+  },
+  {
     "slug": "why-tech-leaders-are-writing-code-again",
     "title": "Why tech leaders are writing code again",
     "description": "Some tech leaders are returning to coding, balancing management with time doing hands-on software development.",
@@ -1864,26 +1888,5 @@
     "thumbnail_url": "https://i.insider.com/6a3c066d360acd489560a637?width=1200&format=jpeg",
     "created_at": "2026-06-25T02:10:45.004Z",
     "topic": "finance"
-  },
-  {
-    "slug": "the-hidden-cost-of-the-ai-coding-boom-workplace-paralysis",
-    "title": "The hidden cost of the AI coding boom: workplace paralysis",
-    "description": "New AI tools are released near-constantly. Some developers are invigorated, while others feel overwhelmed just trying to keep up.",
-    "fullText": "Your browser does not support the video element.\n\n By\n\n Tim Paradis \n\n You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n and\n\n Thibault Spirlet \n\n You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n Read in app\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "you're currently",
-      "unfollow unsubscribe",
-      "unsubscribe via",
-      "currently following",
-      "author",
-      "link",
-      "email"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/ai-coding-tools-software-engineers-workplace-paralysis-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a3acb4d3d84808d8375497e?width=1200&format=jpeg",
-    "created_at": "2026-06-24T14:05:28.693Z",
-    "topic": "tech"
   }
 ]
