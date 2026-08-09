@@ -1,5 +1,29 @@
 [
   {
+    "slug": "microsoft-word-for-windows-11a-native-x64-port",
+    "title": "Microsoft Word for Windows 1.1a, Native X64 Port",
+    "description": "Port of Microsoft Word 1.1a to x64 with extra features for research purposes. - jmarshall23/msword",
+    "fullText": "This project is a fully working native Windows x64 port of Microsoft Word for\nWindows 1.1a, whose historical codename was Opus. It builds the original\nWord source and resources together with modern replacements for the 16-bit\nassembly, segmented-memory, and Win16 platform boundaries.\n\nThe result is the original Word application and user experience running as a\n64-bit Windows executable. This is not an emulator or a reimplementation using\na modern editor control.\n\nClone the repository, configure the included CMake preset, and build it from a\nPowerShell prompt:\n\nFor an optimized build, use the release preset instead:\n\nThe presets use the Visual Studio 2022 x64 generator. After configuration, the\ngenerated solution can also be opened directly from\nout\\MicrosoftWordX64Port.sln; use WORD1 as the startup project.\n\nRun the complete Debug test suite from the repository root:\n\nOr, when your current directory is src:\n\nFor a release build, replace Debug with Release. The suite covers the\nported x64 runtime, original Word data structures and command tables, process\nstartup, and automated UI workflows including typing, selection, formatting,\ndialogs, and saving.\n\nout, build, and bin are generated locally during configuration and\ncompilation.\n\nThe original C and resource files remain the authoritative implementation.\nThe port adds only the platform work needed to build and run that code safely\non 64-bit Windows:\n\nCMake inventories the legacy assembly tree but does not compile those modules\ninto native targets. This keeps the historical implementation available as a\nreference while ensuring all shipped code is valid for AMD64.\n\nChanges should preserve the original Word behavior while keeping all native\ninterfaces pointer-width safe. Prefer source-equivalent translations of\nhistorical routines, isolate unavoidable Windows API adaptation at the port\nboundary, and add focused tests for newly translated behavior.\n\nThe historical source files retain their original Microsoft and third-party\n\nlicense file; review the applicable rights before redistributing the source or\nbinaries.",
+    "readingTime": 2,
+    "keywords": [
+      "bit windows",
+      "original",
+      "historical",
+      "native",
+      "port",
+      "project",
+      "modern",
+      "assembly",
+      "platform",
+      "repository"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://github.com/jmarshall23/msword",
+    "thumbnail_url": "https://opengraph.githubassets.com/dfc2c200c5ce65fa9c5f3faa0e47fd7e87be622e66b04cefb646375861f0aa2a/jmarshall23/msword",
+    "created_at": "2026-08-09T06:37:30.873Z",
+    "topic": "tech"
+  },
+  {
     "slug": "the-white-houses-plan-to-vet-potentially-dangerous-ai-is-cloaked-in-secrecy",
     "title": "The White House’s plan to vet potentially dangerous AI is cloaked in secrecy",
     "description": "A Trump administration framework on AI testing leaves a lack of transparency – and plenty of open questions\nAfter months of talking with tech industry leaders, the Trump administration finalized a framework this week for how it will test new artificial intelligence models for safety and cybersecurity risks. So far, the White House is keeping details of the framework private, in a blow to transparency and potential boon for secretive AI companies.\nOn Tuesday, staff from OpenAI, Anthropic, Meta, Google, Nvidia and Microsoft attended a private meeting with White House officials to review the AI framework. Multiple outlets have since reported that although the volunteer vetting process for new AI models has been settled, the White House does not plan to release its policy publicly and will only share testing criteria with a select few tech companies.\n Continue reading...",
@@ -1737,30 +1761,6 @@
     "link": "https://lifehacker.com/tech/10-hacks-every-microsoft-copilot-user-should-know?utm_medium=RSS",
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KST5TZFGDTZF320D6G109R65/hero-image.fill.size_1200x675.jpg",
     "created_at": "2026-06-01T21:20:50.780Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "nvidia-launches-superchip-putting-ai-power-into-laptops-and-pcs",
-    "title": "Nvidia launches ‘superchip’ putting AI power into laptops and PCs",
-    "description": "Firm says its RTX Spark PC chip for Microsoft Windows will let AI agents replace the mouse and...",
-    "fullText": "Firm says its RTX Spark PC chip for Microsoft Windows will let AI agents replace the mouse and keyboard\n\nA new front has opened up in the battle for dominance in AI chips, as Nvidia said its latest development could replace the mouse and keyboard in how people use computers.\n\nThe $5tn (£3.7tn) US semiconductor company has launched a “superchip” that puts AI capabilities into laptops and desktop computers, a move that will pit it against Intel, Apple, Qualcomm and AMD.\n\nThe RTX Spark chip will be launched this year, and will be used by computer makers including Dell, Lenovo, Asus and HP, paired with Microsoft’s Windows software, according to the Nvidia chief executive, Jensen Huang.\n\nSpeaking at the Computex conference in Taiwan, Huang said the chip would “reinvent the PC” for the AI era, after three years of collaboration between Nvidia and Microsoft.\n\nA combination of a microprocessor and a graphics chip, developed with help from Taiwan’s MediaTek, it is designed to run AI agents locally rather than relying on cloud computing.\n\nIt will allow agents to navigate PCs autonomously, replacing humans’ traditional mouse and keyboard interactions. Because the chip is very powerful, computers will still be thin and light, the company said.\n\nHuang said Nvidia was reimagining the PC “for the first time in 40 years”.\n\nThe company’s foray into the consumer PC industry will open up a new business line, but this will take time, analysts said. Nvidia, which dominates the booming AI semiconductor market, is pushing beyond graphics cards into integrated chips that power the whole computer.\n\nNeil Shah, a co-founder of Counterpoint Research, compared the “RTX Spark moment” with the advent of the iPhone, ChatGPT and DeepSeek.\n\n“The RTX Spark looks to transform the traditional app-centric PC to a real useful agentic AI personal computer which will eventually be in every home in coming years as private edge AI agents become pivotal,” he said.\n\nThe new chip and Nvidia’s Vera central processing unit (CPU) demonstrate the company’s growing focus on PC and CPU products. The Vera CPU is designed for AI agents and early adopters, including OpenAI, Anthropic and SpaceX.\n\nSusannah Streeter, the chief investment strategist at Wealth Club, said: “Nvidia’s latest push into AI-powered personal computers marks a bold attempt to extend its dominance beyond datacentres and into consumers’ everyday lives. The unveiling of the RTX Spark chip reinforces Jensen Huang’s vision of PCs evolving from simple productivity tools into hyperintelligent digital co-workers.\n\n“While strategically significant, investors are likely to view the move as a longer-term growth opportunity rather than an immediate earnings driver. For now, Nvidia’s fortunes still depend overwhelmingly on relentless global demand for AI infrastructure and datacentre computing power.”\n\nAs chip wars heat up, Intel intends to start shipping an AI chip later this year that uses cheaper memory and cooling technology than its California rivals Nvidia and AMD.\n\nIntel announced a new graphics processing unit, Xe3P, codenamed Crescent Island. It is “purpose-built for this upcoming AI generation of agents”, according to Anil Nanduri, the vice-president of AI products at Intel’s Data Center Group.\n\nAmid fears that AI will destroy vast numbers of jobs, Huang said it was “complete nonsense” that the technology would reduce demand for software engineers, arguing that it would increase hiring by making workers more productive.\n\n“This is the promise of AI,” he said. “The number of engineers, software engineers, is actually increasing. People talk about AI reducing jobs – complete nonsense. It’s causing more software engineers to be hired.”\n\nMeanwhile, Rene Haas, the chief executive of Arm, is in line for a pay package that would make him a billionaire if he hits targets to turn the microchip firm into the UK’s first trillion-dollar company.\n\nArm, which is listed in New York but has its global headquarters in Cambridge, has proposed a pay scheme including generous share awards that is worth more than $1bn in total by 2031, if Haas can hit certain “exceptional growth metrics”.",
-    "readingTime": 4,
-    "keywords": [
-      "processing unit",
-      "chief executive",
-      "spark chip",
-      "software engineers",
-      "rtx spark",
-      "agents",
-      "computers",
-      "mouse",
-      "keyboard",
-      "computer"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/technology/2026/jun/01/nvidia-launches-chip-ai-laptops-pc-rtx-spark-microsoft-windows",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/c8f04e7e907bd2655b2d952340f529bc756b2a39/226_0_2500_2000/master/2500.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=d360645c3a344788ed3a7c16024992b6",
-    "created_at": "2026-06-01T17:15:59.063Z",
     "topic": "tech"
   }
 ]
