@@ -1,5 +1,53 @@
 [
   {
+    "slug": "the-deslop-stack-fallacy-why-style-rules-hurt-thinking-quality",
+    "title": "The Deslop Stack Fallacy: Why Style Rules Hurt Thinking Quality",
+    "description": "Developer Twitter claims you can deslop AI output by pasting ASD-STE100 or Orwell's rules into system prompts. Empirical benchmarks prove the opposite: forcing simple language at reasoning time cripples the model.",
+    "fullText": "Developer Twitter found a new silver bullet: the instant deslop system prompt.\n\nStop banning single words like “delve” or “testament” one at a time. Instead, paste an entire writing standard into your global CLAUDE.md or AGENTS.md. Stack Orwell’s 1946 rules, ASD-STE100 Simplified Technical English, ISO 24495-1, and GovUK style guidelines into one prompt block. Every commit message, README, and PR description ships in clean, human prose.\n\nThe promise is seductive. The reality is different. Forcing an LLM to follow strict writing constraints while it solves a complex problem creates severe cognitive interference. It destroys thinking quality.\n\nHere’s what actually happens when you deslop at reasoning time.\n\nThe advice circulating on X right now sounds like this:\n\n“STOP telling Claude Code/Codex ‘no em dashes’. STOP telling Claude Code/Codex ‘stop saying delve’. STOP telling Claude Code/Codex ‘don’t sound like AI’. You never gave it a writing system.”\n\n“Orwell wrote the fix 80 years ago. Six rules, 1946. Paste them into your global CLAUDE.md / AGENTS.md and every session picks them up: never use a long word where a short one will do, if it is possible to cut a word out cut it out, never use the passive where you can use the active.”\n\n“Experimenting with a rare addition to my global CLAUDE.md: ‘Always talk in ASD-STE100 Simplified Technical English.’”\n\n“I go for the three prong deslop stack: ASD-STE100 + Orwell + GovUK house style.”\n\nThe pattern is clear: take a historical writing standard, paste it into your system prompt, and let it run during generation. It sounds reasonable. To understand why it fails, you have to understand what these standards are and why humans created them.\n\nThese frameworks were built for human editors working under specific constraints. They were never designed to run inside a reasoning loop.\n\nASD-STE100 (Simplified Technical English): In 1986, the European Association of Aerospace Industries created STE for aircraft maintenance manuals. Technicians across the world read these manuals in English as a second or third language. A misread procedure could crash a plane. STE solves this by restricting English to a controlled dictionary of about 1,000 approved words. Words can only function as one part of speech. “Close” is approved only as a verb, never as an adjective. Sentences cap at 20 words for instructions. Passive voice is forbidden.\n\nOrwell’s Six Rules (1946): Orwell wrote Politics and the English Language to fight political propaganda and evasive jargon. His rules emphasize cutting spare words, using active verbs, and choosing short words over long ones. He was combatting dead metaphors that concealed uncomfortable truths.\n\nGovUK, ISO 24495-1, W3C COGA: These standards were built for public services. They ensure citizens of all literacy levels can pay taxes, apply for benefits, or navigate healthcare forms without getting stuck in bureaucratic prose. ISO 24495-1 formalized plain language principles internationally. W3C COGA extended them for cognitive accessibility.\n\nWhy developers imported them: LLM outputs were filled with hyperbole, inflated symbolism, and passive academic framing. Developers saw STE, Orwell, and GovUK as a fix. If aerospace technicians used STE to prevent plane crashes, why not force LLMs to write in STE from the start?\n\nThe mistake is assuming that a rule system designed for human post-editing works as an inline constraint for an AI reasoning engine. Aerospace writers draft technical procedures, then edit them against STE. When you force an LLM to generate in STE during its reasoning pass, you force it to solve the problem and satisfy rigid lexical constraints at the same millisecond.\n\nI came across a blog from Anand. Anand tested this tradeoff empirically. He ran six complex reasoning tasks through ChatGPT (GPT 5.6 Sol) under two conditions: a standard prompt, and the same prompt with \"Answer in ASD-STE100\" appended.\n\nThe six tasks covered deep analytical work: designing non-saturating agent benchmarks, diagnosing support ticket surges, evaluating startup runway under doubled churn, testing AI decision quality, evaluating benchmark beliefs, and designing adversarial agent systems.\n\nTo prevent bias toward longer or more sophisticated answers, Anand used a blind, position-swapped rubric. Every response pair was evaluated twice, swapping the order (A, B) and (B, A) to eliminate position bias. The rubric judged six criteria on content only: Correctness, Key Drivers, Mechanism, Caveats, Calibration, and Actionability. Plainly worded answers and technical answers that made the same point were scored as equal. The rubric explicitly instructed the evaluator to ignore reading level, vocabulary, sentence length, and word count.\n\nThe standard prompt won 11 out of 12 evaluations. The STE prompt won zero. One tied.\n\nTasks 2, 3, and 4 did not report source counts, but the rubric evaluations were just as decisive. The standard prompt won on Correctness, Key Drivers, Mechanism, Caveats, Calibration, and Actionability across all six task families.\n\nThe data reveals three specific failure modes:\n\nSource retrieval collapsed. On Task 1, source count dropped from 66 to 44. On Task 6, it fell from 97 to 26. The model spent less time searching for evidence because lexical compliance ate its attention budget.\n\nCausal mechanisms disappeared. On Task 2, the standard answer identified Simpson’s paradox, case-mix distortion, duplicate ticket IDs, and premature case closures. The STE answer reduced these to high-level assertions. It stated that failures occurred without explaining why.\n\nNuance and edge cases were dropped. On Task 3, the STE prompt failed to distinguish between logo churn and revenue churn or quantify retained gross profit. Restricted vocabularies penalize hedged claims and conditional statements. The model dropped critical risk factors to stay within vocabulary rules.\n\nAnand’s conclusion was stark: forcing a model to answer in ASD-STE100 reduces its thinking quality.\n\nWhen an LLM generates text, every token prediction is a joint probability distribution over vocabulary, domain facts, and logical structure. When you force style constraints into the solver prompt, you turn a broad generation task into a constrained search problem.\n\nThe key insight: An LLM has finite probability mass and attention capacity per token. If the model spends capacity checking whether a word violates ASD-STE100 or Orwell’s passive voice rule, it has less capacity to explore alternative hypotheses, retrieve long-tail facts, or construct multi-step causal proofs.\n\nThe model optimizes for the most immediate loss signal in the prompt. When style rules are present in the system instructions, lexical compliance competes directly with task accuracy.\n\nThe solution is not to give up on clear language. Concise, direct prose remains essential for documentation, PR descriptions, and agent communication. The fix is separating reasoning from formatting into a two-stage pipeline. The Editor Pass is where your style rules belong.\n\nGive your primary agent zero writing constraints. Let it write in dense technical prose, use precise jargon, include hedges, and cite sources.\n\nPass the finalized output from Stage 1 into a fast post-processing pass. This secondary prompt applies Orwell’s rules, ASD-STE100, or your team style guide to the completed reasoning artifact.\n\nWhy this works: The editor model receives a fully reasoned solution as context. Its only task is lexical transformation, so constraint satisfaction no longer degrades problem solving.\n\nPutting style rules, ASD-STE100, or Orwell’s checklist into your global solver prompt is a mistake. You buy stylistic cleanliness at the expense of analytical depth.\n\nAllow your models to think in unconstrained, technical prose when solving problems. Once the solution is solid, run a dedicated editor pass to clean up the language.\n\nSeparate your thinking engine from your formatting engine.\n\nDesigning AI agent workflows or prompt architecture? I’d love to hear how you structure solver vs editor passes. Reach out on LinkedIn.",
+    "readingTime": 7,
+    "keywords": [
+      "drivers mechanism",
+      "mechanism caveats",
+      "caveats calibration",
+      "simplified technical",
+      "asd-ste simplified",
+      "technical english",
+      "orwell’s rules",
+      "passive voice",
+      "lexical compliance",
+      "ste prompt"
+    ],
+    "qualityScore": 1,
+    "link": "https://kondasamy.com/blog/2026/deslop-stack-fallacy-style-rules-hurt-thinking/",
+    "thumbnail_url": "https://kondasamy.com/og/blog/2026/deslop-stack-fallacy-style-rules-hurt-thinking.png",
+    "created_at": "2026-08-10T18:41:56.238Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "russia-rolling-out-starlinkstyle-network-faster-than-expected-kyiv-says",
+    "title": "Russia rolling out Starlink-style network faster than expected, Kyiv says",
+    "description": "KYIV, Aug 10 () - Russia is rolling out its own version of the Starlink satellite internet system faster than expected and plans ‌to have nearly 300 satellites in orbit by 2027, according to ‌a Ukrain...",
+    "fullText": "KYIV, Aug 10 (Reuters) - Russia is rolling out its own version of the Starlink satellite internet system faster than expected and plans ‌to have nearly 300 satellites in orbit by 2027, according to ‌a Ukrainian intelligence official.\n\nSpaceX's Starlink network, which operates in Ukraine but not Russia, has given Kyiv ​a major advantage in drone operations and battlefield communications.\n\nRussian forces had been using grey-market Starlink terminals in Ukraine until Kyiv successfully lobbied SpaceX to disable them earlier this year, one of several factors that shifted battlefield momentum in Ukraine's ‌favour.\n\nIn an interview with Ukrainian ⁠media outlet RBC-Ukraine, Major General Vadym Skibitskyi said Russia currently has 16 satellites in its Rassvet system.\n\n\"They have already begun ⁠launching it much faster than originally planned,\" said Skibitskyi, who is the deputy head of Ukraine's GUR military intelligence service.\n\nThe system can currently operate only intermittently ​when one ​of the satellites passes over Ukrainian territory, ​he said. However, Russia plans ‌to create a constellation of 292 satellites by 2027 and 924 by 2035, he added.\n\n\"Once Russia deploys a full satellite constellation, the system will operate like Starlink. Discussions are already underway on how to counter it,\" he said.\n\nRussia has been pounding Ukraine with an array of supersonic missiles as ‌Kyiv has depleted its stock of interceptor ​missiles.\n\nSkibitskyi said Moscow had already met its annual ​production targets for Zircon and ​Oniks missiles in the first seven months of the year ‌and was exceeding its 2026 missile ​production goals by ​10% to 20%.\n\nHe said Ukraine's emerging ballistic missile industry, along with drone production facilities, had become a priority target for Russia's missile campaign.\n\nSkibitskyi added ​that Russia's stockpile of ‌Iskander-M ballistic missiles, the mainstay of its supersonic strikes, was estimated ​at around 130, with 65 new ones made in July.",
+    "readingTime": 2,
+    "keywords": [
+      "system",
+      "satellites",
+      "skibitskyi",
+      "missiles",
+      "ukrainian",
+      "production",
+      "missile",
+      "satellite",
+      "faster",
+      "plans"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://www.yahoo.com/news/world/articles/russia-rolling-starlink-style-network-140144199.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/c214a9e93df97e7ae31856ed00324345d31f00fe098523723ccf6ab87b0ad531/lightyear_networkapi/resizefill_w800_h533%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Freuters.com%2F64b0e9d55fe073e48203cd8d6266562e",
+    "created_at": "2026-08-10T18:41:51.002Z",
+    "topic": "news"
+  },
+  {
     "slug": "vollering-wins-tour-de-france-femmes-after-war-of-nerves",
     "title": "Vollering wins Tour de France Femmes after war of nerves",
     "description": "Dutch rider Demi Vollering took the Tour de France Femmes overall title in style on Sunday, winning the hilly final stage to extend her lead on nearest rival Kasia Niewiadoma, who finished second overall after a tense struggle.The 29-year-old also won the 2023 title and earned her second one by timing the nine-day slog to perfection, carving out solo wins on the final two stages, which both ended in Nice.",
@@ -1938,44 +1986,5 @@
     "thumbnail_url": "https://una.im/posts/modern-css-theming/og.jpg",
     "created_at": "2026-06-23T14:25:53.978Z",
     "topic": "tech"
-  },
-  {
-    "slug": "darkenn-lights-out-style-puzzle-game-with-global-leaderboard",
-    "title": "Darkenn – Lights Out style puzzle game with global leaderboard",
-    "description": "Flip lights, solve elegant logic boards, and claim a spot on the global leaderboard.",
-    "fullText": "3×3\n Easy\n\n Daily Challenge\n Hidden until you start. Timer begins on reveal. Hints are disabled for leaderboard fairness. Daily begins at 4×4 Medium and above.\n\n Sign in with\n twitch\n\n Start Challenge\n\n Board ready\n\n Casual Mode\n Daily Challenge",
-    "readingTime": 1,
-    "keywords": [
-      "daily challenge"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://darkenn.com/",
-    "thumbnail_url": "https://darkenn.com/darkenn-social-preview.png",
-    "created_at": "2026-06-22T20:33:05.899Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "sachins-career-almost-got-cut-short-excricketers-chilling-warning-for-vaibhav-sooryavanshi",
-    "title": "'Sachin's career almost got cut short': Ex-cricketer's chilling warning for Vaibhav Sooryavanshi",
-    "description": "Former South Africa batter Daryll Cullinan expresses concern over the physical toll on 15-year-old Vaibhav Sooryavanshi's explosive batting style. Cullinan fears for the youngster's wrists and joints, citing the increased demands of modern cricket and heavier bats. He draws parallels to Sachin Tendulkar's career-threatening elbow injury, urging attention to Sooryavanshi's long-term health as his workload grows.",
-    "fullText": "Sooryavanshi has quickly earned a reputation for his fearless approach and remarkable power hitting. His ability to generate exceptional bat speed has become one of the defining features of his game. However, Cullinan believes that such an aggressive method could eventually take a toll on the youngster's body, especially as he is still developing physically.\n\n“I’m in awe of this young man, but what's bothering me, and no one is talking about it, is injuries? At 15, swinging a big bat, playing so much cricket, I fear for his wrists, elbows, the smaller stuff and joints. What does medical opinion say? Remember, Sachin's career almost got cut short by a bad elbow. He definitely would not have been swinging so hard so often as Sooryavanshi,” Cullinan posted on LinkedIn after Sooryavanshi’s match-winning 94-run knock in the final of the Tri-Nation series in Dambulla.\n\nCullinan remains convinced that the stress generated by Sooryavanshi's powerful swings could place considerable pressure on his body over time.\n\n“I think he would be on a fairly strict routine. It's the fact that he is still growing, and so too the joints, ligaments, muscles, I would presume? They will be taking strain, I can assure you,” Cullinan wrote, replying to one of the comments.\n\nThe former Proteas batter pointed to the example of Sachin Tendulkar, a player with whom Sooryavanshi is frequently compared. Tendulkar's celebrated career was threatened by a serious tennis elbow injury in 2004, an issue he later described as one of the most difficult setbacks he faced despite enduring numerous physical blows during his 24-year international journey.\n\nCullinan believes the modern game may present even greater challenges. With players using heavier bats and competing in a far busier cricket calendar than previous generations, he feels young cricketers face increased risks of long-term wear and tear.\n\n“I know of a good few guys who picked up chronic wrist problems. The thing is, we were using lighter bats, playing far less cricket. He is still growing, which needs to be remembered. Today's training and recovery methods will help, but I do fear for his long-term future and health,” Cullinan, who played 70 Tests and 138 ODIs for the Proteas, pointed out.\n\n131909089",
-    "readingTime": 2,
-    "keywords": [
-      "cricket",
-      "game",
-      "body",
-      "swinging",
-      "fear",
-      "joints",
-      "career",
-      "elbow",
-      "proteas",
-      "pointed"
-    ],
-    "qualityScore": 1,
-    "link": "https://sports.yahoo.com/articles/sachins-career-almost-got-cut-162100737.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/maGSz41m3d1CBEVbriR2Zw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/willow_sports_articles_673/e10dc52f2b22bfa0973df120eb5c6e63",
-    "created_at": "2026-06-22T16:27:32.398Z",
-    "topic": "sports"
   }
 ]
