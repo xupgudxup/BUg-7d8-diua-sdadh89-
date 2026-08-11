@@ -1,5 +1,29 @@
 [
   {
+    "slug": "muse-glimmer-30b-unsloth-gguf-format-q4-q6-q8-quantizations",
+    "title": "Muse Glimmer 30B unsloth GGUF format Q4, Q6, Q8 quantizations",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+    "fullText": "Unsloth Dynamic 2.0 achieves superior accuracy & outperforms other leading quants.\n\nAuthors: Meta Superintelligence Lab\nModel Release Date: August 2026\nLicense: Apache 2.0\n\nMuse Glimmer is a 30-billion-parameter causal language model with a dedicated perception encoder, distilled from Muse Spark and purpose-built for autonomous agentic tasks on consumer hardware. The model integrates multi-step reasoning, reliable tool use, multimodal understanding, and failure recovery into a single model that runs locally without requiring cloud infrastructure or network access.\n\nBuilding effective agents requires key capabilities working together to achieve the user’s goals. Muse Glimmer is trained and evaluated on these capabilities:\n\nMuse Glimmer was optimized for local deployment, and designed to run at practical speeds on consumer hardware without sacrificing quality.\n\nFitting the Model on Your Device. We use quantization techniques to compress the model's weights to approximately 4-bit precision, shrinking the language model to under 20 GB. This leaves enough headroom for the model's KV cache, the perception encoder for image understanding, and the speculative decoding drafter to run simultaneously within a 24 GB or 32 GB envelope. Critically, we validated that this compression introduces minimum to no degradation on agentic tasks.\n\n* Degradation measured using an average on accuracy metrics across 15 common benchmarks\n\nFaster Generation Through Speculative Decoding Muse Glimmer ships with a lightweight \"drafter\" model based on DFlash, a small companion network that proposes entire blocks of tokens at once. The DFlash block-diffusion model predicts entire blocks of 16 tokens in a single forward pass. The main model then verifies these proposals in parallel, accepting correct tokens and correcting wrong ones. This technique lets Muse Glimmer generate text significantly faster than standard token-by-token generation while producing identical output quality. We provide quantized drafter versions to incur a smaller memory overhead in the release.\n\nWe measure the speed of our K-Quant-17GB model alongside the quantized DFlash drafter on MacBook M4-Max, M5-Max and on an Nvidia RTX-5090. The model is fast enough for fluid conversation and real-time agent interaction, all running entirely on your device.\n\n* Average across a diverse prompt set. Measurements done with batch size 1 and greedy decoding. M4/M5 measurements were done using ExecuTorch, and RTX using llama.cpp.\n\nWe evaluated Muse Glimmer across a broad range of benchmarks to assess the diverse capabilities required for effective autonomous agent behavior. Compared with Gemma4-31B and Qwen3.6-27B, Muse Glimmer performs strongly for its size class on several widely used LLM benchmarks.\n\nFor more detail about our evaluations, see our report.\n\nTo achieve best performance, we recommend the following settings:\n\nSampling Parameters: Use the following configuration:\n\nReasoning Strength: Reasoning strength controls how much the model thinks before responding to the prompt. Reasoning strength can be defined as part of the system prompt as Reasoning strength: <value>. Muse Glimmer supports the following levels: low / medium / high / xhigh. Use high or xhigh for complex problem solving, coding, and agentic tasks.\n\nAs we would for other large language models, we strongly recommend that Muse Glimmer be deployed not as an endpoint in itself but as part of an overall AI system with additional guardrails as required or appropriate for the use cases and context of its deployment. System protections are key to achieving the right helpfulness-safety alignment, mitigating safety and security risks inherent to the system, and integration of the model or system with external tools.\n\nEvaluations\nWe evaluated Muse Glimmer for common use cases as well as specific capabilities. Common use cases evaluations measure safety risks of systems for most commonly built applications including chat bot and visual, QA. We built dedicated, adversarial evaluation datasets and evaluated systems composed of Muse Glimmer models and those safeguards to filter input prompt and output response. It is important to evaluate applications in context, and we recommend building dedicated evaluation datasets for your use case.\n\nCapability evaluations measure vulnerabilities of models inherent to specific capabilities, for which were crafted dedicated benchmarks. We also used industry standard safety and capability benchmarks where appropriate.\n\nMuse Glimmer was primarily evaluated across four risk axes:\n\nMuse Glimmer does not fall under the definition of “Frontier AI” in Meta’s Advanced AI Scaling Framework (AAISF), since it is generally less capable than Muse Spark. However, as a matter of prudence, our Preparedness Team assessed Muse Glimmer’s risk profile and determined that it would receive the following designations:\n\nCyber and Loss of Control risk levels are inferred to be Moderate or lower since Muse Glimmer is broadly weaker than Muse Spark 1.0, which received the same risk designation in these domains.\n\nIn the chem/bio domain, we evaluated Muse Glimmer on a range of benchmarks for scientific knowledge and wet-lab debugging (most performant in Muse Glimmer’s size class are bolded; second most performant is underlined — Kimi K3 is also included for context):\n\nWe find that Muse Glimmer’s abilities are approximately in line with other models in its size class, while showing strictly lower capabilities than larger open-weight models, suggesting that it is unlikely to materially enable new threats upon release. We also evaluated it on our suite that focuses on the unique set of bottlenecks that would otherwise deter or limit the success of real-world threat actors; here, our evaluation rated its risk rating at moderate or lower as well. See the Muse Spark Safety & Preparedness Report for a detailed description of the above evaluations and our methodology.\n\nIntended Use Cases: Muse Glimmer is intended for commercial and research use. The model is optimized for autonomous agentic tasks including:\n\nOut-of-scope: Use in any manner that violates applicable laws or regulations (including trade compliance laws). Use in any other way that is prohibited by the Apache 2.0 License terms. Audio input/output is not supported.\n\nMuse Glimmer is a technology that carries known and unknown risks. Testing conducted to date has not, and could not, cover all scenarios.\n\nResponsible Use: Developers should perform their own safety testing and tuning tailored to their specific applications and proposed languages. Our Usage Policy can be found here [link]. We recommend implementing additional guardrails (such as human-in-the-loop confirmation for irreversible actions) when deploying the model in agentic contexts where it can take real-world actions.\n\nAll artifacts are released under Apache 2.0:\n\nWhere to send questions or comments about the model: Please provide any feedback, comments or bug reports on the model through the Hugging Face page at https://huggingface.co/meta-models/. For more technical information about generation parameters and recipes for how to use Muse Glimmer in applications, please see the developer documentation.",
+    "readingTime": 6,
+    "keywords": [
+      "muse glimmer",
+      "reasoning strength",
+      "perception encoder",
+      "consumer hardware",
+      "additional guardrails",
+      "speculative decoding",
+      "evaluation datasets",
+      "size class",
+      "agentic tasks",
+      "autonomous agentic"
+    ],
+    "qualityScore": 1,
+    "link": "https://huggingface.co/unsloth/Muse-Glimmer-30B-GGUF",
+    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/unsloth/Muse-Glimmer-30B-GGUF.png",
+    "created_at": "2026-08-11T00:54:36.892Z",
+    "topic": "tech"
+  },
+  {
     "slug": "qadit-a-160m-texttoaudio-dit-trained-with-just-18-dollars",
     "title": "QaDiT: A 160M text-to-audio DiT trained with just 18 dollars",
     "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
@@ -2014,18 +2038,5 @@
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KPXMRBCBSR4Q7Y02N3DKB7WA/hero-image.fill.size_1200x675.jpg",
     "created_at": "2026-04-24T01:29:13.260Z",
     "topic": "health"
-  },
-  {
-    "slug": "every-test-at-the-us-armys-mad-science-lab",
-    "title": "Every test at the US Army's mad science lab",
-    "description": "As the military prepares for conflicts in harsher climates, the US Army's Natick Labs invests millions to improve what soldiers wear, eat, and carry.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/why-us-army-spends-millions-destroying-own-gear-2026-4",
-    "thumbnail_url": "https://i.insider.com/69e1c240cb96e245212af1e1?width=1200&format=jpeg",
-    "created_at": "2026-04-18T01:19:59.017Z",
-    "topic": "finance"
   }
 ]
