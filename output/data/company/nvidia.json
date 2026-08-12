@@ -1,5 +1,55 @@
 [
   {
+    "slug": "why-day-0-for-nemotron-35-lightning-wasnt-a-scramble",
+    "title": "Why Day 0 for Nemotron 3.5 Lightning wasn't a scramble",
+    "description": "NVIDIA released Nemotron-3.5-Lightning this morning. It was running on Modelplane by the afternoon, without a line of new Modelplane code, because day-zero model support is built into the design, not a scramble by the team.",
+    "fullText": "NVIDIA released Nemotron-3.5-Lightning this morning. We had it running on Modelplane, our open-source fleet-level control plane for inference, this afternoon. We validated it against a live endpoint on a real GPU, with a ready-to-run recipe published the same day.\n\nWe wrote no Modelplane code to get there. We didn't cut a release. Modelplane has zero day support for new models as an inherent property of its design.\n\nNemotron-3.5-Lightning is a 30B mixture-of-experts with 3B active parameters, built for the execution layer of long-running agents: the tool calls, result validation, and subagent handoffs a reasoning model triggers but doesn't do itself. It's a hybrid Mamba-Transformer, shipped in NVFP4, with open weights on Hugging Face. NVIDIA reports large output-speed gains over similarly sized models on agentic tasks; the numbers are in their announcement.\n\nStage the weights to the clusters where you want to deploy the model:\n\nThen deploy it. The deployment uses a stock vLLM container with the flags from NVIDIA's cookbook:\n\nThe NVFP4 checkpoint (~20 GiB) fits on a single H100 with room for the KV and Mamba caches, so it runs on one GPU in one pod.\n\nWe ran this recipe on vLLM, end to end on a single Nebius H100; serving and tool calls both worked. NVIDIA also publishes SGLang and TensorRT-LLM recipes for the same model. On Modelplane those are the same ModelDeployment with a different engine image and flags.\n\nRunning a new model almost always takes engine work. Sometimes the engine can't load the architecture until new code lands; sometimes it loads but support keeps improving for weeks. Nemotron-3.5-Lightning is a hybrid Mamba-Transformer served in NVFP4, so serving it well is real work in the engine: the architecture, the NVFP4 kernels, a state-space-model cache, a reasoning parser for its thinking format. That work happens in the engine, on the engine's schedule.\n\nBut what sits between a new engine build and you running it? Most systems that orchestrate engines on Kubernetes are coupled to the engine: they wrap it, pin its version, or ship it inside their own runtime image. When the engine moves to support a new model, a coupled layer often has to move with it. So the real sequence becomes upgrade the orchestration layer, then adopt the new engine, then run the model. Upgrading the layer that runs your whole fleet is a far bigger, riskier change than pulling a new engine image.\n\nModelplane is never in that chain. It doesn't wrap the engine or rewrite your flags; it runs the image, command, and args you give it, exactly as written. The engine is a container you point at, with no Modelplane version pinned to it. New engine, new model, nothing to upgrade in between. The design guarantees it.\n\nWhat Modelplane does instead is the fleet: provisioning clusters and node pools, scheduling each replica onto hardware that fits, caching weights once per cluster, scaling replicas, and routing through one OpenAI-compatible endpoint. None of that is model-specific, so a new model arrives on the engine's release cadence, whichever engine you run.\n\nYou can watch it happen. Support for this model is still improving in SGLang: a fix to its NVFP4 mixture-of-experts path is merged upstream but not yet in a tagged release. When it ships, adopting it is a one-line change, the engine image in a ModelDeployment, and nothing in Modelplane moves.\n\nThe full recipe is in the docs: Nemotron-3.5-Lightning on Modelplane.\nModelplane is Apache 2.0, still early, and evolving fast at github.com/modelplaneai/modelplane.\n\nIf you run inference across more than one cluster, we'd like your issues.",
+    "readingTime": 3,
+    "keywords": [
+      "hybrid mamba-transformer",
+      "engine",
+      "nemotron-3.5-lightning",
+      "layer",
+      "modelplane",
+      "recipe",
+      "release",
+      "weights",
+      "flags",
+      "model"
+    ],
+    "qualityScore": 1,
+    "link": "https://modelplane.ai/blog/nemotron-3-5-lightning-day-zero",
+    "thumbnail_url": "https://modelplane.ai/blog/nemotron-3-5-lightning-day-zero/cover.png",
+    "created_at": "2026-08-12T18:47:00.285Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "the-worlds-largest-sovereign-wealth-fund-revealed-a-12-billion-stake-in-spacex-heres-how-much-it-holds-of-techs-biggest",
+    "title": "The world's largest sovereign wealth fund revealed a $1.2 billion stake in SpaceX. Here's how much it holds of tech's biggest companies.",
+    "description": "Norway's sovereign wealth fund revealed it owns $1.2 billion of SpaceX. Here's how much it has invested in Nvidia, Apple, Alphabet, and more.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/norway-wealth-fund-reveals-1-billion-spacex-investment-2026-8",
+    "thumbnail_url": "https://i.insider.com/6a7c687fbd87410e364d1780?width=1200&format=jpeg",
+    "created_at": "2026-08-12T18:46:31.837Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "a-fresh-batch-of-earnings-show-the-markets-ai-trade-is-still-going-strong",
+    "title": "A fresh batch of earnings show the market's AI trade is still going strong",
+    "description": "The latest results from AI hardware makers come at a crucial time, as investors look for clues demand is strong ahead of Nvidia earnings in late August.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/coreweave-stock-price-earnings-nebius-nbis-ai-nvda-cpi-2026-8",
+    "thumbnail_url": "https://i.insider.com/6a7c7ac1c78818eff7d2c18c?width=1200&format=jpeg",
+    "created_at": "2026-08-12T18:46:31.691Z",
+    "topic": "finance"
+  },
+  {
     "slug": "nvidias-next-moat-is-something-chip-rivals-cant-copy-its-giant-pile-of-money",
     "title": "Nvidia's next moat is something chip rivals can't copy: its giant pile of money",
     "description": "Nvidia is turning its massive cash pile into a competitive moat, and now it's bringing Wall Street capital into its AI ecosystem.",
@@ -1500,56 +1550,6 @@
     "link": "https://www.businessinsider.com/jensen-huang-wouldnt-start-nvidia-again-knowing-pain-setbacks-2026-5",
     "thumbnail_url": "https://i.insider.com/6a0c33e1abc4e9d88574b508?width=1200&format=jpeg",
     "created_at": "2026-05-19T14:34:38.578Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "a-hedge-fund-run-by-a-former-openai-researcher-has-placed-huge-bearish-bets-against-the-top-ai-chip-makers",
-    "title": "A hedge fund run by a former OpenAI researcher has placed huge bearish bets against the top AI chip makers",
-    "description": "Leopold Aschenbrenner's hedge fund, Situational Awareness, ramped up bearish bets against top AI hardware stocks inc'uding Nvidia and AMD last quarter.",
-    "fullText": "Read in app\n\n Leopold Aschenbrenner's fund placed big bearish options bets against some of the top AI hardware stocks. \n The former OpenAI researcher's fund placed bets against stocks including Nvidia and AMD last quarter. \n Long positions and call options suggest the fund is bullish on other parts of the AI infrastructure trade. \n\n Why bet against AI chip makers?\n\n What factors impact AI infrastructure?\n\n Who is Leopold Aschenbrenner?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "fund placed",
-      "options",
-      "bets",
-      "stocks",
-      "infrastructure",
-      "leopold"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/openai-hedge-fund-bearish-ai-stocks-nvda-amd-put-options-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0b354b94eb4c909fb2d80c?width=1200&format=jpeg",
-    "created_at": "2026-05-18T19:23:35.774Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "amazons-titus-project-reveals-nvidias-real-power",
-    "title": "Amazon's 'Titus' project reveals Nvidia's real power",
-    "description": "Amazon's AI project Titus aims to future-proof data centers for Nvidia's GPUs, balancing its own AI chip ambitions and Nvidia's dominance.",
-    "fullText": "Read in app\n\n A version of this story originally appeared in the BI Tech Memo newsletter.\n\n What is Nvidia's role in AI hardware?\n\n What challenges does Amazon face with Nvidia?\n\n How does Amazon's AI strategy impact AWS?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.4,
-    "link": "https://www.businessinsider.com/nvidia-amazon-titus-project-gpus-trainium-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0b3fccecd7cc1332bb0bf7?width=1200&format=jpeg",
-    "created_at": "2026-05-18T19:23:35.520Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "all-eyes-are-on-google-and-nvidia-in-a-pivotal-week-for-the-ai-trade",
-    "title": "All eyes are on Google and Nvidia in a pivotal week for the AI trade",
-    "description": "Between Google's annual I/O conference and Nvidia earnings, this week could reshape the direction of AI stocks and the whole market.",
-    "fullText": "Read in app\n\n Tech stocks have been volatile lately as investors mull inflation worries against a broadening AI trade.\n Google's annual developer conference and Nvidia earnings this week could reshape things.\n Detailed below is what investors should expect from both events.\n\n What challenges do AI stocks face?\n\n What innovations are expected at Google I/O?\n\n How might inflation affect AI investment?\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "stocks",
-      "investors",
-      "inflation"
-    ],
-    "qualityScore": 0.5,
-    "link": "https://www.businessinsider.com/google-io-nvidia-earnings-preview-key-week-ai-stock-trade-2026-5",
-    "thumbnail_url": "https://i.insider.com/6a0a0c8dabc4e9d88574adf4?width=1200&format=jpeg",
-    "created_at": "2026-05-18T14:52:58.451Z",
     "topic": "finance"
   }
 ]
