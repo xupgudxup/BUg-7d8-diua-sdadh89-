@@ -1,5 +1,29 @@
 [
   {
+    "slug": "deepseekaideepseekv4pro0813",
+    "title": "DeepSeek-AI/DeepSeek-V4-Pro-0813",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+    "fullText": "DeepSeek-V4-Pro-0813 is the official release of DeepSeek-V4-Pro, superseding the preview version, with greatly enhanced agentic capabilities and performance improvements that are especially pronounced in production environments. It is built on the DeepSeek-V4-Pro (Preview) model structure, with a DSpark speculative decoding module attached.\n\nDeepSeek-V4-Pro-0813 outperforms DeepSeek-V4-Pro (Preview) on the benchmarks listed below, and is broadly competitive with the strongest proprietary models available.\n\nThis release does not include a Jinja-format chat template. Instead, we provide a dedicated encoding folder with Python scripts and test cases demonstrating how to encode messages in OpenAI-compatible format into input strings for the model, and how to parse the model's text output. Please refer to the encoding folder for full documentation.\n\nThe reasoning_effort parameter now supports three levels — low, high, and max — which control how much deliberation the model spends before answering.\n\nDSpark speculative decoding is enabled with a single flag — add --speculative-config with method: dspark to your vLLM launch command:\n\n--speculative-config '{\"method\":\"dspark\",\"num_speculative_tokens\":7,\"draft_sample_method\":\"greedy\"}'\n\nFor example, the command below serves the model with vLLM on a single 4×GB300 node. \nSee the vLLM recipe for detailed instructions and other hardware configurations.\n\nEnable DSpark with --speculative-algorithm DSPARK and do not set a separate --speculative-draft-model-path as the target and draft weights therefore come from the same checkpoint.\nSee the SGLang cookbook for detailed instructions, benchmarks and other hardwares configurations.\n\nPlease refer to the inference folder for detailed instructions on running DeepSeek-V4 locally, including model weight conversion and interactive chat demos.\n\nFor local deployment, we recommend setting the sampling parameters to temperature = 1.0, with top_p = 0.95 for agentic scenarios and top_p = 1.0 otherwise. For the high and max reasoning effort levels, we recommend a maximum output length of 384K tokens.\n\nThis repository and the model weights are licensed under the MIT License.\n\nIf you have any questions, please raise an issue or contact us at service@deepseek.com.",
+    "readingTime": 2,
+    "keywords": [
+      "please refer",
+      "dspark speculative",
+      "speculative decoding",
+      "encoding folder",
+      "detailed instructions",
+      "deepseek-v4-pro preview",
+      "model",
+      "vllm",
+      "release",
+      "agentic"
+    ],
+    "qualityScore": 1,
+    "link": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813",
+    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/deepseek-ai/DeepSeek-V4-Pro-0813.png",
+    "created_at": "2026-08-13T12:43:49.288Z",
+    "topic": "tech"
+  },
+  {
     "slug": "former-openai-executive-kevin-weil-has-sought-a-valuation-of-at-least-750-million-for-his-new-ai-science-startup",
     "title": "Former OpenAI executive Kevin Weil has sought a valuation of at least $750 million for his new AI science startup",
     "description": "Kevin Weil, the former chief product officer of OpenAI, is in discussions to raise a round of funding for a new AI science startup.",
@@ -2013,19 +2037,6 @@
     "link": "https://www.businessinsider.com/guides/learning/coursera-free-classes-college-students",
     "thumbnail_url": "https://i.insider.com/6841ee3c9d73a0031e8df999?width=1200&format=jpeg",
     "created_at": "2026-04-25T01:22:43.850Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "10-great-coursera-online-masters-degree-programs-you-can-apply-to-this-summer-from-data-science-to-public-health",
-    "title": "10 great Coursera online master's degree programs you can apply to this summer, from data science to public health",
-    "description": "E-learning platform Coursera offers online graduate degree programs from schools like UPenn, Imperial College London, and the University of Michigan.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/guides/learning/coursera-online-master-degrees",
-    "thumbnail_url": "https://i.insider.com/6841ee3c9d73a0031e8df999?width=1200&format=jpeg",
-    "created_at": "2026-04-25T01:22:43.644Z",
     "topic": "finance"
   }
 ]
