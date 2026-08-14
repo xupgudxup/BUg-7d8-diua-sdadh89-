@@ -1,5 +1,18 @@
 [
   {
+    "slug": "spacexs-60-billion-acquisition-of-cursor-just-closed-heres-3-ways-theyre-already-working-together",
+    "title": "SpaceX's $60 billion acquisition of Cursor just closed — here's 3 ways they're already working together",
+    "description": "SpaceX closed its $60 billion acquisition of the AI coding startup Cursor on Friday. The companies were already sharing compute and training data.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/spacex-cursor-acquisition-partnership-grok-bot-colossus-2026-8",
+    "thumbnail_url": "https://i.insider.com/6a7f13fcc78818eff7d2cf36?width=1200&format=jpeg",
+    "created_at": "2026-08-14T18:40:14.374Z",
+    "topic": "finance"
+  },
+  {
     "slug": "ai-coding-startup-cognition-in-talks-to-raise-at-40b-valuation",
     "title": "AI coding startup Cognition in talks to raise at $40B valuation",
     "description": "Cognition may be looking to raise another mega round just a few months after raising $1 billion at a $26 billion valuation.",
@@ -1902,30 +1915,6 @@
     "link": "https://github.com/ohad6k/VibeRaven",
     "thumbnail_url": "https://opengraph.githubassets.com/369c5f4ffe92e4a6415ac14b33a778526036873f911d2eadc6f5bcb1318d40b3/ohad6k/VibeRaven",
     "created_at": "2026-06-29T10:20:34.661Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "brainmd-a-persistent-memory-layer-for-your-coding-agents",
-    "title": "Brain.md – A persistent memory layer for your coding agents",
-    "description": "A persistent, file-based memory layer for coding agents — give Claude Code, Codex & others a project brain (durable decisions, requirements, constraints) via a zero-dependency CLI. - mindmuxai/...",
-    "fullText": "A persistent memory layer for your coding agents.\n\n An open, agent-agnostic standard for capturing a project's durable knowledge as plain\n Markdown — read and written through one small CLI. It lives in your repo and travels across agents, machines, and models.\n\nWhy ·\n Quick start ·\n See it work ·\n CLI ·\n How it works\n\nThis repository is the toolkit, not a brain itself. Install it once, then run brain-setup\ninside any project: it scaffolds a BRAIN.md protocol\nfile and a brain/ directory into your repo. From then on, any coding agent — Claude Code,\nCodex, anything that reads files — learns to use that brain just by reading the project's\nBRAIN.md. The brain is plain Markdown, lives in the repo, and outlives every session.\n\nA coding agent's knowledge lives nowhere durable. The reasons behind a decision, the\nconstraints you agreed on, the path not taken — they sit in chat logs and in your head,\nand they vanish the moment the session ends. The next agent starts from zero.\n\nA brain fixes that. It is the project's persistent memory: the durable decisions,\nrequirements, and constraints, written down as plain Markdown next to the code.\n\nThe test for what belongs in it: will this still matter in six months, and is it hard to\nreconstruct from the code itself? If yes, it goes in the brain. Pure implementation details\nand anything readable straight from the code and git history stay where they are.\n\n1. Install the tools once (global):\n\n2. Initialize a project — run the brain-setup skill in it. It scaffolds BRAIN.md +\nthe brain skeleton, wires the chosen agents' config files, and can install a pre-commit hook.\n\n3. Seed real knowledge — run the brain-bootstrap skill. On an existing project it reads\nthe code, docs, and git log to draft the root pages and capture key decisions; on a near-empty\none it interviews you. (Setup leaves the brain empty on purpose — seeding is a separate, deliberate step.)\n\n4. Work as usual. The agent reads and writes the brain only through the brain CLI,\nfollowing BRAIN.md — brain files are never hand-edited.\n\nThe point of a brain is what happens across sessions — a decision made today is still\nthere, with its rationale, weeks later:\n\nReading and writing the brain both go through one zero-dependency Node CLI (run with node):\n\nA page carries a rewritable compiled_truth (the current best understanding) plus an\nappend-only timeline (the chain of evidence). update-truth rewrites the truth and appends\nits timeline entry in one atomic write — so the understanding can never change without a trace.\n\nThree design choices keep the brain durable and tamper-evident:\n\nbrain.md is led and incubated by MindMux — the standalone open-source landing of\nMindMux's Brain Spec + coding-agent adapter. The specification layer uses neutral naming so it\ncan be adopted widely; stewardship and maintenance belong to MindMux. Licensed under Apache-2.0.",
-    "readingTime": 3,
-    "keywords": [
-      "plain markdown",
-      "scaffolds brain.md",
-      "persistent memory",
-      "brain",
-      "durable",
-      "coding",
-      "agents",
-      "project's",
-      "knowledge",
-      "repo"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/mindmuxai/brain.md",
-    "thumbnail_url": "https://opengraph.githubassets.com/be7894a051d9c87e9deba5eec0d71a57510255ccfcba87114f04f92b85cf929b/mindmuxai/brain.md",
-    "created_at": "2026-06-29T10:20:31.061Z",
     "topic": "tech"
   }
 ]
