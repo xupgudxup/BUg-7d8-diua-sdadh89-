@@ -1,5 +1,29 @@
 [
   {
+    "slug": "title-deepseek-v4-is-live-on-clawbox-and-the-agentic-coding-jump-is-real",
+    "title": "Title: DeepSeek V4 Is Live on ClawBox, and the Agentic Coding Jump Is Real",
+    "description": "DeepSeek V4 is out of preview and already serving every ClawBox AI session. V4-Pro-0813 moves DeepSWE from 12.8 to 62.7. Full benchmarks and tier mapping.",
+    "fullText": "DeepSeek took V4 out of preview today. V4-Pro moved to the 0813 build, V4-Flash to 0731, and both are now general availability. We checked our production routing this morning. The unversioned aliases auto-resolve on DeepSeek's endpoint, which means every ClawBox AI session is already hitting the new builds. There is nothing for you to restart and nothing to configure.\n\nBefore any numbers, the caveat that matters. Everything below is DeepSeek's own reported figures from their August release notes. Independent evaluators are still running their suites against 0813. We are publishing these because the size of the movement is worth knowing about now, not because anyone outside DeepSeek has confirmed them yet.\n\nDeepSWE measures whether a model can trace dependencies through a real multi-file codebase and actually fix the bug. It is the benchmark that best predicts whether an agent is useful on your repository rather than on a toy problem.\n\nV4-Pro scored 12.8 in preview. The 0813 build scores 62.7. That is close to a fivefold move on the metric that matters most for the work our users actually do.\n\nV4-Pro takes CyberGym at 83.3, just past Fable 5 on 83.1. On Terminal-Bench 2.1 it lands at 87.9, ahead of Opus-4.8 and a whisker behind Fable 5 and Kimi-K3.\n\nIt loses DeepSWE. Fable 5 sits at 70.0 and Kimi-K3 at 67.5, both clearly ahead of 62.7. We are showing you that row because you will find it anyway, and because a model that closes this much ground in one release is interesting without needing to win every column.\n\nThe 62.7 belongs to V4-Pro, and V4-Pro serves the Max tier. On the Pro tier your requests route to V4-Flash-0731. Our plan is called Pro and it does not run the model called Pro. That naming collision is ours, not DeepSeek's, and we would rather put it in writing than let you infer it.\n\nFlash is a serious model in its own right. It moved from 7.3 to 54.4 on DeepSWE and hits 82.7 on Terminal-Bench 2.1, which places it above where V4-Pro sat in preview a few weeks ago.\n\nV4 is text-only, and it fails silently on images. The official API replaces an image block with placeholder text rather than returning an error, so the model will answer confidently about a picture it never received.\n\nKeep V4 prompts to code and text. If your workflow leans on screenshots or diagrams, route those to a vision-capable model instead.\n\nThe upgrade already happened, so there is nothing to claim. Open a session and throw a genuinely messy multi-file refactor at it. Dependency tracing is where the difference shows up fastest.\n\nAll benchmark figures on this page are DeepSeek's own published results, August 2026.",
+    "readingTime": 3,
+    "keywords": [
+      "model",
+      "deepseek's",
+      "preview",
+      "rather",
+      "deepseek",
+      "session",
+      "figures",
+      "august",
+      "release",
+      "multi-file"
+    ],
+    "qualityScore": 1,
+    "link": "https://clawbox.com/blog/2026-08-14-deepseek-v4-is-live-on-clawbox-agentic-coding-jump",
+    "thumbnail_url": "https://clawbox.com/clawbox-logo.png",
+    "created_at": "2026-08-15T12:17:03.795Z",
+    "topic": "tech"
+  },
+  {
     "slug": "spacexs-60-billion-acquisition-of-cursor-just-closed-heres-3-ways-theyre-already-working-together",
     "title": "SpaceX's $60 billion acquisition of Cursor just closed — here's 3 ways they're already working together",
     "description": "SpaceX closed its $60 billion acquisition of the AI coding startup Cursor on Friday. The companies were already sharing compute and training data.",
@@ -1891,30 +1915,6 @@
     "link": "https://sagenschneider.blogspot.com/2026/06/will-ai-keep-us-stuck-in-2020.html",
     "thumbnail_url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vOeUfxXTPnU-fQWtm-72Di5oobeeC_INS6p_E6A6PnjiCYQ8ndfTDWKI04E5g-9Pbsnpdnv9ueST4writdR5T0uKKdaZnb9zfOMYehbWo1JLtXew=w1200-h630-n-k-no-nu",
     "created_at": "2026-06-29T15:29:10.408Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "viberaven-production-workflows-for-ai-coding-agents",
-    "title": "VibeRaven – Production workflows for AI coding agents",
-    "description": "Open-source mission control for AI-built apps. The operating layer for apps built by AI agents — providers, releases, production evidence, and version drift from first demo to real scale. - ohad6k/...",
-    "fullText": "Ship AI-built apps with evidence, not vibes.\n\nVibeRaven is the VibeRaven Production Skills plus a local Studio cockpit for AI-built apps. Use it while building, fixing, reviewing releases, or preparing a launch when an agent needs provider context, release context, approval-aware chat, safe repo changes, and evidence before it claims the work is ready.\n\nThe public repo is the agent discovery and installation surface: plugin-style metadata, portable slash commands, production skills, MCP notes, and AI-readable docs.\n\nAI coding agents are good at patching code and bad at knowing what they cannot prove. VibeRaven Production Skills are not passive reports; they are task workflows an agent can use while implementing, reviewing, debugging, or preparing launch-sensitive work.\n\nVibeRaven gives agents a contract:\n\nThat matters during feature work, auth fixes, billing changes, deploy debugging, release comparison, post-launch drift, and production readiness.\n\nOpen the local cockpit from any project:\n\nStudio gives you agentic chat, draggable providers, draggable versions/releases, provider MCP context, terminal output, diff context, access-mode control, and CLI-agent connection checks. Installed is not the same as connected; test the agent connection before real chat control.\n\nInstall bounded VibeRaven guidance for Codex, Claude Code, Cursor, Copilot, Gemini, and related agents:\n\nThe installer writes rules into supported agent instruction files, including AGENTS.md, CLAUDE.md, GEMINI.md, Cursor rules, Copilot instructions, and .viberaven context files.\n\nVibeRaven ships as a portable skill/plugin-style pack:\n\nBrowse the skill library in docs/production-skills.md.\n\nVibeRaven can be exposed to MCP-aware agents:\n\nUse MCP output as provider and readiness context for Studio-aware agents. The repo also keeps MCP registry metadata in docs/mcp-registry-submission.md so maintainers can verify the public MCP discovery surface alongside npm and skills.sh metadata.\n\nexamples/nextjs-supabase-vercel-production-ready-template includes agent rules and viberaven:* scripts for Next.js + Supabase + Vercel.\n\nOlder VibeRaven docs and compatibility tools may mention agent-mode scans, task lists, gate results, PRP resources, or scan-derived action manifests. Treat that language as compatibility context, not the main public product surface.\n\nThe current default is the Studio:\n\nNormal git push is not gated. VibeRaven language about readiness is about production-change confidence, release review, provider-aware evidence, and agent boundaries, not blocking ordinary repository work.",
-    "readingTime": 2,
-    "keywords": [
-      "ai-built apps",
-      "production skills",
-      "viberaven production",
-      "context",
-      "evidence",
-      "provider",
-      "release",
-      "chat",
-      "repo",
-      "surface"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/ohad6k/VibeRaven",
-    "thumbnail_url": "https://opengraph.githubassets.com/369c5f4ffe92e4a6415ac14b33a778526036873f911d2eadc6f5bcb1318d40b3/ohad6k/VibeRaven",
-    "created_at": "2026-06-29T10:20:34.661Z",
     "topic": "tech"
   }
 ]
