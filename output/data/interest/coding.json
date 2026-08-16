@@ -1,5 +1,29 @@
 [
   {
+    "slug": "find-out-what-your-coding-agents-cost-you",
+    "title": "Find out what your coding agents cost you",
+    "description": "Local developer observability sidecar, transcript mining, and workflow skill miner for Claude Code & Antigravity. - ACE-Engineering/ace-sidecar",
+    "fullText": "Local developer observability for AI coding agents — see what your Claude Code and Antigravity sessions actually cost.\n\nWhat it does · Requirements · Install · Quickstart · Features · Who builds this · Configuration · Endpoints · Development · License\n\nACE Sidecar runs a proxy on your machine in front of the model provider, recording what each turn costs — tokens in and out, what came from cache, how long you waited. It also reads your existing transcripts (~/.claude/projects, ~/.gemini/antigravity/brain), so there is history to show from the first run.\n\nNothing leaves your machine: no account, no upload. Metrics live in a local SQLite file you can delete.\n\nBuilt by ACE Fleet — see Who builds this.\n\nNeed a newer Python? brew install python@3.12 (macOS), sudo apt install python3.12 (Debian/Ubuntu), sudo dnf install python3.12 (Fedora), python.org (Windows), or uv python install 3.12 (anywhere).\n\nBoth give ace its own isolated environment and put it on your PATH. With plain pip, use a virtual environment:\n\nIf install fails with Could not find a version that satisfies the requirement ace-sidecar, your Python is older than 3.12. The message blames the package, but the package is fine — the interpreter is too old.\n\nIf ace: command not found after installing, run uv tool update-shell or pipx ensurepath, then open a new terminal.\n\nThen point your agent at it and open the dashboard:\n\nUse your coding agent as normal — turns appear live, with your transcript history already loaded.\n\nOn a Claude subscription, start with ace up --no-key (Claude Code sends its own credential and the sidecar relays it), or put {\"no_key\": true} in ~/.ace/config.json. ace up --help lists every flag.\n\nAntigravity needs no setup and no base URL: it is read from its transcripts on disk, so its sessions appear in the dashboard whether or not the sidecar was running at the time. Only Claude Code routes through the proxy.\n\nUnified view across agents. Claude Code and Antigravity in one place, with per-agent cost, sessions, turns and models. Pick one agent and the page scopes to it.\n\nReal spend against published prices. Per-turn cost from a versioned rate catalog — input, output, cache-read, and derived cache-write rates — with the source and the date it was checked. Cache savings shown as a counterfactual.\n\nRecommendations off a measured threshold. Each one fires on a number from your own transcripts and carries its saving, its cost, and its risk.\n\nOptimisation levers, ranked by what they are worth to you. The rail orders every lever by the money it would recover on your transcripts, with the share of your bill and the risk beside it. Each is scored alone, so the figures overlap and do not sum — and none are wired yet: this release measures.\n\nWorkflow skill miner. Repeated command sequences become reusable SKILL.md rules, installable into .agents/skills/<id>/ in one click.\n\nWhere the time goes. Wall clock split across model generating, tool execution, human composing, and idle — including time parked on approval prompts.\n\nPrometheus exporter. 15 metrics in standard text exposition format at GET /metrics, for Prometheus, Grafana Alloy, OpenTelemetry Collector, VictoriaMetrics, or Datadog. See docs/PROMETHEUS_METRICS.md.\n\nACE Sidecar is built by ACE Fleet.\n\nACE Fleet is a middleware proxy for companies scaling AI applications. It sits between their services and the model providers and reduces what they spend on inference as that usage grows — across every workload in the business, not one team's tooling. That is the product.\n\nThis sidecar is one vertical of it, open-sourced on its own: the same accounting, pointed at a single developer's coding agents.\n\nThe two answer different questions. The sidecar answers where is my money going on the machine in front of you, at a scale small enough to check by hand. Fleet answers what do we do about it once that question is being asked of an entire company's traffic.\n\nOpen-sourcing the coding-agent slice is deliberate: it is the part a developer can run in one command, on their own data, without talking to anyone — and the clearest way to show how the larger system reasons about cost. If it is useful at your desk, we would like to hear about it.\n\nSettings resolve in order: CLI flags → ~/.ace/config.json → environment variables → defaults.\n\nDelete ~/.ace/ to remove everything recorded.\n\nBinds loopback and refuses non-local callers; a public bind needs --allow-remote.\n\nGNU Affero General Public License v3.0.",
+    "readingTime": 4,
+    "keywords": [
+      "coding agents",
+      "install python",
+      "claude code and antigravity",
+      "transcripts",
+      "sessions",
+      "proxy",
+      "machine",
+      "model",
+      "metrics",
+      "environment"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/ACE-Engineering/ace-sidecar",
+    "thumbnail_url": "https://opengraph.githubassets.com/2980a507fb04f88ee3feeaec01f4bd1c3e967fe55656c2bc6586fb980eeba46e/ACE-Engineering/ace-sidecar",
+    "created_at": "2026-08-16T00:38:47.335Z",
+    "topic": "tech"
+  },
+  {
     "slug": "title-deepseek-v4-is-live-on-clawbox-and-the-agentic-coding-jump-is-real",
     "title": "Title: DeepSeek V4 Is Live on ClawBox, and the Agentic Coding Jump Is Real",
     "description": "DeepSeek V4 is out of preview and already serving every ClawBox AI session. V4-Pro-0813 moves DeepSWE from 12.8 to 62.7. Full benchmarks and tier mapping.",
@@ -1902,19 +1926,6 @@
     "link": "https://blog.codacy.com/we-scanned-34266-repos.-1-in-4-orgs-showed-gaps-in-ai-agent-config-files",
     "thumbnail_url": "https://blog.codacy.com/hubfs/Blog%20Assets%202026/We%20Scanned%20AI%20Agent%20Config%20Files%20Across%2034,266%20Repositories/AgentLinter%20Data.png",
     "created_at": "2026-07-01T09:28:03.051Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "will-ai-keep-us-stuck-in-2020-architectures",
-    "title": "Will AI keep us stuck in 2020 architectures?",
-    "description": "Every time I sit down with an AI coding assistant, I notice the same thing: it is very  good at Spring. Annotations, profiles, @Autowired , ...",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://sagenschneider.blogspot.com/2026/06/will-ai-keep-us-stuck-in-2020.html",
-    "thumbnail_url": "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vOeUfxXTPnU-fQWtm-72Di5oobeeC_INS6p_E6A6PnjiCYQ8ndfTDWKI04E5g-9Pbsnpdnv9ueST4writdR5T0uKKdaZnb9zfOMYehbWo1JLtXew=w1200-h630-n-k-no-nu",
-    "created_at": "2026-06-29T15:29:10.408Z",
     "topic": "tech"
   }
 ]
