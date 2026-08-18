@@ -1,5 +1,29 @@
 [
   {
+    "slug": "bezos-consortium-bought-almost-40-of-liverpool",
+    "title": "Bezos consortium bought almost 40% of Liverpool",
+    "description": "A consortium including Amazon founder Jeff Bezos bought close to 40% of Liverpool from Fenway Sports Group (FSG).",
+    "fullText": "A consortium including Amazon founder Jeff Bezos bought close to 40% of Liverpool from Fenway Sports Group (FSG).\n\nIt was initially reported that 1892 Holdings had bought about a third of the club, but - as first reported by The Athletic, external - it is actually about 38%.\n\nThere is also an option for the consortium to buy a controlling stake in Liverpool in the next 12 months, though that does not involve a formal commitment.\n\nIn a statement on Friday, FSG confirmed it had entered into a \"definitive agreement\" for the sale of a \"strategic minority investment\" to 1892 Holdings.\n\nThe group - named after Liverpool's founding year - is led by British-Indian millionaire businessman Amit Bhatia and also includes Bezos and billionaire Facebook co-founder Eduardo Saverin.\n\nBhatia will become Liverpool's vice-chairman and join an expanded board pending regulatory approval.\n\nThe son-in-law of Indian billionaire businessman Lakshmi Mittal, he had been a director and co-owner of Queens Park Rangers for 18 years before relinquishing his stake in the club last month.\n\nThe deal is understood to value Liverpool between £5bn and £6bn.\n\nBreakouts & wildcards - 13 surprise stars for new season\n\nLatest Liverpool news, analysis and fan views\n\nAsk about Liverpool - what do you want to know?",
+    "readingTime": 2,
+    "keywords": [
+      "consortium",
+      "club",
+      "stake",
+      "liverpool's",
+      "businessman",
+      "billionaire",
+      "liverpool",
+      "bezos",
+      "holdings",
+      "bhatia"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://www.bbc.co.uk/sport/football/articles/cly9l92kj6po?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/88c0/live/1f977b10-9b0c-11f1-bb80-c1b1e1adeea5.jpg",
+    "created_at": "2026-08-18T18:21:40.669Z",
+    "topic": "sports"
+  },
+  {
     "slug": "amazon-which-started-off-selling-books-is-destroying-rare-texts-to-train-ai",
     "title": "Amazon, which started off selling books, is destroying rare texts to train AI",
     "description": "Rare books are incredibly valuable for training LLMs, since these models have already trained on whatever's available online.",
@@ -1694,30 +1718,6 @@
     "link": "https://www.theguardian.com/us-news/2026/jun/09/seattle-ai-datacenters-ban",
     "thumbnail_url": "https://i.guim.co.uk/img/media/d95014f829b570930b70e3b287ca806f253c67e4/492_0_3511_2811/master/3511.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=4c2b1ae6e8561c187bd2b13fafc3c146",
     "created_at": "2026-06-10T20:10:24.882Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "we-leaked-75-aws-keys-to-see-who-watches-private-repos-turn-public",
-    "title": "We leaked 75 AWS keys to see who watches private repos turn public",
-    "description": "We made 75 GitHub repos public on a timer and logged who came. The internet finds a public repo in 6 minutes, and without enterprise tools, you'd never know it flipped.",
-    "fullText": "Make a private repo public and it stays undiscovered for 6 minutes. Past that, the internet is reading it. We put a live AWS key in 75 throwaway repos, made each public for one of five timed windows from 60 seconds to 12 hours, 15 repos per window, and logged every use. The key was just a tripwire. What we wanted to know is how long it takes anyone watching to notice, and what their intent is once they have.\n\nWhat follows are the answers, and then the part that matters more for most teams: without enterprise tooling, the repo could go public and nobody would reliably hear of it.\n\nEach dot in the chart below is one time something touched a key, placed by how long after the repo went public it landed, on a log scale. Hover any dot for the detail.\n\nTwo things are visible. First, the earliest action on a newly public repo came at 6 minutes, and most first visits landed around minute 8. Second, keys are used even after the repos were hidden again, so going private is not enough to undo the exposure.\n\nThe parties that showed up split three ways. Only one went further than the rest and probed the account behind the key. Most did nothing but check, over and over, that the key still worked. And one was not an outside party at all: AWS, locking the key down on a signal from GitHub.\n\nOutside parties used the keys 139 times. 5 of those came from a single host running the AWS SDK for Python. It called DescribeInstances to list EC2 machines and ListTables to list DynamoDB tables, mapping out the account rather than just confirming the key worked. That was the only hands-on activity in the whole run, and it touched just 2 repos.\n\nThe moment a repo went public, GitHub’s free, built-in secret scanning kicked in and reported the exposed secret to AWS. AWS then attached a quarantine policy that strips the key of its dangerous permissions. That lockdown, the green dots in the chart, did not land until 4.5 to 9 hours after exposure. Because the catch is GitHub’s own, even the 60-second repos had their keys quarantined, the ones no outside party ever reached.\n\nWhoever showed up, the exposure was the same. A repo goes public, the internet starts reading at minute 6, and the source sits exposed beside the key. And the flip isn’t always an accident: turning a private repo public is a recognized way to exfiltrate code, watched for by detection rules and catalogued by MITRE. You can rotate a key; you can’t un-share code.\n\nGitHub logs the flip and tells you nothing, the same as branch protection coming off, a check dropped, a reviewer removed, or scanning switched off. Tools that catch it do exist. The security-posture platforms big companies run will flag it, but they assume a security team to run them and a budget to match, so a smaller team that only wants to know when a repo setting changes has nothing built for it.\n\nThat’s what we’re building Codatus for: a read-only install that watches the settings this post is about, a repo going public, branch protection coming off, a check or reviewer dropped, scanning switched off, and tells you the moment one changes. We’re planning to launch at $99/month, with early users locked in at that rate.",
-    "readingTime": 3,
-    "keywords": [
-      "branch protection",
-      "outside party",
-      "scanning switched",
-      "repo",
-      "repos",
-      "keys",
-      "exposure",
-      "check",
-      "minutes",
-      "internet"
-    ],
-    "qualityScore": 1,
-    "link": "https://codatus.com/blog/we-leaked-75-aws-keys-to-see-who-watches-public-repos/",
-    "thumbnail_url": "https://codatus.com/og/we-leaked-75-aws-keys-to-see-who-watches-public-repos.png",
-    "created_at": "2026-06-10T14:52:07.820Z",
     "topic": "tech"
   }
 ]
