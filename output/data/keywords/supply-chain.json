@@ -1,5 +1,42 @@
 [
   {
+    "slug": "chaindrop-worm-crawls-into-npm-supply-chain-evades-standard-defenses",
+    "title": "ChainDrop worm crawls into NPM supply chain, evades standard defenses",
+    "description": "Shai-Hulud variant poisons 444 packages, spreads via tarballs and dev-tool hooks",
+    "fullText": "Shai-Hulud variant poisons 444 packages, spreads via tarballs and dev-tool hooks\n\nA new variant of the Shai-Hulud npm worm has poisoned hundreds of packages while adding propagation techniques that can leave little trace in the corresponding source repositories.\n\nIn Frank Herbert’s Dune, Shai-Hulud was the name of the giant self-sustaining desert sandworms that moved silently beneath the surface of the planet Arrakis. So it made sense that when some new self-replicating malware with computer worm-like behavior appeared in September 2025, security researchers would name it after Herbert’s fictional creatures.\n\nThe latest variant of Shai-Hulud, dubbed “ChainDrop” by Microsoft and others, is no mere sequel, however. Now, the npm community is discovering a Shai-Hulud variant spreading with new stealthy superpowers that circumvent the usual safeguards of open source repositories.\n\nOn August 4, multiple security researchers identified a large-scale npm supply chain attack using this Shai-Hulud variant that had infected 444 packages from multiple publishers, which are collectively downloaded about 2 billion times a month. The operation targeted widely used deep infrastructure dependencies, such as keyv, flat-cache and cache-manager.\n\nAbby Kearns, CEO of enterprise open source security company ActiveState, noted in a Medium post that what is unique about this particular attack is that it doesn’t use the typical methods of breaching the defenses of open source repositories.\n\nEven if you never install an infected package (“npm install” in npm argot), you can still get the nasties – though that is one possible route of infection. Once triggered, ChainDrop also places startup hooks into the repository configuration files themselves: Simply opening an infected Git branch in VS Code or Claude Code can bring your repository under ChainDrop’s control.\n\nScouring your code itself may not provide evidence of tampering. ChainDrop propagates not by repository source commits but by tarballs, an archive format for downloading file packages.\n\nWhen executed, the software scours the user’s workspace for npm tokens with full write privileges, as well as for other credentials like cloud keys and secrets. It looks in shell configurations, environment variables and even live memory. Any purloined data is encrypted and sent back to attacker-controlled endpoints.\n\nShould it find an npm token, it then downloads the tarballs of all the packages that token has full access to, bypassing the repositories themselves.\n\nThat’s the genius part: ChainDrop self-replicates by rebuilding the tarball to include its own payload. Reviewing the source code repository won’t reveal any evidence of shenanigans.\n\nChainDrop’s attack is two-pronged. It also searches for GitHub credentials. If it finds any, it queries the GitHub API to list all accessible repositories and branches and then commits its malicious configuration code directly into those branches.\n\nSo when other developers open these repositories using Claude or VS Code, a background task gets triggered that harvests credentials, beginning the whole cycle anew.\n\nThis attack is particularly pernicious because npm is widely integrated into automated CI/CD pipelines, which can automatically pull patch updates for dependencies during a rebuild - giving the worm a path to wiggle into fresh builds.\n\nIf you think you've been infected, the first thing to do is check for any .claude/settings.json and .vscode/tasks.json files you did not add yourself, ActiveState’s Kearns advised. And don’t just check the main branch, but all the other branches as well.\n\nAll the infected packages were quickly yanked from npm. Open source security firm SafeDep offers a list of all the compromised packages along with version numbers, so check those against what you currently have running.\n\nBeyond cleaning up the mess, developers and security teams should rethink how their systems could be breached in light of ChainDrop.\n\nTrusted publishing tools such as GitHub Actions should be evaluated, for starters. Begin “treating repository-supplied configuration as executable content, because that is what it is now,” Kearns wrote.\n\n“What this campaign really found was an execution path that dependency scanning tools were not configured to look at, sitting inside the exact tools engineering organizations have spent two years adopting as fast as they could,” Kearns wrote. “This is the first campaign to notice the gap and use it at scale. It will not be the last one.” ®",
+    "readingTime": 4,
+    "keywords": [
+      "shai-hulud variant",
+      "security researchers",
+      "infected packages",
+      "vs code",
+      "repositories",
+      "attack",
+      "repository",
+      "tarballs",
+      "configuration",
+      "credentials"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/security/2026/08/15/chaindrop-worm-crawls-into-npm-supply-chain-evades-standard-defenses/5287958",
+    "thumbnail_url": "https://image.theregister.com/5288064.jpg?imageId=5288064&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+    "created_at": "2026-08-18T12:23:37.201Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ukrainian-forces-are-repurposing-assault-robots-for-logistics-missions-because-of-supply-bot-shortages",
+    "title": "Ukrainian forces are repurposing assault robots for logistics missions because of supply bot shortages",
+    "description": "Ukrainian officials have said that they want the robots to handle 100% of battlefield logistics, which have become deadly missions.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/ukrainian-forces-using-assault-ground-robots-for-logistics-because-shortages-2026-8",
+    "thumbnail_url": "https://i.insider.com/6a832259ea8d1a3f6f203036?width=1200&format=jpeg",
+    "created_at": "2026-08-18T12:23:15.812Z",
+    "topic": "finance"
+  },
+  {
     "slug": "rugged-robotic-mules-could-make-dangerous-supply-missions-safer-for-us-soldiers-but-there-are-some-things-still-to-work",
     "title": "Rugged robotic mules could make dangerous supply missions safer for US soldiers, but there are some things still to work out",
     "description": "Ukraine has seen success in using uncrewed ground vehicles, or UGVs, for logistics runs, keeping soldiers out of direct danger.",
@@ -1864,38 +1901,6 @@
     "link": "https://grith.ai/blog/agent-skills-supply-chain",
     "thumbnail_url": "https://grith.ai/blog/agent-skills-supply-chain/hero-skills-supply-chain-1600x900.png",
     "created_at": "2026-03-02T18:32:52.592Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "shannons-revenge-detect-claude-in-your-codebase-for-dod-compliance",
-    "title": "Shannon's Revenge – detect Claude in your codebase for DoD compliance",
-    "description": "Complying with the recent supply chain risk designation from the DoW - dabrez/shannonsRevenge",
-    "fullText": "dabrez\n\n /\n\n shannonsRevenge\n\n Public\n\n Complying with the recent supply chain risk designation from the DoW\n\n License\n\n MIT license\n\n 1\n star\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n dabrez/shannonsRevenge",
-    "readingTime": 1,
-    "keywords": [
-      "star",
-      "license"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://github.com/dabrez/shannonsRevenge",
-    "thumbnail_url": "https://opengraph.githubassets.com/d1b9b47bd1d8bde02c7e2e8796899d9975c36bf1cb70f838d4bf09841a44e23e/dabrez/shannonsRevenge",
-    "created_at": "2026-03-02T01:09:47.501Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "skillfortify-formal-verification-for-ai-agents-autodiscovers",
-    "title": "SkillFortify, Formal verification for AI agents (auto-discovers)",
-    "description": "SkillFortify: Formal analysis and supply chain security for agentic AI skills - varun369/skillfortify",
-    "fullText": "varun369\n\n /\n\n skillfortify\n\n Public\n\n SkillFortify: Formal analysis and supply chain security for agentic AI skills\n\n doi.org/10.5281/zenodo.18787663\n\n License\n\n MIT license\n\n 4\n stars\n\n 0\n forks\n\n Branches\n\n Tags\n\n Activity\n\n Star\n\n Notifications\n You must be signed in to change notification settings\n\n varun369/skillfortify",
-    "readingTime": 1,
-    "keywords": [
-      "skillfortify",
-      "license"
-    ],
-    "qualityScore": 0.4,
-    "link": "https://github.com/varun369/skillfortify",
-    "thumbnail_url": "https://opengraph.githubassets.com/652dcb4db89278f9ceb591abd633681cffcf6a2df6e067a6dd5626ed8a481110/varun369/skillfortify",
-    "created_at": "2026-03-01T06:33:48.295Z",
     "topic": "tech"
   }
 ]
