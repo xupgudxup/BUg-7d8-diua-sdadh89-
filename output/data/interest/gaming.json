@@ -1,5 +1,29 @@
 [
   {
+    "slug": "the-expected-value-of-showing-up",
+    "title": "The expected value of showing up",
+    "description": "A coding challenge prompted the creation of three distinct video games by leveraging AI agents, ultimately highlighting the importance of effective prompt engineering and the value of participation despite initial hesitations.",
+    "fullText": "“I’m not too sure that many people will compete. So, the expected value of joining is actually pretty high.”\n\nThat’s the DM that got me into this. Not “you’re good enough.” Just: most people won’t bother, so the odds are better than they look. I’d already turned the invitation down once. Then Roman did the math at me, and I couldn’t argue with it.\n\nThe invitation was a coding challenge he runs: build a video game with a single prompt. One message, sent to an AI coding agent in an empty directory. After you hit enter, you don’t touch anything. No follow-up questions, no course corrections, no “actually, make it blue.” Whatever the agent builds from that one message is your entry. Judges score the game, then break the winning prompt down line by line.\n\nIf you’ve used an AI assistant recently, you know how wild that constraint is. Half my interactions are “no, that’s not what I meant” by message three. Getting a whole game out of one message means everything has to be in the prompt before you start: the goal, the architecture, the definition of done, and the answers to questions the agent hasn’t asked yet. The prompt has to steer without a steering wheel.\n\nI didn’t sit down and think of a game. I asked three different agents to do it for me.\n\nSame brief to each: a strong game concept for this challenge. Three different harnesses, two different models. And three completely different afternoons.\n\nBoth sessions running GLM-5.2 skipped any deliberation and pitched games on the spot. Both, without comparing notes, pitched roguelikes. Hermes Agent came back with Body Snatcher, a possession game where you’re a ghost with one hit point and no attack, and you survive by literally wearing your enemies: twelve of them, each with its own hunting AI and a different move set once it’s your body.\n\nPi running the same model pitched Underdepths, a classic dungeon crawler in Python: procedurally generated floors, enemies that hunt you through the dark, gear, levels, a dragon at the bottom.\n\nThe third session, running GPT-5.6 Sol, behaved like a different species. It opened a full brainstorm first: forced relationships, morphological analysis, SCAMPER, constraint mapping. Twenty-three ideas, developed and narrowed over four structured phases. What survived was Adaptive Loop, a deterministic strategy puzzle about rotating glass rings to route nutrients through a microbial ecosystem that adapts against you. It’s the most original of the three, and I’ll admit I don’t fully understand it while playing it.\n\nThree briefs in, I had three concepts and no way to pick. So I didn’t.\n\nFrom there, everything standardized. Every build ran the same way: Pi, my coding agent, with all my saved skills switched off, running GPT-5.6 Sol. The only variable left was the prompt itself.\n\nAugust 12 to 16. Sixteen complete runs: five passes on Body Snatcher, four on Adaptive Loop, seven on Underdepths. Each pass was a fresh empty directory, one message, hands off. Between passes I rewrote the prompt and let the corpse of the last run decide what to change.\n\nThat cadence, prompt → run → autopsy → prompt, taught me more about directing agents than months of normal back-and-forth work. Because there’s no conversation, every failure traces back to something the prompt failed to say. What the corpses taught me:\n\nMake the agent build its own verifier first. The Underdepths prompt never says “make a game.” Its opening move: “write a test suite that defines done, then write a build pipeline that dispatches each phase of work to a headless copy of yourself, gates every phase behind those tests, and feeds failures back in.” The agent built itself a small factory, and the factory wouldn’t let it ship broken floors.\n\nSpecify what must be true, never how. The prompts that worked state pass conditions and boundaries: what counts as done, who may touch what. They never prescribe data structures or algorithms. The moment I told an agent how, it stopped thinking and started transcribing.\n\nKeep the scars. One dead run shipped stairs that existed in the map data but were never drawn—you couldn’t see the way down. The next prompt carried the line “a prior build shipped stairs only in map data, never drawn. Do not repeat that.” Every dead pass left a sentence like that behind. Those scar sentences are the actual prompt engineering.\n\nPin what the model will otherwise optimize away. Body Snatcher’s spec says, in bold, that enemies must never damage each other. Sounds obvious. But the first builds had bombers and turrets clearing whole floors on their own, and suddenly there was no game—just an arena watching itself. Rules that feel trivial to a human are load-bearing, and the only way to know which ones is to watch a run collapse without them.\n\nThree finished games. A possession roguelike in a single HTML file with zero dependencies. A Python dungeon crawler built by an agent-driven factory that passed every one of its own gates. And a deterministic glass-ring ecosystem I can’t quite master, generated by the one model that brainstormed before it spoke.\n\nThe challenge rules say one prompt, one entry. I submitted all three games, one uncut video showing all three being played, and told the judges to pick. The whole thing was one experiment anyway: same brief, same process, three prompts. The code is public in the repo; the prompts went to the judges privately, as the rules require.\n\nI don’t know yet how the challenge shakes out. But the meta-lesson already paid for itself. Roman’s expected-value argument isn’t really about contests. Nearly everything worth entering has a showing-up problem: the field is small because most people talk themselves out of it. I was most people, briefly. Then a two-sentence DM did the math at me.\n\nThe odds are better than they look. Enter the thing.\n\nPlay them: repo at git.babylondreams.de/AlexKucer…",
+    "readingTime": 5,
+    "keywords": [
+      "dungeon crawler",
+      "shipped stairs",
+      "coding agent",
+      "body snatcher",
+      "adaptive loop",
+      "prompt",
+      "game",
+      "message",
+      "challenge",
+      "don’t"
+    ],
+    "qualityScore": 1,
+    "link": "https://alexanderkucera.com/2026/08/17/the-expected-value-of-showing.html",
+    "thumbnail_url": "https://s3.amazonaws.com/micro.blog/opengraph/2026/08/17/5972200.png",
+    "created_at": "2026-08-19T18:18:50.774Z",
+    "topic": "tech"
+  },
+  {
     "slug": "will-the-future-of-gaming-be-powered-by-upstart-indie-developers",
     "title": "Will the future of gaming be powered by upstart indie developers?",
     "description": "As gaming’s biggest publishers retreat into safer bets, a new generation of independents are building an alternative from the ground up\n• Don’t get Pushing Buttons delivered to your inbox? Sign up here\nDuring the 1990s, a new strata of independent film studios and distributors revitalised the Hollywood movie machine. The likes of Miramax, New Line Cinema and October Films challenged the ageing behemoths of the industry and pushed forward offbeat directors such as Quentin Tarantino, Darren Aronofsky and Jane Campion. The decade is widely considered an artistic high point for western cinema after the bloated mainstream excesses of the 1980s. Could something similar now be happening in games?",
@@ -1963,20 +1987,5 @@
     "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1601/16018044/4688601-interfacex.jpg",
     "created_at": "2026-04-27T19:03:30.978Z",
     "topic": "gaming"
-  },
-  {
-    "slug": "i-didnt-like-that-my-son-was-spending-his-allowance-on-gaming-purchases-turns-out-he-was-learning-financial",
-    "title": "I didn't like that my son was spending his allowance on gaming purchases. Turns out, he was learning financial responsibility.",
-    "description": "I resisted my son's gaming purchases, but they ended up teaching him budgeting, planning, and financial responsibility.",
-    "fullText": "At first, in-game purchases felt like such a waste of money to me.\n Letting my son spend his money was an effective and safe way to help him make financial decisions.\n Open conversation, rather than control, is helping us encourage his independence.\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "money"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/kids-in-game-purchases-financial-lessons-parenting-2026-4",
-    "thumbnail_url": "https://i.insider.com/69d7e95696ef6a4c9d12155d?width=1200&format=jpeg",
-    "created_at": "2026-04-27T01:46:59.204Z",
-    "topic": "finance"
   }
 ]
