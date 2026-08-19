@@ -1,5 +1,29 @@
 [
   {
+    "slug": "mirrorspeaker-use-your-windows-pc-as-an-iphone-speaker",
+    "title": "MirrorSpeaker – Use your Windows PC as an iPhone speaker",
+    "description": "Use a Windows 11 PC as an iPhone Bluetooth speaker or AirPlay screen receiver. - codyabraham/MirrorSpeaker",
+    "fullText": "MirrorSpeaker is a small Windows desktop app that turns a PC into an AirPlay screen receiver or an iPhone Bluetooth speaker. It uses Windows' built-in Bluetooth audio receiver for phone-only video apps such as TikTok, and gives UxPlay a simple native interface for AirPlay mirroring.\n\nPrivacy policy · Security policy ·\nCode signing policy · MIT license\n\nThe public source repository is\ngithub.com/codyabraham/MirrorSpeaker.\n\nThe mirrored video opens in a separate GStreamer window managed by UxPlay. Keeping the media renderer separate is the most reliable Windows configuration supported by the upstream receiver.\n\nThe public source build requires Windows 11 and the .NET 10 LTS SDK. From\nPowerShell in this folder:\n\nThe published app is framework-dependent and does not bundle Microsoft .NET or\nWPF runtime binaries. Running dist\\win-x64\\MirrorSpeaker.exe requires the\nMicrosoft .NET 10 Desktop Runtime (x64) to be installed.\n\nWith the pinned Inno Setup 7.0.2 installed, create the per-user Windows\ninstaller, portable ZIP, and SHA-256 checksum file with:\n\nThe outputs are written below artifacts\\release. The installer adds Start\nMenu and desktop shortcuts, registers a normal Windows uninstaller, and\nsupports Inno Setup's silent switches. It first checks for a compatible\nMicrosoft .NET 10 Desktop Runtime (x64). If that runtime is missing, setup\nclearly prompts the user, downloads only the pinned official Microsoft\n10.0.10 x64 runtime, verifies its SHA-256 checksum, and runs Microsoft's\nruntime installer. An Internet connection and administrator approval for that\nMicrosoft system prerequisite may therefore be required; MirrorSpeaker itself\nremains a per-user installation. The pinned runtime-installer SHA-256 is\ne82fc901c8f52d716293b2bc0830ce0dd254a06268c457a19e8fc503560a84d1.\n\nThe portable ZIP does not download or bundle .NET. Its\nMirrorSpeaker.exe requires the Microsoft .NET 10 Desktop Runtime (x64) to be\ninstalled before launch. The ZIP uses portable.flag so MirrorSpeaker settings\nand pairing records stay with the extracted app.\n\nThe first public release intentionally does not redistribute a prebuilt\nreceiver engine. AirPlay setup remains an explicit, user-initiated local\nsource build. A future release may include a pruned, versioned receiver\npackage built by scripts\\Build-ReceiverPackage.ps1 only after the receiver\nhas a reproducible public CI build, complete corresponding source, and an\nexplicit license and legal review. The internal-test override and its\nartifacts are never publishable. See\ndocs/RELEASING.md for the complete signing, licensing,\nsilent-install, and clean-Windows test checklist.\n\nFor TikTok or normal iPhone audio, choose Bluetooth speaker — best for TikTok. MirrorSpeaker checks Windows' Bluetooth-device records first, selects an already-connected iPhone, and reuses it without pairing again. Connected beside the phone describes its general Bluetooth link; only the Bluetooth connected status badge confirms that Windows also opened the separate audio receiver profile. If that profile does not open, MirrorSpeaker reports a failure and this PC will not appear as an iPhone audio destination yet. If the iPhone is not listed, click Bluetooth settings, confirm Windows shows it, return to MirrorSpeaker, and click Refresh phones. Bluetooth mode needs neither the AirPlay engine nor a Private Wi-Fi network or firewall exception.\n\nAirPlay requires the iPhone and PC on the same local network. Guest Wi-Fi, VPNs, access-point/client isolation, or VLAN separation can block AirPlay discovery.\n\nIf the PC does not appear on the iPhone:\n\nIf the iPhone connects but video or audio does not appear:\n\nFor TikTok, use Bluetooth speaker — best for TikTok. TikTok may treat AirPlay screen mirroring as external playback and stop its local picture. Bluetooth avoids that AirPlay classification. Windows does not expose codec or buffer controls for this receiver API, so a small wireless delay remains. Using another wireless headset or speaker creates two radio hops and can be less reliable than the PC's built-in speakers or wired headphones. MirrorSpeaker keeps an enabled receiver alive after a transient Windows opening failure, recognizes a later phone-initiated connection, and makes bounded background attempts to open or recover the audio link.\n\nThe smoke tests cover safe argument construction, port validation, receiver log/PIN interpretation, engine discovery, settings persistence, and wireless-output classification. A physical iPhone is required for end-to-end Bluetooth audio validation; AirPlay mirroring also requires a local Wi-Fi network.\n\nMirrorSpeaker has no telemetry or project-operated cloud service. The screen\nstream travels directly from the iPhone to the PC over the local network.\nPairing is enabled by default, and the provided firewall rules apply only to\nPrivate networks. The AirPlay receiver and its dependencies connect to the\nnetwork only for the user-requested operations described in the\nprivacy policy. Please report vulnerabilities privately as\ndescribed in the security policy.\n\nMirrorSpeaker has not yet been accepted into the SignPath Foundation\nopen-source program. Current builds are unsigned and must not be represented\nas signed. If the project is accepted, official Windows releases will use:\n\nFree code signing provided by SignPath.io, certificate by SignPath Foundation\n\nCode-signing roles are currently assigned as follows:\n\nMirrorSpeaker Project is the publisher stored in the product and installer\nmetadata. A future SignPath signature would instead show SignPath Foundation\nas the Authenticode certificate signer; the two fields have different\npurposes. See the complete code signing policy.\n\nMirrorSpeaker's original C# and XAML controller code is open source under the\nMIT License. The user-initiated receiver setup obtains and locally\nbuilds the pinned UxPlay revision recorded in\nscripts/Install-ReceiverEngine.ps1;\nUxPlay is GPL-3.0. UxPlay-derived source fragments and patch payloads embedded\nin that script are GPL-3.0 material and are not covered by MirrorSpeaker's\nroot MIT license.\n\nUxPlay also warns that the legal status of its third-party GPL PlayFair\nlibrary for handling FairPlay is unclear. MirrorSpeaker repeats that warning\nwithout making a legal determination or representing that redistribution has\nbeen approved. This is one reason the first public release must omit the\nprebuilt receiver binary.\n\nThe framework-dependent application does not redistribute Microsoft .NET or\nWPF runtime binaries. The normal Windows installer can obtain the pinned\nMicrosoft .NET 10 Desktop Runtime prerequisite directly from Microsoft when it\nis missing; the portable ZIP requires that runtime to be installed separately.\nThe application does include Microsoft's unmodified Windows SDK .NET projection\nassemblies needed to call the Windows Bluetooth APIs; their Windows SDK terms\nand the remaining SignPath System Library review are disclosed in the\nthird-party notices.\nThe user-initiated receiver setup obtains GStreamer and MSYS2 locally, and the\nWindows setup and uninstall programs contain Inno Setup-generated code. Each\nthird-party component remains governed by its respective license. See\nTHIRD-PARTY-NOTICES.txt for the full notices and\nreceiver redistribution restrictions.",
+    "readingTime": 6,
+    "keywords": [
+      "sha checksum",
+      "portable zip",
+      "mit license",
+      "wi-fi network",
+      "wpf runtime",
+      "net desktop",
+      "bluetooth speaker",
+      "airplay screen",
+      "airplay mirroring",
+      "normal windows"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/codyabraham/MirrorSpeaker",
+    "thumbnail_url": "https://opengraph.githubassets.com/91385187c94342dd330f5f37f7509d10119f148ea16f056e6cfd062c06aea2cc/codyabraham/MirrorSpeaker",
+    "created_at": "2026-08-19T12:22:47.816Z",
+    "topic": "tech"
+  },
+  {
     "slug": "firefox-can-now-block-ads-on-ios-but-you-have-to-enable-it",
     "title": "Firefox Can Now Block Ads on iOS (but You Have to Enable It)",
     "description": "The new feature will block most (but not all) ads.",
@@ -2175,18 +2199,5 @@
     "thumbnail_url": "https://i.insider.com/69e6ac4f367066d7c296eda5?width=1200&format=jpeg",
     "created_at": "2026-04-21T01:26:20.654Z",
     "topic": "finance"
-  },
-  {
-    "slug": "how-to-decide-how-much-iphone-storage-you-need",
-    "title": "How to decide how much iPhone storage you need",
-    "description": "You can buy an iPhone with five different amounts of storage space: 64 gigabytes, 128GB, 256GB, 512GB, and one terabyte.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/guides/tech/how-much-iphone-storage-do-i-need",
-    "thumbnail_url": "https://i.insider.com/66edcd1fcfb7f307e573a7c3?width=1200&format=jpeg",
-    "created_at": "2026-04-21T01:26:20.275Z",
-    "topic": "tech"
   }
 ]
