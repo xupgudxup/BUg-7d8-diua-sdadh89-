@@ -1,5 +1,29 @@
 [
   {
+    "slug": "rove-parallel-coding-agents-that-can-fan-out-subtasks-and-report-back",
+    "title": "Rove – parallel coding agents that can fan out subtasks and report back",
+    "description": "Rove — the agent multiplexer for your terminal. Run coding agents on parallel tasks with isolated worktrees and persistent sessions. - Sma1lboy/rove",
+    "fullText": "Rove is a terminal-native workspace for running multiple coding tasks in parallel with Claude Code, Codex, Copilot, Kimi, or any CLI you register.\n\nRove isolates parallel work in git worktrees and branches, while agent and shell sessions keep running when you disconnect.\n\nDocumentation ·\n Quick start ·\n Concepts ·\n CLI ·\n Agent API ·\n Website\n\nThe sidebar tracks tasks and their sessions, the workspace embeds the active agent or shell, and the files pane shows the worktree's changes. Switch tasks to review output, inspect diffs, run tests, or send the next instruction.\n\nOne line, on a machine with nothing installed — it sets up the Bun runtime Rove needs, then Rove itself:\n\nOr use the package manager you already have:\n\nInstall the skill to let a coding agent orchestrate Rove directly:\n\nThen launch it in a repository:\n\nRove needs git and at least one supported agent CLI on PATH, and runs on macOS, Linux, and Windows; Windows also requires Node.js and Git for Windows/Git Bash. The CLI itself runs on Bun ≥ 1.3.11 — every install route above brings it along, and ROVE_BUN=/path/to/bun points Rove at a Bun installed somewhere unusual.\n\nPress n, choose a repository, base branch, and agent, then enter a prompt. Press F1 for the live keybinding reference; ctrl+q returns to the sidebar and quits from there without stopping sessions.\n\nThe package also installs kobe as a compatibility alias; rove is the canonical command. On first launch, supported legacy state is copied additively into ~/.rove; existing files and worktrees stay in place.\n\nTabs inside one task share its files; create separate managed tasks when work needs isolation. Project-main tasks and rove . directory tasks deliberately reuse an existing directory. Sessions continue in the background when the TUI detaches, and Rove restores them when you return.\n\nThe usual loop is simple: start several different tasks, switch between their live sessions, review each worktree's diff and checks, send follow-up instructions, then merge the completed branches. See Concepts and Sessions for the full lifecycle.\n\nrove api exposes the same task model to shell scripts and coding agents. A typical workflow creates a task, checks its output, sends follow-up instructions, and lands the completed branch:\n\nInstall the companion skill to let a coding agent orchestrate Rove directly:\n\nTasks created from inside another Rove session remember which task and tab dispatched them, so workers can report results back without an external coordinator. The API also covers task inspection, notifications, prompts, panes, issue tracking, routines, and worktree-safe lifecycle operations.\n\nSee the Agent API reference for every verb, flag, and exit code.\n\nRove works with the tools you already use: your editor, terminal, git workflow, and coding agents.\n\nIt runs the interactive agent CLIs you already use, keeps their sessions alive on the host, and lets you manage parallel coding tasks directly from your terminal — including over SSH.\n\nExplore the TUI guide, Routines, configuration, and plugin authoring for details.\n\nSee Troubleshooting for diagnostics and recovery steps.\n\nStart with CONTRIBUTING.md and Architecture. Shipped behavior lives in the changelog.",
+    "readingTime": 3,
+    "keywords": [
+      "follow-up instructions",
+      "orchestrate rove",
+      "agent api",
+      "rove needs",
+      "rove directly",
+      "coding agents",
+      "coding tasks",
+      "parallel",
+      "shell",
+      "files"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/Sma1lboy/rove",
+    "thumbnail_url": "https://opengraph.githubassets.com/216e5d1251b12ea12fa658ccedae6540fc96f6f17282604ce60d08511eca76bc/Sma1lboy/rove",
+    "created_at": "2026-08-20T06:26:27.457Z",
+    "topic": "tech"
+  },
+  {
     "slug": "cognition-ceo-denies-report-that-spacex-tried-to-acquire-the-startup",
     "title": "Cognition CEO denies report that SpaceX tried to acquire the startup",
     "description": "SpaceX was reportedly in talks to buy AI coding startup Cognition. SpaceX has already acquired Cursor as it races to catch up to rivals like OpenAI and Anthropic in enterprise AI.",
@@ -1927,19 +1951,6 @@
     "link": "https://www.businessinsider.com/recruiting-practices-ai-vibe-coding-startups-cognition-cursor-replit-interview-2026-7",
     "thumbnail_url": "https://i.insider.com/6a45e4ac1aaffe3020cb1fb5?width=1200&format=jpeg",
     "created_at": "2026-07-03T08:47:48.228Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "alibaba-to-ban-employees-from-using-anthropics-coding-tool-source-says",
-    "title": "Alibaba to ban employees from using Anthropic’s coding tool, source says",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/alibaba-to-ban-claude-code-in-workplace-over-alleged-backdoor-risks-source-says-4775035",
-    "thumbnail_url": "https://i-invdn-com.investing.com/trkd-images/LYNXMPEM620CS_L.jpg",
-    "created_at": "2026-07-03T08:47:47.424Z",
     "topic": "finance"
   }
 ]
