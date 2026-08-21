@@ -1,5 +1,29 @@
 [
   {
+    "slug": "theres-no-such-thing-as-a-small-software-team-anymore",
+    "title": "There's no such thing as a small software team anymore",
+    "description": "Uber infamously runs thousands of microservices. They ended up with so many services because hundreds of engineers wanted to deploy on their own schedule, with clear ownership of their code, instead of waiting in one giant merge queue.\nFor decades a small team with 5 or 10 people writing code at the same time didn’t even need to consider doing this. On a busy day a small team might generate 50 commits/20 pushes/10 PRs. A small team today, running 20-100 agents in parallel, might generate 500 commits/200 pushes/100 PRs.",
+    "fullText": "Uber infamously runs thousands of microservices. They ended up with so many services because hundreds of engineers wanted to deploy on their own schedule, with clear ownership of their code, instead of waiting in one giant merge queue.\n\nFor decades a small team with 5 or 10 people writing code at the same time didn’t even need to consider doing this. On a busy day a small team might generate 50 commits/20 pushes/10 PRs. A small team today, running 20-100 agents in parallel, might generate 500 commits/200 pushes/100 PRs.\n\nSo Uber’s approach to modularity may have seemed extreme at the time, but it could become the new normal.\n\nOne developer coding in a “single-threaded” way, editing one file at a time:\n\nOne developer coding in a “multi-threaded” way, using coding agents in parallel:\n\nIf you have a large monolithic service where every change has to be coordinated carefully, there’s a good chance two pieces of significant work will trample on each other and force you to resolve merge conflicts and refactor.\n\nIf you have thousands of microservices like Uber, you’ve got an “embarrassingly parallel” way of working on code. Fire up a coding agent for each one, tell it to “improve performance”, and there’s a good chance you ship significant improvements across all of them.\n\n100+ coding agents running in parallel have to work well independently. If they spend all their time resolving merge conflicts, fixing broken builds, and creating deployment nightmares, you can end up with net-negative productivity.\n\nSplitting things up used to be very expensive, since every service meant more boilerplate, plumbing, and CI config. Agents write all of that now, so the overhead matters a lot less.\n\nAgents are also extremely context-limited. A module (whether it’s a service or a library) that’s small enough to fit in the context window dramatically improves coding agent performance.\n\nThe modularity of your codebase determines how many coding agents you can run in parallel effectively, so now it’s worth designing for it from the beginning.\n\nHacker News\n Discuss on Bluesky",
+    "readingTime": 2,
+    "keywords": [
+      "pushes prs",
+      "generate commits",
+      "merge conflicts",
+      "developer coding",
+      "coding agent",
+      "coding agents",
+      "parallel",
+      "code",
+      "team",
+      "service"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://jacob.gold/posts/theres-no-such-thing-as-a-small-software-team/",
+    "thumbnail_url": "https://jacob.gold/images/theres-no-such-thing-as-a-small-software-team.webp",
+    "created_at": "2026-08-21T00:39:34.043Z",
+    "topic": "tech"
+  },
+  {
     "slug": "john-gruber-calls-claudes-ai-watermarking-patently-offensive",
     "title": "John Gruber calls Claude's AI watermarking 'patently offensive'",
     "description": "Anthropic is adding a watermark to Claude's output. Tech blogger John Gruber says it could prioritize traceability over the quality of the writing.",
@@ -1917,29 +1941,5 @@
     "thumbnail_url": "https://spectrum.ieee.org/media-library/image.jpg?id=66659083&width=1200&height=600&coordinates=0%2C50%2C0%2C50",
     "created_at": "2026-05-02T12:44:27.901Z",
     "topic": "tech"
-  },
-  {
-    "slug": "snap-ceo-praises-ai-for-writing-twothirds-of-the-companys-code-but-warns-fellow-tech-executives-underestimate-societal",
-    "title": "Snap CEO praises AI for writing two-thirds of the company’s code but warns fellow tech executives underestimate ‘societal pushback’ to the tech",
-    "description": "A survey in March found only 26% of Americans had a favorable view of AI.",
-    "fullText": "Snap, the tech company behind the social media app SnapChat, introduced on Tuesday AI Sponsored Snaps, an advertising tool that will allow users to chat with AI bots from a brand partnered with the social media platform. It’s one of the many ways the company has continued to lean into AI. But Snap CEO Evan Spiegel said the pivot toward new technologies won’t necessarily help the company score any popularity points.\n\nWhat is Snap's new AI Sponsored Snaps feature?\n\nWhat challenges do AI companies face with public acceptance?\n\nHow has Snap successfully integrated AI into its platform?\n\nWhy does the public have negative views on AI?\n\n“I think technology leaders think that folks will just blindly adopt new technology as it comes out,” Spiegel said in an episode of “Lenny’s Podcast” earlier this week, “And I think we’re going to enter a period of time where there’s going to be a huge amount of societal pushback on a lot of the changes that are coming with AI.”\n\nSpiegel has touted Snap’s own ability to lean hard into AI without alienating usership—the company currently boasts a billion monthly users. The platform launched its chatbot “My AI” in Feb. 2023, just months after the release of OpenAI’s ChatGPT. Earlier this month, Spiegel called AI “probably the best thing that’s ever happened” to the company and said AI now writes two-thirds of the company’s code. Snap grew its subscriber count 71% year-over-year in the last quarter of 2025 and now has more than 25 million paid subscribers. Its revenue grew 11% year-over-year in 2025, reaching $5.9 billion.\n\nAn NBC News poll published in March found that of 1,000 registered voters, only 26% had a positive view of AI, while 46% had a negative view. That makes AI only more popular than the Democratic party, which had a 22-point net negative rating, as well as Iran, which had a 53-point net negative rating. Fear of the technology has even pushed some employees, particularly young people, to undermine their workplace’s AI rollout. A survey of 2,400 knowledge workers from AI agent firm Writer and research firm Workplace Intelligence found 29% of employees—and 44% of Gen Z workers—admitted to sabotaging their employer’s implementation of AI tools.\n\nDespite heavy criticism, Big Tech has poured $700 billion in capital expenditures into AI. The tech’s usership has also continued to grow, with 57% of Americans reporting using the technology, and 40% using generative AI more than they did a year ago, a Brookings Institute report noted.\n\nBut CEOs are also continuing to grow more aware of how the broader public feels about the technology. In March, Sam Altman admitted AI had become the bogeyman, warning continued widespread scrutiny could slow the technology’s growth.\n\n“AI is not very popular in the U.S. right now,” he said.",
-    "readingTime": 3,
-    "keywords": [
-      "sponsored snaps",
-      "social media",
-      "net negative",
-      "negative rating",
-      "technology",
-      "platform",
-      "users",
-      "lean",
-      "year-over-year",
-      "view"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/sectors/technology/articles/snap-ceo-praises-ai-writing-090500386.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/O7Qx_bVhRRYgv_8j_nDlWw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/fortune_175/5823a01d49b3b514c4ad3927893ec5ff",
-    "created_at": "2026-05-02T01:47:28.980Z",
-    "topic": "finance"
   }
 ]

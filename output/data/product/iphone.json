@@ -1,5 +1,29 @@
 [
   {
+    "slug": "chatgpt-can-now-control-imessage-potentially-raising-apple-privacy-concerns",
+    "title": "ChatGPT Can Now Control iMessage, Potentially Raising Apple Privacy Concerns",
+    "description": "OpenAI rolled out support on Thursday for controlling Apple Inc.’s iMessage service via ChatGPT, a move with the potential to raise privacy concerns for the iPhone maker.",
+    "fullText": "(Bloomberg) -- OpenAI rolled out support on Thursday for controlling Apple Inc.'s iMessage service via ChatGPT, a move with the potential to raise privacy concerns for the iPhone maker.\n\nChina Sentences Evergrande's Hui to Life for 'Heinous' Crime\n\nBessent Deploys Debt Buybacks in Sign of Concern Over Yield Rise\n\nUS 30-Year Bonds Reverse Gains From Treasury's Buyback Surprise\n\nUS Set to Cut Tariffs on Canada Metals, Autos in Trade Deal\n\nNatalie Harp, Trump's Gatekeeper, Is at Center of Senator Jon Ossoff Clash\n\nThe new feature, available for ChatGPT on the Mac, allows the OpenAI system to take actions such as reading, writing and sending text messages. It also can search through messages and get summaries and other information about conversations from the Apple Messages app.\n\nApple has positioned itself as a staunch privacy advocate, and it's protective about the contents of users' messages. An OpenAI tool that could upload Apple customer data to that company's network is likely to spark questions.\n\nAn Apple representative didn't immediately respond to requests for comment.\n\nThe move comes at a time of broader tension between the two companies. Apple sued OpenAI last month, accusing the AI provider of stealing information about upcoming products.\n\nIn response to questions about the new feature, OpenAI stressed that it requires a user's consent and doesn't create an index of all someone's messages. The plug-in also runs locally on the Mac and uses existing operating system tools, such as AppleScript and Accessibility, to work with the Messages app, OpenAI said.\n\nThere are several opt-in menus in both the ChatGPT app and Apple's own operating system about the tie-in. When a user first sets up the integration, a permissions screen appears in ChatGPT that says the computer's on-device message history will be accessed by the app.\n\nUsers are also required to change privacy-related preferences within the Mac's System Settings app. That includes enabling a feature named Full Disk Access. Moreover, users need to give ChatGPT permission to access the names of contacts and automation tools. It's similar to the settings that need to be enabled to turn on popular AI-based automation software like Codex Computer Use.\n\nOpenAI recently rolled out support for analyzing information in a user's iPhone and iPad Health app, but Apple's iOS and iPadOS operating systems have a feature that requires customers to specifically approve their data being given to ChatGPT.\n\nChatGPT already works with other Mac apps, including the Xcode programming suite, Notes and Terminal, though those tie-ins are less likely to upset Apple's privacy managers and marketing teams than an unofficial Messages integration.",
+    "readingTime": 3,
+    "keywords": [
+      "operating system",
+      "messages app",
+      "feature",
+      "privacy",
+      "users",
+      "apple's",
+      "openai",
+      "chatgpt",
+      "rolled",
+      "iphone"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://finance.yahoo.com/technology/ai/articles/chatgpt-now-control-imessage-potentially-205633657.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/1B192D3238BE3470CB5D376E14677E0207959EE8DFBE49F703A23AC72F8964F9/subgraphmysterio/resizefill_w1200_h800;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fbloomberg_holding_pen_162%2F405ee776f56f44e2e4cda02e89384a39.jpg",
+    "created_at": "2026-08-21T00:39:36.499Z",
+    "topic": "finance"
+  },
+  {
     "slug": "pragma-a-claude-code-pipeline-for-ios-94-merged-prs",
     "title": "Pragma, a Claude Code pipeline for iOS (94 merged PRs)",
     "description": "Claude Code slash commands for agent-driven iOS development - spec to release in 8 stages - akshaypimprikar/pragma",
@@ -2178,30 +2202,6 @@
     "link": "https://apps.apple.com/us/app/pente-go/id6449915046",
     "thumbnail_url": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d3/45/da/d345dacc-c07b-6382-0c0e-eb02e3c16f8d/Placeholder.mill/1200x630wa.jpg",
     "created_at": "2026-04-24T07:48:03.458Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "did-apple-just-fix-the-iphone-bug-that-let-the-fbi-recover-deleted-signal-messages",
-    "title": "Did Apple Just Fix the iPhone Bug That Let the FBI Recover Deleted Signal Messages?",
-    "description": "Apple's latest security update appears to address the issue.",
-    "fullText": "Earlier this month, 404 Media broke a fascinating, complex, and concerning story: The FBI had successfully retrieved incoming Signal messages from a defendant's iPhone, despite the fact that those messages were set to self-destruct within the famously secure chat app. Though it's easy to assume Signal would be to blame, it turns out the fault was with iOS—and Apple may have just fixed the problem.\n\nTo recap: 404 Media spoke to someone who attended the trial in question, where the court learned that all iPhone notifications are stored in a database on the device. So even though the Signal messages were deleted, their notification data remained in this database, from where the FBI was able to obtain them. (The defendant's own messages weren't present, since only incoming texts would generate notifications.)\n\nThe story generated buzz across the tech community. Many of us who have used iPhones since their inception 20 years ago were surprised to learn about this \"notification database,\" a revelation that prompted discussions of the best way to shore up iPhone notification security. Based on the information revealed in the court case, the best course of action seemed to be to block sensitive data from showing up in notifications—if you stop Signal from revealing message info in its alerts, then an intruder accessing your notification database would only see you received a Signal notification, and not what the message said or who it was from. Still, there were unanswered questions: Do notifications remain in the database after you clear them? And if you don't, how long do they stay there?\n\nWhile we don't exactly have answers to those questions, we're perhaps a bit closer to them. On Wednesday, Apple dropped iOS 26.4.2. This update doesn't include any new features or changes, so don't expect your iPhone to look any different after you install it. In fact, the vague release notes only offer that the update \"provides bug fixes and security updates for your iPhone.\" However, click through to Apple's security releases site, and you'll find the official security notes for 26.4.2. Here, we can see one bug fix for Notification Services: \"Notifications marked for deletion could be unexpectedly retained on the device.\"\n\nThere's no easy way to confirm that this fix was issued in response to the Signal news, but the timing is curious, to say the least. What are the chances that, just weeks after the disclosure that the FBI had accessed a user's \"notification database\" to retrieve deleted messages, Apple would issue a fix for a bug that left deleted notifications somewhere on the device? Even still, there are lingering questions: Did the defendant in the case delete the notifications from their iPhone, or just the messages? Did the notifications appear to clear on their own after the messages self-destructed? For what it's worth, Apple also released iOS 18.7.8, which fixes the same Notification Services bug for the older build of iOS. I've reached out to Apple for clarification and will update this piece if I hear back.\n\nIf this update does indeed prevent actors from obtaining previously deleted notifications from our iPhones, it's a good idea to install it ASAP. To do so, head to Settings > General > Software Update, then follow the on-screen instructions to download and install the update. The same applies if you're on iOS 18 trying to install iOS 18.7.8.",
-    "readingTime": 3,
-    "keywords": [
-      "signal messages",
-      "notification database",
-      "deleted notifications",
-      "iphone",
-      "security",
-      "install",
-      "it's",
-      "device",
-      "don't",
-      "media"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/apple-signal-notifications-iphone-bug?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KPVAF7C2HSKYE9F110JV0Q19/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-04-23T01:30:02.636Z",
     "topic": "tech"
   }
 ]

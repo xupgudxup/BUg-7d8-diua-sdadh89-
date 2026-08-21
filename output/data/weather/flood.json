@@ -1,5 +1,29 @@
 [
   {
+    "slug": "hundreds-of-fake-vpns-are-flooding-the-chrome-web-store",
+    "title": "Hundreds of Fake VPNs Are Flooding the Chrome Web Store",
+    "description": "A new report by Socket shows that more than 50,000 Chrome users are using fake VPNs that steal your data.",
+    "fullText": "I often tell people to think of VPNs like kitchen funnels. Instead of pouring your network traffic directly into the web and spilling your metadata everywhere, you push it down a narrow tube of encryption. You point your connection exactly where it needs to go without leaking all over the place. Of course, the assumption in such an arrangement is that you trust your VPN, which controls the flow of traffic from your device to the web. But if the VPN itself is a honeypot for attackers to pry away your data, you’ve just traded several possible security risks for one guaranteed security breach.\n\nAccording to the team at Socket, that’s what’s been happening with over seven hundred fake VPN apps listed on the Chrome Web Store. Many of these extensions are free, some are paid, and some even pretend to be from trusted cybersecurity providers to lure users into handing over unrestricted access to their network and browser. This weekend, I dug through Socket’s report to find out exactly what was going on with these apps and how they managed to clear Web Store moderation without getting flagged by Google. I’ll share what I found and offer some tips to help you avoid these fake VPNs.\n\nIn short, Socket’s threat research team analyzed 737 suspicious Chrome extensions that claim to offer VPN and SOCKS5 proxy servers to protect your online privacy. They uncovered paid apps selling access to VPN servers that do not exist, extensions that hijack your proxy to track online activity, and several attempts to impersonate trusted VPN service providers like NordVPN and Surfshark.\n\nSocket is a cybersecurity platform with its own GitHub extension, firewall, and CLI to help developers analyze AI-written code for malicious behavior. When they looked into these Chrome extensions, they found that they were all published by a total of 40 developer accounts and had racked up 75,486 installs from users on the Chrome Web Store.\n\nOf the 737 suspicious extensions they analyzed, Socket’s team performed a detailed analysis of the code in 525 of them. In total, these extensions amounted to 58,318 active Chrome installs at the time. As for the other 212, they were already taken off the Web Store before Socket could take a look at them. But the researchers found a number of issues right away in the extensions they did analyze, including:\n\n274 out of 525 extensions plagiarised the branding and logo of one among 66 reputed VPN platforms, including Proton VPN, Surfshark, NordVPN, ExpressVPN, CyberGhost, and TunnelBear.\n\nTwo extensions specifically impersonated AmneziaVPN and AntiZapret, which are often used to get around internet censorship and surveillance.\n\nEach extension pointed to a fixed SOCKS5 proxy without split tunneling or per-site controls, meaning that all your online activity would get routed through the same server once the extension was installed.\n\n104 extensions using documented DNS-over-HTTPS evasion techniques to get around Chrome’s blocklists by spoofing their DNS record.\n\nMany of these VPNs advertise a paid tier with private VPN servers in Japan, Singapore, Canada, Australia, and Turkey. But these servers do not exist, because their hostnames did not resolve when Socket ran a DNS lookup against them.\n\nWith the premium VPN subscriptions, there was no license verification happening internally to detect if the user had actually paid for a subscription. This is not normal for any web-based app or platform that offers a paid tier.\n\nOne of these extensions, Burёnka VPN, does not route traffic through any servers at all. It’s just a fake UI pretending to be a real app.\n\nAnother extension contains a file with a plaintext comment that simply reads, “If Chrome Web Store rejects this because of automatically opening links, we can replace it with a notification offering to go to the Telegram bot.” This shows that the developers know that their app violates Web Store policy, but intend to evade reviews instead of fixing the issue.\n\nI’ve repeatedly found that the best laid cyber attacks aren’t necessarily the most sophisticated.\n\nJust so, none of these extensions are particularly difficult to flag in a thorough code review. They got past Chrome’s defenses because they spent a lot of time studying Web Store review processes, possibly learning to evade rejections through repeated trial and error. Many of these developers have already had their other extensions removed by Chrome following a similar report from Palo Alto Networks in June, but they immediately went on to publish new extensions using the same playbook.\n\nEven on the occasion that a developer’s account gets pulled from the store, opening a new developer account on the Chrome Web Store costs $5. Between the 40 developer accounts mentioned in the report, it barely cost $200 to publish over 700 fake extensions that reached an audience of tens of thousands.\n\nIt also helped that most of these VPNs were angled toward Russian citizens trying to bypass regional censorship regulations, so any resulting incidents would not have been widely reported outside that specific target demographic. Perhaps even more unsettlingly, in the few occasions that store moderators did flag an extension for further review, they all shared exactly identical “privacy justifications” that were little more than false reassurances to get their extensions back up.\n\nIt’s easy to dismiss these fake VPNs as a regional threat aimed at Russian internet users only, but you’d be wrong. Chrome’s Web Store policies paint a troubling pattern of lax security reviews, and the same fake VPN playbook could be adapted to target citizens in the U.S., UK, EU, or anywhere else in the world. In fact, Google itself issued a critical warning in 2025, speaking of similar fake VPN activity on the Play Store for Android users.\n\nSince you can’t rely on app store review processes alone, you need some way to spot fake extensions before they embed spyware into your browser. You can’t be expected to reverse engineer every extension’s manifest files like Socket did, but thankfully, you don’t have to because there are easier ways to tell if something might be amiss.\n\nInstall extensions by following a link directly from the VPN provider’s official website, not the search bar on Web Store or Google Play.\n\nAlways read reviews before installing a new browser extension. If too many people are complaining about security concerns, avoid it.\n\nBefore you install a Chrome Web Store extension, look past the app listing and user reviews to the developer account tied to that app as well. Check if the account is officially associated with the VPN provider and see if Web Store reviews flag security concerns on their other apps too.\n\nUse a tool like WhatIsMyIPAddress.com to check your currently visible IP address. Confirm that it matches the IP address displayed in your VPN extension’s UI.\n\nRun a DNS leak check while your VPN is on to make sure that it’s working properly, not merely concealing your IP address but also encrypting your DNS queries. If either your IP address, general location, or internet service provider (ISP) shows up in the test results, that’s a red flag.",
+    "readingTime": 6,
+    "keywords": [
+      "socks proxy",
+      "web store",
+      "fake vpns",
+      "chrome web",
+      "developer accounts",
+      "review processes",
+      "online activity",
+      "security concerns",
+      "developer account",
+      "vpn servers"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/hundreds-of-fake-vpns-are-flooding-the-chrome-web-store?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01M0AY12QSVJTXFXGS8V66NYB8/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-08-21T00:39:29.977Z",
+    "topic": "tech"
+  },
+  {
     "slug": "at-least-one-dead-tens-of-thousands-without-power-and-over-100-homes-damaged-in-wake-of-hurricane-lala-in-hawaii",
     "title": "At least one dead, tens of thousands without power and over 100 homes damaged in wake of Hurricane Lala in Hawaii",
     "description": "At least one person has died in Hawaii after Hurricane Lala swept south of the state over the weekend, bringing torrential rain that touched off destructive flooding.",
@@ -2133,30 +2157,6 @@
     "link": "https://www.yahoo.com/news/articles/severe-flash-floods-northern-california-154117130.html",
     "thumbnail_url": "https://media.zenfs.com/en/ktxl_articles_604/ed5d4916c30ae2019e568de1e9214cbe",
     "created_at": "2025-12-22T18:17:53.720Z",
-    "topic": "news"
-  },
-  {
-    "slug": "colorado-governor-accuses-trump-of-playing-political-games-after-disaster-request-denials",
-    "title": "Colorado governor accuses Trump of playing 'political games' after disaster request denials",
-    "description": "Colorado Gov. Jared Polis accused President Donald Trump of playing “political games” Sunday after the Trump administration denied disaster declaration requests following wildfires and flooding in the state earlier this year.  Polis' office said he received late Saturday two denial letters from the Federal Emergency Management Agency.  The letters follow requests for major disaster declarations following wildfires and mudslides in August and what Polis had described as “historic flooding” across southwest Colorado in October.",
-    "fullText": "DENVER (AP) — Colorado Gov. Jared Polis accused President Donald Trump of playing “political games” Sunday after the Trump administration denied disaster declaration requests following wildfires and flooding in the state earlier this year.\n\nPolis' office said he received late Saturday two denial letters from the Federal Emergency Management Agency. The letters follow requests for major disaster declarations following wildfires and mudslides in August and what Polis had described as “historic flooding” across southwest Colorado in October.\n\nPolis and Colorado's U.S. senators, fellow Democrats Michael Bennet and John Hickenlooper, decried the denials. Polis said the state would appeal.\n\n“Coloradans impacted by the Elk and Lee fires and the flooding in Southwestern Colorado deserve better than the political games President Trump is playing,\" he said in a statement.\n\nAbigail Jackson, a White House spokesperson, said Trump responds to each request for federal disaster assistance “with great care and consideration, ensuring American tax dollars are used appropriately and efficiently by the states to supplement — not substitute, their obligation to respond to and recover from disasters.”\n\nJackson said there is “no politicization” to Trump's decisions on disaster aid.\n\nTrump has raised the idea of “phasing out” FEMA, saying he wants states to take more responsibility. States already take the lead in disasters, but federal assistance comes into play when the needs exceed what they can manage on their own.",
-    "readingTime": 2,
-    "keywords": [
-      "political games",
-      "following wildfires",
-      "polis",
-      "disaster",
-      "flooding",
-      "federal",
-      "requests",
-      "letters",
-      "assistance",
-      "disasters"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.yahoo.com/news/articles/colorado-governor-accuses-trump-playing-010201011.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/PRDrF9.l43DhwtPnWT4mOw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDI7Y2Y9d2VicA--/https://media.zenfs.com/en/ap.org/21e823ba724be4369c902f10dd6b2a6e",
-    "created_at": "2025-12-22T06:20:25.246Z",
     "topic": "news"
   }
 ]
