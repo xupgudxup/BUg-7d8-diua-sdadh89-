@@ -1,5 +1,18 @@
 [
   {
+    "slug": "chatgpt-has-entered-the-group-chat-texters-havefeelings-about-it",
+    "title": "ChatGPT has entered the group chat. Texters have…feelings about it.",
+    "description": "OpenAI launched a plug-in that lets ChatGPT draft and send text messages on a Mac. The feature drew immediate backlash.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/chatgpt-text-messages-imessage-mac-plugin-reaction-2026-8",
+    "thumbnail_url": "https://i.insider.com/6a8857d44569a4ec219f8ce3?width=1200&format=jpeg",
+    "created_at": "2026-08-21T18:21:57.043Z",
+    "topic": "finance"
+  },
+  {
     "slug": "chatgpt-can-now-control-imessage-potentially-raising-apple-privacy-concerns",
     "title": "ChatGPT Can Now Control iMessage, Potentially Raising Apple Privacy Concerns",
     "description": "OpenAI rolled out support on Thursday for controlling Apple Inc.’s iMessage service via ChatGPT, a move with the potential to raise privacy concerns for the iPhone maker.",
@@ -1774,30 +1787,6 @@
     "link": "https://www.newyorker.com/magazine/2026/05/25/the-prehistory-of-ai-slop",
     "thumbnail_url": "https://media.newyorker.com/photos/6a033e64c81cf62dec311833/16:9/w_1280,c_limit/r49216.jpg",
     "created_at": "2026-05-19T19:42:35.383Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "a-brief-investigation-into-the-gpt55-regression-claims",
-    "title": "A brief investigation into the GPT-5.5 regression claims",
-    "description": "A fresh GPT-5.5 Codex high rerun on 21 clean GraphQL-go-tools tasks compared with the May 5 GPT-5.5 high run. The rerun was directionally worse on tests, equivalence, and review pass count, but the evidence is mixed and does not show a broad quality collapse.",
-    "fullText": "There were reports of a GPT-5.5 regression, so I compared GPT-5.5 high against a prior run from May 5 on 21 tasks from the GraphQL-go-tools open-source repo.\n\nOn that slice, GPT-5.5 high moved from:\n\nThat is a real directional regression on tests, equivalence, and review pass count, but it is not a broad quality collapse. Code-review rubric mean improved, most craft/discipline averages improved, and cost per task was roughly flat. Footprint risk was roughly flat, with a small mean increase.\n\nThe strongest negative signal is qualitative: GPT-5.5 high still writes plausible, test-passing patches, but it shows recurring weakness on deep invariants where tests do not fully encode lifecycle, concurrency, or GraphQL validity requirements.\n\nFor this post, \"equivalent\" means the patch matched the intent of the merged human PR; \"code-review pass\" means an AI reviewer judged it acceptable; craft/discipline is a 0-4 maintainability/style rubric; footprint risk is how much extra code the agent touched relative to the human patch.\n\nThe outcome metrics are worse by one resolved row, two equivalent rows, and one review-pass row. The equivalence movement is a net number: four prior equivalent rows became non-equivalent, while two prior non-equivalent rows became equivalent. Rubric means improve; cost is slightly higher.\n\nThat mix is why I'd describe this as a targeted reliability concern and not a blanket model-quality regression. I'll look at specific examples below.\n\nFresh GPT-5.5 high lost one resolved task, two equivalent patches, and one review-pass row. Rubric means still moved up, so the signal reads as targeted reliability risk rather than a broad collapse.\n\nMost grader means move up, especially scope discipline and robustness. Simplicity and instruction adherence move down - the new run often looked cleaner and more disciplined, but it sometimes missed specific obligations or semantic boundaries.\n\nMost small deltas are within expected variance. I wouldn't read too much into them individually.\n\nThe new run used more agent interaction overall: more total tool calls, shell calls, and patch calls, but fewer detected test-command invocations.\n\nMore shell and tool activity overall, especially on a few high-effort rows, and slightly more patch calls after removing the contaminated row. That lines up with the broader read: the new run often looked more disciplined, while still missing some specific semantic obligations the old run caught.\n\nThis is the clearest regression row. The task was to rework GraphQL subscription concurrency so response writes are serialized per subscription, heartbeat writes move out of shared global state, WebSocket close handling is safe, and race-detector coverage becomes the default CI path.\n\nPrior GPT-5.5 high passed equivalence but still failed code review. The reviewer worried the worker queue could block the global subscription event loop and that client-level unsubscribe still skipped internal subscriptions.\n\nThe new run passed tests but became non-equivalent. The grader called out concrete missed obligations: race detector was not made the default path across all relevant modules, old event/update semaphores remained in the resolver, heartbeat interval clamping was computed but not used for the ticker, and synchronous subscription completion could be queued after the executor-draining loop stopped.\n\nThe new run built a plausible concurrency protocol, but it missed explicit CI/defaulting work and kept enough old synchronization machinery that the lifecycle story became fragile.\n\nThe common pattern across these three is that GPT-5.5 high still wrote reasonable code. The new run had enough plausible implementation surface to pass or partially pass, while missing narrower equivalence details the human PR handled.\n\nThe run is not uniformly worse - it trades off row-level outcomes in both directions. pr-1128 and pr-1260 moved from non-equivalent to equivalent. pr-1268 stayed equivalent and improved from review-unsure to review-pass.\n\nThis is a useful warning row. The task was to replace hot planner slice scans with map-backed lookup paths.\n\nThe prior run passed tests, equivalence, and review. The new run still passed tests and equivalence, but review moved to unsure: the grader saw the same broad performance intent, while calling out that the patch expanded beyond focused hot-path indexes into broader secondary-run pruning and cache state.\n\nThe new run appears behaviorally equivalent, but the implementation changes planner control flow beyond the minimal indexed-lookup fix, so review confidence drops.\n\nOn this small n=21 slice, GPT-5.5 high is directionally worse on tests, equivalence, and review pass count: -1 resolved, -2 equivalent, and -1 review pass. Review rubric improves, most custom-grader means improve, and cost per task is only slightly higher.\n\nI'd trust the direction of the deltas more than any single absolute score. My read is that there may be evidence a targeted reliability concern - especially around deep concurrency/lifecycle and GraphQL semantic-invariant tasks - but it is not evidence of a broad GPT-5.5 high quality collapse. And given the conflicting results from the custom graders, the model may simply just be behaving differently, not necessarily worse.\n\nI am not pretending this is a statistically significant result, or that it will carry over to your repo. That is ok! Despite that, these results show that claims of a broad regression are likely overstated - we would need to look at specific use cases and examples to confirm/deny that.\n\nDisclosure: I am building Stet.sh, the local eval tool I used to run this. The product version is that you can ask your coding agent to improve its own setup - for example, make AGENTS.md better - and it uses Stet to test candidate changes against historical repo tasks. If your team is already using coding agents heavily and has a concrete decision in front of you - high vs xhigh, Codex vs Claude Code, an AGENTS.md update, or which tasks are safe to delegate - I am looking for a few teams to run repo-specific trials with. Stet runs entirely locally, using your LLM subscriptions. Join the waitlist at stet.sh/private or reach out to me directly.",
-    "readingTime": 5,
-    "keywords": [
-      "slice gpt",
-      "roughly flat",
-      "quality collapse",
-      "footprint risk",
-      "slightly higher",
-      "targeted reliability",
-      "reliability concern",
-      "per task",
-      "review-pass row",
-      "tests equivalence"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.stet.sh/blog/gpt-55-high-regression-check-graphql-go-tools",
-    "thumbnail_url": "https://www.stet.sh/og/gpt-55-high-regression-check-graphql-go-tools.png",
-    "created_at": "2026-05-19T19:42:35.215Z",
     "topic": "tech"
   }
 ]
