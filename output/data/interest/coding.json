@@ -1,5 +1,29 @@
 [
   {
+    "slug": "gspot-gcloud-auth-monitoring-for-longrunning-coding-agents",
+    "title": "Gspot: Gcloud auth monitoring for long-running coding agents",
+    "description": "Hard to find, but keeps everything running smoothly. - Somnora/GSPOT",
+    "fullText": "\"Hard to find, but keeps everything running smoothly.\"\n\nG-Spot is a lightweight, cross-platform system tray application for macOS, Windows, and Linux that continuously monitors Google Cloud SDK authentication, tracks active GCP project configurations, inspects billing, and prevents AI coding agents (Gemini, Claude Code, Cursor, Copilot, LangChain, etc.) from timing out due to expired OAuth or Application Default Credentials (ADC).\n\nTo keep the primary tray menu lightweight and clutter-free, pro-developer utilities are housed in the Developer & Agent Tools submenu:\n\nNote: On first launch macOS may show a Gatekeeper warning since the app is not notarized. Right-click the app → Open → Open to bypass.\n\n--status, --check and --renew run without a tray and without a display. They\nnever import pystray, so they work over SSH, in a container, or in CI where\nimporting a GUI toolkit would raise.\n\nThe failure this tool exists to prevent is starting a long agent run on a token\nthat dies halfway through. Gate the run instead of being notified about it:\n\nExit 0 means you have at least 30 minutes and can safely start. Exit 1 means the\ncredential could not be brought up to that mark and only an interactive\ngcloud auth login will help.\n\nstate is one of green, yellow, red, offline, searching. JSON goes to\nstdout and diagnostics to stderr, so --status --json 2>/dev/null is safe to\npipe straight into jq. --status always exits 0 — it reports, it does not gate.\n\nnetwork_reachable is only actively probed when every auth check has already\nfailed, so true means \"not proven unreachable\" rather than \"just pinged\".\n\n--check fails closed: anything it cannot positively verify is a failure, since\na false pass costs you a dead agent run. Partial auth (one of user/ADC missing)\nstill exits 0 if there is enough time, but prints a warning to stderr.\n\n--renew exits 0 when the token was already comfortable and gcloud declined to\nrefresh it — that is the normal case in the one-liner above, not an error.\n\nTo have G-Spot run automatically in the background on system boot without showing a terminal window:\n\nCreate ~/.config/autostart/gspot.desktop:\n\nPreferences you set from the tray menu (auto-renew, popup alerts, check interval) persist to:\n\nThe file is written atomically and is safe to edit by hand; out-of-range or malformed values fall\nback to defaults rather than preventing startup. --interval overrides the saved value for a\nsingle run without rewriting it.\n\nG-Spot cannot extend how long your credentials last, and neither can any other local tool. Access\ntokens live about an hour and refresh transparently; what actually kills a long agent run is the\nsession behind them expiring. That session length is set by a Google Workspace administrator\n(Admin console → Security → Access and data control → Google Cloud session control), ranges from\n1 to 24 hours, and applies to the gcloud CLI and ADC just as much as to the web console. There\nis no gcloud flag or config property that changes it.\n\nWhat G-Spot does instead: refresh while refreshing still works, tell you clearly when it stops\nworking, and put the relevant admin page one click away under Developer & Agent Tools → Session\nPolicy. Personal @gmail.com accounts have no Workspace org and therefore no such policy — the\nmenu says so rather than linking you to a page you'd get denied on.\n\nThe suite mocks every gcloud invocation and network call, so it runs without a Google Cloud SDK\ninstallation and without touching your real credentials.\n\nMIT License. Built to keep AI agents authenticated and uninterrupted.",
+    "readingTime": 3,
+    "keywords": [
+      "cloud sdk",
+      "developer agent",
+      "agent tools",
+      "tray menu",
+      "google cloud sdk",
+      "without",
+      "gcloud",
+      "check",
+      "session",
+      "credentials"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/Somnora/GSPOT",
+    "thumbnail_url": "https://opengraph.githubassets.com/54afdfa6c15b2e931b2dc9b0a2eff2a17e7f6465eba5371c15186b261c043cbd/Somnora/GSPOT",
+    "created_at": "2026-08-23T00:40:16.722Z",
+    "topic": "tech"
+  },
+  {
     "slug": "a-coding-agent-on-a-1987-commodore-amiga-500-with-a-7mhz-cpu-and-1-mb-of-ram",
     "title": "A coding agent on a 1987 Commodore Amiga 500 with a 7MHz CPU and 1 MB of RAM",
     "description": "Introducing Agent 500: a native coding agent on a 1987 Commodore Amiga 500 with a 7MHz CPU and 1 MB of RAM.",
@@ -1923,18 +1947,5 @@
     "thumbnail_url": "https://francescomoramarco.com/banana-test/images/og-banana-test.jpg",
     "created_at": "2026-07-07T14:05:41.786Z",
     "topic": "tech"
-  },
-  {
-    "slug": "midjourney-founder-says-new-ai-coding-tools-are-leaving-his-friends-more-productive-and-extremely-drained",
-    "title": "Midjourney founder says new AI coding tools are leaving his friends more productive — and 'extremely drained'",
-    "description": "Midjourney founder David Holz said the phenomenon \"makes me feel like something is wrong, and also that there might be a big opportunity.\"",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/midjourney-founder-ai-coding-friends-drained-2026-7",
-    "thumbnail_url": "https://i.insider.com/6a4bb2f694175b768171f186?width=1200&format=jpeg",
-    "created_at": "2026-07-07T14:05:39.966Z",
-    "topic": "finance"
   }
 ]
