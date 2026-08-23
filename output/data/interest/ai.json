@@ -1,5 +1,66 @@
 [
   {
+    "slug": "slackcli",
+    "title": "SlackCLI",
+    "description": "Slack CLI - Command-line tool for interacting with Slack workspaces and channels. AI-friendly with structured output formats (JSON, table, text) designed for easy integration with AI tools and auto...",
+    "fullText": "Read channels, send messages, search history, and catch up on what you missed.\nBuilt to be AI-agent friendly, so your scripts and assistants can use Slack too.\nNo Slack app to build, no admin approval to wait for.\n\nQuickstart · What it does · Commands · Docs · Contributing\n\nIt takes two seconds, and it is how the next person finds SlackCLI.\n\nSign in, browse conversations, search the workspace, read a thread from a permalink,\nreply, react, read a canvas as Markdown, and pipe --json into jq — all from the terminal.\n\nUnofficial project. SlackCLI is not affiliated with, endorsed by, or supported by\nSlack Technologies. Slack ships an official CLI\nfor building Slack apps — this is a different tool, for driving a workspace you already\nbelong to.\n\nHomebrew (macOS & Linux) — recommended\n\nDownload slackcli-windows.exe from the latest release\nand put it somewhere on your PATH.\n\nEvery release ships checksums.txt — verify your download if you care to, and you should.\nFull details in the installation guide.\n\nA browser opens, you sign into Slack as you normally would, and SlackCLI captures the\nsession tokens for every workspace on that account. Nothing leaves your machine.\n\nPrefer a real Slack app token, or need a service account? There are three other ways —\nsee authentication below.\n\nAnywhere SlackCLI wants a channel ID or a timestamp, you can paste a Slack link\ninstead. Copy a permalink out of the Slack app and hand it straight to the CLI —\nsee links & timestamps.\n\nEvery command that returns data speaks --json, so SlackCLI drops straight into shell\npipelines, cron jobs, CI steps, and AI agent toolchains.\n\nNo Slack app, no OAuth dance, no webhook server — just a binary and a token.\nPatterns, exit codes, and pagination are in scripting & JSON output.\n\nSlackCLI talks to Slack either as a Slack app (xoxb-* / xoxp-*) or as a\nsigned-in browser session (xoxd-* + xoxc-*). One SlackClient abstracts both.\n\nBrowser session tokens can create drafts, which a Slack app simply cannot do, and\nthey back saved list and conversations unread with Slack's own native endpoints\nrather than approximations. Slack app tokens are more stable and survive a browser logout.\n\nslackcli auth extract-tokens prints the manual walkthrough.\nThe security model, the OAuth scopes each command needs, and what login-auto does with\nyour browser profile are all in the authentication guide.\n\nConfiguration lives in ~/.config/slackcli/ (directory mode 0700):\n\nworkspaces.json and browser-profile/ both hold live credentials — do not commit,\nsync, or share them. slackcli auth logout clears both.\n\nSeven command groups. slackcli <group> --help always prints the authoritative options\nfor the version you have installed.\n\n📄 authentication · workspaces & profiles\n\n[!NOTE]\nmessages draft requires browser session tokens — Slack apps cannot create drafts.\n\nMade it this far? Then SlackCLI is probably useful to you — and the fastest way to\nkeep it alive is to make it easier for the next person to find.\n\n⭐ Star SlackCLI ·\n💬 Say hello in Discussions ·\n🐛 Report something broken\n\nShare it with one person who lives in Slack and in a terminal\n\nDeveloper docs — how to work on it\n\nContributions are very welcome — and the process here is a little stricter than most\nrepos, on purpose.\n\nOpen an issue first, and wait for the ready-for-pr label. That label is how the\nmaintainer decides which features belong in the CLI, and it locks the feature to your\nPR so nobody duplicates your work. A workflow enforces the issue link.\n\nLooking for a place to start? Try\ngood first issue\nor help wanted.\n\nThe full policy is in CONTRIBUTING.md and CLAUDE.md.\nSecurity issues go through SECURITY.md — never a public issue.\n\nMIT — do what you like, no warranty.\n\nBuilt with Bun · powered by @slack/web-api ·\ninspired by gscli\n\n⭐ Star SlackCLI if it made your day a little shorter.",
+    "readingTime": 4,
+    "keywords": [
+      "slackcli auth",
+      "create drafts",
+      "slack app",
+      "slack apps",
+      "session tokens",
+      "browser session",
+      "no slack",
+      "workspace",
+      "json",
+      "authentication"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/shaharia-lab/slackcli",
+    "thumbnail_url": "https://opengraph.githubassets.com/11e440cc014df95e25277f3b4a686440d38b7d1d7924775b1133ea8e2272f6c2/shaharia-lab/slackcli",
+    "created_at": "2026-08-23T18:14:46.259Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "texas-gov-greg-abbott-says-data-centers-deserve-the-backlash-theyre-getting-they-basically-dug-their-own-grave",
+    "title": "Texas Gov. Greg Abbott says data centers deserve the backlash they're getting: 'They basically dug their own grave'",
+    "description": "Gov. Greg Abbott initially supported expanding AI data center infrastructure in Texas, but backlash from local residents caused him to change course.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/greg-abbott-texas-data-centers-backlash-2026-8",
+    "thumbnail_url": "https://i.insider.com/6a8b00378a99fa493d60f3f2?width=1200&format=jpeg",
+    "created_at": "2026-08-23T18:14:41.326Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "an-ai-debt-bomb-crisis-no-this-isnt-enron-20-gene-marks",
+    "title": "An AI ‘debt bomb’ crisis? No. This isn’t Enron 2.0 | Gene Marks",
+    "description": "Fears of a datacenter buildout debt crisis are exaggerated. The risks are different than in the past and they are recoverable\nSome experts are warning of a looming “debt bomb” crisis because big datacenter builders such as Meta, Oracle, xAI and CoreWeave are not only raising billions to construct these facilities but are also not recognizing these long-term debt obligations on their balance sheets.\nShould we be concerned? No. I know because I’ve seen this movie before.",
+    "fullText": "Fears of a datacenter buildout debt crisis are exaggerated. The risks are different than in the past and they are recoverable\n\nSome experts are warning of a looming “debt bomb” crisis because big datacenter builders such as Meta, Oracle, xAI and CoreWeave are not only raising billions to construct these facilities but are also not recognizing these long-term debt obligations on their balance sheets.\n\nShould we be concerned? No. I know because I’ve seen this movie before.\n\nIt works like this: Meta wants to build a datacenter to accommodate its growing AI and cloud computing needs. It forms a separate entity that’s not consolidated in its financials, which builds the datacenter. To fund this, the entity raises money from investors, banks and other financial firms (including some from Meta) that own the majority of the entity. There is a contract by which Meta has exclusive and full use of the datacenter once built. This way Meta gets its datacenter but most of the debt incurred to build it is not shown as a liability on its books.\n\nThe worry comes from the enormous sums of money being plowed into these entities. The Financial Times reported in December 2025 that tech companies had shifted more than $120bn of AI datacenter spending off their balance sheets through special-purpose vehicles and similar financing structures. Goldman Sachs estimates that hyperscalers could spend $5.3tn on AI and datacenters through 2030 and expects private markets to play an increasingly important role in financing that buildout.\n\nSkeptics are worried that these tech guys are pulling the wool over the public’s eyes and not properly disclosing the long-term impact of all this debt. They point to Enron, the energy firm that spectacularly failed in 2001, causing tens of billions of dollars of losses to its shareholders and contributing to a historic market meltdown.\n\nFine. Scrutinize them. Read the footnotes. Argue about consolidation. But don’t call them Enron. Enron caused the Enron crash. It’s highly unlikely that fraud at that level is being perpetuated now by these companies.\n\nWhen I first started out in accounting back in the mid-1980s, my biggest client was a publicly held biotechnology firm called Centocor, which, at the time, was developing drugs using a technology based on monoclonal-antibody treatment for various purposes including sepsis. To raise money, Centocor also did off-balance-sheet financing. The company formed limited partnerships in which it held a minority interest but the entity issued debt and took in investments from limited partners in order to fund the development of various drugs, which Centocor then had the exclusive right to use.\n\nIn the 1980s and early 1990s, hundreds of millions of dollars were plowed into these partnerships. This was common practice in the biotechnology during that time.\n\nDid some of the drugs fail in clinical testing? Yes. But did this cause a stock market panic? No. Like with today’s datacenters, the risks were spread. During that time – before the Internet, SEC disclosures and 24/7 media scrutiny – the public little knew of these vehicles. The good news is that the accounting has evolved, although the economic idea has stayed the same – no debt was shown on Centocor’s balance sheet. Ultimately, this financing vehicle became more expensive and less popular because it was easier and more affordable to raise money other ways.\n\nThe off-balance-sheet financing strategies today that are being used by big tech firms have different risks than what the biotech companies were doing when I was younger. Today, the disclosures required by companies doing this are significant. The scrutiny is intense. The investing public is smarter. Today’s risks are different and arguably more recoverable.\n\nIn the 90s Centocor, Genentech, Amgen, Biogen and other companies like them were raising millions in partnerships that were developing products with a high probability of failure during clinical testing.\n\nToday’s investors are financing land, buildings, electrical infrastructure and computing equipment. A datacenter can disappoint financially, but it doesn’t disappear because a clinical trial fails. It’s why Jeff Bezos calls AI an “industrial bubble”. Industrial bubbles leave things behind. Railways. Fiber-optic cable. Factories. And this time, datacenters.\n\nIf this is a glut, it’s a strange one: developers increased North American capacity by 36% last year and vacancy still fell to a record 1.4%. According to CBRE’s North America Data Center Trends H2 2025 report, demand is outpacing supply in nearly every major market. Unlike the drug companies hoping for success, there’s a legitimate market need today for datacenters. AI isn’t going away. Microsoft estimates that only 17.8% of the world’s working-age population currently uses generative AI. If that’s anywhere near correct, we’re still much closer to the beginning of adoption than the end.\n\nSome of these investments will fail. Some lenders will lose money. Some datacenters will be worth less than their owners paid for them. But that’s exactly why these financing structures exist: to spread enormous capital requirements and risk among investors willing to take it. The obligations are disclosed, the assets are real and demand for computing capacity remains strong. That’s why I’m not losing sleep over big tech’s off-balance-sheet debt. I see financial engineering, yes. I don’t see a debt bomb.",
+    "readingTime": 5,
+    "keywords": [
+      "balance sheets",
+      "clinical testing",
+      "financing structures",
+      "debt bomb",
+      "off-balance-sheet financing",
+      "datacenter",
+      "money",
+      "datacenters",
+      "risks",
+      "entity"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theguardian.com/technology/2026/aug/23/ai-debt-bomb-crisis",
+    "thumbnail_url": "https://i.guim.co.uk/img/media/b8bc548f5c4725b3beb6f79cb8107d7cff94c655/1267_523_2681_2144/master/2681.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctb3BpbmlvbnMucG5n&enable=upscale&s=4751d5c0d2f4d31b7a7fd52e32f6800f",
+    "created_at": "2026-08-23T18:14:36.051Z",
+    "topic": "tech"
+  },
+  {
     "slug": "we-are-hitting-a-different-chapter-openai-leader-warns-of-threat-of-persistent-ai-cyberattacks",
     "title": "‘We are hitting a different chapter’: OpenAI leader warns of threat of ‘persistent’ AI cyber-attacks",
     "description": "Chris Lehane tells Guardian of need to implement new safety standards as critics say AI firms acting ‘recklessly’\nA senior leader at OpenAI has said people should prepare to defend against “ongoing, persistent” cyber-attacks from AIs, as cutting-edge artificial intelligence models gain advanced capabilities to plan and launch offensives.\nThe leading AI company this week announced a pause in development of its most advanced internal models amid rising safety fears, and Chris Lehane, its chief global affairs officer, said: “We are hitting a different chapter, a different moment within AI, in terms of what the capabilities of this technology can do.”\n Continue reading...",
@@ -1662,45 +1723,6 @@
     "link": "https://www.businessinsider.com/former-bridgewater-investor-raises-money-ai-startup-multiplier-2026-8",
     "thumbnail_url": "https://i.insider.com/6a84bb150b0f848e0c306dc8?width=1200&format=jpeg",
     "created_at": "2026-08-19T12:22:38.617Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "microsoft-ais-cmo-is-leaving-as-the-company-rethinks-consumer-marketing-efforts",
-    "title": "Microsoft AI's CMO is leaving as the company rethinks consumer marketing efforts",
-    "description": "Andréa Mallard is leaving Microsoft's AI unit after around six months in the role, Business Insider has learned.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/microsoft-ai-cmo-is-leaving-the-company-details-memo-2026-8",
-    "thumbnail_url": "https://i.insider.com/6a832a3e4aad6e24b69bacf5?width=1200&format=jpeg",
-    "created_at": "2026-08-19T12:22:38.588Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ai-companies-are-desperate-for-your-workrelated-data-whats-your-price",
-    "title": "AI companies are desperate for your work-related data. What's your price?",
-    "description": "AI companies are buying workplace data to train their models, from internal documents to employees' everyday work. Are you selling?",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/ai-work-data-price-ai-training-google-spirit-airlines-2026-8",
-    "thumbnail_url": "https://i.insider.com/6a84c1d385cca0a87cd8a53d?width=1200&format=jpeg",
-    "created_at": "2026-08-19T12:22:38.439Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "bashing-ai-data-centers-makes-its-way-into-brand-marketing-with-new-jason-kelce-ad",
-    "title": "Bashing AI data centers makes its way into brand marketing with new Jason Kelce ad",
-    "description": "Brands are capitalizing on the AI data center hate. Just look at the new ad starring Jason Kelce for Garage Beer and Liquid Death.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/jason-kelce-garage-beer-liquid-death-embrace-ai-bashing-ads-2026-8",
-    "thumbnail_url": "https://i.insider.com/6a84d8ab85cca0a87cd8a649?width=1200&format=jpeg",
-    "created_at": "2026-08-19T06:25:30.937Z",
     "topic": "finance"
   }
 ]
