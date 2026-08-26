@@ -1,5 +1,29 @@
 [
   {
+    "slug": "reachpad-cli-spin-up-free-sandboxes-in-seconds-to-develop-apps",
+    "title": "Reachpad CLI – Spin up free sandboxes in seconds to develop apps",
+    "description": "The reachpad CLI: workspaces where Claude, Codex and other coding agents build full-stack apps and share them by link, from your terminal. - Reachpad/reachpad-cli",
+    "fullText": "Run coding agents in durable cloud workspaces: disk and memory survive the\nmachine underneath, so a paused workspace resumes mid-session.\n\nWith Homebrew on Apple silicon macOS or x86_64/arm64 Linux:\n\nWith npm, anywhere Node 18+ runs:\n\nOr with the checksum-verifying installer:\n\nLinux x86_64/arm64 (musl, static) and macOS arm64/x86_64. The script fetches\nthe latest release from this repository, verifies its checksum against\nSHA256SUMS, and installs to ~/.local/bin/reachpad (override with\nREACHPAD_INSTALL_DIR).\n\nAll three deliver the same binary. @reachpad/cli is a launcher around it, not\na second implementation — see npm/README.md, which also\nexplains the macOS quarantine problem npm sidesteps.\n\nOn first use, the CLI shows a short code, opens WorkOS hosted sign-in, and then\nlists your workspaces. WorkOS handles the account login and any required MFA or\nSSO. After approval, Reachpad exchanges the short-lived WorkOS token once and\nsaves a user-scoped Reachpad credential and the production endpoint with mode\n0600. No password or authentication factor is entered into Reachpad.\n\nOn a remote machine without a usable browser, run reachpad auth login --no-browser and open the displayed URL on another device. The manual\ncredential flow remains available from\nreachpad.dev/connect as a recovery path.\n\nThen list, create, or attach to a workspace:\n\nreachpad update respects how Reachpad was installed: Homebrew installs are\ndirected to brew upgrade reachpad and npm installs to npm install -g @reachpad/cli@latest, while installer-managed binaries are updated in place\nafter the release checksum is verified. Whoever installed the binary owns it —\na second writer is how a working install becomes a broken one.\n\nThis repository carries the full CLI \nbinary name reachpad) and its three library crates (proto, the frozen\nwire protocol; authz, Biscuit verify and offline attenuation; runtime,\nthe config and tracing shell). Release binaries are built from this source\n\nrunners, and every release carries a SHA256SUMS the install script verifies.\nTo build it yourself (needs Rust and protoc):\n\nEvery release tarball also carries a signed build-provenance attestation, so\nthe chain is checkable without trusting us:\n\nThat proves the bytes came out of this repository's release workflow at the\ncommit the tag names. It rests on no key of ours — the signing identity is a\nshort-lived credential minted for that one workflow run, and the record is in\na public transparency log.\n\nThe snapshot is synced from a private monorepo on every release, so file an\nissue rather than a PR for changes; a PR here would be overwritten by the\nnext sync (the sync script and its header in Cargo.toml say the same).\nThe CLI is an ordinary client of a public API: it holds no platform secrets\nand nothing it does is privileged (the server refuses anything a stranger\ncould not do).\n\nSource-available; copyright Tako Research, all rights reserved.",
+    "readingTime": 3,
+    "keywords": [
+      "release",
+      "macos",
+      "script",
+      "installs",
+      "binary",
+      "workos",
+      "credential",
+      "carries",
+      "reachpad",
+      "workspaces"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/Reachpad/reachpad-cli",
+    "thumbnail_url": "https://opengraph.githubassets.com/70da97bfa826d84e8851f7cbc2f88a99e2473e50f55ef89bc79275f4a9814956/Reachpad/reachpad-cli",
+    "created_at": "2026-08-26T00:39:08.843Z",
+    "topic": "tech"
+  },
+  {
     "slug": "gitmir-an-open-source-ide-that-fixes-your-claude-development",
     "title": "GitMir – an open source IDE that fixes your Claude development",
     "description": "One command installs the whole engine: it reads your repository and writes what the product is into .gitmir/model/ — areas, business objects, rules, the states each one moves through — then answers what a change would reach in both directions, hands your coding agent the slice it needs over local MCP (sixteen tools, twelve procedures), and measures what each change cost after it was first shown. AGPL-3.0, no account, no telemetry, nothing uploaded.",
@@ -1932,18 +1956,5 @@
     "thumbnail_url": "https://opengraph.githubassets.com/a356f79058720f5dc7c81fb5782355dc3796878e4bed31e950fa0bfc73f01878/mi60dev/visionaire-engine",
     "created_at": "2026-07-07T19:40:01.621Z",
     "topic": "tech"
-  },
-  {
-    "slug": "what-people-get-wrong-about-working-in-tech-according-to-tech-workers",
-    "title": "What people get wrong about working in tech, according to tech workers",
-    "description": "Six tech workers shared the biggest misconceptions people have about working in tech, from AI and coding to Big Tech careers.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/biggest-misconceptions-working-in-tech-industry-jobs-careers-amazon-google-2026-7",
-    "thumbnail_url": "https://i.insider.com/6a4c05b3965805a2c542d4f1?width=1200&format=jpeg",
-    "created_at": "2026-07-07T19:39:56.604Z",
-    "topic": "finance"
   }
 ]

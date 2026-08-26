@@ -1,5 +1,29 @@
 [
   {
+    "slug": "microsofts-maia-200-ai-accelerator-at-hot-chips-2026",
+    "title": "Microsoft's Maia 200 AI Accelerator at Hot Chips 2026",
+    "description": "At Hot Chips 2026, Microsoft is going into new detail on Maia 200, their second-generation server AI inference processor",
+    "fullText": "The fourth AI accelerator presentation of Hot Chips 2026 comes from Microsoft, who like so many other hyperscalers has gone into the business of designing their own AI accelerator. Now in their second generation, Microsoft is preparing to deploy their Maia 200 accelerator inside their Azure data centers. The 3nm chip was announced early this year, while today’s presentation will be the deepest Microsoft has gone into the chip’s architecture and the many design tweaks they have made to improve its performance over the original Maia 100.\n\nThis article is being written live from the presentation, so please excuse any typos.\n\nMaia is notable right off the bat for not being quite as aggressive of a design in terms of chip size. Though by no means a small chip at 140 billion transistors, Microsoft has paired the accelerator with just 6 stacks of HBM3e memory, and the total chip TDP is just 750 Watts. Though as these are designed to go into racks (just as with any other AI accelerator), the performance and power consumption still add up quickly.\n\nToday is going to the story of how Microsoft designed the Maia 200. The talk will go over the goals of the architecture, the SoC and its architecture, and how it comes together to form the larger system, with software layered in on top.\n\nInference has a very diverse workload between prefill and decode. Mixture of expert modeling also creates a diversity of workloads. These and more were the design target of the Maia 200.\n\nMaia 200 uses the Software Defined Local Acces (SLDA) dataflow architecture. Microsoft makes a distinction of architecture along two dimensions: data access and data movement. SDLA is defined by the fact that the dataflow is software-defined, while data access is completely local. This organization is similar to the Flynn’s classic taxonomy of processors.\n\nThe SDLA architecture affords a high degree of determinism. The dataflow is controlled in software, and thus is set at compile time which means it is known is advance. Meanwhile Microsoft is able to avoid a lot of cross-talk and heavy bandwidth/fabric needs by keeping data access within the compute elements.\n\nHere is an abstract look at the control and data path flow of the architecture. DMA and processing elements run the data path; each one has its own hardware queue of instructions. Explicit sync is achieved via semaphores.\n\nControl, I/O, and compute are all running independently, and being chained/synced via the aforementioned semaphores.\n\nMicrosoft’s fundamental computing block is a tile. Each tile contains a tile tensor unit (TTU) their matrix math engine, the tile vector processor (TVP) with SIMD engines, and then the tile control processor (TCP). Rounding out th etile is a TDMA block, and then an L1 cache block.\n\nMicrosoft employs a hierarchical memory structure, with L1 (tiler) and L2 (cluster) cache layers below the memory layer. Data is only moved between layers when it is needed to do so.\n\nAs for I/O, Microsoft uses a custom NIC and interconnect protocol as their network fabric. Reliability is a first-class design parameter here, with hardware-based recovery mechanisms. This custom design is achieved with minimal die space on Maia 200.\n\nEach SoC has 8 Ethernet lanes, split up into four network planes.\n\nMaia 200 also heavily emphasizes load balancing both inside a chip and across all of the chips in a cluster. Effective load balancing is fundamental to allowing Maia 200 to scale up to large domains.\n\nMaia 200 is built on TSMC 3nm, with a 750 Watt TDP. There is 7TB/second of HBM bandwidth, accomplished via 6 HBM stacks. In terms of compute throughput, the chip offers 10,000 TFLOPS of FP4 performance. The SoC die is 820mm2 altogether.\n\nMicrosoft uses a fully connected quad topology for their networking.\n\nThere is no scale-out networking for Maia 200. It is all scale-up networking. Microsoft’s slide demonstrates 128 racks with 6000 chips all together. Microsoft took a bet on unified Ethernet here, and it has paid off with operational simplicity. Each rack has tier-0 switches to connect the nodes within the racks, and then tier-1 switches to connect the racks themselves.\n\nShifting over to the software side of Microsoft’s ecosystem, they didn’t just co-design the chip and system, but they co-designed the entire stack right on through the software. The software at the core of this is the Microsoft Collective Communication Library (MCCL).\n\nThe SDLA design of the hardware requires that the kernels running on the hardware be tuned for the hardware for the best performance.\n\nGEMM workloads are one of the fundamental workloads run on Maia 200. Above, Microsoft’s presentation lays out how a batch GEMM workload is handled on the chip. A gather operation takes place over the central GNOC, while the weights are loaded from HBM, and finally the output is pinned to the L1 SRAM.\n\nOf course, Maia 200 chips aren’t meant to be used alone; they are meant to be used together in a scale-up domain. So here is a look at the distributed workflow for batch GEMMs.\n\nData reuse is also a very important element of execution on Maia 200 for efficiency purposes, as it reduces the memory traffic flowing across the trip. Block interleaving is used to get fully overlapped tensor/SIMD operations.\n\nMicrosoft uses an adaptive logical topology for collectives. A collective can complete with a single hop and no overhead.\n\nMaia also supports a ring-based topology for when large transfers are needed.\n\nNow here is a look at the performance of the Maia 200 in GEMM benchmarks. Points on the left are memory-bound, points on the right are compute-bound. Maia gets very close to its theoretical maximum (roofline) in these benchmarks.\n\nMeanwhile attention benchmarks show an effective peak of 1.65 PFLOPS.\n\nFinally, here is a look at collective benchmarking. Microsoft is able to reach almost 1.3TB/second in BF16 AllReduce (with the chart also showing how the different broadcast implementations affect performance), while All2All peaks at 655 GB/second.\n\nAnd that is a quick look at Maia 200. Microsoft has opted for a data-movement-centric architecture with SDLA, and paired this with a unified all-Ethernet networking structure to keep the networking simple. Software is the third pillar of Maia 200, with the classical software development house co-designing the hardware and software in concert to optimize the very explicit flow of data.",
+    "readingTime": 6,
+    "keywords": [
+      "load balancing",
+      "tier switches",
+      "software",
+      "architecture",
+      "design",
+      "performance",
+      "maia",
+      "accelerator",
+      "look",
+      "hardware"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.servethehome.com/microsofts-maia-200-accelerator-at-hot-chips-2026/",
+    "thumbnail_url": "https://www.servethehome.com/wp-content/uploads/2026/08/Microsoft-Maia200-Hero.jpg",
+    "created_at": "2026-08-26T00:39:06.503Z",
+    "topic": "tech"
+  },
+  {
     "slug": "leaked-microsoft-pay-data-shows-how-much-hundreds-of-employees-report-making-in-ai-cloud-and-other-teams",
     "title": "Leaked Microsoft pay data shows how much hundreds of employees report making in AI, cloud, and other teams",
     "description": "Business Insider analyzed a spreadsheet some Microsoft employees are using to share their compensation.",
@@ -1738,29 +1762,5 @@
     "thumbnail_url": "https://i.insider.com/6a2a3040ecc428964ed26e60?width=1200&format=jpeg",
     "created_at": "2026-06-11T10:04:14.112Z",
     "topic": "finance"
-  },
-  {
-    "slug": "update-your-pc-now-to-patch-these-206-flaws",
-    "title": "Update Your PC Now to Patch These 206 Flaws",
-    "description": "Three of the bugs addressed on Microsoft's Patch Tuesday were zero-days.",
-    "fullText": "Microsoft's June security update, known as Patch Tuesday, is the company's largest ever, with fixes for more than 200 bugs—three of which are zero-days that have been publicly disclosed.\n\nThe release addresses 206 flaws across the following categories, according to The Hacker News: 63 elevation-of-privilege vulnerabilities, 20 security feature bypass vulnerabilities, 56 remote-code-execution vulnerabilities, 30 information disclosure vulnerabilities, 27 spoofing vulnerabilities, seven denial of service vulnerabilities, and three tampering vulnerabilities. Thirty-nine of the bugs are rated \"critical\" and include remote code execution, elevation of privilege, and information disclosure flaws.\n\nPatch Tuesday updates are typically released at 10 am PT on the second Tuesday of every month, and you should receive them automatically. You can update if it hasn't; check the status of your PC via Start > Settings > Windows Update and select Check for Windows updates. Then install any available updates.\n\nZero-day flaws are those that have been actively exploited or publicly disclosed before an official fix is released. In this case, the three zero-days were publicly disclosed but are not known to have been exploited in the wild.\n\nThe first zero-day, labeled CVE-2026-45586, is an elevation of privilege vulerability in the Windows Collaborative Translation Framework that allows an authorized attacker to gain SYSTEM privileges via improper link resolution. According to BleepingComputer, this flaw was identified by the security researcher Nightmare Eclipse.\n\nThe second zero-day (CVE-2026-49160) is an HTTP.sys denial of service vulnerability that abuses the HTTP/2 protocol, allowing attackers to tie up memory and cause performance issues or outages. Researchers at Calif.io have been credited with discovering this bug.\n\nFinally, CVE-2026-50507 is a Windows Bitlocker security feature bypass vulnerability that would allow a local attacker to gain access to an encrypted drive using files on a USB drive or EFI partition. The patch for this flaw also addressed a vulnerability that was publicly disclosed by Nightmare Eclipse last month.",
-    "readingTime": 2,
-    "keywords": [
-      "feature bypass",
-      "publicly disclosed",
-      "security feature",
-      "patch tuesday",
-      "vulnerabilities",
-      "flaws",
-      "updates",
-      "zero-day",
-      "vulnerability",
-      "zero-days"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://lifehacker.com/tech/update-pc-microsoft-patch-tuesday-june-2026?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KTS1BMQG4ZE44FJTWX0RAPGE/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-06-10T20:10:27.406Z",
-    "topic": "tech"
   }
 ]
