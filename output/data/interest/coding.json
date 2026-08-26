@@ -1,5 +1,42 @@
 [
   {
+    "slug": "agentbridge-sync-skillsmcp-servers-across-claude-code-codex-antigravity",
+    "title": "AgentBridge – sync skills/MCP servers across Claude Code, Codex, Antigravity",
+    "description": "Universal Skill & MCP Sync Engine for AI Coding Agents (Antigravity, Claude Code, Codex) - Helter5/agentbridge",
+    "fullText": "Universal Skill & MCP Sync Engine for AI Coding Agents.\n\nGoogle Antigravity, Claude Code, and OpenAI Codex each keep their own private copy of your custom Skills, MCP servers, and project rules - in different folders, different file formats, none of them aware the others exist. Add a skill or an MCP server to one, and it's invisible to the rest until you copy it over by hand, every time, per agent.\n\nAgentBridge fixes that with one shared hub (~/.agentbridge/skills) that every agent's own skills folder links to directly via a native OS symlink/junction - no daemon, no polling, no elevated privileges. Add a skill once, it's instantly available everywhere. MCP servers and project rules (AGENTS.md → CLAUDE.md/GEMINI.md/etc.) get merged and mirrored the same way with a single command instead of four manual edits.\n\nDoctor reads across the hub and all 3 agents for diagnostics but writes nothing on its own (--fix repairs broken links directly via the same cross-platform link helper SkillLinker uses, not by calling into SkillLinker itself), so it has no outgoing edges above. SkillLinker's own pre-link backup (see link-skills below) is a separate mechanism from Rollback - that's why no edge connects them.\n\nKey safety properties baked into every write path: automatic pre-write backups (link-skills, sync-mcp, sync-rules - see the Commands section below for exactly which mechanism each uses and how to restore), and secrets are never persisted in plain text if an equivalent OS environment variable already exists (see the Secret Redaction note under sync-mcp).\n\nSkills are shared; MCP servers are copied - and that's deliberate, not a shortcut. A skill is an isolated unit on disk (a folder with SKILL.md and nothing else mixed in), so every agent's skills directory can just be a symlink/junction into the same hub folder - genuinely one file, visible under multiple paths. Editing it anywhere changes it everywhere instantly, with no sync step needed (link-skills only has to run once, to create the links).\n\nAn MCP server definition can't work the same way: it's one field inside a much larger config file that also holds each agent's own unrelated settings (Claude's own preferences, Codex's own settings, etc.) - a symlink only works at the whole-file level, and symlinking the entire file would leak one agent's unrelated settings into another's. So sync-mcp copies the merged definition into each agent's config separately - a real, independent copy per agent (plus one \n\nRun directly without installing, using npx:\n\nOr install globally for a shorter command:\n\nMost commands accept --hub <path> to override the default ~/.agentbridge/skills hub location.\n\nCommon flags (same meaning everywhere they appear):\n\nScans the system and presents an ASCII table overview of all installed AI coding agents, skills counts, hub linking status, and configured MCP servers.\n\nInteractively multiselect which skills, commands, or MCP servers to import into your active environment.\n\nMigrates existing skills into the central hub (~/.agentbridge/skills) without data loss, then creates transparent directory junctions (Windows) or symbolic links (macOS/Linux).\n\nNote (partial failure): if linking fails partway through more than one agent, the error names which agent actually failed, which agents were already processed before it (their skills may already be merged into the hub), and recommends running agentbridge doctor to check the current state before retrying.\n\nSafely reads MCP server declarations across all detected client configuration files, deep-merges environment variables, command arguments, and server keys, then mirrors them across all agents.\n\nSecret Redaction: sync-mcp never writes a plain-text secret to disk if it doesn't have to. Before writing any agent config, it checks each env value against your current OS environment variables - if a value exactly matches one (e.g. GITHUB_PERSONAL_ACCESS_TOKEN), it writes ${GITHUB_PERSONAL_ACCESS_TOKEN} instead of the literal value. Set the variable once:\n\nthen run agentbridge sync-mcp again - any agent's config still holding the literal value gets rewritten to the ${VAR} reference automatically, no matter how many agents you have. agentbridge doctor flags any plain-text secret it finds (with this same fix in its warning text) but never sets an OS environment variable on your behalf - that's a real side effect on your machine only you should trigger, and only you know the right value.\n\nMCP Server Conflict Detection: if two agents independently define a server with the same name but genuinely different command, args, or an overlapping env key with a different value, sync-mcp merges them field-by-field - the later-processed agent's value silently wins on the fields that actually conflict (an env key present in only one side isn't a conflict; both survive). sync-mcp prints a warning naming the server, which fields disagreed, and which agents disagreed; agentbridge doctor reports the same thing as a persistent check (\"MCP Server Conflicts\") so it shows up even between syncs. Neither auto-resolves it - only you know which agent's definition should actually win. Re-run sync-mcp after fixing the losing agent's config directly, or edit the merged result via sync-mcp --output.\n\nSynchronizes project-level agent rules. Reads AGENTS.md as the single source-of-truth and mirrors or symlinks it to CLAUDE.md, GEMINI.md, CODEX.md, .cursorrules, and .github/copilot-instructions.md.\n\nNote (--mode symlink on Windows): creating a real file symlink requires Developer Mode or an elevated shell. Without either, AgentBridge transparently falls back to a hardlink, which stays in sync when AGENTS.md is edited in place but can go stale if it's replaced outright (e.g. some editors' \"atomic save\" does a delete + rewrite). The CLI output tells you which one you actually got (Symlinked to source vs Hardlinked to source) - if you see the latter and need true symlinks, enable Developer Mode or run as admin, then re-run the command.\n\nScaffolds a new skill directory in the central hub with a standard SKILL.md template containing YAML frontmatter.\n\nRuns health diagnostics: audits plain-text tokens and secrets in MCP configs, detects skill name collisions and same-named MCP servers with conflicting definitions across agents, checks junction integrity, and repairs broken links with --fix.\n\nNote (exit codes): without --fix, any warning or error in the report exits 1 (broken links, exposed secrets, and skill-name collisions are all reported at warning severity, so this catches them too) - so agentbridge doctor && deploy stops before a real problem. With --fix, the exit code reflects the repair pass instead and is 0 once it has run.\n\nSafely disconnects agents from the central hub, removing junctions/symlinks and restoring independent directories with copies of hub skills.\n\nLists timestamped backup snapshots from ~/.agentbridge/backups/ and restores configurations to an earlier state.\n\nStarts a lightweight live file watcher that monitors the central skills hub and workspace AGENTS.md, automatically synchronizing changes in real time.\n\nYou can import and use @helter/agentbridge directly in Node.js / TypeScript code:\n\nMIT (c) AgentBridge Contributors",
+    "readingTime": 6,
+    "keywords": [
+      "add skill",
+      "mcp servers",
+      "mcp server",
+      "project rules",
+      "repairs broken",
+      "unrelated settings",
+      "environment variables",
+      "broken links",
+      "per agent",
+      "plain-text secret"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/Helter5/agentbridge",
+    "thumbnail_url": "https://opengraph.githubassets.com/f73aa12e34ae462288e964ce214646067a101d02e3c8445e3c60ed2865ad2246/Helter5/agentbridge",
+    "created_at": "2026-08-26T19:30:20.787Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "mystery-solved-chinese-lab-zai-says-its-behind-the-ox-alpha-model-that-wowed-silicon-valley",
+    "title": "Mystery solved: Chinese lab Z.ai says it’s behind the Ox Alpha model that wowed Silicon Valley",
+    "description": "The free AI coding model sparked widespread interest among developers after appearing anonymously on OpenRouter.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/ox-alpha-model-made-by-china-z-ai-2026-8",
+    "thumbnail_url": "https://i.insider.com/6a8ee26679f11f0a89f90d67?width=1200&format=jpeg",
+    "created_at": "2026-08-26T19:30:04.102Z",
+    "topic": "finance"
+  },
+  {
     "slug": "brendan-carrs-vendetta-against-abc-conflates-the-public-interest-with-trumps-personal-grievances",
     "title": "Brendan Carr's Vendetta Against ABC Conflates the 'Public Interest' With Trump's Personal Grievances",
     "description": "The FCC chairman is punishing the network for news coverage and programming decisions that offend the president.",
@@ -1921,40 +1958,6 @@
     "link": "https://www.businessinsider.com/vibe-coded-7-figure-tool-startup-4-steps-followed-2026-7",
     "thumbnail_url": "https://i.insider.com/6a4d074a94175b768171f90f?width=1200&format=jpeg",
     "created_at": "2026-07-08T13:29:06.830Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "want-a-software-engineering-job-youll-need-more-than-coding-skills-in-the-ai-era",
-    "title": "Want a software engineering job? You'll need more than coding skills in the AI era.",
-    "description": "Software engineers need more than coding skills to get hired today. Interviews now test judgment, AI skills, and problem solving.",
-    "fullText": "Your browser does not support the video element.\n\n By\n\n Ana Altchek \n\n You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n and\n\n Shubhangi Goel \n\n You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n Read in app\n\n HOME",
-    "readingTime": 1,
-    "keywords": [
-      "you're currently",
-      "unfollow unsubscribe",
-      "unsubscribe via",
-      "currently following",
-      "author",
-      "link",
-      "email"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.businessinsider.com/software-engineering-job-technical-interviews-hiring-ai-2026-7",
-    "thumbnail_url": "https://i.insider.com/6a4d077e965805a2c542d8bb?width=1200&format=jpeg",
-    "created_at": "2026-07-08T13:29:06.332Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "perplexity-is-quietly-building-an-ai-coding-tool-to-take-on-cursor-and-claude-code",
-    "title": "Perplexity is quietly building an AI coding tool to take on Cursor and Claude Code",
-    "description": "San Francisco-based Perplexity, valued at $20 billion, is working on 'Teammate,' an AI tool that may compete with AI coding giants like Anthropic.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/perplexity-building-ai-coding-tool-take-on-cursor-and-openai-2026-7",
-    "thumbnail_url": "https://i.insider.com/6a4d78d2965805a2c542de3b?width=1200&format=jpeg",
-    "created_at": "2026-07-08T01:43:02.824Z",
     "topic": "finance"
   }
 ]
