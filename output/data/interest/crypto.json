@@ -1,5 +1,28 @@
 [
   {
+    "slug": "ego-blockchain",
+    "title": "Ego Blockchain",
+    "description": "Ego Blockchain Implementation . Contribute to ego-blockchain/ego-blockchain- development by creating an account on GitHub.",
+    "fullText": "A post-quantum Layer-1 blockchain that pays node operators for contributing real infrastructure — storage, wireless coverage, retrieval and compute — rather than for burning electricity on proof-of-work.\n\nStatus: public testnet. The chain is live and producing blocks, but EGOC has no mainnet and is not tradeable. Mainnet launch follows an independent security audit. Testnet addresses use the egot prefix (chain_id = 1).\n\nEgo is a single client that runs a full node and pays for measured contribution:\n\nStored files are split, encrypted with AES-256-GCM and distributed, so an operator never holds a complete file or knows its contents.\n\nEvery key is post-quantum from genesis — not a planned migration:\n\nRequires Rust 1.85 or newer (the workspace uses edition 2024) and Node.js 20+ for the desktop app and SDK.\n\nOn Windows, link errors of the form LNK1318 are resolved by using rust-lld.exe rather than the MSVC linker.\n\nSee testnet/TESTNET.md for multi-node setup. Each node on the same machine needs its own EGO_DATA_DIR, or they will contend for the same RocksDB lock.\n\nMaximum supply is 1,000,000,000 EGOC (1 EGOC = 1,000,000 uEGOC). Genesis allocations, defined in ego-desktop/src-tauri/src/tokenomics.rs:\n\nBlock emissions release at 0.0832 EGOC per block with a halving every ~4 years, targeting a 120-year schedule. Transaction fees split 60% to block producers and 40% to the staking pool. Foundation funds vest linearly over 48 months, enforced at block-write time rather than by policy.\n\nA 10,000,000 EGOC faucet is minted on testnet only and is excluded from mainnet genesis.\n\nIssues and pull requests are welcome. Consensus, cryptography and tokenomics changes are consensus-critical: please open an issue describing the problem before submitting a change to those areas.",
+    "readingTime": 2,
+    "keywords": [
+      "node",
+      "rather",
+      "testnet",
+      "mainnet",
+      "genesis",
+      "block",
+      "post-quantum",
+      "split",
+      "egoc"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://github.com/ego-blockchain/ego-blockchain-",
+    "thumbnail_url": "https://opengraph.githubassets.com/adb48277fed11a612b98973ad9532ea22585d98e5d85a8960f7e9d037e373877/ego-blockchain/ego-blockchain-",
+    "created_at": "2026-08-28T01:53:56.106Z",
+    "topic": "tech"
+  },
+  {
     "slug": "traders-are-hiding-in-debasement-as-gold-and-bitcoin-roar-back-to-life",
     "title": "Traders are hiding in debasement as gold and bitcoin roar back to life",
     "description": "The Treasury's bond-buyback plan has renewed focus on US debt, deficits, and inflation.",
@@ -1741,19 +1764,6 @@
     "link": "https://www.bloomberg.com/news/articles/2026-05-05/andreessen-horowitz-raises-new-2-2-billion-crypto-fund",
     "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iTAyEgA5maMo/v1/1200x800.jpg",
     "created_at": "2026-05-05T13:10:41.577Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "dollar-dominance-crushes-lagardes-european-crypto-ambitions",
-    "title": "Dollar Dominance Crushes Lagarde’s European Crypto Ambitions",
-    "description": "In the contest over the future of money, the US dollar has a huge head start",
-    "fullText": "EconomicsThe Big TakeBy Anna Irrera, Mark Schroers, and Jorge ValeroSaveWhen Christine Lagarde addressed a central bank conference late last year, her frustration was clear. Europe had been debating a digital euro for years, but it was still nowhere close to being done.Progress was so slow that it was likely her eight-year term would be up before the project saw the light of day. “This is too long,” she said. “We don’t want to be left in the dust.”",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.3,
-    "link": "https://www.bloomberg.com/news/features/2026-05-04/global-crypto-race-why-divided-europe-is-losing-ground",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i1mTEn6hIX1g/v0/1200x795.jpg",
-    "created_at": "2026-05-05T07:53:18.470Z",
     "topic": "finance"
   }
 ]
