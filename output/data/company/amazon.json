@@ -1,5 +1,53 @@
 [
   {
+    "slug": "my-issue-with-gpuaccelerated-deep-learning-2016",
+    "title": "My issue with GPU-accelerated deep learning (2016)",
+    "description": "I’ve been spending several hundred bucks renting GPU instances on AWS over the last year. The speedup from a GPU is awesome and hard to deny. GPUs have taken over the field. Maybe following the footsteps of Bitcoin mining there’s some research on using FPGA (I know very little about this).",
+    "fullText": "I’ve been spending several hundred bucks renting GPU instances on AWS over the last year. The speedup from a GPU is awesome and hard to deny. GPUs have taken over the field. Maybe following the footsteps of Bitcoin mining there’s some research on using FPGA (I know very little about this).\n\nI don’t think there’s a coincidence that GPUs that are built for graphics turn out to be great for image classification using convolutional neural networks. When you are dealing with pixel data packed into 2D arrays it’s possible to parallelize all operations very efficiently.\n\nMy issue is that the complexity of each minibatch is $$ \\mathcal{O}(n) $$ where $$ n $$ is the number of parameters. The larger models you are dealing with, the bigger this issue becomes.\n\nWord2vec uses a clever technique called hierarchical softmax to achieve $$ \\mathcal{O}(\\log n) $$ (more details here). I have no idea how to implement this on a GPU and I suspect it’s impossible. Here’s where the CPU shows its strength – traversing a logarithmic datastructure takes a lot of branching and can’t be expressed as a batch operation.\n\nLogarithmic data structures happens to be a field I’m pretty excited about, particularly for vector models and multi-class prediction problems. I’m the author of Annoy, which a library for high dimensional nearest neighbor queries, so it’s something I’ve spent some time thinking about.\n\nFor collaborative filtering and natural language processing, GPU architectures are highly constraining. I suspect once you hit a billion parameters or so, more specialized networks that use logarithmic datastructures will outperform for NLP and CF. The speedup from the brute force GPU approach will be offset by the smarter datastructures that a CPU can handle. I haven’t seen any research on this but seems to me like a huge opportunity. In particular, I would love to see hybrid architectures that can use a GPU for the “dense” networks and CPU for the “sparse” networks.",
+    "readingTime": 2,
+    "keywords": [
+      "networks",
+      "it’s",
+      "logarithmic",
+      "i’ve",
+      "speedup",
+      "gpus",
+      "field",
+      "there’s",
+      "research",
+      "dealing"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://erikbern.com/2016/02/03/my-issue-with-gpu-accelerated-deep-learning.html",
+    "thumbnail_url": "https://erikbern.com/",
+    "created_at": "2026-08-29T01:18:15.022Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "archlex-a-small-oss-language-for-aws-gcp-and-kubernetes-diagrams",
+    "title": "ArchLex: a small OSS language for AWS, GCP, and Kubernetes diagrams",
+    "description": "Ask Claude, Cursor, or Codex to diagram AWS, GCP, or Kubernetes. ArchLex validates semantics and renders official-icon SVG. No API key.",
+    "fullText": "Open source · Claude, Cursor, Codex\n\nAsk your agent to diagram AWS, GCP, or Kubernetes. ArchLex validates the architecture and renders official-icon SVG you can read, diff, and share.\n\nArchLex understands cloud resources, boundaries, and typed relationships, not just shapes.\n\nConcise text source stays clear in diffs. Deterministic, accessible SVG keeps rendered reviews consistent.\n\nGive Claude, Cursor, and other agents cloud architecture expertise. The ArchLex MCP server validates diagrams against AWS, GCP, and Kubernetes rules with zero hallucinated resource names or invalid relationships.\n\nRegister ArchLex as a remote HTTP server.\n\nAdd this server to .cursor/mcp.json.\n\nAdd ArchLex to the shared Codex MCP configuration.\n\nAdd this server to .vscode/mcp.json.\n\nUse this URL in any client that supports remote Streamable HTTP.\n\nOr let your agent set it up for you.\n\nEquip Claude Code, Cursor, Codex, and any AI coding assistant supporting the open SKILLS.md standard with deep cloud architecture diagramming and semantic validation.\n\nStep-by-step workflow for render_diagram, validate_diagram, and catalog lookups directly within your coding agent session.\n\nComplete syntax rules, relationship kinds, containment scopes (accounts, regions, VPCs, subnets), and diagnostic resolution.\n\nProduction-ready AWS, GCP, and Kubernetes templates that any AI agent can immediately adapt, validate, and extend.\n\nLightweight, modular packages for browser and Node.js. Zero native binary dependencies.\n\nOpen source · MIT licensed · No account required",
+    "readingTime": 2,
+    "keywords": [
+      "claude cursor",
+      "cursor codex",
+      "cloud architecture",
+      "agent",
+      "server",
+      "validates",
+      "relationships",
+      "rules",
+      "remote",
+      "coding"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://archlex.dev/",
+    "thumbnail_url": "https://archlex.dev/archlex-event-pipeline-dark.png",
+    "created_at": "2026-08-29T01:18:12.586Z",
+    "topic": "tech"
+  },
+  {
     "slug": "exclusivechinas-moonshot-in-talks-with-microsoft-amazon-google-over-k3-revenue-sharing-sources-say",
     "title": "Exclusive-China's Moonshot in talks with Microsoft, Amazon, Google over K3 revenue sharing, sources say",
     "description": "BEIJING/SINGAPORE, Aug 26 (Reuters) - China's Moonshot AI is negotiating revenue-sharing agreements with Microsoft, Amazon and Alphabet's Google that would allow the U.S. cloud giants to host its",
@@ -1687,53 +1735,5 @@
     "thumbnail_url": "https://storage.ghost.io/c/a0/4c/a04c7225-d919-4d78-9b7c-a3fdd071349b/content/images/size/w1200/2024/01/1500x500-1.jpeg",
     "created_at": "2026-06-24T14:05:18.424Z",
     "topic": "tech"
-  },
-  {
-    "slug": "ai-stock-slump-raises-the-question-if-investors-are-just-taking-profits-or-getting-very-nervous",
-    "title": "AI stock slump raises the question if investors are just taking profits or getting very nervous",
-    "description": "Technology companies are spending big to incorporate artificial intelligence into their businesses and to build huge data centers.  Investors who had jumped on the bandwagon appear to be having second thoughts.  Just four companies — Alphabet, Amazon, Meta Platforms and Microsoft — plan to spend up to $720 billion this year, primarily on AI data centers.",
-    "fullText": "Technology companies are spending big to incorporate artificial intelligence into their businesses and to build huge data centers. Investors who had jumped on the bandwagon appear to be having second thoughts.\n\nProponents of artificial intelligence see it as the next great revolution for the global economy. The revolution won't come cheap. Just four companies — Alphabet, Amazon, Meta Platforms and Microsoft — plan to spend up to $720 billion this year, primarily on AI data centers.\n\nThis week, investors are looking at the huge sums being spent and questioning whether AI can produce the profits and productivity necessary to make all the investment worth it. Critics have been talking about the possibility of a bubble in AI investment. On Monday, Amazon and Alphabet fell about 5%.\n\nOn Tuesday, several companies that make the chips needed for the data center buildup — Nvidia, Micron Technology, Broadcom and Lam Research — led the market lower.\n\nAt first, Microsoft, Alphabet and other so-called hyperscalers turned to cash on hand to fund the AI expansion. But they're increasingly relying on the markets to raise cash.\n\nAlphabet, the parent company of Google, said earlier this month that it’s raising $80 billion in cash to help pay for its investments by selling shares of its stock. Overall, Alphabet is planning to spend as much as $190 billion this year — more than all the stock of The Walt Disney Co. is worth, and Alphabet is forecasting its spending on investments next year will “significantly increase.”\n\nIn March, Amazon sold $54 billion of bonds in the U.S. and Europe as it plans to spend around $200 billion this year on AI investments.\n\nElon Musk's rocket maker SpaceX was on a three-day skid heading into Tuesday. It regained some lost ground, but was trending only modestly higher relative to the closing price on its first day of trading on June 12. Musk acknowledges that SpaceX will have to spend heavily to fulfill its plans of sending AI data centers into space, and the company has announced that part of an upcoming bond offering will fund its AI buildout.\n\nA number of chip companies have soared as the demand for memory and processing power for AI data centers and other projects has led to a surge in prices. As investors push up the stock price in anticipation of growing profits, a key measure of how expensive a stock is, called the price-to-earnings ratio, can skyrocket.\n\nMarvell Technologies lost money for five straight years before turning a profit of $2.7 billion in the fiscal year ended in January, thanks to gains in its data center business. The stock has more than tripled so far this year and its P/E ratio has gone from about 30 at the start of 2026 to near 100. Some data storage companies have seen even more eye-popping gains. Sandisk shares have soared more than 700% year to date and its P/E ratio stands at 68.",
-    "readingTime": 3,
-    "keywords": [
-      "p/e ratio",
-      "artificial intelligence",
-      "stock",
-      "centers",
-      "investors",
-      "cash",
-      "investments",
-      "technology",
-      "huge",
-      "revolution"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/technology/ai/articles/ai-stock-slump-raises-investors-181830257.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/THmG6Q633sUtMM1rNrzaJA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://media.zenfs.com/en/ap.org/596517c8aea6e236c03eb4fe0346280f",
-    "created_at": "2026-06-23T19:49:10.244Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-founder-of-chinas-amazon-wants-his-700000-bluecollar-workers-to-be-whitecollarized-in-time-for-ai",
-    "title": "The founder of China's Amazon wants his 700,000 blue-collar workers to be 'white-collarized' in time for AI",
-    "description": "JD.com founder Richard Liu said robots will take over manual delivery work, but humans will be needed to maintain and troubleshoot them.",
-    "fullText": "China's e-commerce tycoon said he plans to turn his gig workers into white-collar workers.\n\nJD.com founder Richard Liu said robots would take over the manual delivery work.\n\nHe said human workers will be needed to repair the robots, which can be done from offices.\n\nThe founder of China's Amazon equivalent said his 700,000 blue-collar delivery workers will become office workers in the years to come.\n\nRichard Liu, the billionaire founder of China's e-commerce behemoth JD.com, said the company has several \"Nirvana Plans\" underway to \"white-collarize\" its 700,000 blue-collar workers, including delivery riders.\n\nSpeaking at the Asia-Pacific Economic Cooperation CEO forum on Sunday, Liu said that in the age of AI, workers won't be needed for deliveries. Still, they will be needed to repair or troubleshoot the robots doing the manual labor. So instead of working in the field, the workers will be sitting in offices, and won't have to work nearly as hard.\n\n\"JD.com has therefore signed contracts with 120 schools across China to help these blue-collar workers retrain for new roles, including repairing and maintaining robots,\" Liu said.\n\nLiu added that he was advocating for an internationally recognized protocol for adopting AI and robots as social systems change. He said robots should not deprive people of the right to work.\n\nThe executive also said in May that JD.com would not fire any employee whose job was being replaced by robots; instead, they would be retrained and reassigned elsewhere.\n\nDeliveries via robots are already commonplace in China, including drones used to deliver food packages. For instance, food delivery giant Meituan said in 2024 that its drones could be deployed to deliver packages to hikers on the Great Wall of China.\n\nLiu's comments come as e-commerce giants around the world are ramping up their automation efforts to boost productivity. Amazon has a fleet of more than 750,000 robots working in its fulfillment centers.\n\nOther companies have rolled out fleets of delivery robots on city streets. DoorDash launched bright red Dot robots in Phoenix last September, which can travel on footpaths and carry up to 30 pounds of cargo. Companies like Robot.com and Starship are targeting deliveries on college campuses.\n\nBeyond gig work, automation and AI are the biggest buzzwords tied to corporate layoffs this year. Companies like Snap, Wix, and Cisco cited AI as a factor in their recent retrenchments.\n\nIf you enjoyed this story, be sure to follow Business Insider on Yahoo.",
-    "readingTime": 3,
-    "keywords": [
-      "china's e-commerce",
-      "blue-collar workers",
-      "richard liu",
-      "robots",
-      "delivery",
-      "jd.com",
-      "founder",
-      "needed",
-      "deliveries",
-      "manual"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/technology/ai/articles/founder-chinas-amazon-wants-700-084134533.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/xeWxZ_T8XaPujuAnppmMZw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD05MDA-/https://media.zenfs.com/en/business_insider_consolidated_articles_886/35585597f21b8c5ddfdcccdcec9e0d77",
-    "created_at": "2026-06-23T19:49:09.689Z",
-    "topic": "finance"
   }
 ]

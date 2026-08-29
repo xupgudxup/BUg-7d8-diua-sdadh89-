@@ -1,5 +1,29 @@
 [
   {
+    "slug": "my-issue-with-gpuaccelerated-deep-learning-2016",
+    "title": "My issue with GPU-accelerated deep learning (2016)",
+    "description": "I’ve been spending several hundred bucks renting GPU instances on AWS over the last year. The speedup from a GPU is awesome and hard to deny. GPUs have taken over the field. Maybe following the footsteps of Bitcoin mining there’s some research on using FPGA (I know very little about this).",
+    "fullText": "I’ve been spending several hundred bucks renting GPU instances on AWS over the last year. The speedup from a GPU is awesome and hard to deny. GPUs have taken over the field. Maybe following the footsteps of Bitcoin mining there’s some research on using FPGA (I know very little about this).\n\nI don’t think there’s a coincidence that GPUs that are built for graphics turn out to be great for image classification using convolutional neural networks. When you are dealing with pixel data packed into 2D arrays it’s possible to parallelize all operations very efficiently.\n\nMy issue is that the complexity of each minibatch is $$ \\mathcal{O}(n) $$ where $$ n $$ is the number of parameters. The larger models you are dealing with, the bigger this issue becomes.\n\nWord2vec uses a clever technique called hierarchical softmax to achieve $$ \\mathcal{O}(\\log n) $$ (more details here). I have no idea how to implement this on a GPU and I suspect it’s impossible. Here’s where the CPU shows its strength – traversing a logarithmic datastructure takes a lot of branching and can’t be expressed as a batch operation.\n\nLogarithmic data structures happens to be a field I’m pretty excited about, particularly for vector models and multi-class prediction problems. I’m the author of Annoy, which a library for high dimensional nearest neighbor queries, so it’s something I’ve spent some time thinking about.\n\nFor collaborative filtering and natural language processing, GPU architectures are highly constraining. I suspect once you hit a billion parameters or so, more specialized networks that use logarithmic datastructures will outperform for NLP and CF. The speedup from the brute force GPU approach will be offset by the smarter datastructures that a CPU can handle. I haven’t seen any research on this but seems to me like a huge opportunity. In particular, I would love to see hybrid architectures that can use a GPU for the “dense” networks and CPU for the “sparse” networks.",
+    "readingTime": 2,
+    "keywords": [
+      "networks",
+      "it’s",
+      "logarithmic",
+      "i’ve",
+      "speedup",
+      "gpus",
+      "field",
+      "there’s",
+      "research",
+      "dealing"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://erikbern.com/2016/02/03/my-issue-with-gpu-accelerated-deep-learning.html",
+    "thumbnail_url": "https://erikbern.com/",
+    "created_at": "2026-08-29T01:18:15.022Z",
+    "topic": "tech"
+  },
+  {
     "slug": "bitcoin-steadies-below-80k-as-investors-await-warsh-speech",
     "title": "Bitcoin steadies below $80k as investors await Warsh speech",
     "description": null,
@@ -1745,21 +1769,6 @@
     "link": "https://www.businessinsider.com/0g-labs-layoffs-ai-integration-2026-5",
     "thumbnail_url": "https://i.insider.com/69fa73aef9e4752b6d6012cc?width=764&format=jpeg",
     "created_at": "2026-05-06T01:50:41.154Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "strategy-survives-another-bitcoin-crash-with-more-alchemy",
-    "title": "Strategy Survives Another Bitcoin Crash With More Alchemy",
-    "description": "Michael Saylor’s Bitcoin accumulation firm Strategy Inc. has survived yet another crypto market meltdown with some fresh financial engineering.",
-    "fullText": "CryptoCryptocurrenciesBy David PanSaveMichael Saylor’s Bitcoin accumulation firm Strategy Inc. has survived yet another crypto market meltdown with some fresh financial engineering. The outlook could have hardly looked more dire. Back on Feb. 5, the cryptocurrency had lost half its value and the common shares used to fund most of its token purchases had tumbled by an even greater amount. That was all before the firm disclosed a $12.4 billion loss later that afternoon.",
-    "readingTime": 1,
-    "keywords": [
-      "firm"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://www.bloomberg.com/news/articles/2026-05-05/strategy-survives-another-bitcoin-crash-with-more-alchemy",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/imsUk_eMCSOk/v0/1200x803.jpg",
-    "created_at": "2026-05-05T19:04:32.837Z",
     "topic": "finance"
   }
 ]
