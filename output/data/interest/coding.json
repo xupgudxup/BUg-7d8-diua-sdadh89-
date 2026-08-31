@@ -1,5 +1,18 @@
 [
   {
+    "slug": "singapores-developer-scene-was-broken-not-cracked-vibe-coding-fixed-it",
+    "title": "Singapore's developer scene was broken, not cracked. Vibe coding fixed it.",
+    "description": "AI Tinkerers Singapore has been running demo nights, workshops, and hackathons that draw more than 100 people each time.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/vibe-coding-ai-helped-revive-singapore-tech-scene-2026-8",
+    "thumbnail_url": "https://i.insider.com/6a82b6edc78818eff7d2d9e2?width=1200&format=jpeg",
+    "created_at": "2026-08-31T12:06:02.404Z",
+    "topic": "finance"
+  },
+  {
     "slug": "stop-that-shit-a-guard-against-unrequested-hashes-from-coding-agents",
     "title": "Stop That Shit – a guard against unrequested hashes from coding agents",
     "description": "Stop That Shit（别再造史了）｜面向 Codex/GPT 场景的多平台 Hook + Skill Guard：拦截 AI coding agent 无需求的哈希、校验和与任务范围膨胀。 A multi-platform Hook + Skill Guard for AI coding agents in Codex/GPT workflows: stop unrequested ...",
@@ -1956,30 +1969,6 @@
     "link": "https://www.theregister.com/ai-and-ml/2026/07/08/former-github-ceo-launches-competitor-designed-for-the-age-of-vibe-coding/5268694",
     "thumbnail_url": "https://image.theregister.com/5262041.jpg?imageId=5262041&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
     "created_at": "2026-07-10T19:14:51.681Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "snitch-deterministic-prose-claim-verifier-for-coding-agents-oss",
-    "title": "Snitch – Deterministic prose claim verifier for coding agents. (OSS)",
-    "description": "Snitch is a deterministic prose claim verifier for AI coding agents for macOS. - fristovic/snitch",
-    "fullText": "Snitch watches your AI agent so you don't have to.\n\nInstall · Help train Snitch (coming soon) · Roadmap\n\nSnitch is a deterministic prose claim verifier for AI coding agents. It watches transcripts from Cursor, Claude Code, Codex, Pi, and OpenCode, extracts high-confidence claims from assistant text (\"all tests pass\", \"I committed this\"), and flags claims contradicted by evidence: tool calls (including subagent merges), tool output, filesystem, git, session lookback (3 prior turns), and same-turn consistency.\n\nSnitch Bar opens in the menu bar and starts the claim verifier automatically.\n\nAfter install, open Snitch Bar:\n\nOpen Snitch Bar once — it lives in the menu bar with no Dock icon:\n\nWhen a false claim is caught, the menu bar icon alerts and Snitch Bar may show a Notification Center alert (Snitch app icon). Click View Details… for the full verification breakdown, or History ▸ Open Dashboard… to browse history.\n\nSnitch stores every agent turn as a run (with a verdict and claims). A false claim is a high-confidence prose claim inside a run that evidence contradicts.\n\nMenu bar shortcuts: View Details… runs snitch log --run <id> for the latest flagged claim. History ▸ Open Dashboard… runs snitch dashboard.\n\nSnitch runs passively after install — it reads each enabled agent's local transcripts (see Supported agents); Cursor's ~/.cursor/projects is watched by default.\n\nWhen Snitch Bar receives a failed (or optionally warned) run, it posts a macOS Notification Center alert attributed to Snitch Bar.app (Snitch head icon). Configure in ~/.snitch/config.yaml:\n\nThe first notification triggers the macOS permission prompt for Snitch Bar.\n\nSnitch persists each turn's full payload (tool calls, git HEAD, file manifest) in SQLite. When verifying recap/summary prose, it can credit evidence from up to three prior turns in the same session for:\n\nSame-turn only: no_action, self_contradiction, count_mismatch, and negation_violation never use cross-turn lookback.\n\nRecap segments (### Summary, ## Summary, horizontal rules) are tagged separately: inaccurate recap claims cap at WARN unless there is zero evidence across the current turn plus lookback.\n\nSnitch watches transcripts from five AI coding agents. Cursor is enabled by default; the others are opt-in.\n\nAfter enabling a platform, restart Snitch (snitch start). Each platform's claims, tool calls, and shell output are normalized to a common internal vocabulary, so the verification pipeline works identically across all five.\n\nThe dashboard accepts a --harness filter to scope to one agent: snitch dashboard --harness claude.\n\nA community labeling flywheel — mark whether Snitch was right or wrong, report missed claims, and optionally share training examples — is coming soon. Labels stay local by default.\n\nWhen sharing is enabled (dual opt-in: telemetry.enabled + share flag), a shared example may include:\n\nNever shared: user prompts, full transcripts, source code, file paths, project paths, or shell dumps.",
-    "readingTime": 3,
-    "keywords": [
-      "center alert",
-      "coding agents",
-      "claim verifier",
-      "watches transcripts",
-      "prose claim",
-      "snitch watches",
-      "snitch dashboard",
-      "history open dashboard",
-      "snitch bar",
-      "notification center"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/fristovic/snitch",
-    "thumbnail_url": "https://opengraph.githubassets.com/dd831a1df8f393140b10f128b2429d9306add11126a24a4ef977b17f4287d71f/fristovic/snitch",
-    "created_at": "2026-07-10T13:56:59.236Z",
     "topic": "tech"
   }
 ]
