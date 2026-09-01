@@ -1,5 +1,42 @@
 [
   {
+    "slug": "mcp-was-supposed-to-solve-the-agent-tooling-problem-it-missed-a-step",
+    "title": "MCP was supposed to solve the agent tooling problem. It missed a step",
+    "description": "A new open specification called ARD wants to help AI agents find the right tools across registries — an approach AWS compares to DNS for agents.",
+    "fullText": "Connecting an AI agent to a tool is relatively straightforward. Things get more complicated once an organization has hundreds or thousands of resources spread across different clouds and platforms. Agentic Resource Discovery, or ARD, is designed to help agents navigate all of that.\n\nAWS highlighted the open specification in its August 31 Weekly Roundup after taking a deeper technical look at it a week earlier, describing the idea as “DNS, but for agents.” Instead of telling an agent where to find everything in advance, ARD lets it search across different registries for what it needs.\n\nAnd despite AWS highlighting the project, ARD isn’t an AWS technology. It was authored by Junjie Bu of Google, R.V. Guha of Microsoft, and Shaun Smith of Hugging Face, and released under the Apache 2.0 license. Engineers from several other companies have helped shape the project, including Cisco, Databricks, GitHub, GoDaddy, Nvidia, Salesforce, ServiceNow, and Snowflake.\n\nAWS’s role, at least so far, has been to provide feedback on the specification and explore how it could work with its own Agent Registry. The goal is to make the existing registries work together.\n\nInstead of telling an agent where to find everything ahead of time, ARD lets it search across different registries for what it needs.\n\nThe Model Context Protocol has become a common way for AI applications to connect to external tools and data, but it assumes the client already knows which server it wants to use. That becomes a problem as companies spread their infrastructure across clouds, SaaS platforms, and internal systems.\n\nARD helps an agent find a resource before it tries to use it. The specification uses the term “agentic resource” to refer to anything an AI client can connect to, from an MCP server to other external capabilities. An ARD-compatible service keeps track of what’s available, rather than requiring developers to set up every connection in advance.\n\nThe Model Context Protocol has become a common way for AI applications to connect to external tools and data, but it assumes the client already knows which server it wants to use.\n\nCompanies can keep their own catalogs and policies while routing searches to other ARD-compatible services. An enterprise, for example, could keep internal resources private while searching approved external catalogs when needed. AWS calls this “describe once, discover everywhere.”\n\nThe current v0.91 proposal, dated August 26, uses JSON-LD and a REST interface. Its required POST /search endpoint searches by task, while optional endpoints allow clients to browse available resources.\n\nEach discovery service can set its own rules for what it returns and which sources it trusts. This is also where AWS’s DNS comparison falls short. A domain name points to a specific location, while an ARD search could turn up several options that all appear capable of doing the job.\n\nThe DNS comparison has some history behind it. Two of the three authors of AWS’s August 24 ARD post work closely with Route 53. Principal software engineer Jeffrey Damick focuses on DNS and networking technologies. At the same time, Bhargav Talluri leads product management for Route 53 and for agent identity and discovery in AWS Agent Registry.The\n\nAgent Registry already provides AWS customers with a central view of their resources. Adding ARD could bring resources running elsewhere into that view without requiring companies to register everything with AWS.\n\nAdding ARD could bring resources running elsewhere into that view without requiring companies to register everything with AWS.\n\nARD’s governance is still being worked out, with board terms and membership among the details yet to be settled. The group has also discussed eventually moving the project to a neutral organization such as the W3C or an AI foundation.\n\nAWS is already exploring how it could connect with Agent Registry and find resources outside its own catalog.\n\nThere may not be much time to settle on a common approach, since connecting all these directories will only get harder once companies have built their own discovery systems.",
+    "readingTime": 4,
+    "keywords": [
+      "model context",
+      "context protocol",
+      "dns comparison",
+      "agentic resource",
+      "view without",
+      "external tools",
+      "register everything",
+      "search across",
+      "the model context protocol",
+      "resources"
+    ],
+    "qualityScore": 1,
+    "link": "https://thenewstack.io/ard-agent-discovery-specification/",
+    "thumbnail_url": "https://cdn.thenewstack.io/media/2026/08/153448f0-guerrillabuzz-rivsjtigwlc-unsplash-scaled.jpg",
+    "created_at": "2026-09-01T15:44:42.741Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "i-work-on-ai-at-amazon-my-biggest-career-regret-is-waiting-years-to-build-a-reputation-outside-the-company",
+    "title": "I work on AI at Amazon. My biggest career regret is waiting years to build a reputation outside the company.",
+    "description": "An Amazon employee shares how he built a reputation outside the company — and why the effort can sometimes feel like a second job.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/amazon-ai-scientist-regrets-not-building-an-external-reputation-sooner-2026-8",
+    "thumbnail_url": "https://i.insider.com/6a91d46f3f7df8787cff4eaa?width=1200&format=jpeg",
+    "created_at": "2026-09-01T15:44:17.299Z",
+    "topic": "finance"
+  },
+  {
     "slug": "i-work-on-ai-at-amazon-my-biggest-career-regret-is-waiting-years-to-build-a-reputation-outside-the-company",
     "title": "I work on AI at Amazon. My biggest career regret is waiting years to build a reputation outside the company.",
     "description": "An Amazon employee shares how he built a reputation outside the company — and why the effort can sometimes feel like a second job.",
@@ -1709,31 +1746,5 @@
     "thumbnail_url": "https://i.guim.co.uk/img/media/27a522fe31652cc886280744606d3627fa63e09e/8_0_2501_2001/master/2501.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=8b61862d918fc94a363080e95d954f7c",
     "created_at": "2026-06-26T19:27:42.877Z",
     "topic": "business"
-  },
-  {
-    "slug": "openai-anthropic-microsoft-and-amazon-are-behind-a-new-organization-that-aims-to-help-prepare-workers-for-ai",
-    "title": "OpenAI, Anthropic, Microsoft, and Amazon are behind a new organization that aims to help prepare workers for AI",
-    "description": "Former Commerce Secretary Gina Raimondo is leading a new nonprofit with big aims to address AI job displacement.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/raise-us-ai-workers-supporters-openai-anthropic-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a3d47f0360acd489560b427?width=1200&format=jpeg",
-    "created_at": "2026-06-25T19:44:54.805Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "amazon-is-on-a-mission-to-optimize-warehouse-work-its-latest-test-puts-wearable-devices-on-support-staff",
-    "title": "Amazon is on a mission to optimize warehouse work. Its latest test puts wearable devices on support staff.",
-    "description": "Amazon's Right Station Link aims to boost warehouse efficiency by automatically capturing data on warehouse roles such as maintenance and safety.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/amazon-warehouse-workers-wearable-device-right-station-link-2026-6",
-    "thumbnail_url": "https://i.insider.com/6a3b7c696891755ad48b8570?width=1200&format=jpeg",
-    "created_at": "2026-06-25T14:02:18.732Z",
-    "topic": "finance"
   }
 ]
