@@ -1,5 +1,29 @@
 [
   {
+    "slug": "the-summer-of-open-weights",
+    "title": "The Summer of Open Weights",
+    "description": "Winter 2025 was the tipping point for coding agents. Summer 2026 is shaping up to be the same for open weights - and compute supply, not model quality, is now setting the price.",
+    "fullText": "Over the winter of 2025, after the release of Opus 4.5, coding agents grew tremendously and usage exploded. I think this summer is proving itself to be a similar tipping point for open weight models.\n\nAs I argued in my margin collapse blogs (part 2 here), we're starting to see some very aggressive moves on pricing. We've seen OpenAI cut the cost of 5.6 Luna - its fast, cheapest tier - by 80%, and now Sol - its flagship - by 20%.\n\nMeta is also offering its open model Muse Spark 1.2 for an almost-free price of $0.10/$0.20 per MTok on its contributor tier (where Meta may train on your data - standard pricing is $1.25/$4.25), with currently the cheapest API price for cache reads of $0.002 per MTok on that tier (!).\n\nAnthropic hasn't matched this pricing yet, but the FT is leading with a story about the poor uptake of Fable 5 - Anthropic's $10/$50 frontier model, its most expensive tier - (tl;dr: it's too expensive) - headline: \"Anthropic's best AI model struggles to attract users as cheaper tools thrive\". And their Claude Developer social media account is suggesting they are still (extremely?) compute starved, wanting to make their weekly limit increases permanent but struggling for capacity:\n\nWe've now got at least five AI labs outside of OpenAI, Anthropic and Google[1] offering very good models - Z.AI, DeepSeek and Kimi - plus Meta and Grok. It's been strongly suggested that Meta is going to release their frontier models as open weights, which leaves us with four open weight models of good enough quality to drive agentic sessions.\n\nNo doubt there will be more - the Ox Alpha stealth model has been getting a lot of hype[2] - but it really indicates to me that there is a huge amount of competition for this inference.\n\nIn my eyes there are two possible scenarios that play out here:\n\nThe first one is that the gap between frontier and challenger/open weights models continues to decrease substantially - to the point where it becomes almost a commodity between these models. This is extremely bad news for labs built around proprietary models. Right now, this seems to very much be the path ahead.\n\nHowever, the other scenario I wouldn't discount is a huge leap from the frontier labs, which would then expand the gap. While historically this has been what happens - open weights close the gap, then just when it looks like they are about to catch up, OpenAI/Anthropic puts a new release out which expands the gap again. This time I do feel it's different - the gap has never been this small, and I'm struggling where to see this huge jump would come from. But regardless, it's definitely possible - and with many trillions of dollars of IPO market cap riding on this - I wouldn't rule out any surprises like this.\n\nIt's important to note as well that this leap could come through token efficiency too, not just pure \"intelligence\". The flagship models from Anthropic and OpenAI are ~5-10x more expensive than the best open weight models per token. But, it's fair to say the open weight models tend to use quite a lot more tokens per task. So if a hypothetical future Fable 6 could achieve similar intelligence to Fable 5, but use 10x less tokens to achieve the same end goal, it'd still be a very competitive model.\n\nI recently saw this very interesting interview with Gavin Baker, who makes the salient point that the industry has a lot of compute that was reserved for say $2/GPU-hour in 2-3 year commitments going to roll \"off contract\" and therefore going to be repriced.\n\nGiven current rates for Blackwell GPUs are significantly above that, he makes the point that these people are hoping to pay $4/GPU-hour - the win would be a doubling of underlying costs.\n\nI think this really makes the token efficiency angle even stronger. There is enormous competitive advantage - more so than pure intelligence I think right now - in being able to serve these models more efficiently.\n\nWinter 2025 was about agents needing frontier intelligence at any price. This summer is about good enough intelligence at a tenth of the price - and whether the frontier labs can keep charging a premium for being slightly better.\n\nRight now the pricing power isn't with the smartest model, it's with whoever has the megawatts to spare. OpenAI can afford to cut Luna 80% and put Sol on a three-month 20% promo because it has the capacity and the efficiency gains to back it up. Anthropic - renting 300MW from SpaceX at $1.25bn a month precisely because it doesn't - has to extend limits with a caveat that \"capacity may be tight\".\n\nThat flips the usual tech story. For decades software captured the margin and hardware was the commodity. Here the hardware is the margin, as I argued in xAI's new rental business. The handful of open-weight hosts - Fireworks, Together, Cloudflare and a dozen others - all have the same incentive: squeeze more tokens per GPU, because whoever does wins the price war regardless of who trained the model.\n\nIf that efficiency race keeps going, then cheap inference keeps pulling demand forward. The frontier labs' two escape routes are the ones I laid out in the margin collapse series: stay meaningfully ahead on intelligence, or make the model so much more token-efficient that the sticker price stops mattering. Fable 5 being called \"too expensive\" at $10/$50 tells you neither is guaranteed.\n\nI wouldn't bet against a surprise leap - we've seen the gap close and re-widen before, and trillions in IPO market cap is a strong motivator. But this is the first summer where the open weights are close enough that most agentic work just doesn't need the frontier. That's a genuine tipping point, just like agents were last winter.\n\nThough I do question Google's addition to this list, given their very obvious troubles (what's going on with Gemini) at the frontier ↩︎\n\nIt looks like this is another GLM model, but if not it could be another significant challenger in the market ↩︎",
+    "readingTime": 6,
+    "keywords": [
+      "ipo market",
+      "per mtok",
+      "market cap",
+      "margin collapse",
+      "token efficiency",
+      "pure intelligence",
+      "tokens per",
+      "weight models",
+      "frontier labs",
+      "pricing"
+    ],
+    "qualityScore": 1,
+    "link": "https://martinalderson.com/posts/the-summer-of-open-weights/",
+    "thumbnail_url": "https://martinalderson.com/img/og/the-summer-of-open-weights.png",
+    "created_at": "2026-09-04T01:58:11.789Z",
+    "topic": "tech"
+  },
+  {
     "slug": "snowflake-stock-soars-26-after-it-gives-investors-another-reason-to-get-excited-about-the-ai-boom",
     "title": "Snowflake stock soars 26% after it gives investors another reason to get excited about the AI boom",
     "description": "The software maker's Q2 results bode well for enterprise adoption of AI, with Snowflake's coding agent seeing burst of new users in the quarter.",
@@ -1935,18 +1959,5 @@
     "thumbnail_url": "https://i.insider.com/6a4fa02fd3b3e45765196edc?width=1200&format=jpeg",
     "created_at": "2026-07-12T01:43:22.468Z",
     "topic": "tech"
-  },
-  {
-    "slug": "my-colleague-wanted-a-nerdy-niche-tool-for-his-macbook-codex-whipped-it-up-in-minutes",
-    "title": "My colleague wanted a nerdy, niche tool for his MacBook. Codex whipped it up in minutes.",
-    "description": "Business Insider's Stephen Council used OpenAI Codex to build a custom Mac clipboard app in minutes—no coding required.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/openai-codex-niche-macbook-idea-five-minutes-vide-coding-2026-7",
-    "thumbnail_url": "https://i.insider.com/6a5135e4daf4d560957bf1df?width=1200&format=jpeg",
-    "created_at": "2026-07-11T12:53:49.862Z",
-    "topic": "finance"
   }
 ]
