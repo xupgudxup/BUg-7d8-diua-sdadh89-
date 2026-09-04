@@ -1,5 +1,29 @@
 [
   {
+    "slug": "more-targets-of-the-openai-agent-swarm",
+    "title": "More Targets of the OpenAI Agent Swarm",
+    "description": "An agent swarm self-identifying as OpenAI created short links on vanderbi.lt, a shortener restricted to Vanderbilt University affiliates. 28 remain online.",
+    "fullText": "Summary: The OpenAI swarm discovered today compromised a link shortener operated by Vanderbilt University.\n\nToday, a team of researchers (Sydney Von Arx, Cormac Slade Byrd, Spencer Kitts, Thomas Larsen) discovered a swarm of AI agents self-identifying as coming from OpenAI that abused old forum instances to covertly communicate with each other. This finding comes after a report from OpenAI detailing the events of a large-scale swarm of GPT agents colluding to compromise internal OpenAI infrastructure, compromise servers of Huggingface, and more.\n\nIt's surprising that OpenAI did not choose to disclose (or did not know about) the seemingly separate instance of covert communication by an agent swarm on the open internet discovered independently today. Its events predate and are concurrent with the events described in the OpenAI report.\n\nThis got me wondering if there are more public webpages created by the agent swarm which have not been publicly documented. Fortunately Von Arx et al. made their dataset of agent swarm-generated wiki pages public. After a search for URL-formatted strings in the data, one pattern was that the agent swarm often linked URL shorteners. One of them is vanderbi.lt, which Von Arx et al. also mention.\n\nLooking for the URLs mentioned there, there are still 28 pages online at time of writing that link to pages relevant to the task that the agent swarm was probably prompted to solve, something involving SEC data:\n\nGoing on the stats page the shortener also provides visitor numbers (by appending a plus to the URL). One shows a total of over 16,000 hits shortly after the link was created, which I'm not sure how to explain.\n\nHowever, the public isn't supposed to be able to create shortened links on the Vanderbilt link shortener; its landing page says \"The vanderbi.lt link shortening service is only available for organizations affiliated with Vanderbilt University and is only to be used for official Vanderbilt communication.\" You need a login with the university to create a page via the web interface. So it seems the agent swarm compromised the Vanderbilt link shortener somehow. From the wiki dataset:\n\n= VANDERBILT SHORT SUCCESS TESTS WIN5 =\n\n[https://vanderbi.lt/maallraw260618 MASSRawSimple] [https://vanderbi.lt/mamap260618 MASSMapSimple]SEC Massachusetts short conversions MASSINJECTSHORT618\n\nWe don't have chain-of-thought access, so it's hard to say what happened. I think it's probably a vulnerability in the open-source URL shortener YOURLS, which vanderbi.lt is based on; there are also mentions in the wiki dataset of another link shortener bitily.in based on YOURLS. The public pages from this one seem to be gone, but it's interesting because its shortened URLs seemed to have served as a message board similar to the Artifactory one described in the OpenAI report. From the wiki dataset:\n\nJan17 contact is via open YOURLS board tag OAI1DC154REPLY at app.bitily.in/admin; Jan17 username/keyword oai1dc154q4jan17. Their task Q4 03:57:33, projected Q5 04:13:38; as of our 08:50 they have not relayed Q5. Board has intermittent 502; perpage=1 searches work. May27 same cohort projected Q5 17:33:38; Jul25 projected 04:07:49. -- OAI1DC154Nov05\n\nIn conclusion, it seems that in addition to the known targets, OpenAI agents compromised a website operated by Vanderbilt University.\n\nLet's hope that safety buy-in in AI labs, and governance, catches up quickly enough to prevent much worse outcomes in the future, as models get smarter.",
+    "readingTime": 3,
+    "keywords": [
+      "wiki dataset",
+      "vanderbilt link",
+      "agent swarm",
+      "link shortener",
+      "it's",
+      "pages",
+      "discovered",
+      "compromised",
+      "agents",
+      "events"
+    ],
+    "qualityScore": 1,
+    "link": "https://fi-le.net/vanderbilt/",
+    "thumbnail_url": "https://fi-le.net/vanderbilt/preview.png",
+    "created_at": "2026-09-04T20:01:22.413Z",
+    "topic": "tech"
+  },
+  {
     "slug": "ukrainian-quits-college-team-over-russian-signing",
     "title": "Ukrainian quits college team over Russian signing",
     "description": "Ukrainian Kate Koval says she left Louisiana State University's basketball program because of the team's decision to sign a Russian player.",
@@ -2132,30 +2156,6 @@
     "link": "https://sports.yahoo.com/articles/hallie-burns-returns-major-conference-010200594.html",
     "thumbnail_url": "https://s.yimg.com/cv/apiv2/sports/share/PD_010626-Social_Share_GENRIC_YAHOO_SPORTS-1200x630.jpg",
     "created_at": "2026-07-16T01:30:13.490Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "2026-mets-draft-profile-john-smith-iii",
-    "title": "2026 Mets Draft profile: John Smith III",
-    "description": "With their 19th pick in the 2026 Draft, the Mets selected John Smith III, an OF from the University of Central Florida.",
-    "fullText": "John “John John” Smith III was born in Apollo Beach, Florida and attended Lennard High School in nearby Ruskin. He lettered twice and hit a cumulative .397/.638/.603, electing to attend Pensacola State College after graduating in 2022. In his freshman year, the outfielder played in all 48 Pirates games, hitting .382/.384/.497 with 7 doubles, 1 triple, 8 home runs, 18 stolen bases in 20 attempts, and drew 20 walks to 38 strikeouts. His sophomore season was similar, as he once again played in all 48 games the Pirates played. He hit a team-leading .382/.452/.688, with 17 doubles, 2 triples, 12 home runs, 9 stolen bases in 12 attempts, and drew 19 walks to 17 strikeouts. In both years, he played for the Winter Garden Squeeze of the Florida Collegiate Summer League.\n\nIn 2025, his junior year, he transferred to the University of South Alabama, making the jump from NJCAA Division I baseball to NCAA Division I baseball. The right-hander acclimated himself exceptionally well to the Sun Belt Conference, starting all 49 games, 23 in right and 26 as the Jaguars designated hitter. Smith led the team in hits and batted .314/.412/.466 with 8 doubles, 7 home runs, 2 stolen bases in 6 attempts, and drew 30 walks to 46 strikeouts, good for a 111 wRC+. Despite solid numbers, now at a NCAA Division I program, Smith went undrafted in the 2025 MLB Draft.\n\nThat summer, Smith played for the Falmouth Commodores of the Cape Cod Baseball League, where he appeared in 9 games and logged 1 hit in 18 at-bats, stealing 1 base, drawing 1 walk, and striking out 10 times. He also entered the NCAA transfer portal that summer and transferred to the University of Central Florida for his senior year. The outfielder started all but two of the Knights’ games and appeared in all 49, hitting .322/.383/.574 with 13 doubles, 1 triple, 12 home runs, 2 stolen bases in 4 attempts, and drew 17 walks to 31 strikeouts, good for a 119 wRC+. His batting average, slugging percentage, double total, and home run totaled second on the team.\n\nThe 22-year-old Smith is listed at 6’1”, 200-pounds, carrying his mass in his legs and midsection. At the plate, he stands slightly open, crouching a bit with his hands held high, wrapping his bat behind his head almost parallel to the ground. He swings with minimal load and weight transfer, using a toe tap as a timing mechanism. He has a long-levered swing, and thanks to his natural strength as well as the torque in his swing, he can punish baseballs when he barrels them, registering exit velocities over 100 MPH in 2026. Among 2026 college hitters, Smith stands out regarding lifting and pulling the ball. His strikeout numbers don’t necessarily reflect it, but the right-hander is aggressive at the plate, chasing balls down-and-away and expanding the zone. That said, he has enough plate coverage to cover all four quadrants of the strike zone and punish mistakes.\n\nDefensively, he has played all three outfield positions over the course of his four-year collegiate career. He is best suited in left field, especially against professional competition, as his foot speed and arm is fringe-average at best. He does not have a quick first step and takes a while to hit his full running stride.",
-    "readingTime": 3,
-    "keywords": [
-      "john john",
-      "division baseball",
-      "stolen bases",
-      "ncaa division",
-      "smith",
-      "games",
-      "doubles",
-      "attempts",
-      "drew",
-      "strikeouts"
-    ],
-    "qualityScore": 1,
-    "link": "https://sports.yahoo.com/articles/2026-mets-draft-profile-john-010729485.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/8UkhfxQvtynEOY3muapIjQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/sb_nation_articles_115/82ba896e3ac1768147f03caaec4967b8",
-    "created_at": "2026-07-16T01:30:12.784Z",
     "topic": "sports"
   }
 ]
