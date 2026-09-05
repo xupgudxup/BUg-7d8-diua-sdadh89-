@@ -1,5 +1,29 @@
 [
   {
+    "slug": "to-ruby-from-python",
+    "title": "To Ruby from Python",
+    "description": "Python is another very nice general purpose programming language. Goingfrom Python to Ruby, you’ll find that there’s a little bit more syntaxto learn than wi...",
+    "fullText": "To Ruby From Python\n\n Python is another very nice general purpose programming language. Going\nfrom Python to Ruby, you’ll find that there’s a little bit more syntax\nto learn than with Python.\n\nSimilarities\n\nAs with Python, in Ruby,…\n\n There’s an interactive prompt (called irb).\n You can read docs on the command line (with the ri command instead\nof pydoc).\n There are no special line terminators (except the usual newline).\n String literals can span multiple lines like Python’s triple-quoted\nstrings.\n Brackets are for lists, and braces are for dicts (which, in Ruby, are\ncalled “hashes”).\n Arrays work the same (adding them makes one long array, but composing\nthem like this a3 = [ a1, a2 ] gives you an array of arrays).\n Objects are strongly and dynamically typed.\n Everything is an object, and variables are just references to objects.\n Although the keywords are a bit different, exceptions work about the\nsame.\n You’ve got embedded doc tools (Ruby’s is called rdoc).\n There is good support for functional programming with first-class\nfunctions, anonymous functions, and closures.\n\nDifferences\n\nUnlike Python, in Ruby,…\n\n Strings are mutable.\n You can make constants (variables whose value you don’t intend to\nchange).\n There are some enforced case-conventions (ex. class names start with a\ncapital letter, variables start with a lowercase letter).\n There’s only one kind of list container (an Array), and it’s mutable.\n Double-quoted strings allow escape sequences (like \\t) and a special\n“expression substitution” syntax (which allows you to insert the\nresults of Ruby expressions directly into other strings without having\nto \"add \" + \"strings \" + \"together\"). Single-quoted strings are like\nPython’s r\"raw strings\".\n There are no “new style” and “old style” classes. Just one kind.\n(Python 3+ doesn’t have this issue, but it isn’t fully backward\ncompatible with Python 2.)\n You never directly access attributes. With Ruby, it’s all method\ncalls.\n Parentheses for method calls are usually optional.\n There’s public, private, and protected to enforce access,\ninstead of Python’s _voluntary_ underscore __convention__.\n “mixins” are used instead of multiple inheritance.\n You can add or modify the methods of built-in classes. Both languages\nlet you open up and modify classes at any point, but Python prevents\nmodification of built-ins — Ruby does not.\n You’ve got true and false instead of True and False (and nil\ninstead of None).\n When tested for truth, only false and nil evaluate to a false\nvalue. Everything else is true (including 0, 0.0, \"\", and []).\n It’s elsif instead of elif.\n It’s require instead of import. Otherwise though, usage is the\nsame.\n The usual-style comments on the line(s) above things (instead of\ndocstrings below them) are used for generating docs.\n There are a number of shortcuts that, although give you more to\nremember, you quickly learn. They tend to make Ruby fun and very\nproductive.\n There’s no way to unset a variable once set (like Python’s del\nstatement). You can reset a variable to nil, allowing the old\ncontents to be garbage collected, but the variable will remain in the\nsymbol table as long as it is in scope.\n The yield keyword behaves differently. In Python it will return\nexecution to the scope outside the function’s invocation. External\ncode is responsible for resuming the function. In Ruby yield will\nexecute another function that has been passed as the final argument,\nthen immediately resume.\n Python supports just one kind of anonymous functions, lambdas, while\nRuby contains blocks, Procs, and lambdas.",
+    "readingTime": 3,
+    "keywords": [
+      "anonymous functions",
+      "instead",
+      "python’s",
+      "it’s",
+      "ruby",
+      "python",
+      "array",
+      "variables",
+      "classes",
+      "variable"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.ruby-lang.org/en/documentation/ruby-from-other-languages/to-ruby-from-python/",
+    "thumbnail_url": "https://www.ruby-lang.org/images/og-image.png",
+    "created_at": "2026-09-05T01:54:55.541Z",
+    "topic": "tech"
+  },
+  {
     "slug": "the-summer-of-open-weights",
     "title": "The Summer of Open Weights",
     "description": "Winter 2025 was the tipping point for coding agents. Summer 2026 is shaping up to be the same for open weights - and compute supply, not model quality, is now setting the price.",
@@ -1945,19 +1969,6 @@
     "link": "https://www.overplane.dev/overview/dan/",
     "thumbnail_url": "https://www.overplane.dev/assets/img.f229d1463afa/hero.jpg",
     "created_at": "2026-07-12T01:43:36.508Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "inside-one-coders-journey-to-leave-tech-and-land-a-baby-bluecollar-job",
-    "title": "Inside one coder's journey to leave tech and land a 'baby blue-collar' job",
-    "description": "When Brian Gordon lost his tech job, he decided to leave software development for good. His goal was something more blue-collar.",
-    "fullText": "You're currently following this author!\n Want to unfollow? Unsubscribe via the link in your email.\n\n Read in app\n\n HOME",
-    "readingTime": 1,
-    "keywords": [],
-    "qualityScore": 0.1,
-    "link": "https://www.businessinsider.com/web-developer-coding-career-pivot-baby-blue-collar-job-2026-7",
-    "thumbnail_url": "https://i.insider.com/6a4fa02fd3b3e45765196edc?width=1200&format=jpeg",
-    "created_at": "2026-07-12T01:43:22.468Z",
     "topic": "tech"
   }
 ]
