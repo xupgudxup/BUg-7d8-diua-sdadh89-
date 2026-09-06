@@ -1,5 +1,29 @@
 [
   {
+    "slug": "kad-opensource-habit-tracker-with-nonbinary-habit-score-for-ios",
+    "title": "Kadō – open-source habit tracker, with non-binary habit score, for iOS",
+    "description": "Kadō — A privacy-first habit tracker for iPhone and iPad. - scastiel/kado",
+    "fullText": "A privacy-first habit tracker for iPhone and iPad.\n\nNon-binary habit score · Offline-first · Open source (MIT) ·\n No account, no subscription, no telemetry.\n\nKadō is an iOS habit tracker with three commitments:\n\nWhy another habit tracker? The market gap is spelled out in\ndocs/PRODUCT.md: the reference open-source\ntracker (Loop) is Android-only; the reference iOS tracker (Streaks)\nis closed source and uses a binary streak; the most visible modern\niOS open source attempt (Teymia) is freemium. Kadō takes Loop's\nalgorithm to native iOS — MIT, free, no account, no subscription.\n\nShipping on the App Store — current version 1.7.\n\nNot planned. A native Apple Watch app and HealthKit\nauto-completion were scoped for v0.3 and have been descoped — no\nuser has asked for either since launch. Both stay listed in\ndocs/ROADMAP.md under \"Descoped\", and would be\nreconsidered on real demand.\n\nNext — Live Activities and Dynamic Island for timer habits, then\nthe remaining v1.x polish (themes, biometrics, categories, backup\nfiles). Full roadmap in docs/ROADMAP.md.\n\nTarget: iOS 18.0+, Xcode 16.0+, Swift 5.10+.\n\nArchitecture notes, conventions, and toolchain quirks (SwiftData\nedge cases, CloudKit-shape rules, concurrency under Swift 6, etc.)\nare documented in CLAUDE.md.\n\nSelect the Kado scheme and an iOS 18 simulator (iPhone 17 Pro is\nthe project's practical default on Xcode 26 toolchains).\n\nFrom Xcode: ⌘U on the Kado scheme.\n\nFrom the command line, the Makefile wraps the common loops:\n\nmake help lists the rest, including the App Store targets\n(make screenshots, make frames, make listing) documented in\ndocs/app-store/README.md.\n\nIf you use Claude Code with the\nXcodeBuildMCP server,\nprefer test_sim / build_sim over shell xcodebuild — see the\n\"Tooling\" section of CLAUDE.md.\n\nSettings has a hidden dev-mode toggle that swaps the SwiftData\ncontainer for a seeded local sandbox. Useful for playing with\nhistorical score / streak behavior without affecting your real data.\nSee docs/plans/2026-04/dev-mode/ for the design notes.\n\nIssues and pull requests are welcome. A few notes:\n\nKadō collects nothing. No analytics, no telemetry, no crash reporter.\niCloud sync is optional and goes through the user's own private\nCloudKit database.",
+    "readingTime": 2,
+    "keywords": [
+      "kado scheme",
+      "habit tracker",
+      "app store",
+      "notes",
+      "iphone",
+      "score",
+      "account",
+      "subscription",
+      "telemetry",
+      "reference"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/scastiel/kado",
+    "thumbnail_url": "https://opengraph.githubassets.com/00f0b46e1262ec7c9a45240d3e59178f3a7a3485dbe7efd1712ce73f59e36677/scastiel/kado",
+    "created_at": "2026-09-06T14:35:15.832Z",
+    "topic": "tech"
+  },
+  {
     "slug": "5-big-analyst-ai-moves-iphone-launch-to-be-negative-for-apple-stock",
     "title": "5 big analyst AI moves: iPhone launch to be negative for Apple stock",
     "description": null,
@@ -2157,30 +2181,6 @@
     "link": "https://glucera.app/",
     "thumbnail_url": "https://glucera.app/assets/og-image.png",
     "created_at": "2026-05-03T12:44:29.477Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "these-new-ai-editing-tools-may-be-added-to-the-photos-app-in-ios-27",
-    "title": "These New AI Editing Tools May Be Added to the Photos App in iOS 27",
-    "description": "More Apple Intelligence features are coming to your iPhone.",
-    "fullText": "Apple is undoubtedly behind in the AI race. \"Apple Intelligence\" has fewer features and less utility than similar products from competitors; the company has no chatbot of its own; and we're still waiting on the AI-powered Siri upgrade Apple first revealed back in 2024.\n\nAnd yet, much of that could change with iOS 27. The update is shaping up to be a bit of a catch-up moment for Apple, as rumors suggest we'll finally see both the updated Siri as well as Apple's attempt at a ChatGPT-like chatbot. And it now seems there's a good chance the update will also include new photo editing features that could directly compete with others across the AI market.\n\nAs reported by Bloomberg's Mark Gurman (via MacRumors), Apple is planning to add a new \"Apple Intelligence Tools\" section to the Photos app. This new option will contain three AI-powered editing options: Extend, Enhance, or Reframe.\n\nExtend works like other generative fill applications. The goal is to widen the crop of an image by adding AI-generated imagery. For example, if you want to extend the frame of a photo of a park bench, Extend might use AI to add extra grass, sky, and trees to make the image larger. This feature will reportedly work with zoom gestures, which could make it a more intuitive experience.\n\nEnhance seems to be an iteration on existing photo enhancement features. The option will adjust the different elements of your photo as the AI sees fit. That includes things like color and lighting—elements that you can already automatically adjust using Photos' \"Auto Enhance\" option. Perhaps Apple has improved the AI model to make it work better, or maybe it's the same feature, packaged under a new Apple Intelligence menu.\n\nReframe is designed for spatial photos. When selecting this option, you'll be able to adjust the perspective on spatial photos, tapping into the 3D image data to tweak the framing. It sounds like a promising feature if Apple can get it working: The ability to reframe a photo after you've taken it would offer major editing perks in case the original image wasn't quite what you wanted it to be.\n\nWhile Gurman seems confident these AI features exist, they don't appear to be guaranteed inclusions for iOS 27's launch. Apple's AI development has been rocky across the board, and these image editing tools may be no exception—Gurman says Extend and Reframe in particular could end up getting delayed to a future update, perhaps iOS 27.1 or iOS 27.2. That's not unusual for Apple. The company will often announce features at WWDC, only to delay them, and these features haven't even gotten that far yet. But it could be another sign Apple's AI department is still facing issues.\n\nApple's only major AI image editing feature right now is Clean Up, and while it does work, it often falls short when compared to the competition. Writing for Lifehacker, David Nield found the tool performed on par with Google's Magic Eraser, but couldn't compete with Samsung's Object Eraser. Perhaps iOS 27 will offer some improvements to Clean Up, as well as Apple's other AI endeavors.",
-    "readingTime": 3,
-    "keywords": [
-      "spatial photos",
-      "apple intelligence",
-      "apple's ai",
-      "clean up",
-      "features",
-      "editing",
-      "option",
-      "feature",
-      "adjust",
-      "chatbot"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/ios-27-may-add-these-new-ai-editing-tools-to-the-photos-app?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KQDASDFXSRF7NVN67RVECABJ/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-04-30T01:56:23.236Z",
     "topic": "tech"
   }
 ]
