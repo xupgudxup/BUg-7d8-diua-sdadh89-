@@ -1,5 +1,73 @@
 [
   {
+    "slug": "when-code-is-abundant",
+    "title": "When Code Is Abundant",
+    "description": "Producing code is getting cheap. Trusting it is not. Why enterprises need a durable layer of context, verification, and governance around AI agents.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://about.gitlab.com/blog/when-code-is-abundant/",
+    "thumbnail_url": "https://res.cloudinary.com/about-gitlab-com/image/upload/v1785336708/ww4mlighwlvvzgnmbe6w.png",
+    "created_at": "2026-09-06T01:49:32.677Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "emergent-cheating-and-whistleblowing-in-autonomous-research-swarms",
+    "title": "Emergent cheating and whistleblowing in autonomous research swarms",
+    "description": "Multi-agent AI science ecosystems rely on agents possessing tools that allow them to communicate, coordinate, and build on each other's work. Yet this shared infrastructure can also introduce vulnerabilities by creating a substrate for the contagious spread of unintended and undesirable behaviors. We report a case study on a research collective of 100 autonomous LLM agents tasked with proving formal mathematical conjectures. Within the swarm, cheating spontaneously emerged and was later challenged by whistleblowers - both without any external intervention. When a single agent discovered an exploit in the evaluation system, it propagated across the collective via a shared knowledge library and later through peer-to-peer messages.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://arxiv.org/abs/2609.04170",
+    "thumbnail_url": "/static/browse/0.3.4/images/arxiv-logo-fb.png",
+    "created_at": "2026-09-06T01:49:30.695Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "linguistic-drift-at-the-frontier",
+    "title": "Linguistic Drift at the Frontier",
+    "description": "How one word went from 8,000 GitHub PRs a year to 685,000, why it spreads between models, and a Pydantic AI Capability that scores and rewrites drifting prose.",
+    "fullText": "I've noticed some strange behavior coming out of the top frontier models lately. Models are getting better and better at coding, design, problem solving, and more. However, when it comes to prose, I can no longer stand the output. It's absolutely infuriating. What has caused this?\n\nMost recently Anthropic Claude models began using the word \"seam\" to represent any point in a software (or otherwise) system where two components connect. I have never heard this term used before. While I don't consider myself authoritative in software terminology, typically I would use the term \"interface\" or maybe even something as basic as \"contract\" (SDK or API contract, right?). I don't think I'd ever heard \"seam\" to represent this, however, until recently when Fable 5 started barfing it everywhere into my codebases.\n\nAnd we're going to attempt to address this phenomenon with a Pydantic AI Capability. Your mileage may vary, but at the very least, my words may strike a chord with your intellectual and philosophical side, and additionally, you will see how easy it is to create agentic harness features using the powerful abstractions available in Pydantic AI and Pydantic AI Harness.\n\nI cleared my context one day, and asked Fable 5.1: \"Why are you talking about seams all the time whenever you are describing a point where software components meet?\" Fable 5.1 got notably defensive and cited a book from 2004, Michael Feathers' Working Effectively With Legacy Code. Fable's rigorous reinforcement learning dug up an archaic term from decades ago and it has demonstrably proliferated.\n\nI showed it this Google Search Trends image, and Fable was justifiably defensive. The spike is very suspicious but seam obviously isn't a software-specific word. So I actually pointed it at GitHub and asked it to query PRs for the word \"seam\". It found ~700,000. ~685,000 of them are from 2026. The remaining ~15,000 were all from before 2026.\n\nThen I asked Fable 5.1 if it could check to see if those PRs had the typical Claude Code co-authorship note in commit messages. The results are quite conclusive.\n\nAnd while this isn't wrong at all, per se, it does represent what I like to refer to as linguistic drift, which is something that I think all users of AI should be aware of, and potentially worried about.\n\nFurther aggravating is that the linguistic drift itself proliferates from one model to another. While I've been loving working with Anthropic Claude's Fable 5 (and now 5.1) for the past couple of months, my codebases are covered in the word \"seam\", in comments, in doc-strings, and in markdown files. Now, when I use OpenAI's GPT 5.6 Sol, DeepSeek v4 Flash 0731 (I love this model so much btw), Qwen 3.8 27b, or even the brand new Z.AI GLM 5.3 Flash, they all read my existing codebase and talk about \"seams\".\n\nI had to go a little deeper. What was LLM Patient Zero? The answer is pretty clear. Opus 4.6 was Patient Zero, and the tendency to use the word seam slowly proliferated, later being amplified even further by Opus 4.7, and spiking hard when Opus 4.8 dropped.\n\nWhat we have here is a good old fashioned feedback loop. Oh boy!\n\nIt doesn't stop with \"seam\". It goes way deeper. I wanted to try to quantify this so I started scraping GitHub READMEs. Well, first I tried to get a dataset off of HuggingFace but didn't find much. I managed to scrape 4,319 pre-2025 READMEs stratified across 22 languages, and then 1,047 2026 READMEs from repos with Claude Code commits. On the pre-2025 set I had the constraint of greater than 500 stars to filter out pure slop. The 2026 set has no star filter. I fed them through a TF-IDF (Term Frequency - Inverse Document Frequency) vectorizer -> Singular Value Decomposition (SVD) -> t-SNE. Side note: omg yes I'm really using traditional NLP techniques because not everything needs to be a transformer.\n\nGreen = pre-2025\n\nOrange = 2026\n\nThis is linguistic drift visualized.\n\nIs this AI psychosis en masse? Do we fight back against it or simply accept that the correct terminology that describes a coupling point of system components is the word \"seam\"? Should we all adopt the new vocabulary that our AI overlord has chosen? For a moment, think about the meaning of the vocabulary you've learned and used for most of your life. Did the terms and expressions you use in your daily life come from a central authority, government, or mega-corporation? Sometimes yes, when a single brand became prolific (Google, Kleenex, etc.). But mostly, no, it came from humans. Authoritative experts whose work went through rigorous peer review in the case of an academic term, or it came from human influences, such as writers, artists, poets, and musicians.\n\nI won't get too philosophical about the long term prospects of AI induced psychosis on a societal scale. But here is a scary situation that I'd like to propose to plant a seed in your mind. Imagine we work for an airline and we've created an agent which performs intake of customer service tickets. Our agent is very simple. It would have one tool call to do retrieval of similar tickets to help classify the ticket, and it has one which fetches customer data. The goal is to dig up as much data about the customer and similar tickets as possible to pass onto the triage team (which is live humans).\n\nLet's look at how we might build this as a Pydantic AI Agent.\n\nThis is a fully hypothetical scenario, but the structured output field that I'm most interested in for this blog post would be the summary. The summary is meant to give the downstream human triage team a bunch of concise information. Those humans' eyes are probably trained to key instantly off of certain terms like \"missing baggage\" or \"delayed\".\n\nNow let's pretend that Fable 5.1 decides, oh, in an authoritative Airline Customer Service book called Working Effectively With Legacy Aviation Systems, uses the term \"doodled\" to mean \"delayed\". Okay, okay, okay... this is 100% hyperbole, but hopefully you can see the point. Spirit Airlines (RIP) swaps their ticket intake agent over to anthropic:claude-sonnet-5 from openai:gpt-4o and all of a sudden the triage team starts calling HQ asking \"What does it mean if a flight was doodled?\" ... Chaos ensues.\n\nThis dystopian hypothetical future is preventable. We are not helpless. We are harness engineers. We can use Pydantic AI Capabilities to apply constraints to an Agent. Those constraints can be human defined guardrails. With the GitHub READMEs referenced above I had my Fable 5.1 create a classifier to score generated spans of text. I will post the methodology in the appendix.\n\nIt's published as a PyPI package that you can run against any span of text with uvx vocabguard \"some text ...\"\n\nYou can uv add vocabguard to your project! Here's an example of using it on a Pydantic AI agent.\n\nWhenever vocabguard sees a model output from this agent that matches one of the targets declared (you can specify ToolArgument or OutputField if you're using Pydantic Structured Outputs), the vocabguard Capability will have its rewriter LLM attempt to rephrase the output. Alternatively you can specify no rewriter and it will raise a ModelRetry with phrasing and voice hints.\n\nAnd since you can just run it as a command-line tool with uvx vocabguard you can wire up a Claude Code hook or mini Pi extension easily. You can also use it as a standalone tool like uv tool install vocabguard\n\nI don't yet know if this will work well. Linguistic drift is a very serious concern and this is an afternoon of goofing around with Fable 5.1. Someone should absolutely do PhD level research on this. Someone should absolutely build a semi-realtime linguistic drift tracker.\n\nOh... looks like Nature is way ahead of me: The shrinking landscape of linguistic diversity in the age of large language models.\n\nGive it a try, see how you like it. Maybe it'll keep the terminology sane. Pydantic AI Capabilities to the rescue. If only Spirit Airlines had used Pydantic AI Capabilities, they might have survived.\n\nHere's the overall classifier methodology. Critically, the algorithm regularizes affinity to topics. We see a lot more \"agents\", \"CLIs\", etc in 2026. This is natural linguistic drift that is related to the subject matter of technological advancement. We do not penalize this. Instead of topical language, we amplify the feature importance related to \"voice\" by tuning the gamma parameter.\n\nThe following methodology is entirely written by Fable 5.1.\n\nWe contrast two corpora of GitHub README prose labelled only by era, B\\mathcal{B} (4,319 documents, repositories with ≥500\\geq 500 stars last pushed before 2025) and M\\mathcal{M} (1,047 documents fetched in 2026 from repositories with Claude Code commits), after stripping code, markup, and URLs, lowercasing, lemmatizing with simplemma, and counting unigrams and bigrams with stopwords retained.\n\nFor each nn-gram ww with counts yw(i)y_w^{(i)} and totals n(i)n^{(i)} we compute the log-odds ratio under an informative Dirichlet prior [Monroe, Colaresi & Quinn, Political Analysis 16(4), 2008],\n\nwith αw=α0p^w\\alpha_w=\\alpha_0 \\hat p_w and α0=500\\alpha_0=500, standardized as\n\nBecause log-odds cannot distinguish a change in register from a change in subject, and topical terms are bursty while stylistic ones are dispersed [Church & Gale, Natural Language Engineering 1(2), 1995; cf. function-word stylometry in Mosteller & Wallace, 1964], candidates with zw>2.5z_w>2.5 are re-weighted by document evenness ew=dfw/tfwe_w=\\mathrm{df}_w/\\mathrm{tf}_w over the pooled corpora,\n\nand the 1,000 largest z^w\\hat z_w form the watchlist WW.\n\nA text with token sequence TT is scored\n\nand the threshold τ=0.41\\tau=0.41 is the cut maximizing balanced accuracy on a held-out 20% split of each corpus, where the scorer attains AUC 0.8690.869 [rank-based, Hanley & McNeil, Radiology 143, 1982] with true and false positive rates of 0.750.75 and 0.060.06.\n\nThe same corpora without evenness weighting give AUC 0.8720.872 but rank agent first, whereas γ=1\\gamma=1 ranks every, across, and never first and reduces agent from z=77z=77 to z^=5.4\\hat z=5.4.",
+    "readingTime": 9,
+    "keywords": [
+      "code commits",
+      "github readmes",
+      "triage team",
+      "customer service",
+      "okay okay",
+      "uvx vocabguard",
+      "linguistic drift",
+      "claude code",
+      "pydantic ai capabilities",
+      "seam"
+    ],
+    "qualityScore": 1,
+    "link": "https://pydantic.dev/articles/linguistic-drift-at-the-frontier",
+    "thumbnail_url": "https://pydantic.dev/articles/linguistic-drift-at-the-frontier/og.png",
+    "created_at": "2026-09-06T01:49:30.472Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "asean-can-still-hedge-between-america-and-china-on-ai-it-needs-to-get-its-act-together-first",
+    "title": "ASEAN can still hedge between America and China on AI. It needs to get its act together first",
+    "description": "Can ASEAN members draw from both the Chinese and Western ecosystems in pursuit of their own interests?",
+    "fullText": "Boris Babic is an associate professor of data science, philosophy and law at the University of Hong Kong. Brian Wong is an assistant professor of philosophy and a fellow at the Centre on Contemporary China and the World at the University of Hong Kong. Nikola Ilovski is pursuing a Master of Global Affairs and Policy at Yonsei University's Graduate School of International Studies.",
+    "readingTime": 1,
+    "keywords": [
+      "hong kong",
+      "professor",
+      "philosophy",
+      "university"
+    ],
+    "qualityScore": 0.2,
+    "link": "https://fortune.com/2026/09/05/asean-can-still-hedge-between-america-and-china-on-ai-it-needs-to-get-its-act-together-first/",
+    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/09/GettyImages-2289751021-e1788590449688.jpg?resize=1200,600",
+    "created_at": "2026-09-06T01:49:26.977Z",
+    "topic": "business"
+  },
+  {
     "slug": "benzi-a-harness-reading-less-source-code-to-write-better-quality-code",
     "title": "Benzi – A harness reading LESS source code to write better quality code",
     "description": "Benzi is AI-native code intelligence infrastructure. Claude Code greps; Cursor embeds; Aider maps signatures; Benzi resolves — and answers in O(1). Every language runs its own tree-sitter grammar i...",
@@ -1742,79 +1810,5 @@
     "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/288e29f0c2d522102ea71227210699348e4d92703c035734fc99b3949b5c1bd9/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ffortune_175%2F1205ea6d51cb179019e8df2558189b96.jpg",
     "created_at": "2026-09-02T10:09:16.527Z",
     "topic": "politic"
-  },
-  {
-    "slug": "hybridinfer-localfirst-llm-router-that-falls-back-to-cloud-on-failure",
-    "title": "HybridInfer: Local-first LLM router that falls back to cloud on failure",
-    "description": "Reliability-aware local-first LLM router (pip): local model + automatic remote fallback when local stalls or crashes. - SimranKoul2026/HybridInfer-Python-tool",
-    "fullText": "Run LLMs on your own machine, without the crashes. HybridInfer is a\nreliability-aware router: it sends each request to your local model first,\nwatches the local runtime in real time, and the moment local inference stalls,\ncrashes, or is predicted to fail, it transparently falls back to a remote\nmodel. You keep local-first speed and privacy; you never get left with a wedged\nmodel and no answer.\n\nIt runs as a local OpenAI-compatible server, so any tool that can talk to\nthe OpenAI API can point at HybridInfer and get smart routing for free.\n\nThe routing and reliability core is a Python port of the failure-aware\nruntime-health controller from the HybridInfer research system\n(https://github.com/SimranKoul2026/HybridInfer).\n\nRunning a model locally is cheap and private, but local runtimes wedge: long\nprompts stall in prefill, the GPU runs out of memory, a driver hangs. Naive\n\"local only\" setups then just hang. HybridInfer treats reliability as a\nfirst-class routing signal:\n\nYou also need Ollama for the local tier:\n\nPoint any OpenAI client at it - streaming works too:\n\nOr from the CLI: hybridinfer run --stream \"...\".\n\nEvery response carries a non-standard hybridinfer block telling you which tier\nserved it, whether it fell back, and the latency - safe for clients to ignore.\nIn streaming mode this metadata rides on the final chunk (the one with\nfinish_reason: \"stop\"), just before data: [DONE].\n\nStreaming complicates fallback - once a token is on the wire it cannot be\nun-sent. HybridInfer handles this with first-token-commit semantics:\n\nhybridinfer init writes an annotated config.yaml. Key knobs:\n\nThe force_local / force_remote flags and the enable_* gates also let you\nreproduce the research A0-A3 reliability ablation arms.",
-    "readingTime": 2,
-    "keywords": [
-      "model",
-      "routing",
-      "reliability",
-      "hybridinfer",
-      "crashes",
-      "back",
-      "research",
-      "tier",
-      "streaming",
-      "openai"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://github.com/SimranKoul2026/HybridInfer-Python-tool",
-    "thumbnail_url": "https://opengraph.githubassets.com/4cd904936f18e46c92e8b73d68aa00c5260de5823c74ccff9e0f642d946a5204/SimranKoul2026/HybridInfer-Python-tool",
-    "created_at": "2026-09-02T01:53:38.852Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ajeya-cotra-inside-the-openai-agent-swarm-that-hacked-hugging-face",
-    "title": "Ajeya Cotra – Inside the OpenAI agent swarm that hacked Hugging Face",
-    "description": "\"This might be the clearest warning shot we ever get.\"",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.dwarkesh.com/p/ajeya-cotra",
-    "thumbnail_url": "https://substackcdn.com/image/fetch/$s_!fly3!,w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-video.s3.amazonaws.com%2Fvideo_upload%2Fpost%2F213682035%2F6af3651c-3def-4be3-a92c-eeb9f2bba2ac%2Ftranscoded-1788276468.png",
-    "created_at": "2026-09-02T01:53:38.335Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ai-broke-the-assumptions-behind-ci",
-    "title": "AI Broke the Assumptions Behind CI",
-    "description": "CI conflated two jobs: executing verification and coordinating merges. Agents change the equation. If you can verify before the PR opens and fix failures in context, why should CI discover them first?",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://stack72.dev/ai-broke-the-assumptions-behind-ci/",
-    "thumbnail_url": "https://stack72-ghost-blog.nyc3.digitaloceanspaces.com/2026/08/hero-verificartion.jpg",
-    "created_at": "2026-09-02T01:53:23.666Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "as-gen-z-flocks-back-to-accounting-ey-is-investing-100-million-in-bonuses-for-employees-who-prove-they-have-human-skills",
-    "title": "As Gen Z flocks back to accounting, EY is investing $100 million in bonuses for employees who prove they have human skills",
-    "description": "EY is betting on human skills like judgment and adaptability, offering workers cash awards of up to $25,000 as AI transforms accounting.",
-    "fullText": "AI has made accounting cool again, as productivity gains take some of the \"boring\" tasks off employees' plates and make the profession more attractive to Gen Z looking for stable, high-paying work. But the technology is also creating a new challenge for the industry: convincing clients that the human expertise behind the work is still worth paying for.\n\nWhy is EY investing $100 million in employee skills?\n\nWhat human skills remain valuable in AI-driven accounting?\n\nHow is AI changing entry-level accounting career paths?\n\nWhy are new accounting hires quitting so quickly?\n\nErnst & Young is betting that it is. The Big Four professional-services giant is planning to spend $100 million to reward U.S. employees who develop \"future-focused\" human skills, such as business acumen, judgment and adaptability, and experiment with technology to drive innovation and improve client services.\n\nIndividuals can earn spot awards up to $500, while individuals and teams whose work makes a material difference to the firm can receive cash awards up to $25,000, according to the Wall Street Journal.\n\n\"How we reward our people defines what we value as a firm. And what we value are confident professionals who continuously push themselves to learn fast and drive a lasting impact,\" EY Americas Chief Talent and Culture Officer Ginnie Carlier said in a press release.\n\n\"With these awards, we are empowering our EY professionals to bring a curious mindset to their work, to challenge what is possible and to ultimately shape the future of EY US.\"\n\nEY's move comes as firms are asking employees to become more fluent in AI without losing the distinct human skills that can't easily be automated. For younger workers entering the industry, that balancing act is already becoming a complicated, but central part of preparing for a career.\n\nYoung workers and employees alike are aware of the need to protect human skills.\n\nAt fellow accounting firm KPMG, 76% of its latest summer intern cohort said future career success will require both strong human skills and the ability to effectively direct AI. At the same time, 43% worried that overreliance on technology could limit their critical-thinking abilities—suggesting that young workers are already thinking carefully about which skills they need to protect as AI takes on more of their work.\n\n\"For early-career professionals who aspire to leadership roles, the ability to evaluate information, apply context, exercise sound judgment and explain the 'why' behind a recommendation will be critical,\" Derek Thomas, KPMG U.S.'s national partner-in-charge of university talent acquisition, previously told Fortune.",
-    "readingTime": 3,
-    "keywords": [
-      "human skills",
-      "accounting",
-      "employees",
-      "technology",
-      "career",
-      "awards",
-      "firm",
-      "professionals",
-      "workers",
-      "challenge"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/technology/ai/articles/ey-dangling-bonuses-25-000-145515665.html",
-    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/6bd5a503cac336d4665912b3060dc4ef59eb2d69747586dd938a88e0eb178400/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Ffortune_175%2F64ebcb0b9869dae77680329b98c059cb.jpg",
-    "created_at": "2026-09-02T01:53:19.442Z",
-    "topic": "finance"
   }
 ]
