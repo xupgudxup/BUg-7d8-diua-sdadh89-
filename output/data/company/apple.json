@@ -1,5 +1,74 @@
 [
   {
+    "slug": "game-thread-washington-state-takes-on-washington-in-the-apple-cup",
+    "title": "GAME THREAD: Washington State takes on Washington in the Apple Cup",
+    "description": "The Washington State Cougars are getting ready to kickoff their 2026 football season and the Kirby Moore era with a week 1 rivalry game against the Washington Huskies. WSU opens with their third new head coach in three years, with Moore arriving at WSU after being the offensive coordinator at Missouri. The Cougs will also […]",
+    "fullText": "The Washington State Cougars are getting ready to kickoff their 2026 football season and the Kirby Moore era with a week 1 rivalry game against the Washington Huskies.\n\nWSU opens with their third new head coach in three years, with Moore arriving at WSU after being the offensive coordinator at Missouri. The Cougs will also be led by transfer quarterback Caden Pinnick.\n\nThe last time these two rivals squared off in Seattle, the Cougars emerged victorious 24-19 after a goalline stand to seal the game.\n\nKickoff is set for 1pm at Husky Stadium and will be broadcasted nationally on NBC and Peacock.",
+    "readingTime": 1,
+    "keywords": [
+      "kickoff",
+      "game",
+      "washington",
+      "cougars",
+      "moore"
+    ],
+    "qualityScore": 0.55,
+    "link": "https://sports.yahoo.com/articles/game-thread-washington-state-takes-193434201.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/94737dc8afc68c2dc4c977dfb6d3b066a1655ef9c33b5b50ad15f33ae71b4cf5/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fsb_nation_articles_115%2Ff49284e7122dd1d0b57ae9a63a770150.jpg",
+    "created_at": "2026-09-06T19:45:21.729Z",
+    "topic": "sports"
+  },
+  {
+    "slug": "hakovm-firecrackerclass-vms-in-macos-built-by-a-macos-hacker",
+    "title": "HakoVM – Firecracker-class VMs in macOS, built by a macOS hacker",
+    "description": "HakoVM: Firecracker-class microVMs for macOS, built for AI agents. One binary on Apple's Containerization framework. - las7/HakoVM",
+    "fullText": "Firecracker-class microVMs for macOS. Built for AI agents.\n\nInstall · For agents · vs Docker / Apple container / Lima · Design · Performance · Roadmap\n\nBoot a hardware-isolated Linux VM from any OCI image in about 300 ms, run\ncommands in it at ~10 ms each, throw it away. No daemon, no Docker, no root.\nThe guest has no network card unless you give it one.\n\nFull numbers and caveats in docs/comparison.md.\n\nFirecracker needs KVM, so it does not run on a Mac. Docker Desktop, OrbStack\nand Lima give you one big shared VM. Apple's container CLI is close, but it\nis a general container tool with a daemon and a network stack you may not want.\n\nHakoVM is a thin Swift runtime on Apple's open-source\nContainerization framework, shaped\nfor one job: giving an AI agent a disposable machine it cannot escape from.\n\nCode interpreter. Run model-generated code, get stdout, exit code and files back.\nThe guest cannot reach the network or any host path you did not mount.\n\nDependencies. The guest is offline by default. Install once with\n--network and commit the result; every later run boots a copy-on-write\nclone of it, offline, in about a second:\n\nCommits layer (--from py-deps --commit py-deps-ml), and ten agents booting\nfrom one commit each get their own clone. Mounting a host venv or\nnode_modules works too, and so does any image from a registry. See\ndocs/dependencies.md for when to use which.\n\nClaude Code. Put every Bash call the agent makes inside a VM. Add to\n.claude/settings.json:\n\nThe project directory is mounted at the same path, so the agent's relative and\nabsolute paths keep working. HAKO_IMAGE, HAKO_NETWORK=1 and HAKO_MOUNT\ntune it. Round trip per command is about 0.7 s including the boot; a warm pool\nis next on the roadmap to bring that to the exec latency.\n\nMCP server. One command registers HakoVM as a tool for any MCP client:\n\nThe model gets hako_run (command, image or commit, timeout, cwd) and\nhako_commits. Network and extra mounts are refused unless you start the\nserver with --allow-network / --allow-mounts.\n\nAny language. hako run --json --timeout 60 -- ... prints one JSON\nobject with stdout, stderr, exit code and timings. See\ndocs/agents.md for all four integration paths and the\npatterns that work.\n\nApple Silicon and macOS 26 or later. No sudo, no developer account.\n\nThat drops hako in ~/.local/bin and runs hako setup, which downloads a\n28 MB Linux kernel built from Apple's Containerization config and caches\nApple's guest init plus alpine. Everything lives under ~/.hako.\n\nhako is being built around six agent workloads: coding-agent shell, code\ninterpreter, parallel fan-out, browser agent, eval runs, and hosting untrusted\nMCP servers. The design doc describes the primitives that\nserve them: profiles, warm pools, host-terminated egress with hostname\nallowlists, a credential broker, and commit/fork of prepared rootfs images.\n\nSee the roadmap for order and status.\n\nApache License 2.0. See LICENSE and NOTICE.",
+    "readingTime": 3,
+    "keywords": [
+      "code interpreter",
+      "exit code",
+      "guest",
+      "agent",
+      "commit",
+      "agents",
+      "roadmap",
+      "command",
+      "macos",
+      "lima"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/las7/HakoVM",
+    "thumbnail_url": "https://opengraph.githubassets.com/c36724fc2362ba5867122855325c237c19241ca399297361333ac9c81ab3f057/las7/HakoVM",
+    "created_at": "2026-09-06T19:44:29.158Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ive-lived-in-new-england-my-whole-life-theres-one-rhode-island-town-that-i-love-visiting-in-the-fall",
+    "title": "I've lived in New England my whole life. There's one Rhode Island town that I love visiting in the fall.",
+    "description": "As a lifelong local, my favorite Rhode Island town to visit in the fall is Middletown. There's a local farm for apple picking, a vineyard, and more.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/best-rhode-island-town-visit-fall-middletown-what-to-do-2026-9",
+    "thumbnail_url": "https://i.insider.com/6a95abe23f7df8787cff56d0?width=1200&format=jpeg",
+    "created_at": "2026-09-06T19:44:25.086Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "keybanc-warns-apples-iphone-18-launch-may-be-a-negative-catalyst-for-shares",
+    "title": "KeyBanc warns Apple’s iPhone 18 launch may be a negative catalyst for shares",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/stock-market-news/keybanc-warns-apples-iphone-18-launch-may-be-a-negative-catalyst-for-shares-4890314",
+    "thumbnail_url": "https://content-media.investing.com/news/moved_LYNXMPEL410N8_L.jpg",
+    "created_at": "2026-09-06T19:44:24.990Z",
+    "topic": "finance"
+  },
+  {
     "slug": "how-to-watch-f1-race-today-stream-2026-italian-grand-prix-on-apple-tv",
     "title": "How to watch F1 race today, stream 2026 Italian Grand Prix on Apple TV",
     "description": "The 2026 Italian Grand Prix airs live on Apple TV at 9 a.m. ET on Sunday. Here's how to watch:",
@@ -1810,101 +1879,5 @@
     "thumbnail_url": "https://www.apple.com/newsroom/images/default/apple-logo-og.jpg?202607231300",
     "created_at": "2026-07-23T13:23:13.347Z",
     "topic": "tech"
-  },
-  {
-    "slug": "apple-will-soon-offer-iphones-macs-etc-on-a-subscription-basis",
-    "title": "Apple will soon offer iPhones, Macs, etc., on a subscription basis",
-    "description": "Apple will launch a new deal with Klarna next week allowing customers to spread out the cost of devices like a subscription.",
-    "fullText": "Just in time for the iPhone’s 20th anniversary, Apple is moving closer to becoming a service company. It is set to launch its new deal with Klarna next week and when it does, Apple enthusiasts in the US will effectively be able to \n\nThis matters because when combined with Apple One and Apple’s Creator Studio subscriptions, the Klarna arrangement brings Apple closer to offering a full subscription model for hardware, software, and services. The only thing you don’t get under the new arrangement is AppleCare, for which you’ll allegedly need to pay extra.\n\nApple has slowly been transitioning toward hardware-as-a-service for almost a decade. Back then, Forrester analyst Frank Gillet predicted the company would eventually offer bundles of services and products for a monthly, all-in, fee.\n\nThis isn’t quite where we are yet; you still need at least three subscriptions to get close. But, after the better part of a decade, Apple has moved much nearer to the hardware-as-a-service idea.\n\nThere are some products reportedly excluded from the arrangement, including MacBook Neo, Apple Watch SE, the entry-level iPad, and iPhone 16. Clearly, Apple sees those products as sufficiently affordable.\n\nThe new Klarna arrangement comes as Apple is forced to increase product prices as AI-driven memory price inflation becomes widely felt across every economy. In theory, I assume, Apple hopes to make its products available to cash-strapped consumers who need new hardware, while also navigating a time of deep economic tumult and uncertainty. It’s thought the company has previously rejected these plans to protect normal hardware sales, but normality is a kingdom we no longer seem to possess. Interesting times. Probable inflation incoming.\n\n“Apple Upgrade lands at precisely the moment Apple needs it,” IDC analyst Francisco Jeronimo wrote in a note seen by Computerworld. “Having just pushed Mac and iPad prices up on the back of the memory shortage, with iPhone increases widely expected in September — as well as the new iPhone foldable expected at $2,500 — Apple’s real risk is that rising prices even further can impact the upgrade cycle.”\n\nThe introduction of the scheme gives consumers a way to purchase the company’s popular high-end devices when they are introduced — no doubt,at higher cost — this fall. Plus, of course, if it’s good enough for GM, it’s good enough for Apple.\n\nIt’s all about attitude, too. From Apple’s perspective, it has done plenty of the groundwork required to convince its customers that subscription payments for things you value are no bad thing.\n\nReluctance to embrace “Access Not Ownership’”purchasing models has dropped dramatically since Apple — and CEO Tim Cook — first began banging the drum for services income. Apple’s services stream has now become its second-biggest revenue driver after the iPhone. It has over 1 billion paid subscriptions, and an active hardware installed base of more than 2.5 billion devices globally.\n\nA combination of changed customer habits and external threat means the stars are now aligned for hardware-as-a-service models. “Reframing a device as a low monthly payment protects that [upgrade] cadence and allows Apple to start marketing their products as device-as-a-service to consumers, which no other vendor was ever able to do,” Jeronimo wrote to me.\n\nThere is a one-more-thing aspect to this: the products are effectively being leased, a new approach that will give Apple a stronger grip on EOL devices, helping it grab more of them for refurbishment, resale, and recycling. Over time, this will give the company a much stronger grip on the lucrative second-user market that exists around Apple equipment, even while for almost every consumer product we find the life we want is something we can rent, but probably can’t afford to own.\n\nThe other solid reason to take a partnership approach is risk management. Apple had intended to develop its own buy-now, pay-later scheme via Apple Pay Later, but abandoned that plan as it became riskier with rising bank rates. “Also, by backing the program with Klarna rather than reviving the in-house subscription plan it shelved in 2024, Apple captures the demand upside without taking the credit risk onto its own balance sheet,” Jeronimo said.\n\nYou can follow me on social media! Join me on BlueSky,  LinkedIn, Mastodon and",
-    "readingTime": 4,
-    "keywords": [
-      "klarna arrangement",
-      "stronger grip",
-      "apple",
-      "products",
-      "hardware",
-      "services",
-      "iphone",
-      "subscriptions",
-      "subscription",
-      "hardware-as-a-service"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.computerworld.com/article/4200023/own-nothing-upgrade-everything-apples-new-klarna-deal.html",
-    "thumbnail_url": "https://www.computerworld.com/wp-content/uploads/2026/07/4200023-0-54110800-1784739988-Apple-Creator-Studio-Pixelmator-Pro-advanced-image-generation.jpg?quality=50&strip=all&w=1024",
-    "created_at": "2026-07-22T18:56:37.565Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ios-27-might-have-just-confirmed-apples-first-foldable-iphone",
-    "title": "iOS 27 Might Have Just Confirmed Apple’s First Foldable iPhone",
-    "description": "New code in the latest iOS 27 beta references multiple batteries in one iPhone.",
-    "fullText": "iOS 27 has been in beta testing since WWDC (though Apple only opened the public beta last week), and testers have made new discoveries ever since. Usually, these are features that Apple didn't announce as part of these updates, like the new hidden Siri AI menu in macOS 27. However, the latest iOS 27 beta might reveal a new product Apple hasn't announced yet: the company's rumored foldable \"iPhone Ultra.\"\n\nWhat do you think Apple is going to call its foldable iPhone? That's just one of five questions Lifehacker is asking readers for the second round of its Big Guessing Game. Enter for your chance to win the latest Apple Watch.\n\nAfter diving through the fourth developer beta for macOS 27, Macworld found something quite interesting: The outlet discovered \"Battery Health\" strings in the OS' code that make references to an iPhone with multiple internal batteries. They include things like, “The batteries in this iPhone are performing as expected,” and “the health of the batteries in this iPhone has significantly degraded\" as opposed to specifying \"the battery in this iPhone.\" Macworld even found that one string notes that \"one of the batteries\" may not be genuine, anticipating a case where a customer only replaces one of their iPhone's batteries. Apple has been making iPhones for nearly 20 years, and all of them have shipped with one embedded battery. Multiple batteries in one iPhone would indeed be something new.\n\nWhile these strings make no sense for Apple's current iPhones, they'd track for a future foldable. We don't know the exact specs of this upcoming product, of course, but Apple could theoretically place a battery in each side of a foldable iPhone to power the extra screen real estate. This is how other foldable smartphones handle batteries, like the Galaxy Z Fold 7. Samsung splits the batteries in two, effectively including two smaller batteries in each side of the device.\n\nMacworld says the first iOS 27 beta had references to \"angle detection\" and \"fold states,\" which are even bigger flags that Apple is prepping this update for a foldable device as well. Will the company actually pull the trigger and release its own foldable smartphone in the fall? There are no guarantees, but the signs do seem to be pointing there. Personally, I'd rather see the company roll out an \"iPhone Flip,\" but I'm curious to see Apple's take on a foldable smartphone (if it even happens).",
-    "readingTime": 3,
-    "keywords": [
-      "ios beta",
-      "foldable smartphone",
-      "foldable iphone",
-      "batteries",
-      "macworld",
-      "apple",
-      "macos",
-      "latest",
-      "product",
-      "strings"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://lifehacker.com/tech/ios-27-might-have-just-confirmed-apples-foldable-iphone?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KY0JCBXCRKBX2TGS3WG5KYK4/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-07-21T01:29:55.705Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "macos-27-comes-with-a-hidden-siri-ai-menu",
-    "title": "MacOS 27 Comes With a Hidden Siri AI Menu",
-    "description": "Apple added the new Siri AI menu to the latest macOS beta.",
-    "fullText": "Siri AI is the biggest feature of Apple's upcoming suite of updates. Whether you're running iOS 27, macOS 27, or even watchOS 27, the thing that you'll likely notice first (assuming you're running a compatible device) is that Siri is much smarter now, and even more capable than it was in previous versions. If the beta previews have been any indication, this really is the biggest upgrade Apple has ever given Siri.\n\nBut it seems that the company isn't limiting itself to the upgrades it already announced. As it continues beta testing these new updates, and with them, Siri AI itself, Apple seems to be tinkering with its new AI-powered assistant, quietly planting new features that beta testers need to discover for themselves. One such feature? A new Siri AI menu that appears whenever you highlight text in macOS 27.\n\nAs reported by MacRumors, this new menu appears whenever you select text in macOS 27. When you do, you'll see a floating menu in the top left of your highlighted text. If you move your cursor over it, the menu expands to reveal options, such as \"Proofread,\" \"Rewrite,\" \"How does this sound?\" and \"Edit with Siri.\" You can also ask Siri AI to pull out key points from the text, or summarize it completely. Depending on the text, you might see other options, too: If you highlight a text from a friend, Siri AI might show you contact info; if the text contains a date, Siri AI might prompt you to create a Calendar entry. It plays into Siri AI's contextual awareness, which is part of Apple's mission to make its assistant more useful in specific scenarios.\n\nThe thing is, this menu is disabled by default, as least as of macOS 27 developer beta 3 and public beta 1. Apple did not include it in the release notes, either; instead, a Redditor stumbled upon it, and shared instructions for turning it on on r/MacOSBeta.\n\nKeep in mind, this feature, as with macOS 27 as a whole, is in beta testing. MacRumors says that the feature does not always work, so you may run into odd bugs or glitches after turning it on. Still, if you're already running the beta and are curious, this is an interesting feature to explore.\n\nTo try it out, you'll need to open your Mac's Terminal app. Then, paste and run the following command: sudo mkdir -p /Library/Preferences/FeatureFlags/Domain && sudo defaults write /Library/Preferences/FeatureFlags/Domain/WritingTools LightweightUI_macOS -dict Enabled -bool true\n\nYou'll need to restart your Mac for the feature to take effect. But once you do, you should see the menu whenever you highlight text—albeit with some possible hiccups. If the feature is too unstable at this point, or you simply don't like it, you can undo it by pasting the following command into Terminal: sudo defaults write /Library/Preferences/FeatureFlags/Domain/WritingTools LightweightUI_macOS -dict Enabled -bool false",
-    "readingTime": 3,
-    "keywords": [
-      "lightweightui_macos dict",
-      "dict enabled",
-      "enabled bool",
-      "siri ai",
-      "following command",
-      "sudo defaults",
-      "beta testing",
-      "highlight text",
-      "library/preferences/featureflags/domain/writingtools lightweightui_macos",
-      "menu"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/macos-27-beta-hidden-siri-ai-menu?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01KY08S8XGV4Q8WRBN860XT19D/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-07-20T19:24:24.934Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "apple-crumble-a-tasty-knives-outinspired-mystery-that-lets-you-snoop-on-your-own-family",
-    "title": "Apple Crumble: a tasty Knives Out-inspired mystery that lets you snoop on your own family",
-    "description": "The developer of Duck Detective reveals details of her ‘sad grandma game’ follow-up: a whodunnit – or who-plans-to-do-it? – with a darker edge\nSomeone wants to kill grandma. In this Knives Out-inspired mystery game, each of your family members is suspicious in their own way: your stressed mum, your “midlife crisis uncle” and especially that stranger in your bedroom. Yikes!\nWhile Apple Crumble is still a mystery, it is mechanically different from Happy Broccoli Games’ previous game, Duck Detective, in which the player solves crimes in a small office.",
-    "fullText": "The developer of Duck Detective reveals details of her ‘sad grandma game’ follow-up: a whodunnit – or who-plans-to-do-it? – with a darker edge\n\nSomeone wants to kill grandma. In this Knives Out-inspired mystery game, each of your family members is suspicious in their own way: your stressed mum, your “midlife crisis uncle” and especially that stranger in your bedroom. Yikes!\n\nWhile Apple Crumble is still a mystery, it is mechanically different from Happy Broccoli Games’ previous game, Duck Detective, in which the player solves crimes in a small office. Here you are largely snooping through your family home. “I love the idea of having a walking sim where you can really open up every drawer, every door, and see what’s behind there,” says founder and creative director Annika Maar. As you learn more about the different grievances and troubles of your family members, the mystery slowly unwinds.\n\nAfter Duck Detective, the team wanted to make a “sad grandma” game – something that may come as a surprise after the humour of the studio’s previous games. Apple Crumble begins comedically, says Maar, but the tone shifts throughout the game; it gets more serious and a bit sad: “I felt very emotionally attached to the death of my grandma. There’s some baggage there and I thought it would be fun to explore that.”\n\nYou’ll pick up the plot by digging through stuff. Lots of stuff. Apple Crumble’s storytelling extends into the different made-up fiction placed throughout the house. “There’s a film script that the midlife crisis uncle wrote which he’s convinced is going to get money from investors and become huge,” says Maar. “Just so many small details that I’m hoping will make the world feel very believable.”\n\nThat depth of hidden detail also applies to the art style, which was inspired, in part, by concept art for Puss in Boots. “In the movie and the concept art, they use a lot of these paint splatters,” says Maar. “From a distance it’s not immediately apparent, but when you look, you’re like, ‘Wow, there are so many different colours in this.’ Your eyes kind of blend it together and it just makes it feel more natural. Less clinical. More exciting to look at. It ended up being a lot more work than I thought it would be, but I think it was worth it.”\n\nMaar is currently finishing up the script and will soon begin the process of recording voice actors. Happy Broccoli is booking the actors together so that they can really riff off each other. After all, with a grandma-killer in their midst, there are a lot of arguments to record.\n\nApple Crumble is in development for PC. Release is planned for later in 2026",
-    "readingTime": 3,
-    "keywords": [
-      "midlife crisis",
-      "crisis uncle",
-      "concept art",
-      "sad grandma",
-      "grandma game",
-      "duck detective",
-      "apple crumble",
-      "mystery",
-      "family",
-      "details"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/games/2026/jul/20/apple-crumble-knives-out-inspired-mystery-game",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/8aac06630c4142da4286939263dc67466e517488/703_67_1644_1315/master/1644.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=62157088b5935155fbde279f1fe563fe",
-    "created_at": "2026-07-20T19:24:22.303Z",
-    "topic": "gaming"
   }
 ]

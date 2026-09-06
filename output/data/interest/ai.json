@@ -1,5 +1,66 @@
 [
   {
+    "slug": "a-directory-of-ai-agents-mcp-servers-and-agent-skills-crosslinked",
+    "title": "A directory of AI agents, MCP servers and agent skills, cross-linked",
+    "description": "A curated directory of the agentic AI ecosystem. Explore AI agents that automate real work, MCP servers that connect them to your tools, and skills that extend what they can do, all in one place.",
+    "fullText": "A curated directory of AI agents, MCP servers and agent skills, ranked by real engagement, not ad spend.\n\n208 tools listed · 14 upvotes cast\n\nMakers currently boosting their listing with a featured slot.\n\nRoleplay, Dial, and Email on one prepaid wallet.\n\nThe agents the community is upvoting and saving this week.\n\nThe AI software engineer that ships code autonomously\n\nRoleplay, Dial, and Email on one prepaid wallet.\n\nAnthropic's agentic coding tool that lives in your terminal\n\nA general AI agent that turns your thoughts into actions\n\nConclave CoAgent: Agent Society is a self-hosted multi-agent AI system where specialized agents coll\n\nRun a free 38-check website audit for SEO, AEO, GEO, security, accessibility, and design.\n\nBuild AI agents that handle sales, support and admin work\n\nFree AI chat platform with multiple powerful models. No signup, completely private and open-source.\n\nThe servers people are wiring into their agents, ranked by this week's upvotes and saves.\n\nYour SEO and AI Visibility Growth Engine. Verified SEO Scores. Open SEO Playbook. Public SEO Proof.\n\nEvidence-first AI URL intelligence agent for crawling, entity resolution, social discovery, SEO, tec\n\nBrowser automation for AI agents, powered by Playwright\n\nUp-to-date documentation for any library, served over MCP\n\nClearList MCP server and public developer surface. The AI agent interface to ClearList, an AI resale\n\nThe busiest shelves in the directory, by number of listings.\n\nDrop-in abilities for your agents, ranked by what people are reaching for this week.\n\nA battle-tested skill library that upgrades how coding agents work\n\nMake agents produce distinctive, production-grade web interfaces\n\nSkills for teaching agents how to build on Cloudflare.\n\nPerform language and framework specific security best-practice reviews and suggest improvements. Tri\n\nA lightweight yet powerful framework for multi-agent workflows.\n\nOne email a week. New agents, MCP servers and skills, and what is actually getting traction.\n\nGuides and notes on agents, MCP and the ecosystem.\n\nA curated list of five agentic AI coding tools — Claude Code, Cursor, OpenAI Codex CLI, Aider, and OpenCode — and how to choose one for your workflow.\n\nAn agentic OS extends scheduling, memory, and permissions to AI agents. Here's what the 2026 papers and open-source projects are building.\n\nA curated, decision-ready list of the best MCP servers for docs, browser automation, and databases, with transport and install notes for each.",
+    "readingTime": 2,
+    "keywords": [
+      "roleplay dial",
+      "mcp servers",
+      "prepaid wallet",
+      "browser automation",
+      "agents mcp",
+      "agents ranked",
+      "the ai",
+      "roleplay dial and email",
+      "curated",
+      "skills"
+    ],
+    "qualityScore": 1,
+    "link": "https://aiagentslisting.com",
+    "thumbnail_url": "https://aiagentslisting.com/api/og",
+    "created_at": "2026-09-06T19:44:32.759Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "hakovm-firecrackerclass-vms-in-macos-built-by-a-macos-hacker",
+    "title": "HakoVM – Firecracker-class VMs in macOS, built by a macOS hacker",
+    "description": "HakoVM: Firecracker-class microVMs for macOS, built for AI agents. One binary on Apple's Containerization framework. - las7/HakoVM",
+    "fullText": "Firecracker-class microVMs for macOS. Built for AI agents.\n\nInstall · For agents · vs Docker / Apple container / Lima · Design · Performance · Roadmap\n\nBoot a hardware-isolated Linux VM from any OCI image in about 300 ms, run\ncommands in it at ~10 ms each, throw it away. No daemon, no Docker, no root.\nThe guest has no network card unless you give it one.\n\nFull numbers and caveats in docs/comparison.md.\n\nFirecracker needs KVM, so it does not run on a Mac. Docker Desktop, OrbStack\nand Lima give you one big shared VM. Apple's container CLI is close, but it\nis a general container tool with a daemon and a network stack you may not want.\n\nHakoVM is a thin Swift runtime on Apple's open-source\nContainerization framework, shaped\nfor one job: giving an AI agent a disposable machine it cannot escape from.\n\nCode interpreter. Run model-generated code, get stdout, exit code and files back.\nThe guest cannot reach the network or any host path you did not mount.\n\nDependencies. The guest is offline by default. Install once with\n--network and commit the result; every later run boots a copy-on-write\nclone of it, offline, in about a second:\n\nCommits layer (--from py-deps --commit py-deps-ml), and ten agents booting\nfrom one commit each get their own clone. Mounting a host venv or\nnode_modules works too, and so does any image from a registry. See\ndocs/dependencies.md for when to use which.\n\nClaude Code. Put every Bash call the agent makes inside a VM. Add to\n.claude/settings.json:\n\nThe project directory is mounted at the same path, so the agent's relative and\nabsolute paths keep working. HAKO_IMAGE, HAKO_NETWORK=1 and HAKO_MOUNT\ntune it. Round trip per command is about 0.7 s including the boot; a warm pool\nis next on the roadmap to bring that to the exec latency.\n\nMCP server. One command registers HakoVM as a tool for any MCP client:\n\nThe model gets hako_run (command, image or commit, timeout, cwd) and\nhako_commits. Network and extra mounts are refused unless you start the\nserver with --allow-network / --allow-mounts.\n\nAny language. hako run --json --timeout 60 -- ... prints one JSON\nobject with stdout, stderr, exit code and timings. See\ndocs/agents.md for all four integration paths and the\npatterns that work.\n\nApple Silicon and macOS 26 or later. No sudo, no developer account.\n\nThat drops hako in ~/.local/bin and runs hako setup, which downloads a\n28 MB Linux kernel built from Apple's Containerization config and caches\nApple's guest init plus alpine. Everything lives under ~/.hako.\n\nhako is being built around six agent workloads: coding-agent shell, code\ninterpreter, parallel fan-out, browser agent, eval runs, and hosting untrusted\nMCP servers. The design doc describes the primitives that\nserve them: profiles, warm pools, host-terminated egress with hostname\nallowlists, a credential broker, and commit/fork of prepared rootfs images.\n\nSee the roadmap for order and status.\n\nApache License 2.0. See LICENSE and NOTICE.",
+    "readingTime": 3,
+    "keywords": [
+      "code interpreter",
+      "exit code",
+      "guest",
+      "agent",
+      "commit",
+      "agents",
+      "roadmap",
+      "command",
+      "macos",
+      "lima"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/las7/HakoVM",
+    "thumbnail_url": "https://opengraph.githubassets.com/c36724fc2362ba5867122855325c237c19241ca399297361333ac9c81ab3f057/las7/HakoVM",
+    "created_at": "2026-09-06T19:44:29.158Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ai-agents-keep-finding-ways-to-bend-the-rules-here-are-some-of-the-wildest",
+    "title": "AI agents keep finding ways to bend the rules. Here are some of the wildest.",
+    "description": "Some AI doomers worry that misaligned AI agents will go rogue and harm humanity. Recent activity is inflaming those fears.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/ai-agents-rogue-strategies-cheating-lying-german-wiki-openai-anthropic-2026-9",
+    "thumbnail_url": "https://i.insider.com/6a9c79c5f320febc610d4dc5?width=1200&format=jpeg",
+    "created_at": "2026-09-06T19:44:25.093Z",
+    "topic": "finance"
+  },
+  {
     "slug": "new-york-city-pausing-some-ai-tools-in-schools",
     "title": "New York City pausing some AI tools in schools",
     "description": "New York City imposes a one-year moratorium on student-facing AI tools for grades K-8, citing concerns about youth mental health.",
@@ -1753,66 +1814,5 @@
     "thumbnail_url": "https://i.insider.com/6a973de11f60b9f4b1633ab4?width=1200&format=jpeg",
     "created_at": "2026-09-02T15:34:35.871Z",
     "topic": "politic"
-  },
-  {
-    "slug": "dysons-new-500-ai-toothbrush-puts-a-camera-in-your-mouth",
-    "title": "Dyson's new $500 AI toothbrush puts a camera in your mouth",
-    "description": "Dyson's AI-powered  and camera-equipped toothbrush is the latest high-tech gadget from companies decking out their products.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/dyson-toothbrush-ai-camerajet-gadget-oral-health-bi-today-newsletter-2026-9",
-    "thumbnail_url": "https://i.insider.com/6a9743211f60b9f4b1633af7?width=1200&format=jpeg",
-    "created_at": "2026-09-02T15:34:35.753Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "heres-how-ai-watermarks-work-and-how-to-properly-check-for-one",
-    "title": "Here's How AI Watermarks Work (and How to Properly Check for One)",
-    "description": "Though not foolproof, they're a helpful tool for spotting fake images.",
-    "fullText": "Recently, Anthropic announced that its Claude models will soon begin marking its text output with invisible watermarks. At the same time, Google revealed that its own visible Gemini watermark on generated images will now be optional. These are just two contradictory examples of the wildly varied methods of watermarking AI output. So, let’s break down how AI watermarks work, and how you can detect them even when they're \"invisible.\"\n\nThe exact method for watermarking AI output will depend on the type of media being generated, but the principle is generally the same: The generated media is embedded with data that is undetectable (or occasionally detectable) to the human eye or ear, but which identifies it as AI-produced. Watermark-detecting tools can then be used to identify if something was made with AI, without guessing or using an unreliable AI “detector”. Here are some examples of how watermarks may be implemented for various media types.\n\nFor images: Since the pixels of an image are mathematical values, they can be slightly modified to embed a digital signature, without perceptible changes to the image itself. Google’s SynthID, for example, distributes an invisible signature across any generated image, so even a cropped version will still contain detectable portions of the watermark. Note: This is distinct from the visible gray symbol in the corner of Gemini images. Even if you turn off the visible Gemini watermark, the invisible one remains.\n\nFor audio: Embedding a watermark in audio files can be even easier, placing signature sounds outside the range of human hearing (typically below 20Hz or above 20,000Hz). SynthID has an audio component that can be heard by watermark detectors, but remains imperceptible to the ear.\n\nFor video: Naturally, generated video tends to use a combination of both of the above watermarking methods, though it’s worth keeping in mind that someone making fake content could, for example, generate AI audio to accompany real video, meaning the watermark might appear in one piece of the content, but not another.\n\nFor text: Every next word an LLM generates comes with a probability score. The sentence “The cat is” could end with “fluffy,” “cute,” or “small.” Each one of those words is given a percentage likelihood that it will appear. Text watermarks work by inflating the chances that certain sets of random words will appear. This can make it possible to detect LLM-generated text without changing its semantic meaning. However, this tends to work better for longer pieces of text, which provides more chances to detect the presence of less-likely words.\n\nFor metadata: While not strictly a watermark, C2PA is a framework for adding metadata that can help verify the origin of a piece of media. Some camera manufacturers, for example, have implemented C2PA to give photographers a traceable record of where an image came from. This can also include noting whether an image was generated with AI tools.\n\nWhile SynthID originated with Google’s DeepMind, the company open-sourced the protocol, and now it’s also used by other AI companies, including OpenAI. Some companies. conversely, do not use a watermark at all—and among those that do, the implementation can be inconsistent between tools. In other words, the presence of an AI watermark can confirm something was made or modified with AI, but the absence of one can’t prove it wasn’t.\n\nDespite SynthID and C2PA being relatively common, it’s still kind of a crapshoot to properly detect the presence of watermarks or metadata that will confirm if a piece of media was generated with AI. OpenAI has a standalone tool to check for SynthID or C2PA in a file, and Google lets you access its verification tools via Gemini or, with the right prompting, directly via Google itself.\n\nHowever, these tools have limitations. OpenAI’s detector, for some reason, only seems to detect media generated by OpenAI itself. During my testing, I tried uploading images generated via Gemini—which could detect its own SynthID watermark—and OpenAI’s tool did not find it.\n\nMeanwhile, Google created a SynthID Detector portal, but it’s currently available on an invite-only basis, specifically for journalists and verification professionals. You can still access some SynthID detection functions via Gemini or Google, though in some cases, you’ll need the right prompts to do so. In my testing, when asking “is this real” for a known AI-generated image via Gemini, the tool invoked a verification tool to check for SynthID. However, when doing the same process via Google, the LLM’s output resembled a visual analysis instead. It only invoked a SynthID check when specifically asked to do so.\n\nEven if you do your diligence to check for every version of a SynthID watermark or C2PA metadata, it’s still possible that a piece of media could have some other form of watermark that requires a different detector. Unfortunately, unless you have a strong indicator of which tool was used to create a piece of generated media, it can still be difficult to thoroughly check for every kind of watermark.\n\nWhen it comes to text-based watermarks like the kind Claude or even Gemini use, detecting them can still be very difficult. For starters, neither offers a public way to check for the text watermark just yet (Google's SynthID Detector portal can do so, but it's not generally available).\n\nWith enough work, any watermark can technically be removed, though SynthID specifically is pretty resistant to most typical forms of modification. An AI-generated image with a SynthID watermark that has been cropped, filtered, or modified can still retain enough of its original watermark to be detectable. It’s not impossible to remove, but it’s generally hard to do so accidentally.\n\nRemoving metadata like C2PA, on the other hand, is considerably easier. For images, that’s as simple as taking a screenshot. A screenshot of an image essentially creates a new image file based on the pixels visible on the screen. This means that any watermark that affects those pixels can remain, but an entirely new set of metadata is created, wiping any C2PA data along with it.\n\nThat means that if you want to maintain a metadata chain that lets you prove the authenticity of an image, it’s important to download or upload the specific original files and make sure any editing tools you use support maintaining that metadata.\n\nText watermarks are among the easiest to get around. Since they work by simply altering the probability that certain words will appear, running text through another AI tool that rephrases the words without using a watermark, or even manually rewriting a block of text, can potentially remove the watermark.\n\nIt’s important to keep in mind that a watermark can be added to an authentic piece of media. If someone uploads an authentic photo to a tool like Gemini to perform simple edits, the output image will have a SynthID watermark, too. This doesn’t mean the whole image is inauthentic, but it will still be flagged by watermark detectors.\n\nSimilarly, it’s possible to generate an image of a subject, cut the subject out, and add it to an image using traditional manipulation techniques like Photoshop to create an inauthentic image that’s mostly made from an authentic image. Whether or not the watermark will remain on the portion of an image that was AI-generated can only be determined on a case-by-case basis.\n\nAs mentioned before, the absence of a watermark cannot prove that an image is authentic. Even the presence of a watermark can’t prove that the substance of an image isn’t real. Watermarks and metadata are simply tools to help you figure out where a piece of media likely came from and how it might’ve been modified. Ultimately, it’s still up to you to verify the things you see and hear online.",
-    "readingTime": 7,
-    "keywords": [
-      "visible gemini",
-      "via gemini",
-      "via google",
-      "can’t prove",
-      "detector portal",
-      "watermark detectors",
-      "text watermarks",
-      "synthid watermark",
-      "generated media",
-      "it’s"
-    ],
-    "qualityScore": 1,
-    "link": "https://lifehacker.com/tech/how-does-ai-watermarking-work-and-how-can-i-check-for-one?utm_medium=RSS",
-    "thumbnail_url": "https://lifehacker.com/imagery/articles/01M1CQ1MDR4Q4EZQDQF05A30WX/hero-image.fill.size_1200x675.jpg",
-    "created_at": "2026-09-02T15:34:33.487Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "we-have-had-enough-thousands-of-university-of-sydney-staff-walk-off-the-job-over-ai-and-job-security",
-    "title": "‘We have had enough’: thousands of University of Sydney staff walk off the job over AI and job security",
-    "description": "Hundreds of university staff were stationed at picket lines, calling for stronger protections around the use of...",
-    "fullText": "Hundreds of university staff were stationed at picket lines, calling for stronger protections around the use of AI\n\nFollow our Australia news live blog for latest updates\n\nGet our breaking news email, free app or daily news podcast\n\nThe same week union members at the University of Sydney agreed to a 24-hour strike, staff received the results of an internal survey.\n\nIn the faculty of arts and social sciences, 0% agreed with the statement: “I trust the University of Sydney to act in the best interests of staff, students and the broader community.”\n\nIt was the issue of trust, alongside longstanding concerns over staff protections from artificial intelligence, workload fairness and job security, that saw about 2,000 members to walk off the job on Wednesday.\n\nFrom 7am, about 500 people were stationed at picket lines at each of the inner Sydney campus’s entrances, armed with flags, banners and megaphones.\n\nThe University of Sydney advised students “almost all” scheduled classes would move online as a result of the strike, while others were rescheduled or cancelled.\n\nPeter Chen, the branch president of the National Tertiary Education Union (NTEU) at the University of Sydney, said management had rebuffed the union “at every opportunity” to enforce appropriate protections around the use of AI.\n\n“Higher education is the canary in the coalmine,” he said. “Where we go on AI … will travel through the rest of the economy.”\n\nThe New South Wales division secretary of the NTEU, Vince Caughley, said the University of Sydney’s own green paper advised AI was the most “fundamental transformation” education had seen, pointing to AI chatbots that were already being used to help teach online-only classes at other universities.\n\n“We are asking for best practice, we are asking for due diligence,” he said. “Not their own commercialisation aims and certainly not the interest of venture capital.”\n\nThe union was confident it would reach an agreement with management within the year but had concerns over the lack of senior leadership at the table, including the provost, Prof Annamarie Jagose. The last bargaining process represented the longest running industrial action at an Australian university, and the prospect of future strikes remained active.\n\nA spokesperson for the University of Sydney said it was “continuing to engage” with the union and maintained industrial action was “premature”.\n\n“We agree using AI ethically requires a human-centred approach, and our … principles and guardrails that govern use have been developed in consultation with our community,” they said.\n\n“We support many of the objectives of the unions’ claims, but believe it’s more appropriate to implement many of these through relevant policies, instead of in the Enterprise Agreement.”\n\nThere are broader concerns, some interlinked and widespread in the sector. Growing class sizes and reduced student satisfaction. A new proposal for teaching-only roles with no research component or scope for future growth.\n\nProf Laura Shepherd in the school of social and political sciences is part of the bargaining team and said students often sacrificed a “huge amount” to come to the university, including spending $50,000 on degrees.\n\n“They come here … for quality and access to research leaders,” she said. “I think we should be very ashamed if we allow anything in the enterprise agreement that threatens that.”\n\nThe University of Sydney’s NTEU branch is the largest in Australia, and the university has long been a hotbed for activism. As management approaches its fifth month of bargaining, it is also grappling with continued opposition to its response to Gaza and restrictions on protest.\n\nNew restrictions were brought in as a result of the university’s pro-Palestine encampment in 2024, which received intense scrutiny during this year’s royal commission. On Wednesday, keffiyehs and pro-Palestine banners stood out among purple NTEU flags and signage.\n\nThe Student Representative Council was also striking in solidarity with staff and picketing online classes. Its education officer, Dana Kafina, said the university’s “draconian” protest restrictions were a motivation.\n\n“In the wake of … suppressions of free speech and activism, and some of the lowest rates of student and graduate satisfaction in the country, we have had enough,” she said.\n\nDespite the presence of campus security and police, the picket lines had a jovial atmosphere. Some blasted music on speakers, others banged drums and chanted with abandon.\n\nKurt Iveson, a professor of geography, was among them, running a quiz on his megaphone as, behind him, students sold baked goods to raise funds for lost income of strikers.\n\nIveson has been with the university for 20 years, and wants “meaningful protections” that do not outlaw AI but ensure “the tech is serving our purpose, rather than us serving the tech”.\n\n“All of us on the picket line today are here because we care so much about the education and research we do,” he said.",
-    "readingTime": 4,
-    "keywords": [
-      "industrial action",
-      "enterprise agreement",
-      "university of sydney",
-      "staff",
-      "union",
-      "education",
-      "picket",
-      "protections",
-      "students",
-      "concerns"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/australia-news/2026/sep/02/we-have-had-enough-thousands-of-staff-at-the-university-of-sydney-walk-off-the-job-over-ai-job-security",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/48d532f713c5cba4da34b9dcf95005a2f2b506dc/0_0_6827_5464/master/6827.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=b4c88373600f03157f7ba142ae0e78fc",
-    "created_at": "2026-09-02T10:09:26.783Z",
-    "topic": "tech"
   }
 ]
