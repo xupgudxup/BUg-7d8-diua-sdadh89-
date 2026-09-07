@@ -1,5 +1,53 @@
 [
   {
+    "slug": "10task-glm-53-harness-bench-claude-opencode-pi-zcode-hermes-and-3code",
+    "title": "10-task GLM 5.3 harness bench: Claude, OpenCode, pi, zcode, Hermes and 3code",
+    "description": "Sharing technical knowledge from doing grunt programming work wh",
+    "fullText": "I'm performing a series of harness benchmarks on the same 10 SWE-bench verified tasks representatively chosen for difficulty. This is far from a perfect measure and unpublished model improvements mean that results are far from deterministic, but it does allow for a rough evaluation without breaking the bank. As with all benchmarks- use your own heuristics to confirm! Use the harness and check your feel- do you get a sense you getting more mileage? That's what counts because it's what you can actually measure.\n\nHaving said that, this sort of benchmarks have been positively great for spotting harness blunders.\n\nNote that none of these results, even when taken with a grain of salt, mean you should necessarily choose one harness over another. If you have an unlimited budget and just like Claude Code, by all means go for it. But if you want absolute maximum savings and you like very terse command line agents- give 3code a try!\n\nIn the graphic there are 5 columns- harness name (the latest at time of writing was chosen), amount of solved tasks of the 10, an indication of used tokens as well as total tokens, cache rate, and percentage of tokens used relative to the winner.\n\nThe picture is pretty drastic- 3code used 5 million tokens and solved 9 of the 10 tasks. The runner up in token usage is pi, which only solved 6 of the 10 tasks in the allotted time- the runner up in completed tasks is opencode, the only other harness to solve 9 of 10 tasks ('astropi' is the hard one that can be flipped).\n\nzcode was hyper efficient on the tasks it was successful at, but dug its heels in on the tasks it was unsuccessful at and used a lot of tokens before timing out. Hermes was expensive and did okay- I suppose that's a pretty good result since it is not strictly a coding model and more of an agentic model where cheaper models to moderate difficulty coding to expand capabilities.\n\nAs expected, Claude Code positively splurges tokens, consistent with Anthropic's hyper maximalist approach to all aspects of performance. That it didn't get astropi might have been bad luck.\n\nopencode's excellent cache rate is notable- however, given it uses twice the tokens, it's still the more expensive choice. Personally, in most of my projects, cached tokens are the largest expense so I believe in reducing overall token usage more than in increasing cache rate. After all, if you have more tokens used again and again, there is a greater opportunity to cache but then it still costs. Having said that- this test certainly informs 3code development towards finding unnecessarily uncached tokens and 99.2% on an independent benchmark is very impressive. Our lowly 95% numbers might still be good enough though!\n\npi continues to impress how far it can go without having model specific tuning, but I do feel that the 3code approach of having a model family specific system prompt and also finetuning was shown to be paying off. I think what's happening is that this run's 3code version benefitted from stealing all the zcode GLM 5.3 specific finetuning, but then not having the overly aggressive task completion policy.\n\nI intend to continue to create harness benchmarks and am working on funding more extensive tests, and also different kinds of tests- cost is the limiting factor right now since I'm independent and not associated with any provider.\n\nThe tokens for this test were provided by Zhipu's startup program, but they didn't influence the results in any way- they gave me the tokens and cut me loose. I also converged on GLM as the main 3code dev tool first, and asked them to give me tokens second. But I'm still interested in doing tests with other companies as well, Zhipu was just the first to give a positive response to my requests. Thank you!",
+    "readingTime": 4,
+    "keywords": [
+      "token usage",
+      "cache rate",
+      "harness benchmarks",
+      "claude code",
+      "tokens",
+      "tasks",
+      "model",
+      "solved",
+      "tests",
+      "chosen"
+    ],
+    "qualityScore": 1,
+    "link": "https://capocasa.dev/10-task-glm-5-3-harness-bench-claude-opencode-pi-zcode-hermes-and-3code",
+    "thumbnail_url": "https://capocasa.dev/glm53-rerun-benchmark.png",
+    "created_at": "2026-09-07T10:59:57.358Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "hazzel-terminal-coding-agent-byok-undoeverything",
+    "title": "Hazzel – terminal coding agent, BYOK, undo-everything",
+    "description": "Hazzel — a small terminal coding agent that works on your code - mukundzha/hazzel",
+    "fullText": "A small terminal coding agent that works on your code, not around it.\n\nOnce upon a time, every coding assistant wanted to become your IDE, your cloud, your everything.\n\nHazzel chose a different story.\n\nIt stays where the work happens — your terminal, your project, your rules — and talks to your code through a small set of honest tools. You ask in plain language. It inspects, edits, runs, verifies, and shows its work. Nothing hidden. Nothing magic.\n\nJust you, your terminal, and an agent that knows its place.\n\nMost agents grow into platforms. Hazzel shrinks into a tool.\n\nRequirements: Python 3.10+, a terminal, and one API key.\n\nStart Hazzel from the project you want it to work on:\n\nThat directory becomes the project root. File tools cannot escape it — ../another-project is rejected.\n\nNo export needed. Just run /model, pick a model, and paste your key in the input field when asked — it's saved securely and is the most stable way to stay signed in.\n\nConfig lives at ~/.config/hazzel/config.json (0600).\n\nTag files directly: @src/agent.py fix this. Tab-completes, highlights, attaches to context.\n\nProve mode is optional and off initially. Turn it on with /prove on: after each edit Hazzel asks once (Prove this?), then either writes a happy-path smoke script to /tmp (Python changes, imports just work) or runs your repo's suite (npm test, cargo test, go test, pytest) for other files — and reports prove … — passed/failed. Nothing is written into your project.\n\nEdits show a diff and ask first. Deletes and overwrites are checkpointed for /undo.\n\nThe agent is frugal by design: trivial turns (hi, read foo.py, list files) run locally with zero LLM calls, history is compacted to ~1200 tokens, tool output is distilled to ~2500 chars.\n\nDefault: openai/gpt-oss-120b on Groq.\n\nThe model decides what. Hazzel decides whether and how. Tools do the work.\n\nHazzel is an agent, not a sandbox. run_command runs on your machine — only approve what you understand.\n\nFile writes/edits/rm are undoable. Nothing leaves the project root without your y.\n\n0.1.1 — early, deliberate, reliable foundation. Not big, on purpose.\n\nIncluded: terminal UI, multi-provider, tool-calling, @mentions, history compaction, undo, approval, timeout, token usage, markdown rendering.\n\nNot yet: streaming, background commands, git-aware patches, session persistence, IDE plugins. Omissions, not oversights.\n\nBuilt by Mukund Jha — mukundzha33@gmail.com\n\nLicense: AGPL-3.0-or-later — see LICENSE.",
+    "readingTime": 2,
+    "keywords": [
+      "project root",
+      "terminal",
+      "agent",
+      "prove",
+      "tools",
+      "model",
+      "files",
+      "test",
+      "coding",
+      "code"
+    ],
+    "qualityScore": 0.8,
+    "link": "https://github.com/mukundzha/hazzel",
+    "thumbnail_url": "https://opengraph.githubassets.com/327879cb85e9cd81f8064f3fafb4c81fa0f07ebeb1b57d689f172a1ba15c7bb5/mukundzha/hazzel",
+    "created_at": "2026-09-07T10:59:56.375Z",
+    "topic": "tech"
+  },
+  {
     "slug": "discover-curated-tips-shortcuts-and-resources-for-the-zed-editor",
     "title": "Discover curated tips, shortcuts, and resources for the Zed editor",
     "description": "Master the Zed editor with 100+ curated tips, shortcuts, and tutorials. Learn keyboard shortcuts, productivity hacks, and advanced techniques from the community. Boost your coding efficiency today!",
@@ -1911,53 +1959,5 @@
     "thumbnail_url": "https://i.insider.com/6a55b34781137eabe596d075?width=1200&format=jpeg",
     "created_at": "2026-07-14T07:46:04.292Z",
     "topic": "finance"
-  },
-  {
-    "slug": "microvm-sandbox-on-win-mac-linux-with-policy-engine",
-    "title": "MicroVM sandbox on Win, Mac, Linux, with policy engine",
-    "description": "Run AI coding agents in isolated environments",
-    "fullText": "Docker Sandboxes run AI coding agents in isolated microVM sandboxes. Each\nsandbox gets its own Docker daemon, filesystem, and network — the agent can\nbuild containers, install packages, and modify files without touching your host\nsystem.\n\nThe sbx CLI is free to use, including for commercial work. Only\norganization governance requires a separate paid subscription.\n\nOrganization admins can\ncentrally manage sandbox network and filesystem policies\nfrom the Docker Admin Console, so the same rules apply uniformly across every\ndeveloper's machine. Available on a separate paid subscription.\n\nFor complete system requirements, see the\nget started prerequisites.\n\nInstall the sbx CLI and sign in:\n\nThen launch an agent in a sandbox:\n\nSee the get started guide for a full walkthrough, or jump to\nthe usage guide for common patterns.\n\nYour feedback shapes what gets built next. If you run into a bug, hit a\nmissing feature, or have a suggestion, open an issue at\ngithub.com/docker/sbx-releases/issues.",
-    "readingTime": 1,
-    "keywords": [
-      "sbx cli",
-      "filesystem",
-      "network",
-      "agent",
-      "install",
-      "system",
-      "organization",
-      "separate",
-      "subscription",
-      "guide"
-    ],
-    "qualityScore": 0.75,
-    "link": "https://docs.docker.com/ai/sandboxes",
-    "thumbnail_url": "https://docs.docker.com/images/thumbnail.webp",
-    "created_at": "2026-07-14T07:46:02.762Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "clawk-give-coding-agents-a-disposable-linux-vm-not-your-laptop",
-    "title": "Clawk – Give coding agents a disposable Linux VM, not your laptop",
-    "description": "Disposable, network-restricted Linux VMs for AI coding agents - clawkwork/clawk",
-    "fullText": "Give a coding agent its own disposable Linux machine, not yours.\n\nInstall · Quickstart ·\nWhy a VM? · How it works ·\nCompared to · FAQ · Docs\n\nA coding agent is only useful when you let it actually do things: install\npackages, run the code it writes, start servers, use the network. On your own\nmachine that leaves two bad options. You approve every command (and babysit a\nprompt every few seconds), or you run --dangerously-skip-permissions and hope\nnothing important is one rm -rf or one leaked token away.\n\nclawk is a third option. cd into a repo, type clawk, and Claude Code (or\nCodex, or a shell) is working inside a disposable Linux VM (your code mounted\nin, root in the guest, no permission prompts) while your files, your keychain,\nand the rest of your machine stay out of reach. The agent gets its own\nmachine instead of yours.\n\nOne command to a working agent; an attempt to send data to an\n unknown server, blocked by the network allow-list; clawk attach\n resumes the session later.\n\nThe boundary isn't a rule in a prompt the agent could be talked out of. It's\na separate machine, and the only openings are the ones you mounted. From a\nshell inside a sandbox:\n\nTo be honest about the limits, the allow-list blocks connections to unknown\nservers, not to ones you've allowed: github.com is pre-allowed and the\nforwarded ssh-agent can push, so treat anything the agent can read as\nsomething it could publish. The\nsecurity model spells this out.\n\nAnd if the agent wrecks the VM, run clawk destroy && clawk: a fresh VM, same\nrepo, and --resume restores the conversation.\n\nPre-1.0 and moving fast. Expect breaking changes between releases and\nthe occasional rough edge; things can and will break. Please file issues;\nthat feedback is shaping 1.0.\n\nclawk is a general-purpose local environment for autonomous coding agents.\nThe VM is the point: it's a whole machine the agent can own, not a process\nwrapped in policy on the one you're using.\n\nThat combination runs workloads a restricted process sandbox tends to fight\nyou on:\n\nNone of this is the product; clawk is for local agent work in general.\nDocker and Kubernetes are just the sharpest example of \"needs a real machine,\nnot a sandboxed process.\"\n\nRequires macOS 14+ on Apple silicon. (Linux is supported via firecracker and\ncurrently experimental; see\nVM providers for the gaps. This README is\nmacOS-first.)\n\nFrom source (contributors, or if you don't use Homebrew), needs Go 1.26+:\n\nEither way there's no extra host tooling: no Docker, no qemu, no sudo. The\nhypervisor is Apple's Virtualization.framework, linked into the binary. First\nrun probes for anything missing and offers to fix it.\n\nUninstall: clawk destroy your sandboxes, rm -rf ~/.clawk, then remove\nthe binary with brew uninstall clawk (or delete it from $GOBIN for a\nsource install). Nothing else was installed: there are no launchd jobs; the\nper-sandbox daemons are ordinary processes that exit with their VMs.\n\nThe everyday case, a sandbox for the directory you're in:\n\nWorking on a ticket that spans several repositories? One command creates a\nsandbox with a git worktree per repo on a fresh branch, and clawk pr later\nopens cross-linked PRs for whatever changed:\n\nThe full ticket lifecycle (status, follow-up branches after merges,\nrebases) is in docs/ticket-mode.md.\n\nTip: using Claude Code? Run claude setup-token then\nclawk auth set-token once, and every sandbox comes up already signed in,\nwith no /login and no login conflicts between parallel sandboxes. See\ndocs/claude-auth.md.\n\nOne rule governs persistence: the VM is disposable; everything you'd miss\nlives on the host.\n\n* Two exceptions: resuming a clawk snapshot restores the disk and\nmemory exactly as suspended, and the Linux/firecracker provider keeps\nits disk until destroy. Tools every boot needs belong in the image\n(vm ( image … )); per-boot setup belongs in on up hooks.\n\nAgent state is host-mounted per sandbox: the guest's ~/.claude/projects/\nand ~/.claude/memory/ (and codex's ~/.codex/) live under\n~/.clawk/namespaces/default/state/<name>/ on the host, so a recreated\nsandbox picks up its old conversations with --resume.\n\nRunners launch in their \"externally sandboxed\" modes: claude gets\n--dangerously-skip-permissions, codex gets\n--dangerously-bypass-approvals-and-sandbox. On your own machine those flags\nwould be reckless; here they are the point: the VM boundary and the network\nallow-list provide the containment, so the agent works at full speed without\nper-action prompts. The agent can only affect what you mounted and\nallow-listed, nothing more (see SECURITY.md).\n\nPrefer the confirmation prompts anyway? Add --safe to any attach\n(clawk --safe, clawk run claude --safe) and the runner starts without its\nbypass flags for that session.\n\nOutbound traffic is denied by default; each sandbox has its own allow-list.\nDNS resolves everything; TCP, UDP (including QUIC), and ICMP echo to unlisted\nhosts are refused. Common registries (npm, PyPI, crates.io, GitHub,\nAnthropic, …) are pre-allowed, and the filter is DNS-aware, so allowing\nexample.com keeps working as its IPs rotate.\n\nDenials are recorded by the hostname the guest resolved, so clawk network denials reads as a log of what the agent tried to reach. Reusable named\npolicies (including subscribing to external blocklists like oisd) and the\nuse chain that layers them are in\ndocs/networking.md.\n\nNo config file is required; defaults are sensible. When a project needs\nmore, a clawk.mod file describes it, in a go.mod-style syntax:\n\nThe block is a template: snapshotted when the sandbox is created, so a\nrunning sandbox never changes unexpectedly. The full reference (shares,\nsecret files, skills, agent memory seeding, multi-repo workspace roots) is\nin docs/configuration.md; images and custom\nguest kernels (including the KVM-enabled kernel used for nested\nvirtualization) are in docs/images.md.\n\nclawk snapshot is hibernation for sandboxes: the guest's memory is saved\nbeside its disk and the next boot restores the guest exactly where it was.\nBackground processes and dev servers continue as if nothing happened, and\nclawk attach puts you back in front of the agent. The full command surface,\nrunner dispatch, and the idle-management machinery (ballooning, admission\ncontrol, auto-stop) are in docs/commands.md.\n\nA few deliberate choices, in brief:\n\nThe full picture (the guest stack, both providers, the frame-level\nnetworking) is in ARCHITECTURE.md, and the reasoning\nbehind each decision in DESIGN.md.\n\nTwo boundaries do the work: the VM (the host filesystem is invisible except\nwhat you mount) and the outbound allow-list (enforced in userspace below the\nguest, for every protocol that can leave it). What clawk does not protect\nagainst:\n\nIf you find a way to break a boundary (guest-to-host escape, network-filter\nbypass, credential leakage), please report it privately via\nSECURITY.md.\n\nWhat's the overhead?\nThe first boot from an image pays a one-time rootfs build (pull → flatten →\next4). After that, disks are copy-on-write clones and the kernel direct-boots,\nwith no firmware and no installer. Idle VMs release memory down to ~1 GiB, stop\nautomatically after 30 idle minutes, and can be snapshotted to disk so they\ncost only storage.\n\nDoes it work on Intel Macs? Windows?\nNo. macOS needs Apple silicon (macOS 14+). On Linux, the firecracker\nprovider works but is experimental (see\ndocs/commands.md). No Windows support.\n\nDo I need Docker installed?\nNo. clawk pulls OCI images and builds bootable disks itself. Docker images\nare the input format; the Docker engine is not involved. (Running a Docker\ndaemon inside a sandbox is a separate, opt-in feature; see\n\nrequirements.)\n\nWhy \"clawk\"?\nThe mark is a claw; clawkwork is a play on A Clockwork Orange. A VM you\nwind up, set loose, and can always reset.\n\nNext up: running more sandboxes than your RAM can hold at once.\n\nPre-1.0 and under active development, and evolving quickly: expect breaking\nchanges between releases. The CLI surface changes least and internals most,\nbut nothing is frozen until 1.0.\n\nIssues and PRs are welcome. See CONTRIBUTING.md to build\nand test, ARCHITECTURE.md for how it's built, and\nDESIGN.md for where it's headed.\n\nApache License 2.0. clawk vendors two third-party components under\ntheir own licenses (gvisor-tap-vsock, Apache-2.0; an hcsshim ext4 writer, MIT);\nsee NOTICE.",
-    "readingTime": 7,
-    "keywords": [
-      "apple silicon",
-      "disposable linux",
-      "network allow-list",
-      "inside sandbox",
-      "uninstall clawk",
-      "clawk snapshot",
-      "coding agent",
-      "clawk attach",
-      "clawk destroy",
-      "machine"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/clawkwork/clawk",
-    "thumbnail_url": "https://opengraph.githubassets.com/f1405b576aab5a86c170b60558bc2502b322e4a5465bfa349ce5eb7e1c465387/clawkwork/clawk",
-    "created_at": "2026-07-13T14:03:17.105Z",
-    "topic": "tech"
   }
 ]
