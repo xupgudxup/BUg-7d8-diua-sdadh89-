@@ -1,5 +1,28 @@
 [
   {
+    "slug": "wsl-investigating-after-palace-break-substitution-rules",
+    "title": "WSL investigating after Palace break substitution rules",
+    "description": "The Women's Super League says an investigation is underway after Crystal Palace use four substitution windows in their win over Everton.",
+    "fullText": "The Women's Super League says an investigation is under way after Crystal Palace used four substitution windows in their win over Everton.\n\nA statement says that Palace \"breached\" the rules, adding that they only permit a maximum of three substitution opportunities per match.\n\nThe Eagles made four separate substitutions in the 62nd, 83rd, 90th and 97th minute of Sunday's 1-0 victory at the Borough Sports Ground.\n\nThe league confirmed the investigation will involve both clubs and referee body Pro Ref.\n\nWSL rules do not prescribe an automatic punishment but any breach could be referred to an independent tribunal, which has the power to impose sanctions ranging from a warning or fine to a points deduction or other sporting sanction.\n\nBoth clubs have been approached for comment.\n\nPromoted Crystal Palace beat Everton on WSL return\n\nFind interviews and extra content on the BBC Women's Football Weekly feed",
+    "readingTime": 1,
+    "keywords": [
+      "investigation",
+      "substitution",
+      "everton",
+      "rules",
+      "clubs",
+      "palace",
+      "women's",
+      "league",
+      "crystal"
+    ],
+    "qualityScore": 0.65,
+    "link": "https://www.bbc.co.uk/sport/football/articles/cde0znwjx61o?at_medium=RSS&at_campaign=rss",
+    "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/c916/live/6f67cc40-aa38-11f1-9023-2129273d2865.jpg",
+    "created_at": "2026-09-07T01:46:34.665Z",
+    "topic": "sports"
+  },
+  {
     "slug": "window-still-open-20-free-agents-still-on-the-market",
     "title": "🛒 Window still open: 20 free agents still on the market",
     "description": "Europe’s main transfer windows are CLOSED, but there’s still a lot that can happen in the transfer market.European clubs, for example, can still sign FREE AGENTS.And the list of options is long, w...",
@@ -2084,30 +2107,6 @@
     "link": "https://tech.yahoo.com/computing/articles/microsoft-windows-1-billion-users-084333050.html",
     "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/5C642DF044732E5B209247538D911E97B7FC05DE4BF9BC50561BEB50DD594DDC/subgraphmysterio/resizefit_w1200;quality_90;format_webp/https:%2F%2Fs.yimg.com%2Fos%2Fen%2Fforbes_contributor_845%2F55dbf59aae01acca0b6829a35c5d0215",
     "created_at": "2026-04-06T12:45:54.897Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "gitleash-time-focused-controls-for-git",
-    "title": "git-leash - time focused controls for Git",
-    "description": "A git commit hook to block commits in certain repos based on configurable time windows. \"Helps you stay focused on what you should be doing at certain times of day\". Especially if you'...",
-    "fullText": "Helps you stay focused on what you're supposed to be doing.\n\nA git pre-commit hook that blocks commits during configured focus windows. Overridable when you genuinely need to ship. Stealth-installable so it doesn't pollute your repo.\n\nMake sure ~/.local/bin is in your PATH.\n\nleash install automatically adds .leash and .leash-slip to .git/info/exclude — no .gitignore modifications, nothing tracked, pure stealth.\n\nPlace at ~/.leash (global) or .leash in your repo root (project-local overrides global).\n\nRun leash example for a fully commented config.\n\nNamed blocks that define when commits are restricted. Multiple schedules stack — if any match, the commit is blocked.\n\nWithout filters, a schedule blocks all repos. Add filters to be selective.\n\nallow= (allowlist) — only matching repos can commit during this window, everything else is blocked. This is the one you probably want for \"let me commit to work repos during work hours\":\n\nblock= (denylist) — only matching repos are blocked, everything else is fine:\n\nPick one per schedule. If both allow= and block= are present, allow= wins and block= is ignored (leash will warn you about this). Set suppress_warnings=true in [messages] to silence the warning if you know what you're doing.\n\nMultiple lines of the same type stack as OR — any match counts.\n\nOptional reminder shown in the block message. Can be set per-schedule or globally as a fallback:\n\nSet the global task from the CLI:\n\nWhen you genuinely need to commit during a focus window:\n\nleash install writes a pre-commit hook that calls back to the leash script. On each git commit:\n\nThe hook remembers where leash was installed from, but also checks PATH as a fallback. If leash can't be found at all, it warns but allows the commit — it won't silently break your workflow.\n\nThe whole point is that this doesn't leave traces in your repo:\n\nIf there's an existing pre-commit hook, it gets backed up to pre-commit.leash-backup and chained — leash runs first, then your original hook.\n\nBash 4+ and coreutils. That's it.",
-    "readingTime": 2,
-    "keywords": [
-      "everything else",
-      "matching repos",
-      "pre-commit hook",
-      "leash install",
-      "block",
-      "blocks",
-      "blocked",
-      "allow",
-      "you're",
-      "doing"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/SiteRelEnby/git-leash",
-    "thumbnail_url": "https://opengraph.githubassets.com/98567a362cf60a6857bc461a60afa7fa781fca80e73ab8bdeb2efa5a0afc668f/SiteRelEnby/git-leash",
-    "created_at": "2026-04-03T01:19:32.216Z",
     "topic": "tech"
   }
 ]
