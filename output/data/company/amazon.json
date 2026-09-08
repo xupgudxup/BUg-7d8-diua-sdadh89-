@@ -1,5 +1,66 @@
 [
   {
+    "slug": "netflix-moves-toward-open-source-flink-autoscaler-for-30k-streaming-jobs",
+    "title": "Netflix Moves Toward Open Source Flink Autoscaler for 30k Streaming Jobs",
+    "description": "Netflix is moving toward the open-source Apache Flink Autoscaler for more than 30,000 streaming jobs across multiple AWS regions. The operator-level approach addresses limitations of Netflix’s cluster level autoscaler for complex, stateful pipelines. Netflix reports a 58% reduction in annualized Flink compute expenditure for one team, saving approximately $1.1 million annually.",
+    "fullText": "InfoQ Homepage\r\n News\r\n Netflix Moves Toward Open Source Flink Autoscaler for 30,000+ Streaming Jobs\n\nSep 07, 2026\n\nNetflix is moving toward the open-source Apache Flink Autoscaler for more than 30,000 streaming jobs across multiple AWS regions, after finding that its cluster-level approach was less effective for complex, stateful pipelines with operators that have different processing requirements. Netflix reports that one team reduced annualized Flink compute expenditure by 58%, saving approximately $1.1 million annually.\n\nComparison of Netflix’s two Flink Autoscalers \n\nNetflix has run Apache Flink since 2017 and built its first autoscaler around 2019. The system ran on Mantis and consumed cluster-level telemetry from Atlas, including CPU, network utilization, Kafka lag, input rate, and consume rate. It adjusted the total number of TaskManagers and reduced resource usage by 25% to 45% across thousands of pipelines.\n\nThe limitation was the scaling unit. Because the original autoscaler reasoned about the cluster rather than individual operators, all operators in a job effectively shared the same scaling decision. That became less suitable for stateful pipelines containing branches, joins, and terabytes of state, where different parts of the dataflow can have different processing requirements.\n\nThe Apache Flink Autoscaler instead uses metrics exposed by the running job to estimate each operator’s true processing rate from throughput and busy time. It then walks the job graph and calculates required parallelism for individual vertices. The approach is described in FLIP-271, which addresses autoscaling for heterogeneous streaming jobs and the cost of rescaling stateful applications.\n\nThe technique also builds on research from the DS2 project. Vasiliki Kalavri, a systems researcher involved in the work, said the project initially explored critical path analysis before adopting True Processing Rate as a simpler baseline. It turned out that this very simple idea worked really well. The approach subsequently became part of Flink’s autoscaling work.\n\nNetflix integrated the autoscaler with its internal control plane rather than deploying it directly through the Flink Kubernetes Operator. A Spring Boot service uses Temporal workflows to isolate autoscaling decisions for individual jobs. Netflix also modified JobManager metric collection to support jobs with up to 3,000 subtasks, added server-side metric filtering, preserved forward connected subgraphs during scaling, and added handling for sink backpressure.\n\nThe OSS-based Flink Autoscaler architecture with Temporal workflows \n\nThe forward connection issue has also appeared in Apache Flink developer discussions. Changing parallelism across a FORWARD connection can require redistribution, while Netflix’s implementation keeps forward connected operators together. An open FLINK-38538 issue separately highlights cases where busy operators can be affected by output ratio-based scaling decisions.\n\nFlink Job DAG Showing Current and Desired Parallelism Per Vertex. \n\nUnlike generic event-driven autoscalers such as KEDA, which scale workloads from external metrics or events, Flink’s autoscaler reasons about the internal dataflow graph and operator capacity. Netflix currently uses a 0.45 utilization target, below Flink’s 0.7 community default, to reduce aggressive rescaling of large stateful jobs. The company plans to migrate its remaining internal autoscaling use cases to the open-source implementation, while investigating Flink 2’s disaggregated state architecture to address the cost of state recovery during rescaling.",
+    "readingTime": 3,
+    "keywords": [
+      "temporal workflows",
+      "processing requirements",
+      "forward connected",
+      "forward connection",
+      "flink autoscaler",
+      "streaming jobs",
+      "stateful pipelines",
+      "processing rate",
+      "apache flink",
+      "operators"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.infoq.com/news/2026/09/netflix-flink-autoscaler/",
+    "thumbnail_url": "https://res.infoq.com/news/2026/09/netflix-flink-autoscaler/en/headerimage/generatedHeaderImage-1787937137575.jpg",
+    "created_at": "2026-09-08T10:15:41.373Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "the-amazon-cargo-plane-that-crashed-in-miami-nearly-hit-a-parking-lot-full-of-tesla-cybercabs",
+    "title": "The Amazon cargo plane that crashed in Miami nearly hit a parking lot full of Tesla Cybercabs",
+    "description": "\"Weird,\" Elon Musk responded to an X post noting that the plane almost crashed into a fleet of his new Cybercabs.",
+    "fullText": "An Amazon Prime Air Boeing 767 crashed in Miami after overshooting the runway, killing five people.\n\nThe plane came to a halt just short of a parking lot full of Tesla Cybercabs.\n\nCybercabs were deployed for the first time in Austin last week, but have not officially launched in Miami.\n\nSunday's Amazon plane crash almost destroyed a bunch of Elon Musk's latest invention.\n\nAt least five people died, and five more were injured, after the Amazon Prime Air Boeing 767 overshot the runway at Miami International Airport.\n\nThe gold-colored robotaxis have no steering wheel or pedals, and feature distinctive gold wheel hubs. Tesla officially launched the cabs in Austin last week to great fanfare.\n\nThe launch has prompted an inquiry from the National Highway Traffic Safety Administration to check that Tesla has followed all the rules.\n\nOn Sunday, when the Boeing 767 passed the end of the runway in Miami, it appeared to strike multiple vehicles but stopped short of the parking lot full of Cybercabs.\n\nTesla has not officially confirmed that it is testing or planning to roll out Cybercabs in Miami, but its robotaxis, which use modified Tesla Model Ys, have been available in the city since July. Teslarati, a Tesla blog, shared a photo of about 40 Cybercabs at Miami Airport three days before the crash.\n\nTesla did not immediately respond to a request for comment from Business Insider, though Musk wrote \"Weird\" on X in response to a post from financial blog Zero Hedge about the presence of Cybercabs.\n\n— Elon Musk (@elonmusk) September 7, 2026\n\nAccording to Miami-Dade Fire Rescue radio transmissions recorded on Broadcastify, the plane crossed 67th Avenue, a nearby road, before it struck a truck.\n\n\"We have a patient trapped,\" a first responder said, according to the recordings.\n\nThe airplane was operated by 21 Air, a charter firm, and had flown to Miami from Puerto Rico.\n\nWeather data shows there were thunderstorms and gusting winds at the time of the crash.\n\nIt was not immediately clear on Sunday how many people were on the plane, and whether those killed were people on the ground.\n\nThis was the second 767 cargo plane to crash from Amazon's Prime Air network. In 2019, an Atlas Air freighter flying on behalf of Amazon crashed into Trinity Bay near Houston, killing the three people on board.\n\nIf you enjoyed this story, be sure to follow Business Insider on Yahoo.",
+    "readingTime": 3,
+    "keywords": [
+      "prime air",
+      "amazon prime",
+      "air boeing",
+      "parking lot",
+      "officially launched",
+      "business insider",
+      "plane",
+      "crash",
+      "runway",
+      "miami"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.yahoo.com/news/weather-news/articles/amazon-cargo-plane-crashed-miami-122424139.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/ae194f2b3a4959e8a61ffafa5baa10453c2d427d49aac2ee2c19e86f5c82f650/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fbusiness_insider_consolidated_articles_886%2F536ef4de6e10e4b58d35de442a166499.jpg",
+    "created_at": "2026-09-08T10:15:36.883Z",
+    "topic": "news"
+  },
+  {
+    "slug": "amazon-hires-banks-for-first-sterling-bond-sale",
+    "title": "Amazon hires banks for first sterling bond sale",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/stock-market-news/amazon-hires-banks-for-first-sterling-bond-sale-93CH-4891162",
+    "thumbnail_url": "https://content-media.investing.com/news/LYNXNPEC111EF_M.jpg",
+    "created_at": "2026-09-08T10:15:34.645Z",
+    "topic": "finance"
+  },
+  {
     "slug": "ntsb-reveals-if-crew-survived-amazon-cargo-jet-disaster-as-it-shares-details-about-victims",
     "title": "NTSB reveals if crew survived Amazon cargo jet disaster as it shares details about victims",
     "description": "The NTSB said the crew survived after the Amazon cargo plane overran the runway, caught fire and collided with two vehicles carrying eight occupants.",
@@ -1686,68 +1747,5 @@
     "thumbnail_url": "https://jf.x.com/images/media-preview/1438188756738191362",
     "created_at": "2026-07-11T12:53:44.748Z",
     "topic": "tech"
-  },
-  {
-    "slug": "i-took-the-same-grocery-list-to-walmart-kroger-and-amazon-to-compare-prices-after-filling-my-carts-i-found-a-winner",
-    "title": "I took the same grocery list to Walmart, Kroger, and Amazon to compare prices. After filling my carts, I found a winner.",
-    "description": "I brought the same shopping list to Walmart, Kroger, and Amazon to see which has the best grocery prices, especially amid Walmart's rollbacks.",
-    "fullText": "It's official: Stylists say tankinis are back, and these 8 chic suits topped our testsTankinis are the trending swim style of Summer 2026, offering two-piece flexibility with one-piece coverage. Here are some of our favorite, expert-recommended tummy-control tankinis, push-up tankinis, plus-size tankinis and more.Yahoo Life",
-    "readingTime": 1,
-    "keywords": [
-      "tankinis"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://shopping.yahoo.com/deals/articles/took-same-grocery-list-walmart-185543072.html",
-    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/b2fab6a8d3d085739abb7bc8faa94ab8ceebea456b206dd6f04504ac82f1478f/lightyear_networkapi/resizefill_w1200;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fbusiness_insider_consolidated_articles_886%2F4270c4576f44e263228d12aa4ce39a21",
-    "created_at": "2026-07-11T12:53:43.298Z",
-    "topic": "news"
-  },
-  {
-    "slug": "bank-of-england-handed-powers-to-regulate-key-tech-firms-including-amazon-and-google",
-    "title": "Bank of England handed powers to regulate key tech firms including Amazon and Google",
-    "description": "Direct oversight of ‘critical third parties’ such as Oracle and Microsoft given to ensure resilient cyber-defences and help safeguard UK economy\nThe Bank of England has been handed powers to regulate important tech firms including Amazon and Google from next week, amid fears that system failures could threaten financial stability and harm consumers.\nFrom Monday, the Bank and fellow City regulator the Financial Conduct Authority (FCA) will be in charge of ensuring that four large-scale providers of cloud and tech services to banks are resilient and actively reducing the risk of cyber-attacks and major outages that could disrupt services for millions of people and businesses across the UK.\n Continue reading...",
-    "fullText": "Direct oversight of ‘critical third parties’ such as Oracle and Microsoft given to ensure resilient cyber-defences and help safeguard UK economy\n\nThe Bank of England has been handed powers to regulate important tech firms including Amazon and Google from next week, amid fears that system failures could threaten financial stability and harm consumers.\n\nFrom Monday, the Bank and fellow City regulator the Financial Conduct Authority (FCA) will be in charge of ensuring that four large-scale providers of cloud and tech services to banks are resilient and actively reducing the risk of cyber-attacks and major outages that could disrupt services for millions of people and businesses across the UK.\n\nThis will mean having “direct” oversight of local arms of Amazon Web Services, Google Cloud, Oracle and Microsoft, all of which have been identified as “critical third parties” by the UK government, according to an announcement on Friday.\n\nThe companies will have to prove they are carrying out adequate stress testing, showing how they respond to imagined emergency scenarios that put their operations under severe strain. They will also be forced to report to the Bank of England and FCA any major incidents such as cyber-attacks, power outages and the impacts of natural disasters.\n\nThe companies’ technologies have become a crucial part of day-to-day banking operations, including to store data, run automated fraud detection programmes and carry out digital banking services.\n\nHowever, relying more on online technologies – and a move away from physical branches and cash – has come with risks, with glitches half a world away causing large-scale chaos for everyday banking customers up and down the UK.\n\nLast October, Lloyds Banking Group was among more than 2,000 companies whose online services were disrupted by a glitch at Amazon’s cloud computing services operations in Northern Virginia, a major tech hub near Washington DC. The episode prompted renewed warnings over the perils of relying on a small number of foreign firms for operating services across the internet, including crucial government and financial services.\n\nOverall, customers at Britain’s main banks and building societies suffered the equivalent of more than a month’s-worth of IT failures between 2023 and 2025, according to the Treasury committee.\n\nThe UK government came under fire for dragging its feet and taking more than 18 months to decide which companies should be supervised by British financial regulators, who were given the theoretical powers to do so back in January 2025.\n\nThe question of which companies should be regulated is understood to have been a sensitive topic among Labour ministers, who have been trying to attract investment into the UK, including from big US tech firms.\n\nHowever, all four companies publicly welcomed the announcement, issuing statements alongside the official release saying they supported the government’s objectives of boosting the resilience of the UK’s financial sector.\n\nThe Treasury committee chair, Meg Hillier, said the government now needed to go further and consider putting AI firms under the regulator’s watch: “To finally see movement on this after we have pressed for months, including in our recent AI report, is a huge step forward. The Treasury is finally putting its powers to good use by improving oversight of the tech firms which our financial system relies upon.\n\n“As the use of AI in financial services expands, I believe there may come a time when the government needs to consider designating specific AI firms under the critical third parties regime. This should be monitored closely to ensure the country is not vulnerable in the event of a failure at a major provider.”",
-    "readingTime": 3,
-    "keywords": [
-      "treasury committee",
-      "critical third",
-      "third parties",
-      "direct oversight",
-      "tech firms",
-      "financial services",
-      "the treasury",
-      "banking",
-      "cloud",
-      "operations"
-    ],
-    "qualityScore": 0.7,
-    "link": "https://www.theguardian.com/business/2026/jul/10/bank-of-england-handed-powers-to-regulate-key-tech-firms-including-amazon-and-google",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/4b44af164fb2c45d87e28393348fdd45b984cc79/462_0_4616_3693/master/4616.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=59bec8390c616083116c804d695f41bd",
-    "created_at": "2026-07-10T19:14:49.468Z",
-    "topic": "business"
-  },
-  {
-    "slug": "how-global-energy-markets-built-the-amazon-of-oil-logistics-to-keep-prices-from-spiraling",
-    "title": "How global energy markets built the ‘Amazon of oil’ logistics to keep prices from spiraling",
-    "description": "Nations and companies can more easily and quickly divert petroleum shipments to hot spots thanks to modern technology.",
-    "fullText": "Businesses and governments managed to keep energy prices from skyrocketing as much as feared during the Iran war by leaning into a \"just-in-time\" delivery system that harnesses innovations in digital and satellite technology and that reduces the need to stockpile barrels of oil.\n\nCall it the \"Amazon of oil,\" said Jim Wicklund, a veteran oil analyst and managing director at the PPHB energy investment firm, comparing energy industry dynamics to the ecommerce giant's famous mastery of inventory and logistics.\n\nWhy didn't oil prices spike higher during Iran conflict?\n\nHow do strategic petroleum reserves affect oil prices?\n\nWhat role did China play in stabilizing oil markets?\n\nHow has digital technology changed oil market dynamics?\n\nEven with President Trump declaring the Iran ceasefire \"over\" on Wednesday amid a fresh exchange of military strikes, the U.S. benchmark for crude prices still only spiked about 5% to $74 per barrel—way below the mid-May high of $112.\n\nWhile energy traders may see the latest attacks and verbal barbs as dips along the negotiation rollercoaster, they've also been encouraged by the adaptability of global energy logistics, even amid the greatest global energy shock of the modern age when the effective closure of the Strait of Hormuz temporarily cut off almost 20% of the world's oil and liquefied natural gas supplies.\n\n\"When you go back to the 1970s when we had the oil shocks, you had no way of knowing what oil was where and what it was doing,\" Wicklund told Fortune. \"Today, I can hit my terminal and find every tanker full of oil on the ocean, who owns it, what's in it, and who to call to get it diverted to me. So, inventories have not meant nearly as much to oil prices here in the last few years as they used to.\n\n\"The correlation between inventories and oil price has been dropping from a high correlation to almost no correlation today. I don't need physical inventories like I used to. I can order immediately off the Amazon of oil and buy cargoes on the water,\" he said.\n\nAnother saving grace for logistics was the Trump administration's decision to temporarily waive the 106-year-old Jones Act, which requires cargo ships moving between U.S. ports to be U.S. built, flagged, and manned, reducing the number of vessels available to move crude oil and refined products between domestic ports.\n\nThe waiver allowed more ships, for instance, to move fuel from the U.S. Gulf Coast through the Panama Canal and up to California, which has dealt with newly shuttered refineries in recent months, to help alleviate shortfalls.\n\nWhile large commercial oil inventories haven't meant as much as they once did, the national strategic reserves of the U.S. and especially China have proven pivotal. The other major reason oil prices didn't rise as high as feared is because China built up its storage stockpiles to all-time highs and dramatically cut down on its imports after the war began.",
-    "readingTime": 3,
-    "keywords": [
-      "energy",
-      "inventories",
-      "iran",
-      "logistics",
-      "china",
-      "correlation",
-      "feared",
-      "digital",
-      "technology",
-      "amazon"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/energy/articles/global-energy-markets-built-amazon-070800462.html",
-    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/00519CB5C9B8BE317CD0DD2961900B952491108F18157022EAC2953C95FEEA5B/subgraphmysterio/resizefill_w1200_h800;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Ffortune_175%2F8bf1bf8d928468945344d316a12094d1",
-    "created_at": "2026-07-09T19:21:24.199Z",
-    "topic": "finance"
   }
 ]

@@ -1,5 +1,29 @@
 [
   {
+    "slug": "netflix-moves-toward-open-source-flink-autoscaler-for-30k-streaming-jobs",
+    "title": "Netflix Moves Toward Open Source Flink Autoscaler for 30k Streaming Jobs",
+    "description": "Netflix is moving toward the open-source Apache Flink Autoscaler for more than 30,000 streaming jobs across multiple AWS regions. The operator-level approach addresses limitations of Netflix’s cluster level autoscaler for complex, stateful pipelines. Netflix reports a 58% reduction in annualized Flink compute expenditure for one team, saving approximately $1.1 million annually.",
+    "fullText": "InfoQ Homepage\r\n News\r\n Netflix Moves Toward Open Source Flink Autoscaler for 30,000+ Streaming Jobs\n\nSep 07, 2026\n\nNetflix is moving toward the open-source Apache Flink Autoscaler for more than 30,000 streaming jobs across multiple AWS regions, after finding that its cluster-level approach was less effective for complex, stateful pipelines with operators that have different processing requirements. Netflix reports that one team reduced annualized Flink compute expenditure by 58%, saving approximately $1.1 million annually.\n\nComparison of Netflix’s two Flink Autoscalers \n\nNetflix has run Apache Flink since 2017 and built its first autoscaler around 2019. The system ran on Mantis and consumed cluster-level telemetry from Atlas, including CPU, network utilization, Kafka lag, input rate, and consume rate. It adjusted the total number of TaskManagers and reduced resource usage by 25% to 45% across thousands of pipelines.\n\nThe limitation was the scaling unit. Because the original autoscaler reasoned about the cluster rather than individual operators, all operators in a job effectively shared the same scaling decision. That became less suitable for stateful pipelines containing branches, joins, and terabytes of state, where different parts of the dataflow can have different processing requirements.\n\nThe Apache Flink Autoscaler instead uses metrics exposed by the running job to estimate each operator’s true processing rate from throughput and busy time. It then walks the job graph and calculates required parallelism for individual vertices. The approach is described in FLIP-271, which addresses autoscaling for heterogeneous streaming jobs and the cost of rescaling stateful applications.\n\nThe technique also builds on research from the DS2 project. Vasiliki Kalavri, a systems researcher involved in the work, said the project initially explored critical path analysis before adopting True Processing Rate as a simpler baseline. It turned out that this very simple idea worked really well. The approach subsequently became part of Flink’s autoscaling work.\n\nNetflix integrated the autoscaler with its internal control plane rather than deploying it directly through the Flink Kubernetes Operator. A Spring Boot service uses Temporal workflows to isolate autoscaling decisions for individual jobs. Netflix also modified JobManager metric collection to support jobs with up to 3,000 subtasks, added server-side metric filtering, preserved forward connected subgraphs during scaling, and added handling for sink backpressure.\n\nThe OSS-based Flink Autoscaler architecture with Temporal workflows \n\nThe forward connection issue has also appeared in Apache Flink developer discussions. Changing parallelism across a FORWARD connection can require redistribution, while Netflix’s implementation keeps forward connected operators together. An open FLINK-38538 issue separately highlights cases where busy operators can be affected by output ratio-based scaling decisions.\n\nFlink Job DAG Showing Current and Desired Parallelism Per Vertex. \n\nUnlike generic event-driven autoscalers such as KEDA, which scale workloads from external metrics or events, Flink’s autoscaler reasons about the internal dataflow graph and operator capacity. Netflix currently uses a 0.45 utilization target, below Flink’s 0.7 community default, to reduce aggressive rescaling of large stateful jobs. The company plans to migrate its remaining internal autoscaling use cases to the open-source implementation, while investigating Flink 2’s disaggregated state architecture to address the cost of state recovery during rescaling.",
+    "readingTime": 3,
+    "keywords": [
+      "temporal workflows",
+      "processing requirements",
+      "forward connected",
+      "forward connection",
+      "flink autoscaler",
+      "streaming jobs",
+      "stateful pipelines",
+      "processing rate",
+      "apache flink",
+      "operators"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.infoq.com/news/2026/09/netflix-flink-autoscaler/",
+    "thumbnail_url": "https://res.infoq.com/news/2026/09/netflix-flink-autoscaler/en/headerimage/generatedHeaderImage-1787937137575.jpg",
+    "created_at": "2026-09-08T10:15:41.373Z",
+    "topic": "tech"
+  },
+  {
     "slug": "netflix-edited-wwe-smackdown-to-remove-a-sex-joke-about-john-cena",
     "title": "Netflix Edited WWE Smackdown To Remove A Sex Joke About John Cena",
     "description": "This is getting ridiculous.",
@@ -1911,29 +1935,5 @@
     "thumbnail_url": "https://s.yimg.com/os/en/hitc_articles_832/d809524d934d92632efba19f5f38c830",
     "created_at": "2026-04-20T18:52:11.113Z",
     "topic": "sports"
-  },
-  {
-    "slug": "barack-and-michelle-obamas-film-production-company-reportedly-leaving-netflix-to-go-independent",
-    "title": "Barack and Michelle Obama's film production company reportedly leaving Netflix to go independent",
-    "description": "The Obamas' film production company Higher Ground is reportedly moving away from Netflix to become independent when its current deal expires later this year.",
-    "fullText": "Former President Barack Obama and former first lady Michelle Obama's film production company, Higher Ground, is reportedly moving away from Netflix later this year.\n\nDeadline reported on Sunday that the company's current first-look deal with the massive streaming giant is set to end this year. Rather than renew the deal as they've done in the past, sources allege that the Obamas will \"transition to becoming independent.\"\n\n\"According to sources, the deal with Netflix has not ended yet but Higher Ground is making plans to remain independent and not pursue a studio pact when it expires soon while continuing to collaborate with the global streamer on existing projects,\" the report read.\n\nBarack Obama Produces First Fiction Movie For Netflix, Gave Extensive Notes To Director For Cyberattack Plot\n\nFox News Digital reached out to Higher Ground and Netflix for comment.\n\nThe Obamas first announced their multi-year Netflix deal in 2018 after a deal brokered by then-chief content officer Ted Sarandos, who previously held a fundraiser for Obama's 2012 presidential campaign.\n\nHollywood Director Stunned After Getting Advice From Obama On Directing New Film: 'Scared The F--- Out Of Me'\n\nIn 2024, Deadline first announced that the Obamas would be extending their first-look deal with Netflix after years of collaboration.\n\n\"If there’s one thing that’s defined President Barack Obama and Michelle Obama’s creative ambitions since we started our partnership with Higher Ground, it is their pursuit of an exceptional story that brings the human experience to light. We are delighted to continue our relationship with Higher Ground as they continue to develop and produce more ambitious, compelling and entertaining stories,\" Netflix Chief Content Officer Bela Bajaria said in a statement.\n\nNetflix Film Tells True Story Of Only Predominantly Black And Female Army Battalion To Serve During Wwii\n\nObama hinted at his film company breaking from Netflix on Saturday during the History Channel’s special edition of HistoryTalks.\n\n\"[W]e were in partnership with Netflix,\" Obama said. \"We’re in a process now of transitioning to a more independent [future] where we can work with a bunch of different studios.\"\n\nOriginal article",
-    "readingTime": 2,
-    "keywords": [
-      "president barack",
-      "barack obama",
-      "content officer",
-      "higher ground",
-      "first-look deal",
-      "film",
-      "netflix",
-      "independent",
-      "deadline",
-      "director"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.yahoo.com/entertainment/movies/articles/barack-michelle-obamas-film-production-010024025.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/ejQkEW7o68Eg6P7.IdTJVA--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/fox_news_text_979/f0b68cb60db712fbd2a7830511ee86e4",
-    "created_at": "2026-04-20T18:51:30.691Z",
-    "topic": "entertainment"
   }
 ]
