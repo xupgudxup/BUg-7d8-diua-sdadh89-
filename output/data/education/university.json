@@ -1,5 +1,42 @@
 [
   {
+    "slug": "read-in-parallel-reason-in-depth-for-longcontext-llm-agents",
+    "title": "Read in Parallel, Reason in Depth for Long-Context LLM Agents",
+    "description": "Kun Li, Zexuan Qiu and Tianhua Zhang with Irwin King and Helen Meng at the Chinese University of Hong Kong present PARSER, which gives every document chunk its",
+    "fullText": "Kun Li, Zexuan Qiu, Tianhua Zhang, Irwin King, Helen Meng\n\nKun Li, Zexuan Qiu and Tianhua Zhang with Irwin King and Helen Meng at the Chinese University of Hong Kong present PARSER, which gives every document chunk its own frozen subagent and puts all the learned behavior in a lead agent that queries them in scatter-gather rounds.\n\nThe coupling being broken: Sequential memory agents read chunks one after another while maintaining a compact state, which ties reasoning depth to document traversal and makes both accuracy sensitive to evidence placement and latency linear in document length.\n\nParallel reading, iterative reasoning: A bank of lightweight subagents each bound to one chunk read the whole document at once, while the lead agent broadcasts a query, aggregates returned evidence, and forms a deeper follow-up query conditioned on what it has found.\n\nOnly the lead agent is trained: Learnable behavior is concentrated in the lead agent, optimized with reinforcement learning; the subagents stay frozen off-the-shelf models, which keeps the trainable surface small.\n\nGains grow with context length: On multi-hop QA from 7K to 896K tokens, a 4B PARSER beats the strongest sequential memory baseline by 5.7 points on average and by 12.0 points at 896K. At 9B it surpasses DeepSeek-V4-Pro by 6.3 points.\n\nRobust where sequential methods swing: Controlled experiments show stability under perturbations to evidence position, order and distance, conditions that cause large accuracy swings in sequential methods, with inference latency reduced by up to 11x.\n\nSequential memory agents process long documents by reading chunks one after another while maintaining a compact memory state, coupling document traversal to reasoning depth. This coupling introduces sensitivity to evidence placement and ties inference latency linearly to document length. We introduce PARSER, which decouples reading from reasoning. A bank of lightweight subagents each bound to a single chunk read the entire document in parallel, while a lead agent reasons in depth through iterative scatter--gather rounds: at each round it broadcasts a query to all subagents, aggregates the returned evidence, and formulates a deeper follow-up query conditioned on what has been found so far. This decoupled design concentrates all learnable behavior in the lead agent, which is optimized with reinforcement learning, while the subagents remain frozen off-the-shelf models. On multi-hop QA with contexts ranging from 7K to 896K tokens, PARSER with a 4B backbone outperforms the strongest sequential memory baseline by 5.7 points on average and by 12.0 points at 896K tokens. Scaling to a 9B backbone, PARSER surpasses DeepSeek-V4-Pro by 6.3 points. Controlled experiments confirm that PARSER is robust to perturbations in evidence position, order, and distance, conditions that cause large accuracy swings in sequential methods, while reducing inference latency by up to 11x.",
+    "readingTime": 3,
+    "keywords": [
+      "zexuan qiu",
+      "tianhua zhang",
+      "irwin king",
+      "helen meng",
+      "surpasses deepseek-v4-pro",
+      "controlled experiments",
+      "tokens parser",
+      "maintaining compact",
+      "deeper follow-up",
+      "reinforcement learning"
+    ],
+    "qualityScore": 1,
+    "link": "https://academy.dair.ai/papers/parser-read-in-parallel-reason-in-depth-for-long-context-llm-agents-2609.06702",
+    "thumbnail_url": "https://q8hjubmp9nqjv97t.public.blob.vercel-storage.com/papers/hero/cmtu33dcx000n04jsnu0rnr8p-pdf-page-1.png",
+    "created_at": "2026-09-10T20:13:17.966Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "the-top-15-party-schools-in-the-us-ranked",
+    "title": "The top 15 party schools in the US, ranked",
+    "description": "Social life can shape a student's college experiences. This year, Florida State University in Tallahassee was ranked the top party school.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/top-party-schools-colleges-2027",
+    "thumbnail_url": "https://i.insider.com/68b8a56df9db348adc0ac6ed?width=1200&format=jpeg",
+    "created_at": "2026-09-10T20:12:52.986Z",
+    "topic": "finance"
+  },
+  {
     "slug": "what-can-payton-pritchard-highlights-tell-us-about-his-role-with-the-celtics-next-season",
     "title": "What can Payton Pritchard highlights tell us about his role with the Celtics next season?",
     "description": "What is a reasonable expectation for the University of Oregon alum with the Celtics in their coming campaign?",
@@ -2113,53 +2150,5 @@
     "thumbnail_url": "https://www.thenation.com/wp-content/uploads/2026/07/blackrock.jpg",
     "created_at": "2026-07-21T13:15:05.748Z",
     "topic": "politic"
-  },
-  {
-    "slug": "trump-administration-opens-investigation-into-harvards-financial-aid-for-international-students",
-    "title": "Trump administration opens investigation into Harvard's financial aid for international students",
-    "description": "The Justice Department is investigating whether Harvard University is allowing Chinese donors to create scholarships that exclude American students, adding to the barrage of federal inquiries the Trum...",
-    "fullText": "The Justice Department is investigating whether Harvard University is allowing Chinese donors to create scholarships that exclude American students, adding to the barrage of federal inquiries the Trump administration has opened in its battle against the Ivy League school.\n\nJustice Department officials announced the new review Monday, saying Harvard's foreign funding disclosures \"raised concerns\" about possible discrimination against U.S. students. The agency did not specify which scholarship programs are being targeted and emphasized it \"has not reached any conclusions.\"\n\nThe investigation is aimed at Harvard's \"China-based financial aid programs,\" the Justice Department said. The agency said Chinese donors have given money to Harvard to support financial aid programs limited to students from certain countries. That restriction could amount to illegal discrimination based on country of origin, the department said.\n\n\"Schools cannot take federal dollars and then turn around and accept money from foreign sources to give financial aid that deliberately excludes American citizens — doing so is illegal, and we will stop it wherever we find it,\" said Harmeet Dhillon, who leads the department's Civil Rights Division.\n\nHarvard said it was reviewing the Justice Department notice.\n\n\"Harvard follows the law for required reporting of donations and, consistent with our legal obligations under Title VI, does not unlawfully discriminate on the basis of race, ethnicity, or national origin in allocating financial aid,\" the university said in a written statement.\n\nIn a statement, Liu Chang, a spokesperson for the Chinese embassy in Washington, said China-U.S. education cooperation is mutually beneficial. \"China maintains that normal education and academic exchange should not be disrupted for political purposes,\" Liu said.\n\nLike many U.S. universities, Harvard accepts foreign funding through direct donations or contracts. The Trump administration has pushed for greater transparency around outside money, warning that accepting funding from foreign adversaries is a national security risk.\n\nFederal disclosures from Harvard show it has accepted $630 million from Chinese sources over a period of decades. Overall, it has reported about $4.5 billion in foreign funding. The Justice Department cited those figures but did not single out any donors or programs being reviewed.\n\nThe investigation is a compliance review, meaning it's initiated by the federal government rather than responding to an outside complaint.\n\nUnlike the vast majority of U.S. universities, Harvard and a small number of other schools provide need-based scholarships to international students on the same basis as U.S. students. Grants and other aid from the federal government are reserved for American students, but Harvard \"has its own job and scholarship money available to foreign students,\" according to a Harvard financial aid website.\n\nIn some cases, foreign donors have given money to be used for international students.\n\nIn 2014, Pan Shiyi and Zhang Xin, a Chinese couple that co-founded the real estate company SOHO China, donated $15 million to Harvard to provide financial aid for Chinese students. Their gift drew blowback from critics in China who said it was a betrayal to give money to foreign schools instead of Chinese universities.\n\nThe Justice Department's announcement makes the unusual legal argument that steering private funding to students of certain countries amounts to a civil rights violation for U.S. students.\n\n\"Harvard appears to be accepting these funds and, in adherence to their restrictions, providing student financial aid to foreign students, presumably Chinese, based on their national origin — to the potential detriment of students of other national origins, including American citizens,\" the agency said.\n\nThe Trump administration has repeatedly opened new federal investigations against Harvard in its battle to win obedience from the nation's oldest university.\n\nHarvard has been a prime target in the administration's push to end \"wokeness\" and fight alleged antisemitism in American higher education. A federal judge has blocked the White House from cutting billions of dollars in federal research funding from Harvard amid the feud.\n\nEven as the legal battle continues, the government has sought new lines of attack, seeking to limit Harvard's ability to enroll foreign students and U.S. military members, and launching investigations into the school's admissions process.\n\nThe Associated Press' education coverage receives financial support from multiple private foundations. AP is solely responsible for all content. Find AP's standards for working with philanthropies, a list of supporters and funded coverage areas at AP.org.",
-    "readingTime": 4,
-    "keywords": [
-      "trump administration",
-      "american citizens",
-      "u.s universities",
-      "civil rights",
-      "chinese donors",
-      "universities harvard",
-      "u.s students",
-      "financial aid",
-      "aid programs",
-      "foreign funding"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.yahoo.com/news/politics/articles/trump-administration-opens-investigation-harvards-230055307.html",
-    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/636edcffabea07eae6cd0b68cd63c39d1ec0d3dd7e12be4df70930cc3fafe656/lightyear_networkapi/resizefill_w1200;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fap.org%2F94ef3b7f1e04692cec5d5ff1dd6dccc2",
-    "created_at": "2026-07-21T01:29:56.203Z",
-    "topic": "politic"
-  },
-  {
-    "slug": "michigan-confirms-warde-manuel-will-step-down-as-athletic-director",
-    "title": "Michigan Confirms Warde Manuel Will Step Down as Athletic Director",
-    "description": "The University of Michigan has confirmed that Athletic Director Warde Manuel will step down at the end of the 2026 calendar year and that a search for a new AD will begin.",
-    "fullText": "The speculation surrounding Michigan Athletic Director Warde Manuel has come to an end.\n\nAccording to a statement shared by University of Michigan spokesperson Paul Corliss, Manuel will step down as athletic director at the end of the 2026 calendar year, with a national search set to begin for his successor.\n\nThe university has not announced a replacement or provided additional details regarding the transition.\n\nThe statement confirms that Manuel will remain in his role through the end of the year before officially stepping aside.\n\nThe university’s statement reads:\n\n“At this time, the university does not have any additional public statements planned regarding these matters, nor does the university plan to release any associated documents. We can confirm, however, that Director of Athletics Warde Manuel will step down at the end of the calendar year and a search for a new AD will be conducted.”\n\nManuel has served as Michigan’s athletic director since 2016, overseeing one of the most successful eras in the department’s history.\n\nDuring his tenure, Michigan celebrated national championships across multiple sports, including football and men’s basketball, while capturing numerous Big Ten titles and maintaining one of the nation’s premier athletic departments.\n\nAt the same time, his administration also navigated several high-profile controversies, including the Connor Stallions sign-stealing scandal, NCAA investigations involving the football program, and the investigation into former football coach Sherrone Moore.\n\nMichigan has not identified a timetable for naming Manuel’s successor, but the university confirmed that a search for a new athletic director will begin.\n\nWith Manuel remaining in his position through the end of the calendar year, the Wolverines now have several months to conduct one of the most significant leadership searches in college athletics.\n\nMore information is expected as the university begins the process of identifying the next leader of Michigan Athletics.",
-    "readingTime": 2,
-    "keywords": [
-      "warde manuel",
-      "athletic director",
-      "statement",
-      "calendar",
-      "search",
-      "football",
-      "step",
-      "successor",
-      "additional",
-      "regarding"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://sports.yahoo.com/articles/michigan-confirms-warde-manuel-step-132822401.html",
-    "thumbnail_url": "https://s.yimg.com/os/en/detroit_sports_nation_articles_492/c82a65bd8d61e88084fa24c829a7e3b7",
-    "created_at": "2026-07-20T13:47:39.661Z",
-    "topic": "sports"
   }
 ]

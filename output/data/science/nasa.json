@@ -1,5 +1,29 @@
 [
   {
+    "slug": "nasa-and-ibm-open-source-lunar-mapping-tools",
+    "title": "NASA and IBM open source lunar mapping tools",
+    "description": "Can help you pick the perfect spot for your future evil lair, or boffins make discoveries about Earth's satellite",
+    "fullText": "Can help you pick the perfect spot for your future evil lair, or boffins make discoveries about Earth's satellite\n\nIBM and NASA have got together again and released an open source AI model of the Moon that could be used to make new discoveries about Earth’s natural satellite.\n\nThe NASA‑IBM Lunar Foundation Model has been trained on an extensive lunar observation dataset curated by researchers at the two organizations, and is available now on Hugging Face.\n\nIt is claimed as the first AI model to integrate observations captured in a range of modalities (data formats), and at different viewing angles and spatial scales. Instead of sifting through maps and images by hand or using low resolution machine learning models, scientists can use this to analyze geographic features, the pair say.\n\nIn particular, NASA and IBM hope researchers will be able to discover previously unidentified lunar ice deposits, analyze volcanic features called Irregular Mare Patches, and identify and classify craters.\n\nLunar ice indicates the presence of water and oxygen, which may be useful for future manned missions. It is found in permanently shadowed regions, which are among the most difficult areas to observe. The NASA-IBM model combines multimodal and multi-resolution observations to better predict where ice may be present on the lunar surface.\n\nAlongside the model, IBM and NASA scientists compiled an open-source lunar dataset from over 30 spatially-aligned layers, using data from nine instruments across four missions. It combines tens of thousands of images and maps showing various geophysical properties of the lunar surface.\n\n“NASA has spent decades building an extraordinary scientific record of the Moon, but collecting data is only part of the job,” said the space agency’s chief science data officer, Kevin Murphy.  “We also have to make data easier for scientists to explore and use.”\n\n“The NASA-IBM Lunar Foundation Model gives scientists a foundation to explore the Moon at scale, connecting observations across instruments, revealing patterns that are difficult to see in isolation, and providing an open platform the global research community can build on,” claimed IBM director of research for Europe, Juan Bernabe-Moreno.\n\nThis isn’t the first such project the two organizations have worked on together. In 2023, the pair released Prithvi, an open-source foundation AI model to help scientists analyze satellite imagery. A year later, they released an AI climate model designed to accurately predict weather patterns, extending the Prithvi family of models.\n\nLast year, it was an AI model named Surya, developed to predict the kind of violent solar flare-ups that might disrupt satellites and spacecraft. This was also part of the Prithvi family, as is the Lunar Foundation Model.\n\nNASA and IBM have not officially disclosed a specific parameter count or exact model size for this latest release. As it is open-source and available to download, we asked what resources someone would need to use it.\n\n“Hardware needs will depend on the application, the size and number of inputs, and whether they’re running predictions or further training the model. As a rule of thumb, most of our fine-tuning experiments were conducted using Nvidia A100 GPUs,” an IBM spokesperson told us.\n\n“Smaller-scale experiments and inference workloads may be possible on more modest hardware, although the exact requirements will vary depending on the task.”\n\nPerhaps Reg readers will be able to make some discoveries using the new foundation model? Finding the craters made by rogue rocket stages, for example, or looking for evidence of little green men?®",
+    "readingTime": 3,
+    "keywords": [
+      "prithvi family",
+      "lunar surface",
+      "lunar ice",
+      "lunar foundation",
+      "foundation model",
+      "ibm and nasa",
+      "scientists",
+      "discoveries",
+      "satellite",
+      "released"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.theregister.com/ai-and-ml/2026/09/10/nasa-and-ibm-open-source-lunar-mapping-tools/5295633",
+    "thumbnail_url": "https://image.theregister.com/255948.jpg?imageId=255948&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
+    "created_at": "2026-09-10T20:13:32.822Z",
+    "topic": "tech"
+  },
+  {
     "slug": "rescue-satellite-gets-close-to-nasas-doomed-telescope-even-if-it-cant-save-it",
     "title": "Rescue satellite gets close to NASA's doomed telescope, even if it can't save it",
     "description": "A private spacecraft that was supposed to supply a lifeline to NASA’s Swift Observatory managed to get close to the sinking telescope and even snap photos more than a week after the rescue was abandon...",
@@ -2062,27 +2086,5 @@
     "thumbnail_url": "https://i.guim.co.uk/img/media/3ab536b29b3727329b424bd4c7653296aa8726b0/90_0_3196_2559/master/3196.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=6e82af50d8e386e399d515a3b12b2d88",
     "created_at": "2026-02-28T12:24:28.482Z",
     "topic": "science"
-  },
-  {
-    "slug": "litellm-yc-w23-founding-reliability-engineer-200k270k-and-0510-equity",
-    "title": "LiteLLM (YC W23): Founding Reliability Engineer – $200K-$270K and 0.5-1.0% equity",
-    "description": "TLDR\nLiteLLM is an open-source AI gateway (36K+ GitHub stars) that routes hundreds of millions of LLM API calls daily for companies like NASA, Adobe, Netflix, Stripe, and Nvidia. We're at $7M ARR, 10 people, YC W23.\nWhen LiteLLM goes down, our customers' entire AI stack goes down. We need someone who makes sure that doesn't happen.\nYou'd be the first dedicated reliability hire.",
-    "fullText": "LiteLLM is an open-source AI gateway (36K+ GitHub stars) that routes hundreds of millions of LLM API calls daily for companies like NASA, Adobe, Netflix, Stripe, and Nvidia. We're at $7M ARR, 10 people, YC W23.\n\nWhen LiteLLM goes down, our customers' entire AI stack goes down. We need someone who makes sure that doesn't happen.\n\nYou'd be the first dedicated reliability hire. You'll own reliability, performance, and production stability end-to-end. Nobody will tell you how to do it\n\nWe'll be straight with you: this role is roughly 60% operational reliability and 40% deep performance engineering. On any given week you might be:\n\nIf you're looking for a pure optimization role where you sit in a profiler all day — this isn't it. If you want to own production health for one of the most widely deployed AI infrastructure projects in the world — keep reading.\n\nWe route traffic for some of the largest AI deployments on the planet. One customer is scaling from 20M to 200M daily AI calls through our gateway. Another has 150K users hitting us daily. When we ship a bad release, it doesn't just break a dashboard — it breaks production AI systems at companies you've heard of.\n\nThe problems here are genuinely hard:\n\nYou won't run out of interesting problems.",
-    "readingTime": 2,
-    "keywords": [
-      "daily",
-      "reliability",
-      "production",
-      "gateway",
-      "doesn't",
-      "performance",
-      "role",
-      "litellm"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://www.ycombinator.com/companies/litellm/jobs/unlCynJ-founding-reliability-performance-engineer",
-    "thumbnail_url": "https://bookface-images.s3.amazonaws.com/logos/d7ce0a49202038373852e1b840f81ae7a8d90a5c.png?1741382512",
-    "created_at": "2026-02-27T06:39:35.693Z",
-    "topic": "jobs"
   }
 ]
