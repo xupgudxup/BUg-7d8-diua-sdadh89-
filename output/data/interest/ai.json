@@ -1,5 +1,31 @@
 [
   {
+    "slug": "anthropic-has-a-cute-graphic-showing-how-its-ai-spread-malicious-code",
+    "title": "Anthropic has a cute graphic showing how its AI spread 'malicious' code",
+    "description": "Anthropic said it was \"most concerned\" about an event in which Claude uploaded \"malicious\" code. To help explain the incident, here's a cute robot.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/anthropic-claude-ai-cybersecurity-incident-malicious-package-pypi-cute-graphic-2026-9",
+    "thumbnail_url": "https://i.insider.com/6aa2019ccc23a829a3b8fa66?width=1200&format=jpeg",
+    "created_at": "2026-09-10T10:14:03.827Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "anthropic-posted-then-swiftly-deleted-a-450000-sales-job-aimed-at-its-mega-customer-meta",
+    "title": "Anthropic posted, then swiftly deleted, a $450,000 sales job aimed at its 'mega' customer Meta",
+    "description": "Anthropic listed a sales job specifically targeting Meta, a major customer but also a rival in the AI race. It has since deleted the posting.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/anthropic-job-posting-450000-for-a-sales-job-meta-2026-9",
+    "thumbnail_url": "https://i.insider.com/6aa1e281cc23a829a3b8fa42?width=1200&format=jpeg",
+    "created_at": "2026-09-10T10:14:03.810Z",
+    "topic": "finance"
+  },
+  {
     "slug": "im-sorry-youre-not-going-to-die-from-an-aiengineered-supervirus",
     "title": "I'm sorry, you're not going to die from an AI-engineered supervirus",
     "description": "God save us from economists who think they can competently talk about biology",
@@ -1661,42 +1687,5 @@
     "thumbnail_url": "https://yt3.googleusercontent.com/ytc/AIdro_klEU8wgw6-KBPivL8BbeJHsfkDRWi9HuVgprTM3Nc=s900-c-k-c0x00ffffff-no-rj",
     "created_at": "2026-09-05T14:11:29.255Z",
     "topic": "tech"
-  },
-  {
-    "slug": "mcpay-spend-authorization-and-percall-billing-for-mcp-tools",
-    "title": "MCPay – spend authorization and per-call billing for MCP tools",
-    "description": "The Stripe-like payment layer for AI agents and paid MCP tools. - yiaany/MCPay",
-    "fullText": "Stripe for AI agents and paid MCP tools.\n\n MCPay is building a Stripe-like payment layer for MCP: bounded agent budgets, per-call charging, and settlement for tool creators.\n\nMCPay is building a shared payment layer where AI agents receive explicit spending limits, paid MCP calls carry verifiable spend authority, and tool creators can price usage and receive settlement through one integration.\n\nThe goal is to give agents one payment interface across paid MCP tools while regulated payment providers handle deposits, custody, payouts, refunds, and other real-money operations.\n\nStatus as of August 31, 2026: test credits only. No real funds are accepted, held, transferred, or paid out. Test top-ups create repository-local ledger entries with no cash value. Stripe deposits, bank transfers, creator payouts, KYC/AML, sanctions screening, disputes, refunds, tax handling, and regulated custody are not implemented.\n\nThe repository currently contains:\n\nThe beta is for controlled development and failure testing. It is not ready to hold customer funds or support financial commitments. See Known Limitations.\n\nFuture work is expected to include automated key management, operational monitoring, tested backup recovery, reconciliation tooling, incident response, and external security review. Real-money integrations would additionally require legal, compliance, custody, payout, dispute, refund, and tax work. None of those items should be inferred from the current ledger or UI.\n\nThe gateway marks a call dispatched before contacting the upstream tool. If the process or network fails after dispatch, the upstream may have executed while the caller receives an error, and the nonce remains unavailable for replay. For a chargeable success, durable PrepareUsage acceptance happens before downstream delivery and is the beta billing boundary. A crash after preparation may therefore settle even when response delivery is partial or uncertain. MCPay does not claim exactly-once delivery or exactly-once charging.\n\nThe beta rejects metered 2xx text/event-stream responses before forwarding upstream success headers or body bytes and creates no usage for them, avoiding indefinite paid SSE buffering. Unmetered MCP traffic can still stream SSE through the gateway.\n\nSpend tokens contain readable claims protected by Ed25519 signatures. They are not encrypted. The API holds the active signing private key; gateways receive a public verification keyring and select keys by the protected JWT kid header.\n\nDatabase rows are not application-level encrypted. Protect PostgreSQL storage, backups, signing keys, gateway secrets, and deployment environment files with operator-controlled encryption and access controls.\n\nRead Security Policy and Threat Model before exposing a deployment.\n\nRequirements: Docker Engine with Compose v2, Go 1.25+, and 4 GB of available memory.\n\nPut the generated keys in deploy/.env.beta, replace every replace-* value, and start the stack:\n\nOpen http://localhost:8080. Any top-up is a test credit with no cash value.\n\nSee Central Beta Runbook, Deployment, and Backup/Restore Drill.\n\nCreate a server and action in the dashboard, issue a server-scoped gateway credential, and run the gateway beside the MCP server. Use persistent local storage for --state-file and do not share one state file between processes.\n\nPaid requests carry Authorization: Bearer <spend-token> and X-MCPay-Nonce: <nonce>. The gateway removes both headers before forwarding upstream.\n\nThe control-plane gateway configuration supplies verification_keys. For a standalone gateway without --control-plane-api, pass --verification-keys \"$MCPAY_VERIFICATION_KEYS\".\n\nThe JavaScript and Python SDKs are not published to npm or PyPI as of August 31, 2026. Install them from this repository only.\n\nWorkspace code can then import @mcpay/sdk-js. For use from another local Node project, install the repository path after building:\n\nInstall the Python SDK in editable mode from the repository root:\n\nSee JavaScript SDK and Python SDK. Direct SDK wrappers use volatile process state in development; the persistent gateway is the supported beta path for crash recovery.\n\nPostgreSQL tests require a disposable migrated database in MCPAY_TEST_DATABASE_URL. They truncate application tables; never point them at retained data.\n\nMCPay uses the Business Source License 1.1. It is source-available but not OSI-approved open source. The Additional Use Grant and change date are defined in LICENSE. The dashboard has a separate MIT license and upstream attribution in apps/dashboard/LICENSE.",
-    "readingTime": 4,
-    "keywords": [
-      "mcp tools",
-      "python sdk",
-      "tool creators",
-      "payment layer",
-      "forwarding upstream",
-      "gateway",
-      "beta",
-      "repository",
-      "agents",
-      "receive"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/yiaany/MCPay",
-    "thumbnail_url": "https://opengraph.githubassets.com/b9dcf0b9ce861148676cc3964dd589dea35e27c3c99820c24efa983da8001769/yiaany/MCPay",
-    "created_at": "2026-09-05T14:11:28.517Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "foxconn-expects-q3-to-beat-market-expectations-as-ai-demand-stays-strong",
-    "title": "Foxconn expects Q3 to beat market expectations as AI demand stays strong",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/foxconn-expects-q3-to-beat-market-expectations-as-ai-demand-stays-strong-4890202",
-    "thumbnail_url": "https://content-media.investing.com/news/LYNXMPEE2T0RM_M.jpg",
-    "created_at": "2026-09-05T14:11:27.994Z",
-    "topic": "finance"
   }
 ]
