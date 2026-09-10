@@ -1,5 +1,29 @@
 [
   {
+    "slug": "i-stopped-reading-cursors-diffs-so-i-built-a-gate-that-refuses-them",
+    "title": "I stopped reading Cursor's diffs, so I built a gate that refuses them",
+    "description": "The trust layer for AI coding agents - say what must never break, prove it holds, enforce it on every agent edit - polymerix-labs/dont-break",
+    "fullText": "The trust layer for AI coding agents.\n\nSay what must never break. Prove it holds. Enforce it on every agent edit.\n\n📬 Feature requests, bugs, questions, or feedback: daryl@dont-break.com\n\n🇬🇧 English · 🇫🇷 Français · 🇸🇦 العربية · 🇨🇿 Čeština · 🇩🇰 Dansk · 🇩🇪 Deutsch · 🇬🇷 Ελληνικά · 🇪🇸 Español · 🇮🇷 فارسی · 🇫🇮 Suomi · 🇵🇭 Filipino · 🇮🇱 עברית · 🇮🇳 हिन्दी · 🇭🇺 Magyar · 🇮🇩 Bahasa Indonesia · 🇮🇹 Italiano · 🇯🇵 日本語 · 🇰🇷 한국어 · 🇳🇱 Nederlands · 🇳🇴 Norsk · 🇵🇱 Polski · 🇧🇷 Português (Brasil) · 🇷🇴 Română · 🇷🇺 Русский · 🇸🇪 Svenska · 🇹🇭 ไทย · 🇹🇷 Türkçe · 🇺🇦 Українська · 🇺🇿 Oʻzbekcha · 🇻🇳 Tiếng Việt · 🇨🇳 简体中文 · 🇹🇼 繁體中文\n\nAI agents ship code fast. Nobody ships trust with it. Every team running Cursor, Claude, or CI bots has the same unspoken fear: the day a quick fix silently breaks the one thing that was never supposed to break.\n\ndont-break turns that fear into a contract, in four steps:\n\nRequires Python 3.9+ and Node.js (npm). The graph extractor installs itself on first run.\n\nThat opens a local UI on http://127.0.0.1:4040, in your language (32 available). Sign in, pick a project folder, and the map of your code builds itself: a live 3D graph of every module, call, and dependency, with your protected zones lit up on top of it.\n\nMost guardrails are prompts, and prompts get ignored. dont-break sits outside the model:\n\nThat conversation happens automatically once connected. No prompt engineering: the agent skill teaches it.\n\nYou pick the strength per folder, in one click:\n\nStart in Watch, read a week of incidents, then flip the folders that matter to Hard.\n\n\"My agent keeps breaking things it never opened\"\n\nPlug dont-break into Cursor or Claude Desktop. Your agent checks impact and danger zones before editing, not after.\n\n→ Set up in Cursor / Claude (2 min)\n\n\"I want CI to block disasters, not argue about style\"\n\nOne job that fails the merge when a change hits a protected zone or a fragile hub, grounded in the real dependency graph, not vibes.\n\n→ GitHub Actions · GitLab CI · pre-commit hook\n\n\"My team needs to see this, not just me\"\n\nEverything above runs on your machine — what your agent is doing, right now, on your working copy. dont-break.com is the other half: every repository, every agent, and what CI actually enforced on the default branch, in one place.\n\n→ Team dashboard\n\n\"I just want to interrogate my codebase\"\n\ndbq dependents <id> | jq: who breaks if I change this? Your repo becomes a queryable database.\n\n→ Shell + jq recipes\n\n\"I'm building my own agent\"\n\nThe same 11 tools, exposed as typed TypeScript definitions or a generated OpenAPI 3.1 spec.\n\n→ LangChain / OpenAPI / custom agents\n\nQuery tools are read-only, server-side analysis, capped responses: always safe to call. The three rule tools write team rules under tight limits: they cannot activate a block, pause someone else's rule, or rewrite reasons.\n\nKeyboard-first: cmd+K opens the command palette.\n\nThe languages dont-break maps, and what each one can actually do, live on dont-break.com/language-support.\n\nApache-2.0. See LICENSE and NOTICE.",
+    "readingTime": 3,
+    "keywords": [
+      "cursor claude",
+      "agent",
+      "team",
+      "dont-break",
+      "agents",
+      "graph",
+      "tools",
+      "trust",
+      "break",
+      "code"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/polymerix-labs/dont-break",
+    "thumbnail_url": "https://opengraph.githubassets.com/f04da2f2f62d263b53b88372ec4b9b491076193bcfaa94a1e58b2a7fbc6227a3/polymerix-labs/dont-break",
+    "created_at": "2026-09-10T15:27:05.385Z",
+    "topic": "tech"
+  },
+  {
     "slug": "promptcube",
     "title": "PromptCube",
     "description": "Independent AI coding community for Cursor, Claude Code and Copilot: comparisons, bug fixes, MCP and AI agent guides. Real developer notes, not a news feed.",
@@ -1942,19 +1966,6 @@
     "link": "https://www.businessinsider.com/live-how-vibe-coding-is-transforming-tech-and-jobs-2026-7",
     "thumbnail_url": "https://i.insider.com/6a566984eae3978eb7e5d759?width=1200&format=jpeg",
     "created_at": "2026-07-15T01:19:26.573Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "i-helped-jeff-bezos-build-alexa-here-are-the-lessons-that-stuck-with-me-from-my-early-days-at-amazon",
-    "title": "I helped Jeff Bezos build Alexa. Here are the lessons that stuck with me from my early days at Amazon.",
-    "description": "Chai Atreya worked as a software development manager at Amazon from 2012 to 2015. He left to apply what he learned from Jeff Bezos at another company.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/helped-jeff-bezos-build-alexa-lessons-took-with-me-amazon-2026-7",
-    "thumbnail_url": "https://i.insider.com/6a553ffa81137eabe596ceb2?width=1200&format=jpeg",
-    "created_at": "2026-07-14T13:06:06.703Z",
     "topic": "finance"
   }
 ]
