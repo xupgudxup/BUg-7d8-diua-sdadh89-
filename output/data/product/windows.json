@@ -1,5 +1,29 @@
 [
   {
+    "slug": "decky-opensource-diy-stream-deck",
+    "title": "Decky: Open-source DIY stream deck",
+    "description": "Open-source DIY stream deck: touch firmware for the CrowPanel 7-inch ESP32-S3 and a Windows desktop app - Fenish/decky",
+    "fullText": "A personal touch control surface for the things you do every day.\n\n Built around a 7-inch display, a Windows app, and an enclosure you can print yourself.\n\nExplore Decky ·\n Customize it ·\n Get started ·\n Desktop guide\n\nMute a call. Open your tools. Start the sequence that gets you live.\n\nDecky puts your shortcuts, programs, scripts, and routines on a 5 × 3 touch\ngrid. Give each key a purpose, build pages for different parts of your day,\nand keep the controls you reach for right in front of you.\n\nThe desktop app pairs a floating grid with a contextual editor. Select a key and\nthe workspace slides aside; close the editor and the deck takes center stage\nagain.\n\nActual Windows app · Example configuration · New workspaces start empty\n\nChoose the icon, label, accent, and background. Fine-tune image zoom, position,\nrotation, and brightness. Leave the label out for a centered icon, or adjust the\nspace between the icon and its title.\n\nThe editor and deck preview update together, so you can see the result\nbefore saving. Drag keys to move them, drop onto an occupied spot to swap, or\nduplicate a key to build out a page. Unassigned keys stay pitch black.\n\nOFF and ON artwork are designed independently. Toggle state changes after a\nsuccessful action; it tracks the Decky session rather than reading another app's\nstate automatically.\n\nCombine hotkeys, programs, websites, scripts, and delays into an ordered\nsequence. Reorder steps with the editor controls. Independent scripts can keep\nrunning while you use other keys.\n\nDecky's 3D-printed enclosure is designed to hang beneath a monitor, keeping its\ntouch surface within reach. The repository includes the enclosure and clamp\nassets alongside the software and firmware.\n\nPair a restrained ivory icon set with the obsidian-and-gold app, or fill your\nkeys with your own images. The same surface can become a streaming panel, a work\nlauncher, or a set of tools for the project you're in.\n\nStart over USB. In Settings, scan for a 2.4 GHz Wi-Fi network, choose it,\nand connect. Decky uses USB when available and falls back to paired, encrypted\nWi-Fi on your local network. USB still supplies power, and the Windows app keeps\nyour actions running from the system tray.\n\nAdd a microSD card and Decky saves your page artwork and toggle appearances\nlocally. After a restart, unchanged images load from the card into memory\ninstead of being uploaded again. Changing a toggle selects its preloaded\nappearance and redraws the affected key.\n\nExport your profile to keep a copy of your configuration or move it to another\nsetup. Firmware installation and updates are available from the desktop app over\nUSB. The desktop guide covers pairing, profiles,\nand firmware setup in detail.\n\nDecky is a DIY hardware and software project. Start with:\n\nTo run the desktop app from the repository, install Node.js 22.16 or newer and\npnpm, then run:\n\nUse the desktop and firmware guide to\nprepare the panel. The firmware uses a pinned PlatformIO toolchain; the\nrepository's hardware notes document the\nboard, touch input, SD card, and display setup.\n\nMake room for the way you work.\n\n Build Decky · Read the desktop guide\n\nHardware scenes and floating-key artwork are AI-generated product illustrations based on the project. App captures show an illustrative configuration in the real interface.",
+    "readingTime": 3,
+    "keywords": [
+      "windows app",
+      "desktop guide",
+      "firmware",
+      "touch",
+      "icon",
+      "keys",
+      "surface",
+      "enclosure",
+      "scripts",
+      "configuration"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/Fenish/decky",
+    "thumbnail_url": "https://opengraph.githubassets.com/2053e17a60ec0f0bece26235626407d1f8f3bb6e716eb6b2e9e76452c2f3d591/Fenish/decky",
+    "created_at": "2026-09-12T09:45:27.588Z",
+    "topic": "tech"
+  },
+  {
     "slug": "what-it-was-like-to-dine-at-windows-on-the-world-the-restaurant-atop-the-world-trade-center-before-it-was-lost-on-911",
     "title": "What it was like to dine at Windows on the World, the restaurant atop the World Trade Center, before it was lost on 9/11",
     "description": "Before the 9/11 attacks, Windows on the World was an upscale restaurant where people dined overlooking expansive views of Manhattan.",
@@ -2061,30 +2085,6 @@
     "link": "https://cyberinsider.com/chrome-rolls-out-hardware-bound-session-protection-to-combat-infostealer-malware/",
     "thumbnail_url": "https://cyberinsider.com/wp-content/uploads/2026/04/Chrome-rolls-out-hardware-bound-session-protection-to-combat-infostealer-malware-e1775752973929.jpg",
     "created_at": "2026-04-09T18:49:09.522Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "miropdf-v080-fullscreen-presentation-mode-and-friendly-keybinds",
-    "title": "Miro-pdf v0.8.0 – Fullscreen, presentation mode and friendly keybinds",
-    "description": "A native pdf viewer for Windows and Linux (Wayland/X11) with configurable keybindings. - vincent-uden/miro",
-    "fullText": "A native pdf viewer for Windows, macOS and Linux (Wayland/X11) with configurable keybindings.\n\nThe configuration file is located at ~/.config/miro-pdf/miro.conf (or .config/miro-pdf/miro.conf in the home directory of your operating system). An example configuration file is located at /assets/default.conf which contains all the default bindings for the program.\n\nEvery binding that is possible is bound at least once in the default configuration file.\n\nThe configuration file uses a simple text format with three types of commands and comments:\n\nAll available actions are bound in the example config file. If you need a more exact view of the syntax it is documented in the keybinds-rs crate.\n\nAll available actions are bound in the example config file.\n\nDefault settings apply only at application startup. They can later be toggled with key bindings.\n\nThe configuration parser provides detailed error messages with line numbers when parsing fails. Errors on one line don't prevent parsing of other lines\n\nHead over to releases and download the latest binary for your platform, then place it somewhere in your path.\n\nThis is pretty much the same as the following option, but doesn't require cloning the repo. See building from source for possible complications when compiling for Windows. I've had no problems compiling on Linux thus far.\n\nOn linux, the commands below would clone the repository, compile the project and copy the resulting binary to /usr/bin/.\n\nOn Windows, the same rough process should work, but often doesn't. I highly recommend downloading a precompiled binary for Windows. The problem lies in compiling the crate mupdf-sys which requires MSVC.\n\nThe Visual Studio project embedded in this crate requires Visual Studio 2019 which isn't available for downloading anymore, but can optionally be compiled using Visual Studio 2022. Even with this option, the build might just not work sometimes due to issues with the Windows 10/11 SDK kits which I have not managed to solve.\n\nHowever, I've managed to get compilation working in github actions which is what produces the release binaries which do function correctly on Windows systems.\n\nMupdf-rs requries headers for fontconfig. The packages are:\n\nBuilding on linux also requires some hidden dependencies that you probably already have.\n\nWhile I don't test the software for macOS since I don't own a mac. It should work although only supporting building from source or crates.io. No binary releases are made.",
-    "readingTime": 2,
-    "keywords": [
-      "config file",
-      "configuration file",
-      "binary",
-      "default",
-      "bound",
-      "actions",
-      "crate",
-      "don't",
-      "compiling",
-      "macos"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/vincent-uden/miro",
-    "thumbnail_url": "https://opengraph.githubassets.com/0a815fcd5b6380006f853376e036fb9720e21bc53f5418ce881c92283f26ff9c/vincent-uden/miro",
-    "created_at": "2026-04-09T12:59:31.305Z",
     "topic": "tech"
   }
 ]
