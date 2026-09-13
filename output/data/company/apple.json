@@ -1,5 +1,18 @@
 [
   {
+    "slug": "origamiphone",
+    "title": "OrigamiPhone",
+    "description": "Fold Apple's new iPhone Duo into a paper crane. The ancient Japanese art of folding phones.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://edwinarb.us/origamiphone/",
+    "thumbnail_url": "https://edwinarb.us/origamiphone/og.png?v=3",
+    "created_at": "2026-09-13T19:59:57.869Z",
+    "topic": "tech"
+  },
+  {
     "slug": "cheap-iphone-deal-warning-over-scam-sites-selling-latest-apple-mobiles",
     "title": "‘Cheap iPhone deal’: warning over scam sites selling latest Apple mobiles",
     "description": "Criminals exploit demand for iPhone 18 Pro and foldable Duo to trick people eager to get their hands on one\nApple has just launched a range of new iPhones, including a foldable handset, just as you decide it is time to replace your own ageing mobile. But you balk at the £1,199 price tag for the cheapest of the new options.\nSearching online for a better price with the words “cheap”, “iPhone” and “deal”, you come across a website which offers an iPhone 18 Pro for a couple of hundred pounds less than the Apple site. You pay for the new phone via a bank transfer and wait for it to arrive.\n Continue reading...",
@@ -1830,30 +1843,6 @@
     "link": "https://www.phoronix.com/news/Apple-M1-Power-Savings-Linux-73",
     "thumbnail_url": "https://www.phoronix.net/image.php?id=2026&image=m1_ultra",
     "created_at": "2026-08-10T12:43:26.257Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "openhaystack-reverseengineered-apples-find-my-network",
-    "title": "OpenHaystack: Reverse-engineered Apple's Find My network",
-    "description": "Build your own 'AirTags' 🏷 today! Framework for tracking personal Bluetooth devices via Apple's massive Find My network. - seemoo-lab/openhaystack",
-    "fullText": "OpenHaystack is a framework for tracking personal Bluetooth devices via Apple's massive Find My network. Use it to create your own tracking tags that you can append to physical objects (keyrings, backpacks, ...) or integrate it into other Bluetooth-capable devices such as notebooks.\n\nOpenHaystack is an application that allows you to create your own accessories that are tracked by Apple's Find My network. All you need is a Mac and a BBC micro:bit or any other Bluetooth-capable device.\n\nOpenHaystack is the result of reverse-engineering and security analysis work of Apple's Find My network (or offline finding). We at the Secure Mobile Networking Lab of TU Darmstadt started analyzing offline finding after its initial announcement in June 2019. We identified how Apple devices can be found by iPhones devices, even when they are offline through this work. The whole system is a clever combination of Bluetooth advertisements, public-key cryptography, and a central database of encrypted location reports. We disclosed a specification of the closed parts of offline finding and conducted a comprehensive security and privacy analysis.\nWe found two distinct vulnerabilities. The most severe one, which allowed a malicious application to access location data, has meanwhile been fixed by Apple (CVE-2020-9986).\n\nSince its release, we received quite a bit of press and media coverage.\n\nOpenHaystack is experimental software. The code is untested and incomplete. For example, OpenHaystack accessories using our firmware broadcast a fixed public key and, therefore, are trackable by other devices in proximity (this might change in a future release). OpenHaystack is not affiliated with or endorsed by Apple Inc.\n\nOpenHaystack consists of two components. First, we provide a macOS application that can display the last reported location of your personal Bluetooth devices. Second, the firmware image enables Bluetooth devices to broadcast beacons that make them discoverable by iPhones.\n\nOpenHaystack requires macOS 11 (Big Sur).\n\nThe OpenHaystack application requires a custom plugin for Apple Mail. It is used to download location reports from Apple's servers via a private API (technical explanation: the plugin inherits Apple Mail's entitlements required to use this API).\nTherefore, the installation procedure is slightly different and requires you to temporarily disable Gatekeeper.\nOur plugin does not access any other private data such as emails (see source code).\n\nAdding a new accessory.\nTo create a new accessory, you just need to enter a name for it and optionally select a suitable icon and a color. The app then generates a new key pair that is used to encrypt and decrypt the location reports. The private key is stored in your Mac's keychain.\n\nDeploy to device.\nConnect a supported device via USB to your Mac and hit the Deploy button next to the accessory's name and choose the corresponding.\nInstead of using OpenHaystack's integrated deployment, you may also copy the public key used for advertising (right click on accessory) and deploy it manually.\n\nDisplay devices' locations.\nIt can take up to 30 minutes until you will see the first location report on the map on the right side. The map will always show all your items' most recent locations. You can click on every item to check when the last update was received.\n\nWe briefly explain Apple's offline finding system (aka Find My network). Please refer to our PETS paper and Apple's accessory specification \n\nTo use Apple's Find My network, we generate a public-private key pair on an elliptic curve (P-224). The private key remains on the Mac securely stored in the keychain, and the public key is deployed on the accessory, e.g., an attached micro:bit.\n\nIn short, the accessories broadcast the public key as Bluetooth Low Energy (BLE) advertisements (see firmware).\nNearby iPhones will not be able to distinguish our accessories from a genuine Apple device or certified accessory.\n\nWhen a nearby iPhone receives a BLE advertisement, the iPhone fetches its current location via GPS, encrypts it using public key from the advertisement, and uploads the encrypted report to Apple's server.\nAll iPhones on iOS 13 or newer do this by default. OpenHaystack is not involved in this step.\n\nApple does not know which encrypted locations belong to which Apple account or device. Therefore, every Apple user can download any location report as long as they know the corresponding public key. This is not a security issue: all reports are end-to-end encrypted and cannot be decrypted unless one knows the corresponding private key (stored in the keychain). We leverage this feature to download the reports from Apple that have been created for our OpenHaystack accessories. We use our private keys to decrypt the location reports and show the most recent one on the map.\n\nApple protects their database against arbitrary access by requiring an authenticated Apple user to download location reports.\nWe use our Apple Mail plugin, which runs with elevated privileges, to access the required authentication information. The OpenHaystack app communicates with the plugin while downloading reports. This is why you need to keep Mail open while using OpenHaystack.\n\nIn principle, any Bluetooth device can be turned into an OpenHaystack accessory that is trackable via Apple's Find My network.\nCurrently, we provide a convenient deployment method of our OpenHaystack firmwares for a small number of embedded devices (see table below). We also support Linux devices via our generic HCI script.\nFeel free to port OpenHaystack to other devices that support Bluetooth Low Energy based on the source code of our firmware and the specification in our paper. Please share your results with us!\n\nOpenHaystack Mobile is a complete reimplementation of the OpenHaystack macOS application for smartphones. The app provides the same functionality to create and track accessories and aims to increase the usability, especially for new users. In contrast to the macOS application, the location reports cannot be fetched directly on the smartphone, so the app requires a proxy server hosted on Mac hardware to access the Find My network. The proxy server can be accessed over a network by multiple users simultaneously.\n\nTo connect to your proxy server set the correct URL in: openhaystack-mobile/lib/findMy/reports_fetcher.dart\n\nOpenHaystack Mobile is built with the cross-platform Flutter framework and currently runs on Android and iOS. More information about the app and usage instructions can be found in the openhaystack-mobile folder of this repository.\n\nOpenHaystack is licensed under the GNU Affero General Public License v3.0.",
-    "readingTime": 6,
-    "keywords": [
-      "personal bluetooth",
-      "apple user",
-      "apple's find my",
-      "proxy server",
-      "bluetooth devices",
-      "via apple's",
-      "macos application",
-      "openhaystack accessories",
-      "location reports",
-      "download location"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/seemoo-lab/openhaystack",
-    "thumbnail_url": "https://opengraph.githubassets.com/1c58007ed25dc0ae5173ae21db37366981e8fdbfe5242267c163141e9924c6c8/seemoo-lab/openhaystack",
-    "created_at": "2026-08-10T07:08:31.642Z",
     "topic": "tech"
   }
 ]
