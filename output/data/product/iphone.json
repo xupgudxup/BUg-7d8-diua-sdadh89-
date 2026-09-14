@@ -1,5 +1,18 @@
 [
   {
+    "slug": "ios-27-six-things-to-try-with-the-new-siri-ai",
+    "title": "iOS 27: Six Things to Try With the New Siri AI",
+    "description": "Apple’s AI assistant Siri received a major upgrade in both looks and brains in the tech company’s new iOS 27 software update. WSJ’s Nicole Nguyen explains.",
+    "fullText": "Apple's AI assistant Siri received a major upgrade in both looks and brains in the tech company's new iOS 27 software update. WSJ's Nicole Nguyen explains.",
+    "readingTime": 1,
+    "keywords": [],
+    "qualityScore": 0.2,
+    "link": "https://finance.yahoo.com/video/ios-27-six-things-try-170900767.html",
+    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/d52ed9186b64f6512807e53a9bee60feacde2f032495e096f6fe65f90e4d483d/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fwall_street_journal_733%2F92270931c47a7018152d209558995f68.png",
+    "created_at": "2026-09-14T21:10:18.135Z",
+    "topic": "finance"
+  },
+  {
     "slug": "the-iphone-x-literally-changed-how-we-use-our-devices",
     "title": "The iPhone X Literally Changed How We Use Our Devices",
     "description": "Those touch gestures took some getting used to back in 2017.",
@@ -2073,29 +2086,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/NhtvNw1_NYKJqFmwr7BxSg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA7Y2Y9d2VicA--/https://media.zenfs.com/en/fortune_175/726683a974f5dbfd5b86e8ce97b3026a",
     "created_at": "2026-06-12T19:52:00.420Z",
     "topic": "news"
-  },
-  {
-    "slug": "tapflow-selfhosted-iosandroid-simulator-streaming-for-mobile-qa",
-    "title": "Tapflow – self-hosted iOS/Android simulator streaming for mobile QA",
-    "description": "Self-hosted iOS & Android simulator streaming for the whole team - jo-duchan/tapflow",
-    "fullText": "Run iOS simulators and Android emulators in any browser — no toolchain setup, no device pool, no cloud uploads.\n\n Your builds, streams, and recordings stay on infrastructure you control.\n\n📖 Docs\n  · \n 🚀 Quick Start\n  · \n 🎥 Demo\n\nv0.x: tapflow is under active development. Breaking changes may appear in minor versions until v1.0.0. See ROADMAP for the full plan.\n\nMobile QA usually depends on access to simulators, emulators, or physical devices — and that access is uneven across a team.\n\nFor mobile developers it means opening Xcode or Android Studio on a Mac. For everyone else, it often means asking a mobile developer every single time:\n\nBackend developer — \"How do I install the sandbox build to check what was deployed?\"\n\nProduct manager — \"I keep installing and removing versions just to compare behavior.\"\n\nDesigner — \"I need to check the layout across screen sizes, but I don't have the right devices.\"\n\nPhysical devices add their own overhead — OS-version coverage, availability, charging, storage, handoff. Cloud simulator services solve access, but they require uploading internal builds to a third-party service and paying for remote devices while your own Macs can already run the same simulators.\n\nWe hit this exact problem, so we built tapflow.\n\nThe agent connects outbound to the relay. Teammates open the dashboard, pick an available device, and interact with it remotely — while the simulators and emulators keep running on your own Macs.\n\ntapflow doesn't replace native mobile development tools. Mobile developers still use Xcode, Android Studio, and their build tooling. tapflow makes the running simulators and emulators accessible to the rest of the team through a browser — it isn't an automation framework or a device farm.\n\nThis starts both the relay and the agent on the same Mac (local mode).\n\nOpen http://localhost:4000 in your browser. tapflow redirects you to /setup to create the admin account.\n\nHeadless server? Use tapflow admin init to create the admin account via CLI instead.\n\nNavigate to http://localhost:4000 and sign in with the account you just created.\n\nHaving issues? Run tapflow doctor to auto-diagnose Node.js, the iOS toolchain, adb, and other prerequisites.\n\nAgents run on macOS only (they drive the iOS Simulator and Android emulator on a Mac). The relay runs anywhere.\n\n1 On a real LAN, decode-to-present measures in the low tens of milliseconds (p50 ~11–17 ms with the WASM software decoder; faster with WebCodecs on HTTPS); end-to-end \"glass-to-glass\" latency adds your network's round trip on top. See the performance & latency reference for the full measurements, conditions, and known limitations.\n\ntapflow is self-hosted by design — build files, device streams, and session recordings stay on infrastructure you control, never sent to a third-party service.\n\nFound a vulnerability? See SECURITY.md. For the full model, read Security & Privacy.\n\nRelay and agent on the same machine — ideal for a single developer or small team.\n\nRun the relay on a Linux server or dedicated Mac. Each Mac with simulators runs the agent.\n\nFor nginx / Caddy reverse proxy setup and external access, see Self-Hosting the Relay.\n\ntapflow is actively developed and PRs are welcome — see CONTRIBUTING.md for branch strategy, commit conventions, and an architecture overview. For deep dives, the contributor notes cover the SimulatorKit reverse-engineering and the streaming render pipeline.\n\nRequirements: Node.js ≥ 20, pnpm ≥ 9\n\nMIT — Copyright © 2026-present tapflow contributors\n\ntapflow bundles scrcpy-server (Apache-2.0) for Android screen streaming. See NOTICE for full attribution.",
-    "readingTime": 3,
-    "keywords": [
-      "third-party service",
-      "physical devices",
-      "admin account",
-      "mobile developers",
-      "tapflow",
-      "simulators",
-      "emulators",
-      "access",
-      "agent",
-      "browser"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/jo-duchan/tapflow",
-    "thumbnail_url": "https://opengraph.githubassets.com/c244930a8dc19fb3f7234cd96445ef4d9e41062333264264dd8839054add5d16/jo-duchan/tapflow",
-    "created_at": "2026-06-10T09:39:09.417Z",
-    "topic": "tech"
   }
 ]
