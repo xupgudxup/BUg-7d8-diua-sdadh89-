@@ -1,5 +1,42 @@
 [
   {
+    "slug": "glm-53-is-live-on-mistral",
+    "title": "GLM 5.3 is live on Mistral",
+    "description": "A third-party open source text model from Z.ai, hosted by Mistral for long-context coding and agentic workflows. The model is served without Mistral modifications.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://docs.mistral.ai/en/models/zai-glm-5-3",
+    "thumbnail_url": "https://docs.mistral.ai//api/og?title=Z.ai+GLM+5.3&description=A+third-party+open+source+text+model+from+Z.ai%2C+hosted+by+Mistral+for+long-context+coding+and+agentic+workflows.+The+model+is+served+without+Mistral+modifications.&eyebraw=v5.3&image=&type=model&v=4a8de8582893949f2f62a37ca9e4339d9f078bf3&modelIcon=zai-glm",
+    "created_at": "2026-09-16T15:45:13.992Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "can-we-stop-with-the-uptime-percentages",
+    "title": "Can We Stop with the Uptime Percentages?",
+    "description": "I was reading Jason Gorman’s article “The Wall Confronting Reliable Coding Agent Autonomy” and he says: the journey from 90% to 99% reliability is just as hard…",
+    "fullText": "I was reading Jason Gorman’s article “The Wall Confronting Reliable Coding Agent Autonomy” and he says:\n\nthe journey from 90% to 99% reliability is just as hard as it was to get to 90%. And from 99% to 99.9% is just as hard again.\n\nThis stood out, as I’ve been experiencing more and more “downtime” in my day-to-day work. GitHub’s down. CI’s down. AI’s down. Slack’s down. Downtime’s going mainstream! More and more I find myself visiting service status pages, where I’m confronted with a wall of colors and numbers like this:\n\n100%? 99.72%? 99.09%? 98.98%? Those don’t all seem so different or bad? I mean, those are all an A in grade school.\n\nThen I have to remind myself of Jason’s point and re-interpret the numbers, which is more like reading earthquake measurements. The difference between a 6.2 and a 7.8 might not seem that big, but it represents a massive difference in magnitude. Uptime percentages have a similar problem: 99.9% and 99.99% look pretty much the same, but the latter is 10× less!\n\nInfrastructure people understand this. They even have a shorthand for it: two nines, three nines, four nines. They intuitively grasp the difference because they swim in these numbers every day.\n\nBut the audience for status pages isn’t just infra people anymore. It’s increasingly everybody.\n\nI understand the math is straightforward. Percent uptime is a good metric for those in the industry. But it’s a lousy interface for people who don’t care about the best way to measure infrastructure reliability in a standardized, reliable, compliant way.\n\nAnd status pages are the public interface for understanding the reliability of a service. I just want to know, “Dude, how much have you been down lately? Seems like a lot…”\n\nSo how about, and I’ll just throw this out there, instead of:\n\nGitHub Actions: 12 hours affected in the last 30 days (98.31% uptime).\n\nOne requires you to understand the nonlinear significance of numbers near 100%. The other requires knowing what an hour is.",
+    "readingTime": 2,
+    "keywords": [
+      "status pages",
+      "numbers",
+      "reliability",
+      "difference",
+      "uptime",
+      "understand",
+      "nines",
+      "reading",
+      "wall",
+      "reliable"
+    ],
+    "qualityScore": 0.95,
+    "link": "https://blog.jim-nielsen.com/2026/stop-with-the-uptime-percentage/",
+    "thumbnail_url": "https://cdn.jim-nielsen.com/blog/2026/uptime-claude-github.png",
+    "created_at": "2026-09-16T15:45:10.041Z",
+    "topic": "tech"
+  },
+  {
     "slug": "factory-raises-200m-at-5b-valuation",
     "title": "Factory raises $200M at $5B valuation",
     "description": "Factory has raised $200M at a $5B valuation to scale self-improving software development in the enterprise. This financ...",
@@ -1949,53 +1986,5 @@
     "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/TR.qTOM4Jh9K6N1FXMg7oQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NDE7Y2Y9d2VicA--/https://media.zenfs.com/en/awful_announcing_173/9195ce29c1656726c2594c613f14caf9",
     "created_at": "2026-07-17T01:44:23.979Z",
     "topic": "sports"
-  },
-  {
-    "slug": "show-hn-mobilefirst-ide-with-live-testing-no-laptop",
-    "title": "show hn: mobile-first ide with live testing. no laptop",
-    "description": "Treena is a mobile coding IDE for developers who want to build without a laptop. Plan or run an AI coding agent, test, and push to GitHub, all from your phone.",
-    "fullText": "Treena is an agentic coding environment for your phone. Describe a task, approve a plan or let it run, test, and push to GitHub, all without a laptop.\n\nThe phone is already the computer you never put down. It should be enough to ship real software.\n\nSerious development was stuck on desks because the tools were. Cloud workspaces and coding agents change that. You steer. The machine does the heavy lifting. The screen size stops mattering.\n\nNot a toy editor. Editor, terminal, files, and an agent that can use them, running in the cloud so your battery stays out of it.\n\nPlan a change before anything moves, or let the agent act. Switch models mid-task. First release is bring-your-own-key: OpenRouter, OpenAI, Anthropic, Codex, Claude Code, and more.\n\nSign in with GitHub, pick a repository, and Treena clones it into a fresh workspace.\n\nDescribe a task in plain language. The agent edits files, runs commands, and shows its work.\n\nRun tests, check the diff, then commit and push back to GitHub, still on your phone.\n\nWe're opening Treena carefully. Leave your email and we'll write when it's your turn.",
-    "readingTime": 1,
-    "keywords": [
-      "treena",
-      "phone",
-      "github",
-      "agent",
-      "coding",
-      "task",
-      "plan",
-      "push",
-      "cloud",
-      "files"
-    ],
-    "qualityScore": 0.95,
-    "link": "https://www.treena.app/",
-    "thumbnail_url": "https://treena.app/opengraph-image?25212e79cb3a4948",
-    "created_at": "2026-07-17T01:43:48.808Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "empryo-code-as-a-living-system",
-    "title": "Empryo: Code as a Living System",
-    "description": "Empryo is the AI coding agent that edits symbols, not strings — it reads your repo as a living organism, sequences its genome (a ranked dependency graph), and edits through the AST and LSP.",
-    "fullText": "Empryo reads your repo as an organism and sequences its genome — then edits by symbol, not string.\n\nOn launch Empryo reads every file and sequences its genome: a live, ranked dependency graph of every symbol, import, and call site. It edits by symbol, not string.\n\nA live dependency graph of every symbol, ranked by PageRank and git co-change. The agent walks it instead of grepping — context stays small and grounded in structure.\n\nEdits go through the syntax tree and language servers — never find-and-replace. 65+ operations, atomic across the graph, with a typecheck as the gate. Nothing breaks on whitespace.\n\nA different brain per slot, per tab. Spark (the read-only explore agents) runs cheap; ember (the agents that write code) runs strong — you assign the routing. Mix any of 22 providers, or run local models for free.\n\nEvery prompt is a git checkpoint. Rewind the run and code and conversation rewind together — land on any earlier turn. Free compaction keeps long sessions cheap.\n\nThe same graph-powered agent wherever you work — a native desktop app, a full terminal UI, or a headless CLI in your CI pipeline. One genome, three phenotypes.\n\nNot a chat wrapper. The Genome, AST editing, full LSP + Mason (576+ servers), the task router, the time machine, and free compaction — one instrument.",
-    "readingTime": 2,
-    "keywords": [
-      "empryo reads",
-      "dependency graph",
-      "free compaction",
-      "symbol",
-      "edits",
-      "sequences",
-      "string",
-      "ranked",
-      "agent",
-      "servers"
-    ],
-    "qualityScore": 0.85,
-    "link": "https://empryo.com/",
-    "thumbnail_url": "https://empryo.com/og/home.png",
-    "created_at": "2026-07-17T01:43:48.158Z",
-    "topic": "tech"
   }
 ]
