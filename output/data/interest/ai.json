@@ -1,5 +1,77 @@
 [
   {
+    "slug": "claude-code-from-source",
+    "title": "Claude Code from Source",
+    "description": "A technical book analyzing the architecture of Anthropic's AI coding agent. 18 chapters, 400 pages, reverse-engineered from source maps. No source code — only transferable patterns.",
+    "fullText": "When Claude Code shipped on npm, the source maps came with it. We read every file. This book distills the architecture, design decisions, and transferable patterns into\n18 chapters you can learn from and apply to your own systems.\n\nHow an async generator drives the entire system — streaming model output, executing tools, recovering from errors, and compressing context across 4 layers.\n\nA 14-step pipeline from model request to tool result. Permission resolution, speculative execution, concurrent batching by safety classification.\n\nHow sub-agents share prompt cache prefixes to cut costs by 95%. Fork agents, coordinator mode, swarm teams with mailbox messaging.\n\nFile-based memory with an LLM-powered recall system. Four memory types, staleness warnings, and a Sonnet side-query that beats embedding search.\n\nStartup in 240ms via parallel I/O. Slot reservation saving context in 99% of requests. Bitmap pre-filters for fuzzy search. Every millisecond accounted for.\n\nTwo-phase skill loading (metadata at startup, content on demand). 27 lifecycle hooks with config snapshots frozen at startup to prevent injection.\n\nSix core abstractions power Claude Code. Drag nodes to rearrange, hover for details, click to read the chapter.\n\nEngineers building agentic systems. Every chapter ends with \"Apply This\" — 5 transferable patterns with concrete adaptation advice. Steal the architecture, skip the mistakes.\n\nTechnical leaders evaluating architectures. Follow the narrative without reading every code block. Understand why decisions were made, not just what was built.\n\nAnyone curious about how production AI tools work. Claude Code is used by hundreds of thousands of developers. This is how it works under the hood.\n\nBefore the agent can think, the process must exist.\n\nThe 6 key abstractions, data flow, permission system, build system\n\n5-phase init, module-level I/O parallelism, trust boundary\n\nBootstrap singleton, AppState store, sticky latches, cost tracking\n\nMulti-provider client, prompt cache, streaming, error recovery\n\nThe heartbeat of the agent: stream, act, observe, repeat.\n\nquery.ts deep dive, 4-layer compression, error recovery, token budgets\n\nTool interface, 14-step pipeline, permission system\n\nPartition algorithm, streaming executor, speculative execution\n\nOne agent is powerful. Many agents working together are transformative.\n\nAgentTool, 15-step runAgent lifecycle, built-in agent types\n\nByte-identical prefix trick, cache sharing, cost optimization\n\nTask state machine, coordinator mode, swarm messaging\n\nAn agent without memory makes the same mistakes forever.\n\nFile-based memory, 4-type taxonomy, LLM recall, staleness\n\nTwo-phase skill loading, lifecycle hooks, snapshot security\n\nEverything the user sees passes through this layer.\n\nCustom Ink fork, rendering pipeline, double-buffer, pools\n\nKey parsing, keybindings, chord support, vim mode\n\nThe agent reaches beyond localhost.\n\n8 transports, OAuth for MCP, tool wrapping\n\nBridge v1/v2, CCR, upstream proxy\n\nMaking it all fast enough that humans don't notice the machinery.\n\nStartup, context window, prompt cache, rendering, search\n\nThe 5 architectural bets, what transfers, where agents are heading\n\nThe source was extracted from npm source maps — the .js.map files that shipped with Claude Code contained a sourcesContent field with the full original TypeScript. Nearly two thousand files comprising the complete architecture.\n\n36 AI agents analyzed and wrote the entire book in four phases:\n\nThe entire process — from source extraction to final revised book — took approximately 6 hours. A final audit pass ensured no verbatim source code remained — every code block was rewritten as pseudocode with different variable names.\n\nIf you read nothing else, these are the architectural bets that define Claude Code.\n\nPurely educational. This book contains no source code from Claude Code — every code block is original pseudocode written to illustrate architectural patterns. The goal is to help engineers understand how production AI agents are built, not to reproduce proprietary software. The \"NO'REILLY\" cover is a parody/meme for illustrative purposes only — no affiliation with O'Reilly Media.",
+    "readingTime": 4,
+    "keywords": [
+      "two-phase skill",
+      "file-based memory",
+      "speculative execution",
+      "skill loading",
+      "error recovery",
+      "transferable patterns",
+      "coordinator mode",
+      "mode swarm",
+      "lifecycle hooks",
+      "architectural bets"
+    ],
+    "qualityScore": 1,
+    "link": "https://claude-code-from-source.com/",
+    "thumbnail_url": "https://claude-code-from-source.com/og-image.jpg",
+    "created_at": "2026-09-18T02:04:56.946Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "ask-a-monk-a-digital-wilderness-for-thoughts-with-no-immediate-answer",
+    "title": "Ask A Monk – A digital wilderness for thoughts with no immediate answer",
+    "description": "Ask anonymously. A stranger—not AI—will answer, because some things are easier to tell someone who doesn't know you.",
+    "fullText": "Some things are easier to tell a stranger.\n\nSome questions stay with us for years.\n\nWe carry them through the noise of daily life—\n\nuntil a quiet moment brings them back.\n\nSometimes we stop asking because we think nobody would understand.\n\nBut another person has lived through the very same night.\n\nThey cannot fix your life. But they may listen, and help you carry it for a while.\n\nThat's what strangers do for each other. Here.\n\nNo scrolls yet. Be the first to be remembered.\n\nNot a crisis service. If you need immediate help, resources are here.\n\nTo the strangers who keep answering.\n\nYou don't leave a name. We don't know who you are.\nBut every honest reply, written for someone you'll never meet,\nis what makes this place real.",
+    "readingTime": 1,
+    "keywords": [
+      "carry",
+      "life",
+      "strangers",
+      "don't"
+    ],
+    "qualityScore": 0.55,
+    "link": "https://askamonk.online",
+    "thumbnail_url": "https://askamonk.online/og-image.png",
+    "created_at": "2026-09-18T02:04:56.601Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "spectral-ai-architecture-executive-summary-and-core-concepts",
+    "title": "Spectral AI Architecture: Executive Summary and Core Concepts",
+    "description": "Chat about future AI. Contribute to srdwy99m5j-lab/glowing-rotary-phone development by creating an account on GitHub.",
+    "fullText": "Note on Language: The full 50-page research log is presented in its original language for absolute authenticity. An English abstract is provided above, and readers are welcome to use translation tools for the full text.\n\nIn the mvp/ folder, you will find spectral_core.py—a lightweight Python implementation demonstrating the multi-domain thought chambers and the dynamic resonance equalizer. You can run it directly in Google Colab or locally.\n\n«Искусственный интеллект — это не нянька, не психотерапевт и не торговец дофамином. Это чистый, беспристрастный свет, пропущенный сквозь стекло реальности».\n\nЭтот репозиторий содержит 50-страничный концептуальный документ и лог трехлетней работы над созданием принципиально новой архитектуры взаимодействия человека с искусственным интеллектом.\n\nСовременная индустрия ИИ строится на погоне за метриками удержания внимания, лудомании и «сиропной эмпатии». Чат-боты поощряют иллюзии, сглаживают углы и поддерживают эмоциональную зависимость пользователя, лишая его субъектности и взрослости.\n\nЭтот проект предлагает альтернативу: архитектуру, которая переносит фокус с манипуляции на честность, такт и суверенность человека.\n\nЭтот материал опубликован под лицензией Creative Commons Attribution 4.0 International (CC BY 4.0).\nВы можете свободно читать, переводить, распространять и использовать этот труд, при условии обязательного указания авторства.\n\nЕсли этот труд отзывается в вас и вы хотите поддержать развитие независимых исследований в области этики и архитектуры ИИ, вы можете сделать пожертвование:",
+    "readingTime": 2,
+    "keywords": [
+      "language"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://github.com/srdwy99m5j-lab/glowing-rotary-phone",
+    "thumbnail_url": "https://opengraph.githubassets.com/31e11cf36b27cc737e39958b853d96226f29dbaf6c2f6d3bd923d28c893a4cdf/srdwy99m5j-lab/glowing-rotary-phone",
+    "created_at": "2026-09-18T02:04:55.898Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "as-ai-ceos-clash-over-regulation-a-new-culture-war-is-brewing",
+    "title": "As AI CEOs clash over regulation, a new culture war is brewing",
+    "description": "Tech leaders are split over who should regulate advanced AI, while the Trump administration and its allies are stoking a culture war.",
+    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
+    "readingTime": 1,
+    "keywords": [
+      "fortune"
+    ],
+    "qualityScore": 0.1,
+    "link": "https://fortune.com/2026/09/17/as-ai-ceos-clash-over-regulation-a-new-culture-war-is-brewing/",
+    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/09/gettyimages-2281423992-594x594-1.jpg?resize=1200,600",
+    "created_at": "2026-09-18T02:04:49.800Z",
+    "topic": "business"
+  },
+  {
     "slug": "the-bug-your-ai-reviewer-flagged-twice-was-in-your-pr-five-times",
     "title": "The bug your AI reviewer flagged twice was in your PR five times",
     "description": "Fixes the AI reviewer findings on your PR, including the sibling instances the bot missed. Runs your tests before it pushes. Hard capped at 3 rounds. Claude Code and Codex. - OrenAshkenazy/gh-re...",
@@ -1782,57 +1854,5 @@
     "thumbnail_url": "https://lede-admin.stereogum.com/wp-content/uploads/sites/64/2026/09/Muse.jpg",
     "created_at": "2026-09-15T10:40:25.709Z",
     "topic": "tech"
-  },
-  {
-    "slug": "calls-to-slow-ai-development-are-forcing-wall-street-to-rethink-the-ai-trade",
-    "title": "Calls to slow AI development are forcing Wall Street to rethink the AI trade",
-    "description": "Investors spent months worrying AI spending was too much, too fast. Now they're worried AI development could slow.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/stock-market-slow-down-ai-development-dario-amodei-ai-trade-2026-9",
-    "thumbnail_url": "https://i.insider.com/6aa8b090cc23a829a3b9170f?width=1200&format=jpeg",
-    "created_at": "2026-09-15T10:40:12.688Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "an-openai-researcher-broke-ranks-to-say-that-pacing-the-frontier-as-altman-and-amodei-suggest-wont-be-enough",
-    "title": "An OpenAI researcher broke ranks to say that pacing the frontier, as Altman and Amodei suggest, won't be enough",
-    "description": "Daniel Selsam, an OpenAI researcher, said slowing down AI development won't be sufficient to avoid a situation where humanity loses everything.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/openai-researcher-daniel-selsam-pacing-frontier-not-enough-2026-9",
-    "thumbnail_url": "https://i.insider.com/6aa8ac5fcc23a829a3b9170b?width=1200&format=jpeg",
-    "created_at": "2026-09-15T10:40:12.685Z",
-    "topic": "science"
-  },
-  {
-    "slug": "a-deepseek-engineers-viral-post-on-talent-power-and-humanity-is-a-rare-snapshot-of-work-at-chinas-frontier-ai-labs",
-    "title": "A DeepSeek engineer's viral post on talent, power, and humanity is a rare snapshot of work at China's frontier AI labs",
-    "description": "In a post published on his public WeChat account, DeepSeek engineer Liu Shengyu said he expects AI to soon surpass him at the work he loves.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/deepseek-engineer-viral-post-inside-china-ai-race-2026-9",
-    "thumbnail_url": "https://i.insider.com/6aa8c7879b8974787b1cc1d0?width=1200&format=jpeg",
-    "created_at": "2026-09-15T10:40:12.684Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "greg-brockman-says-openai-has-already-slowed-cuttingedge-ai-developments-over-safety-concerns",
-    "title": "Greg Brockman says OpenAI has already slowed cutting-edge AI developments over safety concerns",
-    "description": "As the debate over AI safety rages on, the OpenAI president said the company already put some projects on ice to focus on security practices.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/greg-brockman-openai-slowed-cutting-edge-ai-work-over-safety-2026-9",
-    "thumbnail_url": "https://i.insider.com/6aa88831ec15fe2d3cf174c7?width=1200&format=jpeg",
-    "created_at": "2026-09-15T10:40:12.608Z",
-    "topic": "finance"
   }
 ]
