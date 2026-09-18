@@ -1,5 +1,18 @@
 [
   {
+    "slug": "wall-street-is-cramming-for-the-midterms-heres-a-handy-market-cheat-sheet",
+    "title": "Wall Street is cramming for the midterms. Here’s a handy market cheat sheet.",
+    "description": "Two likely 2026 midterm election outcomes could reshape health care, crypto, clean energy, and AI power. Here's the market map.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/midterm-elections-stock-market-investor-guide-democrats-house-senate-outcomes-2026-9",
+    "thumbnail_url": "https://i.insider.com/6aac94ce4a3706ac06f848da?width=1200&format=jpeg",
+    "created_at": "2026-09-18T15:25:05.642Z",
+    "topic": "finance"
+  },
+  {
     "slug": "mostroeuropa-is-now-a-trusted-mostro-community",
     "title": "MostroEuropa is now a trusted Mostro community",
     "description": "Join a Mostro community to buy and sell Bitcoin peer-to-peer without KYC. Non-custodial escrow on Lightning Network, encrypted via Nostr. Find your local community.",
@@ -1671,29 +1684,5 @@
     "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ia4bJ9hTdXWs/v1/1200x800.jpg",
     "created_at": "2026-06-18T14:45:41.617Z",
     "topic": "finance"
-  },
-  {
-    "slug": "an-opensource-dsl-for-building-fhe-apps-without-a-crypto-background",
-    "title": "An open-source DSL for building FHE apps without a crypto background",
-    "description": "Niobium FHE Client. Contribute to NiobiumInc/niobium-client development by creating an account on GitHub.",
-    "fullText": "Open-source client stack for the Niobium Mistic FHE accelerator. Whatever\nfront-end you enter through, the path is the same: your fully-homomorphic\ncomputation is recorded as an unoptimized FHETCH Polynomial IR trace\n(.fhetch), which you can replay through the bundled local simulator for\nvalidation, or submit to the Niobium compilation service for optimization and\ndeployment to hardware. All optimization logic lives server-side — this client\nstays thin, open (Apache 2.0), and self-contained.\n\nThere are four ways in, by audience:\n\nAll four converge on the same recorder and the same trace:\n\nFor the FHETCH instruction set, session API, trace format, and simulator\ninternals, see the companion repository:\nniobium-fhetch.\n\nThe combination is designed so an AI coding agent can take an application from\nprivacy model to verified encrypted pipeline in one session:\n\nThe design skill (.claude/skills/fhe-application-design,\na vendored submodule of\nfhe-application-design)\nauto-loads in Claude Code sessions in this repository. It walks the 8-stage\nmethodology — privacy model, feasibility, plaintext ground truth, scheme\nselection, circuit design, parameter selection, implementation, protocol\nspec — and its Stage 7 \"Track A\" targets the DSL below.\n\nThe nb DSL (dsl_fhe/) compiles .niob source to\nOpenFHE C++ that links this client. Trust boundaries (@client/@server,\n@encryptors(independent)) are compiler-enforced; serialization, key\ngeneration, and record/replay instrumentation are generated; encrypted-ness\nis fully structural in the type flow; every stage gets a generated\ncleartext reference twin (ground truth); and compile-time advisories\ncover Chebyshev degree selection (max_error:), depth budgets, and the\nsecurity/parameter frontier (logQ vs. ring dimension, with fixed-N headroom).\n\nSeven worked examples (simple, fetch-by-similarity, password-retrieval,\nset-membership, fraud-flag, ml-inference-fhe, fhe-NetworkMonitor) pair\nwith the skill's design references — three of them are the skill's own worked\ndesigns, implemented.\n\nYou write standard OpenFHE code and add only the niobium::compiler() calls\nto bracket the computation. The instrumented OpenFHE branch intercepts every\npolynomial operation at the probe level — you never call the FHETCH API\ndirectly.\n\nCompile & Link — Build your OpenFHE application against libnbfhetch\nand the Niobium-instrumented OpenFHE branch. Add niobium::compiler().init(),\nstart(), stop() around the computation. No changes to FHE algorithm code.\n\nExecute — Every OpenFHE polynomial operation (NTT, INTT, ADD,\nSUB, MUL, MULI, ADDI, MORPH, …) triggers a C probe\n(openfhe_cprobe_add, openfhe_cprobe_ntt, …) which records one or more\nFHETCH instructions in the trace.\n\nCapture — On compiler().stop(), the trace is finalized as a .fhetch\ntext file plus a fhetch_replay.json manifest (crypto context, modulus\nchain, key ID ranges, input/output layout).\n\nReplay (local) — compiler().replay() executes the recorded trace\nthrough the bundled FHETCH simulator; compiler().result(cc, name, ct)\nrehydrates a Ciphertext<DCRTPoly> from a probe so the rest of the\napplication (decryption, verification) continues unchanged. On a\ncache-valid run the host executes zero FHE operations — and a recorded\ntrace can be replayed with regenerated keys/inputs (changed input files\nare refreshed automatically).\n\nSubmit — Ship the trace (plus serialized inputs and metadata) to the\nNiobium compilation service, which lowers and optimizes it for the Mistic\naccelerator.\n\nPrefer not to tag by hand? niobium::compiler().enable_auto_tagging() switches\nto cooperative auto-tagging: the instrumented deserialize hooks capture the\ncrypto context, tag the eval keys, and tag each input ciphertext as your code\nloads them (this is what the DSL generates). See\ndocs/AUTO_FACADE.md.\n\nAddress layout: inputs occupy the low FHETCH address range (starting at 1;\naddress 0 is the copy sentinel), evaluation keys follow, bootstrap precompute\nplaintexts come after keys.\n\nIf you are building an FHE compiler, transpiler, or code generator, target the\nFHETCH Polynomial IR directly and let this stack be your backend:\n\nThe trace records FHETCH operation names, not hardware instructions — the\nserver-side compiler does the lowering (NTT splitting, load/store insertion,\nregister allocation).\n\nniobium-haze (vendored at\nvendor/niobium-haze) exposes a CUDA-shaped C API one level below\nOpenFHE: hazeMalloc / hazeMemcpy / hazeAdd / hazeNTT / … — each public\nentry point is a single polynomial-level IR op, recorded through the same\nlibnbfhetch core. The shape is deliberately CUDA's so GPU FHE libraries\nwritten against CUDA — for example\nFIDESlib — can be retargeted to\nNiobium hardware with minimal porting effort: swap the cuda* calls for\nhaze* calls, then hazeFlush() finalizes the trace and dispatches replay\n(local or remote) and hazeMemcpy D2H reads back reconstructed results.\n\nThe top-level Makefile builds OpenFHE (vendored at\nvendor/niobium-fhetch/vendor/openfhe), installs it under\nvendor/lib/openfhe, then builds libnbfhetch and the example binaries in\none tree.\n\nMany front-ends, one IR — the DSL, instrumented OpenFHE, direct FHETCH\nemission, and HAZE all converge on the same FHETCH Polynomial IR and the\nsame niobium::compiler() session machinery. Anything that records a valid\ntrace gets the simulator, the cache, replay-with-new-inputs, and the\ncompilation service for free.\n\nThin client by design — All optimization logic lives server-side in the\nproprietary compiler. The client only records and transmits the unoptimized\ninstruction trace, keeping the open-source surface minimal.\n\nProbe-based recording — Application code stays standard OpenFHE; C\nprobes (probes.h) in the instrumented branch fire on every polynomial\noperation and the FHETCH library translates them into trace instructions.\n\nFHETCH-level trace format — The trace uses Polynomial IR operation names\n(sr_addp, sr_ntt, mr_mulp, …), not hardware instructions; the\nserver-side compiler lowers them (NTT splitting, load/store insertion,\nregister allocation).\n\nCache + replay-with-new-data — Traces are cached by CacheParameters.\nA cache-valid run executes zero FHE operations on the host: the trace is\nreplayed with the current input files (changed inputs and keys are\nrefreshed automatically), and the recorded trace itself is never\nregenerated (test-gated, including timestamps).\n\nLocal simulator for validation — fhetch_sim replays a .fhetch file\nwith deterministic OpenFHE native math, giving a reference for what the\nhardware computes, reachable from user code via replay() + result()\nwithout leaving the OpenFHE object model.\n\nWe are actively working on a contribution policy and Contributor License\nAgreement (CLA). Until that process is in place we are not yet able to accept\nexternal contributions. If you have a bug report, a feature request, or a\nquestion, please contact us directly.\nWatch this repository to be notified when the contribution policy launches.",
-    "readingTime": 5,
-    "keywords": [
-      "ntt splitting",
-      "niobium compilation",
-      "zero fhe",
-      "fhe operations",
-      "standard openfhe",
-      "ground truth",
-      "crypto context",
-      "refreshed automatically",
-      "splitting load/store",
-      "load/store insertion"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/NiobiumInc/niobium-client",
-    "thumbnail_url": "https://opengraph.githubassets.com/a5aca7f191cba57e69516b75a7e1baf835f32e87a75d999420f935617a392c7e/NiobiumInc/niobium-client",
-    "created_at": "2026-06-18T14:45:23.350Z",
-    "topic": "tech"
   }
 ]
