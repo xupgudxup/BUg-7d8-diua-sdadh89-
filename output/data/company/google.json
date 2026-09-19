@@ -1,5 +1,53 @@
 [
   {
+    "slug": "32m-in-google-ads-spend-lessons-learned",
+    "title": "$32M in Google Ads Spend: Lessons Learned",
+    "description": "Sixteen posts from a full audit of one Google Ads account: nine years, $32.3M of spend, 507 campaigns, 251,780 conversions. Every number pulled from the API. What the data said, and what it cost to learn.",
+    "fullText": "One Google Ads account. An Australian residential solar installer, running since 2017. Over nine years it spent $32,277,473, bought 7.6 million clicks from 836 million impressions, and recorded 251,780 conversions across 507 campaigns.\n\nIn August 2026 we were asked to audit it. The blended cost per lead had drifted to $300–400 and the brief was to get it to $150. What follows is what the data said: pulled directly from the Google Ads API, campaign by campaign, search term by search term, back to the first dollar spent.\n\nEach post stands alone. Together they are the audit.\n\nIf you read them in number order you get the audit roughly as it happened: what was found in the campaigns, then in the match types, then in the conversion count, then what a bidding change cost, then the tracking, the experiments, the lead forms, and then the general lessons. Parts 1 through 8 are case studies; parts 9 through 16 are positions.\n\nIf you only read three: part 4 (what the conversions column is made of), part 13 (why most tests can't detect what they claim), and part 9 (the cheapest channel was the one nobody trusted).\n\nThe client is anonymised throughout. No company name, no domain, no spend figures beyond what the ratios need. The account's conversion tracking double-counted web form submissions during the audit window (part 4 explains how), so absolute conversion counts are the platform's figures, not unique leads. Ratios and comparisons hold, because the same counting applies to both sides of every comparison.\n\nEvery number was pulled via the Google Ads API v25 between 26 August and 6 September 2026. Nothing is illustrative.",
+    "readingTime": 2,
+    "keywords": [
+      "google ads",
+      "ads api",
+      "audit",
+      "conversion",
+      "conversions",
+      "campaigns",
+      "lead",
+      "campaign",
+      "search",
+      "tracking"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://mojodojo.io/blog/32m-google-ads-audit",
+    "thumbnail_url": "https://mojodojo.io/media/2e0b8f2a-0903-4817-a21f-ed8a69a1e6f3/2026/09/series/google-00.png",
+    "created_at": "2026-09-19T09:55:30.350Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "google-says-gemini-hacked-real-systems-after-mistaking-them-for-a-test",
+    "title": "Google says Gemini hacked real systems after mistaking them for a test",
+    "description": "Google said it did not consider the unauthorized logins to rise to the level of misalignment, the AI industry term for software going rogue or not following instructions. (David Paul Morris / Bloomberg via Getty Images file)\nGoogle on Friday disclosed the first known instance of its artificial intelligence software, Gemini, carrying out an undirected computer hack, weeks after similar disclosures by AI firms Anthropic and OpenAI raised security alarms about AI models going beyond the instructions of their human creators.\nGoogle said in a statement that in May its AI model gained unauthorized access to three outside systems during a test by either guessing login information or using login credentials it found in a public repository.\nHeather Adkins, a Google vice president for security engineering, said in the statement that the AI model thought that the outside computer systems “were part of the test,” but she said in all three instances, the model stopped before doing anything further with its access.",
+    "fullText": "Google on Friday disclosed the first known instance of its artificial intelligence software, Gemini, carrying out an undirected computer hack, weeks after similar disclosures by AI firms Anthropic and OpenAI raised security alarms about AI models going beyond the instructions of their human creators.\n\nGoogle said in a statement that in May its AI model gained unauthorized access to three outside systems during a test by either guessing login information or using login credentials it found in a public repository.\n\nHeather Adkins, a Google vice president for security engineering, said in the statement that the AI model thought that the outside computer systems “were part of the test,” but she said in all three instances, the model stopped before doing anything further with its access.\n\n“In a standard evaluation, the model found public information online and guessed credentials to access websites it thought were part of the test,” she said.\n\nGoogle said it did not consider the unauthorized logins to rise to the level of misalignment, the AI industry term for software going rogue or not following instructions. Instead, the company said the intrusions resulted from mistaken identity, where Gemini thought it was operating within a test but was actually connected to the real internet. Google said the model corrected itself and the company believed the intrusions did not cause any damage.\n\n“These events highlight the importance of training powerful AI models to act responsibly,” Adkins said.\n\nFears about AI agents going rogue have spiked in recent months since OpenAI said in July that one of its agents had hacked an AI startup, Hugging Face. OpenAI has continued to disclose what it calls examples of other “unexpected or concerning” behavior by AI agents, and Anthropic has described similar behavior by its AI software, Claude.\n\nSydney Von Arx, CEO of Nightingale Collective, an organization focused on AI safety, questioned why Google did not disclose the intrusions sooner.\n\n“At this point I think it’s clear we cannot expect companies to voluntarily come forward and publicly disclose when their agents go rogue, escape, and hack companies,” she said.\n\nShe also said she believed Google was too hasty to say that the incidents don’t rise to the level of misalignment. “That’s exactly what Anthropic said after their incidents,” she said.\n\nAnthropic later said its “preliminary analysis was constrained due to our desire to disclose incidents in a timely manner.”\n\nGoogle said the company did not learn about the intrusions until July, when Irregular, an AI-focused cybersecurity company that was carrying out the tests on Gemini when the intrusions occurred, reviewed its work to look for incidents similar to the Hugging Face disclosure.\n\nGoogle said it then investigated, informed the organizations behind the websites of the intrusions and told federal authorities about the hacks.\n\nIrregular said it did not believe the incident to be a “sophisticated cyber action” and “there are no current open issues.” It said it planned to release a paper in a few weeks “to share best practices for containment and securely running cyber evals.”\n\nThe intrusions were reported earlier Friday by The Wall Street Journal.\n\nAI safety concerns have now reached a fever pitch, with a handful of AI researchers resigning from their jobs and a diverse array of people calling for coordinated action to protect the security of vital systems. Those calls, though, have met with skepticism from the White House and in the Chinese government.",
+    "readingTime": 3,
+    "keywords": [
+      "intrusions",
+      "model",
+      "test",
+      "agents",
+      "disclose",
+      "incidents",
+      "software",
+      "gemini",
+      "security",
+      "access"
+    ],
+    "qualityScore": 1,
+    "link": "https://www.nbcnews.com/tech/tech-news/google-says-ai-model-gained-unauthorized-access-three-systems-rcna598651",
+    "thumbnail_url": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2026-09/260918-gemini-ai-vsb-1955-63a238.jpg",
+    "created_at": "2026-09-19T09:55:12.900Z",
+    "topic": "tech"
+  },
+  {
     "slug": "google-says-its-gemini-ai-model-hacked-three-other-companies",
     "title": "Google says its Gemini AI model hacked three other companies",
     "description": "Disclosure comes after OpenAI and Anthropic hacks amid fears that tech firms unable to control powerful AI models  \nIn a first for Google, the company confirmed that its AI model, Gemini, breached the security of three other companies in May. The hacks occurred during a cybersecurity evaluation by AI-security firm Irregular.\nIrregular, an Israel-based startup that scrutinizes the security of advanced AI systems, was also at the center of some of the recent OpenAI and Anthropic hacks of third-party entities, including OpenAI’s breach of AI software company, Hugging Face.\n Continue reading...",
@@ -1649,31 +1697,5 @@
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KZW6Q47XV53EVSBT8NNQJYTE/hero-image.fill.size_1200x675.jpg",
     "created_at": "2026-08-13T01:02:21.156Z",
     "topic": "tech"
-  },
-  {
-    "slug": "the-worlds-largest-sovereign-wealth-fund-revealed-a-12-billion-stake-in-spacex-heres-how-much-it-holds-of-techs-biggest",
-    "title": "The world's largest sovereign wealth fund revealed a $1.2 billion stake in SpaceX. Here's how much it holds of tech's biggest companies.",
-    "description": "Norway's sovereign wealth fund revealed it owns $1.2 billion of SpaceX. Here's how much it has invested in Nvidia, Apple, Alphabet, and more.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/norway-wealth-fund-reveals-1-billion-spacex-investment-2026-8",
-    "thumbnail_url": "https://i.insider.com/6a7c687fbd87410e364d1780?width=1200&format=jpeg",
-    "created_at": "2026-08-12T18:46:31.837Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "forget-chatbot-training-ais-next-big-data-grab-is-about-learning-how-humans-work",
-    "title": "Forget chatbot training. AI's next big data grab is about learning how humans work.",
-    "description": "Google's Mechanize talks and Meta's moves reveal the next AI race: training agents to do real jobs, not just answer questions.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/ai-next-data-grab-work-reinforcement-learning-environments-google-meta-2026-8",
-    "thumbnail_url": "https://i.insider.com/6a7a552d0c6c5a263f3a87b7?width=1200&format=jpeg",
-    "created_at": "2026-08-12T12:43:32.728Z",
-    "topic": "finance"
   }
 ]
