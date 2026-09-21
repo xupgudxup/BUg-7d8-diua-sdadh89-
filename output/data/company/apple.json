@@ -1,5 +1,29 @@
 [
   {
+    "slug": "applesauce-transparent-compression-for-apple-file-system-compression-afsc",
+    "title": "Applesauce: Transparent Compression for Apple File System Compression (AFSC)",
+    "description": "Transparent compression for Apple File System Compression (AFSC) - Dr-Emann/applesauce",
+    "fullText": "Applesauce is a command-line interface (CLI) program written in Rust that\ncompresses, decompresses, and prints information about compressed files for\nHFS+/APFS transparent compression on macOS. It is based on\nafsctool and offers several key\nimprovements, including better performance, improved multithreading (even for a\nsingle file), and reduced memory usage. Applesauce supports all three compression\nalgorithms used by HFS+/APFS: LZFSE, LZVN, and ZLIB.\n\nTo install Applesauce using Homebrew, run the following command:\n\nTo install Applesauce using Cargo, follow these steps:\n\nTo use Applesauce, run the following command:\n\nFor example, to compress a file named example.txt using the ZLIB compression algorithm, you would run:\n\nApplesauce has the following key features:\n\nApplesauce supports three compression algorithms:\n\nApplesauce defaults to using LZFSE compression.\nDepending on the type of data being compressed and the desired balance between\ncompression ratio and speed, one of these algorithms may be more suitable than\nthe others.\n\nApplesauce is based on afsctool, but offers several key improvements, including:\n\nafcstool can compress multiple files in parallel, but applesauce parallelizes at\nthe block level, so even a single file can be compressed in parallel. Applesauce\ncan often be several times faster than afsctool, especially for small numbers of\nlarge files.\n\nafcstool will load the entire file into memory before compressing it\n(although it does attempt to use mmap for large files). Applesauce will only\nkeep the block(s) currently being compressed in memory.\n\nApplesauce outputs a pretty progress bar while it's working, providing a more\nuser-friendly experience than afsctool's sparse output.\n\nafsctool will compress a file which fits in the xattr after compression, even\nif doing so actually adds more overhead than leaving the file uncompressed.\nApplesauce will not compress a file if it would result in a larger file.\n\nafcstool overwrites files in place. Although it attempts to restore the file\nif an error occurs, if it is forcefully terminated while compressing a file,\nthe file may be left in an invalid state.\n\nApplesauce compresses/decompresses files to a temporary file and then atomically\nrenames the temporary file to the original file only when the operation is\ncomplete: the file is never left in an invalid state, even if the program is\nharshly terminated.\n\nThis is no replacement for backups: please do not use applesauce on files you\ncannot afford to lose.\n\nApplesauce is licensed under the GNU General Public License version 3 (GPLv3).\n\nContributions to Applesauce are welcome! If you would like to contribute code,\nplease open a pull request on the GitHub repository. If you find a bug or have\na feature request, please open an issue on the repository.",
+    "readingTime": 3,
+    "keywords": [
+      "following command",
+      "applesauce supports",
+      "install applesauce",
+      "compression algorithms",
+      "temporary file",
+      "compress file",
+      "files",
+      "compressed",
+      "afsctool",
+      "memory"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/Dr-Emann/applesauce",
+    "thumbnail_url": "https://opengraph.githubassets.com/e07b52cf23680a40cf3e49d93bb56d00d05bef6fdef883dd1ae8b6b01b9067dd/Dr-Emann/applesauce",
+    "created_at": "2026-09-21T02:15:37.208Z",
+    "topic": "tech"
+  },
+  {
     "slug": "apples-cook-calls-australias-social-media-curbs-worldleading-pm-says",
     "title": "Apple’s Cook calls Australia’s social media curbs ‘world-leading,’ PM says",
     "description": null,
@@ -1753,19 +1777,6 @@
     "link": "https://www.investing.com/news/stock-market-news/5-big-analyst-ai-moves-apple-upgraded-on-foldable-iphone-push-new-ai-strategy-4872396",
     "thumbnail_url": "https://content-media.investing.com/news/moved_LYNXMPEM7D146_L.jpg",
     "created_at": "2026-08-23T06:22:31.168Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "will-apples-risk-appetite-change-under-john-ternus",
-    "title": "Will Apple’s risk appetite change under John Ternus?",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/will-apples-risk-appetite-change-under-john-ternus-4872375",
-    "thumbnail_url": "https://content-media.investing.com/news/moved_LYNXMPEK8O0ML_L.jpg",
-    "created_at": "2026-08-22T18:14:17.460Z",
     "topic": "finance"
   }
 ]
