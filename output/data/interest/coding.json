@@ -1,5 +1,29 @@
 [
   {
+    "slug": "reverse-jev-ending-a-turn-with-a-choice",
+    "title": "Reverse Jev: Ending a Turn with a Choice",
+    "description": "When coding agent finishes a turn, see list of decisions instead of wall of text.",
+    "fullText": "After: Look at bottom for quick info and action\n\nWhen a coding agent finishes a turn, it hands control back to you (the handoff), by writing a report saying what it did, what it fixed, what it found, some unrelated things it uncovered. Buried in that wall of text are the decisions you have to make: whether to commit or keep going, whether to run the tests now or after the next change, and whether the flag it raised halfway through matters. You read the paragraph to find them, then you type “continue”.\n\nThe agent already framed the options in sentences, but it sends them as prose you must parse, decide on, and reply to before any of them can happen. You do the parsing and the typing for a decision the agent had already framed.\n\nThe standard remedy aims at length. Claude Code includes one itself: an output style called Concise, added in version 2.1.237 and described in the product as making Claude “respond tersely, leading with results and skipping preamble and narration”. Around it sits a layer of rules in the per-project instruction files (CLAUDE.md files) telling the agent to skip padding, recaps, and explanations of what it is about to do. A number of community-written instruction packs (skills) compress the wording further.\n\nThey do what they say and the output gets shorter. What they leave unchanged is the shape of the output: prose you must read to find the decisions, now in a smaller paragraph, with the detail you needed in order to decide compressed out. Shorter output removes the detail that makes a handoff usable.\n\nAt the moment the agent hands control back to you, its output does not need to be prose. The agent knows the two or three things that could reasonably happen next, and what it needs from you is a choice between them. Claude Code already has the built-in question tool for that (AskUserQuestion), which draws a card of labeled options you pick with one key, with free text always available.\n\nSo how about to have the rule: a turn that changed something ends with a short report — one headline sentence carrying the material fact, bullets for what changed, a line saying how it was verified — and then a card of two to four options for user to quickly select. Agent gives user list of options, user pics most relevant - reverse Jev!\n\nTypeSafe AI made a version of this argument when they launched Jev, a model that does not generate text at all: you send it a question and a schema, and it returns a typed decision your software can act on directly. Their case is that when the answer is a choice, generating prose around it is wasted work for everyone downstream. That holds just as well at the other end of the conversation, where it is the agent asking you for the decision, so the only difference is who is being asked.\n\nYou can tell an agent to end its turns with a question and it will for a while. Then a context compaction, where Claude Code summarizes the transcript to free space, drops the instruction, or a long turn crowds it out, and the agent goes back to paragraphs. No step detects the missing question because no step reads the transcript for it. This is the usual result when a behavior depends only on prompt text.\n\nWhat’s Next, the whats-next@kvit plugin, hooks to Claude Code events to enforce the rule: a turn that changed something ends with question tool.\n\nThe obvious objection to a plugin that can block your agent is that it might keep blocking. This one blocks at most twice per prompt, well inside Claude Code’s own ceiling of eight, and it does not block while background tasks are still running. Faults in a card you have already answered — a header too long to fit, an option with no description, no way to stop — do not block at all, because sending the agent back would only redraw a better-formatted card for a question you have answered, so those print as a note and the turn ends.\n\nI implemented this as whats-next@kvit plugin and run it on my own work for about a week. As a result I no longer swear at Claude for incomprehensible reports with jargons and awkward lingo! The flow is much smoother with much more clear and easy transitioning to next turn. I now wouldn’t use Claude Code without the plugin - I feel it would give up too much without it.\n\nOne irritation remains and I have not fixed it. I often find the question card on its own is not enough to decide from. Each option gets a short label and a short description, and the tool that draws it has nowhere to put the reasoning behind the choice, so I read the options, cannot tell which is right, and scroll back into the report. That is the cost of building on a general-purpose question tool. AskUserQuestion was made for an agent to ask a factual question, without a place to attach the evidence behind each option.\n\nI have implemented different type of tool within my own coding agent with philosophy that I don’t want to see unstructured wall of text report from agent, agent is allowed to use only specific set of blocks types in final report and my harness supplies ui to render it with hiddent by revealable details. You can check it out here kvit-coder, and this plugin is the part of that idea that can run inside Claude Code today.\n\nThe next session starts with the rule in force, and uninstalling removes it; there is no style to select and nothing left behind. A project can switch it off in its own directory with { \"env\": { \"REPORT_GATE\": \"off\" } } in .claude/settings.json.\n\nIt uses only the Python standard library and needs Python 3.8 or later. On Windows it needs Git Bash, because the hook shim is a bash script — the same requirement Anthropic’s own security-guidance plugin has. There is also a Gemini CLI and Codex CLI extensions in the repository.\n\nNone of this is about a plugin. The handoff at the end of a turn is a place where an agent has already framed the decision and then sends it as prose you must parse again, and that is worth fixing wherever it happens — in a plugin, in an editor, or in whatever tool you use next.\n\nThe code is at kvitapp/kvit-plugins, MIT licensed.",
+    "readingTime": 6,
+    "keywords": [
+      "inside claude",
+      "claude code",
+      "whats-next@kvit plugin",
+      "coding agent",
+      "tool",
+      "back",
+      "text",
+      "options",
+      "prose",
+      "output"
+    ],
+    "qualityScore": 1,
+    "link": "https://blog.kvit.app/posts/ending-a-turn-with-a-choice/",
+    "thumbnail_url": "https://blog.kvit.app/images/og-default.png",
+    "created_at": "2026-09-22T20:38:56.655Z",
+    "topic": "tech"
+  },
+  {
     "slug": "an-engineers-viral-post-captures-the-soulcrushing-downside-of-ai-coding",
     "title": "An engineer's viral post captures the soul-crushing downside of AI coding",
     "description": "A software engineer said AI is doing so much coding in his new job that it has become \"soul-sucking,\" prompting responses from figures like Elon Musk.",
@@ -1953,23 +1977,6 @@
     "link": "https://duely-44998.bubbleapps.io/",
     "thumbnail_url": "https://8ec0cd4dce6d3bf40848990f1a09996e.cdn.bubble.io/cdn-cgi/image/w=,h=,f=auto,dpr=1,fit=contain/f1673991650471x907829260206606500/URL%20Preview%20Image%20%E2%80%93%20Meta%20%E2%80%93%20Tagline.png",
     "created_at": "2026-07-20T13:47:11.318Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "lean-programming-language",
-    "title": "Lean Programming Language",
-    "description": "Lean is an open-source programming language and proof assistant that enables correct, maintainable, and formally verified code.",
-    "fullText": "\"\n Lean enables large-scale collaboration by allowing mathematicians to break down complex proofs into smaller, verifiable components. This formalization process ensures the correctness of proofs and facilitates contributions from a broader community. With Lean, we are beginning to see how AI can accelerate the formalization of mathematics, opening up new possibilities for research.\n\n Terence Tao\n\n Mathematician, UCLA",
-    "readingTime": 1,
-    "keywords": [
-      "proofs",
-      "formalization",
-      "lean"
-    ],
-    "qualityScore": 0.3,
-    "link": "https://lean-lang.org/",
-    "thumbnail_url": "https://lean-lang.org/static/png/banner.png",
-    "created_at": "2026-07-19T07:57:53.595Z",
     "topic": "tech"
   }
 ]
