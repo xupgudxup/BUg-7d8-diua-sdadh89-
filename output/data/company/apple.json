@@ -1,5 +1,53 @@
 [
   {
+    "slug": "lensvlm9b-by-apple",
+    "title": "LensVLM-9B by Apple",
+    "description": "Join the discussion on this paper page",
+    "fullText": "Vision-Language Models can process text as rendered images, but accuracy degrades with compression; LensVLM addresses this by scanning compressed images and selectively expanding relevant parts through learned tools, maintaining high accuracy even at high compression ratios.\n\nVision Language Models (VLMs) offer the exciting possibility of processing text as rendered images, bypassing the need for tokenizing the text into long token sequences. Since VLM image encoders map fixed-size images to a fixed number of visual tokens, varying rendering resolution provides a fine-grained compression knob. However, accuracy deteriorates quickly as compression increases: characters shrink below the vision encoder's effective resolution, making them indistinguishable. To address this, we propose LensVLM, an inference framework and post-training recipe that enables VLMs to scan compressed images, then selectively expand only the relevant images to their uncompressed form via learned tools. Building on Qwen3.5-9B-Base, LensVLM maintains accuracy comparable to the full-text upper bound at 4.3x effective compression and outperforms retrieval-based, text- and visual-compression baselines up to 10.1x effective compression across seven text QA benchmarks. LensVLM also generalizes to multimodal document and code understanding tasks, with the accuracy gain over baselines growing as compression increases. Our analysis validates this approach: training makes visual compression robust to rendering choices, and as compression grows the model increasingly relies on expanded content rather than unreliable visual reading. The analysis also yields practical tool-choice guidance: text expansion is preferable for rendered text, while high-resolution image expansion suits native documents whose layout cues carry task-relevant information.\n\nNo Collection including this paper",
+    "readingTime": 2,
+    "keywords": [
+      "learned tools",
+      "compressed images",
+      "rendered images",
+      "compression increases",
+      "text",
+      "accuracy",
+      "visual",
+      "selectively",
+      "relevant",
+      "rendering"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://huggingface.co/papers/2605.07019",
+    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2605.07019/gradient.png",
+    "created_at": "2026-09-23T20:50:02.732Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "apple-intelligence-is-taking-up-way-more-storage-than-apple-promised-on-these-devices",
+    "title": "Apple Intelligence Is Taking Up Way More Storage Than Apple Promised on These Devices",
+    "description": "If you updated to iOS 27 or macOS 27, check your storage.",
+    "fullText": "Apple's latest updates are all about AI—Apple Intelligence, that is. When you update to iOS 27 and macOS 27 Golden Gate, Apple will invite you to try Siri AI and other new Apple Intelligence features. (Assuming your iPhone supports Apple's AI features.) But whether you use the new AI-powered Siri all the time or find yourself frequently scrolling past the AI additions, Apple Intelligence is taking up space on your device—perhaps requiring more storage than you bargained for.\n\nI'll admit, I didn't think much of it when I updated my iPhone and Mac to the latest versions. I gave Siri AI a shot, adjusted Liquid Glass, and went back to doing pretty much the same things I was doing before I made the update. But once I saw headlines about how much storage Apple Intelligence actually takes up on these new updates, I had to see for myself. And, wow, were the headlines right: On my iPhone 17 Pro, Apple Intelligence alone takes up 20.65GB. On my M3 MacBook Pro, it takes up a solid 30GB.\n\nThese numbers will vary by device: My M1 iMac, for example, only has 13.88GB allocated to Apple Intelligence. But still, these are large slices of my overall storage. Anyone with a small SSD knows how valuable each gigabyte really is, and upwards of 30GB for Apple Intelligence is a lot. Not only that, it's often more space than Apple's own metrics suggest: As MacRumors highlights, Apple says that Apple Intelligence should only take up to 14GB of storage at most, and even less for certain devices. So why is my MacBook Pro allocating more than double that space for Apple's AI?\n\nI can't answer why Apple Intelligence is taking up so much more storage space than Apple says it should. But I can explain why Apple says its AI is supposed to occupy as much as 14GB on certain devices: Apple Intelligence is designed to run on-device whenever possible. While Apple does push certain tasks to its Private Cloud Compute platform, the company wants its AI models to run on your iPhone or Mac whenever possible. This safeguards your privacy, as none of your data has to leave your device to achieve the task—though Apple says Private Cloud Compute also protects your privacy throughout the entire process.\n\nRegardless, for this reason, your iPhone or Mac will download Apple Intelligence models directly onto your device, so it can run processes on-device when it makes sense to do so. If you have a newer or more powerful device that supports Apple's more demanding AI features, like personalized Siri voices, you may need to store more Apple Intelligence data on-device to run those processes—up to 14GB for certain devices—yet it's not clear why Apple Intelligence takes up more than double that storage limit on some devices, like my MacBook Pro.\n\nIt's easy to check how much storage Apple Intelligence is taking up on your device, though Apple doesn't make it obvious. To start, head to System Settings > General > Storage (macOS) or Settings > General > iPhone Storage (iOS). Scroll down and choose either \"macOS (i)\" or \"iOS,\" respectively. Here, you'll see your system storage breakdown, including a figure for \"Apple Intelligence.\"\n\nUnfortunately, there doesn't appear to be a way to tell iOS or macOS to remove some Apple Intelligence models while leaving others intact, or to run all processes through Private Cloud Compute. In fact, it doesn't seem like there is any reliable way to disable Apple Intelligence on a device running iOS 27 or macOS 27 at all. The closest option I can find is to disable Siri (Settings or System Settings > Siri > Turn Off Siri), but while this disables a host of Apple Intelligence options, I still see the models taking up storage on my device, even after a restart. This might be one for Apple to fix in a future software update—hopefully as part of iOS 27.2.",
+    "readingTime": 4,
+    "keywords": [
+      "apple intelligence",
+      "cloud compute",
+      "supports apple's",
+      "system settings",
+      "intelligence models",
+      "private cloud compute",
+      "storage apple",
+      "siri ai",
+      "macbook pro",
+      "device"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/if-you-updated-to-ios-27-or-macos-golden-gate-check-your-storage?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01M37TKQ54WW3E219480GAP3J3/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-09-23T20:49:40.014Z",
+    "topic": "tech"
+  },
+  {
     "slug": "the-best-iphone-18-pro-max-deals-for-upgrading-to-apples-strongest-device-yet",
     "title": "The best iPhone 18 Pro Max deals for upgrading to Apple's strongest device yet",
     "description": "You don't need to shell out for Apple's latest and greatest. Here's how to save on the iPhone 18 Pro Max with freebies, trade-in offers, and more.",
@@ -1739,36 +1787,5 @@
     "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/0f64604105c63935798767e96a112bd34d57a56a6463a64fb1f93ec1eb0f72d0/lightyear_networkapi/resizefill_w800_h533%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Freuters.com%2F3d7caab7afa1670386e27932aaa6bbd2.jpg",
     "created_at": "2026-08-31T22:10:22.815Z",
     "topic": "politic"
-  },
-  {
-    "slug": "us-iran-exchange-attacks-apples-changing-of-the-guard-the-pulse-8312026",
-    "title": "US, Iran Exchange Attacks, Apple's Changing of the Guard | The Pulse 8/31/2026",
-    "description": "\"The Pulse With Francine Lacqua\" is all about conversations with high profile guests in the beating heart of global business, economics, finance and politics. Based in London, we go wherever the story is, bringing you exclusive interviews and market-moving scoops.",
-    "fullText": "Aug 31st, 2026US, Iran Exchange Attacks, Apple's Changing of the Guard | The Pulse 8/31/2026\"The Pulse With Francine Lacqua\" is all about conversations with high profile guests in the beating heart of global business, economics, finance and politics. Based in London, we go wherever the story is, bringing you exclusive interviews and market-moving scoops.\n\nToday's guests: Bjoern Griesbach, Allianz Investment Management Head of Macroeconomic and Capital Market Research; James Kisner, Water Tower Research Technology Research Analyst. Available on:Listen onApple TVListen onRokuListen onSamsung TVListen onFire TVListen onAndroid TVListen onRakuten TVListen onHaystack NewsWatch BTV in your area:Channel Finder",
-    "readingTime": 1,
-    "keywords": [
-      "tvlisten",
-      "research",
-      "pulse",
-      "guests"
-    ],
-    "qualityScore": 0.25,
-    "link": "https://www.bloomberg.com/news/videos/2026-08-31/the-pulse-8-31-2026-video",
-    "thumbnail_url": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i7xutMa.htfM/v3/-1x-1.webp",
-    "created_at": "2026-08-31T12:06:43.261Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "apple-tv-hikes-prices-on-its-monthly-and-annual-plans",
-    "title": "Apple TV hikes prices on its monthly and annual plans",
-    "description": "The latest streaming service price hike comes from Apple TV.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/guides/streaming/apple-tv-price-hike-2026-8",
-    "thumbnail_url": "https://i.insider.com/6a91b6de45e6f385a516a564?width=1200&format=jpeg",
-    "created_at": "2026-08-29T01:18:09.188Z",
-    "topic": "finance"
   }
 ]
