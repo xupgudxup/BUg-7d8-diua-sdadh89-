@@ -1,5 +1,29 @@
 [
   {
+    "slug": "graph-technology-roundup-august-2026",
+    "title": "Graph Technology Roundup – August 2026",
+    "description": "The first in a series on the graph database ecosystem: a rush of new engines, LadybugDB's steady climb, DuckDB's graph moment, and Postgres 19 dropping property-graph support.",
+    "fullText": "The first in a series on the graph database ecosystem: a rush of new engines, LadybugDB's steady climb, DuckDB's graph moment, and Postgres 19 dropping property-graph support.\n\nSeptember 17, 2026 Christian Miles\n\nSince starting the rankings in May we’ve seen some interesting changes and additions to the space. This is the first in a series of posts highlighting aspects of the ecosystem you may have missed.\n\nGDB-Engines is the only resource online dedicated to tracking the facts and popularity of the graph database ecosystem. The core data is Open Source (PRs welcome!) and then augmented with our proprietary ranking analysis every month. This ranking is built from a blend of signals across the web to get a unique perspective on the key players in graph today.\n\nSince starting the rankings the most obvious trend we’ve noticed is the explosion of folks building their own graph databases. It’s clear that the adoption and interest in AI tooling and knowledge infrastructures is directly influencing the graph landscape.\n\nA common complaint we hear is “none of the databases out there were suitable for our needs” so folks make the jump to just building something themselves.\n\nWhether this Snowflake mentality (not that Snowflake. And not like that) is the starting point for successful technology creation remains to be seen. Are they scratching their own itch with a tightly-scoped tool that does the job, or are these projects destined to be mothballed once the buzz from the LinkedIn announcement fades?\n\nWe also suspect the dominance of Neo4j in the graph ecosystem means that LLMs like ChatGPT and Claude are extremely familiar with the database and talking points. We suspect decades of folks discussing scaling needs and realities has been baked into the weights in a way that makes the models very comfortable with the idea of building your own Neo4j from scratch.\n\nGDB-Engines was always intended to be exhaustive so we include any new database in good faith but will be assessing the activity and adoption of each to make sure we prune any abandoned or deprecated projects.\n\nAnd the shape of these new entries is telling: six of the nine databases added this month are embedded, extensions or libraries. The new work is graph-as-a-feature, not graph-as-a-database.\n\nWe’ve heard from a few GDB fans that it’s been interesting to watch the steady rise of LadybugDB in the rankings. For the unfamiliar, LadybugDB is the de facto successor to KuzuDB after the project was deprecated following the acquisition by Apple last year. Arun Sharma has been relentlessly maintaining and innovating with the codebase, whilst tirelessly advocating for the use of Ladybug for modern AI workloads.\n\nIt’s therefore not surprising to see LadybugDB rise 3 places this month to #8 in the overall ranking.\n\nSharma’s a busy guy, here are three of his recent innovative projects building on Ladybug’s success:\n\nDuckLabs (the company behind DuckDB) was acquired by AWS in August and we’ve seen an uptick in new graph projects based on the popular tooling. Duck RDF from Dan Bennett (S&P Global) and DuckGQL from Rahul Iyer (AWS) join the DuckPGQ community extension to give even more options for sticking with DuckDB for your graph workloads.\n\nAs the name suggests, DuckGQL leads with GQL as its query language - the Q, we can only assume, is for Quacking. And GQL is having a moment: the ISO standard now counts 18 engines on the board. Vendors like Ultipa are repositioning around it, and we expect AI coding assistants - which reach for well-documented standards over bespoke syntax - to push more teams the same way.\n\nGet your product in front of thousands of high-intent technology specialists. Reach out to inquire about sponsoring GDB-Engines as we cover the graph technology landscape.\n\nAfter lots of chatter and excitement for the inclusion of Property Graph support in Postgres 19, it appears that this has been dropped due to testing and quality concerns.\n\nWe added PostgreSQL SQL/PGQ to GDB-Engines in March to track the imminent release but looks like we’ll have to put this on ice. As an aside, it’s interesting that the news of the non-release of the feature appears to have been broken by an AI bot writing articles by hoovering up conversations from the pgsql-hackers mailing list. Whilst unsurprising, it’s a change that’s likely to influence the communication style of contributors, perhaps others will be less open with their announcements with the potential of a bot spinning professional communications into Breaking News.\n\nWe launched a new ranking last month for PostgreSQL graph extensions. Apache AGE remains at the top of the pack this month – this makes sense as it’s a solid project with years of use and support.\n\nSome things about the graph landscape appear to be set in stone: Neo4j is sitting pretty at the top of the ranking and doesn’t appear to be threatened by any of the upstart AI approaches to building a graph backend. But the rest of the ranking is illuminating to see shift and develop over time. Interest in DuckDB, embedded architectures and the steady increase in standards adoption all show up as part of the story for GDB-Engines in August.",
+    "readingTime": 5,
+    "keywords": [
+      "database ecosystem",
+      "graph landscape",
+      "ranking",
+      "it’s",
+      "gdb-engines",
+      "we’ve",
+      "projects",
+      "steady",
+      "rankings",
+      "interesting"
+    ],
+    "qualityScore": 1,
+    "link": "https://gdb-engines.com/blog/graph-technology-august-round-up/",
+    "thumbnail_url": "https://gdb-engines.com/og/blog/graph-technology-august-round-up.png",
+    "created_at": "2026-09-24T02:07:22.119Z",
+    "topic": "tech"
+  },
+  {
     "slug": "ai-leaders-warn-un-of-risks-to-humanity-from-the-technology-they-are-building",
     "title": "AI leaders warn U.N. of risks to humanity from the technology they are building",
     "description": "— The heads of major artificial intelligence firms pleaded with the United Nations on Wednesday to set controls over the burgeoning technology they are designing in order to save the world — or, at least, its people.\n“If managed poorly, I even believe AI could be a risk to humanity as a whole,” said Dario Amodei, the chief executive officer of Anthropic.\n“We could lose control of the future to AI,” said his competitor, Sam Altman, CEO of OpenAI.\nBoth said the countries of the world, though the U.N.",
@@ -1945,18 +1969,5 @@
     "thumbnail_url": "https://i.guim.co.uk/img/media/092980621b33770617e1cd5770cc6ae9ff39734f/121_0_4680_3744/master/4680.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=fe080bded9affa57b8f2572da32c432f",
     "created_at": "2026-08-20T18:23:16.830Z",
     "topic": "tech"
-  },
-  {
-    "slug": "netsol-technologies-at-microcap-virtual-conference-saas-shift-gains-pace",
-    "title": "NetSol Technologies at Micro-Cap Virtual Conference: SaaS shift gains pace",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/transcripts/netsol-technologies-at-microcap-virtual-conference-saas-shift-gains-pace-93CH-4870289",
-    "thumbnail_url": "https://content-media.investing.com/news/moved_LYNXMPEM3S10Z_1200_L.jpg",
-    "created_at": "2026-08-20T18:22:50.612Z",
-    "topic": "finance"
   }
 ]
