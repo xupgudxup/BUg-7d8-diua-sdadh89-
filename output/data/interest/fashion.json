@@ -1,5 +1,29 @@
 [
   {
+    "slug": "ephemeral-runner-for-jevstyle-models",
+    "title": "Ephemeral runner for JEV-style models",
+    "description": "zero-shot classifier models gateway and runner. Contribute to Partysun/jigor development by creating an account on GitHub.",
+    "fullText": "This is a zero-shot classifier models gateway or runner.\n\nOr, if you prefer marketing terms, \"System one decision\" models.\n\nThis is written in Rust (blazing fast as it should be), one wire protocol across\nbackends: von and laya run locally as ONNX (via ort); jev runs remotely on\nOpenRouter's Decisions API.\n\nYou can install it via npm, pip, or cargo. Is it enough? If not -> subscribe\n\nYou can use ephemeral execution with npx or uvx.\n\nIf you have OPENROUTER_API_KEY in your env, you can easily run this from your terminal and get a quick response.\n\nFeel free to use it with your agents. This README.md is enough to teach them how to use it.\n\nOne dependency, one entry per backend — noul/choice/score questions\nin, typed answers out. Identical on von, laya and any OpenRouter model.\n\nOnly have a model id? jigor::ask resolves aliases and the provider for you:\n\nErrors are one type — jigor::Error (carried by\njigor::Result<T>): UnknownModel/MissingApiKey/Remote for\nrouting and OpenRouter responses, Wire/MissingAnswer/MissingAnswers\nfor malformed question/answer payloads, Serialization for JSON text,\nExternal/Internal for everything else. No foreign error type ever\nleaks out of the library.\n\nThe local ONNX models (von, laya) download to ~/.cache/huggingface on\nfirst use.\n\nSet OPENROUTER_API_KEY for the remote jev backend.\n\nSet JIGOR_DEVICE=cuda to try CUDA EP\n(ort cuda feature, falls back to CPU if unavailable).\n\nThe gateway mirrors the library: noul/choice/score questions in, typed\nanswers out — von/laya locally, anything else routed to the OpenRouter\nbackend selected by the model field:\n\nRoute by provider + model pair — typesafe/jev-1.13 (alias jev) and\njaredpalmer/kev-4b (alias kev) go to OpenRouter, von-1.0.0 (alias von)\nstays local; unknown pairs are rejected.\nResponses from the OpenRouter backend add usage (tokens + cost in USD) next\nto answers, so each /v1/systemone call reports what it cost.\n\nAlso: GET /healthz returns {\"status\":\"ok\"}.\n\nexamples/tweet.rs is a complete Tweet Tester written only against the lib\nAPI — it demonstrates how to build a Jev-style tool on top of\nnoul/choice/score questions through one answers interface. All\ntweet-specific code lives in the example:\n\nThe example resolves the backend by model, exactly like jigor ask: --model von (default, local ONNX), --model jev (OpenRouter) or any other alias.\nThe 61-question bank, score, radar and counters are identical across\nbackends, so you can compare the same tweet side by side:\n\nFor the milestone tweet the outputs line up: von gives 53/100 (conservative,\nCRAFT 35%), jev gives 63/100 (CRAFT 73%). Scores across backends are not\ncalibrated to each other, but the shape is directly comparable.\n\nFamily fired is the \"X% of its questions fired\" radar value. The engagement\ncounters (multiples, p75/p90, probabilities) and the effect coefficients\nare transparent placeholders for a fitted engagement model — tune the\nweights in the example's counter_json/counter_multiple once you have\npaired data. Von is a general decision model, so scores are a signal, not a\nforecast; fitting an engagement model on the same answers is the calibration\nstep.\n\nQuestion builders: choice takes plain option strings (each is both key and\ndescription), choice_pairs takes (key, description) pairs, score takes\nordered level texts, noul a plain instruction — and all three kinds mix\nfreely in one answers call.\n\nexamples/tagger.rs shows a choice workflow: given a note and a list of\nexisting tags, one question — \"Which tag best matches the content of this\nnote?\" — picks the best tag (or the None of these fit well fallback) with a\nprobability distribution. Also runs on either backend via --model/--provider.\n\nRequires hurl and the local ONNX model (downloaded on\nfirst run). Wire fixtures live in tests/fixtures/ (the OpenRouter Decisions\nrequest/response payloads are the reference for the wire format).\n\nYou can subscribe.\nI will not spam you, but 100% will share my work with you sometimes. I am lazy, don't worry too much.",
+    "readingTime": 4,
+    "keywords": [
+      "across backends",
+      "openrouter backend",
+      "onnx model",
+      "von laya",
+      "engagement model",
+      "alias",
+      "models",
+      "wire",
+      "noul/choice/score",
+      "gateway"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/Partysun/jigor",
+    "thumbnail_url": "https://opengraph.githubassets.com/019582a2ffb5f7aeafba5277fa6e6549dc845909c3de777927c5de538fda1437/Partysun/jigor",
+    "created_at": "2026-09-26T15:21:16.197Z",
+    "topic": "tech"
+  },
+  {
     "slug": "trumps-state-dinner-for-xi-features-sea-bass-and-a-long-list-of-tech-titans",
     "title": "Trump's state dinner for Xi features sea bass and a long list of tech titans",
     "description": "— A tech-heavy guest list, the fashion choices of those on it, who sat where and what was on the menu marked the softer — often and glitzier — details of diplomacy as Donald Trump threw a Thursday night state dinner honoring China’s leader Xi Jinping. \nThe event featured a cavalcade of billionaires, Washington powerbrokers, business leaders and the type of festivities that most excite Trump, who has a reputation for reveling in hosting parties.\n“President Xi and I both understand we represent different systems, but the ties between our people endure, and we’ve never gotten along better,” Trump said during his toast, adding that “together, we can continue to build a relationship that promotes prosperity and security for future generations.”\nTrump has done his best to impress Xi during China's leader's during Xi's three-day visit to Washington, and praised their close personal relationship — even as he has decried top Democratic candidates as “communists” ahead of the November midterm elections. \nXi and Trump discussed tensions over Taiwan, trade and artificial intelligence during business hours — even as an ongoing First Amendment fight over press access at the White House has unfolded.",
@@ -1908,30 +1932,6 @@
     "link": "https://www.bbc.co.uk/sport/football/articles/cglj1zz5g92o?at_medium=RSS&at_campaign=rss",
     "thumbnail_url": "https://ichef.bbci.co.uk/ace/branded_sport/1200/cpsprodpb/66b1/live/4bfa7ae0-8e5f-11f1-8e9e-b531e03c09f9.jpg",
     "created_at": "2026-08-03T09:19:17.409Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "yankee-austin-wells-pays-ingame-tribute-on-anniversary-of-munsons-passing",
-    "title": "Yankee’ Austin Wells pays in-game tribute on anniversary of Munson’s passing",
-    "description": "Catcher Austin Wells pays tribute to late Yankees legend Thurman Munson by wearing vintage-style equipment on anniversary of his death",
-    "fullText": "Yankee’ Austin Wells pays in-game tribute on anniversary of Munson’s passing appeared first on ClutchPoints. \n\nThe New York Yankees were able to come through with an important and well-pitched 2-1 victory over the Chicago Cubs Sunday at Wrigley Field. That gave the Yankees a series victory over the Cubs as they were victorious in 2 of 3 games.\n\nA special tribute by @wellsius16 #RepBX https://t.co/5oDlhT9kbE pic.twitter.com/IbqOpkxDRa\n\n— New York Yankees (@Yankees) August 2, 2026\n\nWatch sports LIVE with fuboTV (free trial)\n\nYankees catcher Austin Wells was behind the plate for the Yankees with ace pitcher Gerrit Cole on the mound. A look at Wells’ catcher’s equipment brought many raised eyebrows, because it did not have the modern appearance of so many at the position in the 2025 season. Instead, it was a throwback and an homage to Thurman Munson, the Yankees’ late and legendary catcher.\n\nMunson was the captain of the Yankees and played a key role on the World Series championship teams of 1977 and ’78. However, he was tragically killed Aug. 2, 1979 when the small plane he was piloting crashed. While Munson has been gone for 47 years, his memory and his impact on the Yankees franchise remains strong. Wells’ paid tribute to Munson with the equipment that he wore against the Cubs.\n\nMunson caught for the Yankees from 1969 through 1979. He was a seven-time All-Star in his career. He had a career batting average of .292 and he drove in 100 runs or more three times. While he is not in the Hall of Fame, many believe he deserves to be in the shrine.\n\nMore than the numbers, Munson is remembered for the fire he had behind the plate and his willingness to lead the Yankees into battle. He was always willing to block the plate and take the abuse of a runner crashing into him if it meant preventing a run from scoring.\n\nHe is remembered today as one of the team’s legends, and Wells was not about to let the anniversary of his death go without his tribute.",
-    "readingTime": 2,
-    "keywords": [
-      "york yankees",
-      "tribute",
-      "plate",
-      "anniversary",
-      "victory",
-      "catcher",
-      "behind",
-      "equipment",
-      "career",
-      "munson"
-    ],
-    "qualityScore": 0.95,
-    "link": "https://sports.yahoo.com/articles/yankee-austin-wells-pays-game-011744022.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/kxAetwc5yD_qWB9R_E2uDw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU7Y2Y9d2VicA--/https://media.zenfs.com/en/clutchpoints_articles_939/8faf8a795b65399a3fa657973990848b",
-    "created_at": "2026-08-03T01:48:57.063Z",
     "topic": "sports"
   }
 ]
