@@ -1,5 +1,68 @@
 [
   {
+    "slug": "apple-patches-coregraphics-zeroday-already-exploited-in-targeted-attacks",
+    "title": "Apple patches CoreGraphics zero-day already exploited in targeted attacks",
+    "description": "Meta-spotted flaw could hand attackers arbitrary code execution via a maliciously crafted file",
+    "fullText": "Meta-spotted flaw could hand attackers arbitrary code execution via a maliciously crafted file\n\nApple has patched a CoreGraphics zero-day after warning that attackers may already have used the bug to compromise a small number of carefully chosen targets.\n\nThe vulnerability, tracked as CVE-2026-86950, is an out-of-bounds write flaw in CoreGraphics, Apple's framework for handling graphics across its operating systems.\n\nAccording to Apple's advisory, processing a maliciously crafted file could allow an attacker to execute arbitrary code on a vulnerable device. The fruity vendor said it addressed the problem with improved bounds checking, though the bug appears to have made it out into the wild before Apple could squash it.\n\n\"Apple is aware of a report that this issue may have been exploited in an extremely sophisticated attack against specific targeted individuals on versions of iOS before iOS 27,\" the company said.\n\nAs is customary when Cupertino encounters the sort of security bug somebody has apparently found useful, further details are thin on the ground. Apple didn't say who was targeted, how many people were affected, who was behind the attacks, or exactly how the vulnerability was being exploited.\n\nHowever, its choice of words suggests this wasn't a bug being exploited indiscriminately across the internet, and raises the possibility that it was used as part of a targeted spyware campaign.\n\nMeta Product Security reported CVE-2026-86950 to Apple, but neither Apple's advisory nor Meta has provided further technical details on how the flaw was discovered or the attacks in which it was allegedly used.\n\nThe fix landed on Monday in iOS 26.7.1 and iPadOS 26.7.1. Apple lists affected devices receiving the update as the iPhone 11 and later, iPad Pro 12.9-inch (third generation and later), iPad Pro 11-inch (first generation and later), iPad Air (third generation and later), iPad (eighth generation and later), and iPad mini (fifth generation and later).\n\nApple specifically says the attacks hit devices running versions of iOS before iOS 27, though it hasn't said exactly which older releases were targeted.\n\nThe flaw adds another entry to Apple's growing collection of vulnerabilities caught being abused before users had a patch, with CVE-2026-86950 landing as the seventh zero-day fixed by the company this year.\n\nFor anyone still running the affected releases, that leaves the usual less-than-thrilling security advice: install the update rather than waiting to find out exactly what an \"extremely sophisticated attack\" looks like. ®",
+    "readingTime": 2,
+    "keywords": [
+      "pro inch",
+      "apple's advisory",
+      "ipad pro",
+      "arbitrary code",
+      "maliciously crafted",
+      "crafted file",
+      "extremely sophisticated",
+      "sophisticated attack",
+      "third generation",
+      "later ipad"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.theregister.com/security/2026/09/29/apple-patches-coregraphics-zero-day-already-exploited-in-targeted-attacks/5299721",
+    "thumbnail_url": "https://image.theregister.com/5299734.jpg?imageId=5299734&x=0&y=12.35&cropw=100&croph=77.71&panox=0&panoy=12.35&panow=100&panoh=77.71&width=1200&height=683",
+    "created_at": "2026-09-29T17:14:46.521Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "i-was-laid-off-from-meta-in-may-i-have-a-family-to-support-but-i-felt-prepared-heres-my-advice-to-be-ready-for-layoffs",
+    "title": "I was laid off from Meta in May. I have a family to support, but I felt prepared — here's my advice to be ready for layoffs.",
+    "description": "Adekunle Ayodele shares his experience getting laid off from Meta in May, including what preparation helped it feel like less of a shock.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/meta-employee-laid-off-how-to-be-prepared-tips-2026-9",
+    "thumbnail_url": "https://i.insider.com/6aba89b7eb7225411267b5de?width=1200&format=jpeg",
+    "created_at": "2026-09-29T17:14:12.004Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "a-youtuber-figured-out-how-his-muse-ai-agent-shared-his-address-with-a-total-stranger",
+    "title": "A YouTuber figured out how his Muse AI agent shared his address with a total stranger",
+    "description": "A YouTuber says an \"Allow Always\" setting led Meta's Muse agent to share his address with a Marketplace buyer who later showed up at his door.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/muse-agent-facebook-marketplace-address-setting-meta-always-allow-2026-9",
+    "thumbnail_url": "https://i.insider.com/6abb9c66265e3f8e338f8291?width=1200&format=jpeg",
+    "created_at": "2026-09-29T17:14:11.978Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "meta-is-on-an-appbuilding-spree-as-it-hunts-for-its-next-facebook-moment",
+    "title": "Meta is on an app-building spree as it hunts for its next Facebook moment",
+    "description": "Muse, Pocket, Instants. Meta is launching apps left and right in search of an AI app that becomes the company's next mega-hit.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/why-meta-launching-apps-muse-pocket-instants-ai-zuckerberg-2026-9",
+    "thumbnail_url": "https://i.insider.com/6ab6c08cd15f8a572974ac49?width=1200&format=jpeg",
+    "created_at": "2026-09-29T17:14:11.253Z",
+    "topic": "finance"
+  },
+  {
     "slug": "ai-agents-are-ready-to-shop-for-you-if-you-can-trust-them",
     "title": "AI agents are ready to shop for you — if you can trust them",
     "description": "Personal AI agents like Meta's Muse can make purchases on users' behalf, but recent survey data suggest some consumers aren't ready.",
@@ -1517,71 +1580,6 @@
     "link": "https://www.businessinsider.com/meta-glasses-camera-disabled-tampering-recording-light-update-2026-9",
     "thumbnail_url": "https://i.insider.com/6a97829e1f60b9f4b1633bbc?width=1200&format=jpeg",
     "created_at": "2026-09-02T10:09:21.100Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "meta-is-switching-to-slack-because-it-says-its-better-for-ai-agents",
-    "title": "Meta is switching to Slack because it says it's better for AI agents",
-    "description": "Meta is moving employees from Google Chat to Slack, saying Salesforce's product is better suited for an ecosystem of AI agents.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/meta-switching-from-google-chat-slack-for-ai-agents-2026-9",
-    "thumbnail_url": "https://i.insider.com/6a9710371f60b9f4b1633886?width=1200&format=jpeg",
-    "created_at": "2026-09-01T20:17:42.631Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "ufc-books-key-middleweight-bout-to-headline-meta-apex-event-in-october",
-    "title": "UFC books key middleweight bout to headline Meta APEX event in October",
-    "description": "A clash between top-10 middleweights has been booked to headline a UFC Fight Night on Oct. 10.",
-    "fullText": "The UFC has added an important fight to its calendar in the middleweight division.Top contenders Brendan Allen and Christian Leroy Duncan have been booked to headline UFC Fight Night 290 (Paramount+) on Oct. 10 at the Meta Apex in Las Vegas. The promotion announced the matchup Tuesday.",
-    "readingTime": 1,
-    "keywords": [
-      "fight"
-    ],
-    "qualityScore": 0.2,
-    "link": "https://sports.yahoo.com/articles/ufc-books-key-middleweight-bout-152612206.html",
-    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/32ce72ad06f5b7fd9bc0dba31f957f68a44845c21a3c35688d8207006d9516d1/lightyear_networkapi/resizefill_w1080_h633%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmma_junkie_usa_today_articles_344%2F7744fb0efa7659327c54f0db9b8895e1.jpg",
-    "created_at": "2026-09-01T15:45:25.675Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "tua-tagovailoa-caught-in-instagram-faux-pas",
-    "title": "Tua Tagovailoa caught in Instagram faux pas",
-    "description": "It has been a rough time for Tua Tagovailoa in recent years and he needs all the public support he can get, even if it comes from himself. The Miami Dolphins cut Tua following the 2025 season after seeing a precipitous drop in form and struggles with injuries. In doing so, they ate an NFL-record…",
-    "fullText": "It has been a rough time for Tua Tagovailoa in recent years and he needs all the public support he can get, even if it comes from himself.\n\nThe Miami Dolphins cut Tua following the 2025 season after seeing a precipitous drop in form and struggles with injuries. In doing so, they ate an NFL-record $99.2 million in dead cap space to move on and start over.\n\nTagovailoa was able to find a new home with the Atlanta Falcons where he is competing with former first round draft pick Michael Penix Jr. for the starting job. While the Falcons haven't won the NFC South since 2016, some decent quarterback play to go along with their exciting skill position players could provide some serious competition in an open division.\n\nHowever, that quarterback play has remained a huge question mark. And after neither quarterback won the job during the preseason, the Falcons have yet to name a starter with the regular season just a week away.\n\nHowever, Tua Tagovailoa is at least still trying to win Falcons fans over, although his recent post on Instagram was the equivalent of a social media pick six.\n\nTagovailoa posted a picture of himself in a Falcons uniform with the caption \"For the A.\" That is obviously not a story. However, the first comment underneath the post was himself commenting \"We're so proud of you! You got this!\" with a heart emoji. The comment was screenshotted and shared several times before it was finally deleted.\n\nTua forgot to switch to his burner pic.twitter.com/SrznFjLYJA\n\n— Austin Latham (@AustinLatham25) September 1, 2026\n\nIt's easy to see this, point and laugh, and assume some kind of wider Kevin Durant burner activity that is ongoing where Tua Tagovailoa is scrolling the internet trying to silence critics and hype up his chances of winning the Falcons starting quarterback job. Of course, a much more logical explanation is that whoever is managing his social media accounts forgot to log back into his or her personal account before leaving the supporting message.\n\nStill though, as innocuous as the truth probably is, it still stands as a symbol of Tua's fall down the NFL pecking order at quarterback. And the fact that he needs all the help and hope he can get in getting his career back on track.\n\nThe post Tua Tagovailoa caught in Instagram faux pas appeared first on Awful Announcing.",
-    "readingTime": 2,
-    "keywords": [
-      "social media",
-      "tua tagovailoa",
-      "quarterback",
-      "needs",
-      "season",
-      "pick",
-      "instagram",
-      "forgot",
-      "burner",
-      "back"
-    ],
-    "qualityScore": 1,
-    "link": "https://sports.yahoo.com/articles/tua-tagovailoa-caught-instagram-faux-153035699.html",
-    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/13fe11b43ce7550b8cf1219a3898d10f382e41cc9f05c1be51ae0581b65dea77/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fawful_announcing_173%2F316cdf2bc516cf04f72534c2c9ed8f50.png",
-    "created_at": "2026-09-01T15:45:22.360Z",
-    "topic": "sports"
-  },
-  {
-    "slug": "laidoff-tech-workers-from-google-microsoft-confront-a-difficult-job-market",
-    "title": "Laid-off tech workers from Google, Microsoft confront a difficult job market",
-    "description": "Four former employees of Google, Meta, Microsoft, and Intel discuss the shock they felt when they were laid off and the emotional fallout that ensued.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/life-lessons-from-big-tech-workers-who-got-laid-off-2026-8",
-    "thumbnail_url": "https://i.insider.com/6a905e313f7df8787cff4483?width=1200&format=jpeg",
-    "created_at": "2026-09-01T15:44:16.702Z",
     "topic": "finance"
   }
 ]
