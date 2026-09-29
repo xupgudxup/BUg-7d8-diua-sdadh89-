@@ -1,5 +1,23 @@
 [
   {
+    "slug": "jevia-an-outcomebased-model-router-for-coding-agents",
+    "title": "Jevia – An outcome-based model router for coding agents",
+    "description": "Route coding tasks to the right model, verify the result, and use real outcomes to improve the next decision.",
+    "fullText": "Jevia routes your task to a model tier and uses verified outcomes to improve future decisions.\n\nInstall a verified prebuilt binary. No Rust or Cargo required.\n\nAdd a reviewable .jevia/config.toml to this project.\n\nKeep the credential in your environment, outside config.\n\nValidate config, storage, credentials, and one live request.\n\nReceive a model tier, confidence, and traceable run ID.\n\nRun Codex, Claude Code, OpenCode, Gemini CLI, Cursor Agent, Copilot CLI, Aider, Goose, Amp, or any configured command-line agent.",
+    "readingTime": 1,
+    "keywords": [
+      "model tier",
+      "verified",
+      "config",
+      "agent"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://jevia.dev/",
+    "thumbnail_url": "https://jevia.dev/og-image.png",
+    "created_at": "2026-09-29T21:38:48.104Z",
+    "topic": "tech"
+  },
+  {
     "slug": "a-terminal-where-ai-coding-clis-can-mention-each-other",
     "title": "A terminal where AI coding CLIs can mention each other",
     "description": "Run Claude Code, Codex and Gemini side by side — and let them hand work to each other. Portable Windows terminal for AI CLIs. - styleio/ShikishaTerm",
@@ -1949,30 +1967,6 @@
     "link": "https://www.augmentcode.com/guides/how-to-run-a-multi-agent-coding-workspace",
     "thumbnail_url": "https://cdn.sanity.io/images/oraw2u2c/production/0648cd13f6c63cb98106b34450ad02c6289ff9d4-1536x1024.png?w=1200&h=630&fit=crop&auto=format",
     "created_at": "2026-07-22T01:29:43.905Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "codekeel-a-context-drift-governance-tool-for-claude-code",
-    "title": "Codekeel: A context drift governance tool for Claude Code",
-    "description": "Drift governance for agentic coding — a local decision ledger and live enforcement engine for Claude Code sessions. AGPL-3.0, runs entirely on your machine. - HabibiCodeCH/codekeel",
-    "fullText": "Drift governance for agentic coding. codekeel keeps a decision ledger for your project — architectural choices, conventions, and constraints — and enforces it live during Claude Code sessions, so every new session inherits, respects, and extends what was already decided instead of silently re-inferring (and contradicting) it from code alone.\n\nFree and open source (AGPL-3.0). Runs entirely on your machine — no account, no server, no telemetry.\n\nSets up the Claude Code integration (hooks + slash commands) in your current project. From inside a session, use /decision to record an architectural decision — it's added to the ledger and injected into every future session automatically. Set ANTHROPIC_API_KEY (see below) to additionally have every edit under that decision's scope semantically verified against it before it lands.\n\nThe ledger lives in ledger/DECISIONS.yaml in your project (or ~/.vibe-code-receipts/GLOBAL_DECISIONS.yaml for conventions that apply across every project you work in) — plain YAML, readable and editable by hand.\n\nRunning bare npx codekeel (no subcommand) triggers install automatically the very first time you run it. install does four things, each independently idempotent — safe to re-run any time:\n\nNo account and no network call at any step — everything above is written to your own machine.\n\nHooks and slash commands are global — set up once per machine, shared by every project you open in Claude Code afterward. The ledger is not: it lives inside each repo, so a brand-new project needs its own npx codekeel install (or just npx codekeel ledger init if the hooks are already set up).\n\nEverything above works with zero setup. Setting ANTHROPIC_API_KEY in your environment additionally unlocks:\n\ncodekeel calls Anthropic's API directly from your machine using this key — there is no codekeel-hosted relay, and codekeel never sees this traffic or bills you for it. Every one of these checks fails open (never blocks an edit) when no key is configured.\n\nMost also accept --json — that's how /decision drives them non-interactively from inside a session.\n\nBare invocation (no subcommand) scans your local Claude Code session logs for governance signals — discussion loops, a bloated CLAUDE.md, scope creep, code churn — and offers to install a tip for whichever ones it finds, entirely on your own machine.\n\nEvery file codekeel reads or writes, and why. All plain text, all inspectable, nothing hidden.\n\nOn your machine, shared across every project:\n\nAGPL-3.0. See LICENSE and CONTRIBUTING.md.",
-    "readingTime": 2,
-    "keywords": [
-      "slash commands",
-      "claude code",
-      "machine shared",
-      "npx codekeel",
-      "inside session",
-      "project",
-      "ledger",
-      "decision",
-      "install",
-      "hooks"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/HabibiCodeCH/codekeel",
-    "thumbnail_url": "https://opengraph.githubassets.com/7d7599735a52776e6e25376a8df7be123a29e3e08883adcac0f407109723c273/HabibiCodeCH/codekeel",
-    "created_at": "2026-07-21T13:15:26.013Z",
     "topic": "tech"
   }
 ]
