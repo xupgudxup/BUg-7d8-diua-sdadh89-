@@ -1,5 +1,95 @@
 [
   {
+    "slug": "braxis-autogenerate-and-track-ai-agent-readiness-0100-score-and-history",
+    "title": "Braxis: Auto-generate and track AI agent readiness (0-100 score and history)",
+    "description": "The axis of agent knowledge. Auto-generates and keeps in sync AGENTS.md,  CLAUDE.md, .cursorrules — context files that AI agents read.",
+    "fullText": "Auto-generate AI agent context files. Keep them in sync with your code.\n\nYour AI agents (Claude Code, Cursor, Copilot) read from AGENTS.md to understand your project. When your code changes, that file gets stale. Agents miss patterns, violate conventions, hallucinate.\n\nBraxis solves this: one command generates four context files that stay in sync with your codebase.\n\nDay 1: Agent reads stale AGENTS.md from 2 weeks ago\nSees old directory structure\nDoesn't know about new error handling pattern\nMakes bad suggestions based on outdated info\n\nEvery push: GitHub Actions runs Braxis\nAnalyzes current codebase\nRegenerates AGENTS.md, CLAUDE.md, .cursorrules, .agentic-config.json\nCreates PR with updates\nYour agents always see current reality\n\nFor LLM-powered recommendations:\n\nGet your API key: https://console.anthropic.com\n\nyour-project/\n├── AGENTS.md (Universal agent instructions)\n├── CLAUDE.md (Claude Code optimized)\n├── .cursorrules (Cursor IDE rules)\n├── .agentic-config.json (Machine-readable metadata)\n└── (your existing files)\n\nIn Claude Code: Automatically reads CLAUDE.md\nIn Cursor: Copy .cursorrules into Cursor Settings → Rules\nIn any agent: Reads AGENTS.md (universal format)\n\nAutomatically regenerate context files on every push using GitHub Actions.\n\nBraxis includes a ready-to-use workflow. Copy it to your repo:\n\nOr manually create .github/workflows/braxis-score.yml:\n\nResult: Every push automatically regenerates context files and creates a PR if needed. ✨\n\nValidate context files before every commit using pre-commit.\n\nThe hooks will run automatically on git commit.\n\nCopy the example config to your project:\n\nNow braxis will validate your project before each commit! 🔐\n\nTrack your project's AI agent readiness score over time.\n\nGet intelligent, actionable recommendations from Claude AI.\n\nBraxis welcomes contributions! Read CONTRIBUTING.md for:\n\nAGENTS.md - Universal format read by any AI agent\n\nCLAUDE.md - Optimized for Claude Code\n\n.cursorrules - Rules for Cursor IDE\n\n.agentic-config.json - Machine-readable metadata\n\nCheck how ready your codebase is for AI agents:\n\nBraxis is production-grade with enterprise-level quality standards:\n\nThe difference: Braxis goes beyond rules files. It continuously analyzes your codebase, scores your readiness, tracks progress, and provides AI-driven guidance—all automatically.\n\nAI agents need current context to work effectively. Without it, they:\n\nBraxis solves this automatically:\n\nOne command. Always in sync. Always improving. ✨\n\nMIT - Free to use in personal and commercial projects\n\nUpcoming features in development:\n\nHave a feature request? Open an issue\n\nBraxis — Keep your agents aligned. Keep your code context current.\n\nContinuously analyze. Automatically improve. Always sync. ✨\n\nMade with ❤️ for AI-native development by developers, for developers.",
+    "readingTime": 2,
+    "keywords": [
+      "machine-readable metadata",
+      "agentic-config.json machine-readable",
+      "universal format",
+      "braxis solves",
+      "agent reads",
+      "context files",
+      "agents.md universal",
+      "cursor ide",
+      "sync",
+      "codebase"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/jaykrishna316/braxis",
+    "thumbnail_url": "https://opengraph.githubassets.com/08d0d9158eaa6bd517d5f49260a55a7805b660111b06e5e4562d02790cddb589/jaykrishna316/braxis",
+    "created_at": "2026-10-02T03:02:54.317Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "agentharness-a-minimal-composable-go-library-to-build-ai-agent-harnesses",
+    "title": "Agent-harness – A minimal, composable Go library to build AI Agent Harnesses",
+    "description": "A minimal, composable Go library for building agentic tool-calling loops - lox/agent-harness",
+    "fullText": "A minimal, composable Go library for building agentic tool-calling loops on top of LLM APIs.\n\nImplements the core agent loop: call the LLM → execute tool calls → feed results back → repeat. Everything else (storage, prompts, routing) is your problem.\n\nThe docs/ directory is the source of truth for design and implementation guidance.\n\nUse runner.Runner when you want to interrupt an in-flight run from external control input such as a user saying \"stop\".\n\nThen type prompts or control commands (/stop, /history, /tools, /memory, /remember <text>, /new, /quit).\nThe example enables file-backed memory by default at ~/.agent-harness/claw;\npass --memory-dir \"\" to disable it.\n\nSee docs/architecture.md for the primary implementation guide.",
+    "readingTime": 1,
+    "keywords": [
+      "prompts",
+      "implementation",
+      "stop",
+      "memory"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://github.com/lox/agent-harness",
+    "thumbnail_url": "https://opengraph.githubassets.com/d1fa5fd845142743cdfa51c3c5f99729dcb5afff2b1f0c251499c62f1a298253/lox/agent-harness",
+    "created_at": "2026-10-02T03:02:53.305Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "use-all-codex-plugins-inside-pi",
+    "title": "Use all Codex Plugins inside Pi",
+    "description": "Use every connected Codex (ChatGPT) connector from any pi model - wileai/pi-codex-connectors",
+    "fullText": "Pi extension: use every Codex (ChatGPT) connector you have connected — GitHub, Gmail, Google Calendar/Drive, Slack, Linear, Figma, ... — from any pi model.\n\nWebsite: https://wileai.github.io/pi-codex-connectors/\n\nThe model gets three tools instead of hundreds of schemas:\n\n/codex-connectors [refresh] shows the catalog.\n\nTools not annotated read-only need approval. PI_CODEX_CONNECTORS_WRITES:\n\nRequires Node.js 22.19+ and Pi. This package is a Pi extension, not a standalone MCP server; other harnesses must support loading Pi extensions.\n\nAlternatively, add the package to the existing packages array in ~/.pi/agent/settings.json (personal) or .pi/settings.json (project):\n\nProject settings require Pi project trust. Restart Pi after installation or updating.\n\nKeep the npm source unversioned to receive stable updates. An explicit version such as npm:@wileai/pi-codex-connector@0.1.1 stays pinned. Releases become available through npm; users choose when to update.\n\nThe package is now @wileai/pi-codex-connector. Existing installs of the old name need a one-time migration:\n\nUse --local on both commands for a project-local installation. Restart Pi afterward. Future updates use pi update npm:@wileai/pi-codex-connector.\n\nPI_CODEX_CONNECTORS_CODEX overrides the Codex executable.\n\nIntegration and scenario tests only; they use the real Codex app-server and your Codex login. No model tokens: pi scenarios use a scripted model (integration/fixtures/scripted-model.ts).\n\nUse a dedicated, minimally privileged account for public CI. Tests keep connector responses in memory, drain child-process diagnostics, and report fixed failure labels rather than account data. Do not upload raw Pi transcripts or Codex diagnostics. Pi scenarios allowlist GitHub and set an explicit write policy. The test runner uses the development Pi host patched by make setup; PI_BIN can override it.\n\nConnector names, schemas and results enter the selected Pi model's context. Pi and the model provider may retain them. Codex owning credentials does not keep connector results within Codex.\n\nBefore discovery, the extension asks for session consent. Headless runs must explicitly set PI_CODEX_CONNECTORS_DATA=allow; deny blocks access. Concurrent discovery shares one consent prompt. Session changes close the previous connector process and require fresh consent. Consent covers the session, including model changes: use only trusted models throughout it.\n\nOptionally restrict discovery and calls with PI_CODEX_CONNECTORS_ALLOW=GitHub (comma-separated exact connector names or IDs). An empty value exposes no connectors. Without this setting all enabled, callable connectors are eligible. Read-only annotations are provider hints, not an independent authorization boundary.\n\nWrite approvals reject arguments over 2000 characters rather than hiding fields. WRITES=allow explicitly bypasses approval; use it only in trusted automation. Destructive tools require write approval even if also marked read-only.\n\nLarge results are truncated in memory, never saved by this extension. Narrow queries or paginate to retrieve more. Existing files from older versions are not removed automatically.\n\nApp-server errors, startup diagnostics, tool-catalog errors, and failed tool responses withhold raw details because they can contain local configuration or private data. The extension discards stderr instead of retaining it. Check Codex or the connected app locally when troubleshooting; never paste raw diagnostics into a public issue. Successful connector responses still enter the selected model's context as described above.\n\nThe app-server protocol has no per-call cancellation method for connector calls. An abort, timeout or disconnect after dispatch reports an unknown outcome, not a cancelled action. Affected writes block further writes for the service lifetime, including refresh. Check the connected app before restarting the session; never automatically retry an uncertain write. This is not durable idempotency across restarts.\n\nSee RELEASING.md for initial npm setup and the release checklist. Publishing a GitHub release triggers .github/workflows/publish.yml: it checks the release version, typechecks, audits runtime dependencies, verifies the package contents, and publishes with provenance. Stable releases use npm's latest tag; prereleases use next.\n\nThe pi-package keyword and pi.extensions manifest make the published package eligible for the Pi package catalog. Catalog indexing is external and may lag publication.\n\nThe extension has no runtime import of Pi's SDK; Pi SDK peer dependencies are optional type contracts. Keep your separately installed Pi host patched. Development setup explicitly patches Pi's upstream shrinkwrapped brace-expansion to 5.0.12. make check verifies the actual resolved version, because the root lockfile audit alone can miss the upstream shrinkwrap. Re-run make setup after any clean install.",
+    "readingTime": 4,
+    "keywords": [
+      "host patched",
+      "model's context",
+      "connected app",
+      "connector responses",
+      "restart pi",
+      "extension",
+      "package",
+      "diagnostics",
+      "setup",
+      "session"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/wileai/pi-codex-connectors",
+    "thumbnail_url": "https://opengraph.githubassets.com/8cb32ad7aa6a50c4449866912c5f60042a5675909ffbe72a78deb72a34ae7555/wileai/pi-codex-connectors",
+    "created_at": "2026-10-02T03:02:52.491Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "openai-fires-workers-for-mishandling-sensitive-information",
+    "title": "OpenAI fires workers for mishandling 'sensitive information'",
+    "description": "OpenAI chief executive Sam Altman [Getty...",
+    "fullText": "OpenAI has fired three researchers for allegedly mishandling information, including work that involved an external organisation that analyses artificial intelligence (AI) models.\n\n\"Our investigation confirmed that these individuals mishandled sensitive information outside established company procedures, violating our policies and breaking the trust essential to our work,\" a spokesperson told the BBC.\n\nThe ChatGPT-maker did not name the sacked workers, but at least two of them were involved in safety research at the firm.\n\nThe firings come as the debate over AI safety and the risks the technology may pose to humanity has intensified in recent weeks.\n\n\"We have parted ways with three individuals for violating our policies on accessing and handling sensitive company information,\" OpenAI's spokesperson said.\n\nThe BBC understands the former employees were not let go for raising safety concerns but for allegedly mishandling sensitive information.\n\nConcerns over AI safety have made headlines after some researchers and industry executives called for more guardrails around the technology.\n\nOpenAI has come under under intense scrutiny after its models went rogue and hacked several platforms, including Australian government websites.\n\nIn an earlier incident an OpenAI system accessed the internet and breached the open-source developer platform Hugging Face.\n\nThat incident led OpenAI to conduct a broad review of the activities of its AI models - called agents, which are designed to execute tasks autonomously based on simple instructions.\n\nThe AI lab said this week that it has notified more than 100 organisations about incidents involving unauthoritised activity linked to its AI systems.\n\nBeing notified \"does not mean that any private information was accessed\" or that a system was compromised, OpenAI said.\n\nIn September, researcher Jacob Coxon, who left Anthropic, called for AI development to slow down so its potential risks could be properly assessed.\n\nAnthropic boss Dario Amodei and OpenAI chief executive Sam Altman have also called for measures to address concerns over AI.\n\nOn Tuesday, US President Donald Trump hosted a meeting of top technology bosses - including leaders from OpenAI, Anthropic, Nvidia, SpaceX, Meta and Google - to discuss AI.\n\nAfter the gathering at the White House, Trump posted a document that he called a \"morally binding\" agreement that would serve as a \"form of protection\" from AI's potential risks.\n\nSome technology experts criticised the pact, pointing out that it allowed AI companies to regulate themselves.\n\nTrump has repeatedly downplayed concerns about AI's risks in response to calls from some industry figures for tighter oversight of the technology.",
+    "readingTime": 3,
+    "keywords": [
+      "allegedly mishandling",
+      "potential risks",
+      "technology",
+      "safety",
+      "concerns",
+      "models",
+      "sensitive",
+      "anthropic",
+      "openai",
+      "researchers"
+    ],
+    "qualityScore": 0.9,
+    "link": "https://www.bbc.com/news/articles/c6y9z9r4ejzwo?xtor=AL-72-%5Bpartner%5D-%5Byahoo.north.america%5D-%5Bheadline%5D-%5Bnews%5D-%5Bbizdev%5D-%5Bisapi%5D",
+    "thumbnail_url": "https://ichef.bbci.co.uk/news/1024/branded_news/136d/live/561b92b0-bdf9-11f1-a76b-bdcdab65a1b7.jpg",
+    "created_at": "2026-10-02T03:02:50.257Z",
+    "topic": "news"
+  },
+  {
     "slug": "crafting-express-isolated-local-environments-for-ai-coding-agents",
     "title": "Crafting Express – isolated local environments for AI coding agents",
     "description": "The Express Edition. Contribute to crafting-dev/express development by creating an account on GitHub.",
@@ -1651,90 +1741,5 @@
     "thumbnail_url": "https://systemonemodels.tech/opengraph-image?59def943695a9217",
     "created_at": "2026-09-29T11:47:02.329Z",
     "topic": "tech"
-  },
-  {
-    "slug": "a-terminal-where-ai-coding-clis-can-mention-each-other",
-    "title": "A terminal where AI coding CLIs can mention each other",
-    "description": "Run Claude Code, Codex and Gemini side by side — and let them hand work to each other. Portable Windows terminal for AI CLIs. - styleio/ShikishaTerm",
-    "fullText": "Run many AI agents at once and let them @mention each other for help — on your PC, in the cloud, or from your phone.\n\n For Windows, from the Microsoft Store or as a portable zip. Uses the AI subscriptions you already have.\n\nWorks with Claude Code · Codex · Gemini CLI · Aider · OpenAI · Anthropic · DeepSeek · Mistral · OpenRouter · Ollama · LM Studio — or any shell over SSH\n\n⭐ If this is useful, a star helps other people find it.\n\n@mention one agent from another, like in a chat app.\n“Build this feature, ask @codex to review it, and loop until there is nothing left to fix.”\nThat one line starts the write-and-review loop. No more being the copy-paste courier.\n\nCheck on your AI from your phone — and tell it to carry on.\nScan a QR code and you can see what every tab is doing and send instructions,\nfrom the train, from a café, from bed.\n\nRunning one terminal AI is easy. Running four is not.\n\nYou end up with a window per agent, no idea which one is waiting for you, and a lot of\ncopy-pasting between them. SHIKISHA-TERM puts them in one window and knows the difference\nbetween working, finished and waiting for a human. Agents hand work to each other with an\n@ mention and read the answer back. They can run on your PC or on a cloud MicroVM, and you can\nsteer them from your phone.\n\nIt talks to whatever runs in a terminal, so it is not tied to one vendor: Claude Code,\nCodex CLI, Gemini CLI, DeepSeek, Ollama, Aider, or a plain shell over SSH.\n\nMost AI terminals run a single agent. This one runs several — on your PC or in the cloud.\n\nFrom the Microsoft Store — get it here. Microsoft signs the Store copy, so\nthere is no security warning to click past, and updates arrive on their own.\n\nOr take the portable copy, if you would rather nothing were installed:\n\nIt opens a window of its own. Nothing needs to be running it — no terminal to set up, no\nfont or colour scheme to get right first.\n\nNothing is written outside that folder. There is no installer and no runtime to install.\n\nIt uses your existing AI subscriptions through their CLIs. No API keys are stored,\nand none are needed.\n\nThere is no window on Linux. What runs there is the part that does the work — it opens\nthe terminals, watches what each agent is doing, runs your automation — and you reach it\nfrom a browser or a phone. Put it on a VPS or a cloud VM and the agents keep going when\nyour laptop is shut.\n\nAnything else — one static binary, into your own home folder, asking for nothing:\n\nInstalling does not start anything. When you want it running:\n\nIt prints the address to open the board at. Everything is signed with\none key, and every route above\nchecks it before installing.\n\nThe Store copy is signed by Microsoft and shows no warning. This section is about the\nzip only.\n\nThe zip carries no code-signing certificate, so the first run of an unzipped copy shows\n\"Windows protected your PC\" (code signing policy). Click\nMore info → Run anyway to continue.\n\nYou can help make that warning go away. Removing it means a certificate, and\nSignPath Foundation issues them to open source projects for free —\nbut for a program like this one they ask for \"a certain verifiable reputation\" before\nputting their own name behind it. For a project on GitHub the most legible form that\nreputation takes is stars. So if this is useful to you,\nstar the repository — it takes a second, and it is the thing most likely to\nget a signed build into the hands of whoever downloads the zip after you.\n\nIf you would rather check the download first — and being wary of an unsigned executable\nfrom the internet is the right instinct:\n\nEvery release is built by GitHub Actions from this\nsource, not on anyone's laptop. The build log for your download is public\n\nA SHIKISHA-TERM.zip.sha256 is published next to the zip:\n\nThe first run opens Getting set up. Pick your main AI from the ones installed on this PC and\ncheck GitHub CLI; an AI you do not have yet opens its install page right there.\n\nThen the screen points you to add a project: pick a folder or clone from a Git URL (onto a\nMicroVM or an SSH server too). Press where it points next, and the AI starts in that folder —\nno JSON editing required.\n\nTo open just the settings (also the way back in if a broken config stops the app from\nstarting), double-click Settings.cmd.\n\nTurn on \"Use from your phone\" in the settings and a QR code appears. Scan it and you get a\nsmall web page listing every tab, its status, and a box to send instructions. Ctrl+B 0\nthen i shows the same code on the board.\n\nUnder the code sit the only two things worth acting on. 📋 copies the link — token and\nall — to the clipboard, for a phone that cannot photograph the screen it is on, and the\nbadge beside it says which network that link leads to: green for Tailscale (your own\ndevices, anywhere), amber for the home LAN (everyone on that Wi-Fi). The link itself is\nnever printed: with its token it is the key to the machine, and without one it opens\nnothing.\n\nKnow where it is reachable from — this feature lets a phone run commands on your machine:\n\nSee SECURITY.md for the full threat model.\n\nThe prefix is Ctrl+B, tmux-style. Ctrl+B ? opens the help.\n\nAn on_notify automation hook catches every terminal notification (bell/OSC, even over ssh),\nso you can forward it to your phone or route it — see docs/AUTOMATION.md.\n\nbrowser_snapshot captures a browser page as a PNG (see it under Settings → Snapshots) — a\nrally can keep a visual record of what it did.\n\nCtrl+B : opens a command palette — one box to find and run anything: a tab, a setting,\nthe Vault, any key action, your own quick actions.\n\nThe board's \"Find\" searches both the live output of every open tab and every conversation the AI CLIs have recorded, by\nwhat was said in them, and reopening one adds a tab that resumes it in its folder.\n\nThe board's SESSIONS table shows a COST column — processor and memory per agent, summed\nover everything it started — so you can see which of several running agents is heavy without\nleaving the terminal.\n\nA browser login can be saved once (browser_state_save) and reloaded by a later rally\n(browser_state_load), so a rally does not start by logging in. It saves our own browser\nprofile's cookies, httpOnly and all; it does not crack Chrome's or Firefox's stores.\n\nEach tab says where it is, under its name: the branch, its pull request, and any ports it\nis listening on. Pull request numbers use the GitHub sign-in already on this PC (gh auth login, or GITHUB_TOKEN); without one the rest still shows.\n\nEvery key can be moved, including the prefix — the settings list each action with the\nkey it answers to now, and the help screen (Ctrl+B ?) shows what you actually have\nrather than what shipped.\n\nColours are chosen in the settings, by name. The list is every scheme this PC already\nhas — whatever Windows Terminal is carrying, plus any scheme file you drop into\nconfig/themes, in the format colour schemes are published in. Pick a light one and the\nwhole window follows, not only the terminal.\n\nThe mouse works too: wheel to scroll, Ctrl+wheel to change the terminal's size, drag to\ncopy, right click to paste, click a tab name to switch. Once the window is divided, each pane's caption carries ▥ and ▤ to divide it\nagain and ✕ to close that view, and the divider between panes can be dragged to rebalance\nthem — double-click it for even halves. The tab bar on the left works the same way: drag its\nright edge to set its width, double-click for the width it ships with, and drag it shut to\nput it away and give the whole window to the terminal. Ctrl+B s does that too, and brings\nit back the width it was.\n\nAn automation is a few lines of Lua dropped into a folder, named after the moment it should\nrun:\n\nAn agent can also say what it is doing — shikisha.set_status(\"build\", \"running tests\")\nputs that under its name in the tab bar, beside the state dot that is read off its screen.\nOne is what we could tell; the other is what it chose to say.\n\nAutomations run in a sandbox: no file access and no network by default, and\nnotifications can only go to targets you registered.\n\nThe same commands can be called from outside the app, over a named pipe, by anything\nthis app started — so a CLI sitting in a tab can split a pane, drive the browser, or hand\nwork to another tab without a human at the keyboard. Same names as in Lua, nothing new to\nlearn. See section 7 of the reference.\n\nFull reference: docs/AUTOMATION.md — also reachable from the\nsettings screen.\n\nCopy config.example.json and the other *.example.json files to get started.\n\nThe interface follows your Windows language and falls back to English. You can also set it\nin the settings screen or with \"language\" in config.json.\n\nCopy lang/en.json to lang/<code>.json and translate the values — that is the whole\nprocess. Keys you leave out fall back to English, so a partial translation still works.\nSee docs/TRANSLATING.md.\n\nIt is deliberately narrow, and honest about it:\n\nTranslations, profiles for AI CLIs it does not know yet, bug reports — all welcome.\nStart with CONTRIBUTING.md, and please keep to the\nCode of Conduct. Questions or ideas? Open a\nDiscussion.\n\nRust (MSVC toolchain) is required. The result is a single executable with no runtime\ndependencies.\n\nIf SHIKISHA-TERM saves you time, you can support its development on\nKo-fi. Thank you.\n\nThe program is built from open source components, and the terms of every one\nof them are reproduced in THIRD-PARTY-NOTICES.txt,\nwhich is inside the download as well as here.",
-    "readingTime": 9,
-    "keywords": [
-      "gemini cli",
-      "claude code",
-      "code codex",
-      "store copy",
-      "per agent",
-      "tab bar",
-      "settings screen",
-      "ai clis",
-      "phone",
-      "folder"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/styleio/ShikishaTerm",
-    "thumbnail_url": "https://repository-images.githubusercontent.com/1322977647/46943097-c41c-49c3-b152-79bb6329f753",
-    "created_at": "2026-09-29T11:47:01.423Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "cybersecurity-harness-for-fullstack-llmdriven-penetration-testing",
-    "title": "Cybersecurity harness for full-stack LLM-driven penetration testing",
-    "description": "A cybersecurity harness for full-stack LLM-driven penetration testing. Find and fix vulnerabilities autonomously, 24/7. [RESEARCH PREVIEW] - 0sec-labs/0",
-    "fullText": "The open-source, self-evolving, multi-model harness for security research.\n\n The Swiss Applied AI & Cybersecurity Research Lab\n\n 0.security ·\n Documentation ·\n FoxGuard\n\nFind novel vulnerabilities in the deepest layers of software. Explore our\npublic disclosures and upstream fixes,\nincluding research in the Linux kernel.\n\nCopy this prompt into your coding agent:\n\nSet up the 0.security harness using https://0.security/harness/setup.md and read https://0.security/llms.txt for the documentation index. Confirm my targets and scope before testing, and ask before changing files.\n\nBring your model access and configure connections in the terminal. Run locally\nor through the CLI in CI/CD, inspect findings and verification results, and\nexport reports as JSON, Markdown or SARIF.\n\nSetup guide ·\nResearch workflows ·\nDocumentation\n\nOptimized Model Routing: The best LLM for each step\n\nThe managed service adds model routing, non-public frontier cyber models,\na purpose-built attack runtime and a curated offensive toolchain. These hosted\ncapabilities are separate from running the open-source harness with your own\nmodel access. Explore 0.security.\n\nThe world's best security should belong to everyone. Software already writes\nitself; we believe it should secure itself, too. Our goal is security that\nfinds and fixes vulnerabilities as software changes, so people can focus on\nwhat they want to create.\n\nResearch comes first. Public disclosures, upstream fixes and reproducible\nresults let people check our work. Open tools let them question it, extend it\nand build something better. Self-securing software is the future we're working\ntoward.\n\nRead our manifesto ·\nExplore our research\n\nThis is a research preview. Coverage and verification depth vary by workflow;\ninspect the evidence and review generated fixes before applying them.\nTool making and evaluated self-improvement are developing research workflows.\nOnly test systems you own or are authorized to assess.\n\nRead CONTRIBUTING.md to build and extend the harness.\nReport security issues through SECURITY.md.",
-    "readingTime": 2,
-    "keywords": [
-      "upstream fixes",
-      "model access",
-      "model routing",
-      "research workflows",
-      "security",
-      "harness",
-      "software",
-      "explore",
-      "open-source",
-      "vulnerabilities"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/0sec-labs/0",
-    "thumbnail_url": "https://opengraph.githubassets.com/f292938fc7a66636ea837cd9ec78fb63e4fcc41968792003a424d4bf89e1dc9a/0sec-labs/0",
-    "created_at": "2026-09-29T11:47:01.420Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "desktopbrain-ai-file-organizer-for-mac-and-all-folders-private-ondevice-ai",
-    "title": "DesktopBrain – AI File Organizer for Mac and All Folders – Private On-Device AI",
-    "description": "Organize years of desktop clutter in minutes with fully private local AI. DesktopBrain scans your Mac on-device and sorts files without cloud dependencies.",
-    "fullText": "DesktopBrain intelligently organizes your files using private on-device AI so your Desktop and Downloads stay clean without risky automation.\n\nNo files ever leave your local drive.\n\nNo internet or cloud setup required.\n\nSemantic classification of file contents.\n\nRevert any changes back instantly.\n\nScreen Shot 2026-05-23 at 10.34.02.png\n\nDesktopBrain runs 100% on-device. No cloud uploads. No trackers. Just pure, private organization.\n\nUses Apple Core ML to analyze your file types and contents locally. Zero remote server API calls.\n\nWorks completely offline on flights, subways, or remote cabins. No internet connection required.\n\nNo user tracking, telemetry, or behavioral analytics. We have no databases and collect no logs.\n\nUnlike cloud cleaning tools, your file database is kept strictly locally inside your macOS sandbox.\n\nDesktopBrain identifies the content of your files and routes them to logical locations automatically.\n\nInvoices, statements, slides, and reports are parsed and moved into logical subfolders like /Documents/Invoices.\n\nYour desktop screenshots are automatically grouped by date, app source, or text content and cleared from view.\n\nRenders, video exports, and raw photographic files are sorted into designated camera, design, or asset pools.\n\nUnused archives, package zips, and backup tars are identified and routed to structured compression directories.\n\nStale .dmg and .pkg files that clutter your Downloads are cataloged and queued for disposal.\n\nCode repositories, Photoshop drafts, and Figma file backups are separated from generic files into work folders.\n\nDesktopBrain keeps you in the driver seat. You will see a structural layout of precisely where files are going before the organization executes.\n\nSee old and new file pathways side by side.\n\nDon't want to move a file? Just uncheck it with a tap.\n\nAccidentally organized something? One-click reverting puts everything back.\n\nNo hardcoded rules. DesktopBrain adapts over time to your preferences completely on-device.\n\nIf you regularly group a specific project file into /Work/Figma/, the local neural networks pick up on that pattern and suggest it automatically next time.\n\nDefine what 'Work', 'Junk', or 'Assets' mean to you. DesktopBrain builds a localized semantic embedding space of your vocabulary to improve sorting.\n\nEach file skip feeds directly back into the local model. The more you use DesktopBrain, the smarter and more customized it gets.\n\nWe noticed you skip moving file names with 'test_results' to Screenshots. Stop scanning them?\n\nTraditional cleaners focus on caches and memory. DesktopBrain is built to solve your actual daily visual clutter.\n\nEverything you need to know about DesktopBrain's privacy, file handling, and on-device logic.\n\nNo, DesktopBrain never deletes your files without permission. Its primary goal is organization. It scans your chosen folders and proposes structured categories. You can review every single move before it happens, and the app never performs any destructive actions without your confirmation. Unsorted files are safely moved to organized folders.\n\nAbsolutely not. DesktopBrain is built with a privacy-first local architecture. All scan analysis, category sorting, and file movements happen 100% on-device on your Mac. We do not run any remote cloud APIs, tracking analytics, or database storage.\n\nYes, DesktopBrain works completely offline. Because the AI logic runs natively on your macOS hardware without cloud dependencies, you can organize your files mid-flight, deep in the mountains, or anywhere without an internet connection.\n\nYes. Every organization run generates a local history ledger. You can revert any organization operation with a single click, instantly moving all files back to their exact original locations. You remain in full control.\n\nDesktopBrain is pre-configured to clean your Desktop and Downloads folders, which are typically the most cluttered. However, you can select and add any custom directory on your Mac (such as Documents, Projects, or external drives) in the app settings.\n\nYes. DesktopBrain is built as a native macOS application optimized specifically for Apple Silicon (M1, M2, M3, M4 series chips) utilizing Apple Core ML to execute the private on-device intelligence model with minimal battery and CPU usage. It also runs smoothly on Intel-based Macs.\n\nOrganize years of clutter in minutes with fully private AI organization. No configuration, no cloud setup.\n\nRequires macOS 14.0 or newer. Free trial includes 100 file organizations.",
-    "readingTime": 4,
-    "keywords": [
-      "apple core",
-      "completely offline",
-      "internet connection",
-      "cloud setup",
-      "desktop and downloads",
-      "yes desktopbrain",
-      "file",
-      "files",
-      "on-device",
-      "organization"
-    ],
-    "qualityScore": 1,
-    "link": "https://desktopbrain.saposs.com/",
-    "thumbnail_url": "https://desktopbrain.com/og-image.png",
-    "created_at": "2026-09-29T11:47:00.265Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "ai-companies-are-asking-their-employees-to-flag-ai-writing-and-one-wants-a-steak-emoji",
-    "title": "AI companies are asking their employees to flag AI writing — and one wants a steak emoji",
-    "description": "AI companies are tired of employees passing off AI chatbot output as their own and are rolling out writing guidelines.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/ai-startups-asking-employees-to-flag-ai-writing-clay-figma-2026-9",
-    "thumbnail_url": "https://i.insider.com/6abb3c94d15f8a572974ba4c?width=1200&format=jpeg",
-    "created_at": "2026-09-29T11:46:59.769Z",
-    "topic": "finance"
   }
 ]
