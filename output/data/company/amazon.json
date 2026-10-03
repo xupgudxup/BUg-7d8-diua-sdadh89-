@@ -1,5 +1,29 @@
 [
   {
+    "slug": "mturk-closed-this-week-how-to-keep-ground-truth-and-a2i-workflows-running",
+    "title": "MTurk closed this week: how to keep Ground Truth and A2I workflows running",
+    "description": "Amazon Mechanical Turk closed on 2026-09-30. What changed in SageMaker Ground Truth and Amazon A2I, every workforce option, and five steps to move.",
+    "fullText": "Deepen AI · Published 2026-09-30\n\nFacts checked against Amazon Mechanical Turk and AWS notices on 2026-09-30.\n\nAmazon Mechanical Turk closed permanently today, 2026-09-30. It stopped accepting new requesters on 2026-07-30. For many teams, the harder question is not MTurk itself. It is the human step inside SageMaker Ground Truth labeling jobs and Amazon Augmented AI (A2I) review loops that relied on the MTurk workforce.\n\nThis guide covers what changed, what did not, and every realistic option for keeping that work running. It is written for teams with business and machine learning tasks. If you ran academic surveys, skip to the last section.\n\nGround Truth and A2I are not closing. What is gone is one workforce option: the Amazon Mechanical Turk workforce, which sent your tasks to the public MTurk pool. Labeling jobs and human review workflows that used it now need a different workforce.\n\nChecked 2026-10-02: AWS documentation now also says both Ground Truth and A2I are no longer open to new customers, and that AWS does not plan new features for either service. Existing customers, including everyone reading this guide, can keep using both as normal. This does not change anything below.\n\nAWS supports two other workforce types in the same services:\n\nYour task templates, input and output buckets, and the rest of your pipeline stay the same. The workforce setting is what changes.\n\nSearch for the public workforce ARN. It ends in workteam/public-crowd/default. Check three places:\n\nAlso search for the public workforce task price setting. It only applied to MTurk.\n\nFor each hit, write down the owner, weekly volume, task type, and whether the data includes personal information. You need all four to choose a workforce.\n\nThere is no single right answer. It depends on volume, data sensitivity, and who you want accountable for quality.\n\nOption A: your own staff as a private workforce. Best when the task needs deep product knowledge, or the data must stay with a small group. You get full control. You also take on hiring, training, scheduling and quality review.\n\nOption B: a managed team as a private workforce. A vendor provides people who sign in to your portal as members of your private workforce. You keep control of access. The vendor handles training, a team lead and QA. Ask any vendor how they measure quality, whether the same people stay on your work, and what their security audits cover.\n\nOption C: a vendor workforce from AWS Marketplace. Useful if you want to buy through your AWS account. Check which task types each vendor supports and how pricing works before you commit.\n\nOption D: automate more, review less. If a model is now good enough for most items, send only low-confidence items to people. This is what A2I was built for. You still need a workforce for the remainder, so this combines with A, B or C.\n\nOption E: move the task out of AWS labeling tools. If Ground Truth was only there to reach MTurk, it may be simpler to have a team work directly in your own tools, such as a spreadsheet, an admin panel or a labeling tool you already run. You give up the AWS job orchestration in exchange.\n\nIn the SageMaker console, open Labeling workforces and choose Private. If you do not have a private workforce yet, create one with Cognito or your OIDC provider. Each AWS account has one private workforce per Region, and it can hold several work teams.\n\nCreate a work team for the new people and invite them by work email. Each person gets an invitation to your labeling portal. If your security policy requires it, limit portal sign-in to set IP address ranges.\n\nCheck any job that was still running on the MTurk workforce at closure, and decide whether to rerun its unfinished items.\n\nSend a small batch first. Build a gold set: 50 to 200 items with known-correct answers, checked by someone who knows the task. Mix gold items into the test batch, compare results, and fix the instructions wherever people disagree. Then move the rest of the volume.\n\nKeep the gold set after the move. It is the simplest way to see whether quality drifts later, whoever does the work.\n\nMTurk offered a very large pool on demand and per-task pricing. No private workforce matches that for short, spiky bursts. What you gain is a known group of people who learn your rules, someone accountable for quality, and a clear record of who did each task.\n\nParticipant recruitment for research is a different job. Prolific and CloudResearch are built for it, with participant pools and screening tools.\n\nDisclosure: we run Deepen AI Services, a managed team that joins customer portals as a private workforce for business and data tasks (option B above).",
+    "readingTime": 4,
+    "keywords": [
+      "mechanical turk",
+      "amazon mechanical",
+      "ground truth",
+      "aws account",
+      "managed team",
+      "labeling jobs",
+      "mturk workforce",
+      "ground truth and a2i",
+      "option",
+      "task"
+    ],
+    "qualityScore": 1,
+    "link": "https://services.deepen.ai/guides/mturk-ground-truth-a2i-migration",
+    "thumbnail_url": "https://services.deepen.ai/images/og-default.png",
+    "created_at": "2026-10-03T02:49:20.643Z",
+    "topic": "tech"
+  },
+  {
     "slug": "amazon-comes-out-swinging-against-data-center-moratoriums-warning-the-consequences-would-last-generations",
     "title": "Amazon comes out swinging against data center moratoriums, warning the 'consequences would last generations'",
     "description": "Amazon Web Services CEO Matt Garman argued the US \"could be writing its own losing ticket to this race\" and referenced World War II learnings.",
@@ -1703,18 +1727,5 @@
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01KY5GCC222QV0RQZ591V2X8TN/hero-image.fill.size_1200x675.png",
     "created_at": "2026-08-13T01:02:21.156Z",
     "topic": "tech"
-  },
-  {
-    "slug": "i-left-amazon-came-back-and-was-laid-off-my-old-jobsearch-strategies-no-longer-worked-heres-what-did",
-    "title": "I left Amazon, came back, and was laid off. My old job-search strategies no longer worked — here's what did.",
-    "description": "A former Amazon engineer left the company, returned, and was laid off. He said his latest job search was tougher than expected.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/amazon-engineer-layoffs-job-search-lessons-big-tech-deloitte-office-2026-8",
-    "thumbnail_url": "https://i.insider.com/6a7a1f900c0bf4e8be5237f7?width=1200&format=jpeg",
-    "created_at": "2026-08-11T12:40:06.315Z",
-    "topic": "finance"
   }
 ]
