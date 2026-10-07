@@ -1,5 +1,18 @@
 [
   {
+    "slug": "i-made-ina-gartens-easy-apple-spice-cake-its-the-perfect-dessert-for-fall",
+    "title": "I made Ina Garten's easy apple spice cake. It's the perfect dessert for fall.",
+    "description": "Ina Garten's easy apple spice cake is her most fall-friendly dessert, thanks to the toasted pecans, rum-soaked raisins, cinnamon, and nutmeg.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/ina-garten-fresh-apple-spice-cake-recipe-review",
+    "thumbnail_url": "https://i.insider.com/6ac6670b14325b78342d3446?width=1200&format=jpeg",
+    "created_at": "2026-10-07T22:25:40.853Z",
+    "topic": "finance"
+  },
+  {
     "slug": "own-a-smartphone-then-youre-paying-the-app-tax-its-a-racket-and-its-time-the-uk-faced-apple-and-google-down-chi-onwurah",
     "title": "Own a smartphone? Then you’re paying the ‘app tax’. It’s a racket and it’s time the UK faced Apple and Google down | Chi Onwurah",
     "description": "A deep-seated duopoly allows the tech giants to exploit the public and developers. But the regulator has powers to stop this abuse – it should use...",
@@ -1804,29 +1817,5 @@
     "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/94737dc8afc68c2dc4c977dfb6d3b066a1655ef9c33b5b50ad15f33ae71b4cf5/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fsb_nation_articles_115%2Ff49284e7122dd1d0b57ae9a63a770150.jpg",
     "created_at": "2026-09-06T19:45:21.729Z",
     "topic": "sports"
-  },
-  {
-    "slug": "hakovm-firecrackerclass-vms-in-macos-built-by-a-macos-hacker",
-    "title": "HakoVM – Firecracker-class VMs in macOS, built by a macOS hacker",
-    "description": "HakoVM: Firecracker-class microVMs for macOS, built for AI agents. One binary on Apple's Containerization framework. - las7/HakoVM",
-    "fullText": "Firecracker-class microVMs for macOS. Built for AI agents.\n\nInstall · For agents · vs Docker / Apple container / Lima · Design · Performance · Roadmap\n\nBoot a hardware-isolated Linux VM from any OCI image in about 300 ms, run\ncommands in it at ~10 ms each, throw it away. No daemon, no Docker, no root.\nThe guest has no network card unless you give it one.\n\nFull numbers and caveats in docs/comparison.md.\n\nFirecracker needs KVM, so it does not run on a Mac. Docker Desktop, OrbStack\nand Lima give you one big shared VM. Apple's container CLI is close, but it\nis a general container tool with a daemon and a network stack you may not want.\n\nHakoVM is a thin Swift runtime on Apple's open-source\nContainerization framework, shaped\nfor one job: giving an AI agent a disposable machine it cannot escape from.\n\nCode interpreter. Run model-generated code, get stdout, exit code and files back.\nThe guest cannot reach the network or any host path you did not mount.\n\nDependencies. The guest is offline by default. Install once with\n--network and commit the result; every later run boots a copy-on-write\nclone of it, offline, in about a second:\n\nCommits layer (--from py-deps --commit py-deps-ml), and ten agents booting\nfrom one commit each get their own clone. Mounting a host venv or\nnode_modules works too, and so does any image from a registry. See\ndocs/dependencies.md for when to use which.\n\nClaude Code. Put every Bash call the agent makes inside a VM. Add to\n.claude/settings.json:\n\nThe project directory is mounted at the same path, so the agent's relative and\nabsolute paths keep working. HAKO_IMAGE, HAKO_NETWORK=1 and HAKO_MOUNT\ntune it. Round trip per command is about 0.7 s including the boot; a warm pool\nis next on the roadmap to bring that to the exec latency.\n\nMCP server. One command registers HakoVM as a tool for any MCP client:\n\nThe model gets hako_run (command, image or commit, timeout, cwd) and\nhako_commits. Network and extra mounts are refused unless you start the\nserver with --allow-network / --allow-mounts.\n\nAny language. hako run --json --timeout 60 -- ... prints one JSON\nobject with stdout, stderr, exit code and timings. See\ndocs/agents.md for all four integration paths and the\npatterns that work.\n\nApple Silicon and macOS 26 or later. No sudo, no developer account.\n\nThat drops hako in ~/.local/bin and runs hako setup, which downloads a\n28 MB Linux kernel built from Apple's Containerization config and caches\nApple's guest init plus alpine. Everything lives under ~/.hako.\n\nhako is being built around six agent workloads: coding-agent shell, code\ninterpreter, parallel fan-out, browser agent, eval runs, and hosting untrusted\nMCP servers. The design doc describes the primitives that\nserve them: profiles, warm pools, host-terminated egress with hostname\nallowlists, a credential broker, and commit/fork of prepared rootfs images.\n\nSee the roadmap for order and status.\n\nApache License 2.0. See LICENSE and NOTICE.",
-    "readingTime": 3,
-    "keywords": [
-      "code interpreter",
-      "exit code",
-      "guest",
-      "agent",
-      "commit",
-      "agents",
-      "roadmap",
-      "command",
-      "macos",
-      "lima"
-    ],
-    "qualityScore": 1,
-    "link": "https://github.com/las7/HakoVM",
-    "thumbnail_url": "https://opengraph.githubassets.com/c36724fc2362ba5867122855325c237c19241ca399297361333ac9c81ab3f057/las7/HakoVM",
-    "created_at": "2026-09-06T19:44:29.158Z",
-    "topic": "tech"
   }
 ]
