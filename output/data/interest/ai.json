@@ -1,5 +1,105 @@
 [
   {
+    "slug": "ai-snake-oil-author-sees-chatbots-evolving-into-a-truth-oracleand-journalism-heading-somewhere-it-hasnt-been-in-200",
+    "title": "‘AI Snake Oil’ author sees chatbots evolving into a ‘truth oracle’—and journalism heading somewhere it hasn’t been in 200 years",
+    "description": "Princeton’s Arvind Narayanan asked the Computation + Journalism conference to prepare for AI “not as it is today, but as it will be” in five to 10 years.",
+    "fullText": "FORTUNE is a trademark of Fortune Media IP Limited, registered in the U.S. and other countries. FORTUNE may receive compensation for some links to products and services on this website. Offers may be subject to change without notice.",
+    "readingTime": 1,
+    "keywords": [
+      "fortune"
+    ],
+    "qualityScore": 0.1,
+    "link": "https://fortune.com/2026/10/06/arvind-narayanan-journalism-future-ai-slop-oracle-source-truth/",
+    "thumbnail_url": "https://fortune.com/img-assets/wp-content/uploads/2026/08/arvind.png?resize=1200,600",
+    "created_at": "2026-10-07T03:13:51.547Z",
+    "topic": "business"
+  },
+  {
+    "slug": "cited-by-agi",
+    "title": "Cited by AGI",
+    "description": "The mathematicians behind OpenAI's results. Every human author cited across the openai/math manuscripts, with each count traced back to its source.",
+    "fullText": "The mathematicians behind OpenAI's results.\n\nEvery human author cited across the openai/math manuscript collection, ranked by how often their work appears in a bibliography. Each count can be followed back to the manuscript and the reference that produced it.\n\nA citation is one bibliography entry credited to an author in one manuscript. A work cited by ten manuscripts counts ten times; repeated mentions inside a single manuscript count once. Every named coauthor receives full credit.\n\nManuscripts counts the distinct manuscripts that cite an author. Families counts distinct result families, which reduces the effect of companion papers. These are counts of citation frequency inside this repository, not a measure of mathematical importance or proof validity.\n\nCited BibTeX entries and inline bibliography entries are parsed, organizational and anonymous authors are excluded, accents are normalized, and initials are merged with full names when the match is unique. Ambiguous initials stay separate. Authors listed only as \"et al.\" cannot be recovered. Human authors in adjacent disciplines are included; there is no filter by profession.",
+    "readingTime": 1,
+    "keywords": [
+      "manuscripts counts",
+      "author",
+      "bibliography",
+      "authors",
+      "human",
+      "citation",
+      "inside",
+      "distinct",
+      "families",
+      "entries"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://citedbyagi.com/",
+    "thumbnail_url": "https://citedbyagi.com/og.png",
+    "created_at": "2026-10-07T03:13:26.632Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "turn-x-posts-into-beautiful-visual-stories-with-ai",
+    "title": "Turn X Posts into Beautiful Visual Stories with AI",
+    "description": "Contribute to mkantwala/iloveposts development by creating an account on GitHub.",
+    "fullText": "Beautify your x.com posts with LLM. Paste a tweet link, optionally say how it should look, and get\nback a typeset image of the tweet sized for X — plus an interactive version with \"See more\".\n\nThis repository is iloveposts: a single Cloudflare Worker that serves the landing page and the API,\nand runs the whole pipeline on Cloudflare — Durable Objects, a Sandbox container and Browser\nRendering, with the designer on Workers AI.\n\nTo run your own copy, see docs/self-hosting.md.\n\nFor one tweet URL, a finished card is:\n\nThe card shows the tweet as a post — the author, \"Replying to @…\" for a reply, the text, its media, a\nquoted tweet with its own author, text and picture, then the date and counts — inside a visual\nworld designed for that tweet: a concept, artwork, palette and typography derived from what it says\nand shows. Every word, name, number and date comes from the tweet itself. The model decides how it\nlooks, never what it says.\n\nEvery card is one self-contained HTML document. Tick Motion & 3D on the page (or send\n\"motion\": true) and the designer also decides what moves and how —\nan entrance, depth and tilt, an ambient background, counts that count up — within one rule: motion\nreinforces the hierarchy, and nothing moves for its own sake.\n\nStatic cards can use a script too, drawn once on load — Canvas 2D artwork, generated SVG. Native\nHTML, CSS, Canvas 2D, SVG and JavaScript come first. Two vendored libraries are there when a\ndesign genuinely needs them — Three.js for WebGL 3D scenes and GSAP for timelines — built into\nthe sandbox image and inlined into the card, so nothing is ever fetched. Motion settles within 2.5 seconds; the PNG is the settled frame, and the interactive version is the HTML and\nthe preview. Viewers who prefer reduced motion get the card still.\n\nX shows post images at roughly a third of their size in the timeline, so type is set large: the tweet\nbody is at least 40px on x_post, which reads at about the size of a normal tweet on a phone.\n\nEach stage persists its result before the next begins, so a crash, deploy or eviction resumes where it\nleft off, and a stage is the unit of retry.\n\nThat is the whole pipeline: tweet → metadata → one design request → one self-contained HTML file →\nChromium → PNG. There is no separate art-direction step and no menu of themes or layouts to choose\nfrom; the designer reads the tweet, looks at its pictures, and decides the look itself.\n\nOne request, not an agent loop. A card is a 10–20 KB file. The opencode coding agent got there in\na dozen or more tool turns, each resending the whole growing conversation — about 500k tokens a card.\nThe direct designer is handed everything at once, through the Worker's AI binding, and answers with\nthe file: one request of roughly 20–30k tokens a card (most of it the model's reasoning), and one more\nfor a repair. opencode remains as the fallback when a design request fails, if its token is set (and\nas the engine with DESIGN_ENGINE=agent), on a hard budget of 12 model calls per build and 6 per\nrepair, enforced at egress. Every model call's tokens\nappear in the live log and in usage.\n\nThe designer only designs. The page has two ownership zones: [data-artwork], which is the\ndesigner's — any SVG, shapes, canvas or decorative markup — and [data-card], the tweet, which is\nlocked. Only the artwork, the <style> and the <script> survive; the tweet is rebuilt from data, so\nthe model cannot misquote it, drop a label, invent a count or break the markup the checks rely on.\n\nA broken card is never shipped. When a model cannot lay a card out — text off the canvas, clipped\nor invisible — the pipeline tries its house design: a restrained, known-good design for the same\nmarkup that passes every check in every format, static and Motion & 3D. The better of the two is\nexported, and quality.houseDesign says which it was.\n\nThe goal is a card that looks designed for this tweet. The brief (src/markdown/agents.ts)\nconstrains quality, not visual language:\n\nTypefaces come from an embedded shelf of eight open-licence families (sans, serif and mono); the\ndesigner links the ones it chooses and only those are inlined.\n\nThe validate stage is deterministic — no model looks at the result. It renders the card in Browser\nRendering and checks, with measured values:\n\nEvery issue carries its measurement (\"the card is 18px from the canvas edge\"), and the repair pass gets\na specific fix for each rule.\n\nAll responses are JSON. Errors are { \"error\": { \"code\": \"…\", \"message\": \"…\" } }.\n\nReturns 202 Accepted with the job and a Location: /v1/cards/{id} header. Sending the same\nIdempotency-Key again within 24 hours returns the existing job instead of starting another.\n\nPoll until status is completed or failed. A card takes roughly 2–6 minutes.\n\nassets is null until the card has been rendered. quality.passed is false when measured issues\nremained after the repair pass; the card is still exported, and the issues are listed.\n\nCards and their records are kept for 30 days.\n\nA job that fails reports it in error, with one of: tweet_not_found, engine_unavailable (missing configuration), workspace_lost, or\n{stage}_failed after that stage's retries.\n\nA caller is a hashed client IP. The API has no authentication; these limits are what bound its cost.\n\nAt Cloudflare's published prices:\n\nPlus the $5/month Workers Paid plan, which Containers require; it includes 10 browser-hours a month and\nsome container time. The Free plan's 10,000 neurons a day cover a handful of cards on a cheap model.\nEvery job reports its exact token usage in usage, and every model call is a line in its live log.\n\nnpm run preflight (and automatically, npm run deploy) checks, and refuses to deploy on failure:\n\nIt also prints the estimated model cost per card from the catalog's current prices. Use\nnpm run preflight -- --local to skip the account checks.\n\nAt runtime the same configuration is checked on every request that needs it: /health returns 503\nwith the problems, and POST /v1/cards refuses with service_misconfigured rather than starting a\njob that would fail.\n\nSeveral scripts are generated inside TypeScript template literals (the page, the toggle, the viewer,\nthe measurement script), where a \\n meant for the output is easy to break. npm run typecheck\nparses each of them; run it before every deploy.",
+    "readingTime": 6,
+    "keywords": [
+      "self-contained html",
+      "interactive version",
+      "model cannot",
+      "design request",
+      "tokens card",
+      "browser rendering",
+      "tweet",
+      "designer",
+      "canvas",
+      "page"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/mkantwala/iloveposts",
+    "thumbnail_url": "https://opengraph.githubassets.com/c1bcb7c6333f08b146783a1d8ec33ea94103083f4ec6aed929840a65e8528690/mkantwala/iloveposts",
+    "created_at": "2026-10-07T03:13:26.441Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "openai-rogue-agent-activities-found-on-wikimedia-projects",
+    "title": "OpenAI \"rogue\" agent activities found on Wikimedia projects",
+    "description": "Wikimedia Foundation found “rogue” OpenAI agents on its wikis, raising concerns about risks to its free knowledge projects and the open web.",
+    "fullText": "Recently, multiple organisations have disclosed how clusters of so-called “rogue” AI agents attempted to break into websites and online services, sometimes successfully. Agents from OpenAI’s environment, in particular, are known to have used other public wikis (collaboratively edited websites not owned by us) to communicate and coordinate with each other.\n\nThese types of successful intrusions can expose sensitive data or disrupt website services that users rely on, while clusters of agents can attempt attacks at a scale that is difficult for defenders to manage. They affect people behind the websites who may not understand the nature of the attack, or have the tools to effectively fight back. For a site like Wikipedia, agents might find and use security vulnerabilities or make misleading edits at scale. Wikipedia’s volunteer editors and the Wikimedia Foundation’s security teams have to detect and undo that activity.\n\nThe Wikimedia Foundation conducted its own investigation to see whether Wikimedia websites had been similarly affected by AI agents, focusing on those operated by OpenAI. We can confirm that we have discovered some activity by these “rogue” OpenAI agents on Wikimedia platforms. The unauthorized bot activities included edits to our wikis, some unsuccessful attempts to exploit a public note-taking tool we host, and heavy traffic, which are described more below.\n\nWe did not find any evidence that our systems were used for coordination among agents, nor did we find any evidence of our systems or data being compromised. However, we are concerned about what could have occurred here, the difficulty and effort involved in investigating and attributing this activity, and the growing risks of agentic AI activity on our platforms in general. The open web is a public good. We should not allow this behavior to become the “new normal” for the people or organizations that maintain it.\n\nAs a non-profit technology host of some of the largest and most widely used open knowledge platforms in the world, we are deeply concerned about the impact of “rogue” AI agents on platforms like ours, which are built by volunteers from around the world and rely on the promise of the open internet. Incidents like this one, and the many others that have been (and are still being) uncovered, illustrate how AI agents can drain resources and crash servers, as well as attempt to compromise trustworthy information.\n\nOver the past 25 years, Wikipedia has grown into one of the most popular and trusted websites in the world, with more than 67 million articles across over 300 languages, and up to 15 billion page views per month. Through an open, transparent, and collaborative process, volunteers work to ensure that knowledge remains neutral, reliable, and accessible to everyone. Wikipedia is one of the highest-quality datasets used in training Large Language Models (LLMs), and its knowledge forms the backbone of information on the internet, powering AI chatbots, search engines, voice assistants, and more.\n\nWikipedia was designed for humans – and agentic behavior clearly poses challenges that no one has solutions for. Because of our unique and successful knowledge creation model, Wikimedia’s volunteers are the ones who come in first contact with, and clean up the mess left behind by AI agents. Rising bot traffic and agentic activity is showing a real impact on the Wikimedia projects and the infrastructure that makes it available for millions of users globally. In 2025, the Foundation reported that its bandwidth usage had increased by 50% due to the surge of bot activity on its websites since 2024. At the same time, 65% of the most resource-consuming traffic on its projects was coming from bots.\n\nThis intense pressure on our infrastructure not only adds costs for servers and humans, but if left unaddressed, can block human visitors by overloading systems and causing outages. We are already paying for costs that come with the increased activity.\n\nWikimedia’s volunteers have stayed resilient so far in tackling emerging challenges on our platforms, but we also want to say: it doesn’t need to be this way.\n\nWhile OpenAI admits to agents behaving “unpredictably”, they must also acknowledge their responsibility to monitor and prevent these risks. AI companies are not doing enough to secure their systems and protect the public from the harm they cause. That burden is falling onto everyone else, including smaller organizations. At a minimum, their systems should operate in a way that non-profit website owners like us can easily identify, and choose how they interact with our services.\n\nThe web enables so much: to connect with friends and family, to register for school, to plan a trip across town, to buy groceries, and to learn about the world from Wikipedia. Bots and agents are part of the future of the web, and the companies who unleash and profit from them must directly help avoid and repair damage they can do.\n\nOur collective priority should be the health of the overall web ecosystem so that it continues to benefit all people – not just a handful of billionaires. Wikimedia plays a critical role in stewarding the knowledge commons, but we cannot do it alone. We invite everyone who is building the future of the web to join us in protecting the open, shared resources that make that future possible.",
+    "readingTime": 5,
+    "keywords": [
+      "wikimedia’s volunteers",
+      "agents",
+      "activity",
+      "websites",
+      "platforms",
+      "systems",
+      "knowledge",
+      "rogue",
+      "services",
+      "traffic"
+    ],
+    "qualityScore": 1,
+    "link": "https://wikimediafoundation.org/news/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects/",
+    "thumbnail_url": "https://wikimediafoundation.org/wp-content/uploads/2026/10/SwarmRobot_org.jpg",
+    "created_at": "2026-10-07T03:13:26.294Z",
+    "topic": "tech"
+  },
+  {
+    "slug": "a-highconviction-chip-stock-up-3083-since-our-ai-models-flagged-it",
+    "title": "A high-conviction chip stock, up 30.83% since our AI models flagged it",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/stock-market-news/a-highconviction-chip-stock-up-3083-since-our-ai-models-flagged-it-4935547",
+    "thumbnail_url": "https://content-media.investing.com/news/Traders_800x533_L_1661165122.jpg",
+    "created_at": "2026-10-07T03:13:12.310Z",
+    "topic": "finance"
+  },
+  {
     "slug": "google-makes-a-fresh-bet-on-nuclear-power-as-the-ai-energy-crunch-intensifies",
     "title": "Google makes a fresh bet on nuclear power as the AI energy crunch intensifies",
     "description": "Constellation’s stock is rising sharply following a deal that equates to as much power as would be supplied by a new nuclear reactor.",
@@ -1654,92 +1754,5 @@
     "thumbnail_url": "https://lifehacker.com/imagery/articles/01M3Z404X1HS8W4GN7KYFCCAAC/hero-image.fill.size_1200x675.jpg",
     "created_at": "2026-10-02T21:34:19.491Z",
     "topic": "tech"
-  },
-  {
-    "slug": "openais-medicare-attack-has-exposed-australias-tech-debt-fixing-it-could-bring-a-big-bill-for-taxpayers",
-    "title": "OpenAI’s Medicare attack has exposed Australia’s ‘tech debt’. Fixing it could bring a big bill for taxpayers",
-    "description": "Home affairs department orders all federal government agencies to conduct review of ‘legacy technology’ amid fallout from AI agent...",
-    "fullText": "Home affairs department orders all federal government agencies to conduct review of ‘legacy technology’ amid fallout from AI agent hacks\n\nGet our breaking news email, free app or daily news podcast\n\nThe Australian government faces significant “tech debt” that could bring a big bill for taxpayers after the OpenAI Medicare breach, as government agencies will need to fortify their defences against future attacks by AI agents.\n\nThis week, the home affairs department ordered all federal government agencies to conduct a “legacy technology stocktake” that requires a plan for each agency to “reduce legacy technology systems” to a level within the agency’s risk tolerance and appetite, the direction stated.\n\nOpenAI this week revealed an internal agent had gained non-public access to the Services Australia Medicare statistics portal during a training task seeking information on government spending on skin conditions in Victoria. The agent was able to run commands, retrieve internal files, credentials, and write files.\n\nWhile OpenAI has apologised to Australia for the incident, it has served as a wake up call for the federal government, with the government-wide review now under way.\n\nThe finance minister, Katy Gallagher, asked her department whether some of the A$160m funding allocated to the agency in the last budget for cyber upgrades can be accelerated.\n\nThe statistics portal, Gallagher told reporters last month, is a “legacy system.”\n\nServices Australia will be far from alone in managing legacy systems. They can – but not all do – present a security risk for businesses and government as they age and vendors cease providing new security updates.\n\nProf Salil Kanhere, a University of New South Wales cybersecurity and AI expert said the age of the system alone does not tell an agency whether it needs replacing.\n\n“A 15-year-old system that is properly supported, patched and properly isolated would perhaps present less risk than even a newer system that might not be properly maintained,” he said.\n\nThose older systems with vulnerabilities are often known to human attackers, but AI agents persistent in looking for holes in a system may be able to discover them quicker.\n\nGartner, a technology analysis firm stated in a note to clients released after the Medicare hack that “technical debt, not a rogue AI agent attack” represented the greatest threat to legacy systems.\n\n“Agentic AI’s interactions with [government] resources will greatly increase,” the firm stated. “Underinvestment is no longer sustainable and agencies should urgently prioritise funding in light of AI-driven risks.”\n\nIn the Australian government’s commonwealth cybersecurity posture in 2025 report released in February this year, 59% of federal agencies and departments reported their ability to implement the “essential eight” measures to reduce cyber risk was being affected by use of legacy technologies.\n\nThe essential eight includes requirements to patch applications and operating systems, using multi-factor authentication, and other security measures. Of those agencies being hindered by legacy tech, 34% blamed insufficient dedicated funding, while 18% said it was due to a lack of a viable replacement.\n\nProf Yang Xiang, from Monash University’s department of software systems and cybersecurity, said the government stocktake was “very necessary” and there was urgency to needing to audit all government systems.\n\n“The agents bring significant changes in terms of the speed of getting into – hacking into – the system,” he said. “The cost to launch an attack is much reduced to launch an attack and with the help of agents, it is fairly easy for the hacker to launch a very large scale atack against any systems.”\n\nClearing the tech debt could prove costly for the federal government, but Xiang said agencies should identify priority systems for replacement. Kanhere said high-risk systems should take priority.\n\n“You do the high risk stuff first, I think it is absolutely needed, and then put the perimeter around [other systems],” he said. “It is possible to do it quite systematically once they have a good understanding of what needs to be done.”\n\nSome states have audited their legacy technology and have invested hundreds of millions to rectify the issues.\n\nA Victoria government cybersecurity audit of its IT servers found 25% of the operating systems used by servers were no longer supported by the vendor, with 48% in extended support.\n\nIn a South Australian audit report of legacy ICT systems published in June, of the ten agencies reviewed, nearly half of the 11,602 hardware devices or appliances were determined to be legacy devices. Almost one quarter of the operating systems and applications were also determined to be legacy.\n\nIn one example, the Department for Child Protection’s case management system is now over 15 years old, and has limited vendor support.\n\nThe SA government has allocated $325.6m over the past three budgets in part to address legacy technology.\n\n“Frontline workers spend significant time managing system limitations and maintaining records, reducing the time available to support vulnerable children and families.”\n\nA 2025 Queensland government audit of IT systems found more than half of the 57 systems audited are at the end of life. Many of the systems identified by the government in 2012 as needing to be replaced were still in operation in 2025, including a patient administration system at Queensland Health, a forensic register at the Queensland Police Service, and a trust accounts system for young people in detention.\n\nThe Queensland government in the 2025 budget allocated $1bn over four years for IT investment, including replacing or updating legacy systems.\n\nThe Australian Cyber Security Centre said in recent guidance that the most effective way to mitigate risks associated with legacy IT is to replace it, and where it cannot be replaced, then legacy technology should potentially be segregated or isolated from the broader department network to restrict access to the rest of the department.",
-    "readingTime": 5,
-    "keywords": [
-      "statistics portal",
-      "tech debt",
-      "affairs department",
-      "operating systems",
-      "legacy technology",
-      "agencies",
-      "federal",
-      "risk",
-      "agents",
-      "security"
-    ],
-    "qualityScore": 1,
-    "link": "https://www.theguardian.com/australia-news/2026/oct/03/openais-medicare-attack-has-exposed-australias-tech-debt-fixing-it-could-bring-a-big-bill-for-taxpayers",
-    "thumbnail_url": "https://i.guim.co.uk/img/media/961de574f870d32e3b4daa471716efcb42a6d0c5/904_0_5223_4179/master/5223.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=e6ea43cd7bf858bc06d630e2bd24280b",
-    "created_at": "2026-10-02T17:00:59.526Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "higher-oil-prices-are-just-1-way-the-iran-war-is-weighing-on-the-us-economy",
-    "title": "Higher oil prices are just 1 way the Iran war is weighing on the U.S. economy",
-    "description": "US bond yields have surged upward over the past month, as yields on both the 10-year Treasury (^TNX) and 30-year Treasury (^TYX) have reached levels not seen since 2002, surpassing 2007 high-water marks in the lead-up to the financial crisis.\nInvestors have attributed the run-up in yields to a variety of concerns, from the artificial intelligence build-out and the competition for capital to changing foreign ownership of gold versus fixed income.\nRead more: How soaring Treasury yields could hit your finances\nOne overlooked source of upward pressure, argued Macquarie's Thierry Wizman, is not just the impact of the Iran war on the energy market but uncertainty about when the war will end or what the conflict will look like going forward.\n\"The perception that global conflict is endemic may also be causing long-term inflation expectation[s] to stay elevated,\" Wizman wrote to clients.\nThe uncertainty factor for investors, Wizman said, centers around the midterm elections.",
-    "fullText": "US bond yields have surged upward over the past month, as yields on both the 10-year Treasury (^TNX) and 30-year Treasury (^TYX) have reached levels not seen since 2002, surpassing 2007 high-water marks in the lead-up to the financial crisis.\n\nInvestors have attributed the run-up in yields to a variety of concerns, from the artificial intelligence build-out and the competition for capital to changing foreign ownership of gold versus fixed income.\n\nOne overlooked source of upward pressure, argued Macquarie's Thierry Wizman, is not just the impact of the Iran war on the energy market but uncertainty about when the war will end or what the conflict will look like going forward.\n\n\"The perception that global conflict is endemic may also be causing long-term inflation expectation[s] to stay elevated,\" Wizman wrote to clients.\n\nThe uncertainty factor for investors, Wizman said, centers around the midterm elections.\n\nPresident Trump has said he expects the war to wrap up shortly after the US midterms as he evaluates the success of the US naval blockade of Iran and Tehran's shift in leverage after the elections past. However, the president has also said he's considering a major renewed bombing campaign after the elections, which would likely push the conflict back into \"hot war\" territory and reignite tensions.\n\n\"This status quo can change dramatically after November 3, when President Trump, unfettered by domestic political considerations, will have more latitude to choose between peace and/or war, instead of sitting on the sidelines, kinetically and diplomatically,\" Wizman wrote. \"Implied volatilities are starting to price in divergent two-way outcomes after November 3, when events can shift wildly one way or the other.\"\n\nThat makes it difficult for investors to evaluate what Wizman says is a critical component of the war in Iran: the conflict's impact on government spending.\n\nAt face value, the shuttering of the Strait of Hormuz and attacks on energy infrastructure throughout the Gulf region have sent energy prices soaring, depressing bond prices as investors price in higher inflation rates for longer. Brent (BZ=F) oil futures, the international benchmark, pushed back past $100 per barrel on Thursday.\n\nBut wars are also expensive to fight, as the US government writes checks for munitions restocks, fuel stores to power aircraft and naval vessels, combat pay for soldiers, and a litany of other costs. The latest figures submitted to Congress by the Pentagon indicate the US government has spent at least $43.6 billion so far, though outside research institutions suggest the actual sum could be far higher.",
-    "readingTime": 3,
-    "keywords": [
-      "president trump",
-      "investors",
-      "yields",
-      "energy",
-      "conflict",
-      "elections",
-      "bond",
-      "upward",
-      "impact",
-      "uncertainty"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://finance.yahoo.com/markets/article/the-iran-war-is-driving-inflation-higher--and-its-not-just-because-of-oil-100000797.html",
-    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/81ad6a661782c4928f8752150d4c1baaf01df89ee57f2fdcd482224324d79a77/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2F2026-10%2Ffe9d8180-7a90-462b-983f-eef968af8782",
-    "created_at": "2026-10-02T17:00:58.809Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "where-every-us-governor-stands-on-ai-and-the-datacenter-boom",
-    "title": "Where every US governor stands on AI and the data-center boom",
-    "description": "Some governors see their states as the next powerhouse for the growing AI industry. Others are exploring a \"kill switch\" for rogue AI.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/where-every-us-governor-stands-ai-data-centers-midterms-2026-10",
-    "thumbnail_url": "https://i.insider.com/6ab450c4eb72254112679e29?width=1200&format=jpeg",
-    "created_at": "2026-10-02T17:00:49.453Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "this-entrepreneur-treated-an-ai-agent-like-a-colleague-then-it-started-doing-the-work",
-    "title": "This entrepreneur treated an AI agent like a colleague. Then it started doing the work.",
-    "description": "A tech entrepreneur put the Instinct AI agent to work on marketing, operations, shipping, tariffs, and more.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/instinct-ai-agent-helped-entrepreneur-run-new-business-puttez-2026-10",
-    "thumbnail_url": "https://i.insider.com/6abecf74d15f8a572974d4b1?width=480&format=jpeg",
-    "created_at": "2026-10-02T17:00:49.100Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "the-pope-decries-aigenerated-art",
-    "title": "The Pope decries AI-generated art",
-    "description": "Pope Leo XIV spoke out against AI-generated art during a meeting with artists and curators in Vatican City on Friday.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/the-pope-criticizes-ai-generated-art-2026-10",
-    "thumbnail_url": "https://i.insider.com/6abfb01ed15f8a572974d751?width=1200&format=jpeg",
-    "created_at": "2026-10-02T17:00:48.789Z",
-    "topic": "finance"
   }
 ]
