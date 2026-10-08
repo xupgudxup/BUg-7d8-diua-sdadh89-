@@ -1,5 +1,29 @@
 [
   {
+    "slug": "trump-tourism-effects",
+    "title": "Trump Tourism Effects",
+    "description": "In the past day or two on social media I kept seeing this graph from a Semafor story on the declining volume of international visitors to the United States.\nSemafor Graph.\nIt seems to show, and was being remarked on as showing, that the second Trump administration has been responsible for a drop in visitors from abroad from some countries on a scale comparable to the effects of the Covid-19 pandemic. My first thought was “that can’t be true”. And indeed it is not true.",
+    "fullText": "In the past day or two on social media I kept seeing this graph from a Semafor story on the declining volume of international visitors to the United States.\n\nIt seems to show, and was being remarked on as showing, that the second Trump administration has been responsible for a drop in visitors from abroad from some countries on a scale comparable to the effects of the Covid-19 pandemic. My first thought was “that can’t be true”. And indeed it is not true. I mean, the pandemic shut down air travel almost completely for a while. The current administration’s actions have been terrible in many ways and led to direct, negative consequences for tourism, too. But they haven’t been on that scale. Something’s wrong with the graph.\n\nThese numbers come from International Trade Administration’s I-94 arrivals data. They maintain a spreadsheet that counts all international visitors by country of residence who arrive in the U.S., spend at least one night here, are among qualified visa holders, including tourist visas and waivers and so forth. This is a monthly series. Right now, we only have data up to August of 2026, and for a couple of countries in the graph only up till June. I think—I am only guessing—that what the person who made this graph did was aggregate to yearly totals, plot those points, and then smooth them. (That’s why the y-axis values are so large in comparison to the ones on the monthly graphs I’m about to show you.) But the data for 2026 are only for half the year, hence the giant drop.\n\nI went and got the data myself and took a look at it. Here’s the raw monthly series for the same countries as in the one above:\n\nIt’s noisy because tourism is highly seasonal. Even so, the catastrophic effects of the pandemic are obvious, as is the fact that whatever is going on in the past year isn’t nearly as severe as that. Though something is going on. We can smooth the monthly data directly by calculating a trailing average, which is just a moving average except the window we’re moving across the data doesn’t extend beyond the current month. That way, we don’t illegitimately “look ahead” of the current month in a way that would make our moving average seem to anticipate the future. If we used an ordinary moving average it might seem like the trend was able to anticipate the Covid-19 downturn, for example. Here’s the result:\n\nSo, no Covid-scale drop. But still, not nothing. The Canadian dip, following the trade war Trump started for no good reason, is very substantial. Just eyeballing it, it seems about twice as large as the downturn that followed the global financial crisis of the Great Recession, which is quite remarkable. It also looks like French tourism has declined, but I’d need to look a little more closely at that series by itself, as it’s on quite a different scale.\n\nThe general lesson, I suppose, is just that it’s always worth trying to cultivate some sort of rough comparative sense of how big or small an effect you should be expecting to see in your data, so that when something goes wrong (as things so often do) you’re more likely to be brought up short by it.\n\nSpeaking of which, you might also wonder about the remarkable leap in visitors from Mexico around 2004-2005 that’s visible in both the original graph and my version of it. What happened there? The answer is not some sudden shift in tourism preferences, but our old friend, measurement change. Prior to 2005, visitors from Mexico originating within 25 miles of the border weren’t counted as visitors. After 2005, they were. Hence the jump. In a smaller but still noticeable way, data for 2014 aren’t fully comparable either, because overseas one-night-stay visitors were included that year. There is some documentation of this on this old BTS page. If you want to measure change, you can’t change the measure.\n\nUpdate: Now that I have this data and am messing around with it, here’s one more. This is monthly data averaged with a 12-month trailing window, showing all travel to the U.S., broken out by different “regions”. Canada and Mexico are large enough to each be their own region. Looking at things this way deliberately smooths away all the seasonality. The size of the Canadian reaction to the Trump administration’s attack on them really is remarkable. Elbows up, Canada.",
+    "readingTime": 4,
+    "keywords": [
+      "monthly series",
+      "visitors",
+      "graph",
+      "tourism",
+      "average",
+      "trump",
+      "drop",
+      "scale",
+      "pandemic",
+      "look"
+    ],
+    "qualityScore": 1,
+    "link": "https://kieranhealy.org/blog/archives/2026/10/01/trump-tourism-effects/",
+    "thumbnail_url": "https://kieranhealy.org/blog/archives/2026/10/01/trump-tourism-effects/arrivals-monthly-smoothed.png",
+    "created_at": "2026-10-08T12:26:55.788Z",
+    "topic": "tech"
+  },
+  {
     "slug": "i-cant-take-back-the-vacations-i-never-took-with-my-kids-at-51-im-saying-yes-to-solo-travel",
     "title": "I can't take back the vacations I never took with my kids. At 51, I'm saying yes to solo travel.",
     "description": "When my kids were younger, I always put off big family trips for one reason or another. Then I  realized I had run out of time.",
@@ -1709,29 +1733,5 @@
     "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/d87be156a7415f4ccdc99469b72bfe7fcda0e4a23764a161628909e8789dafc8/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fsb_nation_articles_115%2F4e67e13fa243ab0d1bd41dedd48bc08d.jpg",
     "created_at": "2026-08-24T12:25:42.476Z",
     "topic": "sports"
-  },
-  {
-    "slug": "businessclass-fliers-love-sliding-doors-but-theyre-causing-a-nuisance-for-airlines-and-planemakers",
-    "title": "Business-class fliers love sliding doors — but they’re causing a nuisance for airlines and planemakers",
-    "description": "Airlines are competing for the fanciest business class following the boom in premium travel, but new suites require rigorous certification testing.",
-    "fullText": "The rise in premium travel is causing frustrations for airlines and manufacturers.\n\nFancy new business-class seats need to go through rigorous certification testing.\n\nAirplanes have been stuck at factories or flown with empty business class cabins.\n\nMore travelers are shelling out for the best airplane seats amid a boom in premium travel, driving airlines to develop increasingly complex business-class seats — some of which are proving to be a headache for carriers and manufacturers alike.\n\nSince COVID-19, airlines have been packing their planes with fancy new cabins as they try to attract more deep-pocketed customers. In April, United Airlines rolled out an airplane with 64 business-class seats. Delta Air Lines plans to debut its Airbus A350-1000 next year with 53 business-class suites.\n\nBut new seat designs must undergo rigorous certification by aviation regulators. And ongoing approval delays are derailing plans, leaving airplanes stuck at factories awaiting delivery and, in some cases, flying with their highly profitable business-class doors locked open or the seats off-limits to passengers altogether.\n\nSliding doors are a frequent hurdle for certification. First introduced by Emirates in 2003 to give first-class passengers extra privacy, they are now essentially de rigueur in business class.\n\nHowever, regulators must be certain that these doors won't impede passengers during an evacuation.\n\nWhen American Airlines started flying the Airbus A321XLR last December, it had to keep the sliding doors locked open until the Federal Aviation Administration certified them seven months later. The same issue befell United Airlines when it debuted its new Polaris suites on the Boeing 787-9 in April. These were made by the Boeing subsidiary Elevate Aircraft Seating, based on a customizable design similar to one used by several airlines.\n\n\"They all have exactly this same door design, and we're still struggling every time to get them certified, including the ones that are flying already,\" Sascha Manitz, a sales director at Elevate, told Business Insider during the UK's Farnborough Airshow in July. \"It seems like the goalposts are moving all the time.\"\n\nIn a statement, the FAA said it is \"engaged with seat and aircraft manufacturers to maintain clear communication throughout the certification lifecycle,\" and collaborating with international partners and authorities to \"streamline the approval process.\"\n\nUnited's Polaris suites were eventually certified, and the first sliding doors unlocked in early August. Air India has also locked its new 787 business-class doors open, but it's still navigating FAA certification.",
-    "readingTime": 2,
-    "keywords": [
-      "polaris suites",
-      "premium travel",
-      "business class",
-      "rigorous certification",
-      "sliding doors",
-      "doors locked",
-      "business-class seats",
-      "manufacturers",
-      "flying",
-      "passengers"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/economy/policy/articles/business-class-fliers-love-sliding-094401599.html",
-    "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/AFF4678B77ED1503D3AD9F05D971E10EF11B4756E76E59F2775E6AEAB811C0F4/subgraphmysterio/resizefill_w1200_h900;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fbusiness_insider_consolidated_articles_886%2F51caa7290775a818319522bdee3886bc.jpg",
-    "created_at": "2026-08-23T00:40:14.658Z",
-    "topic": "finance"
   }
 ]
