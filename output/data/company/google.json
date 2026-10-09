@@ -1,5 +1,42 @@
 [
   {
+    "slug": "google-is-about-to-roll-out-a-new-ai-model-employees-say-theyre-testing-another-thats-way-better",
+    "title": "Google is about to roll out a new AI model. Employees say they're testing another that's way better.",
+    "description": "Google is rolling out new Gemini 4 models to staff ahead of a public release. The latest is called Carbon, and staff are loving it.",
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.businessinsider.com/google-employees-test-new-gemini-4-model-argon-barium-carbon-2026-10",
+    "thumbnail_url": "https://i.insider.com/6ac8b8997bf24b4467e699dd?width=1200&format=jpeg",
+    "created_at": "2026-10-09T22:00:04.525Z",
+    "topic": "finance"
+  },
+  {
+    "slug": "i-tested-googles-new-ai-image-detector-and-its-difficult-but-not-impossible-to-trick",
+    "title": "I Tested Google’s New AI Image Detector, and It’s Difficult (but Not Impossible) to Trick",
+    "description": "You can now access the SynthID Detector on the web.",
+    "fullText": "An abundance of AI imagery is something we all have to live with these days—from school posters to restaurant menus—and while there are still certain tells that indicate something was made with AI, they're not always present. In a lot of cases, it can be almost impossible to distinguish an AI image from a real one.\n\nThis is a problem for all kinds of reasons, and, as such, the AI companies are attempting to address it. Images produced by Gemini and ChatGPT come with an invisible watermark called SynthID. That way, AI-generated images don't need visible branding in order to identify their origins. Of course, you need access to a detector to know whether this watermark is present. As it happens, Google just launched a standalone SynthID checker tool on the web, free for anyone to use. I gave \"SynthID Detector\" a shot, and while it largely works as expected, it isn't perfect.\n\nFor a while now, Gemini has let you upload an image and ask if it is AI-generated. With the new online portal, it's even easier to check—though you do still need to sign in with your Google account. Once in, you can check a wide variety of files. This checker supports JPG, JPEG, PNG, BMP, WEBP, AVIF, HEIC, HEIF, TIFF, TIF, and GIF image formats; MP4, MOV, and WEBM for videos, and WAV, MP3, OGG, FLAC, AAC, and M4A for audio. As long as a file was made by a SynthID-supporting AI, it should have a watermark. (The SynthID watermark is a standard supported by Nvidia, OpenAI, Kakao, and Google, though OpenAI has its own detection tool.)\n\nGoogle doesn't say exactly how SynthID works, presumably to make it more difficult to get around, but does confirm the watermark is \"robust against common transformations.\" It also says the watermark is \"woven into the content itself\", which means pixels for images and video, and frequency components for audio. The company also admits its detection tool isn't infallible. What it calls \"heavy modifications\" can degrade the watermark sign, as can multiple \"transformations\" applied to the same image. The recommendation is to use files that are as high quality as possible, so it seems to me that more data makes detection more reliable (similar to AI text detectors).\n\nGoogle also says the SynthID watermarks are \"imperceptible\" to humans, so you don't need to look or listen out for them—they're only revealed by an AI detector tool like this. If you're generating images, video, or audio with AI, the watermarking shouldn't impact the quality of the end result in any way.\n\nI started with some easy tests. The detector correctly spotted that images created in Gemini and ChatGPT, and downloaded directly to disk, were indeed fake. It only took a few seconds to confirm, and it also identified the AI tool that had been used to make them.\n\nIt also correctly marked one of my own photos as AI-free, although it did hedge its answer a little, saying that it was \"unlikely\" that the media was made with AI. All the detector could say with confidence was that there was no SynthID watermark, showing that it's this watermark in particular that it's checking for. It's not looking for any other signs of AI.\n\nI then tried screengrabs of the same AI images, and the detector correctly flagged that they came from Google and Anthropic's AI tools. This shows there's something buried deep in the pixels, rather than in the file metadata itself, revealing the SynthID watermark. You can't just copy and paste to get around it. Applying an oil painting filter in Photoshop to an AI image didn't trip up the detector, nor did adding a slight blur. Adjusting color, contrast, and tone made no difference, and the detector still spotted SynthID when I cropped and combined two different AI images: one from Gemini, one from ChatGPT.\n\nEventually, I did beat the detector. Once, when I heavily pixelated an AI image—at which point I rather suspect my disinformation campaign would be pretty ineffective anyway—and once when I created a composite image, which was 75% real, 25% AI-generated. With less AI to work with, the detector can falter.\n\nOn the back of that result, I used ChatGPT to add an extra person into an otherwise genuine group photo, though this time the tool detected SynthID—even though less of the overall image was AI. There might be some work to do in images that are only partly AI, which is understandable as the detector has less data to work with.\n\nThere is a quota limit here, which seems to be around 10 files per day—but 10 each for images, videos, and audio files. Once you've hit your limit, you need to wait 24 hours to try again. As far as I could tell, the SynthID Detector is exactly what Google says it is: a useful check to have, but far from a guarantee one way or the other.",
+    "readingTime": 5,
+    "keywords": [
+      "synthid watermark",
+      "detection tool",
+      "detector correctly",
+      "gemini and chatgpt",
+      "ai-generated with",
+      "images",
+      "it's",
+      "files",
+      "audio",
+      "less"
+    ],
+    "qualityScore": 1,
+    "link": "https://lifehacker.com/tech/i-tested-googles-new-ai-image-detector-and-its-difficult-but-not-impossible?utm_medium=RSS",
+    "thumbnail_url": "https://lifehacker.com/imagery/articles/01M4GP10JVS8AVZN2DBHE1NRNS/hero-image.fill.size_1200x675.jpg",
+    "created_at": "2026-10-09T22:00:02.824Z",
+    "topic": "tech"
+  },
+  {
     "slug": "chrome-155-ships-decoding-support-for-jpeg-xl",
     "title": "Chrome 155 Ships Decoding Support For JPEG XL",
     "description": "Google has released Chrome 155 with support for decoding JPEG XL images, a format that offers 30-50% better compression than JPEG along with lossless compression, JPEG transcoding, HDR, animation, and progressive decoding. From a blog post: We expect that JPEG XL is most helpful for high-fidelity or lossless compression, especially of photographic images or in cases in which fine-grained progressive decoding is preferred. In this post, we share why we brought JPEG XL to Chrome, how we used Rust to ensure memory safety first, the extensive performance work that makes it fast, and what the journey tells us about developer feedback and the web standards ecosystem.",
@@ -1770,32 +1807,6 @@
     "link": "https://www.investing.com/news/stock-market-news/google-unveils-flexible-billing-for-gemini-enterprise-ai-agents-93CH-4877769",
     "thumbnail_url": "https://content-media.investing.com/news/LYNXNPEE2D0I6_M.jpg",
     "created_at": "2026-08-26T19:30:10.225Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "google-unveils-gemini-35-transcribe-speechtotext-model",
-    "title": "Google unveils Gemini 3.5 Transcribe speech-to-text model",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/google-unveils-gemini-35-transcribe-speechtotext-model-93CH-4877768",
-    "thumbnail_url": "https://content-media.investing.com/news/LYNXNPEB6Q0YF_M.jpg",
-    "created_at": "2026-08-26T19:30:10.222Z",
-    "topic": "finance"
-  },
-  {
-    "slug": "alphabet-c-tests-337-support-in-bear-flag-setup-live-levels",
-    "title": "Alphabet C tests $337 support in bear flag setup: Live levels",
-    "description": null,
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.investing.com/news/stock-market-news/alphabet-c-bear-flag-at-345-live-hourly-levels-93CH-4874080",
-    "thumbnail_url": "https://content-media.investing.com/news/LYNXNPEB7Q0U9_M.jpg",
-    "created_at": "2026-08-26T19:30:10.221Z",
     "topic": "finance"
   }
 ]
