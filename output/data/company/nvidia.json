@@ -1,5 +1,18 @@
 [
   {
+    "slug": "nvidia-in-talks-to-invest-further-in-reflection-ai-or-buy-it-ft-reports",
+    "title": "Nvidia in talks to invest further in Reflection AI or buy it, FT reports",
+    "description": null,
+    "fullText": null,
+    "readingTime": 0,
+    "keywords": [],
+    "qualityScore": 0,
+    "link": "https://www.investing.com/news/stock-market-news/nvidia-in-talks-to-invest-further-in-reflection-ai-or-buy-it-ft-reports-4942221",
+    "thumbnail_url": "https://content-media.investing.com/trkd-images/LYNXMPEM990LJ_L.jpg",
+    "created_at": "2026-10-10T20:51:17.587Z",
+    "topic": "finance"
+  },
+  {
     "slug": "nvidias-head-of-corporate-communications-has-left-after-roughly-four-months",
     "title": "Nvidia's head of corporate communications has left after roughly four months",
     "description": "Anna Soellner has left Nvidia after roughly four months as head of corporate communications. She joined the AI chip giant from Reddit.",
@@ -1531,29 +1544,5 @@
     "thumbnail_url": "https://i.insider.com/6a7cbe93bd87410e364d1b66?width=1200&format=jpeg",
     "created_at": "2026-08-13T01:02:22.343Z",
     "topic": "finance"
-  },
-  {
-    "slug": "why-day-0-for-nemotron-35-lightning-wasnt-a-scramble",
-    "title": "Why Day 0 for Nemotron 3.5 Lightning wasn't a scramble",
-    "description": "NVIDIA released Nemotron-3.5-Lightning this morning. It was running on Modelplane by the afternoon, without a line of new Modelplane code, because day-zero model support is built into the design, not a scramble by the team.",
-    "fullText": "NVIDIA released Nemotron-3.5-Lightning this morning. We had it running on Modelplane, our open-source fleet-level control plane for inference, this afternoon. We validated it against a live endpoint on a real GPU, with a ready-to-run recipe published the same day.\n\nWe wrote no Modelplane code to get there. We didn't cut a release. Modelplane has zero day support for new models as an inherent property of its design.\n\nNemotron-3.5-Lightning is a 30B mixture-of-experts with 3B active parameters, built for the execution layer of long-running agents: the tool calls, result validation, and subagent handoffs a reasoning model triggers but doesn't do itself. It's a hybrid Mamba-Transformer, shipped in NVFP4, with open weights on Hugging Face. NVIDIA reports large output-speed gains over similarly sized models on agentic tasks; the numbers are in their announcement.\n\nStage the weights to the clusters where you want to deploy the model:\n\nThen deploy it. The deployment uses a stock vLLM container with the flags from NVIDIA's cookbook:\n\nThe NVFP4 checkpoint (~20 GiB) fits on a single H100 with room for the KV and Mamba caches, so it runs on one GPU in one pod.\n\nWe ran this recipe on vLLM, end to end on a single Nebius H100; serving and tool calls both worked. NVIDIA also publishes SGLang and TensorRT-LLM recipes for the same model. On Modelplane those are the same ModelDeployment with a different engine image and flags.\n\nRunning a new model almost always takes engine work. Sometimes the engine can't load the architecture until new code lands; sometimes it loads but support keeps improving for weeks. Nemotron-3.5-Lightning is a hybrid Mamba-Transformer served in NVFP4, so serving it well is real work in the engine: the architecture, the NVFP4 kernels, a state-space-model cache, a reasoning parser for its thinking format. That work happens in the engine, on the engine's schedule.\n\nBut what sits between a new engine build and you running it? Most systems that orchestrate engines on Kubernetes are coupled to the engine: they wrap it, pin its version, or ship it inside their own runtime image. When the engine moves to support a new model, a coupled layer often has to move with it. So the real sequence becomes upgrade the orchestration layer, then adopt the new engine, then run the model. Upgrading the layer that runs your whole fleet is a far bigger, riskier change than pulling a new engine image.\n\nModelplane is never in that chain. It doesn't wrap the engine or rewrite your flags; it runs the image, command, and args you give it, exactly as written. The engine is a container you point at, with no Modelplane version pinned to it. New engine, new model, nothing to upgrade in between. The design guarantees it.\n\nWhat Modelplane does instead is the fleet: provisioning clusters and node pools, scheduling each replica onto hardware that fits, caching weights once per cluster, scaling replicas, and routing through one OpenAI-compatible endpoint. None of that is model-specific, so a new model arrives on the engine's release cadence, whichever engine you run.\n\nYou can watch it happen. Support for this model is still improving in SGLang: a fix to its NVFP4 mixture-of-experts path is merged upstream but not yet in a tagged release. When it ships, adopting it is a one-line change, the engine image in a ModelDeployment, and nothing in Modelplane moves.\n\nThe full recipe is in the docs: Nemotron-3.5-Lightning on Modelplane.\nModelplane is Apache 2.0, still early, and evolving fast at github.com/modelplaneai/modelplane.\n\nIf you run inference across more than one cluster, we'd like your issues.",
-    "readingTime": 3,
-    "keywords": [
-      "hybrid mamba-transformer",
-      "engine",
-      "nemotron-3.5-lightning",
-      "layer",
-      "modelplane",
-      "recipe",
-      "release",
-      "weights",
-      "flags",
-      "model"
-    ],
-    "qualityScore": 1,
-    "link": "https://modelplane.ai/blog/nemotron-3-5-lightning-day-zero",
-    "thumbnail_url": "https://modelplane.ai/blog/nemotron-3-5-lightning-day-zero/cover.png",
-    "created_at": "2026-08-12T18:47:00.285Z",
-    "topic": "tech"
   }
 ]
