@@ -1,5 +1,29 @@
 [
   {
+    "slug": "doiter-language-where-pointers-and-stack-frames-are-docker-containers",
+    "title": "Doiter – Language where pointers and stack frames are Docker containers",
+    "description": "A cloud-native programming language which uses docker as virtual memory by representing pointers as docker containers, and fields as files. - simvux/doiter",
+    "fullText": "Doiter uses the running docker daemon as it's virtual memory. It does so by creating a docker container for each allocation/stack-frame. Each structure will also be allocated as a nullable pointer. So taking the following example:\n\nThe following containers will be created\n\nThere's two primitive types and literals, byte and char.\nFor conditionals, there's the when statement. See samples/hello-world.dr for details.\n\nThe compiler does have error messages with line spans to help you create your own monsters. Enjoy!\n\nShould I use Doiter?\n\nNo. This is a terrible idea on every level.\n\nIs this project vibe-coded?\n\nNo. Zero AI was used in the making of this monstrosity.\n\nWhy? \n\nThis project was created as a submission to a hackathon where the goal was to create a \"spooky\" programming language during October.\n\nI decided that sufficiently cursed would count as spooky.\n\nHow good is the performance?\n\nCurrently samples/hello-world.dr takes about a minute to run on my machine. With the state of the industry, this isn't too bad in comparison.\n\nAs there are no strings/arrays it's implemented with a linked list. This means that each character of \"Hello World\" gets its own docker container. In total it spawns 51 docker containers.\n\nWoah you must love docker?\n\nNo. This project is a parody of unnecessary docker use and overabstraction.\n\nDoes Doiter use Garbage Collection?\n\nDoiter uses missile allocation. Meaning that no docker containers are cleaned up during execution but all docker containers are automatically removed when the program has completed.\n\nAre you also working on a real programming language?\n\nYes. Check out luminalang/lumina.",
+    "readingTime": 2,
+    "keywords": [
+      "programming language",
+      "docker container",
+      "docker containers",
+      "project",
+      "it's",
+      "following",
+      "created",
+      "there's",
+      "samples/hello-world.dr",
+      "create"
+    ],
+    "qualityScore": 0.75,
+    "link": "https://github.com/simvux/doiter",
+    "thumbnail_url": "https://opengraph.githubassets.com/1f59f6836dea9a2bd067903f0fe47feffdc75357494ebfa50b9c2edb0493679b/simvux/doiter",
+    "created_at": "2026-10-11T21:13:04.524Z",
+    "topic": "tech"
+  },
+  {
     "slug": "teardown-lifeos",
     "title": "Teardown: LifeOS",
     "description": "Agent-ready knowledge architecture, run daily in Claude Code: turn a coding agent into a system you can hand work to and trust while you're away. 18 load-bearing patterns, one-page workspace ma...",
@@ -1887,30 +1911,6 @@
     "link": "https://twitter.com/Alibaba_Qwen/status/2084093402967396594",
     "thumbnail_url": "https://jf.x.com/images/media-preview/2084093402967396594",
     "created_at": "2026-08-03T01:49:25.051Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "the-conductor-developer",
-    "title": "The Conductor Developer",
-    "description": "Why I think software development is starting to feel a little more like conducting an orchestra.",
-    "fullText": "I'm Rachel Laycock, CTO at Thoughtworks. I'm endlessly curious about how technology is changing the way we build software, lead teams and run businesses. This is where I capture ideas before they're fully formed, challenge my own thinking and occasionally wander off on interesting tangents.\n\nTL;DR\nWhy I think software development is starting to feel a little more like conducting an orchestra.\n\nThere’s a shift happening in software development that I don’t think we’re talking about clearly enough.\n\nFor the last couple of years we’ve framed AI as a productivity tool. How much faster can it write code? How many more features can we ship? How much cheaper can we build software? I think that’s the wrong question, but I understand why.\n\nThe first thing AI became good at was writing code, so naturally that’s where we focused. As AI got better at coding, I expected the bottlenecks to move through the software delivery lifecycle: from coding to design and specification, architecture, then verification. And they have. We spent a lot of time at the most recent FOSE event discussing how we ensure good design, quality and resilience while agents increasingly write the code.\n\nThat’s a topic for another ramble.\n\nA few months ago, though, I realised I was looking at the wrong bottleneck. I kept assuming it would simply move to the next phase of software delivery.\n\nAI didn’t change what great software looks like. It changed what’s scarce. Human attention is now the bottleneck.\n\nThe next bottleneck isn’t design. It isn’t verification. It’s us. More specifically, it’s our attention. Developers have always protected long periods of uninterrupted focus because that’s where good software gets built. Pair programming. Quiet afternoons. Deep work. We optimized around flow because flow mattered. When we didn’t get that time, very little got done.\n\nBut when I watch developers using AI today, I see something different. The best developers I know aren’t spending all day in flow anymore. They’re orchestrating agents.\n\nGreat developers are starting to look less like programmers and more like conductors.\n\nI was watching Jacob Collier on YouTube recently because I’m hoping to see him in concert soon. Watching him conduct is fascinating. He’s not trying to play every instrument himself. He’s listening to the whole piece, hearing what doesn’t quite fit, bringing different voices in at the right moment, changing the energy, changing the tempo and shaping the performance as it unfolds. Increasingly, that’s what great software developers look like.\n\nA great conductor is first and foremost a great musician. They could play the instruments themselves. That’s not why they’re standing on the podium. Their value comes from understanding the whole score. The orchestra doesn’t need the conductor because the musicians aren’t talented enough. It needs the conductor because someone has to hold the whole system in their head. Increasingly, I think that’s what great software developers are doing.\n\nThe AI agents are the musicians.\n\nThe developer is the conductor.\n\nThey’re deciding which agent should tackle which problem. They’re providing context. They’re evaluating what comes back. They’re spotting subtle mistakes. They’re deciding what deserves another iteration and what is ready to move on.\nI was talking to an engineer recently who told me they regularly have eight AI agents running in parallel. I’ve heard similar numbers from others. Ten. Twelve. Beyond that, they become the bottleneck.\n\nThat number stuck with me because it sounded remarkably familiar. It sounded like my job.\n\nAs CTO, I rarely produce the work myself anymore. Instead, I have lots of streams of work progressing at once. A strategy document comes back for feedback. A client opportunity needs a decision. Someone wants guidance on a technical trade-off. Another team needs context before they can move.\n\nNone of it arrives neatly packaged. It comes as conversations, emails, documents, chat messages and half-formed ideas. My job is to decide where my attention belongs, make sense of incomplete information, provide context and help other people make progress.\n\nWhen I first became CTO, I thought I needed to get better at managing my time. I was wrong.\n\nWhat I really needed to learn was how to manage my energy. The challenge wasn’t the hours. It was the constant context switching. The endless stream of decisions. The feeling that nothing was ever completely finished.\n\nAn executive coach taught me some things I’ve never forgotten.\n\nCreate systems that help your brain, not just your calendar.\n\nLately I’ve been wondering whether developers are about to need exactly the same capabilities. A few weeks ago I shared this thought with our Chief People and Leadership Officer. His response surprised me. “I knew something fundamental was changing,” he said. “I just didn’t know how to help. Now I do.”\n\nThat conversation stuck with me because we’ve spent decades helping executives succeed in this kind of environment. We coach them to make decisions with incomplete information, manage cognitive load, prioritize relentlessly and protect their energy. Yet we’re still preparing developers for a world of individual execution. We’re redesigning the tools, but we haven’t started redesigning the job.\n\nI don’t think software developers are becoming managers. I don’t think AI is replacing engineering. I think engineering expertise is simply being applied in a different place, and much more often, because execution has become so much faster.\n\n(I suspect software developers are simply the first knowledge workers to experience it, but I’ll save that thought for another rambling.)\n\nThe question I’m most interested in now is this:\n\nHow do we redesign engineering careers when human attention becomes the scarce resource?\n\nWhen I became an executive, learning to manage my own energy was one of the hardest things I’ve ever done. Even today, if I stop paying attention to it, I pay the price.\n\nI have a feeling software development is about to demand those same capabilities from many more people.\n\nAnd I don’t think we’ve quite realised how profound that change is.\n\nWhy I’m Writing Rachel’s Ramblings",
-    "readingTime": 5,
-    "keywords": [
-      "human attention",
-      "software development",
-      "software delivery",
-      "software developers",
-      "that’s",
-      "they’re",
-      "changing",
-      "don’t",
-      "agents",
-      "another"
-    ],
-    "qualityScore": 1,
-    "link": "https://martinfowler.com/rachels-ramblings/conductor-developer.html",
-    "thumbnail_url": "https://martinfowler.com/rachels-ramblings/card.png",
-    "created_at": "2026-08-02T18:54:02.674Z",
     "topic": "tech"
   }
 ]
