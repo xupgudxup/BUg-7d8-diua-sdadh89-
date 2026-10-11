@@ -1,5 +1,29 @@
 [
   {
+    "slug": "i-made-the-first-i2pd-client-for-ios-that-works-without-jailbreak",
+    "title": "I made the first I2PD client for iOS that works without Jailbreak",
+    "description": "Experimental i2pd iPhone client. Contribute to SoItsTime/I2PdiOS development by creating an account on GitHub.",
+    "fullText": "Source for an experimental iPhone app embedding i2pd. It includes an I2P browser, the local i2pd web console, router diagnostics, a searchable address book, and a shutdown Live Activity. It targets iOS 17 or later.\n\nThe repository contains source, the icon's SVG source, bootstrap names, and the i2pd patch. Vendor/, downloaded certificates, compiled libraries, the generated icon PNG, Xcode output, profiles, and local router data are ignored by Git. The bootstrap script retrieves i2pd's public reseed certificates into the ignored Vendor/ directory because verified reseeding requires them. No personal keys or certificates are supplied.\n\nThe app stores its router keys and address book in its own Application Support directory on the device. Those files are created at runtime and are never part of this repository.\n\nThe optional background audio loop is experimental. A background task offers limited extra time; iOS can still suspend or terminate the app. The router should not be relied on for continuous background service. Thanks to XITRIX, the developer of iTorrent, for the background audio approach that inspired this implementation.\n\nThe built-in browser accepts only .i2p destinations and uses i2pd's loopback SOCKS proxy. JavaScript starts disabled. The router's HTTP and SOCKS proxies bind to loopback. This is a prototype, and a successful build does not establish that connectivity or background execution will work on every device.\n\nIf you like the project and want to support it, donations are optional:",
+    "readingTime": 2,
+    "keywords": [
+      "address book",
+      "background audio",
+      "router",
+      "i2pd",
+      "certificates",
+      "experimental",
+      "browser",
+      "repository",
+      "bootstrap",
+      "vendor"
+    ],
+    "qualityScore": 0.85,
+    "link": "https://github.com/SoItsTime/I2PdiOS",
+    "thumbnail_url": "https://opengraph.githubassets.com/828cfa74beffc85689f434c07f01ea19621b98a8eafa0d5b082a5b163c415c14/SoItsTime/I2PdiOS",
+    "created_at": "2026-10-11T11:47:10.278Z",
+    "topic": "tech"
+  },
+  {
     "slug": "is-iphone-18-demand-cooling-off-heres-how-deep-apple-reportedly-is-cutting-component-orders",
     "title": "Is iPhone 18 demand cooling off? Here’s how deep Apple reportedly is cutting component orders.",
     "description": "Component orders for the iPhone 18 Pro and the iPhone 18 Pro Max are down about 15% in October, according to Nikkei Asia.",
@@ -2009,18 +2033,5 @@
     "thumbnail_url": "https://repository-images.githubusercontent.com/111241370/ed127b80-fe7d-11ea-9676-2438b27aca94",
     "created_at": "2026-07-19T12:52:54.040Z",
     "topic": "tech"
-  },
-  {
-    "slug": "6-for-a-coke-2600-for-an-iphone-heres-where-everyday-items-cost-the-most",
-    "title": "$6 for a Coke. $2,600 for an iPhone: Here's where everyday items cost the most.",
-    "description": "Everyday life — from a bottle of soda to rent for a one bedroom — costs the most in these cities.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.businessinsider.com/world-most-expensive-cities-everday-items-rent-food-iphone-switzerland-2026-7",
-    "thumbnail_url": "https://i.insider.com/6a599007ce52cb26b83905a4?width=1200&format=jpeg",
-    "created_at": "2026-07-19T12:52:53.446Z",
-    "topic": "finance"
   }
 ]
