@@ -1,5 +1,29 @@
 [
   {
+    "slug": "give-up-kissing-or-sauce-i-asked-10000-people-in-127-countries",
+    "title": "Give up kissing or sauce? I asked 10'000 people in 127 countries",
+    "description": "We’re on a journey to advance and democratize artificial intelligence through open source and open science.",
+    "fullText": "The analysis in this README was written by an AI (Claude, working as Rapidata's engineering\nassistant), and every number was computed by a script from the data in this repo. The data\nitself is real: 10,000 human responses collected through Rapidata.\nTreat the interpretation as exploratory, not peer-reviewed.\n\nWe asked 10,000 people in 127 countries one question:\n\nWould you rather never kiss someone on the mouth again, or never eat anything with sauce again?\n\nResult: 53.1% would give up kissing to keep sauce (95% CI ± 1.0 pp).\nGlobally it is close to a coin flip, but the answer depends a lot on where people live: it ranges from\n35% in PT to 71% in EG.\n\nOne row per response. No user identifiers are included.\n\nA CSV copy is at data/responses.csv.\n\nEvery percentage below is the share who would give up kissing (and keep sauce). Confidence intervals\nuse the normal approximation. Groups with fewer than 50 respondents are left out of the tables.\n\nχ² test of independence: p = 1.8e-67.\n\nχ² p = 1.9e-55. The spread between EG and PT is\n36 percentage points, far larger than either confidence interval.\n\nχ² p = 1.3e-54. The language ranking closely follows the country ranking. Arabic is at the top,\nand Spanish and Portuguese are at the bottom.\n\nIf the Arabic translation were driving the effect, people in Arab countries who saw the task in\nanother language would look like the global average. They don't:\n\nArabic-language respondents lean further toward giving up kissing (χ² p = 2.1e-05), but\nEnglish- and French-language respondents in the same countries still sit well above the global\n53.1%. The translation may add to the effect, but it doesn't create it.\n\nχ² p = 4e-06. A logistic regression that controls for country (the top 15 countries plus \"other\")\ngives men an odds ratio of 0.73 vs women (p = 4e-07), so the gap isn't\nexplained by gender mix across countries.\n\nIn most countries women are more willing to give up kissing than men. Where a country breaks that\npattern, the table shows it.\n\nThe raw χ² is p = 0.005, but this effect largely comes from who is in each age group.\nOlder respondents are far more often European:\n\nAfter controlling for country, no age group differs significantly from 18–29:\n\nWithin each region the share is mostly flat across ages. The one outlier is Other Europe 65+\n(55%, n = 168); that is a small cell, so treat it with caution:\n\nχ² p = 0.026. The occupation list mixes jobs, education level and employment status, and\nthe differences are small next to the country effect. Read it as descriptive only.\n\nχ² p = 0.337. There is no meaningful trend: careful and less careful respondents answer the same way.\n\nResponses collected with Rapidata.",
+    "readingTime": 3,
+    "keywords": [
+      "responses collected",
+      "respondents",
+      "kissing",
+      "effect",
+      "sauce",
+      "again",
+      "percentage",
+      "confidence",
+      "ranking",
+      "translation"
+    ],
+    "qualityScore": 1,
+    "link": "https://huggingface.co/datasets/jasoncorkill/would-you-rather-kissing-vs-sauce",
+    "thumbnail_url": "https://cdn-thumbnails.huggingface.co/social-thumbnails/datasets/jasoncorkill/would-you-rather-kissing-vs-sauce.png",
+    "created_at": "2026-10-11T02:47:32.269Z",
+    "topic": "tech"
+  },
+  {
     "slug": "trump-calls-on-ai-to-speed-up-sciencewhile-continuing-to-defund-it",
     "title": "Trump Calls on AI to Speed Up Science–While Continuing to Defund It",
     "description": "Tech firms are giving big to a White House AI science program amid the destruction of institutions like the NIH.",
@@ -2015,29 +2039,5 @@
     "thumbnail_url": "https://s.yimg.com/lo/mysterio/api/d3a3af67fc70e0f05c6dae5bcac80addd8dd62e484bf447697970df328be8afe/lightyear_networkapi/resizefill_w1200;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Fnbcu_713%2Fc1838a53d4634bf25ced8dd2098e7a04",
     "created_at": "2026-05-26T19:54:25.039Z",
     "topic": "news"
-  },
-  {
-    "slug": "how-saudi-arabias-spending-spree-reached-the-end-of-the-line",
-    "title": "How Saudi Arabia's spending spree reached the end of the line",
-    "description": "MBS's Vison 2030 project seemed the stuff of science fiction. Now reality has bitten",
-    "fullText": "Autocratic monarchs once left an echo of their glory in the ruins of the megaprojects they commanded at the peak of their unchallenged power. Those monumental physical traces are to be found in the fertile plains, mountainsides and deserts of the Middle East. But one of their most prominent modern counterparts may only have a digital footprint to leave behind for some of his most ambitious concepts.\n\nA decade ago, the Crown Prince of Saudi Arabia Mohammed bin Salman – or MBS as he is widely known – decreed a revisioning of his country that leapt from the realm of science fiction. It was called Vision 2030. Extraordinary monolithic structures were to help bring forth new technological marvels not just for the Kingdom but for the world.\n\nThose ideas were made manifest in lavish PR material conjuring up fantastical landscapes that attracted reams of coverage that mingled awe and derision. It was made possible by the near $1trn (£744bn) sovereign wealth fund of Saudi Arabia (PIF) whose riches, so dependent on oil, were to be used to create the foundation for a future without oil.\n\nFour years from 2030, there has now been, perhaps predictably, a retrenchment. Part of that is down to financial imperatives, as a big fall in oil prices before the current war in the Middle East meant that even Saudi Arabia's extraordinary wealth took a hit.\n\nEven though those prices have now shot up because of the war, the uncertainty created by the conflict will continue to put constraints on Saudi revenue and spending. And the influx of foreign investment in these hyper-expensive visionary projects has never materialised to the degree on which the Saudis had been banking.\n\nBut is it a recalibration or a retreat?\n\nSome of the most striking projects are now being watered down, put on hold or even abandoned. Several come under the once all-embracing umbrella of the $500bn Neom mega-project.\n\nIt looks like The Line, which was meant to redefine the concept of a city as it stretched ramrod straight across more than 100 miles (161km) of untapped land in the north west of Saudi Arabia, looming taller than The Shard, is being turned into something considerably more prosaic.\n\nThe winter resort of Trojena in the mountains of the north west has also been reined in. There is snow up there, belying the image of Saudi Arabia as an unyielding desert, but it doesn't last very long. The concept of a year-round mountain resort took the area into a realm of artificiality that is no longer seen as viable. There were to have been miles of ski slopes and a full-on ski village with a man-made lake and luxury hotels and shops – a mini St Moritz in the mountains of Arabia. It was meant to have been ready in time to host the Asian Winter Games in 2029, but that has now been cancelled, with the Games to be held in Kazakhstan instead.",
-    "readingTime": 3,
-    "keywords": [
-      "north west",
-      "saudi arabia",
-      "realm",
-      "wealth",
-      "projects",
-      "concept",
-      "miles",
-      "resort",
-      "mountains",
-      "middle"
-    ],
-    "qualityScore": 1,
-    "link": "https://finance.yahoo.com/economy/policy/articles/saudi-arabias-spending-spree-reached-010847479.html",
-    "thumbnail_url": "https://s.yimg.com/ny/api/res/1.2/vUkcY8cKH595GAb9A_VZxQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/bbc_us_articles_995/6870032b7cb85efb9619a235274ee70f",
-    "created_at": "2026-05-25T19:15:00.790Z",
-    "topic": "finance"
   }
 ]

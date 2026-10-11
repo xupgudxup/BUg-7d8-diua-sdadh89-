@@ -1,5 +1,29 @@
 [
   {
+    "slug": "gta-5-is-back-on-the-web",
+    "title": "GTA 5 is back on the web",
+    "description": "Complete local browser-game snapshot with full mirror downloads, Windows launcher, and installation instructions. - alihammoud21/playgta5",
+    "fullText": "Download the complete browser-game snapshot, including all 12,482 files in the mirror folder. This is a compiled client snapshot, not the original game-engine source code.\n\nThe game data is approximately 21.2 GB (19.7 GiB). It is included in the repository's GitHub Release downloads, not ordinary Git commits, because some individual game files exceed GitHub's 100 MiB Git limit. Code → Download ZIP alone does not contain the game data.\n\nNo Python installation, Netlify account, subscription, or API key is needed on Windows. The game runs on your own computer; this repository is not an online game-hosting service.\n\nThe launch/download scripts work with native Python on both Apple Silicon and Intel; Rosetta and the Windows executable are not required. Mac gameplay is experimental and has not been validated on Mac hardware. A working Python server does not establish GPU/renderer compatibility. Check the browser report and share any rendering errors in the issue tracker.\n\nFor double-click launching, first run chmod +x ./*.command in that folder. If Finder will not open a script, use the Terminal commands above after reviewing the scripts; no system security setting needs to be disabled.\n\nDownload the latest repository ZIP and copy its helper files and the support folder into your existing installation, replacing old helpers. Keep mirror, runtime, and your browser saves. The installer preserves current helpers instead of extracting older copies from release archives. Do not extract the original release helpers over the update.\n\nFor lower-memory loading, try http://localhost:8000/?low=1&fps=30&res=1280x720. This reduces rendering load; it is a troubleshooting option, not a guaranteed fix for every GPU.\n\nOpen Releases → Full game v1. Download every playgta5-part-*.zip file and file-inventory.json. These are independent ZIP archives, not split fragments: extract all of them into the same empty folder, and put file-inventory.json there too. One archive contains the launcher and runtime; the others contain the remaining mirror files. All parts are required.\n\nThe final folder should contain:\n\nDouble-click Launch-Local.cmd. Do not open index.html directly: WebGPU workers, cross-origin isolation, and game-data reads require the included HTTP server.\n\nRun Verify-Game.cmd (Windows) or bash Verify-Game.command (Mac) after installation. It checks every game asset against the published SHA-256 inventory, plus the bundled runtime on Windows. Updated helper files are deliberately excluded because the inventory describes the original release. python3 verify_game.py --all also checks legacy helpers and will report expected differences after an update. Verification reads about 21 GB and can take a few minutes. Release ZIP checksums are listed in SHA256SUMS.txt.\n\nThe downloader does not overwrite existing files with different contents. If you have modified the game, download into a new empty folder instead.\n\nOn Linux, use Python 3.11+ with python3 download_game.py, then python3 serve_local.py --open. Browser/GPU support varies; Linux gameplay has not been validated. The bundled runtime/python.exe is Windows-only.\n\nPlay online at playgta5-tawny.vercel.app in current Chrome or Edge with graphics acceleration enabled. The game runs in your browser and loads assets from the deployment as needed. No Python installation or local server is needed for the online version. The first load can take several minutes. Hosted defaults are lower-memory, 720p, and 30 FPS; explicit low, res, and fps query parameters override them.\n\nvercel.json builds with python3 build_web.py and publishes web-output/. Use the repository root and Other framework preset. The build downloads one release archive at a time, verifies archive and extracted-file SHA-256 checksums, and extracts game assets only. It replaces the I/O worker's batch-prefetch call with static range reads, so no Python server or serverless batch endpoint is required. COOP/COEP isolation headers enable the shared-memory game workers. Download/help instructions are preserved at /help/.\n\nThe deployment contains about 21 GB of assets; builds require substantial disk space and bandwidth. This uses Vercel's build output, not a 21 GB CLI source upload. Vercel resource limits and your plan's traffic allowance still apply. Runtime performance and graphics compatibility depend on the visitor's device; successful deployment does not certify every GPU or Mac.\n\nFor a local deployment build, run python3 build_web.py --source /path/to/playgta5.com. The source is fully verified and is not patched in place. Generated output is ignored by Git; original release archives and the local launcher remain unchanged.\n\nThe compatibility page checks basic WebGPU device creation, shared-memory/isolation support, and a four-byte range read of the real WebAssembly file. It does not test every shader or certify gameplay. Diagnostics stay in your browser until you choose to copy and share them. See Chrome's WebGPU troubleshooting guide for browser checks.\n\nRun python3 -m unittest discover -s tests -v, node --check support/check.js, and bash -n mac-launcher.sh. Tests cover installer preservation/resume, checksums, unsafe paths, isolation headers, range reads, both batch formats, and malformed requests. An existing mirror can be tested without copying it: python3 serve_local.py --root /path/to/playgta5.com --port 8001 --open.\n\nThis package contains only the original local game mirror, a local server, launch/download/verification scripts, and a minimal Python runtime. It does not contain hosting credentials, Netlify/Cloudflare configuration, personal saved games, Ollama, or the unfinished police-mode experiment. The double-nested source mirror folder is normalized to mirror/playgta5.com without changing its contents.\n\nThis package is not affiliated with or endorsed by Rockstar Games, Take-Two, or that project's authors.\n\nGame names, artwork, audio, and other game assets remain the property of their respective rights holders. No ownership or redistribution license for those assets is claimed here. Availability is subject to rights-holder requests and GitHub's policies. The bundled Python runtime retains its license in runtime/LICENSE.txt.",
+    "readingTime": 5,
+    "keywords": [
+      "isolation headers",
+      "helper files",
+      "range reads",
+      "game download",
+      "release archives",
+      "original release",
+      "python serve_local.py",
+      "python build_web.py",
+      "mirror folder",
+      "python installation"
+    ],
+    "qualityScore": 1,
+    "link": "https://github.com/alihammoud21/playgta5",
+    "thumbnail_url": "https://opengraph.githubassets.com/d4950d600bf9768bb9640483c6f5bb6d962cdcd010cfbb9df7dfe7ce9957700f/alihammoud21/playgta5",
+    "created_at": "2026-10-11T02:47:31.516Z",
+    "topic": "tech"
+  },
+  {
     "slug": "liveclaude-keep-claudecursor-remote-sessions-alive-across-reboot",
     "title": "LiveClaude – keep Claude/Cursor remote sessions alive across reboot",
     "description": "Keep Claude Code Remote Control and Cursor My Machines alive across crash/reboot: supervisor + desktop app with embedded terminal. Windows, Linux, macOS. C#. - LeandroCannizzaro/LiveClaude",
@@ -2073,18 +2097,5 @@
     "thumbnail_url": "https://codeberg.org/tenacityteam/tenacity/-/summary-card",
     "created_at": "2026-05-02T18:42:29.042Z",
     "topic": "tech"
-  },
-  {
-    "slug": "valve-is-forcing-microsoft-to-make-significant-improvements-to-windows-gaming-performance-report",
-    "title": "Valve Is Forcing Microsoft To Make Significant Improvements To Windows Gaming Performance - Report",
-    "description": "It might still be the overwhelming favorite when it comes to PC gaming, but there's no arguing that Microsoft has allowed Windows to get worse and worse over time. It's accelerated a migration to Linux, especially with Valve's efforts to streamline gaming through continued work on Proton and SteamOS. Microsoft understands it's behind, and reportedly has a plan to catch up.\nA report by Windows Central details what Microsoft is calling Windows K2. It's not a standalone version of Windows that is meant to replace Windows 11, but rather an initiative that will slowly roll out significant changes to the operating system in a bid to reclaim customer trust and overhaul many key aspects that have become pain points over the past few years.",
-    "fullText": null,
-    "readingTime": 0,
-    "keywords": [],
-    "qualityScore": 0,
-    "link": "https://www.gamespot.com/articles/valve-is-forcing-microsoft-to-make-significant-improvements-to-windows-gaming-performance-report/1100-6539703/?ftag=CAD-01-10abi2f",
-    "thumbnail_url": "https://www.gamespot.com/a/uploads/screen_kubrick/1585/15853545/4690409-9181900293-apps.63050.13798539581762600.3133c3f5-e69e-435e-97e0-3bfe09e882f7.da377473-4897-4931-8f8a-e03c66f38562.png",
-    "created_at": "2026-04-29T19:07:48.524Z",
-    "topic": "gaming"
   }
 ]
