@@ -1,5 +1,29 @@
 [
   {
+    "slug": "writing-a-game-in-c",
+    "title": "Writing a Game in C",
+    "description": "The long version: what writing For the Common Wealth in plain C actually looks like",
+    "fullText": "I wrote a short post a while back about why I chose C. This is the longer one, about what it’s actually like building a game this size in it.\n\nFor the Common Wealth is about 175,000 lines of C, there are 658 source files. There’s no engine as such. There’s little separation between “engine code” and “game code”, which was… a choice. In my defence, what exists as an “engine” would work for unrelated 2.5D games, but it’s not a reusable engine for any random game, at all.\n\nSDL3, plus SDL3_image to load the PNGs and SDL3_mixer for sound. That’s the lot. The Steam integration is loaded at runtime if Steam is there, so the same exe runs with or without it. The whole game is plain old C99.\n\nI wanted to keep dependencies down to an absolute minimum, mostly because I saw myself releasing this game on retro platforms like Amiga, but that is looking doubtful unless SDL3 is fully GPU accelerated on an Amiga, and memory usage now means it would be PowerPC Amigas only.\n\nMost of what appears during play lives in fixed-size pools that are set up once: sprites, explosions, particles, bullets, fires. A level asks for what it needs from those pools, and the pools are reset when the level restarts.\n\nLevels, and the level builder (BIABuilder)\n\nAll 25 levels are built in BIABuilder, my level editor, which is C# and Avalonia rather than C. The file format is JSON, and on export BIABuilder writes each level out as plain binary, field after field, and the game reads it back in exactly the same order into its C structs. There’s no parser and no schema, just magic numbers at the end of records so I quickly know if I’ve got the export wrong.\n\nBIABuilder is about 25,000 lines of C#.\n\nBelow is the same level in-game.\n\nThis is a 2.5D game… and that’s a stretch. Let’s call it a 2.1D game. It’s 2D through and through, but multiple sprite layers and isometric art make it look 3D. Ish. Some of the time.\n\nSprites are based on PNG images. There is no tiling system, you can put images anywhere you like, using BIABuilder. This can then be edited with transforms, hooks and events in BIABuilder and in-game, each sprite becomes a struct with 138 members.\n\nThe main sprite layer is called “Ordering” and orders sprites by the Y baseline every frame to allow player sprites to move in front of, and behind other sprites.\n\nC has no reflection, so the level builder can’t just call a function by name. Instead, each level registers the functions it wants to expose under their own names, using a macro that turns a function’s name into a string. When BIABuilder says “when the player walks in here, call npc_escaped”, the game looks that name up when the level loads and keeps the function pointer. Most of the level-specific behaviour in the game, like a door opening or a car driving off, is one of these. These hooks are the main way in which behaviours and functions can get assigned in BIABuilder and run in-game. An example would be “player proximity” hook. Where any sprite can have this hook assigned, and the hook will be called in-game when the player approaches the sprite. This is ideal for opening doors and things like that.\n\nNPCs run their “AI” in a thread pool. They patrol around location waypoints, but on becoming alerted or suspicious, they can break away from patrol and then start finding their own paths on an A* pathfinding system. They can attack, panic, run away, and talk amongst themselves.\n\nThere are several types of collision, Physical, can’t walk there, like a wall or a hole. Bullet, stops a bullet. Player Vision can computer controlled allies see there. NPC Vision, can NPCs see there. There is Patrol Collision which helps guide NPCs through sensible patrol routes, i.e. they can walk through a swamp if they want, but they’re not going to patrol that swamp. Finally, there is Hint Only collision, which is for things like tents. You can shoot straight through a tent, it won’t stop a bullet, but we do want sound effects of a bullet hitting cloth.\n\nWeird name from back when this game was going to be a cozy RPG and a named area would be something like “Mr. Cozymans’s Orchard” or something. Now they are arbitrary polygons to which we apply effects like moving water, or clouds, or interact with other feature like rain. When there is a level with rain, we can make Named Areas for Rain Rejection so while rain can fall anywhere on the level, it can be stopped from falling in certain places, like indoors, or the side of a wall or something. The same applies to falling snow.\n\nOn starting a level, the BIABuilder exports are loaded from disk and a level is composed from sprites, named area, NPCs, locations, collision, mission objective, audio regions and hooks. Hooks are resolved from string at this point and during gameplay they are function pointers. NPCs start to think in their own thread pool, animations resolve into timelines which are simple structs which can advance an animation or transform based on the current ticks.\n\nTimelines handle movement of just about everything in game, from walking to a bullet in flight. A bullet in flight is a discrete sprite that checks its own position every frame. It may hit collision, or a player, or an NPC, then the next event begins, like NPC death.\n\nAll characters in For the Common Wealth can emit “mutterings” which may be a scream on death, or it may be two NPCs talking with each other about their girlfriends back home. As well as enemy NPCs, there are “hostages” and “civilians”, with their own voices and motives.\n\nC and SDL3 has suited me very well for making this game. I’ve made innumerable mistakes in making it, but none of them were caused by C. My mistakes came from never having made a game before, and learning as I went. C on the other hand has been great, and SDL has been rock solid throughout.",
+    "readingTime": 6,
+    "keywords": [
+      "thread pool",
+      "for the common wealth",
+      "game",
+      "npcs",
+      "sprites",
+      "sprite",
+      "bullet",
+      "back",
+      "engine",
+      "in-game"
+    ],
+    "qualityScore": 1,
+    "link": "https://podule.com.au/posts/building-in-c/",
+    "thumbnail_url": "https://podule.com.au/img/og.jpg",
+    "created_at": "2026-10-12T03:11:10.591Z",
+    "topic": "tech"
+  },
+  {
     "slug": "teams-too-busy-doing-their-job-to-experiment-with-ai-are-going-to-be-replaced",
     "title": "Teams too busy doing their job to experiment with AI are going to be replaced",
     "description": "When Ralph was published last year, I sat on it. People who have been reading this blog for a while know this. I first came across the idea of loop engineering in early January last year, sat on it for four months, and then started writing a lot, begging people",
@@ -1891,28 +1915,6 @@
     "link": "https://www.theguardian.com/technology/2026/jun/04/my-year-with-robots-joanna-stern-ai",
     "thumbnail_url": "https://i.guim.co.uk/img/media/4d9ba96429aad6ab98e1760f58b27462ff7186ad/179_0_5901_4720/master/5901.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&precrop=40:21,offset-x50,offset-y0&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=8639cea84bd76e3d823335b933bf0b7a",
     "created_at": "2026-06-04T09:42:34.423Z",
-    "topic": "tech"
-  },
-  {
-    "slug": "can-ai-produce-writing-that-we-want-to-read",
-    "title": "Can A.I. Produce Writing That We Want to Read?",
-    "description": "I recently created a simple test, which convinced me that the answer is no.",
-    "fullText": "When I consider the original question of this series—whether my nine-year-old daughter will go to college—I find myself wondering whether she will actually struggle through the writing process in that old-fashioned way. Readers will always want literature written by humans, but, for everything else—e-mails, advertising copy, legal briefs, student papers—the resistance to A.I.-generated writing will almost certainly slip as technology improves and it becomes functionally impossible to see the difference between writing by a person and writing by a machine. When that happens, the major incentive that educators hold over students—“I will fail you if you cheat”—will disappear, because there will simply be no way to know.\n\nWith that in mind, I want to take a step back from the implications of A.I. for higher education and ask a more fundamental question: How far are we from that moment? Right now, I believe it’s still easy for people to spot obvious examples of A.I. writing. A professor who reads hundreds of papers and has a decent grasp of her students’ writing ability can recognize the fakes. A manager who starts getting tidy, bullet-pointed, and mostly cheery e-mails from her employees will rightly suspect that robots have autocompleted their messages. Robot writing is also frequently filled with tells: copious em dashes, “not X but Y” constructions, conspicuous verbs (“delve” comes to mind).\n\nBut those tells generally show up only in Claude’s most rudimentary outputs. What about the kind of prose that we actually want to read? Can Claude produce that?\n\nThis question, or some version of it, was asked by thousands of enraged readers during the past couple of weeks, after the literary magazine Granta published a Commonwealth Prize-winning story by a writer named Jamir Nazir that seemed to bear all the hallmarks of A.I. writing. People noted the strange recurrence of the word “hum,” for instance, and, especially, the awkward, constipated metaphors that didn’t make much sense. The publisher of Granta then put out a bizarrely ambivalent statement, concluding that “perhaps we never will know” whether A.I. had written the story. Nazir, for his part, rebutted the allegation. A whole bunch of writers screamed that the end times had arrived, or, less persuasively, insisted that the reason A.I. writing could win the Commonwealth Prize was that literary fiction was in such a bad place. (Is literary fiction better or worse today than it was twenty or thirty or forty years ago? I have no idea, but I do know that every generation of writers has made more or less the same complaint.)",
-    "readingTime": 3,
-    "keywords": [
-      "literary fiction",
-      "readers",
-      "mind",
-      "granta",
-      "writers",
-      "less",
-      "commonwealth",
-      "nazir"
-    ],
-    "qualityScore": 0.9,
-    "link": "https://www.newyorker.com/news/fault-lines/can-ai-produce-writing-that-we-actually-want-to-read",
-    "thumbnail_url": "https://media.newyorker.com/photos/6a1dd4c745d78a7fb2a79c7b/16:9/w_1280,c_limit/AIWriting_Revised_bleed.jpg",
-    "created_at": "2026-06-03T02:44:28.580Z",
     "topic": "tech"
   }
 ]
